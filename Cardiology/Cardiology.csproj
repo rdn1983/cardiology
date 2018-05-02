@@ -45,6 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Analizi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Analizi.Designer.cs">
+      <DependentUpon>Analizi.cs</DependentUpon>
+    </Compile>
     <Compile Include="Start.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,6 +71,9 @@
     <Compile Include="Vypaska.Designer.cs">
       <DependentUpon>Vypaska.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Analizi.resx">
+      <DependentUpon>Analizi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Start.resx">
       <DependentUpon>Start.cs</DependentUpon>
     </EmbeddedResource>

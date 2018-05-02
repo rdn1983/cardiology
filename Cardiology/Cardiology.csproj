@@ -71,6 +71,12 @@
     <Compile Include="UserFormTrombolisis.Designer.cs">
       <DependentUpon>UserFormTrombolisis.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserFormVEKS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserFormVEKS.Designer.cs">
+      <DependentUpon>UserFormVEKS.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vypaska.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +106,9 @@
     </Compile>
     <EmbeddedResource Include="UserFormTrombolisis.resx">
       <DependentUpon>UserFormTrombolisis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserFormVEKS.resx">
+      <DependentUpon>UserFormVEKS.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vypaska.resx">
       <DependentUpon>Vypaska.cs</DependentUpon>

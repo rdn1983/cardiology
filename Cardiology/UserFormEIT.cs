@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace Cardiology
 {
-    public partial class UserFormTrombolizis : Form
+    public partial class UserFormEIT : Form
     {
-        public UserFormTrombolizis()
+        public UserFormEIT()
         {
             InitializeComponent();
-        }
-
-        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

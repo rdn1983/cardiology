@@ -33,17 +33,16 @@
             this.trombolizisPrintBtn = new System.Windows.Forms.Button();
             this.timeLbl = new System.Windows.Forms.Label();
             this.doctorLbl = new System.Windows.Forms.Label();
-            this.dateTx = new System.Windows.Forms.TextBox();
-            this.timeTx = new System.Windows.Forms.TextBox();
-            this.timeTx2 = new System.Windows.Forms.TextBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // dateBtn
             // 
             this.dateBtn.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.dateBtn.Location = new System.Drawing.Point(36, 25);
+            this.dateBtn.Location = new System.Drawing.Point(12, 25);
             this.dateBtn.Name = "dateBtn";
-            this.dateBtn.Size = new System.Drawing.Size(75, 23);
+            this.dateBtn.Size = new System.Drawing.Size(106, 23);
             this.dateBtn.TabIndex = 0;
             this.dateBtn.Text = "Дата: (Сегодня)";
             this.dateBtn.UseVisualStyleBackColor = true;
@@ -83,35 +82,28 @@
             this.doctorLbl.TabIndex = 4;
             this.doctorLbl.Text = "Лечащий врач:";
             // 
-            // dateTx
+            // dateTimePicker1
             // 
-            this.dateTx.Location = new System.Drawing.Point(133, 28);
-            this.dateTx.Name = "dateTx";
-            this.dateTx.Size = new System.Drawing.Size(145, 20);
-            this.dateTx.TabIndex = 5;
+            this.dateTimePicker1.Location = new System.Drawing.Point(133, 27);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(159, 20);
+            this.dateTimePicker1.TabIndex = 5;
             // 
-            // timeTx
+            // dateTimePicker2
             // 
-            this.timeTx.Location = new System.Drawing.Point(133, 62);
-            this.timeTx.Name = "timeTx";
-            this.timeTx.Size = new System.Drawing.Size(78, 20);
-            this.timeTx.TabIndex = 6;
-            // 
-            // timeTx2
-            // 
-            this.timeTx2.Location = new System.Drawing.Point(217, 62);
-            this.timeTx2.Name = "timeTx2";
-            this.timeTx2.Size = new System.Drawing.Size(61, 20);
-            this.timeTx2.TabIndex = 7;
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dateTimePicker2.Location = new System.Drawing.Point(133, 61);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(159, 20);
+            this.dateTimePicker2.TabIndex = 6;
             // 
             // UserFormTrombolizis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(419, 165);
-            this.Controls.Add(this.timeTx2);
-            this.Controls.Add(this.timeTx);
-            this.Controls.Add(this.dateTx);
+            this.ClientSize = new System.Drawing.Size(403, 150);
+            this.Controls.Add(this.dateTimePicker2);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.doctorLbl);
             this.Controls.Add(this.timeLbl);
             this.Controls.Add(this.trombolizisPrintBtn);
@@ -131,8 +123,7 @@
         private System.Windows.Forms.Button trombolizisPrintBtn;
         private System.Windows.Forms.Label timeLbl;
         private System.Windows.Forms.Label doctorLbl;
-        private System.Windows.Forms.TextBox dateTx;
-        private System.Windows.Forms.TextBox timeTx;
-        private System.Windows.Forms.TextBox timeTx2;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
     }
 }

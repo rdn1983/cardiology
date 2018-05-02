@@ -183,6 +183,7 @@
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.dateTimePicker1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "Obhod";
             this.Text = "Обход и дневник без КГ";
             this.ResumeLayout(false);

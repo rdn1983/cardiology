@@ -111,6 +111,7 @@
             this.Controls.Add(this.trombolizisPrintBtn);
             this.Controls.Add(this.doctorOkrCB);
             this.Controls.Add(this.dateBtn);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "UserFormTrombolizis";
             this.Text = "Показания к тромболизису:";
             this.ResumeLayout(false);

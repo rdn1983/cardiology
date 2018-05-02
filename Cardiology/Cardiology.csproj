@@ -51,12 +51,6 @@
     <Compile Include="Analizi.Designer.cs">
       <DependentUpon>Analizi.cs</DependentUpon>
     </Compile>
-    <Compile Include="Konsilium.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Konsilium.Designer.cs">
-      <DependentUpon>Konsilium.cs</DependentUpon>
-    </Compile>
     <Compile Include="Obhod.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,9 +79,6 @@
     </Compile>
     <EmbeddedResource Include="Analizi.resx">
       <DependentUpon>Analizi.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Konsilium.resx">
-      <DependentUpon>Konsilium.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Obhod.resx">
       <DependentUpon>Obhod.cs</DependentUpon>

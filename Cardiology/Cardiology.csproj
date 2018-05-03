@@ -107,6 +107,12 @@
     <Compile Include="UserFormTrombolisis.Designer.cs">
       <DependentUpon>UserFormTrombolisis.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserFormTRUD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserFormTRUD.Designer.cs">
+      <DependentUpon>UserFormTRUD.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserFormVEKS.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,6 +166,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserFormTrombolisis.resx">
       <DependentUpon>UserFormTrombolisis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserFormTRUD.resx">
+      <DependentUpon>UserFormTRUD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserFormVEKS.resx">
       <DependentUpon>UserFormVEKS.cs</DependentUpon>

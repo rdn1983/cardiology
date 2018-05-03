@@ -57,6 +57,12 @@
     <Compile Include="ComplaintTemplates.Designer.cs">
       <DependentUpon>ComplaintTemplates.cs</DependentUpon>
     </Compile>
+    <Compile Include="MorbiTemplates.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MorbiTemplates.Designer.cs">
+      <DependentUpon>MorbiTemplates.cs</DependentUpon>
+    </Compile>
     <Compile Include="DiagnosisTemplates.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +148,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ComplaintTemplates.resx">
       <DependentUpon>ComplaintTemplates.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MorbiTemplates.resx">
+      <DependentUpon>MorbiTemplates.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DiagnosisTemplates.resx">
       <DependentUpon>DiagnosisTemplates.cs</DependentUpon>

@@ -51,11 +51,23 @@
     <Compile Include="Analizi.Designer.cs">
       <DependentUpon>Analizi.cs</DependentUpon>
     </Compile>
+    <Compile Include="Konsilium.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Konsilium.Designer.cs">
+      <DependentUpon>Konsilium.cs</DependentUpon>
+    </Compile>
     <Compile Include="Obhod.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Obhod.Designer.cs">
       <DependentUpon>Obhod.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReanimDEAD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReanimDEAD.Designer.cs">
+      <DependentUpon>ReanimDEAD.cs</DependentUpon>
     </Compile>
     <Compile Include="Start.cs">
       <SubType>Form</SubType>
@@ -65,6 +77,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserFormEIT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserFormEIT.Designer.cs">
+      <DependentUpon>UserFormEIT.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserFormTrombolisis.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,8 +104,14 @@
     <EmbeddedResource Include="Analizi.resx">
       <DependentUpon>Analizi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Konsilium.resx">
+      <DependentUpon>Konsilium.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Obhod.resx">
       <DependentUpon>Obhod.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReanimDEAD.resx">
+      <DependentUpon>ReanimDEAD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Start.resx">
       <DependentUpon>Start.cs</DependentUpon>
@@ -104,6 +128,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserFormEIT.resx">
+      <DependentUpon>UserFormEIT.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserFormTrombolisis.resx">
       <DependentUpon>UserFormTrombolisis.cs</DependentUpon>
     </EmbeddedResource>

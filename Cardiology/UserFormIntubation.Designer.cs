@@ -1,6 +1,6 @@
 ﻿namespace Cardiology
 {
-    partial class UserFormExtubation
+    partial class UserFormIntubation
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserFormExtubation));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserFormIntubation));
             this.label1 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
@@ -50,58 +50,58 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePicker1.Location = new System.Drawing.Point(62, 12);
+            this.dateTimePicker1.Location = new System.Drawing.Point(63, 13);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(82, 20);
+            this.dateTimePicker1.Size = new System.Drawing.Size(94, 20);
             this.dateTimePicker1.TabIndex = 1;
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(12, 38);
+            this.richTextBox1.Location = new System.Drawing.Point(13, 39);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(477, 96);
+            this.richTextBox1.Size = new System.Drawing.Size(480, 87);
             this.richTextBox1.TabIndex = 2;
             this.richTextBox1.Text = "";
             // 
             // richTextBox2
             // 
-            this.richTextBox2.Location = new System.Drawing.Point(12, 140);
+            this.richTextBox2.Location = new System.Drawing.Point(13, 132);
             this.richTextBox2.Name = "richTextBox2";
             this.richTextBox2.Size = new System.Drawing.Size(477, 170);
-            this.richTextBox2.TabIndex = 3;
+            this.richTextBox2.TabIndex = 4;
             this.richTextBox2.Text = "";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 317);
+            this.label2.Location = new System.Drawing.Point(10, 305);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(34, 13);
-            this.label2.TabIndex = 4;
+            this.label2.TabIndex = 5;
             this.label2.Text = "Врач:";
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(54, 317);
+            this.comboBox1.Location = new System.Drawing.Point(50, 308);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(205, 21);
-            this.comboBox1.TabIndex = 5;
+            this.comboBox1.TabIndex = 6;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(333, 314);
+            this.button1.Location = new System.Drawing.Point(335, 308);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(155, 23);
-            this.button1.TabIndex = 6;
+            this.button1.TabIndex = 7;
             this.button1.Text = "В Word";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // UserFormExtubation
+            // UserFormIntubation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(501, 347);
+            this.ClientSize = new System.Drawing.Size(505, 338);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label2);
@@ -111,8 +111,8 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "UserFormExtubation";
-            this.Text = "Экстубация";
+            this.Name = "UserFormIntubation";
+            this.Text = "Интубация";
             this.ResumeLayout(false);
             this.PerformLayout();
 

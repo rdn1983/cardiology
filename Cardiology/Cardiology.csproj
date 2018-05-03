@@ -89,6 +89,12 @@
     <Compile Include="UserFormExtubation.Designer.cs">
       <DependentUpon>UserFormExtubation.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserFormIntubation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserFormIntubation.Designer.cs">
+      <DependentUpon>UserFormIntubation.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserFormTrombolisis.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +145,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserFormExtubation.resx">
       <DependentUpon>UserFormExtubation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserFormIntubation.resx">
+      <DependentUpon>UserFormIntubation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserFormTrombolisis.resx">
       <DependentUpon>UserFormTrombolisis.cs</DependentUpon>

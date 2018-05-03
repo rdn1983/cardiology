@@ -83,6 +83,12 @@
     <Compile Include="UserFormEIT.Designer.cs">
       <DependentUpon>UserFormEIT.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserFormExtubation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserFormExtubation.Designer.cs">
+      <DependentUpon>UserFormExtubation.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserFormTrombolisis.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +136,9 @@
     </Compile>
     <EmbeddedResource Include="UserFormEIT.resx">
       <DependentUpon>UserFormEIT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserFormExtubation.resx">
+      <DependentUpon>UserFormExtubation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserFormTrombolisis.resx">
       <DependentUpon>UserFormTrombolisis.cs</DependentUpon>

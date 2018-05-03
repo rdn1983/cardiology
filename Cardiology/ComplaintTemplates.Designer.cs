@@ -1,6 +1,6 @@
 ﻿namespace Cardiology
 {
-    partial class DiagnosisTemplates
+    partial class ComplaintTemplates
     {
         /// <summary>
         /// Required designer variable.
@@ -121,7 +121,7 @@
             this.button9.UseVisualStyleBackColor = true;
             this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
-            // DiagnosisTemplates
+            // ComplaintTemplates
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -136,9 +136,8 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.Name = "DiagnosisTemplates";
+            this.Name = "ComplaintTemplates";
             this.Text = "Шаблоны";
-            this.Load += new System.EventHandler(this.DiagnosisTemplates_Load);
             this.ResumeLayout(false);
 
         }

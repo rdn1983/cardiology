@@ -51,6 +51,12 @@
     <Compile Include="Analizi.Designer.cs">
       <DependentUpon>Analizi.cs</DependentUpon>
     </Compile>
+    <Compile Include="ComplaintTemplates.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ComplaintTemplates.Designer.cs">
+      <DependentUpon>ComplaintTemplates.cs</DependentUpon>
+    </Compile>
     <Compile Include="DiagnosisTemplates.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +139,9 @@
     </Compile>
     <EmbeddedResource Include="Analizi.resx">
       <DependentUpon>Analizi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ComplaintTemplates.resx">
+      <DependentUpon>ComplaintTemplates.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DiagnosisTemplates.resx">
       <DependentUpon>DiagnosisTemplates.cs</DependentUpon>

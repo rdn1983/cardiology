@@ -10,19 +10,14 @@ using System.Windows.Forms;
 
 namespace Cardiology
 {
-    public partial class DiagnosisTemplates : Form
+    public partial class ComplaintTemplates : Form
     {
-        public DiagnosisTemplates()
+        public ComplaintTemplates()
         {
             InitializeComponent();
         }
 
         private void button9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void DiagnosisTemplates_Load(object sender, EventArgs e)
         {
 
         }

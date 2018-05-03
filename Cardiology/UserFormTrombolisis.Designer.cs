@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserFormTrombolizis));
             this.dateBtn = new System.Windows.Forms.Button();
             this.doctorOkrCB = new System.Windows.Forms.ComboBox();
             this.trombolizisPrintBtn = new System.Windows.Forms.Button();
@@ -111,7 +112,8 @@
             this.Controls.Add(this.trombolizisPrintBtn);
             this.Controls.Add(this.doctorOkrCB);
             this.Controls.Add(this.dateBtn);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "UserFormTrombolizis";
             this.Text = "Показания к тромболизису:";
             this.ResumeLayout(false);

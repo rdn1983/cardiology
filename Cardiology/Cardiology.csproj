@@ -125,6 +125,12 @@
     <Compile Include="UserBlanks.Designer.cs">
       <DependentUpon>UserBlanks.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserFormABO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserFormABO.Designer.cs">
+      <DependentUpon>UserFormABO.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserFormEIT.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -241,6 +247,9 @@
     </Compile>
     <EmbeddedResource Include="UserBlanks.resx">
       <DependentUpon>UserBlanks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserFormABO.resx">
+      <DependentUpon>UserFormABO.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserFormEIT.resx">
       <DependentUpon>UserFormEIT.cs</DependentUpon>

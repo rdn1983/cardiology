@@ -63,6 +63,12 @@
     <Compile Include="AppointmentTemplates.Designer.cs">
       <DependentUpon>AppointmentTemplates.cs</DependentUpon>
     </Compile>
+    <Compile Include="JournalAfterKAG.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JournalAfterKAG.Designer.cs">
+      <DependentUpon>JournalAfterKAG.cs</DependentUpon>
+    </Compile>
     <Compile Include="Perelivanie.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -175,6 +181,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AppointmentTemplates.resx">
       <DependentUpon>AppointmentTemplates.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JournalAfterKAG.resx">
+      <DependentUpon>JournalAfterKAG.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Perelivanie.resx">
       <DependentUpon>Perelivanie.cs</DependentUpon>

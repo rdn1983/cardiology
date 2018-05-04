@@ -161,6 +161,12 @@
     <Compile Include="UserFormVEKS.Designer.cs">
       <DependentUpon>UserFormVEKS.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserFromVena.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserFromVena.Designer.cs">
+      <DependentUpon>UserFromVena.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vypaska.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -241,6 +247,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserFormVEKS.resx">
       <DependentUpon>UserFormVEKS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserFromVena.resx">
+      <DependentUpon>UserFromVena.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vypaska.resx">
       <DependentUpon>Vypaska.cs</DependentUpon>

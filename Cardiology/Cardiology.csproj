@@ -63,6 +63,12 @@
     <Compile Include="AppointmentTemplates.Designer.cs">
       <DependentUpon>AppointmentTemplates.cs</DependentUpon>
     </Compile>
+    <Compile Include="Perelivanie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Perelivanie.Designer.cs">
+      <DependentUpon>Perelivanie.cs</DependentUpon>
+    </Compile>
     <Compile Include="PresenceTemplates.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -169,6 +175,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AppointmentTemplates.resx">
       <DependentUpon>AppointmentTemplates.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Perelivanie.resx">
+      <DependentUpon>Perelivanie.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PresenceTemplates.resx">
       <DependentUpon>PresenceTemplates.cs</DependentUpon>

@@ -75,6 +75,12 @@
     <Compile Include="FirstInspection.Designer.cs">
       <DependentUpon>FirstInspection.cs</DependentUpon>
     </Compile>
+    <Compile Include="DB3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DB3.Designer.cs">
+      <DependentUpon>DB3.cs</DependentUpon>
+    </Compile>
     <Compile Include="JournalAfterKAG.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -226,6 +232,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DB1.resx">
       <DependentUpon>DB1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DB3.resx">
+      <DependentUpon>DB3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FirstInspection.resx">
       <DependentUpon>FirstInspection.cs</DependentUpon>

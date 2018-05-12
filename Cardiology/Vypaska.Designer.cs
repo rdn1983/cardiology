@@ -47,7 +47,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.formTrudBtn = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -113,7 +113,7 @@
             this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Controls.Add(this.button5);
             this.groupBox3.Controls.Add(this.button4);
-            this.groupBox3.Controls.Add(this.button3);
+            this.groupBox3.Controls.Add(this.formTrudBtn);
             this.groupBox3.Location = new System.Drawing.Point(6, 124);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(351, 282);
@@ -235,14 +235,15 @@
             this.button4.Text = "ЛН нужен";
             this.button4.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // formTrudBtn
             // 
-            this.button3.Location = new System.Drawing.Point(7, 20);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(338, 23);
-            this.button3.TabIndex = 0;
-            this.button3.Text = "Л/Н данные";
-            this.button3.UseVisualStyleBackColor = true;
+            this.formTrudBtn.Location = new System.Drawing.Point(7, 20);
+            this.formTrudBtn.Name = "formTrudBtn";
+            this.formTrudBtn.Size = new System.Drawing.Size(338, 23);
+            this.formTrudBtn.TabIndex = 0;
+            this.formTrudBtn.Text = "Л/Н данные";
+            this.formTrudBtn.UseVisualStyleBackColor = true;
+            this.formTrudBtn.Click += new System.EventHandler(this.formTrudBtn_Click);
             // 
             // groupBox2
             // 
@@ -354,7 +355,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button formTrudBtn;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
     }

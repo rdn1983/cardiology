@@ -52,23 +52,23 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.button11 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.vypiskaBtn = new System.Windows.Forms.Button();
+            this.obhodBtn = new System.Windows.Forms.Button();
+            this.jurnalWithoutKAGBtn = new System.Windows.Forms.Button();
+            this.journalAfterKAGBtn = new System.Windows.Forms.Button();
+            this.journalBeforeKAGBtn = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.konsiliumBtn = new System.Windows.Forms.Button();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.prescribingBtn = new System.Windows.Forms.Button();
+            this.firstInspectionBtn = new System.Windows.Forms.Button();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.button15 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button16 = new System.Windows.Forms.Button();
+            this.emergencyLettersBtn = new System.Windows.Forms.Button();
+            this.transfusionBloodBtn = new System.Windows.Forms.Button();
+            this.analyzesBtn = new System.Windows.Forms.Button();
+            this.manipulationProtocolBtn = new System.Windows.Forms.Button();
+            this.blanksBtn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -223,17 +223,17 @@
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.button11);
-            this.groupBox6.Controls.Add(this.button10);
-            this.groupBox6.Controls.Add(this.button9);
-            this.groupBox6.Controls.Add(this.button8);
-            this.groupBox6.Controls.Add(this.button7);
-            this.groupBox6.Controls.Add(this.button6);
+            this.groupBox6.Controls.Add(this.vypiskaBtn);
+            this.groupBox6.Controls.Add(this.obhodBtn);
+            this.groupBox6.Controls.Add(this.jurnalWithoutKAGBtn);
+            this.groupBox6.Controls.Add(this.journalAfterKAGBtn);
+            this.groupBox6.Controls.Add(this.journalBeforeKAGBtn);
             this.groupBox6.Controls.Add(this.button5);
-            this.groupBox6.Controls.Add(this.button4);
+            this.groupBox6.Controls.Add(this.konsiliumBtn);
             this.groupBox6.Controls.Add(this.radioButton2);
             this.groupBox6.Controls.Add(this.radioButton1);
-            this.groupBox6.Controls.Add(this.button3);
-            this.groupBox6.Controls.Add(this.button2);
+            this.groupBox6.Controls.Add(this.prescribingBtn);
+            this.groupBox6.Controls.Add(this.firstInspectionBtn);
             resources.ApplyResources(this.groupBox6, "groupBox6");
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.TabStop = false;
@@ -244,35 +244,40 @@
             this.button11.Name = "button11";
             this.button11.UseVisualStyleBackColor = true;
             // 
-            // button10
+            // vypiskaBtn
             // 
-            resources.ApplyResources(this.button10, "button10");
-            this.button10.Name = "button10";
-            this.button10.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.vypiskaBtn, "vypiskaBtn");
+            this.vypiskaBtn.Name = "vypiskaBtn";
+            this.vypiskaBtn.UseVisualStyleBackColor = true;
+            this.vypiskaBtn.Click += new System.EventHandler(this.vypiskaBtn_Click);
             // 
-            // button9
+            // obhodBtn
             // 
-            resources.ApplyResources(this.button9, "button9");
-            this.button9.Name = "button9";
-            this.button9.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.obhodBtn, "obhodBtn");
+            this.obhodBtn.Name = "obhodBtn";
+            this.obhodBtn.UseVisualStyleBackColor = true;
+            this.obhodBtn.Click += new System.EventHandler(this.obhodBtn_Click);
             // 
-            // button8
+            // jurnalWithoutKAGBtn
             // 
-            resources.ApplyResources(this.button8, "button8");
-            this.button8.Name = "button8";
-            this.button8.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.jurnalWithoutKAGBtn, "jurnalWithoutKAGBtn");
+            this.jurnalWithoutKAGBtn.Name = "jurnalWithoutKAGBtn";
+            this.jurnalWithoutKAGBtn.UseVisualStyleBackColor = true;
+            this.jurnalWithoutKAGBtn.Click += new System.EventHandler(this.jurnalWithoutKAGBtn_Click);
             // 
-            // button7
+            // journalAfterKAGBtn
             // 
-            resources.ApplyResources(this.button7, "button7");
-            this.button7.Name = "button7";
-            this.button7.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.journalAfterKAGBtn, "journalAfterKAGBtn");
+            this.journalAfterKAGBtn.Name = "journalAfterKAGBtn";
+            this.journalAfterKAGBtn.UseVisualStyleBackColor = true;
+            this.journalAfterKAGBtn.Click += new System.EventHandler(this.journalAfterKAGBtn_Click);
             // 
-            // button6
+            // journalBeforeKAGBtn
             // 
-            resources.ApplyResources(this.button6, "button6");
-            this.button6.Name = "button6";
-            this.button6.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.journalBeforeKAGBtn, "journalBeforeKAGBtn");
+            this.journalBeforeKAGBtn.Name = "journalBeforeKAGBtn";
+            this.journalBeforeKAGBtn.UseVisualStyleBackColor = true;
+            this.journalBeforeKAGBtn.Click += new System.EventHandler(this.journalBeforeKAGBtn_Click);
             // 
             // button5
             // 
@@ -280,11 +285,12 @@
             this.button5.Name = "button5";
             this.button5.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // konsiliumBtn
             // 
-            resources.ApplyResources(this.button4, "button4");
-            this.button4.Name = "button4";
-            this.button4.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.konsiliumBtn, "konsiliumBtn");
+            this.konsiliumBtn.Name = "konsiliumBtn";
+            this.konsiliumBtn.UseVisualStyleBackColor = true;
+            this.konsiliumBtn.Click += new System.EventHandler(this.konsiliumBtn_Click);
             // 
             // radioButton2
             // 
@@ -300,63 +306,70 @@
             this.radioButton1.TabStop = true;
             this.radioButton1.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // prescribingBtn
             // 
-            resources.ApplyResources(this.button3, "button3");
-            this.button3.Name = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.prescribingBtn, "prescribingBtn");
+            this.prescribingBtn.Name = "prescribingBtn";
+            this.prescribingBtn.UseVisualStyleBackColor = true;
+            this.prescribingBtn.Click += new System.EventHandler(this.prescribingBtn_Click);
             // 
-            // button2
+            // firstInspectionBtn
             // 
-            resources.ApplyResources(this.button2, "button2");
-            this.button2.Name = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.firstInspectionBtn, "firstInspectionBtn");
+            this.firstInspectionBtn.Name = "firstInspectionBtn";
+            this.firstInspectionBtn.UseVisualStyleBackColor = true;
+            this.firstInspectionBtn.Click += new System.EventHandler(this.firstInspectionBtn_Click);
             // 
             // groupBox7
             // 
-            this.groupBox7.Controls.Add(this.button15);
-            this.groupBox7.Controls.Add(this.button14);
-            this.groupBox7.Controls.Add(this.button13);
-            this.groupBox7.Controls.Add(this.button12);
+            this.groupBox7.Controls.Add(this.emergencyLettersBtn);
+            this.groupBox7.Controls.Add(this.transfusionBloodBtn);
+            this.groupBox7.Controls.Add(this.analyzesBtn);
+            this.groupBox7.Controls.Add(this.manipulationProtocolBtn);
             resources.ApplyResources(this.groupBox7, "groupBox7");
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.TabStop = false;
             // 
-            // button15
+            // emergencyLettersBtn
             // 
-            resources.ApplyResources(this.button15, "button15");
-            this.button15.Name = "button15";
-            this.button15.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.emergencyLettersBtn, "emergencyLettersBtn");
+            this.emergencyLettersBtn.Name = "emergencyLettersBtn";
+            this.emergencyLettersBtn.UseVisualStyleBackColor = true;
+            this.emergencyLettersBtn.Click += new System.EventHandler(this.emergencyLettersBtn_Click);
             // 
-            // button14
+            // transfusionBloodBtn
             // 
-            resources.ApplyResources(this.button14, "button14");
-            this.button14.Name = "button14";
-            this.button14.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.transfusionBloodBtn, "transfusionBloodBtn");
+            this.transfusionBloodBtn.Name = "transfusionBloodBtn";
+            this.transfusionBloodBtn.UseVisualStyleBackColor = true;
+            this.transfusionBloodBtn.Click += new System.EventHandler(this.transfusionBloodBtn_Click);
             // 
-            // button13
+            // analyzesBtn
             // 
-            resources.ApplyResources(this.button13, "button13");
-            this.button13.Name = "button13";
-            this.button13.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.analyzesBtn, "analyzesBtn");
+            this.analyzesBtn.Name = "analyzesBtn";
+            this.analyzesBtn.UseVisualStyleBackColor = true;
+            this.analyzesBtn.Click += new System.EventHandler(this.analyzesBtn_Click);
             // 
-            // button12
+            // manipulationProtocolBtn
             // 
-            resources.ApplyResources(this.button12, "button12");
-            this.button12.Name = "button12";
-            this.button12.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.manipulationProtocolBtn, "manipulationProtocolBtn");
+            this.manipulationProtocolBtn.Name = "manipulationProtocolBtn";
+            this.manipulationProtocolBtn.UseVisualStyleBackColor = true;
+            this.manipulationProtocolBtn.Click += new System.EventHandler(this.manipulationProtocolBtn_Click);
             // 
-            // button16
+            // blanksBtn
             // 
-            resources.ApplyResources(this.button16, "button16");
-            this.button16.Name = "button16";
-            this.button16.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.blanksBtn, "blanksBtn");
+            this.blanksBtn.Name = "blanksBtn";
+            this.blanksBtn.UseVisualStyleBackColor = true;
+            this.blanksBtn.Click += new System.EventHandler(this.blanksBtn_Click);
             // 
             // Start
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.button16);
+            this.Controls.Add(this.blanksBtn);
             this.Controls.Add(this.groupBox7);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox5);
@@ -407,22 +420,22 @@
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button vypiskaBtn;
+        private System.Windows.Forms.Button obhodBtn;
+        private System.Windows.Forms.Button jurnalWithoutKAGBtn;
+        private System.Windows.Forms.Button journalAfterKAGBtn;
+        private System.Windows.Forms.Button journalBeforeKAGBtn;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button konsiliumBtn;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button15;
-        private System.Windows.Forms.Button button14;
-        private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button16;
+        private System.Windows.Forms.Button prescribingBtn;
+        private System.Windows.Forms.Button firstInspectionBtn;
+        private System.Windows.Forms.Button emergencyLettersBtn;
+        private System.Windows.Forms.Button transfusionBloodBtn;
+        private System.Windows.Forms.Button analyzesBtn;
+        private System.Windows.Forms.Button manipulationProtocolBtn;
+        private System.Windows.Forms.Button blanksBtn;
     }
 }
 

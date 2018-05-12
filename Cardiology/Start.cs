@@ -41,5 +41,83 @@ namespace Cardiology
         {
 
         }
+
+        private void firstInspectionBtn_Click(object sender, EventArgs e)
+        {
+            FirstInspection inspectionForm = new FirstInspection();
+            inspectionForm.ShowDialog();
+        }
+
+        private void prescribingBtn_Click(object sender, EventArgs e)
+        {
+            ListNaznachForm form = new ListNaznachForm();
+            form.ShowDialog();
+        }
+
+        private void konsiliumBtn_Click(object sender, EventArgs e)
+        {
+            Konsilium form = new Konsilium();
+            form.ShowDialog();
+        }
+
+        private void manipulationProtocolBtn_Click(object sender, EventArgs e)
+        {
+            UserFormProtocolManipulation form = new UserFormProtocolManipulation();
+            form.ShowDialog();
+        }
+
+        private void analyzesBtn_Click(object sender, EventArgs e)
+        {
+            Analizi form = new Analizi();
+            form.ShowDialog();
+        }
+
+        private void transfusionBloodBtn_Click(object sender, EventArgs e)
+        {
+            Perelivanie form = new Perelivanie();
+            form.ShowDialog();
+        }
+
+        private void emergencyLettersBtn_Click(object sender, EventArgs e)
+        {
+            Pisma form = new Pisma();
+            form.ShowDialog();
+        }
+
+        private void blanksBtn_Click(object sender, EventArgs e)
+        {
+            UserBlanks form = new UserBlanks();
+            form.ShowDialog();
+        }
+
+        private void journalAfterKAGBtn_Click(object sender, EventArgs e)
+        {
+            JournalAfterKAG form = new JournalAfterKAG();
+            form.ShowDialog();
+        }
+
+        private void jurnalWithoutKAGBtn_Click(object sender, EventArgs e)
+        {
+            DB3 form = new DB3();
+            form.ShowDialog();
+        }
+
+        private void obhodBtn_Click(object sender, EventArgs e)
+        {
+            Obhod form = new Obhod();
+            form.ShowDialog();
+        }
+
+        private void vypiskaBtn_Click(object sender, EventArgs e)
+        {
+            Vypaska form = new Vypaska();
+            form.ShowDialog();
+        }
+
+        private void journalBeforeKAGBtn_Click(object sender, EventArgs e)
+        {
+            DB1 form = new DB1();
+            form.ShowDialog();
+        }
     }
 }

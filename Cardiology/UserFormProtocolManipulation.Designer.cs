@@ -29,101 +29,109 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserFormProtocolManipulation));
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
+            this.kateterBtn = new System.Windows.Forms.Button();
+            this.trombolizisBtn = new System.Windows.Forms.Button();
+            this.veksBtn = new System.Windows.Forms.Button();
+            this.toraketosBtn = new System.Windows.Forms.Button();
+            this.eitBtn = new System.Windows.Forms.Button();
+            this.intubationBtn = new System.Windows.Forms.Button();
+            this.ekstubationBtn = new System.Windows.Forms.Button();
+            this.reanimBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // kateterBtn
             // 
-            this.button1.Location = new System.Drawing.Point(12, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(250, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "катетеризация подключичной, яремной  вены";
-            this.button1.UseVisualStyleBackColor = true;
+            this.kateterBtn.Location = new System.Drawing.Point(12, 12);
+            this.kateterBtn.Name = "kateterBtn";
+            this.kateterBtn.Size = new System.Drawing.Size(250, 23);
+            this.kateterBtn.TabIndex = 0;
+            this.kateterBtn.Text = "катетеризация подключичной, яремной  вены";
+            this.kateterBtn.UseVisualStyleBackColor = true;
+            this.kateterBtn.Click += new System.EventHandler(this.kateterBtn_Click);
             // 
-            // button2
+            // trombolizisBtn
             // 
-            this.button2.Location = new System.Drawing.Point(12, 42);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(250, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Показания к тромболизису";
-            this.button2.UseVisualStyleBackColor = true;
+            this.trombolizisBtn.Location = new System.Drawing.Point(12, 42);
+            this.trombolizisBtn.Name = "trombolizisBtn";
+            this.trombolizisBtn.Size = new System.Drawing.Size(250, 23);
+            this.trombolizisBtn.TabIndex = 1;
+            this.trombolizisBtn.Text = "Показания к тромболизису";
+            this.trombolizisBtn.UseVisualStyleBackColor = true;
+            this.trombolizisBtn.Click += new System.EventHandler(this.trombolizisBtn_Click);
             // 
-            // button3
+            // veksBtn
             // 
-            this.button3.Location = new System.Drawing.Point(12, 71);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(250, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Протокол постановки ВЭКС";
-            this.button3.UseVisualStyleBackColor = true;
+            this.veksBtn.Location = new System.Drawing.Point(12, 71);
+            this.veksBtn.Name = "veksBtn";
+            this.veksBtn.Size = new System.Drawing.Size(250, 23);
+            this.veksBtn.TabIndex = 2;
+            this.veksBtn.Text = "Протокол постановки ВЭКС";
+            this.veksBtn.UseVisualStyleBackColor = true;
+            this.veksBtn.Click += new System.EventHandler(this.veksBtn_Click);
             // 
-            // button4
+            // toraketosBtn
             // 
-            this.button4.Location = new System.Drawing.Point(12, 100);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(250, 23);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Протокол торакоцентеза";
-            this.button4.UseVisualStyleBackColor = true;
+            this.toraketosBtn.Location = new System.Drawing.Point(12, 100);
+            this.toraketosBtn.Name = "toraketosBtn";
+            this.toraketosBtn.Size = new System.Drawing.Size(250, 23);
+            this.toraketosBtn.TabIndex = 3;
+            this.toraketosBtn.Text = "Протокол торакоцентеза";
+            this.toraketosBtn.UseVisualStyleBackColor = true;
+            this.toraketosBtn.Click += new System.EventHandler(this.toraketosBtn_Click);
             // 
-            // button5
+            // eitBtn
             // 
-            this.button5.Location = new System.Drawing.Point(12, 129);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(250, 23);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "Протокол ЭИТ";
-            this.button5.UseVisualStyleBackColor = true;
+            this.eitBtn.Location = new System.Drawing.Point(12, 129);
+            this.eitBtn.Name = "eitBtn";
+            this.eitBtn.Size = new System.Drawing.Size(250, 23);
+            this.eitBtn.TabIndex = 4;
+            this.eitBtn.Text = "Протокол ЭИТ";
+            this.eitBtn.UseVisualStyleBackColor = true;
+            this.eitBtn.Click += new System.EventHandler(this.eitBtn_Click);
             // 
-            // button6
+            // intubationBtn
             // 
-            this.button6.Location = new System.Drawing.Point(12, 158);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(250, 23);
-            this.button6.TabIndex = 5;
-            this.button6.Text = "интубация";
-            this.button6.UseVisualStyleBackColor = true;
+            this.intubationBtn.Location = new System.Drawing.Point(12, 158);
+            this.intubationBtn.Name = "intubationBtn";
+            this.intubationBtn.Size = new System.Drawing.Size(250, 23);
+            this.intubationBtn.TabIndex = 5;
+            this.intubationBtn.Text = "интубация";
+            this.intubationBtn.UseVisualStyleBackColor = true;
+            this.intubationBtn.Click += new System.EventHandler(this.intubationBtn_Click);
             // 
-            // button7
+            // ekstubationBtn
             // 
-            this.button7.Location = new System.Drawing.Point(12, 187);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(250, 23);
-            this.button7.TabIndex = 6;
-            this.button7.Text = "экстубация";
-            this.button7.UseVisualStyleBackColor = true;
+            this.ekstubationBtn.Location = new System.Drawing.Point(12, 187);
+            this.ekstubationBtn.Name = "ekstubationBtn";
+            this.ekstubationBtn.Size = new System.Drawing.Size(250, 23);
+            this.ekstubationBtn.TabIndex = 6;
+            this.ekstubationBtn.Text = "экстубация";
+            this.ekstubationBtn.UseVisualStyleBackColor = true;
+            this.ekstubationBtn.Click += new System.EventHandler(this.ekstubationBtn_Click);
             // 
-            // button8
+            // reanimBtn
             // 
-            this.button8.Location = new System.Drawing.Point(12, 216);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(250, 23);
-            this.button8.TabIndex = 7;
-            this.button8.Text = "Реанимационные мероприятия+констатация";
-            this.button8.UseVisualStyleBackColor = true;
+            this.reanimBtn.Location = new System.Drawing.Point(12, 216);
+            this.reanimBtn.Name = "reanimBtn";
+            this.reanimBtn.Size = new System.Drawing.Size(250, 23);
+            this.reanimBtn.TabIndex = 7;
+            this.reanimBtn.Text = "Реанимационные мероприятия+констатация";
+            this.reanimBtn.UseVisualStyleBackColor = true;
+            this.reanimBtn.Click += new System.EventHandler(this.reanimBtn_Click);
             // 
             // UserFormProtocolManipulation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(274, 408);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.reanimBtn);
+            this.Controls.Add(this.ekstubationBtn);
+            this.Controls.Add(this.intubationBtn);
+            this.Controls.Add(this.eitBtn);
+            this.Controls.Add(this.toraketosBtn);
+            this.Controls.Add(this.veksBtn);
+            this.Controls.Add(this.trombolizisBtn);
+            this.Controls.Add(this.kateterBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "UserFormProtocolManipulation";
@@ -134,13 +142,13 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button kateterBtn;
+        private System.Windows.Forms.Button trombolizisBtn;
+        private System.Windows.Forms.Button veksBtn;
+        private System.Windows.Forms.Button toraketosBtn;
+        private System.Windows.Forms.Button eitBtn;
+        private System.Windows.Forms.Button intubationBtn;
+        private System.Windows.Forms.Button ekstubationBtn;
+        private System.Windows.Forms.Button reanimBtn;
     }
 }

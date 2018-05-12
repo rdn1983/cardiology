@@ -92,7 +92,7 @@
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.showAnalyzesBtn = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.button27 = new System.Windows.Forms.Button();
             this.button26 = new System.Windows.Forms.Button();
@@ -380,7 +380,7 @@
             this.tabPage1.Controls.Add(this.groupBox3);
             this.tabPage1.Controls.Add(this.groupBox2);
             this.tabPage1.Controls.Add(this.groupBox1);
-            this.tabPage1.Controls.Add(this.button1);
+            this.tabPage1.Controls.Add(this.showAnalyzesBtn);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -971,14 +971,15 @@
             this.comboBox1.Size = new System.Drawing.Size(258, 21);
             this.comboBox1.TabIndex = 0;
             // 
-            // button1
+            // showAnalyzesBtn
             // 
-            this.button1.Location = new System.Drawing.Point(7, 7);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(123, 99);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "1. Ввести:\r\n группу крови,\r\nРезус ф-р,\r\nКЕЛЛ-аг, \r\nФенотип";
-            this.button1.UseVisualStyleBackColor = true;
+            this.showAnalyzesBtn.Location = new System.Drawing.Point(7, 7);
+            this.showAnalyzesBtn.Name = "showAnalyzesBtn";
+            this.showAnalyzesBtn.Size = new System.Drawing.Size(123, 99);
+            this.showAnalyzesBtn.TabIndex = 0;
+            this.showAnalyzesBtn.Text = "1. Ввести:\r\n группу крови,\r\nРезус ф-р,\r\nКЕЛЛ-аг, \r\nФенотип";
+            this.showAnalyzesBtn.UseVisualStyleBackColor = true;
+            this.showAnalyzesBtn.Click += new System.EventHandler(this.showAnalyzesBtn_Click);
             // 
             // tabPage2
             // 
@@ -3205,7 +3206,7 @@
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button showAnalyzesBtn;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button button22;
         private System.Windows.Forms.Button button23;

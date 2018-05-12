@@ -843,174 +843,6 @@
   <data name="&gt;&gt;comboBox1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;button11.Name" xml:space="preserve">
-    <value>button11</value>
-  </data>
-  <data name="&gt;&gt;button11.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;button11.Parent" xml:space="preserve">
-    <value>groupBox6</value>
-  </data>
-  <data name="&gt;&gt;button11.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;button10.Name" xml:space="preserve">
-    <value>button10</value>
-  </data>
-  <data name="&gt;&gt;button10.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;button10.Parent" xml:space="preserve">
-    <value>groupBox6</value>
-  </data>
-  <data name="&gt;&gt;button10.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;button9.Name" xml:space="preserve">
-    <value>button9</value>
-  </data>
-  <data name="&gt;&gt;button9.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;button9.Parent" xml:space="preserve">
-    <value>groupBox6</value>
-  </data>
-  <data name="&gt;&gt;button9.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;button8.Name" xml:space="preserve">
-    <value>button8</value>
-  </data>
-  <data name="&gt;&gt;button8.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;button8.Parent" xml:space="preserve">
-    <value>groupBox6</value>
-  </data>
-  <data name="&gt;&gt;button8.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;button7.Name" xml:space="preserve">
-    <value>button7</value>
-  </data>
-  <data name="&gt;&gt;button7.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;button7.Parent" xml:space="preserve">
-    <value>groupBox6</value>
-  </data>
-  <data name="&gt;&gt;button7.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;button6.Name" xml:space="preserve">
-    <value>button6</value>
-  </data>
-  <data name="&gt;&gt;button6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;button6.Parent" xml:space="preserve">
-    <value>groupBox6</value>
-  </data>
-  <data name="&gt;&gt;button6.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;button5.Name" xml:space="preserve">
-    <value>button5</value>
-  </data>
-  <data name="&gt;&gt;button5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;button5.Parent" xml:space="preserve">
-    <value>groupBox6</value>
-  </data>
-  <data name="&gt;&gt;button5.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;button4.Name" xml:space="preserve">
-    <value>button4</value>
-  </data>
-  <data name="&gt;&gt;button4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;button4.Parent" xml:space="preserve">
-    <value>groupBox6</value>
-  </data>
-  <data name="&gt;&gt;button4.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;radioButton2.Name" xml:space="preserve">
-    <value>radioButton2</value>
-  </data>
-  <data name="&gt;&gt;radioButton2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;radioButton2.Parent" xml:space="preserve">
-    <value>groupBox6</value>
-  </data>
-  <data name="&gt;&gt;radioButton2.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;radioButton1.Name" xml:space="preserve">
-    <value>radioButton1</value>
-  </data>
-  <data name="&gt;&gt;radioButton1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;radioButton1.Parent" xml:space="preserve">
-    <value>groupBox6</value>
-  </data>
-  <data name="&gt;&gt;radioButton1.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;button3.Name" xml:space="preserve">
-    <value>button3</value>
-  </data>
-  <data name="&gt;&gt;button3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;button3.Parent" xml:space="preserve">
-    <value>groupBox6</value>
-  </data>
-  <data name="&gt;&gt;button3.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="&gt;&gt;button2.Name" xml:space="preserve">
-    <value>button2</value>
-  </data>
-  <data name="&gt;&gt;button2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;button2.Parent" xml:space="preserve">
-    <value>groupBox6</value>
-  </data>
-  <data name="&gt;&gt;button2.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="groupBox6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>326, 13</value>
-  </data>
-  <data name="groupBox6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>304, 531</value>
-  </data>
-  <data name="groupBox6.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="groupBox6.Text" xml:space="preserve">
-    <value>Ключевые моменты</value>
-  </data>
-  <data name="&gt;&gt;groupBox6.Name" xml:space="preserve">
-    <value>groupBox6</value>
-  </data>
-  <data name="&gt;&gt;groupBox6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBox6.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;groupBox6.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
   <data name="button11.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -1038,139 +870,139 @@
   <data name="&gt;&gt;button11.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="button10.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="vypiskaBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="button10.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="vypiskaBtn.Location" type="System.Drawing.Point, System.Drawing">
     <value>7, 323</value>
   </data>
-  <data name="button10.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="vypiskaBtn.Size" type="System.Drawing.Size, System.Drawing">
     <value>291, 23</value>
   </data>
-  <data name="button10.TabIndex" type="System.Int32, mscorlib">
+  <data name="vypiskaBtn.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
   </data>
-  <data name="button10.Text" xml:space="preserve">
+  <data name="vypiskaBtn.Text" xml:space="preserve">
     <value>Выписка</value>
   </data>
-  <data name="&gt;&gt;button10.Name" xml:space="preserve">
-    <value>button10</value>
+  <data name="&gt;&gt;vypiskaBtn.Name" xml:space="preserve">
+    <value>vypiskaBtn</value>
   </data>
-  <data name="&gt;&gt;button10.Type" xml:space="preserve">
+  <data name="&gt;&gt;vypiskaBtn.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;button10.Parent" xml:space="preserve">
+  <data name="&gt;&gt;vypiskaBtn.Parent" xml:space="preserve">
     <value>groupBox6</value>
   </data>
-  <data name="&gt;&gt;button10.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;vypiskaBtn.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="button9.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="obhodBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="button9.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="obhodBtn.Location" type="System.Drawing.Point, System.Drawing">
     <value>7, 294</value>
   </data>
-  <data name="button9.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="obhodBtn.Size" type="System.Drawing.Size, System.Drawing">
     <value>291, 23</value>
   </data>
-  <data name="button9.TabIndex" type="System.Int32, mscorlib">
+  <data name="obhodBtn.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
   </data>
-  <data name="button9.Text" xml:space="preserve">
+  <data name="obhodBtn.Text" xml:space="preserve">
     <value>Утренний совместный обход</value>
   </data>
-  <data name="&gt;&gt;button9.Name" xml:space="preserve">
-    <value>button9</value>
+  <data name="&gt;&gt;obhodBtn.Name" xml:space="preserve">
+    <value>obhodBtn</value>
   </data>
-  <data name="&gt;&gt;button9.Type" xml:space="preserve">
+  <data name="&gt;&gt;obhodBtn.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;button9.Parent" xml:space="preserve">
+  <data name="&gt;&gt;obhodBtn.Parent" xml:space="preserve">
     <value>groupBox6</value>
   </data>
-  <data name="&gt;&gt;button9.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;obhodBtn.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="button8.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="jurnalWithoutKAGBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="button8.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="jurnalWithoutKAGBtn.Location" type="System.Drawing.Point, System.Drawing">
     <value>7, 235</value>
   </data>
-  <data name="button8.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="jurnalWithoutKAGBtn.Size" type="System.Drawing.Size, System.Drawing">
     <value>291, 23</value>
   </data>
-  <data name="button8.TabIndex" type="System.Int32, mscorlib">
+  <data name="jurnalWithoutKAGBtn.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
-  <data name="button8.Text" xml:space="preserve">
+  <data name="jurnalWithoutKAGBtn.Text" xml:space="preserve">
     <value>Дневники без КАГ</value>
   </data>
-  <data name="&gt;&gt;button8.Name" xml:space="preserve">
-    <value>button8</value>
+  <data name="&gt;&gt;jurnalWithoutKAGBtn.Name" xml:space="preserve">
+    <value>jurnalWithoutKAGBtn</value>
   </data>
-  <data name="&gt;&gt;button8.Type" xml:space="preserve">
+  <data name="&gt;&gt;jurnalWithoutKAGBtn.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;button8.Parent" xml:space="preserve">
+  <data name="&gt;&gt;jurnalWithoutKAGBtn.Parent" xml:space="preserve">
     <value>groupBox6</value>
   </data>
-  <data name="&gt;&gt;button8.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;jurnalWithoutKAGBtn.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="button7.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="journalAfterKAGBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="button7.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="journalAfterKAGBtn.Location" type="System.Drawing.Point, System.Drawing">
     <value>7, 206</value>
   </data>
-  <data name="button7.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="journalAfterKAGBtn.Size" type="System.Drawing.Size, System.Drawing">
     <value>291, 23</value>
   </data>
-  <data name="button7.TabIndex" type="System.Int32, mscorlib">
+  <data name="journalAfterKAGBtn.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
-  <data name="button7.Text" xml:space="preserve">
+  <data name="journalAfterKAGBtn.Text" xml:space="preserve">
     <value>Дневники после КАГ</value>
   </data>
-  <data name="&gt;&gt;button7.Name" xml:space="preserve">
-    <value>button7</value>
+  <data name="&gt;&gt;journalAfterKAGBtn.Name" xml:space="preserve">
+    <value>journalAfterKAGBtn</value>
   </data>
-  <data name="&gt;&gt;button7.Type" xml:space="preserve">
+  <data name="&gt;&gt;journalAfterKAGBtn.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;button7.Parent" xml:space="preserve">
+  <data name="&gt;&gt;journalAfterKAGBtn.Parent" xml:space="preserve">
     <value>groupBox6</value>
   </data>
-  <data name="&gt;&gt;button7.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;journalAfterKAGBtn.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="button6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="journalBeforeKAGBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="button6.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="journalBeforeKAGBtn.Location" type="System.Drawing.Point, System.Drawing">
     <value>7, 177</value>
   </data>
-  <data name="button6.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="journalBeforeKAGBtn.Size" type="System.Drawing.Size, System.Drawing">
     <value>291, 23</value>
   </data>
-  <data name="button6.TabIndex" type="System.Int32, mscorlib">
+  <data name="journalBeforeKAGBtn.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
-  <data name="button6.Text" xml:space="preserve">
+  <data name="journalBeforeKAGBtn.Text" xml:space="preserve">
     <value>Дневники до КАГ</value>
   </data>
-  <data name="&gt;&gt;button6.Name" xml:space="preserve">
-    <value>button6</value>
+  <data name="&gt;&gt;journalBeforeKAGBtn.Name" xml:space="preserve">
+    <value>journalBeforeKAGBtn</value>
   </data>
-  <data name="&gt;&gt;button6.Type" xml:space="preserve">
+  <data name="&gt;&gt;journalBeforeKAGBtn.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;button6.Parent" xml:space="preserve">
+  <data name="&gt;&gt;journalBeforeKAGBtn.Parent" xml:space="preserve">
     <value>groupBox6</value>
   </data>
-  <data name="&gt;&gt;button6.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;journalBeforeKAGBtn.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
   <data name="button5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
@@ -1200,31 +1032,31 @@
   <data name="&gt;&gt;button5.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="button4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="konsiliumBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="button4.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="konsiliumBtn.Location" type="System.Drawing.Point, System.Drawing">
     <value>7, 104</value>
   </data>
-  <data name="button4.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="konsiliumBtn.Size" type="System.Drawing.Size, System.Drawing">
     <value>291, 23</value>
   </data>
-  <data name="button4.TabIndex" type="System.Int32, mscorlib">
+  <data name="konsiliumBtn.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
-  <data name="button4.Text" xml:space="preserve">
+  <data name="konsiliumBtn.Text" xml:space="preserve">
     <value>Консилиум</value>
   </data>
-  <data name="&gt;&gt;button4.Name" xml:space="preserve">
-    <value>button4</value>
+  <data name="&gt;&gt;konsiliumBtn.Name" xml:space="preserve">
+    <value>konsiliumBtn</value>
   </data>
-  <data name="&gt;&gt;button4.Type" xml:space="preserve">
+  <data name="&gt;&gt;konsiliumBtn.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;button4.Parent" xml:space="preserve">
+  <data name="&gt;&gt;konsiliumBtn.Parent" xml:space="preserve">
     <value>groupBox6</value>
   </data>
-  <data name="&gt;&gt;button4.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;konsiliumBtn.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
   <data name="radioButton2.AutoSize" type="System.Boolean, mscorlib">
@@ -1281,103 +1113,127 @@
   <data name="&gt;&gt;radioButton1.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
-  <data name="button3.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="prescribingBtn.Location" type="System.Drawing.Point, System.Drawing">
     <value>7, 50</value>
   </data>
-  <data name="button3.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="prescribingBtn.Size" type="System.Drawing.Size, System.Drawing">
     <value>291, 23</value>
   </data>
-  <data name="button3.TabIndex" type="System.Int32, mscorlib">
+  <data name="prescribingBtn.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="button3.Text" xml:space="preserve">
+  <data name="prescribingBtn.Text" xml:space="preserve">
     <value>Лист назначений</value>
   </data>
-  <data name="&gt;&gt;button3.Name" xml:space="preserve">
-    <value>button3</value>
+  <data name="&gt;&gt;prescribingBtn.Name" xml:space="preserve">
+    <value>prescribingBtn</value>
   </data>
-  <data name="&gt;&gt;button3.Type" xml:space="preserve">
+  <data name="&gt;&gt;prescribingBtn.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;button3.Parent" xml:space="preserve">
+  <data name="&gt;&gt;prescribingBtn.Parent" xml:space="preserve">
     <value>groupBox6</value>
   </data>
-  <data name="&gt;&gt;button3.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;prescribingBtn.ZOrder" xml:space="preserve">
     <value>10</value>
   </data>
-  <data name="button2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="firstInspectionBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="button2.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="firstInspectionBtn.Location" type="System.Drawing.Point, System.Drawing">
     <value>7, 20</value>
   </data>
-  <data name="button2.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="firstInspectionBtn.Size" type="System.Drawing.Size, System.Drawing">
     <value>291, 23</value>
   </data>
-  <data name="button2.TabIndex" type="System.Int32, mscorlib">
+  <data name="firstInspectionBtn.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="button2.Text" xml:space="preserve">
+  <data name="firstInspectionBtn.Text" xml:space="preserve">
     <value>Первичный осмотр</value>
   </data>
-  <data name="&gt;&gt;button2.Name" xml:space="preserve">
-    <value>button2</value>
+  <data name="&gt;&gt;firstInspectionBtn.Name" xml:space="preserve">
+    <value>firstInspectionBtn</value>
   </data>
-  <data name="&gt;&gt;button2.Type" xml:space="preserve">
+  <data name="&gt;&gt;firstInspectionBtn.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;button2.Parent" xml:space="preserve">
+  <data name="&gt;&gt;firstInspectionBtn.Parent" xml:space="preserve">
     <value>groupBox6</value>
   </data>
-  <data name="&gt;&gt;button2.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;firstInspectionBtn.ZOrder" xml:space="preserve">
     <value>11</value>
   </data>
-  <data name="&gt;&gt;button15.Name" xml:space="preserve">
-    <value>button15</value>
+  <data name="groupBox6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>326, 13</value>
   </data>
-  <data name="&gt;&gt;button15.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="groupBox6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>304, 531</value>
   </data>
-  <data name="&gt;&gt;button15.Parent" xml:space="preserve">
-    <value>groupBox7</value>
-  </data>
-  <data name="&gt;&gt;button15.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;button14.Name" xml:space="preserve">
-    <value>button14</value>
-  </data>
-  <data name="&gt;&gt;button14.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;button14.Parent" xml:space="preserve">
-    <value>groupBox7</value>
-  </data>
-  <data name="&gt;&gt;button14.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;button13.Name" xml:space="preserve">
-    <value>button13</value>
-  </data>
-  <data name="&gt;&gt;button13.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;button13.Parent" xml:space="preserve">
-    <value>groupBox7</value>
-  </data>
-  <data name="&gt;&gt;button13.ZOrder" xml:space="preserve">
+  <data name="groupBox6.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;button12.Name" xml:space="preserve">
-    <value>button12</value>
+  <data name="groupBox6.Text" xml:space="preserve">
+    <value>Ключевые моменты</value>
   </data>
-  <data name="&gt;&gt;button12.Type" xml:space="preserve">
+  <data name="&gt;&gt;groupBox6.Name" xml:space="preserve">
+    <value>groupBox6</value>
+  </data>
+  <data name="&gt;&gt;groupBox6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox6.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;groupBox6.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;emergencyLettersBtn.Name" xml:space="preserve">
+    <value>emergencyLettersBtn</value>
+  </data>
+  <data name="&gt;&gt;emergencyLettersBtn.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;button12.Parent" xml:space="preserve">
+  <data name="&gt;&gt;emergencyLettersBtn.Parent" xml:space="preserve">
     <value>groupBox7</value>
   </data>
-  <data name="&gt;&gt;button12.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;emergencyLettersBtn.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;transfusionBloodBtn.Name" xml:space="preserve">
+    <value>transfusionBloodBtn</value>
+  </data>
+  <data name="&gt;&gt;transfusionBloodBtn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;transfusionBloodBtn.Parent" xml:space="preserve">
+    <value>groupBox7</value>
+  </data>
+  <data name="&gt;&gt;transfusionBloodBtn.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;analyzesBtn.Name" xml:space="preserve">
+    <value>analyzesBtn</value>
+  </data>
+  <data name="&gt;&gt;analyzesBtn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;analyzesBtn.Parent" xml:space="preserve">
+    <value>groupBox7</value>
+  </data>
+  <data name="&gt;&gt;analyzesBtn.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;manipulationProtocolBtn.Name" xml:space="preserve">
+    <value>manipulationProtocolBtn</value>
+  </data>
+  <data name="&gt;&gt;manipulationProtocolBtn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;manipulationProtocolBtn.Parent" xml:space="preserve">
+    <value>groupBox7</value>
+  </data>
+  <data name="&gt;&gt;manipulationProtocolBtn.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
   <data name="groupBox7.Location" type="System.Drawing.Point, System.Drawing">
@@ -1404,139 +1260,139 @@
   <data name="&gt;&gt;groupBox7.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="button15.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="emergencyLettersBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="button15.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="emergencyLettersBtn.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 134</value>
   </data>
-  <data name="button15.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="emergencyLettersBtn.Size" type="System.Drawing.Size, System.Drawing">
     <value>291, 23</value>
   </data>
-  <data name="button15.TabIndex" type="System.Int32, mscorlib">
+  <data name="emergencyLettersBtn.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
   </data>
-  <data name="button15.Text" xml:space="preserve">
+  <data name="emergencyLettersBtn.Text" xml:space="preserve">
     <value>Письма для скорой</value>
   </data>
-  <data name="&gt;&gt;button15.Name" xml:space="preserve">
-    <value>button15</value>
+  <data name="&gt;&gt;emergencyLettersBtn.Name" xml:space="preserve">
+    <value>emergencyLettersBtn</value>
   </data>
-  <data name="&gt;&gt;button15.Type" xml:space="preserve">
+  <data name="&gt;&gt;emergencyLettersBtn.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;button15.Parent" xml:space="preserve">
+  <data name="&gt;&gt;emergencyLettersBtn.Parent" xml:space="preserve">
     <value>groupBox7</value>
   </data>
-  <data name="&gt;&gt;button15.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;emergencyLettersBtn.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="button14.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="transfusionBloodBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="button14.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="transfusionBloodBtn.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 105</value>
   </data>
-  <data name="button14.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="transfusionBloodBtn.Size" type="System.Drawing.Size, System.Drawing">
     <value>291, 23</value>
   </data>
-  <data name="button14.TabIndex" type="System.Int32, mscorlib">
+  <data name="transfusionBloodBtn.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
   </data>
-  <data name="button14.Text" xml:space="preserve">
+  <data name="transfusionBloodBtn.Text" xml:space="preserve">
     <value>Переливание компонентов крови</value>
   </data>
-  <data name="&gt;&gt;button14.Name" xml:space="preserve">
-    <value>button14</value>
+  <data name="&gt;&gt;transfusionBloodBtn.Name" xml:space="preserve">
+    <value>transfusionBloodBtn</value>
   </data>
-  <data name="&gt;&gt;button14.Type" xml:space="preserve">
+  <data name="&gt;&gt;transfusionBloodBtn.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;button14.Parent" xml:space="preserve">
+  <data name="&gt;&gt;transfusionBloodBtn.Parent" xml:space="preserve">
     <value>groupBox7</value>
   </data>
-  <data name="&gt;&gt;button14.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;transfusionBloodBtn.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="button13.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="analyzesBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="button13.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="analyzesBtn.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 50</value>
   </data>
-  <data name="button13.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="analyzesBtn.Size" type="System.Drawing.Size, System.Drawing">
     <value>291, 23</value>
   </data>
-  <data name="button13.TabIndex" type="System.Int32, mscorlib">
+  <data name="analyzesBtn.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
   </data>
-  <data name="button13.Text" xml:space="preserve">
+  <data name="analyzesBtn.Text" xml:space="preserve">
     <value>Анализы, Исследования</value>
   </data>
-  <data name="&gt;&gt;button13.Name" xml:space="preserve">
-    <value>button13</value>
+  <data name="&gt;&gt;analyzesBtn.Name" xml:space="preserve">
+    <value>analyzesBtn</value>
   </data>
-  <data name="&gt;&gt;button13.Type" xml:space="preserve">
+  <data name="&gt;&gt;analyzesBtn.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;button13.Parent" xml:space="preserve">
+  <data name="&gt;&gt;analyzesBtn.Parent" xml:space="preserve">
     <value>groupBox7</value>
   </data>
-  <data name="&gt;&gt;button13.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;analyzesBtn.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="button12.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="manipulationProtocolBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="button12.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="manipulationProtocolBtn.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 21</value>
   </data>
-  <data name="button12.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="manipulationProtocolBtn.Size" type="System.Drawing.Size, System.Drawing">
     <value>291, 23</value>
   </data>
-  <data name="button12.TabIndex" type="System.Int32, mscorlib">
+  <data name="manipulationProtocolBtn.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
   </data>
-  <data name="button12.Text" xml:space="preserve">
+  <data name="manipulationProtocolBtn.Text" xml:space="preserve">
     <value>Протоколы манипуляций</value>
   </data>
-  <data name="&gt;&gt;button12.Name" xml:space="preserve">
-    <value>button12</value>
+  <data name="&gt;&gt;manipulationProtocolBtn.Name" xml:space="preserve">
+    <value>manipulationProtocolBtn</value>
   </data>
-  <data name="&gt;&gt;button12.Type" xml:space="preserve">
+  <data name="&gt;&gt;manipulationProtocolBtn.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;button12.Parent" xml:space="preserve">
+  <data name="&gt;&gt;manipulationProtocolBtn.Parent" xml:space="preserve">
     <value>groupBox7</value>
   </data>
-  <data name="&gt;&gt;button12.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;manipulationProtocolBtn.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="button16.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="blanksBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="button16.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="blanksBtn.Location" type="System.Drawing.Point, System.Drawing">
     <value>643, 190</value>
   </data>
-  <data name="button16.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="blanksBtn.Size" type="System.Drawing.Size, System.Drawing">
     <value>291, 23</value>
   </data>
-  <data name="button16.TabIndex" type="System.Int32, mscorlib">
+  <data name="blanksBtn.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
   </data>
-  <data name="button16.Text" xml:space="preserve">
+  <data name="blanksBtn.Text" xml:space="preserve">
     <value>Бланки</value>
   </data>
-  <data name="&gt;&gt;button16.Name" xml:space="preserve">
-    <value>button16</value>
+  <data name="&gt;&gt;blanksBtn.Name" xml:space="preserve">
+    <value>blanksBtn</value>
   </data>
-  <data name="&gt;&gt;button16.Type" xml:space="preserve">
+  <data name="&gt;&gt;blanksBtn.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;button16.Parent" xml:space="preserve">
+  <data name="&gt;&gt;blanksBtn.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;button16.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;blanksBtn.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

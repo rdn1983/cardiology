@@ -35,7 +35,7 @@
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.richTextBox3 = new System.Windows.Forms.RichTextBox();
             this.richTextBox4 = new System.Windows.Forms.RichTextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.checkAnalyzesBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -93,14 +93,15 @@
             this.richTextBox4.TabIndex = 5;
             this.richTextBox4.Text = "";
             // 
-            // button1
+            // checkAnalyzesBtn
             // 
-            this.button1.Location = new System.Drawing.Point(658, 68);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(130, 96);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Проверить анализы и обследования";
-            this.button1.UseVisualStyleBackColor = true;
+            this.checkAnalyzesBtn.Location = new System.Drawing.Point(658, 68);
+            this.checkAnalyzesBtn.Name = "checkAnalyzesBtn";
+            this.checkAnalyzesBtn.Size = new System.Drawing.Size(130, 96);
+            this.checkAnalyzesBtn.TabIndex = 6;
+            this.checkAnalyzesBtn.Text = "Проверить анализы и обследования";
+            this.checkAnalyzesBtn.UseVisualStyleBackColor = true;
+            this.checkAnalyzesBtn.Click += new System.EventHandler(this.checkAnalyzesBtn_Click);
             // 
             // label1
             // 
@@ -177,7 +178,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.checkAnalyzesBtn);
             this.Controls.Add(this.richTextBox4);
             this.Controls.Add(this.richTextBox3);
             this.Controls.Add(this.richTextBox2);
@@ -201,7 +202,7 @@
         private System.Windows.Forms.RichTextBox richTextBox2;
         private System.Windows.Forms.RichTextBox richTextBox3;
         private System.Windows.Forms.RichTextBox richTextBox4;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button checkAnalyzesBtn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;

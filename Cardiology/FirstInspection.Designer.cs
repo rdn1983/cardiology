@@ -40,34 +40,34 @@
             this.button9 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.fixComplaintTeplaintBtn = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.button11 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button12 = new System.Windows.Forms.Button();
+            this.fixMorbiTemplateBtn = new System.Windows.Forms.Button();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.richTextBox3 = new System.Windows.Forms.RichTextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.richTextBox4 = new System.Windows.Forms.RichTextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.richTextBox5 = new System.Windows.Forms.RichTextBox();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
-            this.button15 = new System.Windows.Forms.Button();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.button20 = new System.Windows.Forms.Button();
+            this.button19 = new System.Windows.Forms.Button();
+            this.button18 = new System.Windows.Forms.Button();
+            this.button17 = new System.Windows.Forms.Button();
+            this.button16 = new System.Windows.Forms.Button();
+            this.richTextBox7 = new System.Windows.Forms.RichTextBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.richTextBox6 = new System.Windows.Forms.RichTextBox();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.richTextBox7 = new System.Windows.Forms.RichTextBox();
-            this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.button16 = new System.Windows.Forms.Button();
-            this.button17 = new System.Windows.Forms.Button();
-            this.button18 = new System.Windows.Forms.Button();
-            this.button19 = new System.Windows.Forms.Button();
-            this.button20 = new System.Windows.Forms.Button();
+            this.button15 = new System.Windows.Forms.Button();
+            this.button14 = new System.Windows.Forms.Button();
+            this.button13 = new System.Windows.Forms.Button();
+            this.richTextBox5 = new System.Windows.Forms.RichTextBox();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
-            this.richTextBox8 = new System.Windows.Forms.RichTextBox();
-            this.button21 = new System.Windows.Forms.Button();
             this.button22 = new System.Windows.Forms.Button();
+            this.button21 = new System.Windows.Forms.Button();
+            this.richTextBox8 = new System.Windows.Forms.RichTextBox();
             this.button25 = new System.Windows.Forms.Button();
             this.button26 = new System.Windows.Forms.Button();
             this.button27 = new System.Windows.Forms.Button();
@@ -77,9 +77,9 @@
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
-            this.groupBox6.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.groupBox8.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.groupBox9.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -176,7 +176,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button11);
+            this.groupBox1.Controls.Add(this.fixComplaintTeplaintBtn);
             this.groupBox1.Controls.Add(this.richTextBox1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupBox1.Location = new System.Drawing.Point(121, 12);
@@ -185,6 +185,16 @@
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Жалобы";
+            // 
+            // fixComplaintTeplaintBtn
+            // 
+            this.fixComplaintTeplaintBtn.Location = new System.Drawing.Point(343, 97);
+            this.fixComplaintTeplaintBtn.Name = "fixComplaintTeplaintBtn";
+            this.fixComplaintTeplaintBtn.Size = new System.Drawing.Size(160, 21);
+            this.fixComplaintTeplaintBtn.TabIndex = 1;
+            this.fixComplaintTeplaintBtn.Text = "Исправить по шаблону";
+            this.fixComplaintTeplaintBtn.UseVisualStyleBackColor = true;
+            this.fixComplaintTeplaintBtn.Click += new System.EventHandler(this.fixComplaintTeplaintBtn_Click);
             // 
             // richTextBox1
             // 
@@ -195,18 +205,9 @@
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "";
             // 
-            // button11
-            // 
-            this.button11.Location = new System.Drawing.Point(343, 97);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(160, 21);
-            this.button11.TabIndex = 1;
-            this.button11.Text = "Исправить по шаблону";
-            this.button11.UseVisualStyleBackColor = true;
-            // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button12);
+            this.groupBox2.Controls.Add(this.fixMorbiTemplateBtn);
             this.groupBox2.Controls.Add(this.richTextBox2);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupBox2.Location = new System.Drawing.Point(121, 139);
@@ -216,14 +217,15 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Anamnеsis morbi";
             // 
-            // button12
+            // fixMorbiTemplateBtn
             // 
-            this.button12.Location = new System.Drawing.Point(343, 196);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(160, 21);
-            this.button12.TabIndex = 1;
-            this.button12.Text = "Исправить по шаблону";
-            this.button12.UseVisualStyleBackColor = true;
+            this.fixMorbiTemplateBtn.Location = new System.Drawing.Point(343, 196);
+            this.fixMorbiTemplateBtn.Name = "fixMorbiTemplateBtn";
+            this.fixMorbiTemplateBtn.Size = new System.Drawing.Size(160, 21);
+            this.fixMorbiTemplateBtn.TabIndex = 1;
+            this.fixMorbiTemplateBtn.Text = "Исправить по шаблону";
+            this.fixMorbiTemplateBtn.UseVisualStyleBackColor = true;
+            this.fixMorbiTemplateBtn.Click += new System.EventHandler(this.fixMorbiTemplateBtn_Click);
             // 
             // richTextBox2
             // 
@@ -290,44 +292,84 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Эпид.анамнез";
             // 
-            // richTextBox5
+            // groupBox7
             // 
-            this.richTextBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.richTextBox5.Location = new System.Drawing.Point(6, 17);
-            this.richTextBox5.Name = "richTextBox5";
-            this.richTextBox5.Size = new System.Drawing.Size(497, 64);
-            this.richTextBox5.TabIndex = 0;
-            this.richTextBox5.Text = "";
+            this.groupBox7.Controls.Add(this.groupBox8);
+            this.groupBox7.Controls.Add(this.richTextBox7);
+            this.groupBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.groupBox7.Location = new System.Drawing.Point(6, 229);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(495, 169);
+            this.groupBox7.TabIndex = 16;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Из сопутствующих заболеваний";
             // 
-            // button13
+            // groupBox8
             // 
-            this.button13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button13.Location = new System.Drawing.Point(6, 83);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(152, 23);
-            this.button13.TabIndex = 1;
-            this.button13.Text = "Алкоголь не употреблял.";
-            this.button13.UseVisualStyleBackColor = true;
+            this.groupBox8.Controls.Add(this.button20);
+            this.groupBox8.Controls.Add(this.button19);
+            this.groupBox8.Controls.Add(this.button18);
+            this.groupBox8.Controls.Add(this.button17);
+            this.groupBox8.Controls.Add(this.button16);
+            this.groupBox8.Location = new System.Drawing.Point(310, 19);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(179, 142);
+            this.groupBox8.TabIndex = 1;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "варианты хрони";
             // 
-            // button14
+            // button20
             // 
-            this.button14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button14.Location = new System.Drawing.Point(159, 83);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(170, 23);
-            this.button14.TabIndex = 2;
-            this.button14.Text = "Алкоголь употреблял (abusus)";
-            this.button14.UseVisualStyleBackColor = true;
+            this.button20.Location = new System.Drawing.Point(6, 113);
+            this.button20.Name = "button20";
+            this.button20.Size = new System.Drawing.Size(169, 23);
+            this.button20.TabIndex = 4;
+            this.button20.Text = "+ ХОБЛ хр. бр.";
+            this.button20.UseVisualStyleBackColor = true;
             // 
-            // button15
+            // button19
             // 
-            this.button15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button15.Location = new System.Drawing.Point(330, 83);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(174, 23);
-            this.button15.TabIndex = 3;
-            this.button15.Text = "Протокол алкоосвидетельства";
-            this.button15.UseVisualStyleBackColor = true;
+            this.button19.Location = new System.Drawing.Point(6, 85);
+            this.button19.Name = "button19";
+            this.button19.Size = new System.Drawing.Size(169, 23);
+            this.button19.TabIndex = 3;
+            this.button19.Text = "+ СД 2 с\\к";
+            this.button19.UseVisualStyleBackColor = true;
+            // 
+            // button18
+            // 
+            this.button18.Location = new System.Drawing.Point(6, 56);
+            this.button18.Name = "button18";
+            this.button18.Size = new System.Drawing.Size(169, 23);
+            this.button18.TabIndex = 2;
+            this.button18.Text = "+ ДЭП3 п/ОНМК с\\к";
+            this.button18.UseVisualStyleBackColor = true;
+            // 
+            // button17
+            // 
+            this.button17.Location = new System.Drawing.Point(93, 27);
+            this.button17.Name = "button17";
+            this.button17.Size = new System.Drawing.Size(82, 23);
+            this.button17.TabIndex = 1;
+            this.button17.Text = "+ ГБ3 р4";
+            this.button17.UseVisualStyleBackColor = true;
+            // 
+            // button16
+            // 
+            this.button16.Location = new System.Drawing.Point(6, 27);
+            this.button16.Name = "button16";
+            this.button16.Size = new System.Drawing.Size(81, 23);
+            this.button16.TabIndex = 0;
+            this.button16.Text = "+ МА";
+            this.button16.UseVisualStyleBackColor = true;
+            // 
+            // richTextBox7
+            // 
+            this.richTextBox7.Location = new System.Drawing.Point(6, 17);
+            this.richTextBox7.Name = "richTextBox7";
+            this.richTextBox7.Size = new System.Drawing.Size(298, 144);
+            this.richTextBox7.TabIndex = 0;
+            this.richTextBox7.Text = "";
             // 
             // groupBox6
             // 
@@ -348,84 +390,44 @@
             this.richTextBox6.TabIndex = 0;
             this.richTextBox6.Text = "";
             // 
-            // groupBox7
+            // button15
             // 
-            this.groupBox7.Controls.Add(this.groupBox8);
-            this.groupBox7.Controls.Add(this.richTextBox7);
-            this.groupBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox7.Location = new System.Drawing.Point(6, 229);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(495, 169);
-            this.groupBox7.TabIndex = 16;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Из сопутствующих заболеваний";
+            this.button15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button15.Location = new System.Drawing.Point(330, 83);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(174, 23);
+            this.button15.TabIndex = 3;
+            this.button15.Text = "Протокол алкоосвидетельства";
+            this.button15.UseVisualStyleBackColor = true;
             // 
-            // richTextBox7
+            // button14
             // 
-            this.richTextBox7.Location = new System.Drawing.Point(6, 17);
-            this.richTextBox7.Name = "richTextBox7";
-            this.richTextBox7.Size = new System.Drawing.Size(298, 144);
-            this.richTextBox7.TabIndex = 0;
-            this.richTextBox7.Text = "";
+            this.button14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button14.Location = new System.Drawing.Point(159, 83);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(170, 23);
+            this.button14.TabIndex = 2;
+            this.button14.Text = "Алкоголь употреблял (abusus)";
+            this.button14.UseVisualStyleBackColor = true;
             // 
-            // groupBox8
+            // button13
             // 
-            this.groupBox8.Controls.Add(this.button20);
-            this.groupBox8.Controls.Add(this.button19);
-            this.groupBox8.Controls.Add(this.button18);
-            this.groupBox8.Controls.Add(this.button17);
-            this.groupBox8.Controls.Add(this.button16);
-            this.groupBox8.Location = new System.Drawing.Point(310, 19);
-            this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(179, 142);
-            this.groupBox8.TabIndex = 1;
-            this.groupBox8.TabStop = false;
-            this.groupBox8.Text = "варианты хрони";
+            this.button13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button13.Location = new System.Drawing.Point(6, 83);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(152, 23);
+            this.button13.TabIndex = 1;
+            this.button13.Text = "Алкоголь не употреблял.";
+            this.button13.UseVisualStyleBackColor = true;
             // 
-            // button16
+            // richTextBox5
             // 
-            this.button16.Location = new System.Drawing.Point(6, 27);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(81, 23);
-            this.button16.TabIndex = 0;
-            this.button16.Text = "+ МА";
-            this.button16.UseVisualStyleBackColor = true;
-            // 
-            // button17
-            // 
-            this.button17.Location = new System.Drawing.Point(93, 27);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(82, 23);
-            this.button17.TabIndex = 1;
-            this.button17.Text = "+ ГБ3 р4";
-            this.button17.UseVisualStyleBackColor = true;
-            // 
-            // button18
-            // 
-            this.button18.Location = new System.Drawing.Point(6, 56);
-            this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(169, 23);
-            this.button18.TabIndex = 2;
-            this.button18.Text = "+ ДЭП3 п/ОНМК с\\к";
-            this.button18.UseVisualStyleBackColor = true;
-            // 
-            // button19
-            // 
-            this.button19.Location = new System.Drawing.Point(6, 85);
-            this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(169, 23);
-            this.button19.TabIndex = 3;
-            this.button19.Text = "+ СД 2 с\\к";
-            this.button19.UseVisualStyleBackColor = true;
-            // 
-            // button20
-            // 
-            this.button20.Location = new System.Drawing.Point(6, 113);
-            this.button20.Name = "button20";
-            this.button20.Size = new System.Drawing.Size(169, 23);
-            this.button20.TabIndex = 4;
-            this.button20.Text = "+ ХОБЛ хр. бр.";
-            this.button20.UseVisualStyleBackColor = true;
+            this.richTextBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.richTextBox5.Location = new System.Drawing.Point(6, 17);
+            this.richTextBox5.Name = "richTextBox5";
+            this.richTextBox5.Size = new System.Drawing.Size(497, 64);
+            this.richTextBox5.TabIndex = 0;
+            this.richTextBox5.Text = "";
             // 
             // groupBox9
             // 
@@ -440,14 +442,14 @@
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "Данные об употреблении наркотических и психотропных препаратов";
             // 
-            // richTextBox8
+            // button22
             // 
-            this.richTextBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.richTextBox8.Location = new System.Drawing.Point(6, 17);
-            this.richTextBox8.Name = "richTextBox8";
-            this.richTextBox8.Size = new System.Drawing.Size(497, 66);
-            this.richTextBox8.TabIndex = 0;
-            this.richTextBox8.Text = "";
+            this.button22.Location = new System.Drawing.Point(259, 87);
+            this.button22.Name = "button22";
+            this.button22.Size = new System.Drawing.Size(244, 23);
+            this.button22.TabIndex = 2;
+            this.button22.Text = "Вводились";
+            this.button22.UseVisualStyleBackColor = true;
             // 
             // button21
             // 
@@ -458,14 +460,14 @@
             this.button21.Text = "Не вводились";
             this.button21.UseVisualStyleBackColor = true;
             // 
-            // button22
+            // richTextBox8
             // 
-            this.button22.Location = new System.Drawing.Point(259, 87);
-            this.button22.Name = "button22";
-            this.button22.Size = new System.Drawing.Size(244, 23);
-            this.button22.TabIndex = 2;
-            this.button22.Text = "Вводились";
-            this.button22.UseVisualStyleBackColor = true;
+            this.richTextBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.richTextBox8.Location = new System.Drawing.Point(6, 17);
+            this.richTextBox8.Name = "richTextBox8";
+            this.richTextBox8.Size = new System.Drawing.Size(497, 66);
+            this.richTextBox8.TabIndex = 0;
+            this.richTextBox8.Text = "";
             // 
             // button25
             // 
@@ -541,9 +543,9 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
-            this.groupBox6.ResumeLayout(false);
             this.groupBox7.ResumeLayout(false);
             this.groupBox8.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
             this.groupBox9.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -562,10 +564,10 @@
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button fixComplaintTeplaintBtn;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button fixMorbiTemplateBtn;
         private System.Windows.Forms.RichTextBox richTextBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.RichTextBox richTextBox3;

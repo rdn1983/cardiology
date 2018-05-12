@@ -121,7 +121,7 @@
             this.label79 = new System.Windows.Forms.Label();
             this.label78 = new System.Windows.Forms.Label();
             this.label77 = new System.Windows.Forms.Label();
-            this.button48 = new System.Windows.Forms.Button();
+            this.showABOFormBtn = new System.Windows.Forms.Button();
             this.button47 = new System.Windows.Forms.Button();
             this.groupBox17 = new System.Windows.Forms.GroupBox();
             this.dateTimePicker5 = new System.Windows.Forms.DateTimePicker();
@@ -1175,7 +1175,7 @@
             // 
             this.tabPage2.Controls.Add(this.groupBox20);
             this.tabPage2.Controls.Add(this.groupBox19);
-            this.tabPage2.Controls.Add(this.button48);
+            this.tabPage2.Controls.Add(this.showABOFormBtn);
             this.tabPage2.Controls.Add(this.button47);
             this.tabPage2.Controls.Add(this.groupBox17);
             this.tabPage2.Controls.Add(this.groupBox18);
@@ -1315,14 +1315,15 @@
             this.label77.TabIndex = 0;
             this.label77.Text = "АЧТВ:";
             // 
-            // button48
+            // showABOFormBtn
             // 
-            this.button48.Location = new System.Drawing.Point(744, 55);
-            this.button48.Name = "button48";
-            this.button48.Size = new System.Drawing.Size(166, 117);
-            this.button48.TabIndex = 38;
-            this.button48.Text = "Группа крови, резус-фактор, KELL-ag, фенотип; СЕРОЛОГИЯ";
-            this.button48.UseVisualStyleBackColor = true;
+            this.showABOFormBtn.Location = new System.Drawing.Point(744, 55);
+            this.showABOFormBtn.Name = "showABOFormBtn";
+            this.showABOFormBtn.Size = new System.Drawing.Size(166, 117);
+            this.showABOFormBtn.TabIndex = 38;
+            this.showABOFormBtn.Text = "Группа крови, резус-фактор, KELL-ag, фенотип; СЕРОЛОГИЯ";
+            this.showABOFormBtn.UseVisualStyleBackColor = true;
+            this.showABOFormBtn.Click += new System.EventHandler(this.showABOFormBtn_Click);
             // 
             // button47
             // 
@@ -3611,7 +3612,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox20;
         private System.Windows.Forms.GroupBox groupBox19;
-        private System.Windows.Forms.Button button48;
+        private System.Windows.Forms.Button showABOFormBtn;
         private System.Windows.Forms.Button button47;
         private System.Windows.Forms.GroupBox groupBox17;
         private System.Windows.Forms.DateTimePicker dateTimePicker5;

@@ -16,5 +16,17 @@ namespace Cardiology
         {
             InitializeComponent();
         }
+
+        private void fixComplaintTeplaintBtn_Click(object sender, EventArgs e)
+        {
+            ComplaintTemplates templateForm = new ComplaintTemplates();
+            templateForm.ShowDialog();
+        }
+
+        private void fixMorbiTemplateBtn_Click(object sender, EventArgs e)
+        {
+            MorbiTemplates templateForm = new MorbiTemplates();
+            templateForm.ShowDialog();
+        }
     }
 }

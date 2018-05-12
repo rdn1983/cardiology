@@ -16,5 +16,11 @@ namespace Cardiology
         {
             InitializeComponent();
         }
+
+        private void checkAnalyzesBtn_Click(object sender, EventArgs e)
+        {
+            Analizi analiziForm = new Analizi();
+            analiziForm.ShowDialog();
+        }
     }
 }

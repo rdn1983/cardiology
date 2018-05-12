@@ -22,6 +22,11 @@ namespace Cardiology
 
         }
 
-       
+        private void showABOFormBtn_Click(object sender, EventArgs e)
+        {
+            UserFormABO aboForm = new UserFormABO();
+            aboForm.ShowDialog();
+
+        }
     }
 }

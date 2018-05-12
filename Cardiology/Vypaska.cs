@@ -16,5 +16,11 @@ namespace Cardiology
         {
             InitializeComponent();
         }
+
+        private void formTrudBtn_Click(object sender, EventArgs e)
+        {
+            UserFormTRUD form = new UserFormTRUD();
+            form.ShowDialog();
+        }
     }
 }

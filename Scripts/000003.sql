@@ -14,3 +14,5 @@ EXECUTE PROCEDURE dmtrg_f_modify_date();
 INSERT INTO ddt_values (dss_name, dss_value) VALUES ('default.patient.lastname', 'Борисов');
 INSERT INTO ddt_values (dss_name, dss_value) VALUES ('default.patient.name', 'Эраст');
 INSERT INTO ddt_values (dss_name, dss_value) VALUES ('default.patient.secondname', 'Петрович')
+INSERT INTO ddt_values (dss_name, dss_value) VALUES ('default.patient.birthday', '08.01.1954');
+INSERT INTO ddt_values (dss_name, dss_value) VALUES ('default.patient.receipttime', '18.03.2018 10:00:00');

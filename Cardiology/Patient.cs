@@ -11,5 +11,7 @@ namespace Cardiology.Model
         public string name;
         public string secondName;
         public string lastName;
+        public DateTime birthday;
+        public DateTime receiptDateTime;
     }
 }

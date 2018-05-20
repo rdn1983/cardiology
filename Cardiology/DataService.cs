@@ -1,4 +1,5 @@
-﻿using Cardiology.Model;
+﻿using System;
+using Cardiology.Model;
 
 namespace Cardiology
 {
@@ -38,6 +39,18 @@ namespace Cardiology
                             break;
                         case "default.patient.lastname":
                             patient.lastName = value;
+                            break;
+                        case "default.patient.birthday":
+                            if (value != null)
+                            {
+                                patient.birthday = DateTime.Parse(value);
+                            }
+                            break;
+                        case "default.patient.receipttime":
+                            if (value != null)
+                            {
+                                patient.receiptDateTime = DateTime.Parse(value);
+                            }
                             break;
 
                     }

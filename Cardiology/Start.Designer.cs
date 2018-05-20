@@ -33,10 +33,10 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.patientReceiptDateTime = new System.Windows.Forms.DateTimePicker();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.patientBirthDate = new System.Windows.Forms.DateTimePicker();
             this.patientSecondName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.patientFirstName = new System.Windows.Forms.TextBox();
@@ -111,21 +111,22 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.dateTimePicker2);
+            this.groupBox3.Controls.Add(this.patientReceiptDateTime);
             resources.ApplyResources(this.groupBox3, "groupBox3");
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.TabStop = false;
             // 
-            // dateTimePicker2
+            // patientReceiptDateTime
             // 
-            resources.ApplyResources(this.dateTimePicker2, "dateTimePicker2");
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
+            resources.ApplyResources(this.patientReceiptDateTime, "patientReceiptDateTime");
+            this.patientReceiptDateTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.patientReceiptDateTime.Name = "patientReceiptDateTime";
+            this.patientReceiptDateTime.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.button1);
-            this.groupBox2.Controls.Add(this.dateTimePicker1);
+            this.groupBox2.Controls.Add(this.patientBirthDate);
             resources.ApplyResources(this.groupBox2, "groupBox2");
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.TabStop = false;
@@ -136,10 +137,12 @@
             this.button1.Name = "button1";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // dateTimePicker1
+            // patientBirthDate
             // 
-            resources.ApplyResources(this.dateTimePicker1, "dateTimePicker1");
-            this.dateTimePicker1.Name = "dateTimePicker1";
+            resources.ApplyResources(this.patientBirthDate, "patientBirthDate");
+            this.patientBirthDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.patientBirthDate.Name = "patientBirthDate";
+            this.patientBirthDate.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // patientSecondName
             // 
@@ -407,10 +410,10 @@
         private System.Windows.Forms.TextBox patientLastName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker patientReceiptDateTime;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker patientBirthDate;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.GroupBox groupBox5;

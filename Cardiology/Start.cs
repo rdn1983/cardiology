@@ -25,10 +25,14 @@ namespace Cardiology
         private void initPatient()
         {
             DataService service = new DataService();
+
             Patient patient = service.GetPatient();
             patientLastName.Text = patient.lastName;
             patientFirstName.Text = patient.name;
             patientSecondName.Text = patient.secondName;
+            patientBirthDate.Value = patient.birthday;
+            patientReceiptDateTime.Value = patient.receiptDateTime;
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -145,6 +149,11 @@ namespace Cardiology
         }
 
         private void patientSecondName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
 
         }

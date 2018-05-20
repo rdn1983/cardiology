@@ -37,9 +37,9 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.patientSecondName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.patientFirstName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.patientLastName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -86,9 +86,9 @@
             this.groupBox1.Controls.Add(this.groupBox4);
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.patientSecondName);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.patientFirstName);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.patientLastName);
             this.groupBox1.Controls.Add(this.label1);
@@ -141,20 +141,20 @@
             resources.ApplyResources(this.dateTimePicker1, "dateTimePicker1");
             this.dateTimePicker1.Name = "dateTimePicker1";
             // 
-            // textBox3
+            // patientSecondName
             // 
-            resources.ApplyResources(this.textBox3, "textBox3");
-            this.textBox3.Name = "textBox3";
+            resources.ApplyResources(this.patientSecondName, "patientSecondName");
+            this.patientSecondName.Name = "patientSecondName";
             // 
             // label3
             // 
             resources.ApplyResources(this.label3, "label3");
             this.label3.Name = "label3";
             // 
-            // textBox2
+            // patientFirstName
             // 
-            resources.ApplyResources(this.textBox2, "textBox2");
-            this.textBox2.Name = "textBox2";
+            resources.ApplyResources(this.patientFirstName, "patientFirstName");
+            this.patientFirstName.Name = "patientFirstName";
             // 
             // label2
             // 
@@ -398,9 +398,9 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox patientSecondName;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox patientFirstName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox patientLastName;
         private System.Windows.Forms.Label label1;

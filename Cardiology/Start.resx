@@ -278,28 +278,28 @@
   <data name="&gt;&gt;groupBox2.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="textBox3.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="patientSecondName.Location" type="System.Drawing.Point, System.Drawing">
     <value>27, 70</value>
   </data>
-  <data name="textBox3.Multiline" type="System.Boolean, mscorlib">
+  <data name="patientSecondName.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="textBox3.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="patientSecondName.Size" type="System.Drawing.Size, System.Drawing">
     <value>200, 20</value>
   </data>
-  <data name="textBox3.TabIndex" type="System.Int32, mscorlib">
+  <data name="patientSecondName.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
-  <data name="&gt;&gt;textBox3.Name" xml:space="preserve">
-    <value>textBox3</value>
+  <data name="&gt;&gt;patientSecondName.Name" xml:space="preserve">
+    <value>patientSecondName</value>
   </data>
-  <data name="&gt;&gt;textBox3.Type" xml:space="preserve">
+  <data name="&gt;&gt;patientSecondName.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;textBox3.Parent" xml:space="preserve">
+  <data name="&gt;&gt;patientSecondName.Parent" xml:space="preserve">
     <value>groupBox1</value>
   </data>
-  <data name="&gt;&gt;textBox3.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;patientSecondName.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
   <data name="label3.AutoSize" type="System.Boolean, mscorlib">
@@ -333,25 +333,25 @@
   <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="textBox2.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="patientFirstName.Location" type="System.Drawing.Point, System.Drawing">
     <value>27, 44</value>
   </data>
-  <data name="textBox2.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="patientFirstName.Size" type="System.Drawing.Size, System.Drawing">
     <value>200, 20</value>
   </data>
-  <data name="textBox2.TabIndex" type="System.Int32, mscorlib">
+  <data name="patientFirstName.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <data name="&gt;&gt;textBox2.Name" xml:space="preserve">
-    <value>textBox2</value>
+  <data name="&gt;&gt;patientFirstName.Name" xml:space="preserve">
+    <value>patientFirstName</value>
   </data>
-  <data name="&gt;&gt;textBox2.Type" xml:space="preserve">
+  <data name="&gt;&gt;patientFirstName.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;textBox2.Parent" xml:space="preserve">
+  <data name="&gt;&gt;patientFirstName.Parent" xml:space="preserve">
     <value>groupBox1</value>
   </data>
-  <data name="&gt;&gt;textBox2.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;patientFirstName.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">

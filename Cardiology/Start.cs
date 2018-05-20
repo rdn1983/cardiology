@@ -18,21 +18,101 @@ namespace Cardiology
         {
             InitializeComponent();
 
-            SQLiteConnection connection = new SQLiteConnection();
-            connection.ConnectionString = "Data Source=D:\\OPEN\\cardiology\\Database\\cardiology.sqlite";
+            initControls();            
+        }
 
-            connection.Open();
+        private void initControls()
+        {
+            initPatient();
 
-            string sql = "SELECT dss_value FROM ddt_values WHERE dss_name = 'default.patient.lastname'";
-            SQLiteCommand command = new SQLiteCommand(sql, connection);
-            SQLiteDataReader reader = command.ExecuteReader();
-            if (reader.Read())
+        }
+
+        private void initPatient()
+        {
+            initPatientLastName();
+            initPatientSecondName();
+            initPatientFirstName(); 
+        }
+
+        private void initPatientLastName()
+        {
+            SQLiteConnection connection = null;
+            try
             {
-                string value = (string) reader["dss_value"];
-                patientLastName.Text = value;
-            }
+                connection = new SQLiteConnection();
+                connection.ConnectionString = "Data Source=D:\\OPEN\\cardiology\\Database\\cardiology.sqlite";
 
-            connection.Close();
+                connection.Open();
+
+                string sql = "SELECT dss_value FROM ddt_values WHERE dss_name = 'default.patient.lastname'";
+                SQLiteCommand command = new SQLiteCommand(sql, connection);
+                SQLiteDataReader reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                    patientLastName.Text = (string)reader["dss_value"];
+                }
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+        }
+
+        private void initPatientSecondName()
+        {
+            SQLiteConnection connection = null;
+            try
+            {
+                connection = new SQLiteConnection();
+                connection.ConnectionString = "Data Source=D:\\OPEN\\cardiology\\Database\\cardiology.sqlite";
+
+                connection.Open();
+
+                string sql = "SELECT dss_value FROM ddt_values WHERE dss_name = 'default.patient.secondname'";
+                SQLiteCommand command = new SQLiteCommand(sql, connection);
+                SQLiteDataReader reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                    patientSecondName.Text = (string)reader["dss_value"];
+                }
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+        }
+
+        private void initPatientFirstName()
+        {
+            SQLiteConnection connection = null;
+            try
+            {
+                connection = new SQLiteConnection();
+                connection.ConnectionString = "Data Source=D:\\OPEN\\cardiology\\Database\\cardiology.sqlite";
+
+                connection.Open();
+
+                string sql = "SELECT dss_value FROM ddt_values WHERE dss_name = 'default.patient.name'";
+                SQLiteCommand command = new SQLiteCommand(sql, connection);
+                SQLiteDataReader reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                    patientFirstName.Text = (string)reader["dss_value"];
+                }
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)

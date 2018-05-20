@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using System.Data.SQLite;
+
 namespace Cardiology
 {
     public partial class Start : Form
@@ -15,6 +17,22 @@ namespace Cardiology
         public Start()
         {
             InitializeComponent();
+
+            SQLiteConnection connection = new SQLiteConnection();
+            connection.ConnectionString = "Data Source=D:\\OPEN\\cardiology\\Database\\cardiology.sqlite";
+
+            connection.Open();
+
+            string sql = "SELECT dss_value FROM ddt_values WHERE dss_name = 'default.patient.lastname'";
+            SQLiteCommand command = new SQLiteCommand(sql, connection);
+            SQLiteDataReader reader = command.ExecuteReader();
+            if (reader.Read())
+            {
+                string value = (string) reader["dss_value"];
+                patientLastName.Text = value;
+            }
+
+            connection.Close();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -118,6 +136,11 @@ namespace Cardiology
         {
             DB1 form = new DB1();
             form.ShowDialog();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

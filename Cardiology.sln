@@ -7,6 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cardiology", "Cardiology\Ca
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F29FB06D-B154-4E80-AAF5-502AAAB4DBAF}"
 	ProjectSection(SolutionItems) = preProject
+		Database\cardiology.sqlite = Database\cardiology.sqlite
 		Images\logo.ico = Images\logo.ico
 	EndProjectSection
 EndProject

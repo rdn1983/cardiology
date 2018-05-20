@@ -145,6 +145,7 @@
             // 
             resources.ApplyResources(this.patientSecondName, "patientSecondName");
             this.patientSecondName.Name = "patientSecondName";
+            this.patientSecondName.TextChanged += new System.EventHandler(this.patientSecondName_TextChanged);
             // 
             // label3
             // 
@@ -155,6 +156,7 @@
             // 
             resources.ApplyResources(this.patientFirstName, "patientFirstName");
             this.patientFirstName.Name = "patientFirstName";
+            this.patientFirstName.TextChanged += new System.EventHandler(this.patientFirstName_TextChanged);
             // 
             // label2
             // 

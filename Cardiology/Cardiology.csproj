@@ -66,6 +66,7 @@
     <Compile Include="AppointmentTemplates.Designer.cs">
       <DependentUpon>AppointmentTemplates.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataService.cs" />
     <Compile Include="DB1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +97,7 @@
     <Compile Include="ListNaznachForm.Designer.cs">
       <DependentUpon>ListNaznachForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Patient.cs" />
     <Compile Include="Perelivanie.cs">
       <SubType>Form</SubType>
     </Compile>

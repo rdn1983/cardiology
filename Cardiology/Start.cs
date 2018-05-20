@@ -10,6 +10,8 @@ using System.Windows.Forms;
 
 using System.Data.SQLite;
 
+using Cardiology.Model;
+
 namespace Cardiology
 {
     public partial class Start : Form
@@ -17,6 +19,8 @@ namespace Cardiology
         public Start()
         {
             InitializeComponent();
+
+            
 
             initControls();            
         }
@@ -29,90 +33,11 @@ namespace Cardiology
 
         private void initPatient()
         {
-            initPatientLastName();
-            initPatientSecondName();
-            initPatientFirstName(); 
-        }
-
-        private void initPatientLastName()
-        {
-            SQLiteConnection connection = null;
-            try
-            {
-                connection = new SQLiteConnection();
-                connection.ConnectionString = "Data Source=D:\\OPEN\\cardiology\\Database\\cardiology.sqlite";
-
-                connection.Open();
-
-                string sql = "SELECT dss_value FROM ddt_values WHERE dss_name = 'default.patient.lastname'";
-                SQLiteCommand command = new SQLiteCommand(sql, connection);
-                SQLiteDataReader reader = command.ExecuteReader();
-                if (reader.Read())
-                {
-                    patientLastName.Text = (string)reader["dss_value"];
-                }
-            }
-            finally
-            {
-                if (connection != null)
-                {
-                    connection.Close();
-                }
-            }
-        }
-
-        private void initPatientSecondName()
-        {
-            SQLiteConnection connection = null;
-            try
-            {
-                connection = new SQLiteConnection();
-                connection.ConnectionString = "Data Source=D:\\OPEN\\cardiology\\Database\\cardiology.sqlite";
-
-                connection.Open();
-
-                string sql = "SELECT dss_value FROM ddt_values WHERE dss_name = 'default.patient.secondname'";
-                SQLiteCommand command = new SQLiteCommand(sql, connection);
-                SQLiteDataReader reader = command.ExecuteReader();
-                if (reader.Read())
-                {
-                    patientSecondName.Text = (string)reader["dss_value"];
-                }
-            }
-            finally
-            {
-                if (connection != null)
-                {
-                    connection.Close();
-                }
-            }
-        }
-
-        private void initPatientFirstName()
-        {
-            SQLiteConnection connection = null;
-            try
-            {
-                connection = new SQLiteConnection();
-                connection.ConnectionString = "Data Source=D:\\OPEN\\cardiology\\Database\\cardiology.sqlite";
-
-                connection.Open();
-
-                string sql = "SELECT dss_value FROM ddt_values WHERE dss_name = 'default.patient.name'";
-                SQLiteCommand command = new SQLiteCommand(sql, connection);
-                SQLiteDataReader reader = command.ExecuteReader();
-                if (reader.Read())
-                {
-                    patientFirstName.Text = (string)reader["dss_value"];
-                }
-            }
-            finally
-            {
-                if (connection != null)
-                {
-                    connection.Close();
-                }
-            }
+            DataService service = new DataService();
+            Patient patient = service.GetPatient();
+            patientLastName.Text = patient.lastName;
+            patientFirstName.Text = patient.name;
+            patientSecondName.Text = patient.secondName;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -221,6 +146,16 @@ namespace Cardiology
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void patientFirstName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void patientSecondName_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

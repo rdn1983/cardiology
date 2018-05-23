@@ -29,23 +29,23 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserBlanks));
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.printCommonAggrement = new System.Windows.Forms.Button();
+            this.printVICHAggreement = new System.Windows.Forms.Button();
+            this.pritStentggrement = new System.Windows.Forms.Button();
+            this.printKAGAggrement = new System.Windows.Forms.Button();
+            this.printManipulationAggrement = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
+            this.printRejectManipulation = new System.Windows.Forms.Button();
+            this.printRejectCure = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.button8 = new System.Windows.Forms.Button();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.button10 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
@@ -57,50 +57,53 @@
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button1
+            // printCommonAggrement
             // 
-            this.button1.Location = new System.Drawing.Point(12, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(165, 38);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Согласие общее (печать)";
-            this.button1.UseVisualStyleBackColor = true;
+            this.printCommonAggrement.Location = new System.Drawing.Point(12, 12);
+            this.printCommonAggrement.Name = "printCommonAggrement";
+            this.printCommonAggrement.Size = new System.Drawing.Size(165, 38);
+            this.printCommonAggrement.TabIndex = 0;
+            this.printCommonAggrement.Text = "Согласие общее (печать)";
+            this.printCommonAggrement.UseVisualStyleBackColor = true;
+            this.printCommonAggrement.Click += new System.EventHandler(this.printCommonAggrement_Click);
             // 
-            // button2
+            // printVICHAggreement
             // 
-            this.button2.Location = new System.Drawing.Point(12, 56);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(165, 38);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Согласие на ВИЧ (печать)";
-            this.button2.UseVisualStyleBackColor = true;
+            this.printVICHAggreement.Location = new System.Drawing.Point(12, 56);
+            this.printVICHAggreement.Name = "printVICHAggreement";
+            this.printVICHAggreement.Size = new System.Drawing.Size(165, 38);
+            this.printVICHAggreement.TabIndex = 1;
+            this.printVICHAggreement.Text = "Согласие на ВИЧ (печать)";
+            this.printVICHAggreement.UseVisualStyleBackColor = true;
+            this.printVICHAggreement.Click += new System.EventHandler(this.printVICHAggreement_Click);
             // 
-            // button3
+            // pritStentggrement
             // 
-            this.button3.Location = new System.Drawing.Point(12, 100);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(165, 38);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Согласие на Стент (печать)";
-            this.button3.UseVisualStyleBackColor = true;
+            this.pritStentggrement.Location = new System.Drawing.Point(12, 100);
+            this.pritStentggrement.Name = "pritStentggrement";
+            this.pritStentggrement.Size = new System.Drawing.Size(165, 38);
+            this.pritStentggrement.TabIndex = 2;
+            this.pritStentggrement.Text = "Согласие на Стент (печать)";
+            this.pritStentggrement.UseVisualStyleBackColor = true;
+            this.pritStentggrement.Click += new System.EventHandler(this.pritStentggrement_Click);
             // 
-            // button4
+            // printKAGAggrement
             // 
-            this.button4.Location = new System.Drawing.Point(12, 144);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(165, 38);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Согласие на КАГ (печать)";
-            this.button4.UseVisualStyleBackColor = true;
+            this.printKAGAggrement.Location = new System.Drawing.Point(12, 144);
+            this.printKAGAggrement.Name = "printKAGAggrement";
+            this.printKAGAggrement.Size = new System.Drawing.Size(165, 38);
+            this.printKAGAggrement.TabIndex = 3;
+            this.printKAGAggrement.Text = "Согласие на КАГ (печать)";
+            this.printKAGAggrement.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // printManipulationAggrement
             // 
-            this.button5.Location = new System.Drawing.Point(12, 188);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(165, 38);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "Согласие на манипуляцию";
-            this.button5.UseVisualStyleBackColor = true;
+            this.printManipulationAggrement.Location = new System.Drawing.Point(12, 188);
+            this.printManipulationAggrement.Name = "printManipulationAggrement";
+            this.printManipulationAggrement.Size = new System.Drawing.Size(165, 38);
+            this.printManipulationAggrement.TabIndex = 4;
+            this.printManipulationAggrement.Text = "Согласие на манипуляцию";
+            this.printManipulationAggrement.UseVisualStyleBackColor = true;
             // 
             // comboBox1
             // 
@@ -110,23 +113,24 @@
             this.comboBox1.Size = new System.Drawing.Size(164, 21);
             this.comboBox1.TabIndex = 5;
             // 
-            // button6
+            // printRejectManipulation
             // 
-            this.button6.Location = new System.Drawing.Point(12, 287);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(165, 38);
-            this.button6.TabIndex = 6;
-            this.button6.Text = "Отказ от манипуляции";
-            this.button6.UseVisualStyleBackColor = true;
+            this.printRejectManipulation.Location = new System.Drawing.Point(12, 287);
+            this.printRejectManipulation.Name = "printRejectManipulation";
+            this.printRejectManipulation.Size = new System.Drawing.Size(165, 38);
+            this.printRejectManipulation.TabIndex = 6;
+            this.printRejectManipulation.Text = "Отказ от манипуляции";
+            this.printRejectManipulation.UseVisualStyleBackColor = true;
+            this.printRejectManipulation.Click += new System.EventHandler(this.button6_Click);
             // 
-            // button7
+            // printRejectCure
             // 
-            this.button7.Location = new System.Drawing.Point(13, 331);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(165, 38);
-            this.button7.TabIndex = 7;
-            this.button7.Text = "Отказ от стац.лечения";
-            this.button7.UseVisualStyleBackColor = true;
+            this.printRejectCure.Location = new System.Drawing.Point(13, 331);
+            this.printRejectCure.Name = "printRejectCure";
+            this.printRejectCure.Size = new System.Drawing.Size(165, 38);
+            this.printRejectCure.TabIndex = 7;
+            this.printRejectCure.Text = "Отказ от стац.лечения";
+            this.printRejectCure.UseVisualStyleBackColor = true;
             // 
             // button9
             // 
@@ -153,23 +157,35 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ВМП";
             // 
-            // label1
+            // button8
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Протокол №:";
+            this.button8.Location = new System.Drawing.Point(13, 91);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(165, 38);
+            this.button8.TabIndex = 11;
+            this.button8.Text = "Печать";
+            this.button8.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // textBox3
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 72);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Код ВМП:";
+            this.textBox3.Location = new System.Drawing.Point(86, 65);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(100, 20);
+            this.textBox3.TabIndex = 5;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(86, 42);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 20);
+            this.textBox2.TabIndex = 4;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(86, 19);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 3;
             // 
             // label3
             // 
@@ -180,35 +196,23 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Дата ВК:";
             // 
-            // textBox1
+            // label2
             // 
-            this.textBox1.Location = new System.Drawing.Point(86, 19);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 3;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(7, 72);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(56, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Код ВМП:";
             // 
-            // textBox2
+            // label1
             // 
-            this.textBox2.Location = new System.Drawing.Point(86, 42);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 4;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(86, 65);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 5;
-            // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(13, 91);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(165, 38);
-            this.button8.TabIndex = 11;
-            this.button8.Text = "Печать";
-            this.button8.UseVisualStyleBackColor = true;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(73, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Протокол №:";
             // 
             // button10
             // 
@@ -297,14 +301,14 @@
             this.Controls.Add(this.button10);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button9);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button6);
+            this.Controls.Add(this.printRejectCure);
+            this.Controls.Add(this.printRejectManipulation);
             this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.printManipulationAggrement);
+            this.Controls.Add(this.printKAGAggrement);
+            this.Controls.Add(this.pritStentggrement);
+            this.Controls.Add(this.printVICHAggreement);
+            this.Controls.Add(this.printCommonAggrement);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "UserBlanks";
@@ -317,14 +321,14 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button printCommonAggrement;
+        private System.Windows.Forms.Button printVICHAggreement;
+        private System.Windows.Forms.Button pritStentggrement;
+        private System.Windows.Forms.Button printKAGAggrement;
+        private System.Windows.Forms.Button printManipulationAggrement;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button printRejectManipulation;
+        private System.Windows.Forms.Button printRejectCure;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button8;

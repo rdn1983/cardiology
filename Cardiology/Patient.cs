@@ -4,15 +4,15 @@ namespace Cardiology.Model
 {
     class Patient
     {
-        [TableAttribute("name")]
+        [TableAttribute("dss_login")]
         public string name;
-        [TableAttribute("secondName")]
+        [TableAttribute("dss_initials")]
         public string secondName;
-        [TableAttribute("lastName")]
+        [TableAttribute("dss_full_name")]
         public string lastName;
-        [TableAttribute("birthday")]
+        
         public DateTime birthday;
-        [TableAttribute("receiptDateTime")]
+        
         public DateTime receiptDateTime;
     }
 }

@@ -79,23 +79,26 @@ namespace Cardiology
                 connection.ConnectionString = "Server=127.0.0.1;Port=5432;User Id=postgres;Password=111;Database=postgres;";
                 connection.Open();
 
-                string sql = @"SELECT dss_name, dss_value FROM ddt_patient ";
+                string sql = @"SELECT * FROM ddt_patient ";
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
 
                 Npgsql.NpgsqlDataReader reader = command.ExecuteReader();
-                FieldInfo[] fields = typeof(Patient).GetFields();
-
+                
                 while (reader.Read())
                 {
-                    string name = reader.GetString(0);
-                    string value = reader.GetString(1);
-
-                    for(int i=0; i<fields.Length; i++)
+                    
+                    FieldInfo[] fields = typeof(Patient).GetFields();
+                    for (int i=0; i<fields.Length; i++)
                     {
+                        string name = reader.GetString(0);
+                        object value = reader.GetValue(1);
+
                         FieldInfo fieldInfo = fields[i];
                         TableAttribute attrInfo = Attribute.GetCustomAttribute(fieldInfo, typeof(TableAttribute)) as TableAttribute;
-                        if (attrInfo!=null)
+                        
+                        if (attrInfo!=null && attrInfo.AttrName.Equals(name))
                         {
+                            Console.WriteLine(fieldInfo.Name);
                             fieldInfo.SetValue(patient, value);
                         }
                     }

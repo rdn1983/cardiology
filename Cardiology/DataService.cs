@@ -1,5 +1,6 @@
-﻿using System;
-using Cardiology.Model;
+﻿using Cardiology.Model;
+using System;
+using System.Reflection;
 
 namespace Cardiology
 {
@@ -57,6 +58,52 @@ namespace Cardiology
                 }
             } finally {
                 if(connection != null)
+                {
+                    connection.Close();
+                }
+            }
+
+
+            return patient;
+        }
+
+        public Patient GetPatientWithReflection()
+        {
+            Patient patient = new Patient();
+
+            Npgsql.NpgsqlConnection connection = null;
+
+            try
+            {
+                connection = new Npgsql.NpgsqlConnection();
+                connection.ConnectionString = "Server=127.0.0.1;Port=5432;User Id=postgres;Password=111;Database=postgres;";
+                connection.Open();
+
+                string sql = @"SELECT dss_name, dss_value FROM ddt_patient ";
+                Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
+
+                Npgsql.NpgsqlDataReader reader = command.ExecuteReader();
+                FieldInfo[] fields = typeof(Patient).GetFields();
+
+                while (reader.Read())
+                {
+                    string name = reader.GetString(0);
+                    string value = reader.GetString(1);
+
+                    for(int i=0; i<fields.Length; i++)
+                    {
+                        FieldInfo fieldInfo = fields[i];
+                        TableAttribute attrInfo = Attribute.GetCustomAttribute(fieldInfo, typeof(TableAttribute)) as TableAttribute;
+                        if (attrInfo!=null)
+                        {
+                            fieldInfo.SetValue(patient, value);
+                        }
+                    }
+                }
+            }
+            finally
+            {
+                if (connection != null)
                 {
                     connection.Close();
                 }

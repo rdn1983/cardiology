@@ -57,6 +57,7 @@
     <Compile Include="Analizi.Designer.cs">
       <DependentUpon>Analizi.cs</DependentUpon>
     </Compile>
+    <Compile Include="TableAttribute.cs" />
     <Compile Include="ComplaintTemplates.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +88,12 @@
     </Compile>
     <Compile Include="DB3.Designer.cs">
       <DependentUpon>DB3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Hospital.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Hospital.Designer.cs">
+      <DependentUpon>Hospital.cs</DependentUpon>
     </Compile>
     <Compile Include="JournalAfterKAG.cs">
       <SubType>Form</SubType>
@@ -247,6 +254,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FirstInspection.resx">
       <DependentUpon>FirstInspection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Hospital.resx">
+      <DependentUpon>Hospital.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="JournalAfterKAG.resx">
       <DependentUpon>JournalAfterKAG.cs</DependentUpon>

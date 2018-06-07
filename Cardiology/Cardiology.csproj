@@ -57,6 +57,7 @@
     <Compile Include="Analizi.Designer.cs">
       <DependentUpon>Analizi.cs</DependentUpon>
     </Compile>
+    <Compile Include="DdtCureDictionary.cs" />
     <Compile Include="TableAttribute.cs" />
     <Compile Include="ComplaintTemplates.cs">
       <SubType>Form</SubType>

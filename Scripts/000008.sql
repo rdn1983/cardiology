@@ -3,11 +3,11 @@ CREATE TABLE ddt_hospital (
   r_creation_date TIMESTAMP DEFAULT NOW() NOT NULL,
   r_modify_date TIMESTAMP NOT NULL,
 
-  dsid_patient VARCHAR(100),
+  dsid_patient VARCHAR(16) REFERENCES ddt_patient(r_object_id),
   dsdt_admission_date timestamp,
-  dsid_duty_doctor VARCHAR(100),
-  dsid_curing_doctor VARCHAR(100),
-  dsid_substitution_doctor VARCHAR(100),
+  dsid_duty_doctor VARCHAR(16) REFERENCES ddt_doctors(r_object_id),
+  dsid_curing_doctor VARCHAR(16) REFERENCES ddt_doctors(r_object_id),
+  dsid_substitution_doctor VARCHAR(16) REFERENCES ddt_doctors(r_object_id),
   dsb_active boolean,
   dsb_reject_cure boolean,
   dsb_death boolean

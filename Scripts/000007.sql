@@ -3,9 +3,9 @@ CREATE TABLE ddt_issued_medicine (
   r_creation_date TIMESTAMP DEFAULT NOW() NOT NULL,
   r_modify_date TIMESTAMP NOT NULL,
 
-  dsid_cure VARCHAR(100),
-  dsid_doctor VARCHAR(100),
-  dsid_patient VARCHAR(100)
+  dsid_cure VARCHAR(16) REFERENCES ddt_cure(r_object_id),
+  dsid_doctor VARCHAR(16) REFERENCES ddt_doctors(r_object_id),
+  dsid_patient VARCHAR(16) REFERENCES ddt_patient(r_object_id)
 );
 
 CREATE TRIGGER ddt_issued_medicine BEFORE INSERT OR UPDATE

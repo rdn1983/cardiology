@@ -3,9 +3,10 @@ CREATE TABLE ddt_journal (
   r_creation_date TIMESTAMP DEFAULT NOW() NOT NULL,
   r_modify_date TIMESTAMP NOT NULL,
 
-  dsid_patient VARCHAR(100),
+  dsid_hospitality_session VARCHAR(16) REFERENCES ddt_hospital(r_object_id),
+  dsid_patient VARCHAR(16) REFERENCES ddt_patient(r_object_id),
   dsdt_admission_date timestamp,
-  dsid_doctor VARCHAR(100),
+  dsid_doctor VARCHAR(16) REFERENCES ddt_doctors(r_object_id),
   dss_complaints VARCHAR(256),
   dss_chdd VARCHAR(256),
   dss_chss VARCHAR(256),

@@ -24,14 +24,7 @@ namespace Cardiology
 
         private void initPatient()
         {
-            DataService service = new DataService();
-
-            Patient patient = service.GetPatient();
-            patientLastName.Text = patient.lastName;
-            patientFirstName.Text = patient.name;
-            patientSecondName.Text = patient.secondName;
-            patientBirthDate.Value = patient.birthday;
-            patientReceiptDateTime.Value = patient.receiptDateTime;
+            
 
         }
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using Cardiology.Model;
 using System.Windows.Forms;
 
 
@@ -12,9 +13,10 @@ namespace Cardiology
         [STAThread]
         static void Main()
         {
+            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Start());
+            Application.Run(new Hospital());
         }
     }
 }

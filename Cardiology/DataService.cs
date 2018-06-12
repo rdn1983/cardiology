@@ -1,6 +1,9 @@
-﻿using Cardiology.Model;
-using System;
+﻿using System;
+using System.Collections.Generic;
 using System.Reflection;
+using Npgsql.Schema;
+using System.Collections.ObjectModel;
+using System.Text;
 
 namespace Cardiology
 {
@@ -10,98 +13,83 @@ namespace Cardiology
             
         }
 
-        public Patient GetPatient()
+        private Npgsql.NpgsqlConnection getConnection()
         {
-            Patient patient = new Patient();
-
             Npgsql.NpgsqlConnection connection = null;
+            connection = new Npgsql.NpgsqlConnection();
+            connection.ConnectionString = "Server=127.0.0.1;Port=5432;User Id=postgres;Password=111;Database=postgres;";
+            connection.Open();
+            return connection;
+        }
 
-            try {
-                connection = new Npgsql.NpgsqlConnection();
-                connection.ConnectionString = "Server=127.0.0.1;Port=5432;User Id=postgres;Password=111;Database=postgres;";
-                connection.Open();
-
-                string sql = @"SELECT dss_name, dss_value FROM ddt_values WHERE dss_name LIKE 'default.patient.%'";
-                Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
-
-                Npgsql.NpgsqlDataReader reader = command.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    string name = reader.GetString(0);
-                    string value = reader.GetString(1);
-
-                    switch (name) {
-                        case "default.patient.name":
-                            patient.name = value;
-                            break;
-                        case "default.patient.secondname":
-                            patient.secondName = value;
-                            break;
-                        case "default.patient.lastname":
-                            patient.lastName = value;
-                            break;
-                        case "default.patient.birthday":
-                            if (value != null)
-                            {
-                                patient.birthday = DateTime.Parse(value);
-                            }
-                            break;
-                        case "default.patient.receipttime":
-                            if (value != null)
-                            {
-                                patient.receiptDateTime = DateTime.Parse(value);
-                            }
-                            break;
-
-                    }
-                }
-            } finally {
-                if(connection != null)
+        public void update(string query)
+        {
+            Npgsql.NpgsqlConnection connection = null;
+            try
+            {
+                connection = getConnection();
+                Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(query, connection);
+                command.ExecuteScalar();
+            }
+            finally
+            {
+                if (connection != null)
                 {
                     connection.Close();
                 }
             }
-
-
-            return patient;
         }
 
-        public Patient GetPatientWithReflection()
+        public string insert(string query)
         {
-            Patient patient = new Patient();
-
             Npgsql.NpgsqlConnection connection = null;
-
             try
             {
-                connection = new Npgsql.NpgsqlConnection();
-                connection.ConnectionString = "Server=127.0.0.1;Port=5432;User Id=postgres;Password=111;Database=postgres;";
-                connection.Open();
+                connection = getConnection();
+                Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(query, connection);
+                return (string) command.ExecuteScalar();
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+        }
 
-                string sql = @"SELECT * FROM ddt_patient ";
-                Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
+        public string insertObject<T>(T obj, string tableName)
+        {
+            Npgsql.NpgsqlConnection connection = null;
+            try
+            {
+                connection = getConnection();
+                string query = convertObjectFieldsInQuery(obj, tableName);
+                Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(query, connection);
+                return (string)command.ExecuteScalar();
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+        }
 
+        public List<T> getValuesFromQuery<T>(String query)
+        {
+            List<T> result = new List<T>();
+            Npgsql.NpgsqlConnection connection = null;
+            try
+            {
+                connection = getConnection();
+                Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(query, connection);
                 Npgsql.NpgsqlDataReader reader = command.ExecuteReader();
-                
                 while (reader.Read())
                 {
-                    
-                    FieldInfo[] fields = typeof(Patient).GetFields();
-                    for (int i=0; i<fields.Length; i++)
-                    {
-                        string name = reader.GetString(0);
-                        object value = reader.GetValue(1);
-
-                        FieldInfo fieldInfo = fields[i];
-                        TableAttribute attrInfo = Attribute.GetCustomAttribute(fieldInfo, typeof(TableAttribute)) as TableAttribute;
-                        
-                        if (attrInfo!=null && attrInfo.AttrName.Equals(name))
-                        {
-                            Console.WriteLine(fieldInfo.Name);
-                            fieldInfo.SetValue(patient, value);
-                        }
-                    }
+                    T bean = fillObject<T>(reader);
+                    result.Add(bean);
                 }
             }
             finally
@@ -111,10 +99,109 @@ namespace Cardiology
                     connection.Close();
                 }
             }
+            return result;
+        }
+       
 
+        public T fillFromQuery<T>(string query)
+        {
+            Npgsql.NpgsqlConnection connection = null;
+            try
+            {
+                connection = getConnection();
+                Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(query, connection);
+                Npgsql.NpgsqlDataReader reader = command.ExecuteReader();
 
-            return patient;
+                if (reader.Read())
+                {
+                    return fillObject<T>(reader);
+                }
+            } finally
+            {
+                if(connection!=null)
+                {
+                    connection.Close();
+                }
+            }
+            return default(T);
+        }
+
+        private T fillObject<T> (Npgsql.NpgsqlDataReader reader)
+        {
+            T result = (T)Activator.CreateInstance(typeof(T));
+            FieldInfo[] fields = typeof(T).GetFields(BindingFlags.NonPublic | BindingFlags.Instance);
+            ReadOnlyCollection<NpgsqlDbColumn> columns = reader.GetColumnSchema();
+            IEnumerator<NpgsqlDbColumn> colsNumerator = columns.GetEnumerator();
+            while (colsNumerator.MoveNext())
+            {
+                string columnName = colsNumerator.Current.ColumnName;
+                for (int i = 0; i < fields.Length; i++)
+                {
+                    FieldInfo fieldInfo = fields[i];
+                    TableAttribute attrInfo = Attribute.GetCustomAttribute(fieldInfo, typeof(TableAttribute)) as TableAttribute;
+                    if (attrInfo != null && attrInfo.AttrName.Equals(columnName))
+                    {
+                        fieldInfo.SetValue(result, reader.GetValue(columns.IndexOf(colsNumerator.Current)));
+                    }
+                }
+            }
+            return result;
+        }
+
+        private string convertObjectFieldsInQuery<T>(T obj, string tableName)
+        {
+            StringBuilder valuesBuilder = new StringBuilder("VALUES(");
+            StringBuilder builder = new StringBuilder();
+            builder.Append(@"INSERT INTO ").Append(tableName).Append("(");
+
+            FieldInfo[] fields = typeof(T).GetFields(BindingFlags.NonPublic | BindingFlags.Instance);
+            for (int i = 0; i < fields.Length; i++)
+            {
+                FieldInfo fieldInfo = fields[i];
+                TableAttribute attrInfo = Attribute.GetCustomAttribute(fieldInfo, typeof(TableAttribute)) as TableAttribute;
+                
+                if (attrInfo != null && attrInfo.CanSetAttr)
+                {
+                    builder.Append(attrInfo.AttrName);
+                    object value = fieldInfo.GetValue(obj);
+                    valuesBuilder.Append(getWrappedValue(value, fieldInfo.FieldType));
+                    if (i < fields.Length - 1)
+                    {
+                        builder.Append(",");
+                        valuesBuilder.Append(",");
+                    }
+                }
+            }
+            valuesBuilder.Append(")");
+            builder.Append(")").Append(valuesBuilder).Append(" RETURNING r_object_id;");
+            Console.WriteLine(builder.ToString());
+            return builder.ToString();
+        }
+
+        private string getWrappedValue(object value, Type fieldType)
+        {
+            if (fieldType == typeof(int) || fieldType == typeof(double))
+            {
+                return value + "";
+            }
+            else if (fieldType == typeof(string))
+            {
+                return "'" + value + "'";
+            }
+            else if (fieldType == typeof(DateTime))
+            {
+                return (@"to_date('" + value + "', 'YYYY-MM-DD')");
+            }
+            else
+            {
+                return value.ToString();
+            }
+            
         }
 
     }
+
+    
+
+   
 }

@@ -10,7 +10,9 @@ CREATE TABLE ddt_hospital (
   dsid_substitution_doctor VARCHAR(16) REFERENCES ddt_doctors(r_object_id),
   dsb_active boolean,
   dsb_reject_cure boolean,
-  dsb_death boolean
+  dsb_death boolean,
+  dss_room_cell VARCHAR(16),
+  dss_diagnosis VARCHAR(128)
 );
 
 CREATE TRIGGER ddt_hospital BEFORE INSERT OR UPDATE

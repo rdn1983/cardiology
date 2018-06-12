@@ -1,3 +1,4 @@
+
 CREATE TABLE ddt_journal (
   r_object_id varchar(16) PRIMARY KEY DEFAULT GetNextId(),
   r_creation_date TIMESTAMP DEFAULT NOW() NOT NULL,

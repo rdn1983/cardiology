@@ -2,7 +2,7 @@
 
 namespace Cardiology.Model
 {
-    class DdtPatient
+    public class DdtPatient
     {
         public const string TABLENAME= "ddt_patient";
         [TableAttribute("r_object_id", false)]

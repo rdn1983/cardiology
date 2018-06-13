@@ -1,12 +1,7 @@
 ﻿using Cardiology.Model;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Cardiology
@@ -37,7 +32,8 @@ namespace Cardiology
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
-
+            Vypaska dialog = new Vypaska();
+            dialog.ShowDialog();
         }
 
         private void patientAdmission_Click(object sender, EventArgs e)
@@ -49,6 +45,66 @@ namespace Cardiology
         private void toolStripMenuItem3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void konsiliumItem_Click(object sender, EventArgs e)
+        {
+            Start s = new Start();
+            s.ShowDialog();
+        }
+
+        private void kateterItem_Click(object sender, EventArgs e)
+        {
+            UserFromVena form = new UserFromVena();
+            form.ShowDialog();
+        }
+
+        private void trombolisisItem_Click(object sender, EventArgs e)
+        {
+            UserFormTrombolizis form = new UserFormTrombolizis(null);
+            form.ShowDialog();
+        }
+
+        private void veksItem_Click(object sender, EventArgs e)
+        {
+            UserFormVEKS form = new UserFormVEKS();
+            form.ShowDialog();
+        }
+
+        private void toracatezosItem_Click(object sender, EventArgs e)
+        {
+            UserFormTorCent form = new UserFormTorCent();
+            form.ShowDialog();
+        }
+
+        private void eitItem_Click(object sender, EventArgs e)
+        {
+            UserFormEIT form = new UserFormEIT();
+            form.ShowDialog();
+        }
+
+        private void intubationItem_Click(object sender, EventArgs e)
+        {
+            UserFormIntubation form = new UserFormIntubation();
+            form.ShowDialog();
+        }
+
+        private void ekstubationItem_Click(object sender, EventArgs e)
+        {
+            UserFormExtubation form = new UserFormExtubation();
+            form.ShowDialog();
+        }
+
+        private void reanimItem_Click(object sender, EventArgs e)
+        {
+            ReanimDEAD form = new ReanimDEAD(null);
+            form.ShowDialog();
+        }
+
+        private void deadItem_Click(object sender, EventArgs e)
+        {
+            ReanimDEAD form = new ReanimDEAD(null);
+            form.ShowDialog();
         }
     }
 }

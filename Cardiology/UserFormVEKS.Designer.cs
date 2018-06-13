@@ -31,11 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserFormVEKS));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.veinTxt = new System.Windows.Forms.TextBox();
+            this.bodyArea = new System.Windows.Forms.RichTextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.doctorsBox = new System.Windows.Forms.ComboBox();
+            this.printBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -57,21 +57,21 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "произведена пункция и катетеризация";
             // 
-            // textBox1
+            // veinTxt
             // 
-            this.textBox1.Location = new System.Drawing.Point(227, 27);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(237, 20);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.Text = "правой подключичной вены.";
+            this.veinTxt.Location = new System.Drawing.Point(227, 27);
+            this.veinTxt.Name = "veinTxt";
+            this.veinTxt.Size = new System.Drawing.Size(237, 20);
+            this.veinTxt.TabIndex = 2;
+            this.veinTxt.Text = "правой подключичной вены.";
             // 
-            // richTextBox1
+            // bodyArea
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(13, 56);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(451, 96);
-            this.richTextBox1.TabIndex = 3;
-            this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
+            this.bodyArea.Location = new System.Drawing.Point(13, 56);
+            this.bodyArea.Name = "bodyArea";
+            this.bodyArea.Size = new System.Drawing.Size(451, 96);
+            this.bodyArea.TabIndex = 3;
+            this.bodyArea.Text = resources.GetString("bodyArea.Text");
             // 
             // label3
             // 
@@ -82,33 +82,34 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Врач:";
             // 
-            // comboBox1
+            // doctorsBox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(52, 156);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(168, 21);
-            this.comboBox1.TabIndex = 5;
+            this.doctorsBox.FormattingEnabled = true;
+            this.doctorsBox.Location = new System.Drawing.Point(52, 156);
+            this.doctorsBox.Name = "doctorsBox";
+            this.doctorsBox.Size = new System.Drawing.Size(168, 21);
+            this.doctorsBox.TabIndex = 5;
             // 
-            // button1
+            // printBtn
             // 
-            this.button1.Location = new System.Drawing.Point(340, 153);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(123, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Печать";
-            this.button1.UseVisualStyleBackColor = true;
+            this.printBtn.Location = new System.Drawing.Point(340, 153);
+            this.printBtn.Name = "printBtn";
+            this.printBtn.Size = new System.Drawing.Size(123, 23);
+            this.printBtn.TabIndex = 6;
+            this.printBtn.Text = "MsWord";
+            this.printBtn.UseVisualStyleBackColor = true;
+            this.printBtn.Click += new System.EventHandler(this.printBtn_Click);
             // 
             // UserFormVEKS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(477, 187);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.printBtn);
+            this.Controls.Add(this.doctorsBox);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.bodyArea);
+            this.Controls.Add(this.veinTxt);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -124,10 +125,10 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.TextBox veinTxt;
+        private System.Windows.Forms.RichTextBox bodyArea;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox doctorsBox;
+        private System.Windows.Forms.Button printBtn;
     }
 }

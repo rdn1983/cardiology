@@ -25,7 +25,7 @@ namespace Cardiology
 
         private void trombolizisBtn_Click(object sender, EventArgs e)
         {
-            UserFormTrombolizis form = new UserFormTrombolizis();
+            UserFormTrombolizis form = new UserFormTrombolizis(null);
             form.ShowDialog();
         }
 
@@ -61,7 +61,7 @@ namespace Cardiology
 
         private void reanimBtn_Click(object sender, EventArgs e)
         {
-            ReanimDEAD form = new ReanimDEAD();
+            ReanimDEAD form = new ReanimDEAD(null);
             form.ShowDialog();
         }
     }

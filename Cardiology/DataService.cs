@@ -9,8 +9,9 @@ namespace Cardiology
 {
     class DataService
     {
-        public DataService() {
-            
+        public DataService()
+        {
+
         }
 
         private Npgsql.NpgsqlConnection getConnection()
@@ -47,7 +48,7 @@ namespace Cardiology
             {
                 connection = getConnection();
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(query, connection);
-                return (string) command.ExecuteScalar();
+                return (string)command.ExecuteScalar();
             }
             finally
             {
@@ -77,7 +78,49 @@ namespace Cardiology
             }
         }
 
-        public List<T> getValuesFromQuery<T>(String query)
+        public void updateObject<T>(T obj, string tableName, string conditionAttrName, string conditionAttrValue)
+        {
+            Npgsql.NpgsqlConnection connection = null;
+            try
+            {
+                connection = getConnection();
+                string query = convertObjectFieldsInQuery(obj, tableName);
+
+                StringBuilder builder = new StringBuilder();
+                builder.Append(@"UPDATE ").Append(tableName).Append(" SET ");
+
+                FieldInfo[] fields = typeof(T).GetFields(BindingFlags.NonPublic | BindingFlags.Instance);
+                for (int i = 0; i < fields.Length; i++)
+                {
+                    FieldInfo fieldInfo = fields[i];
+                    TableAttribute attrInfo = Attribute.GetCustomAttribute(fieldInfo, typeof(TableAttribute)) as TableAttribute;
+
+                    if (attrInfo != null && attrInfo.CanSetAttr)
+                    {
+                        object value = fieldInfo.GetValue(obj);
+                        builder.Append(attrInfo.AttrName).Append("=").Append(getWrappedValue(value, fieldInfo.FieldType));
+                        if (i < fields.Length - 1)
+                        {
+                            builder.Append(",");
+                        }
+                    }
+                }
+                builder.Append(" WHERE ").Append(conditionAttrName).Append("='").Append(conditionAttrValue).Append("'");
+                Console.WriteLine(builder.ToString());
+
+                Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(query, connection);
+                command.ExecuteScalar();
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+        }
+
+        public List<T> queryObjectsCollection<T>(String query)
         {
             List<T> result = new List<T>();
             Npgsql.NpgsqlConnection connection = null;
@@ -101,9 +144,9 @@ namespace Cardiology
             }
             return result;
         }
-       
 
-        public T fillFromQuery<T>(string query)
+
+        public T queryObject<T>(string query)
         {
             Npgsql.NpgsqlConnection connection = null;
             try
@@ -116,9 +159,10 @@ namespace Cardiology
                 {
                     return fillObject<T>(reader);
                 }
-            } finally
+            }
+            finally
             {
-                if(connection!=null)
+                if (connection != null)
                 {
                     connection.Close();
                 }
@@ -126,7 +170,7 @@ namespace Cardiology
             return default(T);
         }
 
-        private T fillObject<T> (Npgsql.NpgsqlDataReader reader)
+        private T fillObject<T>(Npgsql.NpgsqlDataReader reader)
         {
             T result = (T)Activator.CreateInstance(typeof(T));
             FieldInfo[] fields = typeof(T).GetFields(BindingFlags.NonPublic | BindingFlags.Instance);
@@ -159,7 +203,7 @@ namespace Cardiology
             {
                 FieldInfo fieldInfo = fields[i];
                 TableAttribute attrInfo = Attribute.GetCustomAttribute(fieldInfo, typeof(TableAttribute)) as TableAttribute;
-                
+
                 if (attrInfo != null && attrInfo.CanSetAttr)
                 {
                     builder.Append(attrInfo.AttrName);
@@ -196,12 +240,12 @@ namespace Cardiology
             {
                 return value.ToString();
             }
-            
+
         }
 
     }
 
-    
 
-   
+
+
 }

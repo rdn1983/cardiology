@@ -19,7 +19,7 @@ namespace Cardiology
             string templatePath = Directory.GetCurrentDirectory() +  "\\Templates\\common_agreement_template.docx";
             Console.Write(templatePath);
             DataService service = new DataService();
-            DdtPatient patient = service.fillFromQuery<DdtPatient>(@"Select * from ddt_patient");
+            DdtPatient patient = service.queryObject<DdtPatient>(@"Select * from ddt_patient");
 
             Dictionary<string, string> values = new Dictionary<string, string>();
             values.Add(@"{patient.full_name}", "");
@@ -39,7 +39,7 @@ namespace Cardiology
             string templatePath = Directory.GetCurrentDirectory() + "\\Templates\\aid_aggrement_template.docx";
             Console.Write(templatePath);
             DataService service = new DataService();
-            DdtPatient patient = service.fillFromQuery<DdtPatient>(@"Select * from ddt_patient");
+            DdtPatient patient = service.queryObject<DdtPatient>(@"Select * from ddt_patient");
 
             Dictionary<string, string> values = new Dictionary<string, string>();
             values.Add(@"{patient.full_name}", "");

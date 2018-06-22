@@ -2,7 +2,7 @@
 
 namespace Cardiology.Model
 {
-    class DdtHospital
+    public class DdtHospital
     {
         public const string TABLENAME = "ddt_hospital";
 

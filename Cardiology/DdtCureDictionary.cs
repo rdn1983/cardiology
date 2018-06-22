@@ -1,6 +1,6 @@
 ﻿namespace Cardiology.Model.Dictionary
 {
-    enum DdtCureDictionary
+    public enum DdtCureDictionary
     {
         ANTICOAGULANTS = 0, 
         NEUROLOGICAL = 1,

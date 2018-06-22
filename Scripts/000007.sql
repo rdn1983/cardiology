@@ -5,7 +5,8 @@ CREATE TABLE ddt_issued_medicine (
 
   dsid_cure VARCHAR(16) REFERENCES ddt_cure(r_object_id),
   dsid_doctor VARCHAR(16) REFERENCES ddt_doctors(r_object_id),
-  dsid_patient VARCHAR(16) REFERENCES ddt_patient(r_object_id)
+  dsid_patient VARCHAR(16) REFERENCES ddt_patient(r_object_id),
+  dsid_hospitality_session VARCHAR(16) REFERENCES ddt_hospital(r_object_id)
 );
 
 CREATE TRIGGER ddt_issued_medicine BEFORE INSERT OR UPDATE

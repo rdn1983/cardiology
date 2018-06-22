@@ -19,7 +19,7 @@ namespace Cardiology
         private void initDutyDoctors()
         {
             DataService service = new DataService();
-            List<DdtDoctors> doctors = service.getValuesFromQuery<DdtDoctors>("select * from ddt_doctors");
+            List<DdtDoctors> doctors = service.queryObjectsCollection<DdtDoctors>("select * from ddt_doctors");
             for(int i=0; i<doctors.Count;i++)
             {
                 dutyCardioBox.Items.Add(doctors[i]);

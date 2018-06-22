@@ -3,7 +3,7 @@
 namespace Cardiology.Model
 
 {
-    class DdtJournal
+    public class DdtJournal
     {
         [TableAttribute("r_object_id", false)]
         private string rObjectId;

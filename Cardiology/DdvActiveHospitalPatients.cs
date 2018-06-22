@@ -4,8 +4,10 @@
 namespace Cardiology.Model
 
 {
-    class DdvActiveHospitalPatients
+    public class DdvActiveHospitalPatients
     {
+        [TableAttribute("dsid_hospital_session")]
+        private string patientSessionId;
         [TableAttribute("dsid_patient_id")]
         private string dsidPatientId;
         [TableAttribute("dsdt_admission_date")]
@@ -22,6 +24,11 @@ namespace Cardiology.Model
         private string dssDocName;
         [TableAttribute("dss_med_code")]
         private string dssMedCode;
+
+        public string PatientSessionId
+        {
+            get { return patientSessionId; }
+        }
 
         public string DssMedCode
         {

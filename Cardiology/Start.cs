@@ -55,8 +55,6 @@ namespace Cardiology
 
         private void firstInspectionBtn_Click(object sender, EventArgs e)
         {
-            FirstInspection inspectionForm = new FirstInspection();
-            inspectionForm.ShowDialog();
         }
 
         private void prescribingBtn_Click(object sender, EventArgs e)

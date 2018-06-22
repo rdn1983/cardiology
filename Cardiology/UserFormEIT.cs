@@ -18,7 +18,7 @@ namespace Cardiology
         private void initializeDoctorsBox()
         {
             DataService service = new DataService();
-            List<DdtDoctors> doctors = service.getValuesFromQuery<DdtDoctors>(@"select * from ddt_doctors");
+            List<DdtDoctors> doctors = service.queryObjectsCollection<DdtDoctors>(@"select * from ddt_doctors");
             for (int i = 0; i < doctors.Count; i++)
             {
                 doctorsBox.Items.Add(doctors[i]);
@@ -36,7 +36,7 @@ namespace Cardiology
 
         private void printBtn_Click(object sender, EventArgs e)
         {
-            if (!getIsNotValid())
+            if (getIsNotValid())
             {
                 MessageBox.Show("Введены не все данные на форме!", "Предупреждение!", MessageBoxButtons.OK);
                 return;

@@ -1,5 +1,6 @@
 ﻿using Cardiology.Model;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
@@ -16,14 +17,14 @@ namespace Cardiology
 
         private void loadPatientsGrid()
         {
-            hospitalPatient.Rows.Clear();
+            hospitalPatientsTbl.Rows.Clear();
             DataService service = new DataService();
             string query = @"Select * from ddv_active_hospital_patients ";
-            List<DdvActiveHospitalPatients> allHspitalPatients = service.getValuesFromQuery<DdvActiveHospitalPatients>(query);
+            List<DdvActiveHospitalPatients> allHspitalPatients = service.queryObjectsCollection<DdvActiveHospitalPatients>(query);
             for(int i=0; i<allHspitalPatients.Count(); i++)
             {
                 DdvActiveHospitalPatients h = allHspitalPatients[i];
-                hospitalPatient.Rows.Add(h.DssPatientName, h.DssRoomCell, h.DsdtAdmissionDate, h.DssDocName, h.DssDiagnosis);
+                hospitalPatientsTbl.Rows.Add(h.PatientSessionId, h.DssPatientName, h.DssRoomCell, h.DsdtAdmissionDate, h.DssDocName, h.DssDiagnosis);
             }
             
         }
@@ -105,6 +106,22 @@ namespace Cardiology
         {
             ReanimDEAD form = new ReanimDEAD(null);
             form.ShowDialog();
+        }
+
+        private void firstInspectationItem_Click(object sender, EventArgs e)
+        {
+            IEnumerator it = hospitalPatientsTbl.SelectedRows.GetEnumerator();
+            if (it.MoveNext())
+            {
+                DataGridViewRow row = (DataGridViewRow) it.Current;
+                DataGridViewCell cell = row.Cells[0];
+                string value = cell.Value.ToString();
+                DataService service = new DataService();
+                DdtHospital hospitalSession = service.queryObject<DdtHospital>(@"select * from ddt_hospital where r_object_id='" + value + "'");
+                FirstInspection form = new FirstInspection(hospitalSession);
+                form.ShowDialog();
+            }
+            
         }
     }
 }

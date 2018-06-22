@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Hospital));
             this.statusBar = new System.Windows.Forms.StatusStrip();
             this.mainMenu = new System.Windows.Forms.MenuStrip();
             this.actionsManu = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,12 +58,7 @@
             this.deadItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem12 = new System.Windows.Forms.ToolStripMenuItem();
-            this.hospitalPatient = new System.Windows.Forms.DataGridView();
-            this.patient_fio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.patient_place = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.patient_in_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.doctor_who = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.patient_diagnosis = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hospitalPatientsTbl = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem13 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem15 = new System.Windows.Forms.ToolStripMenuItem();
@@ -70,8 +66,15 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem16 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem17 = new System.Windows.Forms.ToolStripMenuItem();
+            this.firstInspectationItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hospitalSession = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.patient_fio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.patient_place = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.patient_in_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.doctor_who = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.patient_diagnosis = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mainMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.hospitalPatient)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hospitalPatientsTbl)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -288,58 +291,29 @@
             this.toolStripMenuItem12.Size = new System.Drawing.Size(217, 22);
             this.toolStripMenuItem12.Text = "Бланки";
             // 
-            // hospitalPatient
+            // hospitalPatientsTbl
             // 
-            this.hospitalPatient.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.hospitalPatient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.hospitalPatient.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.hospitalPatientsTbl.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.hospitalPatientsTbl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.hospitalPatientsTbl.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.hospitalSession,
             this.patient_fio,
             this.patient_place,
             this.patient_in_date,
             this.doctor_who,
             this.patient_diagnosis});
-            this.hospitalPatient.ContextMenuStrip = this.contextMenuStrip1;
-            this.hospitalPatient.Location = new System.Drawing.Point(12, 27);
-            this.hospitalPatient.Name = "hospitalPatient";
-            this.hospitalPatient.ReadOnly = true;
-            this.hospitalPatient.Size = new System.Drawing.Size(833, 398);
-            this.hospitalPatient.TabIndex = 2;
-            // 
-            // patient_fio
-            // 
-            this.patient_fio.HeaderText = "ФИО пациента";
-            this.patient_fio.Name = "patient_fio";
-            this.patient_fio.ReadOnly = true;
-            this.patient_fio.Width = 200;
-            // 
-            // patient_place
-            // 
-            this.patient_place.HeaderText = "Палата/Койка";
-            this.patient_place.Name = "patient_place";
-            this.patient_place.ReadOnly = true;
-            // 
-            // patient_in_date
-            // 
-            this.patient_in_date.HeaderText = "Дата поступления";
-            this.patient_in_date.Name = "patient_in_date";
-            this.patient_in_date.ReadOnly = true;
-            // 
-            // doctor_who
-            // 
-            this.doctor_who.HeaderText = "Лечащий врач";
-            this.doctor_who.Name = "doctor_who";
-            this.doctor_who.ReadOnly = true;
-            this.doctor_who.Width = 200;
-            // 
-            // patient_diagnosis
-            // 
-            this.patient_diagnosis.HeaderText = "Диагноз";
-            this.patient_diagnosis.Name = "patient_diagnosis";
-            this.patient_diagnosis.ReadOnly = true;
+            this.hospitalPatientsTbl.Location = new System.Drawing.Point(12, 27);
+            this.hospitalPatientsTbl.Name = "hospitalPatientsTbl";
+            this.hospitalPatientsTbl.ReadOnly = true;
+            this.hospitalPatientsTbl.RowTemplate.ContextMenuStrip = this.contextMenuStrip1;
+            this.hospitalPatientsTbl.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.hospitalPatientsTbl.Size = new System.Drawing.Size(833, 398);
+            this.hospitalPatientsTbl.TabIndex = 2;
             // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.firstInspectationItem,
             this.toolStripMenuItem13,
             this.toolStripMenuItem15,
             this.toolStripMenuItem14,
@@ -347,7 +321,7 @@
             this.toolStripMenuItem16,
             this.toolStripMenuItem17});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(262, 120);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(262, 142);
             // 
             // toolStripMenuItem13
             // 
@@ -384,20 +358,69 @@
             this.toolStripMenuItem17.Size = new System.Drawing.Size(261, 22);
             this.toolStripMenuItem17.Text = "Бланки";
             // 
+            // firstInspectationItem
+            // 
+            this.firstInspectationItem.Name = "firstInspectationItem";
+            this.firstInspectationItem.Size = new System.Drawing.Size(261, 22);
+            this.firstInspectationItem.Text = "Первичный осмотр";
+            this.firstInspectationItem.Click += new System.EventHandler(this.firstInspectationItem_Click);
+            // 
+            // hospitalSession
+            // 
+            this.hospitalSession.HeaderText = "sessionId";
+            this.hospitalSession.Name = "hospitalSession";
+            this.hospitalSession.ReadOnly = true;
+            this.hospitalSession.Visible = false;
+            // 
+            // patient_fio
+            // 
+            this.patient_fio.HeaderText = "ФИО пациента";
+            this.patient_fio.Name = "patient_fio";
+            this.patient_fio.ReadOnly = true;
+            this.patient_fio.Width = 200;
+            // 
+            // patient_place
+            // 
+            this.patient_place.HeaderText = "Палата/Койка";
+            this.patient_place.Name = "patient_place";
+            this.patient_place.ReadOnly = true;
+            // 
+            // patient_in_date
+            // 
+            this.patient_in_date.HeaderText = "Дата поступления";
+            this.patient_in_date.Name = "patient_in_date";
+            this.patient_in_date.ReadOnly = true;
+            // 
+            // doctor_who
+            // 
+            this.doctor_who.HeaderText = "Лечащий врач";
+            this.doctor_who.Name = "doctor_who";
+            this.doctor_who.ReadOnly = true;
+            this.doctor_who.Width = 200;
+            // 
+            // patient_diagnosis
+            // 
+            this.patient_diagnosis.HeaderText = "Диагноз";
+            this.patient_diagnosis.Name = "patient_diagnosis";
+            this.patient_diagnosis.ReadOnly = true;
+            // 
             // Hospital
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(857, 450);
-            this.Controls.Add(this.hospitalPatient);
+            this.Controls.Add(this.hospitalPatientsTbl);
             this.Controls.Add(this.statusBar);
             this.Controls.Add(this.mainMenu);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.mainMenu;
             this.Name = "Hospital";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Hospital";
             this.mainMenu.ResumeLayout(false);
             this.mainMenu.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.hospitalPatient)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hospitalPatientsTbl)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -412,12 +435,7 @@
         private System.Windows.Forms.ToolStripMenuItem patientAdmission;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem reportsMenu;
-        private System.Windows.Forms.DataGridView hospitalPatient;
-        private System.Windows.Forms.DataGridViewTextBoxColumn patient_fio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn patient_place;
-        private System.Windows.Forms.DataGridViewTextBoxColumn patient_in_date;
-        private System.Windows.Forms.DataGridViewTextBoxColumn doctor_who;
-        private System.Windows.Forms.DataGridViewTextBoxColumn patient_diagnosis;
+        private System.Windows.Forms.DataGridView hospitalPatientsTbl;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem8;
@@ -447,5 +465,12 @@
         private System.Windows.Forms.ToolStripMenuItem ekstubationItem;
         private System.Windows.Forms.ToolStripMenuItem reanimItem;
         private System.Windows.Forms.ToolStripMenuItem deadItem;
+        private System.Windows.Forms.ToolStripMenuItem firstInspectationItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn hospitalSession;
+        private System.Windows.Forms.DataGridViewTextBoxColumn patient_fio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn patient_place;
+        private System.Windows.Forms.DataGridViewTextBoxColumn patient_in_date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn doctor_who;
+        private System.Windows.Forms.DataGridViewTextBoxColumn patient_diagnosis;
     }
 }

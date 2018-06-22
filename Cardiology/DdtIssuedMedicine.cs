@@ -2,7 +2,7 @@
 
 namespace Cardiology.Model
 {
-    class DdtIssuedMedicine
+    public class DdtIssuedMedicine
     {
         [TableAttribute("r_object_id", false)]
         private string rObjectId;
@@ -14,6 +14,8 @@ namespace Cardiology.Model
         private string dsidDoctor;
         [TableAttribute("dsid_patient")]
         private string dsidPatient;
+        [TableAttribute("dsid_hospitality_session")]
+        private string dsidHospitalitySession;
 
         public string ObjectId
         {
@@ -35,6 +37,12 @@ namespace Cardiology.Model
         {
             get { return dsidPatient; }
             set { this.dsidPatient = value; }
+
+        }
+        public string DsidHospitalitySession
+        {
+            get { return dsidHospitalitySession; }
+            set { this.dsidHospitalitySession = value; }
 
         }
         public DateTime CreationDate

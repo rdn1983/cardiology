@@ -30,134 +30,134 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FirstInspection));
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.deathBtn = new System.Windows.Forms.Button();
+            this.DEPBtn = new System.Windows.Forms.Button();
+            this.PIKVIKBtn = new System.Windows.Forms.Button();
+            this.PIKSBtn = new System.Windows.Forms.Button();
+            this.GBBtn = new System.Windows.Forms.Button();
+            this.aorticDissectionBtn = new System.Windows.Forms.Button();
+            this.KAGBtn = new System.Windows.Forms.Button();
+            this.OKSDownBtn = new System.Windows.Forms.Button();
+            this.OKSUpBtn = new System.Windows.Forms.Button();
+            this.complaintsBox = new System.Windows.Forms.GroupBox();
             this.fixComplaintTeplaintBtn = new System.Windows.Forms.Button();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.complaintsTxt = new System.Windows.Forms.RichTextBox();
+            this.anamnesisMorbiBox = new System.Windows.Forms.GroupBox();
             this.fixMorbiTemplateBtn = new System.Windows.Forms.Button();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.richTextBox4 = new System.Windows.Forms.RichTextBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.button20 = new System.Windows.Forms.Button();
-            this.button19 = new System.Windows.Forms.Button();
-            this.button18 = new System.Windows.Forms.Button();
-            this.button17 = new System.Windows.Forms.Button();
-            this.button16 = new System.Windows.Forms.Button();
-            this.richTextBox7 = new System.Windows.Forms.RichTextBox();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.richTextBox6 = new System.Windows.Forms.RichTextBox();
-            this.button15 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
-            this.richTextBox5 = new System.Windows.Forms.RichTextBox();
-            this.groupBox9 = new System.Windows.Forms.GroupBox();
-            this.button22 = new System.Windows.Forms.Button();
-            this.button21 = new System.Windows.Forms.Button();
-            this.richTextBox8 = new System.Windows.Forms.RichTextBox();
-            this.button25 = new System.Windows.Forms.Button();
-            this.button26 = new System.Windows.Forms.Button();
-            this.button27 = new System.Windows.Forms.Button();
-            this.button28 = new System.Windows.Forms.Button();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.anamnesisMorbiTxt = new System.Windows.Forms.RichTextBox();
+            this.anamnesisAllergyBox = new System.Windows.Forms.GroupBox();
+            this.anamnesisAllergyTxt = new System.Windows.Forms.RichTextBox();
+            this.anamnesisEpidBox = new System.Windows.Forms.GroupBox();
+            this.anamnesisEpidTxt = new System.Windows.Forms.RichTextBox();
+            this.anamnesisVitaeBox = new System.Windows.Forms.GroupBox();
+            this.accompanyingIllnessesBox = new System.Windows.Forms.GroupBox();
+            this.chronicBox = new System.Windows.Forms.GroupBox();
+            this.chronicHOBL = new System.Windows.Forms.Button();
+            this.chronicSD = new System.Windows.Forms.Button();
+            this.chronicDEP3 = new System.Windows.Forms.Button();
+            this.chronicGB3 = new System.Windows.Forms.Button();
+            this.chronicMA = new System.Windows.Forms.Button();
+            this.accompanyingIllnessesTxt = new System.Windows.Forms.RichTextBox();
+            this.pastSurgeriesBox = new System.Windows.Forms.GroupBox();
+            this.pastSurgeriesTxt = new System.Windows.Forms.RichTextBox();
+            this.alcoholProtocolBtn = new System.Windows.Forms.Button();
+            this.alcoholBtn = new System.Windows.Forms.Button();
+            this.noAlcoholBtn = new System.Windows.Forms.Button();
+            this.anamnesisVitaeTxt = new System.Windows.Forms.RichTextBox();
+            this.drugsBox = new System.Windows.Forms.GroupBox();
+            this.hasNoDrugsIntoxication = new System.Windows.Forms.Button();
+            this.hasDrugsIntoxication = new System.Windows.Forms.Button();
+            this.drugsTxt = new System.Windows.Forms.RichTextBox();
+            this.saveBtn = new System.Windows.Forms.Button();
+            this.printBtn = new System.Windows.Forms.Button();
+            this.nextBtn = new System.Windows.Forms.Button();
+            this.prevBtn = new System.Windows.Forms.Button();
+            this.tabsContainer = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.groupBox10 = new System.Windows.Forms.GroupBox();
-            this.richTextBox9 = new System.Windows.Forms.RichTextBox();
+            this.stPresentsBox = new System.Windows.Forms.GroupBox();
+            this.patientStatBox = new System.Windows.Forms.GroupBox();
+            this.weightLbl = new System.Windows.Forms.Label();
+            this.highLbl = new System.Windows.Forms.Label();
+            this.weightTxt = new System.Windows.Forms.RichTextBox();
+            this.highTxt = new System.Windows.Forms.RichTextBox();
+            this.nervousSystemBox = new System.Windows.Forms.GroupBox();
+            this.nervousSystemTxt = new System.Windows.Forms.RichTextBox();
+            this.urinarySystemBox = new System.Windows.Forms.GroupBox();
+            this.urinarySystemTxt = new System.Windows.Forms.RichTextBox();
+            this.digestiveSystemBox = new System.Windows.Forms.GroupBox();
+            this.digestiveSystemTxt = new System.Windows.Forms.RichTextBox();
+            this.cardiovascularSystemBox = new System.Windows.Forms.GroupBox();
+            this.cardiovascularSystemTxt = new System.Windows.Forms.RichTextBox();
+            this.respiratorySystemBox = new System.Windows.Forms.GroupBox();
+            this.respiratorySystemTxt = new System.Windows.Forms.RichTextBox();
             this.button11 = new System.Windows.Forms.Button();
-            this.groupBox11 = new System.Windows.Forms.GroupBox();
-            this.richTextBox10 = new System.Windows.Forms.RichTextBox();
-            this.groupBox12 = new System.Windows.Forms.GroupBox();
-            this.richTextBox11 = new System.Windows.Forms.RichTextBox();
-            this.groupBox13 = new System.Windows.Forms.GroupBox();
-            this.richTextBox12 = new System.Windows.Forms.RichTextBox();
-            this.groupBox14 = new System.Windows.Forms.GroupBox();
-            this.richTextBox13 = new System.Windows.Forms.RichTextBox();
-            this.groupBox15 = new System.Windows.Forms.GroupBox();
-            this.richTextBox14 = new System.Windows.Forms.RichTextBox();
-            this.groupBox16 = new System.Windows.Forms.GroupBox();
-            this.richTextBox15 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox16 = new System.Windows.Forms.RichTextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.stPresensTxt = new System.Windows.Forms.RichTextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.groupBox17 = new System.Windows.Forms.GroupBox();
-            this.richTextBox17 = new System.Windows.Forms.RichTextBox();
-            this.groupBox18 = new System.Windows.Forms.GroupBox();
-            this.richTextBox18 = new System.Windows.Forms.RichTextBox();
-            this.button12 = new System.Windows.Forms.Button();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
-            this.radioButton6 = new System.Windows.Forms.RadioButton();
-            this.radioButton7 = new System.Windows.Forms.RadioButton();
             this.groupBox19 = new System.Windows.Forms.GroupBox();
-            this.button23 = new System.Windows.Forms.Button();
-            this.button24 = new System.Windows.Forms.Button();
-            this.button29 = new System.Windows.Forms.Button();
-            this.button30 = new System.Windows.Forms.Button();
-            this.button31 = new System.Windows.Forms.Button();
             this.button32 = new System.Windows.Forms.Button();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.groupBox20 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.button31 = new System.Windows.Forms.Button();
+            this.button30 = new System.Windows.Forms.Button();
+            this.button29 = new System.Windows.Forms.Button();
+            this.button24 = new System.Windows.Forms.Button();
+            this.button23 = new System.Windows.Forms.Button();
+            this.groupBox18 = new System.Windows.Forms.GroupBox();
+            this.ibsRadio = new System.Windows.Forms.RadioButton();
+            this.gbRadio = new System.Windows.Forms.RadioButton();
+            this.pmaRadio = new System.Windows.Forms.RadioButton();
+            this.oksRadio = new System.Windows.Forms.RadioButton();
+            this.oksStRadio = new System.Windows.Forms.RadioButton();
+            this.nkRadio = new System.Windows.Forms.RadioButton();
+            this.telaRadio = new System.Windows.Forms.RadioButton();
+            this.justificationTxt = new System.Windows.Forms.RichTextBox();
+            this.groupBox17 = new System.Windows.Forms.GroupBox();
+            this.button12 = new System.Windows.Forms.Button();
+            this.diagnosisTxt = new System.Windows.Forms.RichTextBox();
+            this.issuedMedicineTab = new System.Windows.Forms.TabPage();
+            this.button35 = new System.Windows.Forms.Button();
+            this.button34 = new System.Windows.Forms.Button();
+            this.issuedMedicineBox = new System.Windows.Forms.GroupBox();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.textBox11 = new System.Windows.Forms.TextBox();
             this.textBox12 = new System.Windows.Forms.TextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.button34 = new System.Windows.Forms.Button();
-            this.button35 = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            this.groupBox5.SuspendLayout();
-            this.groupBox7.SuspendLayout();
-            this.groupBox8.SuspendLayout();
-            this.groupBox6.SuspendLayout();
-            this.groupBox9.SuspendLayout();
-            this.tabControl1.SuspendLayout();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.issuedMedicineTxt0 = new System.Windows.Forms.TextBox();
+            this.complaintsBox.SuspendLayout();
+            this.anamnesisMorbiBox.SuspendLayout();
+            this.anamnesisAllergyBox.SuspendLayout();
+            this.anamnesisEpidBox.SuspendLayout();
+            this.anamnesisVitaeBox.SuspendLayout();
+            this.accompanyingIllnessesBox.SuspendLayout();
+            this.chronicBox.SuspendLayout();
+            this.pastSurgeriesBox.SuspendLayout();
+            this.drugsBox.SuspendLayout();
+            this.tabsContainer.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.groupBox10.SuspendLayout();
-            this.groupBox11.SuspendLayout();
-            this.groupBox12.SuspendLayout();
-            this.groupBox13.SuspendLayout();
-            this.groupBox14.SuspendLayout();
-            this.groupBox15.SuspendLayout();
-            this.groupBox16.SuspendLayout();
+            this.stPresentsBox.SuspendLayout();
+            this.patientStatBox.SuspendLayout();
+            this.nervousSystemBox.SuspendLayout();
+            this.urinarySystemBox.SuspendLayout();
+            this.digestiveSystemBox.SuspendLayout();
+            this.cardiovascularSystemBox.SuspendLayout();
+            this.respiratorySystemBox.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            this.groupBox17.SuspendLayout();
-            this.groupBox18.SuspendLayout();
             this.groupBox19.SuspendLayout();
-            this.tabPage4.SuspendLayout();
-            this.groupBox20.SuspendLayout();
+            this.groupBox18.SuspendLayout();
+            this.groupBox17.SuspendLayout();
+            this.issuedMedicineTab.SuspendLayout();
+            this.issuedMedicineBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -171,98 +171,107 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // deathBtn
             // 
-            this.button2.Location = new System.Drawing.Point(12, 426);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(93, 40);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "КЛИНИЧ.\r\nСМЕРТЬ";
-            this.button2.UseVisualStyleBackColor = true;
+            this.deathBtn.Location = new System.Drawing.Point(12, 426);
+            this.deathBtn.Name = "deathBtn";
+            this.deathBtn.Size = new System.Drawing.Size(93, 40);
+            this.deathBtn.TabIndex = 1;
+            this.deathBtn.Text = "КЛИНИЧ.\r\nСМЕРТЬ";
+            this.deathBtn.UseVisualStyleBackColor = true;
+            this.deathBtn.Click += new System.EventHandler(this.deathBtn_Click);
             // 
-            // button3
+            // DEPBtn
             // 
-            this.button3.Location = new System.Drawing.Point(12, 380);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(93, 40);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "ДЭП";
-            this.button3.UseVisualStyleBackColor = true;
+            this.DEPBtn.Location = new System.Drawing.Point(12, 380);
+            this.DEPBtn.Name = "DEPBtn";
+            this.DEPBtn.Size = new System.Drawing.Size(93, 40);
+            this.DEPBtn.TabIndex = 2;
+            this.DEPBtn.Text = "ДЭП";
+            this.DEPBtn.UseVisualStyleBackColor = true;
+            this.DEPBtn.Click += new System.EventHandler(this.DEPBtn_Click);
             // 
-            // button4
+            // PIKVIKBtn
             // 
-            this.button4.Location = new System.Drawing.Point(12, 334);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(93, 40);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "ПИКВИК";
-            this.button4.UseVisualStyleBackColor = true;
+            this.PIKVIKBtn.Location = new System.Drawing.Point(12, 334);
+            this.PIKVIKBtn.Name = "PIKVIKBtn";
+            this.PIKVIKBtn.Size = new System.Drawing.Size(93, 40);
+            this.PIKVIKBtn.TabIndex = 3;
+            this.PIKVIKBtn.Text = "ПИКВИК";
+            this.PIKVIKBtn.UseVisualStyleBackColor = true;
+            this.PIKVIKBtn.Click += new System.EventHandler(this.PIKVIKBtn_Click);
             // 
-            // button5
+            // PIKSBtn
             // 
-            this.button5.Location = new System.Drawing.Point(12, 288);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(93, 40);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "ПИКС НК";
-            this.button5.UseVisualStyleBackColor = true;
+            this.PIKSBtn.Location = new System.Drawing.Point(12, 288);
+            this.PIKSBtn.Name = "PIKSBtn";
+            this.PIKSBtn.Size = new System.Drawing.Size(93, 40);
+            this.PIKSBtn.TabIndex = 4;
+            this.PIKSBtn.Text = "ПИКС НК";
+            this.PIKSBtn.UseVisualStyleBackColor = true;
+            this.PIKSBtn.Click += new System.EventHandler(this.PIKSBtn_Click);
             // 
-            // button6
+            // GBBtn
             // 
-            this.button6.Location = new System.Drawing.Point(12, 242);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(93, 40);
-            this.button6.TabIndex = 5;
-            this.button6.Text = "ГБ криз ";
-            this.button6.UseVisualStyleBackColor = true;
+            this.GBBtn.Location = new System.Drawing.Point(12, 242);
+            this.GBBtn.Name = "GBBtn";
+            this.GBBtn.Size = new System.Drawing.Size(93, 40);
+            this.GBBtn.TabIndex = 5;
+            this.GBBtn.Text = "ГБ криз ";
+            this.GBBtn.UseVisualStyleBackColor = true;
+            this.GBBtn.Click += new System.EventHandler(this.GBBtn_Click);
             // 
-            // button7
+            // aorticDissectionBtn
             // 
-            this.button7.Location = new System.Drawing.Point(12, 196);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(93, 40);
-            this.button7.TabIndex = 6;
-            this.button7.Text = "Расслоение \r\nаорты";
-            this.button7.UseVisualStyleBackColor = true;
+            this.aorticDissectionBtn.Location = new System.Drawing.Point(12, 196);
+            this.aorticDissectionBtn.Name = "aorticDissectionBtn";
+            this.aorticDissectionBtn.Size = new System.Drawing.Size(93, 40);
+            this.aorticDissectionBtn.TabIndex = 6;
+            this.aorticDissectionBtn.Text = "Расслоение \r\nаорты";
+            this.aorticDissectionBtn.UseVisualStyleBackColor = true;
+            this.aorticDissectionBtn.Click += new System.EventHandler(this.aorticDissectionBtn_Click);
             // 
-            // button8
+            // KAGBtn
             // 
-            this.button8.Location = new System.Drawing.Point(12, 150);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(93, 40);
-            this.button8.TabIndex = 7;
-            this.button8.Text = "КАГ квота";
-            this.button8.UseVisualStyleBackColor = true;
+            this.KAGBtn.Location = new System.Drawing.Point(12, 150);
+            this.KAGBtn.Name = "KAGBtn";
+            this.KAGBtn.Size = new System.Drawing.Size(93, 40);
+            this.KAGBtn.TabIndex = 7;
+            this.KAGBtn.Text = "КАГ квота";
+            this.KAGBtn.UseVisualStyleBackColor = true;
+            this.KAGBtn.Click += new System.EventHandler(this.KAGBtn_Click);
             // 
-            // button9
+            // OKSDownBtn
             // 
-            this.button9.Location = new System.Drawing.Point(12, 104);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(93, 40);
-            this.button9.TabIndex = 8;
-            this.button9.Text = "ОКС без \r\nподъема ST";
-            this.button9.UseVisualStyleBackColor = true;
+            this.OKSDownBtn.Location = new System.Drawing.Point(12, 104);
+            this.OKSDownBtn.Name = "OKSDownBtn";
+            this.OKSDownBtn.Size = new System.Drawing.Size(93, 40);
+            this.OKSDownBtn.TabIndex = 8;
+            this.OKSDownBtn.Text = "ОКС без \r\nподъема ST";
+            this.OKSDownBtn.UseVisualStyleBackColor = true;
+            this.OKSDownBtn.Click += new System.EventHandler(this.OKSDownBtn_Click);
             // 
-            // button10
+            // OKSUpBtn
             // 
-            this.button10.Location = new System.Drawing.Point(12, 58);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(93, 40);
-            this.button10.TabIndex = 9;
-            this.button10.Text = "ОКС с \r\nподъемом ST";
-            this.button10.UseVisualStyleBackColor = true;
+            this.OKSUpBtn.Location = new System.Drawing.Point(12, 58);
+            this.OKSUpBtn.Name = "OKSUpBtn";
+            this.OKSUpBtn.Size = new System.Drawing.Size(93, 40);
+            this.OKSUpBtn.TabIndex = 9;
+            this.OKSUpBtn.Text = "ОКС с \r\nподъемом ST";
+            this.OKSUpBtn.UseVisualStyleBackColor = true;
+            this.OKSUpBtn.Click += new System.EventHandler(this.OKSUpBtn_Click);
             // 
-            // groupBox1
+            // complaintsBox
             // 
-            this.groupBox1.Controls.Add(this.fixComplaintTeplaintBtn);
-            this.groupBox1.Controls.Add(this.richTextBox1);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox1.Location = new System.Drawing.Point(6, 6);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(509, 121);
-            this.groupBox1.TabIndex = 10;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Жалобы";
+            this.complaintsBox.Controls.Add(this.fixComplaintTeplaintBtn);
+            this.complaintsBox.Controls.Add(this.complaintsTxt);
+            this.complaintsBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.complaintsBox.Location = new System.Drawing.Point(6, 6);
+            this.complaintsBox.Name = "complaintsBox";
+            this.complaintsBox.Size = new System.Drawing.Size(509, 121);
+            this.complaintsBox.TabIndex = 10;
+            this.complaintsBox.TabStop = false;
+            this.complaintsBox.Text = "Жалобы";
             // 
             // fixComplaintTeplaintBtn
             // 
@@ -274,26 +283,26 @@
             this.fixComplaintTeplaintBtn.UseVisualStyleBackColor = true;
             this.fixComplaintTeplaintBtn.Click += new System.EventHandler(this.fixComplaintTeplaintBtn_Click);
             // 
-            // richTextBox1
+            // complaintsTxt
             // 
-            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.richTextBox1.Location = new System.Drawing.Point(6, 19);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(497, 78);
-            this.richTextBox1.TabIndex = 0;
-            this.richTextBox1.Text = "";
+            this.complaintsTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.complaintsTxt.Location = new System.Drawing.Point(6, 19);
+            this.complaintsTxt.Name = "complaintsTxt";
+            this.complaintsTxt.Size = new System.Drawing.Size(497, 78);
+            this.complaintsTxt.TabIndex = 0;
+            this.complaintsTxt.Text = "";
             // 
-            // groupBox2
+            // anamnesisMorbiBox
             // 
-            this.groupBox2.Controls.Add(this.fixMorbiTemplateBtn);
-            this.groupBox2.Controls.Add(this.richTextBox2);
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox2.Location = new System.Drawing.Point(6, 133);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(509, 221);
-            this.groupBox2.TabIndex = 11;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Anamnеsis morbi";
+            this.anamnesisMorbiBox.Controls.Add(this.fixMorbiTemplateBtn);
+            this.anamnesisMorbiBox.Controls.Add(this.anamnesisMorbiTxt);
+            this.anamnesisMorbiBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.anamnesisMorbiBox.Location = new System.Drawing.Point(6, 133);
+            this.anamnesisMorbiBox.Name = "anamnesisMorbiBox";
+            this.anamnesisMorbiBox.Size = new System.Drawing.Size(509, 221);
+            this.anamnesisMorbiBox.TabIndex = 11;
+            this.anamnesisMorbiBox.TabStop = false;
+            this.anamnesisMorbiBox.Text = "Anamnеsis morbi";
             // 
             // fixMorbiTemplateBtn
             // 
@@ -305,353 +314,507 @@
             this.fixMorbiTemplateBtn.UseVisualStyleBackColor = true;
             this.fixMorbiTemplateBtn.Click += new System.EventHandler(this.fixMorbiTemplateBtn_Click);
             // 
-            // richTextBox2
+            // anamnesisMorbiTxt
             // 
-            this.richTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.richTextBox2.Location = new System.Drawing.Point(6, 19);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(497, 175);
-            this.richTextBox2.TabIndex = 0;
-            this.richTextBox2.Text = "";
+            this.anamnesisMorbiTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.anamnesisMorbiTxt.Location = new System.Drawing.Point(6, 19);
+            this.anamnesisMorbiTxt.Name = "anamnesisMorbiTxt";
+            this.anamnesisMorbiTxt.Size = new System.Drawing.Size(497, 175);
+            this.anamnesisMorbiTxt.TabIndex = 0;
+            this.anamnesisMorbiTxt.Text = "";
             // 
-            // groupBox3
+            // anamnesisAllergyBox
             // 
-            this.groupBox3.Controls.Add(this.richTextBox3);
-            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox3.Location = new System.Drawing.Point(6, 360);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(509, 85);
-            this.groupBox3.TabIndex = 12;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Аллергоанамнез";
+            this.anamnesisAllergyBox.Controls.Add(this.anamnesisAllergyTxt);
+            this.anamnesisAllergyBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.anamnesisAllergyBox.Location = new System.Drawing.Point(6, 360);
+            this.anamnesisAllergyBox.Name = "anamnesisAllergyBox";
+            this.anamnesisAllergyBox.Size = new System.Drawing.Size(509, 85);
+            this.anamnesisAllergyBox.TabIndex = 12;
+            this.anamnesisAllergyBox.TabStop = false;
+            this.anamnesisAllergyBox.Text = "Аллергоанамнез";
             // 
-            // richTextBox3
+            // anamnesisAllergyTxt
             // 
-            this.richTextBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.richTextBox3.Location = new System.Drawing.Point(6, 17);
-            this.richTextBox3.Name = "richTextBox3";
-            this.richTextBox3.Size = new System.Drawing.Size(497, 60);
-            this.richTextBox3.TabIndex = 0;
-            this.richTextBox3.Text = "";
+            this.anamnesisAllergyTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.anamnesisAllergyTxt.Location = new System.Drawing.Point(6, 17);
+            this.anamnesisAllergyTxt.Name = "anamnesisAllergyTxt";
+            this.anamnesisAllergyTxt.Size = new System.Drawing.Size(497, 60);
+            this.anamnesisAllergyTxt.TabIndex = 0;
+            this.anamnesisAllergyTxt.Text = "";
             // 
-            // groupBox4
+            // anamnesisEpidBox
             // 
-            this.groupBox4.Controls.Add(this.richTextBox4);
-            this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox4.Location = new System.Drawing.Point(6, 451);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(509, 85);
-            this.groupBox4.TabIndex = 13;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Эпид.анамнез";
+            this.anamnesisEpidBox.Controls.Add(this.anamnesisEpidTxt);
+            this.anamnesisEpidBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.anamnesisEpidBox.Location = new System.Drawing.Point(6, 451);
+            this.anamnesisEpidBox.Name = "anamnesisEpidBox";
+            this.anamnesisEpidBox.Size = new System.Drawing.Size(509, 85);
+            this.anamnesisEpidBox.TabIndex = 13;
+            this.anamnesisEpidBox.TabStop = false;
+            this.anamnesisEpidBox.Text = "Эпид.анамнез";
             // 
-            // richTextBox4
+            // anamnesisEpidTxt
             // 
-            this.richTextBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.richTextBox4.Location = new System.Drawing.Point(6, 17);
-            this.richTextBox4.Name = "richTextBox4";
-            this.richTextBox4.Size = new System.Drawing.Size(497, 60);
-            this.richTextBox4.TabIndex = 0;
-            this.richTextBox4.Text = "";
+            this.anamnesisEpidTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.anamnesisEpidTxt.Location = new System.Drawing.Point(6, 17);
+            this.anamnesisEpidTxt.Name = "anamnesisEpidTxt";
+            this.anamnesisEpidTxt.Size = new System.Drawing.Size(497, 60);
+            this.anamnesisEpidTxt.TabIndex = 0;
+            this.anamnesisEpidTxt.Text = "";
             // 
-            // groupBox5
+            // anamnesisVitaeBox
             // 
-            this.groupBox5.Controls.Add(this.groupBox7);
-            this.groupBox5.Controls.Add(this.groupBox6);
-            this.groupBox5.Controls.Add(this.button15);
-            this.groupBox5.Controls.Add(this.button14);
-            this.groupBox5.Controls.Add(this.button13);
-            this.groupBox5.Controls.Add(this.richTextBox5);
-            this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox5.Location = new System.Drawing.Point(521, 7);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(509, 407);
-            this.groupBox5.TabIndex = 14;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Эпид.анамнез";
+            this.anamnesisVitaeBox.Controls.Add(this.accompanyingIllnessesBox);
+            this.anamnesisVitaeBox.Controls.Add(this.pastSurgeriesBox);
+            this.anamnesisVitaeBox.Controls.Add(this.alcoholProtocolBtn);
+            this.anamnesisVitaeBox.Controls.Add(this.alcoholBtn);
+            this.anamnesisVitaeBox.Controls.Add(this.noAlcoholBtn);
+            this.anamnesisVitaeBox.Controls.Add(this.anamnesisVitaeTxt);
+            this.anamnesisVitaeBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.anamnesisVitaeBox.Location = new System.Drawing.Point(521, 7);
+            this.anamnesisVitaeBox.Name = "anamnesisVitaeBox";
+            this.anamnesisVitaeBox.Size = new System.Drawing.Size(509, 407);
+            this.anamnesisVitaeBox.TabIndex = 14;
+            this.anamnesisVitaeBox.TabStop = false;
+            this.anamnesisVitaeBox.Text = "Anamnesis vitae";
             // 
-            // groupBox7
+            // accompanyingIllnessesBox
             // 
-            this.groupBox7.Controls.Add(this.groupBox8);
-            this.groupBox7.Controls.Add(this.richTextBox7);
-            this.groupBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox7.Location = new System.Drawing.Point(6, 229);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(495, 169);
-            this.groupBox7.TabIndex = 16;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Из сопутствующих заболеваний";
+            this.accompanyingIllnessesBox.Controls.Add(this.chronicBox);
+            this.accompanyingIllnessesBox.Controls.Add(this.accompanyingIllnessesTxt);
+            this.accompanyingIllnessesBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.accompanyingIllnessesBox.Location = new System.Drawing.Point(6, 229);
+            this.accompanyingIllnessesBox.Name = "accompanyingIllnessesBox";
+            this.accompanyingIllnessesBox.Size = new System.Drawing.Size(495, 169);
+            this.accompanyingIllnessesBox.TabIndex = 16;
+            this.accompanyingIllnessesBox.TabStop = false;
+            this.accompanyingIllnessesBox.Text = "Из сопутствующих заболеваний";
             // 
-            // groupBox8
+            // chronicBox
             // 
-            this.groupBox8.Controls.Add(this.button20);
-            this.groupBox8.Controls.Add(this.button19);
-            this.groupBox8.Controls.Add(this.button18);
-            this.groupBox8.Controls.Add(this.button17);
-            this.groupBox8.Controls.Add(this.button16);
-            this.groupBox8.Location = new System.Drawing.Point(310, 19);
-            this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(179, 142);
-            this.groupBox8.TabIndex = 1;
-            this.groupBox8.TabStop = false;
-            this.groupBox8.Text = "варианты хрони";
+            this.chronicBox.Controls.Add(this.chronicHOBL);
+            this.chronicBox.Controls.Add(this.chronicSD);
+            this.chronicBox.Controls.Add(this.chronicDEP3);
+            this.chronicBox.Controls.Add(this.chronicGB3);
+            this.chronicBox.Controls.Add(this.chronicMA);
+            this.chronicBox.Location = new System.Drawing.Point(310, 19);
+            this.chronicBox.Name = "chronicBox";
+            this.chronicBox.Size = new System.Drawing.Size(179, 142);
+            this.chronicBox.TabIndex = 1;
+            this.chronicBox.TabStop = false;
+            this.chronicBox.Text = "варианты хрони";
             // 
-            // button20
+            // chronicHOBL
             // 
-            this.button20.Location = new System.Drawing.Point(6, 113);
-            this.button20.Name = "button20";
-            this.button20.Size = new System.Drawing.Size(169, 23);
-            this.button20.TabIndex = 4;
-            this.button20.Text = "+ ХОБЛ хр. бр.";
-            this.button20.UseVisualStyleBackColor = true;
+            this.chronicHOBL.Location = new System.Drawing.Point(6, 113);
+            this.chronicHOBL.Name = "chronicHOBL";
+            this.chronicHOBL.Size = new System.Drawing.Size(169, 23);
+            this.chronicHOBL.TabIndex = 4;
+            this.chronicHOBL.Text = "+ ХОБЛ хр. бр.";
+            this.chronicHOBL.UseVisualStyleBackColor = true;
+            this.chronicHOBL.Click += new System.EventHandler(this.chronicHOBL_Click);
             // 
-            // button19
+            // chronicSD
             // 
-            this.button19.Location = new System.Drawing.Point(6, 85);
-            this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(169, 23);
-            this.button19.TabIndex = 3;
-            this.button19.Text = "+ СД 2 с\\к";
-            this.button19.UseVisualStyleBackColor = true;
+            this.chronicSD.Location = new System.Drawing.Point(6, 85);
+            this.chronicSD.Name = "chronicSD";
+            this.chronicSD.Size = new System.Drawing.Size(169, 23);
+            this.chronicSD.TabIndex = 3;
+            this.chronicSD.Text = "+ СД 2 с\\к";
+            this.chronicSD.UseVisualStyleBackColor = true;
+            this.chronicSD.Click += new System.EventHandler(this.chronicSD_Click);
             // 
-            // button18
+            // chronicDEP3
             // 
-            this.button18.Location = new System.Drawing.Point(6, 56);
-            this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(169, 23);
-            this.button18.TabIndex = 2;
-            this.button18.Text = "+ ДЭП3 п/ОНМК с\\к";
-            this.button18.UseVisualStyleBackColor = true;
+            this.chronicDEP3.Location = new System.Drawing.Point(6, 56);
+            this.chronicDEP3.Name = "chronicDEP3";
+            this.chronicDEP3.Size = new System.Drawing.Size(169, 23);
+            this.chronicDEP3.TabIndex = 2;
+            this.chronicDEP3.Text = "+ ДЭП3 п/ОНМК с\\к";
+            this.chronicDEP3.UseVisualStyleBackColor = true;
+            this.chronicDEP3.Click += new System.EventHandler(this.chronicDEP3_Click);
             // 
-            // button17
+            // chronicGB3
             // 
-            this.button17.Location = new System.Drawing.Point(93, 27);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(82, 23);
-            this.button17.TabIndex = 1;
-            this.button17.Text = "+ ГБ3 р4";
-            this.button17.UseVisualStyleBackColor = true;
+            this.chronicGB3.Location = new System.Drawing.Point(93, 27);
+            this.chronicGB3.Name = "chronicGB3";
+            this.chronicGB3.Size = new System.Drawing.Size(82, 23);
+            this.chronicGB3.TabIndex = 1;
+            this.chronicGB3.Text = "+ ГБ3 р4";
+            this.chronicGB3.UseVisualStyleBackColor = true;
+            this.chronicGB3.Click += new System.EventHandler(this.chronicGB3_Click);
             // 
-            // button16
+            // chronicMA
             // 
-            this.button16.Location = new System.Drawing.Point(6, 27);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(81, 23);
-            this.button16.TabIndex = 0;
-            this.button16.Text = "+ МА";
-            this.button16.UseVisualStyleBackColor = true;
+            this.chronicMA.Location = new System.Drawing.Point(6, 27);
+            this.chronicMA.Name = "chronicMA";
+            this.chronicMA.Size = new System.Drawing.Size(81, 23);
+            this.chronicMA.TabIndex = 0;
+            this.chronicMA.Text = "+ МА";
+            this.chronicMA.UseVisualStyleBackColor = true;
+            this.chronicMA.Click += new System.EventHandler(this.chronicMA_Click);
             // 
-            // richTextBox7
+            // accompanyingIllnessesTxt
             // 
-            this.richTextBox7.Location = new System.Drawing.Point(6, 17);
-            this.richTextBox7.Name = "richTextBox7";
-            this.richTextBox7.Size = new System.Drawing.Size(298, 144);
-            this.richTextBox7.TabIndex = 0;
-            this.richTextBox7.Text = "";
+            this.accompanyingIllnessesTxt.Location = new System.Drawing.Point(6, 17);
+            this.accompanyingIllnessesTxt.Name = "accompanyingIllnessesTxt";
+            this.accompanyingIllnessesTxt.Size = new System.Drawing.Size(298, 144);
+            this.accompanyingIllnessesTxt.TabIndex = 0;
+            this.accompanyingIllnessesTxt.Text = "";
             // 
-            // groupBox6
+            // pastSurgeriesBox
             // 
-            this.groupBox6.Controls.Add(this.richTextBox6);
-            this.groupBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox6.Location = new System.Drawing.Point(6, 112);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(495, 105);
-            this.groupBox6.TabIndex = 15;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Перенесенные заболевания, травмы и операции";
+            this.pastSurgeriesBox.Controls.Add(this.pastSurgeriesTxt);
+            this.pastSurgeriesBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.pastSurgeriesBox.Location = new System.Drawing.Point(6, 112);
+            this.pastSurgeriesBox.Name = "pastSurgeriesBox";
+            this.pastSurgeriesBox.Size = new System.Drawing.Size(495, 105);
+            this.pastSurgeriesBox.TabIndex = 15;
+            this.pastSurgeriesBox.TabStop = false;
+            this.pastSurgeriesBox.Text = "Перенесенные заболевания, травмы и операции";
             // 
-            // richTextBox6
+            // pastSurgeriesTxt
             // 
-            this.richTextBox6.Location = new System.Drawing.Point(6, 17);
-            this.richTextBox6.Name = "richTextBox6";
-            this.richTextBox6.Size = new System.Drawing.Size(482, 82);
-            this.richTextBox6.TabIndex = 0;
-            this.richTextBox6.Text = "";
+            this.pastSurgeriesTxt.Location = new System.Drawing.Point(6, 17);
+            this.pastSurgeriesTxt.Name = "pastSurgeriesTxt";
+            this.pastSurgeriesTxt.Size = new System.Drawing.Size(482, 82);
+            this.pastSurgeriesTxt.TabIndex = 0;
+            this.pastSurgeriesTxt.Text = "";
             // 
-            // button15
+            // alcoholProtocolBtn
             // 
-            this.button15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button15.Location = new System.Drawing.Point(330, 83);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(174, 23);
-            this.button15.TabIndex = 3;
-            this.button15.Text = "Протокол алкоосвидетельства";
-            this.button15.UseVisualStyleBackColor = true;
+            this.alcoholProtocolBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.alcoholProtocolBtn.Location = new System.Drawing.Point(330, 83);
+            this.alcoholProtocolBtn.Name = "alcoholProtocolBtn";
+            this.alcoholProtocolBtn.Size = new System.Drawing.Size(174, 23);
+            this.alcoholProtocolBtn.TabIndex = 3;
+            this.alcoholProtocolBtn.Text = "Протокол алкоосвидетельства";
+            this.alcoholProtocolBtn.UseVisualStyleBackColor = true;
             // 
-            // button14
+            // alcoholBtn
             // 
-            this.button14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button14.Location = new System.Drawing.Point(159, 83);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(170, 23);
-            this.button14.TabIndex = 2;
-            this.button14.Text = "Алкоголь употреблял (abusus)";
-            this.button14.UseVisualStyleBackColor = true;
+            this.alcoholBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.alcoholBtn.Location = new System.Drawing.Point(159, 83);
+            this.alcoholBtn.Name = "alcoholBtn";
+            this.alcoholBtn.Size = new System.Drawing.Size(170, 23);
+            this.alcoholBtn.TabIndex = 2;
+            this.alcoholBtn.Text = "Алкоголь употреблял (abusus)";
+            this.alcoholBtn.UseVisualStyleBackColor = true;
+            this.alcoholBtn.Click += new System.EventHandler(this.alcoholBtn_Click);
             // 
-            // button13
+            // noAlcoholBtn
             // 
-            this.button13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button13.Location = new System.Drawing.Point(6, 83);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(152, 23);
-            this.button13.TabIndex = 1;
-            this.button13.Text = "Алкоголь не употреблял.";
-            this.button13.UseVisualStyleBackColor = true;
+            this.noAlcoholBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.noAlcoholBtn.Location = new System.Drawing.Point(6, 83);
+            this.noAlcoholBtn.Name = "noAlcoholBtn";
+            this.noAlcoholBtn.Size = new System.Drawing.Size(152, 23);
+            this.noAlcoholBtn.TabIndex = 1;
+            this.noAlcoholBtn.Text = "Алкоголь не употреблял.";
+            this.noAlcoholBtn.UseVisualStyleBackColor = true;
+            this.noAlcoholBtn.Click += new System.EventHandler(this.noAlcoholBtn_Click);
             // 
-            // richTextBox5
+            // anamnesisVitaeTxt
             // 
-            this.richTextBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.richTextBox5.Location = new System.Drawing.Point(6, 17);
-            this.richTextBox5.Name = "richTextBox5";
-            this.richTextBox5.Size = new System.Drawing.Size(497, 64);
-            this.richTextBox5.TabIndex = 0;
-            this.richTextBox5.Text = "";
+            this.anamnesisVitaeTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.anamnesisVitaeTxt.Location = new System.Drawing.Point(6, 17);
+            this.anamnesisVitaeTxt.Name = "anamnesisVitaeTxt";
+            this.anamnesisVitaeTxt.Size = new System.Drawing.Size(497, 64);
+            this.anamnesisVitaeTxt.TabIndex = 0;
+            this.anamnesisVitaeTxt.Text = "";
             // 
-            // groupBox9
+            // drugsBox
             // 
-            this.groupBox9.Controls.Add(this.button22);
-            this.groupBox9.Controls.Add(this.button21);
-            this.groupBox9.Controls.Add(this.richTextBox8);
-            this.groupBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox9.Location = new System.Drawing.Point(521, 420);
-            this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(509, 116);
-            this.groupBox9.TabIndex = 15;
-            this.groupBox9.TabStop = false;
-            this.groupBox9.Text = "Данные об употреблении наркотических и психотропных препаратов";
+            this.drugsBox.Controls.Add(this.hasNoDrugsIntoxication);
+            this.drugsBox.Controls.Add(this.hasDrugsIntoxication);
+            this.drugsBox.Controls.Add(this.drugsTxt);
+            this.drugsBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.drugsBox.Location = new System.Drawing.Point(521, 420);
+            this.drugsBox.Name = "drugsBox";
+            this.drugsBox.Size = new System.Drawing.Size(509, 116);
+            this.drugsBox.TabIndex = 15;
+            this.drugsBox.TabStop = false;
+            this.drugsBox.Text = "Данные об употреблении наркотических и психотропных препаратов";
             // 
-            // button22
+            // hasNoDrugsIntoxication
             // 
-            this.button22.Location = new System.Drawing.Point(259, 87);
-            this.button22.Name = "button22";
-            this.button22.Size = new System.Drawing.Size(244, 23);
-            this.button22.TabIndex = 2;
-            this.button22.Text = "Вводились";
-            this.button22.UseVisualStyleBackColor = true;
+            this.hasNoDrugsIntoxication.Location = new System.Drawing.Point(259, 87);
+            this.hasNoDrugsIntoxication.Name = "hasNoDrugsIntoxication";
+            this.hasNoDrugsIntoxication.Size = new System.Drawing.Size(244, 23);
+            this.hasNoDrugsIntoxication.TabIndex = 2;
+            this.hasNoDrugsIntoxication.Text = "Вводились";
+            this.hasNoDrugsIntoxication.UseVisualStyleBackColor = true;
+            this.hasNoDrugsIntoxication.Click += new System.EventHandler(this.hasNoDrugsIntoxication_Click);
             // 
-            // button21
+            // hasDrugsIntoxication
             // 
-            this.button21.Location = new System.Drawing.Point(6, 87);
-            this.button21.Name = "button21";
-            this.button21.Size = new System.Drawing.Size(253, 23);
-            this.button21.TabIndex = 1;
-            this.button21.Text = "Не вводились";
-            this.button21.UseVisualStyleBackColor = true;
+            this.hasDrugsIntoxication.Location = new System.Drawing.Point(6, 87);
+            this.hasDrugsIntoxication.Name = "hasDrugsIntoxication";
+            this.hasDrugsIntoxication.Size = new System.Drawing.Size(253, 23);
+            this.hasDrugsIntoxication.TabIndex = 1;
+            this.hasDrugsIntoxication.Text = "Не вводились";
+            this.hasDrugsIntoxication.UseVisualStyleBackColor = true;
+            this.hasDrugsIntoxication.Click += new System.EventHandler(this.hasDrugsIntoxication_Click);
             // 
-            // richTextBox8
+            // drugsTxt
             // 
-            this.richTextBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.richTextBox8.Location = new System.Drawing.Point(6, 17);
-            this.richTextBox8.Name = "richTextBox8";
-            this.richTextBox8.Size = new System.Drawing.Size(497, 66);
-            this.richTextBox8.TabIndex = 0;
-            this.richTextBox8.Text = "";
+            this.drugsTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.drugsTxt.Location = new System.Drawing.Point(6, 17);
+            this.drugsTxt.Name = "drugsTxt";
+            this.drugsTxt.Size = new System.Drawing.Size(497, 66);
+            this.drugsTxt.TabIndex = 0;
+            this.drugsTxt.Text = "";
             // 
-            // button25
+            // saveBtn
             // 
-            this.button25.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button25.Location = new System.Drawing.Point(902, 578);
-            this.button25.Name = "button25";
-            this.button25.Size = new System.Drawing.Size(124, 23);
-            this.button25.TabIndex = 18;
-            this.button25.Text = "Сохранить";
-            this.button25.UseVisualStyleBackColor = true;
+            this.saveBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.saveBtn.Location = new System.Drawing.Point(902, 578);
+            this.saveBtn.Name = "saveBtn";
+            this.saveBtn.Size = new System.Drawing.Size(124, 23);
+            this.saveBtn.TabIndex = 18;
+            this.saveBtn.Text = "Сохранить";
+            this.saveBtn.UseVisualStyleBackColor = true;
+            this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
             // 
-            // button26
+            // printBtn
             // 
-            this.button26.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button26.Location = new System.Drawing.Point(1032, 578);
-            this.button26.Name = "button26";
-            this.button26.Size = new System.Drawing.Size(125, 23);
-            this.button26.TabIndex = 19;
-            this.button26.Text = "MsWord";
-            this.button26.UseVisualStyleBackColor = true;
+            this.printBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.printBtn.Location = new System.Drawing.Point(1032, 578);
+            this.printBtn.Name = "printBtn";
+            this.printBtn.Size = new System.Drawing.Size(125, 23);
+            this.printBtn.TabIndex = 19;
+            this.printBtn.Text = "MsWord";
+            this.printBtn.UseVisualStyleBackColor = true;
             // 
-            // button27
+            // nextBtn
             // 
-            this.button27.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button27.Location = new System.Drawing.Point(772, 578);
-            this.button27.Name = "button27";
-            this.button27.Size = new System.Drawing.Size(124, 23);
-            this.button27.TabIndex = 20;
-            this.button27.Text = "Далее";
-            this.button27.UseVisualStyleBackColor = true;
+            this.nextBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.nextBtn.Location = new System.Drawing.Point(772, 578);
+            this.nextBtn.Name = "nextBtn";
+            this.nextBtn.Size = new System.Drawing.Size(124, 23);
+            this.nextBtn.TabIndex = 20;
+            this.nextBtn.Text = "Далее";
+            this.nextBtn.UseVisualStyleBackColor = true;
+            this.nextBtn.Click += new System.EventHandler(this.nextBtn_Click);
             // 
-            // button28
+            // prevBtn
             // 
-            this.button28.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button28.Location = new System.Drawing.Point(642, 578);
-            this.button28.Name = "button28";
-            this.button28.Size = new System.Drawing.Size(124, 23);
-            this.button28.TabIndex = 21;
-            this.button28.Text = "Назад";
-            this.button28.UseVisualStyleBackColor = true;
+            this.prevBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.prevBtn.Location = new System.Drawing.Point(642, 578);
+            this.prevBtn.Name = "prevBtn";
+            this.prevBtn.Size = new System.Drawing.Size(124, 23);
+            this.prevBtn.TabIndex = 21;
+            this.prevBtn.Text = "Назад";
+            this.prevBtn.UseVisualStyleBackColor = true;
+            this.prevBtn.Click += new System.EventHandler(this.prevBtn_Click);
             // 
-            // tabControl1
+            // tabsContainer
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Location = new System.Drawing.Point(111, 1);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1051, 571);
-            this.tabControl1.TabIndex = 22;
+            this.tabsContainer.Controls.Add(this.tabPage1);
+            this.tabsContainer.Controls.Add(this.tabPage2);
+            this.tabsContainer.Controls.Add(this.tabPage3);
+            this.tabsContainer.Controls.Add(this.issuedMedicineTab);
+            this.tabsContainer.Location = new System.Drawing.Point(111, 1);
+            this.tabsContainer.Name = "tabsContainer";
+            this.tabsContainer.SelectedIndex = 0;
+            this.tabsContainer.Size = new System.Drawing.Size(1051, 571);
+            this.tabsContainer.TabIndex = 22;
             // 
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPage1.Controls.Add(this.groupBox1);
-            this.tabPage1.Controls.Add(this.groupBox2);
-            this.tabPage1.Controls.Add(this.groupBox3);
-            this.tabPage1.Controls.Add(this.groupBox4);
-            this.tabPage1.Controls.Add(this.groupBox5);
-            this.tabPage1.Controls.Add(this.groupBox9);
+            this.tabPage1.Controls.Add(this.complaintsBox);
+            this.tabPage1.Controls.Add(this.anamnesisMorbiBox);
+            this.tabPage1.Controls.Add(this.anamnesisAllergyBox);
+            this.tabPage1.Controls.Add(this.anamnesisEpidBox);
+            this.tabPage1.Controls.Add(this.anamnesisVitaeBox);
+            this.tabPage1.Controls.Add(this.drugsBox);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(1043, 545);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.Text = "Анамнез";
             // 
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPage2.Controls.Add(this.groupBox10);
+            this.tabPage2.Controls.Add(this.stPresentsBox);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(1043, 545);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.Text = "StPresens";
             // 
-            // groupBox10
+            // stPresentsBox
             // 
-            this.groupBox10.BackColor = System.Drawing.SystemColors.Control;
-            this.groupBox10.Controls.Add(this.groupBox16);
-            this.groupBox10.Controls.Add(this.groupBox15);
-            this.groupBox10.Controls.Add(this.groupBox14);
-            this.groupBox10.Controls.Add(this.groupBox13);
-            this.groupBox10.Controls.Add(this.groupBox12);
-            this.groupBox10.Controls.Add(this.groupBox11);
-            this.groupBox10.Controls.Add(this.button11);
-            this.groupBox10.Controls.Add(this.richTextBox9);
-            this.groupBox10.Location = new System.Drawing.Point(9, 8);
-            this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(1028, 522);
-            this.groupBox10.TabIndex = 0;
-            this.groupBox10.TabStop = false;
-            this.groupBox10.Text = "St. Presents:";
+            this.stPresentsBox.BackColor = System.Drawing.SystemColors.Control;
+            this.stPresentsBox.Controls.Add(this.patientStatBox);
+            this.stPresentsBox.Controls.Add(this.nervousSystemBox);
+            this.stPresentsBox.Controls.Add(this.urinarySystemBox);
+            this.stPresentsBox.Controls.Add(this.digestiveSystemBox);
+            this.stPresentsBox.Controls.Add(this.cardiovascularSystemBox);
+            this.stPresentsBox.Controls.Add(this.respiratorySystemBox);
+            this.stPresentsBox.Controls.Add(this.button11);
+            this.stPresentsBox.Controls.Add(this.stPresensTxt);
+            this.stPresentsBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.stPresentsBox.Location = new System.Drawing.Point(9, 8);
+            this.stPresentsBox.Name = "stPresentsBox";
+            this.stPresentsBox.Size = new System.Drawing.Size(1028, 522);
+            this.stPresentsBox.TabIndex = 0;
+            this.stPresentsBox.TabStop = false;
+            this.stPresentsBox.Text = "St. Presents:";
             // 
-            // richTextBox9
+            // patientStatBox
             // 
-            this.richTextBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.richTextBox9.Location = new System.Drawing.Point(6, 19);
-            this.richTextBox9.Name = "richTextBox9";
-            this.richTextBox9.Size = new System.Drawing.Size(525, 156);
-            this.richTextBox9.TabIndex = 1;
-            this.richTextBox9.Text = "";
+            this.patientStatBox.Controls.Add(this.weightLbl);
+            this.patientStatBox.Controls.Add(this.highLbl);
+            this.patientStatBox.Controls.Add(this.weightTxt);
+            this.patientStatBox.Controls.Add(this.highTxt);
+            this.patientStatBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.patientStatBox.Location = new System.Drawing.Point(537, 435);
+            this.patientStatBox.Name = "patientStatBox";
+            this.patientStatBox.Size = new System.Drawing.Size(170, 77);
+            this.patientStatBox.TabIndex = 17;
+            this.patientStatBox.TabStop = false;
+            this.patientStatBox.Text = "Рост и вес пациента:";
+            // 
+            // weightLbl
+            // 
+            this.weightLbl.AutoSize = true;
+            this.weightLbl.Location = new System.Drawing.Point(93, 20);
+            this.weightLbl.Name = "weightLbl";
+            this.weightLbl.Size = new System.Drawing.Size(58, 13);
+            this.weightLbl.TabIndex = 4;
+            this.weightLbl.Text = "Вес (кг.)";
+            // 
+            // highLbl
+            // 
+            this.highLbl.AutoSize = true;
+            this.highLbl.Location = new System.Drawing.Point(10, 20);
+            this.highLbl.Name = "highLbl";
+            this.highLbl.Size = new System.Drawing.Size(67, 13);
+            this.highLbl.TabIndex = 3;
+            this.highLbl.Text = "Рост (см.)";
+            // 
+            // weightTxt
+            // 
+            this.weightTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.weightTxt.Location = new System.Drawing.Point(87, 38);
+            this.weightTxt.Name = "weightTxt";
+            this.weightTxt.Size = new System.Drawing.Size(75, 30);
+            this.weightTxt.TabIndex = 2;
+            this.weightTxt.Text = "";
+            // 
+            // highTxt
+            // 
+            this.highTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.highTxt.Location = new System.Drawing.Point(6, 38);
+            this.highTxt.Name = "highTxt";
+            this.highTxt.Size = new System.Drawing.Size(75, 30);
+            this.highTxt.TabIndex = 0;
+            this.highTxt.Text = "";
+            // 
+            // nervousSystemBox
+            // 
+            this.nervousSystemBox.Controls.Add(this.nervousSystemTxt);
+            this.nervousSystemBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.nervousSystemBox.Location = new System.Drawing.Point(537, 297);
+            this.nervousSystemBox.Name = "nervousSystemBox";
+            this.nervousSystemBox.Size = new System.Drawing.Size(485, 138);
+            this.nervousSystemBox.TabIndex = 16;
+            this.nervousSystemBox.TabStop = false;
+            this.nervousSystemBox.Text = "Нервная система: ";
+            // 
+            // nervousSystemTxt
+            // 
+            this.nervousSystemTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.nervousSystemTxt.Location = new System.Drawing.Point(6, 19);
+            this.nervousSystemTxt.Name = "nervousSystemTxt";
+            this.nervousSystemTxt.Size = new System.Drawing.Size(473, 113);
+            this.nervousSystemTxt.TabIndex = 0;
+            this.nervousSystemTxt.Text = "";
+            // 
+            // urinarySystemBox
+            // 
+            this.urinarySystemBox.Controls.Add(this.urinarySystemTxt);
+            this.urinarySystemBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.urinarySystemBox.Location = new System.Drawing.Point(537, 175);
+            this.urinarySystemBox.Name = "urinarySystemBox";
+            this.urinarySystemBox.Size = new System.Drawing.Size(485, 122);
+            this.urinarySystemBox.TabIndex = 15;
+            this.urinarySystemBox.TabStop = false;
+            this.urinarySystemBox.Text = "Мочевыделительная система: ";
+            // 
+            // urinarySystemTxt
+            // 
+            this.urinarySystemTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.urinarySystemTxt.Location = new System.Drawing.Point(6, 19);
+            this.urinarySystemTxt.Name = "urinarySystemTxt";
+            this.urinarySystemTxt.Size = new System.Drawing.Size(473, 97);
+            this.urinarySystemTxt.TabIndex = 0;
+            this.urinarySystemTxt.Text = "";
+            // 
+            // digestiveSystemBox
+            // 
+            this.digestiveSystemBox.Controls.Add(this.digestiveSystemTxt);
+            this.digestiveSystemBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.digestiveSystemBox.Location = new System.Drawing.Point(537, 19);
+            this.digestiveSystemBox.Name = "digestiveSystemBox";
+            this.digestiveSystemBox.Size = new System.Drawing.Size(485, 156);
+            this.digestiveSystemBox.TabIndex = 14;
+            this.digestiveSystemBox.TabStop = false;
+            this.digestiveSystemBox.Text = "Органы пищеварения:";
+            // 
+            // digestiveSystemTxt
+            // 
+            this.digestiveSystemTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.digestiveSystemTxt.Location = new System.Drawing.Point(6, 19);
+            this.digestiveSystemTxt.Name = "digestiveSystemTxt";
+            this.digestiveSystemTxt.Size = new System.Drawing.Size(473, 131);
+            this.digestiveSystemTxt.TabIndex = 0;
+            this.digestiveSystemTxt.Text = "";
+            // 
+            // cardiovascularSystemBox
+            // 
+            this.cardiovascularSystemBox.Controls.Add(this.cardiovascularSystemTxt);
+            this.cardiovascularSystemBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.cardiovascularSystemBox.Location = new System.Drawing.Point(6, 343);
+            this.cardiovascularSystemBox.Name = "cardiovascularSystemBox";
+            this.cardiovascularSystemBox.Size = new System.Drawing.Size(525, 160);
+            this.cardiovascularSystemBox.TabIndex = 13;
+            this.cardiovascularSystemBox.TabStop = false;
+            this.cardiovascularSystemBox.Text = "Сердечно-сосудистая система";
+            // 
+            // cardiovascularSystemTxt
+            // 
+            this.cardiovascularSystemTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.cardiovascularSystemTxt.Location = new System.Drawing.Point(6, 19);
+            this.cardiovascularSystemTxt.Name = "cardiovascularSystemTxt";
+            this.cardiovascularSystemTxt.Size = new System.Drawing.Size(513, 135);
+            this.cardiovascularSystemTxt.TabIndex = 0;
+            this.cardiovascularSystemTxt.Text = "";
+            // 
+            // respiratorySystemBox
+            // 
+            this.respiratorySystemBox.Controls.Add(this.respiratorySystemTxt);
+            this.respiratorySystemBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.respiratorySystemBox.Location = new System.Drawing.Point(6, 202);
+            this.respiratorySystemBox.Name = "respiratorySystemBox";
+            this.respiratorySystemBox.Size = new System.Drawing.Size(525, 141);
+            this.respiratorySystemBox.TabIndex = 12;
+            this.respiratorySystemBox.TabStop = false;
+            this.respiratorySystemBox.Text = "Органы дыхания:";
+            // 
+            // respiratorySystemTxt
+            // 
+            this.respiratorySystemTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.respiratorySystemTxt.Location = new System.Drawing.Point(6, 19);
+            this.respiratorySystemTxt.Name = "respiratorySystemTxt";
+            this.respiratorySystemTxt.Size = new System.Drawing.Size(513, 116);
+            this.respiratorySystemTxt.TabIndex = 0;
+            this.respiratorySystemTxt.Text = "";
             // 
             // button11
             // 
@@ -663,155 +826,14 @@
             this.button11.Text = "Исправить по шаблону";
             this.button11.UseVisualStyleBackColor = true;
             // 
-            // groupBox11
+            // stPresensTxt
             // 
-            this.groupBox11.Controls.Add(this.richTextBox10);
-            this.groupBox11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox11.Location = new System.Drawing.Point(6, 202);
-            this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(525, 141);
-            this.groupBox11.TabIndex = 12;
-            this.groupBox11.TabStop = false;
-            this.groupBox11.Text = "Органы дыхания:";
-            // 
-            // richTextBox10
-            // 
-            this.richTextBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.richTextBox10.Location = new System.Drawing.Point(6, 19);
-            this.richTextBox10.Name = "richTextBox10";
-            this.richTextBox10.Size = new System.Drawing.Size(513, 116);
-            this.richTextBox10.TabIndex = 0;
-            this.richTextBox10.Text = "";
-            // 
-            // groupBox12
-            // 
-            this.groupBox12.Controls.Add(this.richTextBox11);
-            this.groupBox12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox12.Location = new System.Drawing.Point(6, 343);
-            this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(525, 160);
-            this.groupBox12.TabIndex = 13;
-            this.groupBox12.TabStop = false;
-            this.groupBox12.Text = "Сердечно-сосудистая система";
-            // 
-            // richTextBox11
-            // 
-            this.richTextBox11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.richTextBox11.Location = new System.Drawing.Point(6, 19);
-            this.richTextBox11.Name = "richTextBox11";
-            this.richTextBox11.Size = new System.Drawing.Size(513, 135);
-            this.richTextBox11.TabIndex = 0;
-            this.richTextBox11.Text = "";
-            // 
-            // groupBox13
-            // 
-            this.groupBox13.Controls.Add(this.richTextBox12);
-            this.groupBox13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox13.Location = new System.Drawing.Point(537, 19);
-            this.groupBox13.Name = "groupBox13";
-            this.groupBox13.Size = new System.Drawing.Size(485, 156);
-            this.groupBox13.TabIndex = 14;
-            this.groupBox13.TabStop = false;
-            this.groupBox13.Text = "Органы пищеварения:";
-            // 
-            // richTextBox12
-            // 
-            this.richTextBox12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.richTextBox12.Location = new System.Drawing.Point(6, 19);
-            this.richTextBox12.Name = "richTextBox12";
-            this.richTextBox12.Size = new System.Drawing.Size(473, 131);
-            this.richTextBox12.TabIndex = 0;
-            this.richTextBox12.Text = "";
-            // 
-            // groupBox14
-            // 
-            this.groupBox14.Controls.Add(this.richTextBox13);
-            this.groupBox14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox14.Location = new System.Drawing.Point(537, 175);
-            this.groupBox14.Name = "groupBox14";
-            this.groupBox14.Size = new System.Drawing.Size(485, 122);
-            this.groupBox14.TabIndex = 15;
-            this.groupBox14.TabStop = false;
-            this.groupBox14.Text = "Мочевыделительная система: ";
-            // 
-            // richTextBox13
-            // 
-            this.richTextBox13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.richTextBox13.Location = new System.Drawing.Point(6, 19);
-            this.richTextBox13.Name = "richTextBox13";
-            this.richTextBox13.Size = new System.Drawing.Size(473, 97);
-            this.richTextBox13.TabIndex = 0;
-            this.richTextBox13.Text = "";
-            // 
-            // groupBox15
-            // 
-            this.groupBox15.Controls.Add(this.richTextBox14);
-            this.groupBox15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox15.Location = new System.Drawing.Point(537, 297);
-            this.groupBox15.Name = "groupBox15";
-            this.groupBox15.Size = new System.Drawing.Size(485, 138);
-            this.groupBox15.TabIndex = 16;
-            this.groupBox15.TabStop = false;
-            this.groupBox15.Text = "Нервная система: ";
-            // 
-            // richTextBox14
-            // 
-            this.richTextBox14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.richTextBox14.Location = new System.Drawing.Point(6, 19);
-            this.richTextBox14.Name = "richTextBox14";
-            this.richTextBox14.Size = new System.Drawing.Size(473, 113);
-            this.richTextBox14.TabIndex = 0;
-            this.richTextBox14.Text = "";
-            // 
-            // groupBox16
-            // 
-            this.groupBox16.Controls.Add(this.label2);
-            this.groupBox16.Controls.Add(this.label1);
-            this.groupBox16.Controls.Add(this.richTextBox16);
-            this.groupBox16.Controls.Add(this.richTextBox15);
-            this.groupBox16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox16.Location = new System.Drawing.Point(537, 435);
-            this.groupBox16.Name = "groupBox16";
-            this.groupBox16.Size = new System.Drawing.Size(170, 77);
-            this.groupBox16.TabIndex = 17;
-            this.groupBox16.TabStop = false;
-            this.groupBox16.Text = "Рост и вес пациента:";
-            // 
-            // richTextBox15
-            // 
-            this.richTextBox15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.richTextBox15.Location = new System.Drawing.Point(6, 38);
-            this.richTextBox15.Name = "richTextBox15";
-            this.richTextBox15.Size = new System.Drawing.Size(75, 30);
-            this.richTextBox15.TabIndex = 0;
-            this.richTextBox15.Text = "";
-            // 
-            // richTextBox16
-            // 
-            this.richTextBox16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.richTextBox16.Location = new System.Drawing.Point(87, 38);
-            this.richTextBox16.Name = "richTextBox16";
-            this.richTextBox16.Size = new System.Drawing.Size(75, 30);
-            this.richTextBox16.TabIndex = 2;
-            this.richTextBox16.Text = "";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Рост (см.)";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(93, 20);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Вес (кг.)";
+            this.stPresensTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.stPresensTxt.Location = new System.Drawing.Point(6, 19);
+            this.stPresensTxt.Name = "stPresensTxt";
+            this.stPresensTxt.Size = new System.Drawing.Size(525, 156);
+            this.stPresensTxt.TabIndex = 1;
+            this.stPresensTxt.Text = "";
             // 
             // tabPage3
             // 
@@ -824,142 +846,7 @@
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(1043, 545);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "tabPage3";
-            // 
-            // groupBox17
-            // 
-            this.groupBox17.Controls.Add(this.button12);
-            this.groupBox17.Controls.Add(this.richTextBox17);
-            this.groupBox17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox17.Location = new System.Drawing.Point(6, 6);
-            this.groupBox17.Name = "groupBox17";
-            this.groupBox17.Size = new System.Drawing.Size(509, 207);
-            this.groupBox17.TabIndex = 11;
-            this.groupBox17.TabStop = false;
-            this.groupBox17.Text = "Предварительный  клинический диагноз:";
-            // 
-            // richTextBox17
-            // 
-            this.richTextBox17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.richTextBox17.Location = new System.Drawing.Point(6, 19);
-            this.richTextBox17.Name = "richTextBox17";
-            this.richTextBox17.Size = new System.Drawing.Size(497, 161);
-            this.richTextBox17.TabIndex = 0;
-            this.richTextBox17.Text = "";
-            // 
-            // groupBox18
-            // 
-            this.groupBox18.Controls.Add(this.radioButton7);
-            this.groupBox18.Controls.Add(this.radioButton6);
-            this.groupBox18.Controls.Add(this.radioButton5);
-            this.groupBox18.Controls.Add(this.radioButton4);
-            this.groupBox18.Controls.Add(this.radioButton3);
-            this.groupBox18.Controls.Add(this.radioButton2);
-            this.groupBox18.Controls.Add(this.radioButton1);
-            this.groupBox18.Controls.Add(this.richTextBox18);
-            this.groupBox18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox18.Location = new System.Drawing.Point(6, 219);
-            this.groupBox18.Name = "groupBox18";
-            this.groupBox18.Size = new System.Drawing.Size(509, 207);
-            this.groupBox18.TabIndex = 12;
-            this.groupBox18.TabStop = false;
-            this.groupBox18.Text = "Обоснование:";
-            // 
-            // richTextBox18
-            // 
-            this.richTextBox18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.richTextBox18.Location = new System.Drawing.Point(6, 46);
-            this.richTextBox18.Name = "richTextBox18";
-            this.richTextBox18.Size = new System.Drawing.Size(497, 155);
-            this.richTextBox18.TabIndex = 0;
-            this.richTextBox18.Text = "";
-            // 
-            // button12
-            // 
-            this.button12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button12.Location = new System.Drawing.Point(343, 177);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(160, 21);
-            this.button12.TabIndex = 3;
-            this.button12.Text = "Исправить по шаблону";
-            this.button12.UseVisualStyleBackColor = true;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(6, 23);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(58, 17);
-            this.radioButton1.TabIndex = 1;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "ТЭЛА";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(70, 23);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(42, 17);
-            this.radioButton2.TabIndex = 2;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "НК";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton3
-            // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(118, 23);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(81, 17);
-            this.radioButton3.TabIndex = 3;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "ОКС с ST";
-            this.radioButton3.UseVisualStyleBackColor = true;
-            // 
-            // radioButton4
-            // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(205, 23);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(95, 17);
-            this.radioButton4.TabIndex = 4;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "ОКС без ST";
-            this.radioButton4.UseVisualStyleBackColor = true;
-            // 
-            // radioButton5
-            // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Location = new System.Drawing.Point(306, 23);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(52, 17);
-            this.radioButton5.TabIndex = 5;
-            this.radioButton5.TabStop = true;
-            this.radioButton5.Text = "ПМА";
-            this.radioButton5.UseVisualStyleBackColor = true;
-            // 
-            // radioButton6
-            // 
-            this.radioButton6.AutoSize = true;
-            this.radioButton6.Location = new System.Drawing.Point(364, 23);
-            this.radioButton6.Name = "radioButton6";
-            this.radioButton6.Size = new System.Drawing.Size(40, 17);
-            this.radioButton6.TabIndex = 6;
-            this.radioButton6.TabStop = true;
-            this.radioButton6.Text = "ГБ";
-            this.radioButton6.UseVisualStyleBackColor = true;
-            // 
-            // radioButton7
-            // 
-            this.radioButton7.AutoSize = true;
-            this.radioButton7.Location = new System.Drawing.Point(410, 23);
-            this.radioButton7.Name = "radioButton7";
-            this.radioButton7.Size = new System.Drawing.Size(84, 17);
-            this.radioButton7.TabIndex = 7;
-            this.radioButton7.TabStop = true;
-            this.radioButton7.Text = "Искл.ИБС";
-            this.radioButton7.UseVisualStyleBackColor = true;
+            this.tabPage3.Text = "Диагноз";
             // 
             // groupBox19
             // 
@@ -976,41 +863,14 @@
             this.groupBox19.TabStop = false;
             this.groupBox19.Text = "Калькуляторы";
             // 
-            // button23
+            // button32
             // 
-            this.button23.Location = new System.Drawing.Point(6, 21);
-            this.button23.Name = "button23";
-            this.button23.Size = new System.Drawing.Size(163, 24);
-            this.button23.TabIndex = 2;
-            this.button23.Text = "Шкала CHA2DS2VASc";
-            this.button23.UseVisualStyleBackColor = true;
-            // 
-            // button24
-            // 
-            this.button24.Location = new System.Drawing.Point(6, 51);
-            this.button24.Name = "button24";
-            this.button24.Size = new System.Drawing.Size(163, 24);
-            this.button24.TabIndex = 3;
-            this.button24.Text = "Шкала CHADS2";
-            this.button24.UseVisualStyleBackColor = true;
-            // 
-            // button29
-            // 
-            this.button29.Location = new System.Drawing.Point(6, 81);
-            this.button29.Name = "button29";
-            this.button29.Size = new System.Drawing.Size(163, 24);
-            this.button29.TabIndex = 4;
-            this.button29.Text = "Шкала GRACE";
-            this.button29.UseVisualStyleBackColor = true;
-            // 
-            // button30
-            // 
-            this.button30.Location = new System.Drawing.Point(6, 111);
-            this.button30.Name = "button30";
-            this.button30.Size = new System.Drawing.Size(163, 24);
-            this.button30.TabIndex = 5;
-            this.button30.Text = "Шкала HAS-BLED";
-            this.button30.UseVisualStyleBackColor = true;
+            this.button32.Location = new System.Drawing.Point(191, 21);
+            this.button32.Name = "button32";
+            this.button32.Size = new System.Drawing.Size(97, 132);
+            this.button32.TabIndex = 7;
+            this.button32.Text = "Вставить скопированный текст \r\nв диагноз";
+            this.button32.UseVisualStyleBackColor = true;
             // 
             // button31
             // 
@@ -1021,116 +881,282 @@
             this.button31.Text = "Калькулятор СКФ";
             this.button31.UseVisualStyleBackColor = true;
             // 
-            // button32
+            // button30
             // 
-            this.button32.Location = new System.Drawing.Point(191, 21);
-            this.button32.Name = "button32";
-            this.button32.Size = new System.Drawing.Size(97, 132);
-            this.button32.TabIndex = 7;
-            this.button32.Text = "Вставить скопированный текст \r\nв диагноз";
-            this.button32.UseVisualStyleBackColor = true;
+            this.button30.Location = new System.Drawing.Point(6, 111);
+            this.button30.Name = "button30";
+            this.button30.Size = new System.Drawing.Size(163, 24);
+            this.button30.TabIndex = 5;
+            this.button30.Text = "Шкала HAS-BLED";
+            this.button30.UseVisualStyleBackColor = true;
             // 
-            // tabPage4
+            // button29
             // 
-            this.tabPage4.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPage4.Controls.Add(this.button35);
-            this.tabPage4.Controls.Add(this.button34);
-            this.tabPage4.Controls.Add(this.groupBox20);
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1043, 545);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "tabPage4";
+            this.button29.Location = new System.Drawing.Point(6, 81);
+            this.button29.Name = "button29";
+            this.button29.Size = new System.Drawing.Size(163, 24);
+            this.button29.TabIndex = 4;
+            this.button29.Text = "Шкала GRACE";
+            this.button29.UseVisualStyleBackColor = true;
             // 
-            // groupBox20
+            // button24
             // 
-            this.groupBox20.Controls.Add(this.checkBox4);
-            this.groupBox20.Controls.Add(this.checkBox3);
-            this.groupBox20.Controls.Add(this.checkBox2);
-            this.groupBox20.Controls.Add(this.checkBox1);
-            this.groupBox20.Controls.Add(this.textBox9);
-            this.groupBox20.Controls.Add(this.textBox10);
-            this.groupBox20.Controls.Add(this.textBox11);
-            this.groupBox20.Controls.Add(this.textBox12);
-            this.groupBox20.Controls.Add(this.textBox5);
-            this.groupBox20.Controls.Add(this.textBox6);
-            this.groupBox20.Controls.Add(this.textBox7);
-            this.groupBox20.Controls.Add(this.textBox8);
-            this.groupBox20.Controls.Add(this.textBox3);
-            this.groupBox20.Controls.Add(this.textBox4);
-            this.groupBox20.Controls.Add(this.textBox2);
-            this.groupBox20.Controls.Add(this.textBox1);
-            this.groupBox20.Location = new System.Drawing.Point(22, 14);
-            this.groupBox20.Name = "groupBox20";
-            this.groupBox20.Size = new System.Drawing.Size(479, 382);
-            this.groupBox20.TabIndex = 0;
-            this.groupBox20.TabStop = false;
-            this.groupBox20.Text = "Назначения:";
+            this.button24.Location = new System.Drawing.Point(6, 51);
+            this.button24.Name = "button24";
+            this.button24.Size = new System.Drawing.Size(163, 24);
+            this.button24.TabIndex = 3;
+            this.button24.Text = "Шкала CHADS2";
+            this.button24.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // button23
             // 
-            this.textBox1.Location = new System.Drawing.Point(8, 20);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(459, 24);
-            this.textBox1.TabIndex = 0;
+            this.button23.Location = new System.Drawing.Point(6, 21);
+            this.button23.Name = "button23";
+            this.button23.Size = new System.Drawing.Size(163, 24);
+            this.button23.TabIndex = 2;
+            this.button23.Text = "Шкала CHA2DS2VASc";
+            this.button23.UseVisualStyleBackColor = true;
             // 
-            // textBox2
+            // groupBox18
             // 
-            this.textBox2.Location = new System.Drawing.Point(8, 50);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(459, 24);
-            this.textBox2.TabIndex = 1;
+            this.groupBox18.Controls.Add(this.ibsRadio);
+            this.groupBox18.Controls.Add(this.gbRadio);
+            this.groupBox18.Controls.Add(this.pmaRadio);
+            this.groupBox18.Controls.Add(this.oksRadio);
+            this.groupBox18.Controls.Add(this.oksStRadio);
+            this.groupBox18.Controls.Add(this.nkRadio);
+            this.groupBox18.Controls.Add(this.telaRadio);
+            this.groupBox18.Controls.Add(this.justificationTxt);
+            this.groupBox18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.groupBox18.Location = new System.Drawing.Point(6, 219);
+            this.groupBox18.Name = "groupBox18";
+            this.groupBox18.Size = new System.Drawing.Size(509, 207);
+            this.groupBox18.TabIndex = 12;
+            this.groupBox18.TabStop = false;
+            this.groupBox18.Text = "Обоснование:";
             // 
-            // textBox3
+            // ibsRadio
             // 
-            this.textBox3.Location = new System.Drawing.Point(8, 108);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(459, 24);
-            this.textBox3.TabIndex = 3;
+            this.ibsRadio.AutoSize = true;
+            this.ibsRadio.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ibsRadio.Location = new System.Drawing.Point(410, 23);
+            this.ibsRadio.Name = "ibsRadio";
+            this.ibsRadio.Size = new System.Drawing.Size(76, 17);
+            this.ibsRadio.TabIndex = 7;
+            this.ibsRadio.TabStop = true;
+            this.ibsRadio.Text = "Искл.ИБС";
+            this.ibsRadio.UseVisualStyleBackColor = true;
+            this.ibsRadio.CheckedChanged += new System.EventHandler(this.ibsRadio_CheckedChanged);
             // 
-            // textBox4
+            // gbRadio
             // 
-            this.textBox4.Location = new System.Drawing.Point(8, 78);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(459, 24);
-            this.textBox4.TabIndex = 2;
+            this.gbRadio.AutoSize = true;
+            this.gbRadio.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.gbRadio.Location = new System.Drawing.Point(364, 23);
+            this.gbRadio.Name = "gbRadio";
+            this.gbRadio.Size = new System.Drawing.Size(38, 17);
+            this.gbRadio.TabIndex = 6;
+            this.gbRadio.TabStop = true;
+            this.gbRadio.Text = "ГБ";
+            this.gbRadio.UseVisualStyleBackColor = true;
+            this.gbRadio.CheckedChanged += new System.EventHandler(this.gbRadio_CheckedChanged);
             // 
-            // textBox5
+            // pmaRadio
             // 
-            this.textBox5.Location = new System.Drawing.Point(8, 226);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(459, 24);
-            this.textBox5.TabIndex = 7;
+            this.pmaRadio.AutoSize = true;
+            this.pmaRadio.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.pmaRadio.Location = new System.Drawing.Point(306, 23);
+            this.pmaRadio.Name = "pmaRadio";
+            this.pmaRadio.Size = new System.Drawing.Size(49, 17);
+            this.pmaRadio.TabIndex = 5;
+            this.pmaRadio.TabStop = true;
+            this.pmaRadio.Text = "ПМА";
+            this.pmaRadio.UseVisualStyleBackColor = true;
+            this.pmaRadio.CheckedChanged += new System.EventHandler(this.pmaRadio_CheckedChanged);
             // 
-            // textBox6
+            // oksRadio
             // 
-            this.textBox6.Location = new System.Drawing.Point(8, 198);
-            this.textBox6.Multiline = true;
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(459, 24);
-            this.textBox6.TabIndex = 6;
+            this.oksRadio.AutoSize = true;
+            this.oksRadio.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.oksRadio.Location = new System.Drawing.Point(205, 23);
+            this.oksRadio.Name = "oksRadio";
+            this.oksRadio.Size = new System.Drawing.Size(85, 17);
+            this.oksRadio.TabIndex = 4;
+            this.oksRadio.TabStop = true;
+            this.oksRadio.Text = "ОКС без ST";
+            this.oksRadio.UseVisualStyleBackColor = true;
+            this.oksRadio.CheckedChanged += new System.EventHandler(this.oksRadio_CheckedChanged);
             // 
-            // textBox7
+            // oksStRadio
             // 
-            this.textBox7.Location = new System.Drawing.Point(8, 168);
-            this.textBox7.Multiline = true;
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(459, 24);
-            this.textBox7.TabIndex = 5;
+            this.oksStRadio.AutoSize = true;
+            this.oksStRadio.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.oksStRadio.Location = new System.Drawing.Point(118, 23);
+            this.oksStRadio.Name = "oksStRadio";
+            this.oksStRadio.Size = new System.Drawing.Size(73, 17);
+            this.oksStRadio.TabIndex = 3;
+            this.oksStRadio.TabStop = true;
+            this.oksStRadio.Text = "ОКС с ST";
+            this.oksStRadio.UseVisualStyleBackColor = true;
+            this.oksStRadio.CheckedChanged += new System.EventHandler(this.oksStRadio_CheckedChanged);
             // 
-            // textBox8
+            // nkRadio
             // 
-            this.textBox8.Location = new System.Drawing.Point(8, 138);
-            this.textBox8.Multiline = true;
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(459, 24);
-            this.textBox8.TabIndex = 4;
+            this.nkRadio.AutoSize = true;
+            this.nkRadio.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.nkRadio.Location = new System.Drawing.Point(70, 23);
+            this.nkRadio.Name = "nkRadio";
+            this.nkRadio.Size = new System.Drawing.Size(40, 17);
+            this.nkRadio.TabIndex = 2;
+            this.nkRadio.TabStop = true;
+            this.nkRadio.Text = "НК";
+            this.nkRadio.UseVisualStyleBackColor = true;
+            this.nkRadio.CheckedChanged += new System.EventHandler(this.nkRadio_CheckedChanged);
+            // 
+            // telaRadio
+            // 
+            this.telaRadio.AutoSize = true;
+            this.telaRadio.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.telaRadio.Location = new System.Drawing.Point(6, 23);
+            this.telaRadio.Name = "telaRadio";
+            this.telaRadio.Size = new System.Drawing.Size(54, 17);
+            this.telaRadio.TabIndex = 1;
+            this.telaRadio.TabStop = true;
+            this.telaRadio.Text = "ТЭЛА";
+            this.telaRadio.UseVisualStyleBackColor = true;
+            this.telaRadio.CheckedChanged += new System.EventHandler(this.telaRadio_CheckedChanged);
+            // 
+            // justificationTxt
+            // 
+            this.justificationTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.justificationTxt.Location = new System.Drawing.Point(6, 46);
+            this.justificationTxt.Name = "justificationTxt";
+            this.justificationTxt.Size = new System.Drawing.Size(497, 155);
+            this.justificationTxt.TabIndex = 0;
+            this.justificationTxt.Text = "";
+            // 
+            // groupBox17
+            // 
+            this.groupBox17.Controls.Add(this.button12);
+            this.groupBox17.Controls.Add(this.diagnosisTxt);
+            this.groupBox17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.groupBox17.Location = new System.Drawing.Point(6, 6);
+            this.groupBox17.Name = "groupBox17";
+            this.groupBox17.Size = new System.Drawing.Size(509, 207);
+            this.groupBox17.TabIndex = 11;
+            this.groupBox17.TabStop = false;
+            this.groupBox17.Text = "Предварительный  клинический диагноз:";
+            // 
+            // button12
+            // 
+            this.button12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button12.Location = new System.Drawing.Point(343, 177);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(160, 21);
+            this.button12.TabIndex = 3;
+            this.button12.Text = "Исправить по шаблону";
+            this.button12.UseVisualStyleBackColor = true;
+            // 
+            // diagnosisTxt
+            // 
+            this.diagnosisTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.diagnosisTxt.Location = new System.Drawing.Point(6, 19);
+            this.diagnosisTxt.Name = "diagnosisTxt";
+            this.diagnosisTxt.Size = new System.Drawing.Size(497, 161);
+            this.diagnosisTxt.TabIndex = 0;
+            this.diagnosisTxt.Text = "";
+            // 
+            // issuedMedicineTab
+            // 
+            this.issuedMedicineTab.BackColor = System.Drawing.SystemColors.Control;
+            this.issuedMedicineTab.Controls.Add(this.button35);
+            this.issuedMedicineTab.Controls.Add(this.button34);
+            this.issuedMedicineTab.Controls.Add(this.issuedMedicineBox);
+            this.issuedMedicineTab.Location = new System.Drawing.Point(4, 22);
+            this.issuedMedicineTab.Name = "issuedMedicineTab";
+            this.issuedMedicineTab.Padding = new System.Windows.Forms.Padding(3);
+            this.issuedMedicineTab.Size = new System.Drawing.Size(1043, 545);
+            this.issuedMedicineTab.TabIndex = 3;
+            this.issuedMedicineTab.Text = "Назначения";
+            // 
+            // button35
+            // 
+            this.button35.Location = new System.Drawing.Point(577, 69);
+            this.button35.Name = "button35";
+            this.button35.Size = new System.Drawing.Size(186, 77);
+            this.button35.TabIndex = 3;
+            this.button35.Text = "Анализы и исследования:";
+            this.button35.UseVisualStyleBackColor = true;
+            // 
+            // button34
+            // 
+            this.button34.Location = new System.Drawing.Point(577, 196);
+            this.button34.Name = "button34";
+            this.button34.Size = new System.Drawing.Size(186, 77);
+            this.button34.TabIndex = 2;
+            this.button34.Text = "Открыть первичный осмотр";
+            this.button34.UseVisualStyleBackColor = true;
+            // 
+            // issuedMedicineBox
+            // 
+            this.issuedMedicineBox.Controls.Add(this.checkBox4);
+            this.issuedMedicineBox.Controls.Add(this.checkBox3);
+            this.issuedMedicineBox.Controls.Add(this.checkBox2);
+            this.issuedMedicineBox.Controls.Add(this.checkBox1);
+            this.issuedMedicineBox.Controls.Add(this.textBox9);
+            this.issuedMedicineBox.Controls.Add(this.textBox10);
+            this.issuedMedicineBox.Controls.Add(this.textBox11);
+            this.issuedMedicineBox.Controls.Add(this.textBox12);
+            this.issuedMedicineBox.Controls.Add(this.textBox5);
+            this.issuedMedicineBox.Controls.Add(this.textBox6);
+            this.issuedMedicineBox.Controls.Add(this.textBox7);
+            this.issuedMedicineBox.Controls.Add(this.textBox8);
+            this.issuedMedicineBox.Controls.Add(this.textBox3);
+            this.issuedMedicineBox.Controls.Add(this.textBox4);
+            this.issuedMedicineBox.Controls.Add(this.textBox2);
+            this.issuedMedicineBox.Controls.Add(this.issuedMedicineTxt0);
+            this.issuedMedicineBox.Location = new System.Drawing.Point(22, 14);
+            this.issuedMedicineBox.Name = "issuedMedicineBox";
+            this.issuedMedicineBox.Size = new System.Drawing.Size(479, 382);
+            this.issuedMedicineBox.TabIndex = 0;
+            this.issuedMedicineBox.TabStop = false;
+            this.issuedMedicineBox.Text = "Назначения:";
+            // 
+            // checkBox4
+            // 
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.Location = new System.Drawing.Point(11, 347);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Size = new System.Drawing.Size(15, 14);
+            this.checkBox4.TabIndex = 15;
+            this.checkBox4.UseVisualStyleBackColor = true;
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Location = new System.Drawing.Point(11, 317);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(15, 14);
+            this.checkBox3.TabIndex = 14;
+            this.checkBox3.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(11, 289);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(15, 14);
+            this.checkBox2.TabIndex = 13;
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(11, 259);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(15, 14);
+            this.checkBox1.TabIndex = 12;
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // textBox9
             // 
@@ -1164,113 +1190,124 @@
             this.textBox12.Size = new System.Drawing.Size(435, 24);
             this.textBox12.TabIndex = 8;
             // 
-            // checkBox1
+            // textBox5
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(11, 259);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(15, 14);
-            this.checkBox1.TabIndex = 12;
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.textBox5.Location = new System.Drawing.Point(8, 226);
+            this.textBox5.Multiline = true;
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(459, 24);
+            this.textBox5.TabIndex = 7;
             // 
-            // checkBox2
+            // textBox6
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(11, 289);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(15, 14);
-            this.checkBox2.TabIndex = 13;
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.textBox6.Location = new System.Drawing.Point(8, 198);
+            this.textBox6.Multiline = true;
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(459, 24);
+            this.textBox6.TabIndex = 6;
             // 
-            // checkBox3
+            // textBox7
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(11, 317);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(15, 14);
-            this.checkBox3.TabIndex = 14;
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.textBox7.Location = new System.Drawing.Point(8, 168);
+            this.textBox7.Multiline = true;
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(459, 24);
+            this.textBox7.TabIndex = 5;
             // 
-            // checkBox4
+            // textBox8
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(11, 347);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(15, 14);
-            this.checkBox4.TabIndex = 15;
-            this.checkBox4.UseVisualStyleBackColor = true;
+            this.textBox8.Location = new System.Drawing.Point(8, 138);
+            this.textBox8.Multiline = true;
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(459, 24);
+            this.textBox8.TabIndex = 4;
             // 
-            // button34
+            // textBox3
             // 
-            this.button34.Location = new System.Drawing.Point(577, 196);
-            this.button34.Name = "button34";
-            this.button34.Size = new System.Drawing.Size(186, 77);
-            this.button34.TabIndex = 2;
-            this.button34.Text = "Открыть первичный осмотр";
-            this.button34.UseVisualStyleBackColor = true;
+            this.textBox3.Location = new System.Drawing.Point(8, 108);
+            this.textBox3.Multiline = true;
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(459, 24);
+            this.textBox3.TabIndex = 3;
             // 
-            // button35
+            // textBox4
             // 
-            this.button35.Location = new System.Drawing.Point(577, 69);
-            this.button35.Name = "button35";
-            this.button35.Size = new System.Drawing.Size(186, 77);
-            this.button35.TabIndex = 3;
-            this.button35.Text = "Анализы и исследования:";
-            this.button35.UseVisualStyleBackColor = true;
+            this.textBox4.Location = new System.Drawing.Point(8, 78);
+            this.textBox4.Multiline = true;
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(459, 24);
+            this.textBox4.TabIndex = 2;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(8, 50);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(459, 24);
+            this.textBox2.TabIndex = 1;
+            // 
+            // issuedMedicineTxt0
+            // 
+            this.issuedMedicineTxt0.Location = new System.Drawing.Point(8, 20);
+            this.issuedMedicineTxt0.Multiline = true;
+            this.issuedMedicineTxt0.Name = "issuedMedicineTxt0";
+            this.issuedMedicineTxt0.Size = new System.Drawing.Size(459, 24);
+            this.issuedMedicineTxt0.TabIndex = 0;
             // 
             // FirstInspection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1165, 602);
-            this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.button28);
-            this.Controls.Add(this.button27);
-            this.Controls.Add(this.button26);
-            this.Controls.Add(this.button25);
-            this.Controls.Add(this.button10);
-            this.Controls.Add(this.button9);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.tabsContainer);
+            this.Controls.Add(this.prevBtn);
+            this.Controls.Add(this.nextBtn);
+            this.Controls.Add(this.printBtn);
+            this.Controls.Add(this.saveBtn);
+            this.Controls.Add(this.OKSUpBtn);
+            this.Controls.Add(this.OKSDownBtn);
+            this.Controls.Add(this.KAGBtn);
+            this.Controls.Add(this.aorticDissectionBtn);
+            this.Controls.Add(this.GBBtn);
+            this.Controls.Add(this.PIKSBtn);
+            this.Controls.Add(this.PIKVIKBtn);
+            this.Controls.Add(this.DEPBtn);
+            this.Controls.Add(this.deathBtn);
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FirstInspection";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Данные первичного осмотра";
             this.Load += new System.EventHandler(this.FirstInspection_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox7.ResumeLayout(false);
-            this.groupBox8.ResumeLayout(false);
-            this.groupBox6.ResumeLayout(false);
-            this.groupBox9.ResumeLayout(false);
-            this.tabControl1.ResumeLayout(false);
+            this.complaintsBox.ResumeLayout(false);
+            this.anamnesisMorbiBox.ResumeLayout(false);
+            this.anamnesisAllergyBox.ResumeLayout(false);
+            this.anamnesisEpidBox.ResumeLayout(false);
+            this.anamnesisVitaeBox.ResumeLayout(false);
+            this.accompanyingIllnessesBox.ResumeLayout(false);
+            this.chronicBox.ResumeLayout(false);
+            this.pastSurgeriesBox.ResumeLayout(false);
+            this.drugsBox.ResumeLayout(false);
+            this.tabsContainer.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
-            this.groupBox10.ResumeLayout(false);
-            this.groupBox11.ResumeLayout(false);
-            this.groupBox12.ResumeLayout(false);
-            this.groupBox13.ResumeLayout(false);
-            this.groupBox14.ResumeLayout(false);
-            this.groupBox15.ResumeLayout(false);
-            this.groupBox16.ResumeLayout(false);
-            this.groupBox16.PerformLayout();
+            this.stPresentsBox.ResumeLayout(false);
+            this.patientStatBox.ResumeLayout(false);
+            this.patientStatBox.PerformLayout();
+            this.nervousSystemBox.ResumeLayout(false);
+            this.urinarySystemBox.ResumeLayout(false);
+            this.digestiveSystemBox.ResumeLayout(false);
+            this.cardiovascularSystemBox.ResumeLayout(false);
+            this.respiratorySystemBox.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
-            this.groupBox17.ResumeLayout(false);
+            this.groupBox19.ResumeLayout(false);
             this.groupBox18.ResumeLayout(false);
             this.groupBox18.PerformLayout();
-            this.groupBox19.ResumeLayout(false);
-            this.tabPage4.ResumeLayout(false);
-            this.groupBox20.ResumeLayout(false);
-            this.groupBox20.PerformLayout();
+            this.groupBox17.ResumeLayout(false);
+            this.issuedMedicineTab.ResumeLayout(false);
+            this.issuedMedicineBox.ResumeLayout(false);
+            this.issuedMedicineBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1278,69 +1315,69 @@
         #endregion
 
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button deathBtn;
+        private System.Windows.Forms.Button DEPBtn;
+        private System.Windows.Forms.Button PIKVIKBtn;
+        private System.Windows.Forms.Button PIKSBtn;
+        private System.Windows.Forms.Button GBBtn;
+        private System.Windows.Forms.Button aorticDissectionBtn;
+        private System.Windows.Forms.Button KAGBtn;
+        private System.Windows.Forms.Button OKSDownBtn;
+        private System.Windows.Forms.Button OKSUpBtn;
+        private System.Windows.Forms.GroupBox complaintsBox;
         private System.Windows.Forms.Button fixComplaintTeplaintBtn;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.RichTextBox complaintsTxt;
+        private System.Windows.Forms.GroupBox anamnesisMorbiBox;
         private System.Windows.Forms.Button fixMorbiTemplateBtn;
-        private System.Windows.Forms.RichTextBox richTextBox2;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.RichTextBox richTextBox3;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.RichTextBox richTextBox4;
-        private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.GroupBox groupBox8;
-        private System.Windows.Forms.Button button20;
-        private System.Windows.Forms.Button button19;
-        private System.Windows.Forms.Button button18;
-        private System.Windows.Forms.Button button17;
-        private System.Windows.Forms.Button button16;
-        private System.Windows.Forms.RichTextBox richTextBox7;
-        private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.RichTextBox richTextBox6;
-        private System.Windows.Forms.Button button15;
-        private System.Windows.Forms.Button button14;
-        private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.RichTextBox richTextBox5;
-        private System.Windows.Forms.GroupBox groupBox9;
-        private System.Windows.Forms.Button button22;
-        private System.Windows.Forms.Button button21;
-        private System.Windows.Forms.RichTextBox richTextBox8;
-        private System.Windows.Forms.Button button25;
-        private System.Windows.Forms.Button button26;
-        private System.Windows.Forms.Button button27;
-        private System.Windows.Forms.Button button28;
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.RichTextBox anamnesisMorbiTxt;
+        private System.Windows.Forms.GroupBox anamnesisAllergyBox;
+        private System.Windows.Forms.RichTextBox anamnesisAllergyTxt;
+        private System.Windows.Forms.GroupBox anamnesisEpidBox;
+        private System.Windows.Forms.RichTextBox anamnesisEpidTxt;
+        private System.Windows.Forms.GroupBox anamnesisVitaeBox;
+        private System.Windows.Forms.GroupBox accompanyingIllnessesBox;
+        private System.Windows.Forms.GroupBox chronicBox;
+        private System.Windows.Forms.Button chronicHOBL;
+        private System.Windows.Forms.Button chronicSD;
+        private System.Windows.Forms.Button chronicDEP3;
+        private System.Windows.Forms.Button chronicGB3;
+        private System.Windows.Forms.Button chronicMA;
+        private System.Windows.Forms.RichTextBox accompanyingIllnessesTxt;
+        private System.Windows.Forms.GroupBox pastSurgeriesBox;
+        private System.Windows.Forms.RichTextBox pastSurgeriesTxt;
+        private System.Windows.Forms.Button alcoholProtocolBtn;
+        private System.Windows.Forms.Button alcoholBtn;
+        private System.Windows.Forms.Button noAlcoholBtn;
+        private System.Windows.Forms.RichTextBox anamnesisVitaeTxt;
+        private System.Windows.Forms.GroupBox drugsBox;
+        private System.Windows.Forms.Button hasNoDrugsIntoxication;
+        private System.Windows.Forms.Button hasDrugsIntoxication;
+        private System.Windows.Forms.RichTextBox drugsTxt;
+        private System.Windows.Forms.Button saveBtn;
+        private System.Windows.Forms.Button printBtn;
+        private System.Windows.Forms.Button nextBtn;
+        private System.Windows.Forms.Button prevBtn;
+        private System.Windows.Forms.TabControl tabsContainer;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.GroupBox groupBox10;
-        private System.Windows.Forms.GroupBox groupBox16;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.RichTextBox richTextBox16;
-        private System.Windows.Forms.RichTextBox richTextBox15;
-        private System.Windows.Forms.GroupBox groupBox15;
-        private System.Windows.Forms.RichTextBox richTextBox14;
-        private System.Windows.Forms.GroupBox groupBox14;
-        private System.Windows.Forms.RichTextBox richTextBox13;
-        private System.Windows.Forms.GroupBox groupBox13;
-        private System.Windows.Forms.RichTextBox richTextBox12;
-        private System.Windows.Forms.GroupBox groupBox12;
-        private System.Windows.Forms.RichTextBox richTextBox11;
-        private System.Windows.Forms.GroupBox groupBox11;
-        private System.Windows.Forms.RichTextBox richTextBox10;
+        private System.Windows.Forms.GroupBox stPresentsBox;
+        private System.Windows.Forms.GroupBox patientStatBox;
+        private System.Windows.Forms.Label weightLbl;
+        private System.Windows.Forms.Label highLbl;
+        private System.Windows.Forms.RichTextBox weightTxt;
+        private System.Windows.Forms.RichTextBox highTxt;
+        private System.Windows.Forms.GroupBox nervousSystemBox;
+        private System.Windows.Forms.RichTextBox nervousSystemTxt;
+        private System.Windows.Forms.GroupBox urinarySystemBox;
+        private System.Windows.Forms.RichTextBox urinarySystemTxt;
+        private System.Windows.Forms.GroupBox digestiveSystemBox;
+        private System.Windows.Forms.RichTextBox digestiveSystemTxt;
+        private System.Windows.Forms.GroupBox cardiovascularSystemBox;
+        private System.Windows.Forms.RichTextBox cardiovascularSystemTxt;
+        private System.Windows.Forms.GroupBox respiratorySystemBox;
+        private System.Windows.Forms.RichTextBox respiratorySystemTxt;
         private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.RichTextBox richTextBox9;
+        private System.Windows.Forms.RichTextBox stPresensTxt;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.GroupBox groupBox19;
         private System.Windows.Forms.Button button32;
@@ -1350,21 +1387,21 @@
         private System.Windows.Forms.Button button24;
         private System.Windows.Forms.Button button23;
         private System.Windows.Forms.GroupBox groupBox18;
-        private System.Windows.Forms.RadioButton radioButton7;
-        private System.Windows.Forms.RadioButton radioButton6;
-        private System.Windows.Forms.RadioButton radioButton5;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RichTextBox richTextBox18;
+        private System.Windows.Forms.RadioButton ibsRadio;
+        private System.Windows.Forms.RadioButton gbRadio;
+        private System.Windows.Forms.RadioButton pmaRadio;
+        private System.Windows.Forms.RadioButton oksRadio;
+        private System.Windows.Forms.RadioButton oksStRadio;
+        private System.Windows.Forms.RadioButton nkRadio;
+        private System.Windows.Forms.RadioButton telaRadio;
+        private System.Windows.Forms.RichTextBox justificationTxt;
         private System.Windows.Forms.GroupBox groupBox17;
         private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.RichTextBox richTextBox17;
-        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.RichTextBox diagnosisTxt;
+        private System.Windows.Forms.TabPage issuedMedicineTab;
         private System.Windows.Forms.Button button35;
         private System.Windows.Forms.Button button34;
-        private System.Windows.Forms.GroupBox groupBox20;
+        private System.Windows.Forms.GroupBox issuedMedicineBox;
         private System.Windows.Forms.CheckBox checkBox4;
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.CheckBox checkBox2;
@@ -1380,6 +1417,6 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox issuedMedicineTxt0;
     }
 }

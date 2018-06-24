@@ -17,4 +17,4 @@ CREATE TRIGGER ddt_doctors_trg_modify_date BEFORE INSERT OR UPDATE
 EXECUTE PROCEDURE dmtrg_f_modify_date();
 
 INSERT INTO ddt_doctors	(dss_login, dss_full_name, dss_initials, dss_appointment_name, dss_phone, dss_email, dsi_appointment_type)
-	VALUES ('generalOlga', 'Генералова Ольга Александровна', 'Генералова О.А.', 'Дежурный кардиореаниматолог', '0-0-0', '0@0', 0);
+	VALUES ('generalOlga', 'Р“РµРЅРµСЂР°Р»РѕРІР° РћР»СЊРіР° РђР»РµРєСЃР°РЅРґСЂРѕРІРЅР°', 'Р“РµРЅРµСЂР°Р»РѕРІР° Рћ.Рђ.', 'Р”РµР¶СѓСЂРЅС‹Р№ РєР°СЂРґРёРѕСЂРµР°РЅРёРјР°С‚РѕР»РѕРі', '0-0-0', '0@0', 0);

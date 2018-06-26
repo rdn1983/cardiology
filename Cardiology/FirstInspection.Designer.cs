@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FirstInspection));
-            this.button1 = new System.Windows.Forms.Button();
             this.deathBtn = new System.Windows.Forms.Button();
             this.DEPBtn = new System.Windows.Forms.Button();
             this.PIKVIKBtn = new System.Windows.Forms.Button();
@@ -73,8 +72,8 @@
             this.nextBtn = new System.Windows.Forms.Button();
             this.prevBtn = new System.Windows.Forms.Button();
             this.tabsContainer = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.anamnesisTab = new System.Windows.Forms.TabPage();
+            this.presensTab = new System.Windows.Forms.TabPage();
             this.stPresentsBox = new System.Windows.Forms.GroupBox();
             this.patientStatBox = new System.Windows.Forms.GroupBox();
             this.weightLbl = new System.Windows.Forms.Label();
@@ -93,7 +92,7 @@
             this.respiratorySystemTxt = new System.Windows.Forms.RichTextBox();
             this.button11 = new System.Windows.Forms.Button();
             this.stPresensTxt = new System.Windows.Forms.RichTextBox();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.diagnosisTab = new System.Windows.Forms.TabPage();
             this.groupBox19 = new System.Windows.Forms.GroupBox();
             this.button32 = new System.Windows.Forms.Button();
             this.button31 = new System.Windows.Forms.Button();
@@ -128,11 +127,10 @@
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.issuedMedicineTxt0 = new System.Windows.Forms.TextBox();
+            this.templatesLbl = new System.Windows.Forms.Label();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.complaintsBox.SuspendLayout();
             this.anamnesisMorbiBox.SuspendLayout();
             this.anamnesisAllergyBox.SuspendLayout();
@@ -143,8 +141,8 @@
             this.pastSurgeriesBox.SuspendLayout();
             this.drugsBox.SuspendLayout();
             this.tabsContainer.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.anamnesisTab.SuspendLayout();
+            this.presensTab.SuspendLayout();
             this.stPresentsBox.SuspendLayout();
             this.patientStatBox.SuspendLayout();
             this.nervousSystemBox.SuspendLayout();
@@ -152,24 +150,13 @@
             this.digestiveSystemBox.SuspendLayout();
             this.cardiovascularSystemBox.SuspendLayout();
             this.respiratorySystemBox.SuspendLayout();
-            this.tabPage3.SuspendLayout();
+            this.diagnosisTab.SuspendLayout();
             this.groupBox19.SuspendLayout();
             this.groupBox18.SuspendLayout();
             this.groupBox17.SuspendLayout();
             this.issuedMedicineTab.SuspendLayout();
             this.issuedMedicineBox.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(12, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(93, 40);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "ШАБЛОНЫ:";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // deathBtn
             // 
@@ -610,9 +597,9 @@
             // 
             // tabsContainer
             // 
-            this.tabsContainer.Controls.Add(this.tabPage1);
-            this.tabsContainer.Controls.Add(this.tabPage2);
-            this.tabsContainer.Controls.Add(this.tabPage3);
+            this.tabsContainer.Controls.Add(this.anamnesisTab);
+            this.tabsContainer.Controls.Add(this.presensTab);
+            this.tabsContainer.Controls.Add(this.diagnosisTab);
             this.tabsContainer.Controls.Add(this.issuedMedicineTab);
             this.tabsContainer.Location = new System.Drawing.Point(111, 1);
             this.tabsContainer.Name = "tabsContainer";
@@ -620,32 +607,32 @@
             this.tabsContainer.Size = new System.Drawing.Size(1051, 571);
             this.tabsContainer.TabIndex = 22;
             // 
-            // tabPage1
+            // anamnesisTab
             // 
-            this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPage1.Controls.Add(this.complaintsBox);
-            this.tabPage1.Controls.Add(this.anamnesisMorbiBox);
-            this.tabPage1.Controls.Add(this.anamnesisAllergyBox);
-            this.tabPage1.Controls.Add(this.anamnesisEpidBox);
-            this.tabPage1.Controls.Add(this.anamnesisVitaeBox);
-            this.tabPage1.Controls.Add(this.drugsBox);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1043, 545);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Анамнез";
+            this.anamnesisTab.BackColor = System.Drawing.SystemColors.Control;
+            this.anamnesisTab.Controls.Add(this.complaintsBox);
+            this.anamnesisTab.Controls.Add(this.anamnesisMorbiBox);
+            this.anamnesisTab.Controls.Add(this.anamnesisAllergyBox);
+            this.anamnesisTab.Controls.Add(this.anamnesisEpidBox);
+            this.anamnesisTab.Controls.Add(this.anamnesisVitaeBox);
+            this.anamnesisTab.Controls.Add(this.drugsBox);
+            this.anamnesisTab.Location = new System.Drawing.Point(4, 22);
+            this.anamnesisTab.Name = "anamnesisTab";
+            this.anamnesisTab.Padding = new System.Windows.Forms.Padding(3);
+            this.anamnesisTab.Size = new System.Drawing.Size(1043, 545);
+            this.anamnesisTab.TabIndex = 0;
+            this.anamnesisTab.Text = "Анамнез";
             // 
-            // tabPage2
+            // presensTab
             // 
-            this.tabPage2.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPage2.Controls.Add(this.stPresentsBox);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1043, 545);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "StPresens";
+            this.presensTab.BackColor = System.Drawing.SystemColors.Control;
+            this.presensTab.Controls.Add(this.stPresentsBox);
+            this.presensTab.Location = new System.Drawing.Point(4, 22);
+            this.presensTab.Name = "presensTab";
+            this.presensTab.Padding = new System.Windows.Forms.Padding(3);
+            this.presensTab.Size = new System.Drawing.Size(1043, 545);
+            this.presensTab.TabIndex = 1;
+            this.presensTab.Text = "StPresens";
             // 
             // stPresentsBox
             // 
@@ -835,18 +822,18 @@
             this.stPresensTxt.TabIndex = 1;
             this.stPresensTxt.Text = "";
             // 
-            // tabPage3
+            // diagnosisTab
             // 
-            this.tabPage3.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPage3.Controls.Add(this.groupBox19);
-            this.tabPage3.Controls.Add(this.groupBox18);
-            this.tabPage3.Controls.Add(this.groupBox17);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1043, 545);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Диагноз";
+            this.diagnosisTab.BackColor = System.Drawing.SystemColors.Control;
+            this.diagnosisTab.Controls.Add(this.groupBox19);
+            this.diagnosisTab.Controls.Add(this.groupBox18);
+            this.diagnosisTab.Controls.Add(this.groupBox17);
+            this.diagnosisTab.Location = new System.Drawing.Point(4, 22);
+            this.diagnosisTab.Name = "diagnosisTab";
+            this.diagnosisTab.Padding = new System.Windows.Forms.Padding(3);
+            this.diagnosisTab.Size = new System.Drawing.Size(1043, 545);
+            this.diagnosisTab.TabIndex = 2;
+            this.diagnosisTab.Text = "Диагноз";
             // 
             // groupBox19
             // 
@@ -1099,6 +1086,7 @@
             // 
             // issuedMedicineBox
             // 
+            this.issuedMedicineBox.Controls.Add(this.button1);
             this.issuedMedicineBox.Controls.Add(this.checkBox4);
             this.issuedMedicineBox.Controls.Add(this.checkBox3);
             this.issuedMedicineBox.Controls.Add(this.checkBox2);
@@ -1111,13 +1099,11 @@
             this.issuedMedicineBox.Controls.Add(this.textBox6);
             this.issuedMedicineBox.Controls.Add(this.textBox7);
             this.issuedMedicineBox.Controls.Add(this.textBox8);
-            this.issuedMedicineBox.Controls.Add(this.textBox3);
-            this.issuedMedicineBox.Controls.Add(this.textBox4);
-            this.issuedMedicineBox.Controls.Add(this.textBox2);
             this.issuedMedicineBox.Controls.Add(this.issuedMedicineTxt0);
+            this.issuedMedicineBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.issuedMedicineBox.Location = new System.Drawing.Point(22, 14);
             this.issuedMedicineBox.Name = "issuedMedicineBox";
-            this.issuedMedicineBox.Size = new System.Drawing.Size(479, 382);
+            this.issuedMedicineBox.Size = new System.Drawing.Size(479, 429);
             this.issuedMedicineBox.TabIndex = 0;
             this.issuedMedicineBox.TabStop = false;
             this.issuedMedicineBox.Text = "Назначения:";
@@ -1214,38 +1200,6 @@
             this.textBox7.Size = new System.Drawing.Size(459, 24);
             this.textBox7.TabIndex = 5;
             // 
-            // textBox8
-            // 
-            this.textBox8.Location = new System.Drawing.Point(8, 138);
-            this.textBox8.Multiline = true;
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(459, 24);
-            this.textBox8.TabIndex = 4;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(8, 108);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(459, 24);
-            this.textBox3.TabIndex = 3;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(8, 78);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(459, 24);
-            this.textBox4.TabIndex = 2;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(8, 50);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(459, 24);
-            this.textBox2.TabIndex = 1;
-            // 
             // issuedMedicineTxt0
             // 
             this.issuedMedicineTxt0.Location = new System.Drawing.Point(8, 20);
@@ -1254,11 +1208,40 @@
             this.issuedMedicineTxt0.Size = new System.Drawing.Size(459, 24);
             this.issuedMedicineTxt0.TabIndex = 0;
             // 
+            // templatesLbl
+            // 
+            this.templatesLbl.AutoSize = true;
+            this.templatesLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.templatesLbl.Location = new System.Drawing.Point(22, 23);
+            this.templatesLbl.Name = "templatesLbl";
+            this.templatesLbl.Size = new System.Drawing.Size(71, 13);
+            this.templatesLbl.TabIndex = 23;
+            this.templatesLbl.Text = "ШАБЛОНЫ";
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(8, 138);
+            this.textBox8.Multiline = true;
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(459, 24);
+            this.textBox8.TabIndex = 4;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(331, 389);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FirstInspection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1165, 602);
+            this.Controls.Add(this.templatesLbl);
             this.Controls.Add(this.tabsContainer);
             this.Controls.Add(this.prevBtn);
             this.Controls.Add(this.nextBtn);
@@ -1273,7 +1256,6 @@
             this.Controls.Add(this.PIKVIKBtn);
             this.Controls.Add(this.DEPBtn);
             this.Controls.Add(this.deathBtn);
-            this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FirstInspection";
@@ -1290,8 +1272,8 @@
             this.pastSurgeriesBox.ResumeLayout(false);
             this.drugsBox.ResumeLayout(false);
             this.tabsContainer.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
+            this.anamnesisTab.ResumeLayout(false);
+            this.presensTab.ResumeLayout(false);
             this.stPresentsBox.ResumeLayout(false);
             this.patientStatBox.ResumeLayout(false);
             this.patientStatBox.PerformLayout();
@@ -1300,7 +1282,7 @@
             this.digestiveSystemBox.ResumeLayout(false);
             this.cardiovascularSystemBox.ResumeLayout(false);
             this.respiratorySystemBox.ResumeLayout(false);
-            this.tabPage3.ResumeLayout(false);
+            this.diagnosisTab.ResumeLayout(false);
             this.groupBox19.ResumeLayout(false);
             this.groupBox18.ResumeLayout(false);
             this.groupBox18.PerformLayout();
@@ -1309,12 +1291,11 @@
             this.issuedMedicineBox.ResumeLayout(false);
             this.issuedMedicineBox.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button deathBtn;
         private System.Windows.Forms.Button DEPBtn;
         private System.Windows.Forms.Button PIKVIKBtn;
@@ -1358,8 +1339,8 @@
         private System.Windows.Forms.Button nextBtn;
         private System.Windows.Forms.Button prevBtn;
         private System.Windows.Forms.TabControl tabsContainer;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage anamnesisTab;
+        private System.Windows.Forms.TabPage presensTab;
         private System.Windows.Forms.GroupBox stPresentsBox;
         private System.Windows.Forms.GroupBox patientStatBox;
         private System.Windows.Forms.Label weightLbl;
@@ -1378,7 +1359,7 @@
         private System.Windows.Forms.RichTextBox respiratorySystemTxt;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.RichTextBox stPresensTxt;
-        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage diagnosisTab;
         private System.Windows.Forms.GroupBox groupBox19;
         private System.Windows.Forms.Button button32;
         private System.Windows.Forms.Button button31;
@@ -1413,10 +1394,9 @@
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox issuedMedicineTxt0;
+        private System.Windows.Forms.Label templatesLbl;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBox8;
     }
 }

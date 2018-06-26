@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cardiology.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,8 +13,11 @@ namespace Cardiology
 {
     public partial class Analizi : Form
     {
-        public Analizi()
+        private DdtHospital hospitalitySession;
+
+        public Analizi(DdtHospital hospitalitySession)
         {
+            this.hospitalitySession = hospitalitySession;
             InitializeComponent();
         }
 
@@ -24,7 +28,7 @@ namespace Cardiology
 
         private void showABOFormBtn_Click(object sender, EventArgs e)
         {
-            UserFormABO aboForm = new UserFormABO();
+            Serology aboForm = new Serology(hospitalitySession);
             aboForm.ShowDialog();
 
         }

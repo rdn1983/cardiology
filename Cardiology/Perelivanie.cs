@@ -19,8 +19,8 @@ namespace Cardiology
 
         private void showAnalyzesBtn_Click(object sender, EventArgs e)
         {
-            Analizi analiziForm = new Analizi();
-            analiziForm.ShowDialog();
+            /*Analizi analiziForm = new Analizi();
+            analiziForm.ShowDialog();*/
         }
     }
 }

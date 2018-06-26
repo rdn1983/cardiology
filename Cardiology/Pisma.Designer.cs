@@ -29,38 +29,38 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Pisma));
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.gkbBtn = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
+            this.gbUdinaBtn = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
-            this.label5 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.gkbBuyanovaBtn = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.lrcBtn = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.button4 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.mschBtn = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
-            this.button6 = new System.Windows.Forms.Button();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.gkb52Btn = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
-            this.tabControl1.SuspendLayout();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.doctorsBox = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.gkbBtn.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
@@ -70,23 +70,23 @@
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // gkbBtn
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Controls.Add(this.tabPage5);
-            this.tabControl1.Controls.Add(this.tabPage6);
-            this.tabControl1.Location = new System.Drawing.Point(12, 12);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(392, 198);
-            this.tabControl1.TabIndex = 0;
+            this.gkbBtn.Controls.Add(this.tabPage1);
+            this.gkbBtn.Controls.Add(this.tabPage2);
+            this.gkbBtn.Controls.Add(this.tabPage3);
+            this.gkbBtn.Controls.Add(this.tabPage4);
+            this.gkbBtn.Controls.Add(this.tabPage5);
+            this.gkbBtn.Controls.Add(this.tabPage6);
+            this.gkbBtn.Location = new System.Drawing.Point(12, 12);
+            this.gkbBtn.Name = "gkbBtn";
+            this.gkbBtn.SelectedIndex = 0;
+            this.gkbBtn.Size = new System.Drawing.Size(392, 198);
+            this.gkbBtn.TabIndex = 0;
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.button1);
+            this.tabPage1.Controls.Add(this.gbUdinaBtn);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
@@ -97,78 +97,15 @@
             this.tabPage1.Text = "ГКБ Юдина";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // gbUdinaBtn
             // 
-            this.tabPage2.Controls.Add(this.button2);
-            this.tabPage2.Controls.Add(this.label6);
-            this.tabPage2.Controls.Add(this.label7);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(384, 172);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "ГКБ Буянова (12)";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.button3);
-            this.tabPage3.Controls.Add(this.label8);
-            this.tabPage3.Controls.Add(this.label9);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(384, 172);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "ЛРЦ";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Controls.Add(this.button4);
-            this.tabPage4.Controls.Add(this.label10);
-            this.tabPage4.Controls.Add(this.label11);
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(384, 172);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "ГКБ 83";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // tabPage5
-            // 
-            this.tabPage5.Controls.Add(this.button5);
-            this.tabPage5.Controls.Add(this.label13);
-            this.tabPage5.Location = new System.Drawing.Point(4, 22);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(384, 172);
-            this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "МСЧ 60";
-            this.tabPage5.UseVisualStyleBackColor = true;
-            // 
-            // tabPage6
-            // 
-            this.tabPage6.Controls.Add(this.button6);
-            this.tabPage6.Controls.Add(this.label15);
-            this.tabPage6.Location = new System.Drawing.Point(4, 22);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(384, 172);
-            this.tabPage6.TabIndex = 5;
-            this.tabPage6.Text = "ГКБ 52";
-            this.tabPage6.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(22, 25);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(338, 39);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Врачебную бригаду медицинской эвакуации (СМП)\r\n в ГКБ №67 им. Л.А.Ворохобова, в о" +
-    "тделение кардиореанимации\r\n(корпус Б, 1 этаж, тел 8(495)530-33-86) ожидаем к ";
+            this.gbUdinaBtn.Location = new System.Drawing.Point(250, 143);
+            this.gbUdinaBtn.Name = "gbUdinaBtn";
+            this.gbUdinaBtn.Size = new System.Drawing.Size(128, 23);
+            this.gbUdinaBtn.TabIndex = 2;
+            this.gbUdinaBtn.Text = "Открыть в MSWord";
+            this.gbUdinaBtn.UseVisualStyleBackColor = true;
+            this.gbUdinaBtn.Click += new System.EventHandler(this.button1_Click);
             // 
             // label2
             // 
@@ -180,98 +117,37 @@
             this.label2.Text = "Пациента ожидают в ГБУЗ Городскую клиническую больницу \r\nимени С.С.Юдина К4, расп" +
     "оложенной по адресу: \r\n г. Москва, Коломенский проезд, д.4,  к:";
             // 
-            // groupBox1
+            // label1
             // 
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.dateTimePicker3);
-            this.groupBox1.Controls.Add(this.dateTimePicker2);
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Location = new System.Drawing.Point(425, 34);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(220, 172);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "СМП прибудет:";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(22, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(338, 39);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Врачебную бригаду медицинской эвакуации (СМП)\r\n в ГКБ №67 им. Л.А.Ворохобова, в о" +
+    "тделение кардиореанимации\r\n(корпус Б, 1 этаж, тел 8(495)530-33-86) ожидаем к ";
             // 
-            // label3
+            // tabPage2
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(46, 25);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(36, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "(дата)";
+            this.tabPage2.Controls.Add(this.gkbBuyanovaBtn);
+            this.tabPage2.Controls.Add(this.label6);
+            this.tabPage2.Controls.Add(this.label7);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(384, 172);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "ГКБ Буянова (12)";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // label4
+            // gkbBuyanovaBtn
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(150, 25);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(45, 13);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "(время)";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(26, 43);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(81, 20);
-            this.dateTimePicker1.TabIndex = 2;
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePicker2.Location = new System.Drawing.Point(131, 43);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(83, 20);
-            this.dateTimePicker2.TabIndex = 3;
-            // 
-            // dateTimePicker3
-            // 
-            this.dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePicker3.Location = new System.Drawing.Point(131, 93);
-            this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(83, 20);
-            this.dateTimePicker3.TabIndex = 4;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(26, 117);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(161, 13);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "Заместитель главного врача: ";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(6, 136);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(208, 21);
-            this.comboBox1.TabIndex = 6;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(250, 143);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(128, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Открыть в MSWord";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(247, 142);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(128, 23);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Открыть в MSWord";
-            this.button2.UseVisualStyleBackColor = true;
+            this.gkbBuyanovaBtn.Location = new System.Drawing.Point(247, 142);
+            this.gkbBuyanovaBtn.Name = "gkbBuyanovaBtn";
+            this.gkbBuyanovaBtn.Size = new System.Drawing.Size(128, 23);
+            this.gkbBuyanovaBtn.TabIndex = 5;
+            this.gkbBuyanovaBtn.Text = "Открыть в MSWord";
+            this.gkbBuyanovaBtn.UseVisualStyleBackColor = true;
             // 
             // label6
             // 
@@ -292,14 +168,27 @@
             this.label7.Text = "Врачебную бригаду медицинской эвакуации (СМП)\r\n в ГКБ №67 им. Л.А.Ворохобова, в о" +
     "тделение кардиореанимации\r\n(корпус Б, 1 этаж, тел 8(495)530-33-86) ожидаем к ";
             // 
-            // button3
+            // tabPage3
             // 
-            this.button3.Location = new System.Drawing.Point(244, 142);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(128, 23);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Открыть в MSWord";
-            this.button3.UseVisualStyleBackColor = true;
+            this.tabPage3.Controls.Add(this.lrcBtn);
+            this.tabPage3.Controls.Add(this.label8);
+            this.tabPage3.Controls.Add(this.label9);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(384, 172);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "ЛРЦ";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // lrcBtn
+            // 
+            this.lrcBtn.Location = new System.Drawing.Point(244, 142);
+            this.lrcBtn.Name = "lrcBtn";
+            this.lrcBtn.Size = new System.Drawing.Size(128, 23);
+            this.lrcBtn.TabIndex = 5;
+            this.lrcBtn.Text = "Открыть в MSWord";
+            this.lrcBtn.UseVisualStyleBackColor = true;
             // 
             // label8
             // 
@@ -319,6 +208,19 @@
             this.label9.TabIndex = 3;
             this.label9.Text = "Врачебную бригаду медицинской эвакуации (СМП)\r\n в ГКБ №67 им. Л.А.Ворохобова, в о" +
     "тделение кардиореанимации\r\n(корпус Б, 1 этаж, тел 8(495)530-33-86) ожидаем к ";
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.button4);
+            this.tabPage4.Controls.Add(this.label10);
+            this.tabPage4.Controls.Add(this.label11);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(384, 172);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "ГКБ 83";
+            this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // button4
             // 
@@ -349,14 +251,26 @@
             this.label11.Text = "Врачебную бригаду медицинской эвакуации (СМП)\r\n в ГКБ №67 им. Л.А.Ворохобова, в о" +
     "тделение кардиореанимации\r\n(корпус Б, 1 этаж, тел 8(495)530-33-86) ожидаем к ";
             // 
-            // button5
+            // tabPage5
             // 
-            this.button5.Location = new System.Drawing.Point(243, 142);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(128, 23);
-            this.button5.TabIndex = 8;
-            this.button5.Text = "Открыть в MSWord";
-            this.button5.UseVisualStyleBackColor = true;
+            this.tabPage5.Controls.Add(this.mschBtn);
+            this.tabPage5.Controls.Add(this.label13);
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(384, 172);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "МСЧ 60";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // mschBtn
+            // 
+            this.mschBtn.Location = new System.Drawing.Point(243, 142);
+            this.mschBtn.Name = "mschBtn";
+            this.mschBtn.Size = new System.Drawing.Size(128, 23);
+            this.mschBtn.TabIndex = 8;
+            this.mschBtn.Text = "Открыть в MSWord";
+            this.mschBtn.UseVisualStyleBackColor = true;
             // 
             // label13
             // 
@@ -368,14 +282,26 @@
             this.label13.Text = "Врачебную бригаду медицинской эвакуации (СМП)\r\n в ГКБ №67 им. Л.А.Ворохобова, в о" +
     "тделение кардиореанимации\r\n(корпус Б, 1 этаж, тел 8(495)530-33-86) ожидаем к ";
             // 
-            // button6
+            // tabPage6
             // 
-            this.button6.Location = new System.Drawing.Point(245, 142);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(128, 23);
-            this.button6.TabIndex = 8;
-            this.button6.Text = "Открыть в MSWord";
-            this.button6.UseVisualStyleBackColor = true;
+            this.tabPage6.Controls.Add(this.gkb52Btn);
+            this.tabPage6.Controls.Add(this.label15);
+            this.tabPage6.Location = new System.Drawing.Point(4, 22);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(384, 172);
+            this.tabPage6.TabIndex = 5;
+            this.tabPage6.Text = "ГКБ 52";
+            this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // gkb52Btn
+            // 
+            this.gkb52Btn.Location = new System.Drawing.Point(245, 142);
+            this.gkb52Btn.Name = "gkb52Btn";
+            this.gkb52Btn.Size = new System.Drawing.Size(128, 23);
+            this.gkb52Btn.TabIndex = 8;
+            this.gkb52Btn.Text = "Открыть в MSWord";
+            this.gkb52Btn.UseVisualStyleBackColor = true;
             // 
             // label15
             // 
@@ -386,18 +312,93 @@
             this.label15.TabIndex = 6;
             this.label15.Text = "Перевод запланирован на: ";
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.doctorsBox);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.dateTimePicker3);
+            this.groupBox1.Controls.Add(this.dateTimePicker2);
+            this.groupBox1.Controls.Add(this.dateTimePicker1);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Location = new System.Drawing.Point(425, 34);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(220, 172);
+            this.groupBox1.TabIndex = 1;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "СМП прибудет:";
+            // 
+            // doctorsBox
+            // 
+            this.doctorsBox.FormattingEnabled = true;
+            this.doctorsBox.Location = new System.Drawing.Point(6, 136);
+            this.doctorsBox.Name = "doctorsBox";
+            this.doctorsBox.Size = new System.Drawing.Size(208, 21);
+            this.doctorsBox.TabIndex = 6;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(26, 117);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(161, 13);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "Заместитель главного врача: ";
+            // 
+            // dateTimePicker3
+            // 
+            this.dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dateTimePicker3.Location = new System.Drawing.Point(131, 93);
+            this.dateTimePicker3.Name = "dateTimePicker3";
+            this.dateTimePicker3.Size = new System.Drawing.Size(83, 20);
+            this.dateTimePicker3.TabIndex = 4;
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dateTimePicker2.Location = new System.Drawing.Point(131, 43);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(83, 20);
+            this.dateTimePicker2.TabIndex = 3;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(26, 43);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(81, 20);
+            this.dateTimePicker1.TabIndex = 2;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(150, 25);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(45, 13);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "(время)";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(46, 25);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(36, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "(дата)";
+            // 
             // Pisma
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(657, 222);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.gkbBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Pisma";
             this.Text = "Письма для скорой";
-            this.tabControl1.ResumeLayout(false);
+            this.gkbBtn.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
@@ -418,17 +419,17 @@
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl gkbBtn;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button gbUdinaBtn;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button gkbBuyanovaBtn;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button lrcBtn;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TabPage tabPage4;
@@ -436,13 +437,13 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TabPage tabPage5;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button mschBtn;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TabPage tabPage6;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button gkb52Btn;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox doctorsBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker dateTimePicker3;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;

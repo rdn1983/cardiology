@@ -34,17 +34,17 @@
             this.mainMenu = new System.Windows.Forms.MenuStrip();
             this.actionsManu = new System.Windows.Forms.ToolStripMenuItem();
             this.patientAdmission = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
+            this.analysisMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bloodTrunsfusionMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.issuingMedicineMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
+            this.morningInspectationMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.journalBeforeKAGMeniItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.journalAfterKAGMnuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.journalWithoutKAGMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.konsiliumItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.freePatient = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
             this.kateterItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,17 +56,17 @@
             this.ekstubationItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reanimItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deadItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem12 = new System.Windows.Forms.ToolStripMenuItem();
+            this.aidBlansMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.blanksMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hospitalPatientsTbl = new System.Windows.Forms.DataGridView();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripMenuItem13 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem15 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem14 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuItem16 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem17 = new System.Windows.Forms.ToolStripMenuItem();
+            this.patientsContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.firstInspectationItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.analysisItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.issuingMedicineItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bloodTransfusionItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.manipulationProtocolItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.blanksItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hospitalSession = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.patient_fio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.patient_place = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -75,7 +75,7 @@
             this.patient_diagnosis = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mainMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hospitalPatientsTbl)).BeginInit();
-            this.contextMenuStrip1.SuspendLayout();
+            this.patientsContextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // statusBar
@@ -101,17 +101,17 @@
             // 
             this.actionsManu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.patientAdmission,
-            this.toolStripMenuItem8,
-            this.toolStripMenuItem9,
-            this.toolStripMenuItem6,
+            this.analysisMenuItem,
+            this.bloodTrunsfusionMenuItem,
+            this.issuingMedicineMenuItem,
             this.toolStripSeparator1,
-            this.toolStripMenuItem1,
-            this.toolStripMenuItem3,
-            this.toolStripMenuItem4,
-            this.toolStripMenuItem5,
+            this.morningInspectationMenuItem,
+            this.journalBeforeKAGMeniItem,
+            this.journalAfterKAGMnuItem,
+            this.journalWithoutKAGMenuItem,
             this.toolStripSeparator2,
             this.konsiliumItem,
-            this.toolStripMenuItem2});
+            this.freePatient});
             this.actionsManu.Name = "actionsManu";
             this.actionsManu.Size = new System.Drawing.Size(70, 20);
             this.actionsManu.Text = "Действия";
@@ -123,53 +123,59 @@
             this.patientAdmission.Text = "Поступление пациента";
             this.patientAdmission.Click += new System.EventHandler(this.patientAdmission_Click);
             // 
-            // toolStripMenuItem8
+            // analysisMenuItem
             // 
-            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
-            this.toolStripMenuItem8.Size = new System.Drawing.Size(261, 22);
-            this.toolStripMenuItem8.Text = "Анализы, Исследования";
+            this.analysisMenuItem.Name = "analysisMenuItem";
+            this.analysisMenuItem.Size = new System.Drawing.Size(261, 22);
+            this.analysisMenuItem.Text = "Анализы, Исследования";
+            this.analysisMenuItem.Click += new System.EventHandler(this.analysisItem_Click);
             // 
-            // toolStripMenuItem9
+            // bloodTrunsfusionMenuItem
             // 
-            this.toolStripMenuItem9.Name = "toolStripMenuItem9";
-            this.toolStripMenuItem9.Size = new System.Drawing.Size(261, 22);
-            this.toolStripMenuItem9.Text = "Переливание компонентов крови";
+            this.bloodTrunsfusionMenuItem.Name = "bloodTrunsfusionMenuItem";
+            this.bloodTrunsfusionMenuItem.Size = new System.Drawing.Size(261, 22);
+            this.bloodTrunsfusionMenuItem.Text = "Переливание компонентов крови";
+            this.bloodTrunsfusionMenuItem.Click += new System.EventHandler(this.bloodTrunsfusionMenuItem_Click);
             // 
-            // toolStripMenuItem6
+            // issuingMedicineMenuItem
             // 
-            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(261, 22);
-            this.toolStripMenuItem6.Text = "Назначения";
+            this.issuingMedicineMenuItem.Name = "issuingMedicineMenuItem";
+            this.issuingMedicineMenuItem.Size = new System.Drawing.Size(261, 22);
+            this.issuingMedicineMenuItem.Text = "Назначения";
+            this.issuingMedicineMenuItem.Click += new System.EventHandler(this.issuingMedicineItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(258, 6);
             // 
-            // toolStripMenuItem1
+            // morningInspectationMenuItem
             // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(261, 22);
-            this.toolStripMenuItem1.Text = "Утренний совместный обход";
+            this.morningInspectationMenuItem.Name = "morningInspectationMenuItem";
+            this.morningInspectationMenuItem.Size = new System.Drawing.Size(261, 22);
+            this.morningInspectationMenuItem.Text = "Утренний совместный обход";
+            this.morningInspectationMenuItem.Click += new System.EventHandler(this.morningInspectationMenuItem_Click);
             // 
-            // toolStripMenuItem3
+            // journalBeforeKAGMeniItem
             // 
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(261, 22);
-            this.toolStripMenuItem3.Text = "Дневник до КАГ";
-            this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
+            this.journalBeforeKAGMeniItem.Name = "journalBeforeKAGMeniItem";
+            this.journalBeforeKAGMeniItem.Size = new System.Drawing.Size(261, 22);
+            this.journalBeforeKAGMeniItem.Text = "Дневник до КАГ";
+            this.journalBeforeKAGMeniItem.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
             // 
-            // toolStripMenuItem4
+            // journalAfterKAGMnuItem
             // 
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(261, 22);
-            this.toolStripMenuItem4.Text = "Дневник после КАГ";
+            this.journalAfterKAGMnuItem.Name = "journalAfterKAGMnuItem";
+            this.journalAfterKAGMnuItem.Size = new System.Drawing.Size(261, 22);
+            this.journalAfterKAGMnuItem.Text = "Дневник после КАГ";
+            this.journalAfterKAGMnuItem.Click += new System.EventHandler(this.journalAfterKAGMnuItem_Click);
             // 
-            // toolStripMenuItem5
+            // journalWithoutKAGMenuItem
             // 
-            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(261, 22);
-            this.toolStripMenuItem5.Text = "Дневник без КАГ";
+            this.journalWithoutKAGMenuItem.Name = "journalWithoutKAGMenuItem";
+            this.journalWithoutKAGMenuItem.Size = new System.Drawing.Size(261, 22);
+            this.journalWithoutKAGMenuItem.Text = "Дневник без КАГ";
+            this.journalWithoutKAGMenuItem.Click += new System.EventHandler(this.journalWithoutKAGMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
@@ -183,19 +189,19 @@
             this.konsiliumItem.Text = "Консилиум";
             this.konsiliumItem.Click += new System.EventHandler(this.konsiliumItem_Click);
             // 
-            // toolStripMenuItem2
+            // freePatient
             // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(261, 22);
-            this.toolStripMenuItem2.Text = "Выписка пациента";
-            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
+            this.freePatient.Name = "freePatient";
+            this.freePatient.Size = new System.Drawing.Size(261, 22);
+            this.freePatient.Text = "Выписка пациента";
+            this.freePatient.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // reportsMenu
             // 
             this.reportsMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem10,
-            this.toolStripMenuItem11,
-            this.toolStripMenuItem12});
+            this.aidBlansMenuItem,
+            this.blanksMenuItem});
             this.reportsMenu.Name = "reportsMenu";
             this.reportsMenu.Size = new System.Drawing.Size(99, 20);
             this.reportsMenu.Text = "Документация";
@@ -279,21 +285,27 @@
             this.deadItem.Text = "Констатация";
             this.deadItem.Click += new System.EventHandler(this.deadItem_Click);
             // 
-            // toolStripMenuItem11
+            // aidBlansMenuItem
             // 
-            this.toolStripMenuItem11.Name = "toolStripMenuItem11";
-            this.toolStripMenuItem11.Size = new System.Drawing.Size(217, 22);
-            this.toolStripMenuItem11.Text = "Письма для скорой";
+            this.aidBlansMenuItem.Name = "aidBlansMenuItem";
+            this.aidBlansMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.aidBlansMenuItem.Text = "Письма для скорой";
+            this.aidBlansMenuItem.Click += new System.EventHandler(this.aidBlansMenuItem_Click);
             // 
-            // toolStripMenuItem12
+            // blanksMenuItem
             // 
-            this.toolStripMenuItem12.Name = "toolStripMenuItem12";
-            this.toolStripMenuItem12.Size = new System.Drawing.Size(217, 22);
-            this.toolStripMenuItem12.Text = "Бланки";
+            this.blanksMenuItem.Name = "blanksMenuItem";
+            this.blanksMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.blanksMenuItem.Text = "Бланки";
             // 
             // hospitalPatientsTbl
             // 
+            this.hospitalPatientsTbl.AllowUserToAddRows = false;
+            this.hospitalPatientsTbl.AllowUserToDeleteRows = false;
+            this.hospitalPatientsTbl.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
             this.hospitalPatientsTbl.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.hospitalPatientsTbl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.hospitalPatientsTbl.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             this.hospitalPatientsTbl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.hospitalPatientsTbl.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.hospitalSession,
@@ -305,58 +317,23 @@
             this.hospitalPatientsTbl.Location = new System.Drawing.Point(12, 27);
             this.hospitalPatientsTbl.Name = "hospitalPatientsTbl";
             this.hospitalPatientsTbl.ReadOnly = true;
-            this.hospitalPatientsTbl.RowTemplate.ContextMenuStrip = this.contextMenuStrip1;
+            this.hospitalPatientsTbl.RowTemplate.ContextMenuStrip = this.patientsContextMenu;
             this.hospitalPatientsTbl.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.hospitalPatientsTbl.Size = new System.Drawing.Size(833, 398);
             this.hospitalPatientsTbl.TabIndex = 2;
             // 
-            // contextMenuStrip1
+            // patientsContextMenu
             // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.patientsContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.firstInspectationItem,
-            this.toolStripMenuItem13,
-            this.toolStripMenuItem15,
-            this.toolStripMenuItem14,
+            this.analysisItem,
+            this.issuingMedicineItem,
+            this.bloodTransfusionItem,
             this.toolStripSeparator3,
-            this.toolStripMenuItem16,
-            this.toolStripMenuItem17});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(262, 142);
-            // 
-            // toolStripMenuItem13
-            // 
-            this.toolStripMenuItem13.Name = "toolStripMenuItem13";
-            this.toolStripMenuItem13.Size = new System.Drawing.Size(261, 22);
-            this.toolStripMenuItem13.Text = "Анализы, Исследования";
-            // 
-            // toolStripMenuItem15
-            // 
-            this.toolStripMenuItem15.Name = "toolStripMenuItem15";
-            this.toolStripMenuItem15.Size = new System.Drawing.Size(261, 22);
-            this.toolStripMenuItem15.Text = "Назначения";
-            // 
-            // toolStripMenuItem14
-            // 
-            this.toolStripMenuItem14.Name = "toolStripMenuItem14";
-            this.toolStripMenuItem14.Size = new System.Drawing.Size(261, 22);
-            this.toolStripMenuItem14.Text = "Переливание компонентов крови";
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(258, 6);
-            // 
-            // toolStripMenuItem16
-            // 
-            this.toolStripMenuItem16.Name = "toolStripMenuItem16";
-            this.toolStripMenuItem16.Size = new System.Drawing.Size(261, 22);
-            this.toolStripMenuItem16.Text = "Протоколы манипуляций";
-            // 
-            // toolStripMenuItem17
-            // 
-            this.toolStripMenuItem17.Name = "toolStripMenuItem17";
-            this.toolStripMenuItem17.Size = new System.Drawing.Size(261, 22);
-            this.toolStripMenuItem17.Text = "Бланки";
+            this.manipulationProtocolItem,
+            this.blanksItem});
+            this.patientsContextMenu.Name = "contextMenuStrip1";
+            this.patientsContextMenu.Size = new System.Drawing.Size(262, 142);
             // 
             // firstInspectationItem
             // 
@@ -364,6 +341,44 @@
             this.firstInspectationItem.Size = new System.Drawing.Size(261, 22);
             this.firstInspectationItem.Text = "Первичный осмотр";
             this.firstInspectationItem.Click += new System.EventHandler(this.firstInspectationItem_Click);
+            // 
+            // analysisItem
+            // 
+            this.analysisItem.Name = "analysisItem";
+            this.analysisItem.Size = new System.Drawing.Size(261, 22);
+            this.analysisItem.Text = "Анализы, Исследования";
+            this.analysisItem.Click += new System.EventHandler(this.analysisItem_Click);
+            // 
+            // issuingMedicineItem
+            // 
+            this.issuingMedicineItem.Name = "issuingMedicineItem";
+            this.issuingMedicineItem.Size = new System.Drawing.Size(261, 22);
+            this.issuingMedicineItem.Text = "Назначения";
+            this.issuingMedicineItem.Click += new System.EventHandler(this.issuingMedicineItem_Click);
+            // 
+            // bloodTransfusionItem
+            // 
+            this.bloodTransfusionItem.Name = "bloodTransfusionItem";
+            this.bloodTransfusionItem.Size = new System.Drawing.Size(261, 22);
+            this.bloodTransfusionItem.Text = "Переливание компонентов крови";
+            this.bloodTransfusionItem.Click += new System.EventHandler(this.bloodTrunsfusionMenuItem_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(258, 6);
+            // 
+            // manipulationProtocolItem
+            // 
+            this.manipulationProtocolItem.Name = "manipulationProtocolItem";
+            this.manipulationProtocolItem.Size = new System.Drawing.Size(261, 22);
+            this.manipulationProtocolItem.Text = "Протоколы манипуляций";
+            // 
+            // blanksItem
+            // 
+            this.blanksItem.Name = "blanksItem";
+            this.blanksItem.Size = new System.Drawing.Size(261, 22);
+            this.blanksItem.Text = "Бланки";
             // 
             // hospitalSession
             // 
@@ -400,6 +415,7 @@
             // 
             // patient_diagnosis
             // 
+            this.patient_diagnosis.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.patient_diagnosis.HeaderText = "Диагноз";
             this.patient_diagnosis.Name = "patient_diagnosis";
             this.patient_diagnosis.ReadOnly = true;
@@ -421,7 +437,7 @@
             this.mainMenu.ResumeLayout(false);
             this.mainMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hospitalPatientsTbl)).EndInit();
-            this.contextMenuStrip1.ResumeLayout(false);
+            this.patientsContextMenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -433,28 +449,28 @@
         private System.Windows.Forms.MenuStrip mainMenu;
         private System.Windows.Forms.ToolStripMenuItem actionsManu;
         private System.Windows.Forms.ToolStripMenuItem patientAdmission;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem freePatient;
         private System.Windows.Forms.ToolStripMenuItem reportsMenu;
         private System.Windows.Forms.DataGridView hospitalPatientsTbl;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem8;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem9;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem6;
+        private System.Windows.Forms.ToolStripMenuItem morningInspectationMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem journalBeforeKAGMeniItem;
+        private System.Windows.Forms.ToolStripMenuItem analysisMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bloodTrunsfusionMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem issuingMedicineMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
+        private System.Windows.Forms.ToolStripMenuItem journalAfterKAGMnuItem;
+        private System.Windows.Forms.ToolStripMenuItem journalWithoutKAGMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem konsiliumItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem10;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem11;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem12;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem13;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem14;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem15;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem16;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem17;
+        private System.Windows.Forms.ToolStripMenuItem aidBlansMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem blanksMenuItem;
+        private System.Windows.Forms.ContextMenuStrip patientsContextMenu;
+        private System.Windows.Forms.ToolStripMenuItem analysisItem;
+        private System.Windows.Forms.ToolStripMenuItem bloodTransfusionItem;
+        private System.Windows.Forms.ToolStripMenuItem issuingMedicineItem;
+        private System.Windows.Forms.ToolStripMenuItem manipulationProtocolItem;
+        private System.Windows.Forms.ToolStripMenuItem blanksItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem kateterItem;
         private System.Windows.Forms.ToolStripMenuItem trombolisisItem;

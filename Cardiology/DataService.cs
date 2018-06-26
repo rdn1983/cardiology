@@ -84,8 +84,6 @@ namespace Cardiology
             try
             {
                 connection = getConnection();
-                string query = convertObjectFieldsInQuery(obj, tableName);
-
                 StringBuilder builder = new StringBuilder();
                 builder.Append(@"UPDATE ").Append(tableName).Append(" SET ");
 
@@ -108,7 +106,7 @@ namespace Cardiology
                 builder.Append(" WHERE ").Append(conditionAttrName).Append("='").Append(conditionAttrValue).Append("'");
                 Console.WriteLine(builder.ToString());
 
-                Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(query, connection);
+                Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(builder.ToString(), connection);
                 command.ExecuteScalar();
             }
             finally

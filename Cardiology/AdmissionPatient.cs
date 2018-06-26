@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Text;
 using System.Windows.Forms;
 using Cardiology.Model;
+using Cardiology.Utils;
 
 namespace Cardiology
 {
@@ -23,8 +24,16 @@ namespace Cardiology
             for(int i=0; i<doctors.Count;i++)
             {
                 dutyCardioBox.Items.Add(doctors[i]);
+                cardioDocBox.Items.Add(doctors[i]);
+                subDoctorBox.Items.Add(doctors[i]);
             }
-            
+            dutyCardioBox.ValueMember = "ObjectId";
+            dutyCardioBox.DisplayMember = "DssFullName";
+            cardioDocBox.ValueMember = "ObjectId";
+            cardioDocBox.DisplayMember = "DssFullName";
+            subDoctorBox.ValueMember = "ObjectId";
+            subDoctorBox.DisplayMember = "DssFullName";
+
         }
 
         private void onlyDigits_KeyPress(object sender, KeyPressEventArgs e)
@@ -73,13 +82,14 @@ namespace Cardiology
             hospital.DssRoomCell = "";
             service.insertObject(hospital, DdtHospital.TABLENAME);
             //todo перенести в статусную строку
-            MessageBox.Show("Object was created", "Info", MessageBoxButtons.OK);
+            Close();
         }
 
         private bool getIsValid()
         {
             //todo  сделать проверку заполненности полей
-            return true;
+            return CommonUtils.isNotBlank(patientLastName.Text) && CommonUtils.isNotBlank(patientFirstName.Text) &&
+                CommonUtils.isNotBlank(patientSecondName.Text);
         }
 
 

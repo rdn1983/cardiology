@@ -77,8 +77,8 @@ namespace Cardiology
 
         private void analyzesBtn_Click(object sender, EventArgs e)
         {
-            Analizi form = new Analizi();
-            form.ShowDialog();
+            /*Analizi form = new Analizi();
+            form.ShowDialog();*/
         }
 
         private void transfusionBloodBtn_Click(object sender, EventArgs e)

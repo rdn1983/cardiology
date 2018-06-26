@@ -63,6 +63,12 @@
     <Compile Include="Analizi.Designer.cs">
       <DependentUpon>Analizi.cs</DependentUpon>
     </Compile>
+    <Compile Include="AnalysisCabinet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AnalysisCabinet.Designer.cs">
+      <DependentUpon>AnalysisCabinet.cs</DependentUpon>
+    </Compile>
     <Compile Include="DdtAnamnesis.cs" />
     <Compile Include="DdtCure.cs" />
     <Compile Include="DdtCureDictionary.cs" />
@@ -70,6 +76,7 @@
     <Compile Include="DdtHospital.cs" />
     <Compile Include="DdtIssuedMedicine.cs" />
     <Compile Include="DdtJournal.cs" />
+    <Compile Include="DdtSerology.cs" />
     <Compile Include="DdtValues.cs" />
     <Compile Include="DdvActiveHospitalPatients.cs" />
     <Compile Include="TableAttribute.cs" />
@@ -181,11 +188,11 @@
     <Compile Include="UserBlanks.Designer.cs">
       <DependentUpon>UserBlanks.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserFormABO.cs">
+    <Compile Include="Serology.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UserFormABO.Designer.cs">
-      <DependentUpon>UserFormABO.cs</DependentUpon>
+    <Compile Include="Serology.Designer.cs">
+      <DependentUpon>Serology.cs</DependentUpon>
     </Compile>
     <Compile Include="UserFormEIT.cs">
       <SubType>Form</SubType>
@@ -259,6 +266,9 @@
     <EmbeddedResource Include="Analizi.resx">
       <DependentUpon>Analizi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AnalysisCabinet.resx">
+      <DependentUpon>AnalysisCabinet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ComplaintTemplates.resx">
       <DependentUpon>ComplaintTemplates.cs</DependentUpon>
     </EmbeddedResource>
@@ -322,8 +332,8 @@
     <EmbeddedResource Include="UserBlanks.resx">
       <DependentUpon>UserBlanks.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserFormABO.resx">
-      <DependentUpon>UserFormABO.cs</DependentUpon>
+    <EmbeddedResource Include="Serology.resx">
+      <DependentUpon>Serology.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserFormEIT.resx">
       <DependentUpon>UserFormEIT.cs</DependentUpon>

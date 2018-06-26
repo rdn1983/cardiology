@@ -116,4 +116,18 @@ INSERT INTO ddt_values (dss_name, dss_value) VALUES ('justificationTxt.gb', 'С 
 INSERT INTO ddt_values (dss_name, dss_value) VALUES ('justificationTxt.pma', 'С учетом известной давности начала настоящего нарушения ритма пациенту показано восстановление ритма с последующей терапии антикоагулянтами.');
 INSERT INTO ddt_values (dss_name, dss_value) VALUES ('justificationTxt.ibs', 'С учетом анамнеза, данных осмотра пациенту необходимо исключить ИБС.');
 
+INSERT INTO ddt_values (dss_name, dss_value) VALUES ('bloodtype.o', 'O(I)');
+INSERT INTO ddt_values (dss_name, dss_value) VALUES ('bloodtype.a', 'A(II)');
+INSERT INTO ddt_values (dss_name, dss_value) VALUES ('bloodtype.b', 'B(III)');
+INSERT INTO ddt_values (dss_name, dss_value) VALUES ('bloodtype.ab', 'AB(IV)');
+
+INSERT INTO ddt_values (dss_name, dss_value) VALUES ('rhesusFactor.plus', 'положительный');
+INSERT INTO ddt_values (dss_name, dss_value) VALUES ('rhesusFactor.minus', 'отрицательный');
+
+INSERT INTO ddt_values (dss_name, dss_value) VALUES ('kellAg.plus', 'положительный');
+INSERT INTO ddt_values (dss_name, dss_value) VALUES ('kellAg.minus', 'отрицательный');
+
+INSERT INTO ddt_values (dss_name, dss_value) VALUES ('serology.minus', 'отрицательный');
+INSERT INTO ddt_values (dss_name, dss_value) VALUES ('serology.plus', 'положительный');
+INSERT INTO ddt_values (dss_name, dss_value) VALUES ('serology.inwork', 'в работе');
 

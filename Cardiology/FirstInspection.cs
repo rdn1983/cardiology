@@ -81,11 +81,6 @@ namespace Cardiology
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void prevBtn_Click(object sender, EventArgs e)
         {
             int currentTabIndx = tabsContainer.SelectedIndex;
@@ -322,6 +317,13 @@ namespace Cardiology
                     service.updateObject<DdtAnamnesis>(anamnesis, "ddt_anamnesis", "r_object_id", anamnesis.ObjectId);
                 }
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            TextBox txtCtrl = new TextBox();
+            txtCtrl.Size = issuedMedicineTxt0.Size;
+            issuedMedicineBox.Controls.Add(txtCtrl);
         }
     }
 }

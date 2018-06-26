@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdmissionPatient));
             this.lordOfTheCotBox = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
@@ -38,9 +39,9 @@
             this.medCodeBox = new System.Windows.Forms.GroupBox();
             this.medCodeTxt = new System.Windows.Forms.TextBox();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.subDoctorBox = new System.Windows.Forms.ComboBox();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cardioDocBox = new System.Windows.Forms.ComboBox();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.dutyCardioBox = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -107,13 +108,13 @@
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(75, 17);
             this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
             this.radioButton2.Text = "Было КАГ";
             this.radioButton2.UseVisualStyleBackColor = true;
             // 
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
+            this.radioButton1.Checked = true;
             this.radioButton1.Location = new System.Drawing.Point(7, 17);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(91, 17);
@@ -171,7 +172,7 @@
             // 
             // groupBox10
             // 
-            this.groupBox10.Controls.Add(this.comboBox3);
+            this.groupBox10.Controls.Add(this.subDoctorBox);
             this.groupBox10.Location = new System.Drawing.Point(6, 137);
             this.groupBox10.Name = "groupBox10";
             this.groupBox10.Size = new System.Drawing.Size(289, 48);
@@ -179,17 +180,17 @@
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Зав. отделения ангиографии";
             // 
-            // comboBox3
+            // subDoctorBox
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(6, 19);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(276, 21);
-            this.comboBox3.TabIndex = 0;
+            this.subDoctorBox.FormattingEnabled = true;
+            this.subDoctorBox.Location = new System.Drawing.Point(6, 19);
+            this.subDoctorBox.Name = "subDoctorBox";
+            this.subDoctorBox.Size = new System.Drawing.Size(276, 21);
+            this.subDoctorBox.TabIndex = 0;
             // 
             // groupBox9
             // 
-            this.groupBox9.Controls.Add(this.comboBox2);
+            this.groupBox9.Controls.Add(this.cardioDocBox);
             this.groupBox9.Location = new System.Drawing.Point(6, 79);
             this.groupBox9.Name = "groupBox9";
             this.groupBox9.Size = new System.Drawing.Size(289, 52);
@@ -197,13 +198,13 @@
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "Рентгеноваскулярный хирург";
             // 
-            // comboBox2
+            // cardioDocBox
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(7, 20);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(276, 21);
-            this.comboBox2.TabIndex = 0;
+            this.cardioDocBox.FormattingEnabled = true;
+            this.cardioDocBox.Location = new System.Drawing.Point(7, 20);
+            this.cardioDocBox.Name = "cardioDocBox";
+            this.cardioDocBox.Size = new System.Drawing.Size(276, 21);
+            this.cardioDocBox.TabIndex = 0;
             // 
             // groupBox8
             // 
@@ -424,7 +425,9 @@
             this.ClientSize = new System.Drawing.Size(573, 437);
             this.Controls.Add(this.lordOfTheCotBox);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AdmissionPatient";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Поступление пациента";
             this.lordOfTheCotBox.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
@@ -447,9 +450,9 @@
 
         private System.Windows.Forms.GroupBox lordOfTheCotBox;
         private System.Windows.Forms.GroupBox groupBox10;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox subDoctorBox;
         private System.Windows.Forms.GroupBox groupBox9;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cardioDocBox;
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.ComboBox dutyCardioBox;
         private System.Windows.Forms.GroupBox groupBox1;

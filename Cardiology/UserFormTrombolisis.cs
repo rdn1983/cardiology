@@ -49,7 +49,7 @@ namespace Cardiology
             }
             values.Add(@"{date}", dateCtrl.Text);
             values.Add(@"{time}", timeCtrl.Text);
-            values.Add(@"{doctor.who}", doctorOkrCB.SelectedText);
+            values.Add(@"{doctor.who}", doctorOkrCB.Text);
             TemplatesUtils.fillTemplate(templatePath, values);
         }
     }

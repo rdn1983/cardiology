@@ -32,60 +32,34 @@
             this.tabs = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.button49 = new System.Windows.Forms.Button();
-            this.groupBox12 = new System.Windows.Forms.GroupBox();
-            this.groupBox14 = new System.Windows.Forms.GroupBox();
-            this.richTextBox6 = new System.Windows.Forms.RichTextBox();
-            this.groupBox13 = new System.Windows.Forms.GroupBox();
-            this.richTextBox5 = new System.Windows.Forms.RichTextBox();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.groupBox11 = new System.Windows.Forms.GroupBox();
-            this.richTextBox4 = new System.Windows.Forms.RichTextBox();
-            this.groupBox10 = new System.Windows.Forms.GroupBox();
-            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
-            this.groupBox9 = new System.Windows.Forms.GroupBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.egdsGroupBox = new System.Windows.Forms.GroupBox();
+            this.egdsBox = new System.Windows.Forms.GroupBox();
+            this.egdsTxt = new System.Windows.Forms.RichTextBox();
+            this.firstEgdsBox = new System.Windows.Forms.GroupBox();
+            this.firstEgdsTxt = new System.Windows.Forms.RichTextBox();
+            this.coronographyGroupBox = new System.Windows.Forms.GroupBox();
+            this.coronographyManipulationBox = new System.Windows.Forms.GroupBox();
+            this.kgManipulatioTxt = new System.Windows.Forms.RichTextBox();
+            this.coronographyResultsBox = new System.Windows.Forms.GroupBox();
+            this.kgResultsTxt = new System.Windows.Forms.RichTextBox();
+            this.coronographyTimeBox = new System.Windows.Forms.GroupBox();
+            this.kgTimeStart = new System.Windows.Forms.DateTimePicker();
+            this.kgTimeEnd = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.button23 = new System.Windows.Forms.Button();
-            this.button22 = new System.Windows.Forms.Button();
-            this.button21 = new System.Windows.Forms.Button();
-            this.button20 = new System.Windows.Forms.Button();
-            this.button19 = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
-            this.button15 = new System.Windows.Forms.Button();
-            this.button16 = new System.Windows.Forms.Button();
-            this.button17 = new System.Windows.Forms.Button();
-            this.button18 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.coronographyDateBox = new System.Windows.Forms.GroupBox();
+            this.kgDate = new System.Windows.Forms.DateTimePicker();
+            this.ekgTabContainer = new System.Windows.Forms.TabControl();
+            this.firstEkgTab = new System.Windows.Forms.TabPage();
+            this.firstEkgTxt = new System.Windows.Forms.RichTextBox();
+            this.ekgTab = new System.Windows.Forms.TabPage();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
-            this.button24 = new System.Windows.Forms.Button();
-            this.button25 = new System.Windows.Forms.Button();
+            this.clearBtn = new System.Windows.Forms.Button();
+            this.spaceBtn = new System.Windows.Forms.Button();
             this.button26 = new System.Windows.Forms.Button();
             this.button27 = new System.Windows.Forms.Button();
-            this.button28 = new System.Windows.Forms.Button();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.commaBtn = new System.Windows.Forms.Button();
+            this.whereBox = new System.Windows.Forms.GroupBox();
             this.button29 = new System.Windows.Forms.Button();
             this.button30 = new System.Windows.Forms.Button();
             this.button31 = new System.Windows.Forms.Button();
@@ -98,14 +72,14 @@
             this.button38 = new System.Windows.Forms.Button();
             this.button39 = new System.Windows.Forms.Button();
             this.button40 = new System.Windows.Forms.Button();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.button41 = new System.Windows.Forms.Button();
-            this.button42 = new System.Windows.Forms.Button();
-            this.button43 = new System.Windows.Forms.Button();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.button44 = new System.Windows.Forms.Button();
-            this.button45 = new System.Windows.Forms.Button();
-            this.button46 = new System.Windows.Forms.Button();
+            this.deviationBox = new System.Windows.Forms.GroupBox();
+            this.negativeTBtn = new System.Windows.Forms.Button();
+            this.depressionBtn = new System.Windows.Forms.Button();
+            this.deviationBtn = new System.Windows.Forms.Button();
+            this.rhytmGroupBox = new System.Windows.Forms.GroupBox();
+            this.flutterBtn = new System.Windows.Forms.Button();
+            this.fibrillationBtn = new System.Windows.Forms.Button();
+            this.rhytmSinusBtn = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox20 = new System.Windows.Forms.GroupBox();
             this.textBox78 = new System.Windows.Forms.TextBox();
@@ -276,16 +250,15 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.button50 = new System.Windows.Forms.Button();
-            this.groupBox22 = new System.Windows.Forms.GroupBox();
-            this.textBox87 = new System.Windows.Forms.TextBox();
-            this.textBox88 = new System.Windows.Forms.TextBox();
-            this.textBox89 = new System.Windows.Forms.TextBox();
-            this.textBox90 = new System.Windows.Forms.TextBox();
-            this.textBox91 = new System.Windows.Forms.TextBox();
-            this.textBox92 = new System.Windows.Forms.TextBox();
-            this.textBox93 = new System.Windows.Forms.TextBox();
-            this.textBox94 = new System.Windows.Forms.TextBox();
+            this.regularAnalysisBox = new System.Windows.Forms.GroupBox();
+            this.ketonesTxt = new System.Windows.Forms.TextBox();
+            this.proteinTxt = new System.Windows.Forms.TextBox();
+            this.glucoseTxt = new System.Windows.Forms.TextBox();
+            this.erythrocytesTxt = new System.Windows.Forms.TextBox();
+            this.leukocytesTxt = new System.Windows.Forms.TextBox();
+            this.specGravityTxt = new System.Windows.Forms.TextBox();
+            this.acidityTxt = new System.Windows.Forms.TextBox();
+            this.colorTxt = new System.Windows.Forms.TextBox();
             this.label91 = new System.Windows.Forms.Label();
             this.label92 = new System.Windows.Forms.Label();
             this.label93 = new System.Windows.Forms.Label();
@@ -294,82 +267,76 @@
             this.label96 = new System.Windows.Forms.Label();
             this.label97 = new System.Windows.Forms.Label();
             this.label98 = new System.Windows.Forms.Label();
-            this.groupBox21 = new System.Windows.Forms.GroupBox();
-            this.textBox86 = new System.Windows.Forms.TextBox();
-            this.textBox85 = new System.Windows.Forms.TextBox();
-            this.textBox84 = new System.Windows.Forms.TextBox();
-            this.textBox83 = new System.Windows.Forms.TextBox();
-            this.textBox82 = new System.Windows.Forms.TextBox();
-            this.textBox81 = new System.Windows.Forms.TextBox();
-            this.textBox80 = new System.Windows.Forms.TextBox();
-            this.textBox79 = new System.Windows.Forms.TextBox();
+            this.firstAnalysisBox = new System.Windows.Forms.GroupBox();
+            this.firstKetonesTxt = new System.Windows.Forms.TextBox();
+            this.firstProteinTxt = new System.Windows.Forms.TextBox();
+            this.firstGlucoseTxt = new System.Windows.Forms.TextBox();
+            this.firstErythrocytesTxt = new System.Windows.Forms.TextBox();
+            this.firstLeucocytesTxt = new System.Windows.Forms.TextBox();
+            this.firstSpecGravityTxt = new System.Windows.Forms.TextBox();
+            this.firstAcidityTxt = new System.Windows.Forms.TextBox();
+            this.firstColorTxt = new System.Windows.Forms.TextBox();
             this.label90 = new System.Windows.Forms.Label();
             this.label89 = new System.Windows.Forms.Label();
             this.label88 = new System.Windows.Forms.Label();
             this.label87 = new System.Windows.Forms.Label();
             this.label86 = new System.Windows.Forms.Label();
-            this.label85 = new System.Windows.Forms.Label();
-            this.label84 = new System.Windows.Forms.Label();
-            this.label83 = new System.Windows.Forms.Label();
+            this.firstSpecGravityLbl = new System.Windows.Forms.Label();
+            this.firstAcidityLbl = new System.Windows.Forms.Label();
+            this.firstColorLbl = new System.Windows.Forms.Label();
             this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.button51 = new System.Windows.Forms.Button();
-            this.groupBox27 = new System.Windows.Forms.GroupBox();
-            this.richTextBox7 = new System.Windows.Forms.RichTextBox();
-            this.groupBox26 = new System.Windows.Forms.GroupBox();
-            this.richTextBox8 = new System.Windows.Forms.RichTextBox();
-            this.groupBox25 = new System.Windows.Forms.GroupBox();
-            this.richTextBox9 = new System.Windows.Forms.RichTextBox();
-            this.groupBox24 = new System.Windows.Forms.GroupBox();
-            this.richTextBox10 = new System.Windows.Forms.RichTextBox();
-            this.groupBox23 = new System.Windows.Forms.GroupBox();
-            this.richTextBox11 = new System.Windows.Forms.RichTextBox();
-            this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.button52 = new System.Windows.Forms.Button();
-            this.groupBox28 = new System.Windows.Forms.GroupBox();
-            this.richTextBox12 = new System.Windows.Forms.RichTextBox();
-            this.groupBox29 = new System.Windows.Forms.GroupBox();
-            this.richTextBox13 = new System.Windows.Forms.RichTextBox();
-            this.groupBox30 = new System.Windows.Forms.GroupBox();
-            this.richTextBox14 = new System.Windows.Forms.RichTextBox();
-            this.groupBox31 = new System.Windows.Forms.GroupBox();
-            this.richTextBox15 = new System.Windows.Forms.RichTextBox();
-            this.groupBox32 = new System.Windows.Forms.GroupBox();
-            this.richTextBox16 = new System.Windows.Forms.RichTextBox();
-            this.tabPage8 = new System.Windows.Forms.TabPage();
-            this.button53 = new System.Windows.Forms.Button();
-            this.groupBox36 = new System.Windows.Forms.GroupBox();
-            this.richTextBox20 = new System.Windows.Forms.RichTextBox();
-            this.groupBox37 = new System.Windows.Forms.GroupBox();
-            this.richTextBox21 = new System.Windows.Forms.RichTextBox();
-            this.tabPage9 = new System.Windows.Forms.TabPage();
-            this.button54 = new System.Windows.Forms.Button();
-            this.groupBox34 = new System.Windows.Forms.GroupBox();
-            this.richTextBox18 = new System.Windows.Forms.RichTextBox();
-            this.groupBox35 = new System.Windows.Forms.GroupBox();
-            this.richTextBox19 = new System.Windows.Forms.RichTextBox();
-            this.groupBox38 = new System.Windows.Forms.GroupBox();
-            this.richTextBox22 = new System.Windows.Forms.RichTextBox();
-            this.groupBox39 = new System.Windows.Forms.GroupBox();
-            this.richTextBox23 = new System.Windows.Forms.RichTextBox();
+            this.pleursUziBox = new System.Windows.Forms.GroupBox();
+            this.pleursUziTxt = new System.Windows.Forms.RichTextBox();
+            this.uziObpBox = new System.Windows.Forms.GroupBox();
+            this.uziObpTxt = new System.Windows.Forms.RichTextBox();
+            this.cdsBox = new System.Windows.Forms.GroupBox();
+            this.cdsTxt = new System.Windows.Forms.RichTextBox();
+            this.uzdBox = new System.Windows.Forms.GroupBox();
+            this.uzdTxt = new System.Windows.Forms.RichTextBox();
+            this.ehoKgBox = new System.Windows.Forms.GroupBox();
+            this.ehoKgTxt = new System.Windows.Forms.RichTextBox();
+            this.xRayTab = new System.Windows.Forms.TabPage();
+            this.mrtBox = new System.Windows.Forms.GroupBox();
+            this.mrtTxt = new System.Windows.Forms.RichTextBox();
+            this.ktBox = new System.Windows.Forms.GroupBox();
+            this.ktTxt = new System.Windows.Forms.RichTextBox();
+            this.msktBox = new System.Windows.Forms.GroupBox();
+            this.msktTxt = new System.Windows.Forms.RichTextBox();
+            this.cotrolRadiographyBox = new System.Windows.Forms.GroupBox();
+            this.controlRadiographyTxt = new System.Windows.Forms.RichTextBox();
+            this.chestXRayBox = new System.Windows.Forms.GroupBox();
+            this.chestXRayTxt = new System.Windows.Forms.RichTextBox();
+            this.holterTab = new System.Windows.Forms.TabPage();
+            this.monitoringAdBox = new System.Windows.Forms.GroupBox();
+            this.monitoringAdTxt = new System.Windows.Forms.RichTextBox();
+            this.holterBox = new System.Windows.Forms.GroupBox();
+            this.holterTxt = new System.Windows.Forms.RichTextBox();
+            this.specialistDecisionTab = new System.Windows.Forms.TabPage();
+            this.endicrinologistBox = new System.Windows.Forms.GroupBox();
+            this.endocrinologistTx = new System.Windows.Forms.RichTextBox();
+            this.neuroSurgeonBox = new System.Windows.Forms.GroupBox();
+            this.neuroSurgeonTxt = new System.Windows.Forms.RichTextBox();
+            this.surgeonBox = new System.Windows.Forms.GroupBox();
+            this.surgeonTxt = new System.Windows.Forms.RichTextBox();
+            this.neurologBox = new System.Windows.Forms.GroupBox();
+            this.neurologTxt = new System.Windows.Forms.RichTextBox();
+            this.saveBtn = new System.Windows.Forms.Button();
             this.tabs.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.groupBox12.SuspendLayout();
-            this.groupBox14.SuspendLayout();
-            this.groupBox13.SuspendLayout();
-            this.groupBox7.SuspendLayout();
-            this.groupBox11.SuspendLayout();
-            this.groupBox10.SuspendLayout();
-            this.groupBox9.SuspendLayout();
-            this.groupBox8.SuspendLayout();
-            this.tabControl1.SuspendLayout();
-            this.tabPage3.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.tabPage4.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            this.groupBox5.SuspendLayout();
-            this.groupBox6.SuspendLayout();
+            this.egdsGroupBox.SuspendLayout();
+            this.egdsBox.SuspendLayout();
+            this.firstEgdsBox.SuspendLayout();
+            this.coronographyGroupBox.SuspendLayout();
+            this.coronographyManipulationBox.SuspendLayout();
+            this.coronographyResultsBox.SuspendLayout();
+            this.coronographyTimeBox.SuspendLayout();
+            this.coronographyDateBox.SuspendLayout();
+            this.ekgTabContainer.SuspendLayout();
+            this.firstEkgTab.SuspendLayout();
+            this.ekgTab.SuspendLayout();
+            this.whereBox.SuspendLayout();
+            this.deviationBox.SuspendLayout();
+            this.rhytmGroupBox.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox20.SuspendLayout();
             this.groupBox19.SuspendLayout();
@@ -378,28 +345,28 @@
             this.groupBox16.SuspendLayout();
             this.groupBox15.SuspendLayout();
             this.tabPage5.SuspendLayout();
-            this.groupBox22.SuspendLayout();
-            this.groupBox21.SuspendLayout();
+            this.regularAnalysisBox.SuspendLayout();
+            this.firstAnalysisBox.SuspendLayout();
             this.tabPage6.SuspendLayout();
-            this.groupBox27.SuspendLayout();
-            this.groupBox26.SuspendLayout();
-            this.groupBox25.SuspendLayout();
-            this.groupBox24.SuspendLayout();
-            this.groupBox23.SuspendLayout();
-            this.tabPage7.SuspendLayout();
-            this.groupBox28.SuspendLayout();
-            this.groupBox29.SuspendLayout();
-            this.groupBox30.SuspendLayout();
-            this.groupBox31.SuspendLayout();
-            this.groupBox32.SuspendLayout();
-            this.tabPage8.SuspendLayout();
-            this.groupBox36.SuspendLayout();
-            this.groupBox37.SuspendLayout();
-            this.tabPage9.SuspendLayout();
-            this.groupBox34.SuspendLayout();
-            this.groupBox35.SuspendLayout();
-            this.groupBox38.SuspendLayout();
-            this.groupBox39.SuspendLayout();
+            this.pleursUziBox.SuspendLayout();
+            this.uziObpBox.SuspendLayout();
+            this.cdsBox.SuspendLayout();
+            this.uzdBox.SuspendLayout();
+            this.ehoKgBox.SuspendLayout();
+            this.xRayTab.SuspendLayout();
+            this.mrtBox.SuspendLayout();
+            this.ktBox.SuspendLayout();
+            this.msktBox.SuspendLayout();
+            this.cotrolRadiographyBox.SuspendLayout();
+            this.chestXRayBox.SuspendLayout();
+            this.holterTab.SuspendLayout();
+            this.monitoringAdBox.SuspendLayout();
+            this.holterBox.SuspendLayout();
+            this.specialistDecisionTab.SuspendLayout();
+            this.endicrinologistBox.SuspendLayout();
+            this.neuroSurgeonBox.SuspendLayout();
+            this.surgeonBox.SuspendLayout();
+            this.neurologBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabs
@@ -408,9 +375,9 @@
             this.tabs.Controls.Add(this.tabPage2);
             this.tabs.Controls.Add(this.tabPage5);
             this.tabs.Controls.Add(this.tabPage6);
-            this.tabs.Controls.Add(this.tabPage7);
-            this.tabs.Controls.Add(this.tabPage8);
-            this.tabs.Controls.Add(this.tabPage9);
+            this.tabs.Controls.Add(this.xRayTab);
+            this.tabs.Controls.Add(this.holterTab);
+            this.tabs.Controls.Add(this.specialistDecisionTab);
             this.tabs.Location = new System.Drawing.Point(12, 12);
             this.tabs.Name = "tabs";
             this.tabs.SelectedIndex = 0;
@@ -420,9 +387,9 @@
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.button49);
-            this.tabPage1.Controls.Add(this.groupBox12);
-            this.tabPage1.Controls.Add(this.groupBox7);
-            this.tabPage1.Controls.Add(this.tabControl1);
+            this.tabPage1.Controls.Add(this.egdsGroupBox);
+            this.tabPage1.Controls.Add(this.coronographyGroupBox);
+            this.tabPage1.Controls.Add(this.ekgTabContainer);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -440,130 +407,131 @@
             this.button49.Text = "Сохранить";
             this.button49.UseVisualStyleBackColor = true;
             // 
-            // groupBox12
+            // egdsGroupBox
             // 
-            this.groupBox12.Controls.Add(this.groupBox14);
-            this.groupBox12.Controls.Add(this.groupBox13);
-            this.groupBox12.Location = new System.Drawing.Point(426, 289);
-            this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(306, 358);
-            this.groupBox12.TabIndex = 2;
-            this.groupBox12.TabStop = false;
-            this.groupBox12.Text = "ЭГДС:";
+            this.egdsGroupBox.Controls.Add(this.egdsBox);
+            this.egdsGroupBox.Controls.Add(this.firstEgdsBox);
+            this.egdsGroupBox.Location = new System.Drawing.Point(426, 289);
+            this.egdsGroupBox.Name = "egdsGroupBox";
+            this.egdsGroupBox.Size = new System.Drawing.Size(310, 358);
+            this.egdsGroupBox.TabIndex = 2;
+            this.egdsGroupBox.TabStop = false;
+            this.egdsGroupBox.Text = "ЭГДС:";
             // 
-            // groupBox14
+            // egdsBox
             // 
-            this.groupBox14.Controls.Add(this.richTextBox6);
-            this.groupBox14.Location = new System.Drawing.Point(11, 191);
-            this.groupBox14.Name = "groupBox14";
-            this.groupBox14.Size = new System.Drawing.Size(283, 152);
-            this.groupBox14.TabIndex = 1;
-            this.groupBox14.TabStop = false;
-            this.groupBox14.Text = "Контрольное исследование";
+            this.egdsBox.Controls.Add(this.egdsTxt);
+            this.egdsBox.Location = new System.Drawing.Point(11, 191);
+            this.egdsBox.Name = "egdsBox";
+            this.egdsBox.Size = new System.Drawing.Size(283, 152);
+            this.egdsBox.TabIndex = 1;
+            this.egdsBox.TabStop = false;
+            this.egdsBox.Text = "Контрольное исследование";
             // 
-            // richTextBox6
+            // egdsTxt
             // 
-            this.richTextBox6.Location = new System.Drawing.Point(7, 20);
-            this.richTextBox6.Name = "richTextBox6";
-            this.richTextBox6.Size = new System.Drawing.Size(270, 126);
-            this.richTextBox6.TabIndex = 0;
-            this.richTextBox6.Text = "";
+            this.egdsTxt.Location = new System.Drawing.Point(7, 20);
+            this.egdsTxt.Name = "egdsTxt";
+            this.egdsTxt.Size = new System.Drawing.Size(270, 126);
+            this.egdsTxt.TabIndex = 0;
+            this.egdsTxt.Text = "";
             // 
-            // groupBox13
+            // firstEgdsBox
             // 
-            this.groupBox13.Controls.Add(this.richTextBox5);
-            this.groupBox13.Location = new System.Drawing.Point(11, 22);
-            this.groupBox13.Name = "groupBox13";
-            this.groupBox13.Size = new System.Drawing.Size(283, 152);
-            this.groupBox13.TabIndex = 0;
-            this.groupBox13.TabStop = false;
-            this.groupBox13.Text = "Первичное исследование";
+            this.firstEgdsBox.Controls.Add(this.firstEgdsTxt);
+            this.firstEgdsBox.Location = new System.Drawing.Point(11, 22);
+            this.firstEgdsBox.Name = "firstEgdsBox";
+            this.firstEgdsBox.Size = new System.Drawing.Size(283, 152);
+            this.firstEgdsBox.TabIndex = 0;
+            this.firstEgdsBox.TabStop = false;
+            this.firstEgdsBox.Text = "Первичное исследование";
             // 
-            // richTextBox5
+            // firstEgdsTxt
             // 
-            this.richTextBox5.Location = new System.Drawing.Point(7, 19);
-            this.richTextBox5.Name = "richTextBox5";
-            this.richTextBox5.Size = new System.Drawing.Size(270, 127);
-            this.richTextBox5.TabIndex = 0;
-            this.richTextBox5.Text = "";
+            this.firstEgdsTxt.Location = new System.Drawing.Point(7, 19);
+            this.firstEgdsTxt.Name = "firstEgdsTxt";
+            this.firstEgdsTxt.ReadOnly = true;
+            this.firstEgdsTxt.Size = new System.Drawing.Size(270, 127);
+            this.firstEgdsTxt.TabIndex = 0;
+            this.firstEgdsTxt.Text = "";
             // 
-            // groupBox7
+            // coronographyGroupBox
             // 
-            this.groupBox7.Controls.Add(this.groupBox11);
-            this.groupBox7.Controls.Add(this.groupBox10);
-            this.groupBox7.Controls.Add(this.groupBox9);
-            this.groupBox7.Controls.Add(this.groupBox8);
-            this.groupBox7.Location = new System.Drawing.Point(6, 289);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(400, 358);
-            this.groupBox7.TabIndex = 1;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Коронаграфия:";
+            this.coronographyGroupBox.Controls.Add(this.coronographyManipulationBox);
+            this.coronographyGroupBox.Controls.Add(this.coronographyResultsBox);
+            this.coronographyGroupBox.Controls.Add(this.coronographyTimeBox);
+            this.coronographyGroupBox.Controls.Add(this.coronographyDateBox);
+            this.coronographyGroupBox.Location = new System.Drawing.Point(6, 289);
+            this.coronographyGroupBox.Name = "coronographyGroupBox";
+            this.coronographyGroupBox.Size = new System.Drawing.Size(400, 358);
+            this.coronographyGroupBox.TabIndex = 1;
+            this.coronographyGroupBox.TabStop = false;
+            this.coronographyGroupBox.Text = "Коронаграфия:";
             // 
-            // groupBox11
+            // coronographyManipulationBox
             // 
-            this.groupBox11.Controls.Add(this.richTextBox4);
-            this.groupBox11.Location = new System.Drawing.Point(6, 226);
-            this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(388, 124);
-            this.groupBox11.TabIndex = 3;
-            this.groupBox11.TabStop = false;
-            this.groupBox11.Text = "Больному выполнено";
+            this.coronographyManipulationBox.Controls.Add(this.kgManipulatioTxt);
+            this.coronographyManipulationBox.Location = new System.Drawing.Point(6, 226);
+            this.coronographyManipulationBox.Name = "coronographyManipulationBox";
+            this.coronographyManipulationBox.Size = new System.Drawing.Size(388, 124);
+            this.coronographyManipulationBox.TabIndex = 3;
+            this.coronographyManipulationBox.TabStop = false;
+            this.coronographyManipulationBox.Text = "Больному выполнено";
             // 
-            // richTextBox4
+            // kgManipulatioTxt
             // 
-            this.richTextBox4.Location = new System.Drawing.Point(6, 16);
-            this.richTextBox4.Name = "richTextBox4";
-            this.richTextBox4.Size = new System.Drawing.Size(376, 101);
-            this.richTextBox4.TabIndex = 0;
-            this.richTextBox4.Text = "";
+            this.kgManipulatioTxt.Location = new System.Drawing.Point(6, 16);
+            this.kgManipulatioTxt.Name = "kgManipulatioTxt";
+            this.kgManipulatioTxt.Size = new System.Drawing.Size(376, 101);
+            this.kgManipulatioTxt.TabIndex = 0;
+            this.kgManipulatioTxt.Text = "";
             // 
-            // groupBox10
+            // coronographyResultsBox
             // 
-            this.groupBox10.Controls.Add(this.richTextBox3);
-            this.groupBox10.Location = new System.Drawing.Point(4, 100);
-            this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(390, 120);
-            this.groupBox10.TabIndex = 2;
-            this.groupBox10.TabStop = false;
-            this.groupBox10.Text = "По данным КГ выявлено";
+            this.coronographyResultsBox.Controls.Add(this.kgResultsTxt);
+            this.coronographyResultsBox.Location = new System.Drawing.Point(4, 100);
+            this.coronographyResultsBox.Name = "coronographyResultsBox";
+            this.coronographyResultsBox.Size = new System.Drawing.Size(390, 120);
+            this.coronographyResultsBox.TabIndex = 2;
+            this.coronographyResultsBox.TabStop = false;
+            this.coronographyResultsBox.Text = "По данным КГ выявлено";
             // 
-            // richTextBox3
+            // kgResultsTxt
             // 
-            this.richTextBox3.Location = new System.Drawing.Point(7, 19);
-            this.richTextBox3.Name = "richTextBox3";
-            this.richTextBox3.Size = new System.Drawing.Size(377, 96);
-            this.richTextBox3.TabIndex = 0;
-            this.richTextBox3.Text = "";
+            this.kgResultsTxt.Location = new System.Drawing.Point(7, 19);
+            this.kgResultsTxt.Name = "kgResultsTxt";
+            this.kgResultsTxt.Size = new System.Drawing.Size(377, 96);
+            this.kgResultsTxt.TabIndex = 0;
+            this.kgResultsTxt.Text = "";
             // 
-            // groupBox9
+            // coronographyTimeBox
             // 
-            this.groupBox9.Controls.Add(this.dateTimePicker1);
-            this.groupBox9.Controls.Add(this.dateTimePicker2);
-            this.groupBox9.Controls.Add(this.label2);
-            this.groupBox9.Controls.Add(this.label1);
-            this.groupBox9.Location = new System.Drawing.Point(190, 22);
-            this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(204, 72);
-            this.groupBox9.TabIndex = 1;
-            this.groupBox9.TabStop = false;
-            this.groupBox9.Text = "Время";
+            this.coronographyTimeBox.Controls.Add(this.kgTimeStart);
+            this.coronographyTimeBox.Controls.Add(this.kgTimeEnd);
+            this.coronographyTimeBox.Controls.Add(this.label2);
+            this.coronographyTimeBox.Controls.Add(this.label1);
+            this.coronographyTimeBox.Location = new System.Drawing.Point(190, 22);
+            this.coronographyTimeBox.Name = "coronographyTimeBox";
+            this.coronographyTimeBox.Size = new System.Drawing.Size(204, 72);
+            this.coronographyTimeBox.TabIndex = 1;
+            this.coronographyTimeBox.TabStop = false;
+            this.coronographyTimeBox.Text = "Время";
             // 
-            // dateTimePicker1
+            // kgTimeStart
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePicker1.Location = new System.Drawing.Point(51, 14);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(147, 20);
-            this.dateTimePicker1.TabIndex = 2;
+            this.kgTimeStart.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.kgTimeStart.Location = new System.Drawing.Point(51, 14);
+            this.kgTimeStart.Name = "kgTimeStart";
+            this.kgTimeStart.Size = new System.Drawing.Size(147, 20);
+            this.kgTimeStart.TabIndex = 2;
             // 
-            // dateTimePicker2
+            // kgTimeEnd
             // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePicker2.Location = new System.Drawing.Point(51, 41);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(147, 20);
-            this.dateTimePicker2.TabIndex = 2;
+            this.kgTimeEnd.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.kgTimeEnd.Location = new System.Drawing.Point(51, 41);
+            this.kgTimeEnd.Name = "kgTimeEnd";
+            this.kgTimeEnd.Size = new System.Drawing.Size(147, 20);
+            this.kgTimeEnd.TabIndex = 2;
             // 
             // label2
             // 
@@ -583,332 +551,72 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Начало:";
             // 
-            // groupBox8
+            // coronographyDateBox
             // 
-            this.groupBox8.Controls.Add(this.dateTimePicker3);
-            this.groupBox8.Location = new System.Drawing.Point(6, 22);
-            this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(178, 72);
-            this.groupBox8.TabIndex = 0;
-            this.groupBox8.TabStop = false;
-            this.groupBox8.Text = "Дата";
+            this.coronographyDateBox.Controls.Add(this.kgDate);
+            this.coronographyDateBox.Location = new System.Drawing.Point(6, 22);
+            this.coronographyDateBox.Name = "coronographyDateBox";
+            this.coronographyDateBox.Size = new System.Drawing.Size(178, 72);
+            this.coronographyDateBox.TabIndex = 0;
+            this.coronographyDateBox.TabStop = false;
+            this.coronographyDateBox.Text = "Дата";
             // 
-            // dateTimePicker3
+            // kgDate
             // 
-            this.dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker3.Location = new System.Drawing.Point(9, 25);
-            this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(158, 20);
-            this.dateTimePicker3.TabIndex = 0;
+            this.kgDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.kgDate.Location = new System.Drawing.Point(9, 25);
+            this.kgDate.Name = "kgDate";
+            this.kgDate.Size = new System.Drawing.Size(158, 20);
+            this.kgDate.TabIndex = 0;
             // 
-            // tabControl1
+            // ekgTabContainer
             // 
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Location = new System.Drawing.Point(6, 6);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(730, 267);
-            this.tabControl1.TabIndex = 0;
+            this.ekgTabContainer.Controls.Add(this.firstEkgTab);
+            this.ekgTabContainer.Controls.Add(this.ekgTab);
+            this.ekgTabContainer.Location = new System.Drawing.Point(6, 6);
+            this.ekgTabContainer.Name = "ekgTabContainer";
+            this.ekgTabContainer.SelectedIndex = 0;
+            this.ekgTabContainer.Size = new System.Drawing.Size(730, 267);
+            this.ekgTabContainer.TabIndex = 1;
             // 
-            // tabPage3
+            // firstEkgTab
             // 
-            this.tabPage3.Controls.Add(this.richTextBox1);
-            this.tabPage3.Controls.Add(this.button23);
-            this.tabPage3.Controls.Add(this.button22);
-            this.tabPage3.Controls.Add(this.button21);
-            this.tabPage3.Controls.Add(this.button20);
-            this.tabPage3.Controls.Add(this.button19);
-            this.tabPage3.Controls.Add(this.groupBox3);
-            this.tabPage3.Controls.Add(this.groupBox2);
-            this.tabPage3.Controls.Add(this.groupBox1);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(722, 241);
-            this.tabPage3.TabIndex = 0;
-            this.tabPage3.Text = "ЭКГ при поступлении";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.firstEkgTab.Controls.Add(this.firstEkgTxt);
+            this.firstEkgTab.Location = new System.Drawing.Point(4, 22);
+            this.firstEkgTab.Name = "firstEkgTab";
+            this.firstEkgTab.Padding = new System.Windows.Forms.Padding(3);
+            this.firstEkgTab.Size = new System.Drawing.Size(722, 241);
+            this.firstEkgTab.TabIndex = 0;
+            this.firstEkgTab.Text = "ЭКГ при поступлении";
+            this.firstEkgTab.UseVisualStyleBackColor = true;
             // 
-            // richTextBox1
+            // firstEkgTxt
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(336, 7);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(369, 174);
-            this.richTextBox1.TabIndex = 9;
-            this.richTextBox1.Text = "";
+            this.firstEkgTxt.Location = new System.Drawing.Point(11, 14);
+            this.firstEkgTxt.Name = "firstEkgTxt";
+            this.firstEkgTxt.ReadOnly = true;
+            this.firstEkgTxt.Size = new System.Drawing.Size(702, 217);
+            this.firstEkgTxt.TabIndex = 9;
+            this.firstEkgTxt.Text = "";
             // 
-            // button23
+            // ekgTab
             // 
-            this.button23.Location = new System.Drawing.Point(336, 187);
-            this.button23.Name = "button23";
-            this.button23.Size = new System.Drawing.Size(75, 32);
-            this.button23.TabIndex = 7;
-            this.button23.Text = "Очистить";
-            this.button23.UseVisualStyleBackColor = true;
-            // 
-            // button22
-            // 
-            this.button22.Location = new System.Drawing.Point(264, 187);
-            this.button22.Name = "button22";
-            this.button22.Size = new System.Drawing.Size(66, 32);
-            this.button22.TabIndex = 6;
-            this.button22.Text = "Пробел";
-            this.button22.UseVisualStyleBackColor = true;
-            // 
-            // button21
-            // 
-            this.button21.Location = new System.Drawing.Point(301, 153);
-            this.button21.Name = "button21";
-            this.button21.Size = new System.Drawing.Size(29, 28);
-            this.button21.TabIndex = 5;
-            this.button21.UseVisualStyleBackColor = true;
-            // 
-            // button20
-            // 
-            this.button20.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button20.Location = new System.Drawing.Point(264, 153);
-            this.button20.Name = "button20";
-            this.button20.Size = new System.Drawing.Size(30, 28);
-            this.button20.TabIndex = 4;
-            this.button20.Text = "_";
-            this.button20.UseVisualStyleBackColor = true;
-            // 
-            // button19
-            // 
-            this.button19.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button19.Location = new System.Drawing.Point(301, 7);
-            this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(29, 68);
-            this.button19.TabIndex = 3;
-            this.button19.Text = ",";
-            this.button19.UseVisualStyleBackColor = true;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.button13);
-            this.groupBox3.Controls.Add(this.button14);
-            this.groupBox3.Controls.Add(this.button15);
-            this.groupBox3.Controls.Add(this.button16);
-            this.groupBox3.Controls.Add(this.button17);
-            this.groupBox3.Controls.Add(this.button18);
-            this.groupBox3.Controls.Add(this.button12);
-            this.groupBox3.Controls.Add(this.button11);
-            this.groupBox3.Controls.Add(this.button10);
-            this.groupBox3.Controls.Add(this.button9);
-            this.groupBox3.Controls.Add(this.button8);
-            this.groupBox3.Controls.Add(this.button7);
-            this.groupBox3.Location = new System.Drawing.Point(7, 144);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(252, 75);
-            this.groupBox3.TabIndex = 2;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Где";
-            // 
-            // button13
-            // 
-            this.button13.Location = new System.Drawing.Point(206, 43);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(40, 23);
-            this.button13.TabIndex = 11;
-            this.button13.Text = "V6";
-            this.button13.UseVisualStyleBackColor = true;
-            // 
-            // button14
-            // 
-            this.button14.Location = new System.Drawing.Point(166, 43);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(40, 23);
-            this.button14.TabIndex = 10;
-            this.button14.Text = "V5";
-            this.button14.UseVisualStyleBackColor = true;
-            // 
-            // button15
-            // 
-            this.button15.Location = new System.Drawing.Point(126, 43);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(40, 23);
-            this.button15.TabIndex = 9;
-            this.button15.Text = "V4";
-            this.button15.UseVisualStyleBackColor = true;
-            // 
-            // button16
-            // 
-            this.button16.Location = new System.Drawing.Point(86, 43);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(40, 23);
-            this.button16.TabIndex = 8;
-            this.button16.Text = "V3";
-            this.button16.UseVisualStyleBackColor = true;
-            // 
-            // button17
-            // 
-            this.button17.Location = new System.Drawing.Point(46, 43);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(40, 23);
-            this.button17.TabIndex = 7;
-            this.button17.Text = "V2";
-            this.button17.UseVisualStyleBackColor = true;
-            // 
-            // button18
-            // 
-            this.button18.Location = new System.Drawing.Point(5, 43);
-            this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(40, 23);
-            this.button18.TabIndex = 6;
-            this.button18.Text = "V1";
-            this.button18.UseVisualStyleBackColor = true;
-            // 
-            // button12
-            // 
-            this.button12.Location = new System.Drawing.Point(206, 20);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(40, 23);
-            this.button12.TabIndex = 5;
-            this.button12.Text = "AVF";
-            this.button12.UseVisualStyleBackColor = true;
-            // 
-            // button11
-            // 
-            this.button11.Location = new System.Drawing.Point(166, 20);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(40, 23);
-            this.button11.TabIndex = 4;
-            this.button11.Text = "AVR";
-            this.button11.UseVisualStyleBackColor = true;
-            // 
-            // button10
-            // 
-            this.button10.Location = new System.Drawing.Point(126, 20);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(40, 23);
-            this.button10.TabIndex = 3;
-            this.button10.Text = "AVL";
-            this.button10.UseVisualStyleBackColor = true;
-            // 
-            // button9
-            // 
-            this.button9.Location = new System.Drawing.Point(86, 20);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(40, 23);
-            this.button9.TabIndex = 2;
-            this.button9.Text = "III";
-            this.button9.UseVisualStyleBackColor = true;
-            // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(46, 20);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(40, 23);
-            this.button8.TabIndex = 1;
-            this.button8.Text = "II";
-            this.button8.UseVisualStyleBackColor = true;
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(5, 20);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(40, 23);
-            this.button7.TabIndex = 0;
-            this.button7.Text = "I";
-            this.button7.UseVisualStyleBackColor = true;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.button6);
-            this.groupBox2.Controls.Add(this.button5);
-            this.groupBox2.Controls.Add(this.button4);
-            this.groupBox2.Location = new System.Drawing.Point(7, 82);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(287, 56);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Девиация";
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(168, 20);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(111, 23);
-            this.button6.TabIndex = 2;
-            this.button6.Text = "Отрицательный Т";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(87, 19);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 1;
-            this.button5.Text = "Депрессия";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(6, 20);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 0;
-            this.button4.Text = "Девиация";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Location = new System.Drawing.Point(7, 7);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(287, 69);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Ритм";
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(192, 18);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(87, 39);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Трепетание предсердий";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(99, 19);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(87, 38);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Фибриляция предсердий";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(6, 19);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(87, 38);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Ритм синусовый";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Controls.Add(this.richTextBox2);
-            this.tabPage4.Controls.Add(this.button24);
-            this.tabPage4.Controls.Add(this.button25);
-            this.tabPage4.Controls.Add(this.button26);
-            this.tabPage4.Controls.Add(this.button27);
-            this.tabPage4.Controls.Add(this.button28);
-            this.tabPage4.Controls.Add(this.groupBox4);
-            this.tabPage4.Controls.Add(this.groupBox5);
-            this.tabPage4.Controls.Add(this.groupBox6);
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(722, 241);
-            this.tabPage4.TabIndex = 1;
-            this.tabPage4.Text = "ЭКГ последнее";
-            this.tabPage4.UseVisualStyleBackColor = true;
+            this.ekgTab.Controls.Add(this.richTextBox2);
+            this.ekgTab.Controls.Add(this.clearBtn);
+            this.ekgTab.Controls.Add(this.spaceBtn);
+            this.ekgTab.Controls.Add(this.button26);
+            this.ekgTab.Controls.Add(this.button27);
+            this.ekgTab.Controls.Add(this.commaBtn);
+            this.ekgTab.Controls.Add(this.whereBox);
+            this.ekgTab.Controls.Add(this.deviationBox);
+            this.ekgTab.Controls.Add(this.rhytmGroupBox);
+            this.ekgTab.Location = new System.Drawing.Point(4, 22);
+            this.ekgTab.Name = "ekgTab";
+            this.ekgTab.Padding = new System.Windows.Forms.Padding(3);
+            this.ekgTab.Size = new System.Drawing.Size(722, 241);
+            this.ekgTab.TabIndex = 1;
+            this.ekgTab.Text = "ЭКГ";
+            this.ekgTab.UseVisualStyleBackColor = true;
             // 
             // richTextBox2
             // 
@@ -918,23 +626,23 @@
             this.richTextBox2.TabIndex = 18;
             this.richTextBox2.Text = "";
             // 
-            // button24
+            // clearBtn
             // 
-            this.button24.Location = new System.Drawing.Point(337, 186);
-            this.button24.Name = "button24";
-            this.button24.Size = new System.Drawing.Size(75, 32);
-            this.button24.TabIndex = 17;
-            this.button24.Text = "Очистить";
-            this.button24.UseVisualStyleBackColor = true;
+            this.clearBtn.Location = new System.Drawing.Point(337, 186);
+            this.clearBtn.Name = "clearBtn";
+            this.clearBtn.Size = new System.Drawing.Size(75, 32);
+            this.clearBtn.TabIndex = 17;
+            this.clearBtn.Text = "Очистить";
+            this.clearBtn.UseVisualStyleBackColor = true;
             // 
-            // button25
+            // spaceBtn
             // 
-            this.button25.Location = new System.Drawing.Point(265, 186);
-            this.button25.Name = "button25";
-            this.button25.Size = new System.Drawing.Size(66, 32);
-            this.button25.TabIndex = 16;
-            this.button25.Text = "Пробел";
-            this.button25.UseVisualStyleBackColor = true;
+            this.spaceBtn.Location = new System.Drawing.Point(265, 186);
+            this.spaceBtn.Name = "spaceBtn";
+            this.spaceBtn.Size = new System.Drawing.Size(66, 32);
+            this.spaceBtn.TabIndex = 16;
+            this.spaceBtn.Text = "Пробел";
+            this.spaceBtn.UseVisualStyleBackColor = true;
             // 
             // button26
             // 
@@ -954,36 +662,36 @@
             this.button27.Text = "_";
             this.button27.UseVisualStyleBackColor = true;
             // 
-            // button28
+            // commaBtn
             // 
-            this.button28.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button28.Location = new System.Drawing.Point(302, 6);
-            this.button28.Name = "button28";
-            this.button28.Size = new System.Drawing.Size(29, 68);
-            this.button28.TabIndex = 13;
-            this.button28.Text = ",";
-            this.button28.UseVisualStyleBackColor = true;
+            this.commaBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.commaBtn.Location = new System.Drawing.Point(302, 6);
+            this.commaBtn.Name = "commaBtn";
+            this.commaBtn.Size = new System.Drawing.Size(29, 68);
+            this.commaBtn.TabIndex = 13;
+            this.commaBtn.Text = ",";
+            this.commaBtn.UseVisualStyleBackColor = true;
             // 
-            // groupBox4
+            // whereBox
             // 
-            this.groupBox4.Controls.Add(this.button29);
-            this.groupBox4.Controls.Add(this.button30);
-            this.groupBox4.Controls.Add(this.button31);
-            this.groupBox4.Controls.Add(this.button32);
-            this.groupBox4.Controls.Add(this.button33);
-            this.groupBox4.Controls.Add(this.button34);
-            this.groupBox4.Controls.Add(this.button35);
-            this.groupBox4.Controls.Add(this.button36);
-            this.groupBox4.Controls.Add(this.button37);
-            this.groupBox4.Controls.Add(this.button38);
-            this.groupBox4.Controls.Add(this.button39);
-            this.groupBox4.Controls.Add(this.button40);
-            this.groupBox4.Location = new System.Drawing.Point(8, 143);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(252, 75);
-            this.groupBox4.TabIndex = 12;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Где";
+            this.whereBox.Controls.Add(this.button29);
+            this.whereBox.Controls.Add(this.button30);
+            this.whereBox.Controls.Add(this.button31);
+            this.whereBox.Controls.Add(this.button32);
+            this.whereBox.Controls.Add(this.button33);
+            this.whereBox.Controls.Add(this.button34);
+            this.whereBox.Controls.Add(this.button35);
+            this.whereBox.Controls.Add(this.button36);
+            this.whereBox.Controls.Add(this.button37);
+            this.whereBox.Controls.Add(this.button38);
+            this.whereBox.Controls.Add(this.button39);
+            this.whereBox.Controls.Add(this.button40);
+            this.whereBox.Location = new System.Drawing.Point(8, 143);
+            this.whereBox.Name = "whereBox";
+            this.whereBox.Size = new System.Drawing.Size(252, 75);
+            this.whereBox.TabIndex = 12;
+            this.whereBox.TabStop = false;
+            this.whereBox.Text = "Где";
             // 
             // button29
             // 
@@ -1093,83 +801,83 @@
             this.button40.Text = "I";
             this.button40.UseVisualStyleBackColor = true;
             // 
-            // groupBox5
+            // deviationBox
             // 
-            this.groupBox5.Controls.Add(this.button41);
-            this.groupBox5.Controls.Add(this.button42);
-            this.groupBox5.Controls.Add(this.button43);
-            this.groupBox5.Location = new System.Drawing.Point(8, 81);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(287, 56);
-            this.groupBox5.TabIndex = 11;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Девиация";
+            this.deviationBox.Controls.Add(this.negativeTBtn);
+            this.deviationBox.Controls.Add(this.depressionBtn);
+            this.deviationBox.Controls.Add(this.deviationBtn);
+            this.deviationBox.Location = new System.Drawing.Point(8, 81);
+            this.deviationBox.Name = "deviationBox";
+            this.deviationBox.Size = new System.Drawing.Size(287, 56);
+            this.deviationBox.TabIndex = 11;
+            this.deviationBox.TabStop = false;
+            this.deviationBox.Text = "Девиация";
             // 
-            // button41
+            // negativeTBtn
             // 
-            this.button41.Location = new System.Drawing.Point(168, 20);
-            this.button41.Name = "button41";
-            this.button41.Size = new System.Drawing.Size(111, 23);
-            this.button41.TabIndex = 2;
-            this.button41.Text = "Отрицательный Т";
-            this.button41.UseVisualStyleBackColor = true;
+            this.negativeTBtn.Location = new System.Drawing.Point(168, 20);
+            this.negativeTBtn.Name = "negativeTBtn";
+            this.negativeTBtn.Size = new System.Drawing.Size(111, 23);
+            this.negativeTBtn.TabIndex = 2;
+            this.negativeTBtn.Text = "Отрицательный Т";
+            this.negativeTBtn.UseVisualStyleBackColor = true;
             // 
-            // button42
+            // depressionBtn
             // 
-            this.button42.Location = new System.Drawing.Point(87, 19);
-            this.button42.Name = "button42";
-            this.button42.Size = new System.Drawing.Size(75, 23);
-            this.button42.TabIndex = 1;
-            this.button42.Text = "Депрессия";
-            this.button42.UseVisualStyleBackColor = true;
+            this.depressionBtn.Location = new System.Drawing.Point(87, 19);
+            this.depressionBtn.Name = "depressionBtn";
+            this.depressionBtn.Size = new System.Drawing.Size(75, 23);
+            this.depressionBtn.TabIndex = 1;
+            this.depressionBtn.Text = "Депрессия";
+            this.depressionBtn.UseVisualStyleBackColor = true;
             // 
-            // button43
+            // deviationBtn
             // 
-            this.button43.Location = new System.Drawing.Point(6, 20);
-            this.button43.Name = "button43";
-            this.button43.Size = new System.Drawing.Size(75, 23);
-            this.button43.TabIndex = 0;
-            this.button43.Text = "Девиация";
-            this.button43.UseVisualStyleBackColor = true;
+            this.deviationBtn.Location = new System.Drawing.Point(6, 20);
+            this.deviationBtn.Name = "deviationBtn";
+            this.deviationBtn.Size = new System.Drawing.Size(75, 23);
+            this.deviationBtn.TabIndex = 0;
+            this.deviationBtn.Text = "Девиация";
+            this.deviationBtn.UseVisualStyleBackColor = true;
             // 
-            // groupBox6
+            // rhytmGroupBox
             // 
-            this.groupBox6.Controls.Add(this.button44);
-            this.groupBox6.Controls.Add(this.button45);
-            this.groupBox6.Controls.Add(this.button46);
-            this.groupBox6.Location = new System.Drawing.Point(8, 6);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(287, 69);
-            this.groupBox6.TabIndex = 10;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Ритм";
+            this.rhytmGroupBox.Controls.Add(this.flutterBtn);
+            this.rhytmGroupBox.Controls.Add(this.fibrillationBtn);
+            this.rhytmGroupBox.Controls.Add(this.rhytmSinusBtn);
+            this.rhytmGroupBox.Location = new System.Drawing.Point(8, 6);
+            this.rhytmGroupBox.Name = "rhytmGroupBox";
+            this.rhytmGroupBox.Size = new System.Drawing.Size(287, 69);
+            this.rhytmGroupBox.TabIndex = 10;
+            this.rhytmGroupBox.TabStop = false;
+            this.rhytmGroupBox.Text = "Ритм";
             // 
-            // button44
+            // flutterBtn
             // 
-            this.button44.Location = new System.Drawing.Point(192, 18);
-            this.button44.Name = "button44";
-            this.button44.Size = new System.Drawing.Size(87, 39);
-            this.button44.TabIndex = 2;
-            this.button44.Text = "Трепетание предсердий";
-            this.button44.UseVisualStyleBackColor = true;
+            this.flutterBtn.Location = new System.Drawing.Point(192, 18);
+            this.flutterBtn.Name = "flutterBtn";
+            this.flutterBtn.Size = new System.Drawing.Size(87, 39);
+            this.flutterBtn.TabIndex = 2;
+            this.flutterBtn.Text = "Трепетание предсердий";
+            this.flutterBtn.UseVisualStyleBackColor = true;
             // 
-            // button45
+            // fibrillationBtn
             // 
-            this.button45.Location = new System.Drawing.Point(99, 19);
-            this.button45.Name = "button45";
-            this.button45.Size = new System.Drawing.Size(87, 38);
-            this.button45.TabIndex = 1;
-            this.button45.Text = "Фибриляция предсердий";
-            this.button45.UseVisualStyleBackColor = true;
+            this.fibrillationBtn.Location = new System.Drawing.Point(99, 19);
+            this.fibrillationBtn.Name = "fibrillationBtn";
+            this.fibrillationBtn.Size = new System.Drawing.Size(87, 38);
+            this.fibrillationBtn.TabIndex = 1;
+            this.fibrillationBtn.Text = "Фибриляция предсердий";
+            this.fibrillationBtn.UseVisualStyleBackColor = true;
             // 
-            // button46
+            // rhytmSinusBtn
             // 
-            this.button46.Location = new System.Drawing.Point(6, 19);
-            this.button46.Name = "button46";
-            this.button46.Size = new System.Drawing.Size(87, 38);
-            this.button46.TabIndex = 0;
-            this.button46.Text = "Ритм синусовый";
-            this.button46.UseVisualStyleBackColor = true;
+            this.rhytmSinusBtn.Location = new System.Drawing.Point(6, 19);
+            this.rhytmSinusBtn.Name = "rhytmSinusBtn";
+            this.rhytmSinusBtn.Size = new System.Drawing.Size(87, 38);
+            this.rhytmSinusBtn.TabIndex = 0;
+            this.rhytmSinusBtn.Text = "Ритм синусовый";
+            this.rhytmSinusBtn.UseVisualStyleBackColor = true;
             // 
             // tabPage2
             // 
@@ -2706,9 +2414,8 @@
             // 
             // tabPage5
             // 
-            this.tabPage5.Controls.Add(this.button50);
-            this.tabPage5.Controls.Add(this.groupBox22);
-            this.tabPage5.Controls.Add(this.groupBox21);
+            this.tabPage5.Controls.Add(this.regularAnalysisBox);
+            this.tabPage5.Controls.Add(this.firstAnalysisBox);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
@@ -2717,95 +2424,86 @@
             this.tabPage5.Text = "Анализ мочи";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
-            // button50
+            // regularAnalysisBox
             // 
-            this.button50.Location = new System.Drawing.Point(835, 6);
-            this.button50.Name = "button50";
-            this.button50.Size = new System.Drawing.Size(75, 23);
-            this.button50.TabIndex = 2;
-            this.button50.Text = "Сохранить";
-            this.button50.UseVisualStyleBackColor = true;
+            this.regularAnalysisBox.Controls.Add(this.ketonesTxt);
+            this.regularAnalysisBox.Controls.Add(this.proteinTxt);
+            this.regularAnalysisBox.Controls.Add(this.glucoseTxt);
+            this.regularAnalysisBox.Controls.Add(this.erythrocytesTxt);
+            this.regularAnalysisBox.Controls.Add(this.leukocytesTxt);
+            this.regularAnalysisBox.Controls.Add(this.specGravityTxt);
+            this.regularAnalysisBox.Controls.Add(this.acidityTxt);
+            this.regularAnalysisBox.Controls.Add(this.colorTxt);
+            this.regularAnalysisBox.Controls.Add(this.label91);
+            this.regularAnalysisBox.Controls.Add(this.label92);
+            this.regularAnalysisBox.Controls.Add(this.label93);
+            this.regularAnalysisBox.Controls.Add(this.label94);
+            this.regularAnalysisBox.Controls.Add(this.label95);
+            this.regularAnalysisBox.Controls.Add(this.label96);
+            this.regularAnalysisBox.Controls.Add(this.label97);
+            this.regularAnalysisBox.Controls.Add(this.label98);
+            this.regularAnalysisBox.Location = new System.Drawing.Point(305, 23);
+            this.regularAnalysisBox.Name = "regularAnalysisBox";
+            this.regularAnalysisBox.Size = new System.Drawing.Size(259, 393);
+            this.regularAnalysisBox.TabIndex = 1;
+            this.regularAnalysisBox.TabStop = false;
+            this.regularAnalysisBox.Text = "В динамике";
             // 
-            // groupBox22
+            // ketonesTxt
             // 
-            this.groupBox22.Controls.Add(this.textBox87);
-            this.groupBox22.Controls.Add(this.textBox88);
-            this.groupBox22.Controls.Add(this.textBox89);
-            this.groupBox22.Controls.Add(this.textBox90);
-            this.groupBox22.Controls.Add(this.textBox91);
-            this.groupBox22.Controls.Add(this.textBox92);
-            this.groupBox22.Controls.Add(this.textBox93);
-            this.groupBox22.Controls.Add(this.textBox94);
-            this.groupBox22.Controls.Add(this.label91);
-            this.groupBox22.Controls.Add(this.label92);
-            this.groupBox22.Controls.Add(this.label93);
-            this.groupBox22.Controls.Add(this.label94);
-            this.groupBox22.Controls.Add(this.label95);
-            this.groupBox22.Controls.Add(this.label96);
-            this.groupBox22.Controls.Add(this.label97);
-            this.groupBox22.Controls.Add(this.label98);
-            this.groupBox22.Location = new System.Drawing.Point(305, 23);
-            this.groupBox22.Name = "groupBox22";
-            this.groupBox22.Size = new System.Drawing.Size(259, 393);
-            this.groupBox22.TabIndex = 1;
-            this.groupBox22.TabStop = false;
-            this.groupBox22.Text = "В динамике";
+            this.ketonesTxt.Location = new System.Drawing.Point(88, 344);
+            this.ketonesTxt.Name = "ketonesTxt";
+            this.ketonesTxt.Size = new System.Drawing.Size(156, 20);
+            this.ketonesTxt.TabIndex = 15;
             // 
-            // textBox87
+            // proteinTxt
             // 
-            this.textBox87.Location = new System.Drawing.Point(88, 344);
-            this.textBox87.Name = "textBox87";
-            this.textBox87.Size = new System.Drawing.Size(156, 20);
-            this.textBox87.TabIndex = 15;
+            this.proteinTxt.Location = new System.Drawing.Point(88, 302);
+            this.proteinTxt.Name = "proteinTxt";
+            this.proteinTxt.Size = new System.Drawing.Size(156, 20);
+            this.proteinTxt.TabIndex = 14;
             // 
-            // textBox88
+            // glucoseTxt
             // 
-            this.textBox88.Location = new System.Drawing.Point(88, 302);
-            this.textBox88.Name = "textBox88";
-            this.textBox88.Size = new System.Drawing.Size(156, 20);
-            this.textBox88.TabIndex = 14;
+            this.glucoseTxt.Location = new System.Drawing.Point(88, 260);
+            this.glucoseTxt.Name = "glucoseTxt";
+            this.glucoseTxt.Size = new System.Drawing.Size(156, 20);
+            this.glucoseTxt.TabIndex = 13;
             // 
-            // textBox89
+            // erythrocytesTxt
             // 
-            this.textBox89.Location = new System.Drawing.Point(88, 260);
-            this.textBox89.Name = "textBox89";
-            this.textBox89.Size = new System.Drawing.Size(156, 20);
-            this.textBox89.TabIndex = 13;
+            this.erythrocytesTxt.Location = new System.Drawing.Point(88, 214);
+            this.erythrocytesTxt.Name = "erythrocytesTxt";
+            this.erythrocytesTxt.Size = new System.Drawing.Size(156, 20);
+            this.erythrocytesTxt.TabIndex = 12;
             // 
-            // textBox90
+            // leukocytesTxt
             // 
-            this.textBox90.Location = new System.Drawing.Point(88, 214);
-            this.textBox90.Name = "textBox90";
-            this.textBox90.Size = new System.Drawing.Size(156, 20);
-            this.textBox90.TabIndex = 12;
+            this.leukocytesTxt.Location = new System.Drawing.Point(88, 170);
+            this.leukocytesTxt.Name = "leukocytesTxt";
+            this.leukocytesTxt.Size = new System.Drawing.Size(156, 20);
+            this.leukocytesTxt.TabIndex = 11;
             // 
-            // textBox91
+            // specGravityTxt
             // 
-            this.textBox91.Location = new System.Drawing.Point(88, 170);
-            this.textBox91.Name = "textBox91";
-            this.textBox91.Size = new System.Drawing.Size(156, 20);
-            this.textBox91.TabIndex = 11;
+            this.specGravityTxt.Location = new System.Drawing.Point(88, 126);
+            this.specGravityTxt.Name = "specGravityTxt";
+            this.specGravityTxt.Size = new System.Drawing.Size(156, 20);
+            this.specGravityTxt.TabIndex = 10;
             // 
-            // textBox92
+            // acidityTxt
             // 
-            this.textBox92.Location = new System.Drawing.Point(88, 126);
-            this.textBox92.Name = "textBox92";
-            this.textBox92.Size = new System.Drawing.Size(156, 20);
-            this.textBox92.TabIndex = 10;
+            this.acidityTxt.Location = new System.Drawing.Point(88, 79);
+            this.acidityTxt.Name = "acidityTxt";
+            this.acidityTxt.Size = new System.Drawing.Size(156, 20);
+            this.acidityTxt.TabIndex = 9;
             // 
-            // textBox93
+            // colorTxt
             // 
-            this.textBox93.Location = new System.Drawing.Point(88, 79);
-            this.textBox93.Name = "textBox93";
-            this.textBox93.Size = new System.Drawing.Size(156, 20);
-            this.textBox93.TabIndex = 9;
-            // 
-            // textBox94
-            // 
-            this.textBox94.Location = new System.Drawing.Point(88, 34);
-            this.textBox94.Name = "textBox94";
-            this.textBox94.Size = new System.Drawing.Size(156, 20);
-            this.textBox94.TabIndex = 8;
+            this.colorTxt.Location = new System.Drawing.Point(88, 34);
+            this.colorTxt.Name = "colorTxt";
+            this.colorTxt.Size = new System.Drawing.Size(156, 20);
+            this.colorTxt.TabIndex = 8;
             // 
             // label91
             // 
@@ -2879,86 +2577,94 @@
             this.label98.TabIndex = 0;
             this.label98.Text = "Цвет:";
             // 
-            // groupBox21
+            // firstAnalysisBox
             // 
-            this.groupBox21.Controls.Add(this.textBox86);
-            this.groupBox21.Controls.Add(this.textBox85);
-            this.groupBox21.Controls.Add(this.textBox84);
-            this.groupBox21.Controls.Add(this.textBox83);
-            this.groupBox21.Controls.Add(this.textBox82);
-            this.groupBox21.Controls.Add(this.textBox81);
-            this.groupBox21.Controls.Add(this.textBox80);
-            this.groupBox21.Controls.Add(this.textBox79);
-            this.groupBox21.Controls.Add(this.label90);
-            this.groupBox21.Controls.Add(this.label89);
-            this.groupBox21.Controls.Add(this.label88);
-            this.groupBox21.Controls.Add(this.label87);
-            this.groupBox21.Controls.Add(this.label86);
-            this.groupBox21.Controls.Add(this.label85);
-            this.groupBox21.Controls.Add(this.label84);
-            this.groupBox21.Controls.Add(this.label83);
-            this.groupBox21.Location = new System.Drawing.Point(17, 23);
-            this.groupBox21.Name = "groupBox21";
-            this.groupBox21.Size = new System.Drawing.Size(259, 393);
-            this.groupBox21.TabIndex = 0;
-            this.groupBox21.TabStop = false;
-            this.groupBox21.Text = "При поступлении";
+            this.firstAnalysisBox.Controls.Add(this.firstKetonesTxt);
+            this.firstAnalysisBox.Controls.Add(this.firstProteinTxt);
+            this.firstAnalysisBox.Controls.Add(this.firstGlucoseTxt);
+            this.firstAnalysisBox.Controls.Add(this.firstErythrocytesTxt);
+            this.firstAnalysisBox.Controls.Add(this.firstLeucocytesTxt);
+            this.firstAnalysisBox.Controls.Add(this.firstSpecGravityTxt);
+            this.firstAnalysisBox.Controls.Add(this.firstAcidityTxt);
+            this.firstAnalysisBox.Controls.Add(this.firstColorTxt);
+            this.firstAnalysisBox.Controls.Add(this.label90);
+            this.firstAnalysisBox.Controls.Add(this.label89);
+            this.firstAnalysisBox.Controls.Add(this.label88);
+            this.firstAnalysisBox.Controls.Add(this.label87);
+            this.firstAnalysisBox.Controls.Add(this.label86);
+            this.firstAnalysisBox.Controls.Add(this.firstSpecGravityLbl);
+            this.firstAnalysisBox.Controls.Add(this.firstAcidityLbl);
+            this.firstAnalysisBox.Controls.Add(this.firstColorLbl);
+            this.firstAnalysisBox.Location = new System.Drawing.Point(17, 23);
+            this.firstAnalysisBox.Name = "firstAnalysisBox";
+            this.firstAnalysisBox.Size = new System.Drawing.Size(259, 393);
+            this.firstAnalysisBox.TabIndex = 0;
+            this.firstAnalysisBox.TabStop = false;
+            this.firstAnalysisBox.Text = "При поступлении";
             // 
-            // textBox86
+            // firstKetonesTxt
             // 
-            this.textBox86.Location = new System.Drawing.Point(88, 344);
-            this.textBox86.Name = "textBox86";
-            this.textBox86.Size = new System.Drawing.Size(156, 20);
-            this.textBox86.TabIndex = 15;
+            this.firstKetonesTxt.Location = new System.Drawing.Point(88, 344);
+            this.firstKetonesTxt.Name = "firstKetonesTxt";
+            this.firstKetonesTxt.ReadOnly = true;
+            this.firstKetonesTxt.Size = new System.Drawing.Size(156, 20);
+            this.firstKetonesTxt.TabIndex = 15;
             // 
-            // textBox85
+            // firstProteinTxt
             // 
-            this.textBox85.Location = new System.Drawing.Point(88, 302);
-            this.textBox85.Name = "textBox85";
-            this.textBox85.Size = new System.Drawing.Size(156, 20);
-            this.textBox85.TabIndex = 14;
+            this.firstProteinTxt.Location = new System.Drawing.Point(88, 302);
+            this.firstProteinTxt.Name = "firstProteinTxt";
+            this.firstProteinTxt.ReadOnly = true;
+            this.firstProteinTxt.Size = new System.Drawing.Size(156, 20);
+            this.firstProteinTxt.TabIndex = 14;
             // 
-            // textBox84
+            // firstGlucoseTxt
             // 
-            this.textBox84.Location = new System.Drawing.Point(88, 260);
-            this.textBox84.Name = "textBox84";
-            this.textBox84.Size = new System.Drawing.Size(156, 20);
-            this.textBox84.TabIndex = 13;
+            this.firstGlucoseTxt.Location = new System.Drawing.Point(88, 260);
+            this.firstGlucoseTxt.Name = "firstGlucoseTxt";
+            this.firstGlucoseTxt.ReadOnly = true;
+            this.firstGlucoseTxt.Size = new System.Drawing.Size(156, 20);
+            this.firstGlucoseTxt.TabIndex = 13;
             // 
-            // textBox83
+            // firstErythrocytesTxt
             // 
-            this.textBox83.Location = new System.Drawing.Point(88, 214);
-            this.textBox83.Name = "textBox83";
-            this.textBox83.Size = new System.Drawing.Size(156, 20);
-            this.textBox83.TabIndex = 12;
+            this.firstErythrocytesTxt.Location = new System.Drawing.Point(88, 214);
+            this.firstErythrocytesTxt.Name = "firstErythrocytesTxt";
+            this.firstErythrocytesTxt.ReadOnly = true;
+            this.firstErythrocytesTxt.Size = new System.Drawing.Size(156, 20);
+            this.firstErythrocytesTxt.TabIndex = 12;
             // 
-            // textBox82
+            // firstLeucocytesTxt
             // 
-            this.textBox82.Location = new System.Drawing.Point(88, 170);
-            this.textBox82.Name = "textBox82";
-            this.textBox82.Size = new System.Drawing.Size(156, 20);
-            this.textBox82.TabIndex = 11;
+            this.firstLeucocytesTxt.Location = new System.Drawing.Point(88, 170);
+            this.firstLeucocytesTxt.Name = "firstLeucocytesTxt";
+            this.firstLeucocytesTxt.ReadOnly = true;
+            this.firstLeucocytesTxt.Size = new System.Drawing.Size(156, 20);
+            this.firstLeucocytesTxt.TabIndex = 11;
             // 
-            // textBox81
+            // firstSpecGravityTxt
             // 
-            this.textBox81.Location = new System.Drawing.Point(88, 126);
-            this.textBox81.Name = "textBox81";
-            this.textBox81.Size = new System.Drawing.Size(156, 20);
-            this.textBox81.TabIndex = 10;
+            this.firstSpecGravityTxt.Location = new System.Drawing.Point(88, 126);
+            this.firstSpecGravityTxt.Name = "firstSpecGravityTxt";
+            this.firstSpecGravityTxt.ReadOnly = true;
+            this.firstSpecGravityTxt.Size = new System.Drawing.Size(156, 20);
+            this.firstSpecGravityTxt.TabIndex = 10;
             // 
-            // textBox80
+            // firstAcidityTxt
             // 
-            this.textBox80.Location = new System.Drawing.Point(88, 79);
-            this.textBox80.Name = "textBox80";
-            this.textBox80.Size = new System.Drawing.Size(156, 20);
-            this.textBox80.TabIndex = 9;
+            this.firstAcidityTxt.Location = new System.Drawing.Point(88, 79);
+            this.firstAcidityTxt.Name = "firstAcidityTxt";
+            this.firstAcidityTxt.ReadOnly = true;
+            this.firstAcidityTxt.Size = new System.Drawing.Size(156, 20);
+            this.firstAcidityTxt.TabIndex = 9;
             // 
-            // textBox79
+            // firstColorTxt
             // 
-            this.textBox79.Location = new System.Drawing.Point(88, 34);
-            this.textBox79.Name = "textBox79";
-            this.textBox79.Size = new System.Drawing.Size(156, 20);
-            this.textBox79.TabIndex = 8;
+            this.firstColorTxt.Location = new System.Drawing.Point(88, 34);
+            this.firstColorTxt.Name = "firstColorTxt";
+            this.firstColorTxt.ReadOnly = true;
+            this.firstColorTxt.Size = new System.Drawing.Size(156, 20);
+            this.firstColorTxt.TabIndex = 8;
             // 
             // label90
             // 
@@ -3005,41 +2711,40 @@
             this.label86.TabIndex = 3;
             this.label86.Text = "Лейкоциты:";
             // 
-            // label85
+            // firstSpecGravityLbl
             // 
-            this.label85.AutoSize = true;
-            this.label85.Location = new System.Drawing.Point(8, 133);
-            this.label85.Name = "label85";
-            this.label85.Size = new System.Drawing.Size(83, 13);
-            this.label85.TabIndex = 2;
-            this.label85.Text = "Удельный вес:";
+            this.firstSpecGravityLbl.AutoSize = true;
+            this.firstSpecGravityLbl.Location = new System.Drawing.Point(8, 133);
+            this.firstSpecGravityLbl.Name = "firstSpecGravityLbl";
+            this.firstSpecGravityLbl.Size = new System.Drawing.Size(83, 13);
+            this.firstSpecGravityLbl.TabIndex = 2;
+            this.firstSpecGravityLbl.Text = "Удельный вес:";
             // 
-            // label84
+            // firstAcidityLbl
             // 
-            this.label84.AutoSize = true;
-            this.label84.Location = new System.Drawing.Point(8, 86);
-            this.label84.Name = "label84";
-            this.label84.Size = new System.Drawing.Size(75, 13);
-            this.label84.TabIndex = 1;
-            this.label84.Text = "Кислотность:";
+            this.firstAcidityLbl.AutoSize = true;
+            this.firstAcidityLbl.Location = new System.Drawing.Point(8, 86);
+            this.firstAcidityLbl.Name = "firstAcidityLbl";
+            this.firstAcidityLbl.Size = new System.Drawing.Size(75, 13);
+            this.firstAcidityLbl.TabIndex = 1;
+            this.firstAcidityLbl.Text = "Кислотность:";
             // 
-            // label83
+            // firstColorLbl
             // 
-            this.label83.AutoSize = true;
-            this.label83.Location = new System.Drawing.Point(8, 41);
-            this.label83.Name = "label83";
-            this.label83.Size = new System.Drawing.Size(35, 13);
-            this.label83.TabIndex = 0;
-            this.label83.Text = "Цвет:";
+            this.firstColorLbl.AutoSize = true;
+            this.firstColorLbl.Location = new System.Drawing.Point(8, 41);
+            this.firstColorLbl.Name = "firstColorLbl";
+            this.firstColorLbl.Size = new System.Drawing.Size(35, 13);
+            this.firstColorLbl.TabIndex = 0;
+            this.firstColorLbl.Text = "Цвет:";
             // 
             // tabPage6
             // 
-            this.tabPage6.Controls.Add(this.button51);
-            this.tabPage6.Controls.Add(this.groupBox27);
-            this.tabPage6.Controls.Add(this.groupBox26);
-            this.tabPage6.Controls.Add(this.groupBox25);
-            this.tabPage6.Controls.Add(this.groupBox24);
-            this.tabPage6.Controls.Add(this.groupBox23);
+            this.tabPage6.Controls.Add(this.pleursUziBox);
+            this.tabPage6.Controls.Add(this.uziObpBox);
+            this.tabPage6.Controls.Add(this.cdsBox);
+            this.tabPage6.Controls.Add(this.uzdBox);
+            this.tabPage6.Controls.Add(this.ehoKgBox);
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
@@ -3048,405 +2753,373 @@
             this.tabPage6.Text = "УЗИ";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
-            // button51
-            // 
-            this.button51.Location = new System.Drawing.Point(835, 6);
-            this.button51.Name = "button51";
-            this.button51.Size = new System.Drawing.Size(75, 23);
-            this.button51.TabIndex = 5;
-            this.button51.Text = "Сохранить";
-            this.button51.UseVisualStyleBackColor = true;
-            // 
-            // groupBox27
-            // 
-            this.groupBox27.Controls.Add(this.richTextBox7);
-            this.groupBox27.Location = new System.Drawing.Point(17, 491);
-            this.groupBox27.Name = "groupBox27";
-            this.groupBox27.Size = new System.Drawing.Size(698, 109);
-            this.groupBox27.TabIndex = 4;
-            this.groupBox27.TabStop = false;
-            this.groupBox27.Text = "УЗИ плевр:";
-            // 
-            // richTextBox7
-            // 
-            this.richTextBox7.Location = new System.Drawing.Point(9, 17);
-            this.richTextBox7.Name = "richTextBox7";
-            this.richTextBox7.Size = new System.Drawing.Size(680, 84);
-            this.richTextBox7.TabIndex = 1;
-            this.richTextBox7.Text = "";
-            // 
-            // groupBox26
-            // 
-            this.groupBox26.Controls.Add(this.richTextBox8);
-            this.groupBox26.Location = new System.Drawing.Point(17, 369);
-            this.groupBox26.Name = "groupBox26";
-            this.groupBox26.Size = new System.Drawing.Size(698, 109);
-            this.groupBox26.TabIndex = 3;
-            this.groupBox26.TabStop = false;
-            this.groupBox26.Text = "УЗИ ОБП:";
-            // 
-            // richTextBox8
-            // 
-            this.richTextBox8.Location = new System.Drawing.Point(9, 16);
-            this.richTextBox8.Name = "richTextBox8";
-            this.richTextBox8.Size = new System.Drawing.Size(680, 84);
-            this.richTextBox8.TabIndex = 1;
-            this.richTextBox8.Text = "";
-            // 
-            // groupBox25
-            // 
-            this.groupBox25.Controls.Add(this.richTextBox9);
-            this.groupBox25.Location = new System.Drawing.Point(17, 250);
-            this.groupBox25.Name = "groupBox25";
-            this.groupBox25.Size = new System.Drawing.Size(698, 109);
-            this.groupBox25.TabIndex = 2;
-            this.groupBox25.TabStop = false;
-            this.groupBox25.Text = "ЦДС:";
-            // 
-            // richTextBox9
-            // 
-            this.richTextBox9.Location = new System.Drawing.Point(9, 16);
-            this.richTextBox9.Name = "richTextBox9";
-            this.richTextBox9.Size = new System.Drawing.Size(680, 84);
-            this.richTextBox9.TabIndex = 1;
-            this.richTextBox9.Text = "";
-            // 
-            // groupBox24
-            // 
-            this.groupBox24.Controls.Add(this.richTextBox10);
-            this.groupBox24.Location = new System.Drawing.Point(17, 133);
-            this.groupBox24.Name = "groupBox24";
-            this.groupBox24.Size = new System.Drawing.Size(698, 109);
-            this.groupBox24.TabIndex = 1;
-            this.groupBox24.TabStop = false;
-            this.groupBox24.Text = "УЗД БЦА:";
-            // 
-            // richTextBox10
-            // 
-            this.richTextBox10.Location = new System.Drawing.Point(9, 16);
-            this.richTextBox10.Name = "richTextBox10";
-            this.richTextBox10.Size = new System.Drawing.Size(680, 84);
-            this.richTextBox10.TabIndex = 1;
-            this.richTextBox10.Text = "";
-            // 
-            // groupBox23
-            // 
-            this.groupBox23.Controls.Add(this.richTextBox11);
-            this.groupBox23.Location = new System.Drawing.Point(17, 18);
-            this.groupBox23.Name = "groupBox23";
-            this.groupBox23.Size = new System.Drawing.Size(698, 109);
-            this.groupBox23.TabIndex = 0;
-            this.groupBox23.TabStop = false;
-            this.groupBox23.Text = "Эхо КГ:";
-            // 
-            // richTextBox11
-            // 
-            this.richTextBox11.Location = new System.Drawing.Point(12, 17);
-            this.richTextBox11.Name = "richTextBox11";
-            this.richTextBox11.Size = new System.Drawing.Size(674, 84);
-            this.richTextBox11.TabIndex = 0;
-            this.richTextBox11.Text = "";
-            // 
-            // tabPage7
-            // 
-            this.tabPage7.Controls.Add(this.button52);
-            this.tabPage7.Controls.Add(this.groupBox28);
-            this.tabPage7.Controls.Add(this.groupBox29);
-            this.tabPage7.Controls.Add(this.groupBox30);
-            this.tabPage7.Controls.Add(this.groupBox31);
-            this.tabPage7.Controls.Add(this.groupBox32);
-            this.tabPage7.Location = new System.Drawing.Point(4, 22);
-            this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(916, 661);
-            this.tabPage7.TabIndex = 4;
-            this.tabPage7.Text = "Рентген, КТ, МРТ";
-            this.tabPage7.UseVisualStyleBackColor = true;
-            // 
-            // button52
-            // 
-            this.button52.Location = new System.Drawing.Point(835, 6);
-            this.button52.Name = "button52";
-            this.button52.Size = new System.Drawing.Size(75, 23);
-            this.button52.TabIndex = 10;
-            this.button52.Text = "Сохранить";
-            this.button52.UseVisualStyleBackColor = true;
-            // 
-            // groupBox28
-            // 
-            this.groupBox28.Controls.Add(this.richTextBox12);
-            this.groupBox28.Location = new System.Drawing.Point(16, 489);
-            this.groupBox28.Name = "groupBox28";
-            this.groupBox28.Size = new System.Drawing.Size(698, 109);
-            this.groupBox28.TabIndex = 9;
-            this.groupBox28.TabStop = false;
-            this.groupBox28.Text = "МРТ:";
-            // 
-            // richTextBox12
-            // 
-            this.richTextBox12.Location = new System.Drawing.Point(9, 17);
-            this.richTextBox12.Name = "richTextBox12";
-            this.richTextBox12.Size = new System.Drawing.Size(680, 84);
-            this.richTextBox12.TabIndex = 1;
-            this.richTextBox12.Text = "";
-            // 
-            // groupBox29
-            // 
-            this.groupBox29.Controls.Add(this.richTextBox13);
-            this.groupBox29.Location = new System.Drawing.Point(16, 367);
-            this.groupBox29.Name = "groupBox29";
-            this.groupBox29.Size = new System.Drawing.Size(698, 109);
-            this.groupBox29.TabIndex = 8;
-            this.groupBox29.TabStop = false;
-            this.groupBox29.Text = "КТ:";
-            // 
-            // richTextBox13
-            // 
-            this.richTextBox13.Location = new System.Drawing.Point(9, 16);
-            this.richTextBox13.Name = "richTextBox13";
-            this.richTextBox13.Size = new System.Drawing.Size(680, 84);
-            this.richTextBox13.TabIndex = 1;
-            this.richTextBox13.Text = "";
-            // 
-            // groupBox30
-            // 
-            this.groupBox30.Controls.Add(this.richTextBox14);
-            this.groupBox30.Location = new System.Drawing.Point(16, 248);
-            this.groupBox30.Name = "groupBox30";
-            this.groupBox30.Size = new System.Drawing.Size(698, 109);
-            this.groupBox30.TabIndex = 7;
-            this.groupBox30.TabStop = false;
-            this.groupBox30.Text = "МСКТ:";
-            // 
-            // richTextBox14
-            // 
-            this.richTextBox14.Location = new System.Drawing.Point(9, 16);
-            this.richTextBox14.Name = "richTextBox14";
-            this.richTextBox14.Size = new System.Drawing.Size(680, 84);
-            this.richTextBox14.TabIndex = 1;
-            this.richTextBox14.Text = "";
-            // 
-            // groupBox31
-            // 
-            this.groupBox31.Controls.Add(this.richTextBox15);
-            this.groupBox31.Location = new System.Drawing.Point(16, 131);
-            this.groupBox31.Name = "groupBox31";
-            this.groupBox31.Size = new System.Drawing.Size(698, 109);
-            this.groupBox31.TabIndex = 6;
-            this.groupBox31.TabStop = false;
-            this.groupBox31.Text = "Контрольная рентгенография ОГК:";
-            // 
-            // richTextBox15
-            // 
-            this.richTextBox15.Location = new System.Drawing.Point(9, 16);
-            this.richTextBox15.Name = "richTextBox15";
-            this.richTextBox15.Size = new System.Drawing.Size(680, 84);
-            this.richTextBox15.TabIndex = 1;
-            this.richTextBox15.Text = "";
-            // 
-            // groupBox32
-            // 
-            this.groupBox32.Controls.Add(this.richTextBox16);
-            this.groupBox32.Location = new System.Drawing.Point(16, 16);
-            this.groupBox32.Name = "groupBox32";
-            this.groupBox32.Size = new System.Drawing.Size(698, 109);
-            this.groupBox32.TabIndex = 5;
-            this.groupBox32.TabStop = false;
-            this.groupBox32.Text = "Рентген органов грудной клетки:";
-            // 
-            // richTextBox16
-            // 
-            this.richTextBox16.Location = new System.Drawing.Point(12, 17);
-            this.richTextBox16.Name = "richTextBox16";
-            this.richTextBox16.Size = new System.Drawing.Size(674, 84);
-            this.richTextBox16.TabIndex = 0;
-            this.richTextBox16.Text = "";
-            // 
-            // tabPage8
-            // 
-            this.tabPage8.Controls.Add(this.button53);
-            this.tabPage8.Controls.Add(this.groupBox36);
-            this.tabPage8.Controls.Add(this.groupBox37);
-            this.tabPage8.Location = new System.Drawing.Point(4, 22);
-            this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage8.Size = new System.Drawing.Size(916, 661);
-            this.tabPage8.TabIndex = 5;
-            this.tabPage8.Text = "Холтер, АД мон.";
-            this.tabPage8.UseVisualStyleBackColor = true;
-            // 
-            // button53
-            // 
-            this.button53.Location = new System.Drawing.Point(835, 6);
-            this.button53.Name = "button53";
-            this.button53.Size = new System.Drawing.Size(75, 23);
-            this.button53.TabIndex = 7;
-            this.button53.Text = "Сохранить";
-            this.button53.UseVisualStyleBackColor = true;
-            // 
-            // groupBox36
-            // 
-            this.groupBox36.Controls.Add(this.richTextBox20);
-            this.groupBox36.Location = new System.Drawing.Point(16, 130);
-            this.groupBox36.Name = "groupBox36";
-            this.groupBox36.Size = new System.Drawing.Size(698, 109);
-            this.groupBox36.TabIndex = 6;
-            this.groupBox36.TabStop = false;
-            this.groupBox36.Text = "АД мониторинг:";
-            // 
-            // richTextBox20
-            // 
-            this.richTextBox20.Location = new System.Drawing.Point(9, 16);
-            this.richTextBox20.Name = "richTextBox20";
-            this.richTextBox20.Size = new System.Drawing.Size(680, 84);
-            this.richTextBox20.TabIndex = 1;
-            this.richTextBox20.Text = "";
-            // 
-            // groupBox37
-            // 
-            this.groupBox37.Controls.Add(this.richTextBox21);
-            this.groupBox37.Location = new System.Drawing.Point(16, 15);
-            this.groupBox37.Name = "groupBox37";
-            this.groupBox37.Size = new System.Drawing.Size(698, 109);
-            this.groupBox37.TabIndex = 5;
-            this.groupBox37.TabStop = false;
-            this.groupBox37.Text = "Холтер:";
-            // 
-            // richTextBox21
-            // 
-            this.richTextBox21.Location = new System.Drawing.Point(12, 17);
-            this.richTextBox21.Name = "richTextBox21";
-            this.richTextBox21.Size = new System.Drawing.Size(674, 84);
-            this.richTextBox21.TabIndex = 0;
-            this.richTextBox21.Text = "";
-            // 
-            // tabPage9
-            // 
-            this.tabPage9.Controls.Add(this.button54);
-            this.tabPage9.Controls.Add(this.groupBox34);
-            this.tabPage9.Controls.Add(this.groupBox35);
-            this.tabPage9.Controls.Add(this.groupBox38);
-            this.tabPage9.Controls.Add(this.groupBox39);
-            this.tabPage9.Location = new System.Drawing.Point(4, 22);
-            this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage9.Size = new System.Drawing.Size(916, 661);
-            this.tabPage9.TabIndex = 6;
-            this.tabPage9.Text = "Закл. спец-ов";
-            this.tabPage9.UseVisualStyleBackColor = true;
-            // 
-            // button54
-            // 
-            this.button54.Location = new System.Drawing.Point(835, 6);
-            this.button54.Name = "button54";
-            this.button54.Size = new System.Drawing.Size(75, 23);
-            this.button54.TabIndex = 10;
-            this.button54.Text = "Сохранить";
-            this.button54.UseVisualStyleBackColor = true;
-            // 
-            // groupBox34
-            // 
-            this.groupBox34.Controls.Add(this.richTextBox18);
-            this.groupBox34.Location = new System.Drawing.Point(16, 368);
-            this.groupBox34.Name = "groupBox34";
-            this.groupBox34.Size = new System.Drawing.Size(698, 109);
-            this.groupBox34.TabIndex = 8;
-            this.groupBox34.TabStop = false;
-            this.groupBox34.Text = "Эндокринолог:";
-            // 
-            // richTextBox18
-            // 
-            this.richTextBox18.Location = new System.Drawing.Point(9, 16);
-            this.richTextBox18.Name = "richTextBox18";
-            this.richTextBox18.Size = new System.Drawing.Size(680, 84);
-            this.richTextBox18.TabIndex = 1;
-            this.richTextBox18.Text = "";
-            // 
-            // groupBox35
-            // 
-            this.groupBox35.Controls.Add(this.richTextBox19);
-            this.groupBox35.Location = new System.Drawing.Point(16, 249);
-            this.groupBox35.Name = "groupBox35";
-            this.groupBox35.Size = new System.Drawing.Size(698, 109);
-            this.groupBox35.TabIndex = 7;
-            this.groupBox35.TabStop = false;
-            this.groupBox35.Text = "Нейрохирург:";
-            // 
-            // richTextBox19
-            // 
-            this.richTextBox19.Location = new System.Drawing.Point(9, 16);
-            this.richTextBox19.Name = "richTextBox19";
-            this.richTextBox19.Size = new System.Drawing.Size(680, 84);
-            this.richTextBox19.TabIndex = 1;
-            this.richTextBox19.Text = "";
-            // 
-            // groupBox38
-            // 
-            this.groupBox38.Controls.Add(this.richTextBox22);
-            this.groupBox38.Location = new System.Drawing.Point(16, 132);
-            this.groupBox38.Name = "groupBox38";
-            this.groupBox38.Size = new System.Drawing.Size(698, 109);
-            this.groupBox38.TabIndex = 6;
-            this.groupBox38.TabStop = false;
-            this.groupBox38.Text = "Хирург:";
-            // 
-            // richTextBox22
-            // 
-            this.richTextBox22.Location = new System.Drawing.Point(9, 16);
-            this.richTextBox22.Name = "richTextBox22";
-            this.richTextBox22.Size = new System.Drawing.Size(680, 84);
-            this.richTextBox22.TabIndex = 1;
-            this.richTextBox22.Text = "";
-            // 
-            // groupBox39
-            // 
-            this.groupBox39.Controls.Add(this.richTextBox23);
-            this.groupBox39.Location = new System.Drawing.Point(16, 17);
-            this.groupBox39.Name = "groupBox39";
-            this.groupBox39.Size = new System.Drawing.Size(698, 109);
-            this.groupBox39.TabIndex = 5;
-            this.groupBox39.TabStop = false;
-            this.groupBox39.Text = "Невролог:";
-            // 
-            // richTextBox23
-            // 
-            this.richTextBox23.Location = new System.Drawing.Point(12, 17);
-            this.richTextBox23.Name = "richTextBox23";
-            this.richTextBox23.Size = new System.Drawing.Size(674, 84);
-            this.richTextBox23.TabIndex = 0;
-            this.richTextBox23.Text = "";
+            // pleursUziBox
+            // 
+            this.pleursUziBox.Controls.Add(this.pleursUziTxt);
+            this.pleursUziBox.Location = new System.Drawing.Point(17, 491);
+            this.pleursUziBox.Name = "pleursUziBox";
+            this.pleursUziBox.Size = new System.Drawing.Size(698, 109);
+            this.pleursUziBox.TabIndex = 4;
+            this.pleursUziBox.TabStop = false;
+            this.pleursUziBox.Text = "УЗИ плевр:";
+            // 
+            // pleursUziTxt
+            // 
+            this.pleursUziTxt.Location = new System.Drawing.Point(9, 17);
+            this.pleursUziTxt.Name = "pleursUziTxt";
+            this.pleursUziTxt.Size = new System.Drawing.Size(680, 84);
+            this.pleursUziTxt.TabIndex = 1;
+            this.pleursUziTxt.Text = "";
+            // 
+            // uziObpBox
+            // 
+            this.uziObpBox.Controls.Add(this.uziObpTxt);
+            this.uziObpBox.Location = new System.Drawing.Point(17, 369);
+            this.uziObpBox.Name = "uziObpBox";
+            this.uziObpBox.Size = new System.Drawing.Size(698, 109);
+            this.uziObpBox.TabIndex = 3;
+            this.uziObpBox.TabStop = false;
+            this.uziObpBox.Text = "УЗИ ОБП:";
+            // 
+            // uziObpTxt
+            // 
+            this.uziObpTxt.Location = new System.Drawing.Point(9, 16);
+            this.uziObpTxt.Name = "uziObpTxt";
+            this.uziObpTxt.Size = new System.Drawing.Size(680, 84);
+            this.uziObpTxt.TabIndex = 1;
+            this.uziObpTxt.Text = "";
+            // 
+            // cdsBox
+            // 
+            this.cdsBox.Controls.Add(this.cdsTxt);
+            this.cdsBox.Location = new System.Drawing.Point(17, 250);
+            this.cdsBox.Name = "cdsBox";
+            this.cdsBox.Size = new System.Drawing.Size(698, 109);
+            this.cdsBox.TabIndex = 2;
+            this.cdsBox.TabStop = false;
+            this.cdsBox.Text = "ЦДС:";
+            // 
+            // cdsTxt
+            // 
+            this.cdsTxt.Location = new System.Drawing.Point(9, 16);
+            this.cdsTxt.Name = "cdsTxt";
+            this.cdsTxt.Size = new System.Drawing.Size(680, 84);
+            this.cdsTxt.TabIndex = 1;
+            this.cdsTxt.Text = "";
+            // 
+            // uzdBox
+            // 
+            this.uzdBox.Controls.Add(this.uzdTxt);
+            this.uzdBox.Location = new System.Drawing.Point(17, 133);
+            this.uzdBox.Name = "uzdBox";
+            this.uzdBox.Size = new System.Drawing.Size(698, 109);
+            this.uzdBox.TabIndex = 1;
+            this.uzdBox.TabStop = false;
+            this.uzdBox.Text = "УЗД БЦА:";
+            // 
+            // uzdTxt
+            // 
+            this.uzdTxt.Location = new System.Drawing.Point(9, 16);
+            this.uzdTxt.Name = "uzdTxt";
+            this.uzdTxt.Size = new System.Drawing.Size(680, 84);
+            this.uzdTxt.TabIndex = 1;
+            this.uzdTxt.Text = "";
+            // 
+            // ehoKgBox
+            // 
+            this.ehoKgBox.Controls.Add(this.ehoKgTxt);
+            this.ehoKgBox.Location = new System.Drawing.Point(17, 18);
+            this.ehoKgBox.Name = "ehoKgBox";
+            this.ehoKgBox.Size = new System.Drawing.Size(698, 109);
+            this.ehoKgBox.TabIndex = 0;
+            this.ehoKgBox.TabStop = false;
+            this.ehoKgBox.Text = "Эхо КГ:";
+            // 
+            // ehoKgTxt
+            // 
+            this.ehoKgTxt.Location = new System.Drawing.Point(12, 17);
+            this.ehoKgTxt.Name = "ehoKgTxt";
+            this.ehoKgTxt.Size = new System.Drawing.Size(674, 84);
+            this.ehoKgTxt.TabIndex = 0;
+            this.ehoKgTxt.Text = "";
+            // 
+            // xRayTab
+            // 
+            this.xRayTab.Controls.Add(this.mrtBox);
+            this.xRayTab.Controls.Add(this.ktBox);
+            this.xRayTab.Controls.Add(this.msktBox);
+            this.xRayTab.Controls.Add(this.cotrolRadiographyBox);
+            this.xRayTab.Controls.Add(this.chestXRayBox);
+            this.xRayTab.Location = new System.Drawing.Point(4, 22);
+            this.xRayTab.Name = "xRayTab";
+            this.xRayTab.Padding = new System.Windows.Forms.Padding(3);
+            this.xRayTab.Size = new System.Drawing.Size(916, 661);
+            this.xRayTab.TabIndex = 4;
+            this.xRayTab.Text = "Рентген, КТ, МРТ";
+            this.xRayTab.UseVisualStyleBackColor = true;
+            // 
+            // mrtBox
+            // 
+            this.mrtBox.Controls.Add(this.mrtTxt);
+            this.mrtBox.Location = new System.Drawing.Point(16, 489);
+            this.mrtBox.Name = "mrtBox";
+            this.mrtBox.Size = new System.Drawing.Size(698, 109);
+            this.mrtBox.TabIndex = 9;
+            this.mrtBox.TabStop = false;
+            this.mrtBox.Text = "МРТ:";
+            // 
+            // mrtTxt
+            // 
+            this.mrtTxt.Location = new System.Drawing.Point(9, 17);
+            this.mrtTxt.Name = "mrtTxt";
+            this.mrtTxt.Size = new System.Drawing.Size(680, 84);
+            this.mrtTxt.TabIndex = 1;
+            this.mrtTxt.Text = "";
+            // 
+            // ktBox
+            // 
+            this.ktBox.Controls.Add(this.ktTxt);
+            this.ktBox.Location = new System.Drawing.Point(16, 367);
+            this.ktBox.Name = "ktBox";
+            this.ktBox.Size = new System.Drawing.Size(698, 109);
+            this.ktBox.TabIndex = 8;
+            this.ktBox.TabStop = false;
+            this.ktBox.Text = "КТ:";
+            // 
+            // ktTxt
+            // 
+            this.ktTxt.Location = new System.Drawing.Point(9, 16);
+            this.ktTxt.Name = "ktTxt";
+            this.ktTxt.Size = new System.Drawing.Size(680, 84);
+            this.ktTxt.TabIndex = 1;
+            this.ktTxt.Text = "";
+            // 
+            // msktBox
+            // 
+            this.msktBox.Controls.Add(this.msktTxt);
+            this.msktBox.Location = new System.Drawing.Point(16, 248);
+            this.msktBox.Name = "msktBox";
+            this.msktBox.Size = new System.Drawing.Size(698, 109);
+            this.msktBox.TabIndex = 7;
+            this.msktBox.TabStop = false;
+            this.msktBox.Text = "МСКТ:";
+            // 
+            // msktTxt
+            // 
+            this.msktTxt.Location = new System.Drawing.Point(9, 16);
+            this.msktTxt.Name = "msktTxt";
+            this.msktTxt.Size = new System.Drawing.Size(680, 84);
+            this.msktTxt.TabIndex = 1;
+            this.msktTxt.Text = "";
+            // 
+            // cotrolRadiographyBox
+            // 
+            this.cotrolRadiographyBox.Controls.Add(this.controlRadiographyTxt);
+            this.cotrolRadiographyBox.Location = new System.Drawing.Point(16, 131);
+            this.cotrolRadiographyBox.Name = "cotrolRadiographyBox";
+            this.cotrolRadiographyBox.Size = new System.Drawing.Size(698, 109);
+            this.cotrolRadiographyBox.TabIndex = 6;
+            this.cotrolRadiographyBox.TabStop = false;
+            this.cotrolRadiographyBox.Text = "Контрольная рентгенография ОГК:";
+            // 
+            // controlRadiographyTxt
+            // 
+            this.controlRadiographyTxt.Location = new System.Drawing.Point(9, 16);
+            this.controlRadiographyTxt.Name = "controlRadiographyTxt";
+            this.controlRadiographyTxt.Size = new System.Drawing.Size(680, 84);
+            this.controlRadiographyTxt.TabIndex = 1;
+            this.controlRadiographyTxt.Text = "";
+            // 
+            // chestXRayBox
+            // 
+            this.chestXRayBox.Controls.Add(this.chestXRayTxt);
+            this.chestXRayBox.Location = new System.Drawing.Point(16, 16);
+            this.chestXRayBox.Name = "chestXRayBox";
+            this.chestXRayBox.Size = new System.Drawing.Size(698, 109);
+            this.chestXRayBox.TabIndex = 5;
+            this.chestXRayBox.TabStop = false;
+            this.chestXRayBox.Text = "Рентген органов грудной клетки:";
+            // 
+            // chestXRayTxt
+            // 
+            this.chestXRayTxt.Location = new System.Drawing.Point(12, 17);
+            this.chestXRayTxt.Name = "chestXRayTxt";
+            this.chestXRayTxt.Size = new System.Drawing.Size(674, 84);
+            this.chestXRayTxt.TabIndex = 0;
+            this.chestXRayTxt.Text = "";
+            // 
+            // holterTab
+            // 
+            this.holterTab.Controls.Add(this.monitoringAdBox);
+            this.holterTab.Controls.Add(this.holterBox);
+            this.holterTab.Location = new System.Drawing.Point(4, 22);
+            this.holterTab.Name = "holterTab";
+            this.holterTab.Padding = new System.Windows.Forms.Padding(3);
+            this.holterTab.Size = new System.Drawing.Size(916, 661);
+            this.holterTab.TabIndex = 5;
+            this.holterTab.Text = "Холтер, АД мон.";
+            this.holterTab.UseVisualStyleBackColor = true;
+            // 
+            // monitoringAdBox
+            // 
+            this.monitoringAdBox.Controls.Add(this.monitoringAdTxt);
+            this.monitoringAdBox.Location = new System.Drawing.Point(16, 130);
+            this.monitoringAdBox.Name = "monitoringAdBox";
+            this.monitoringAdBox.Size = new System.Drawing.Size(698, 109);
+            this.monitoringAdBox.TabIndex = 6;
+            this.monitoringAdBox.TabStop = false;
+            this.monitoringAdBox.Text = "АД мониторинг:";
+            // 
+            // monitoringAdTxt
+            // 
+            this.monitoringAdTxt.Location = new System.Drawing.Point(9, 16);
+            this.monitoringAdTxt.Name = "monitoringAdTxt";
+            this.monitoringAdTxt.Size = new System.Drawing.Size(680, 84);
+            this.monitoringAdTxt.TabIndex = 1;
+            this.monitoringAdTxt.Text = "";
+            // 
+            // holterBox
+            // 
+            this.holterBox.Controls.Add(this.holterTxt);
+            this.holterBox.Location = new System.Drawing.Point(16, 15);
+            this.holterBox.Name = "holterBox";
+            this.holterBox.Size = new System.Drawing.Size(698, 109);
+            this.holterBox.TabIndex = 5;
+            this.holterBox.TabStop = false;
+            this.holterBox.Text = "Холтер:";
+            // 
+            // holterTxt
+            // 
+            this.holterTxt.Location = new System.Drawing.Point(12, 17);
+            this.holterTxt.Name = "holterTxt";
+            this.holterTxt.Size = new System.Drawing.Size(674, 84);
+            this.holterTxt.TabIndex = 0;
+            this.holterTxt.Text = "";
+            // 
+            // specialistDecisionTab
+            // 
+            this.specialistDecisionTab.Controls.Add(this.endicrinologistBox);
+            this.specialistDecisionTab.Controls.Add(this.neuroSurgeonBox);
+            this.specialistDecisionTab.Controls.Add(this.surgeonBox);
+            this.specialistDecisionTab.Controls.Add(this.neurologBox);
+            this.specialistDecisionTab.Location = new System.Drawing.Point(4, 22);
+            this.specialistDecisionTab.Name = "specialistDecisionTab";
+            this.specialistDecisionTab.Padding = new System.Windows.Forms.Padding(3);
+            this.specialistDecisionTab.Size = new System.Drawing.Size(916, 661);
+            this.specialistDecisionTab.TabIndex = 6;
+            this.specialistDecisionTab.Text = "Закл. спец-ов";
+            this.specialistDecisionTab.UseVisualStyleBackColor = true;
+            // 
+            // endicrinologistBox
+            // 
+            this.endicrinologistBox.Controls.Add(this.endocrinologistTx);
+            this.endicrinologistBox.Location = new System.Drawing.Point(16, 368);
+            this.endicrinologistBox.Name = "endicrinologistBox";
+            this.endicrinologistBox.Size = new System.Drawing.Size(698, 109);
+            this.endicrinologistBox.TabIndex = 8;
+            this.endicrinologistBox.TabStop = false;
+            this.endicrinologistBox.Text = "Эндокринолог:";
+            // 
+            // endocrinologistTx
+            // 
+            this.endocrinologistTx.Location = new System.Drawing.Point(9, 16);
+            this.endocrinologistTx.Name = "endocrinologistTx";
+            this.endocrinologistTx.Size = new System.Drawing.Size(680, 84);
+            this.endocrinologistTx.TabIndex = 1;
+            this.endocrinologistTx.Text = "";
+            // 
+            // neuroSurgeonBox
+            // 
+            this.neuroSurgeonBox.Controls.Add(this.neuroSurgeonTxt);
+            this.neuroSurgeonBox.Location = new System.Drawing.Point(16, 249);
+            this.neuroSurgeonBox.Name = "neuroSurgeonBox";
+            this.neuroSurgeonBox.Size = new System.Drawing.Size(698, 109);
+            this.neuroSurgeonBox.TabIndex = 7;
+            this.neuroSurgeonBox.TabStop = false;
+            this.neuroSurgeonBox.Text = "Нейрохирург:";
+            // 
+            // neuroSurgeonTxt
+            // 
+            this.neuroSurgeonTxt.Location = new System.Drawing.Point(9, 16);
+            this.neuroSurgeonTxt.Name = "neuroSurgeonTxt";
+            this.neuroSurgeonTxt.Size = new System.Drawing.Size(680, 84);
+            this.neuroSurgeonTxt.TabIndex = 1;
+            this.neuroSurgeonTxt.Text = "";
+            // 
+            // surgeonBox
+            // 
+            this.surgeonBox.Controls.Add(this.surgeonTxt);
+            this.surgeonBox.Location = new System.Drawing.Point(16, 132);
+            this.surgeonBox.Name = "surgeonBox";
+            this.surgeonBox.Size = new System.Drawing.Size(698, 109);
+            this.surgeonBox.TabIndex = 6;
+            this.surgeonBox.TabStop = false;
+            this.surgeonBox.Text = "Хирург:";
+            // 
+            // surgeonTxt
+            // 
+            this.surgeonTxt.Location = new System.Drawing.Point(9, 16);
+            this.surgeonTxt.Name = "surgeonTxt";
+            this.surgeonTxt.Size = new System.Drawing.Size(680, 84);
+            this.surgeonTxt.TabIndex = 1;
+            this.surgeonTxt.Text = "";
+            // 
+            // neurologBox
+            // 
+            this.neurologBox.Controls.Add(this.neurologTxt);
+            this.neurologBox.Location = new System.Drawing.Point(16, 17);
+            this.neurologBox.Name = "neurologBox";
+            this.neurologBox.Size = new System.Drawing.Size(698, 109);
+            this.neurologBox.TabIndex = 5;
+            this.neurologBox.TabStop = false;
+            this.neurologBox.Text = "Невролог:";
+            // 
+            // neurologTxt
+            // 
+            this.neurologTxt.Location = new System.Drawing.Point(12, 17);
+            this.neurologTxt.Name = "neurologTxt";
+            this.neurologTxt.Size = new System.Drawing.Size(674, 84);
+            this.neurologTxt.TabIndex = 0;
+            this.neurologTxt.Text = "";
+            // 
+            // saveBtn
+            // 
+            this.saveBtn.Location = new System.Drawing.Point(938, 284);
+            this.saveBtn.Name = "saveBtn";
+            this.saveBtn.Size = new System.Drawing.Size(75, 23);
+            this.saveBtn.TabIndex = 1;
+            this.saveBtn.Text = "Сохранить";
+            this.saveBtn.UseVisualStyleBackColor = true;
+            this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
             // 
             // Analizi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(942, 703);
+            this.ClientSize = new System.Drawing.Size(1001, 729);
+            this.Controls.Add(this.saveBtn);
             this.Controls.Add(this.tabs);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Analizi";
             this.Text = "ЭКГ, Рентген, Анализы:";
-            this.Load += new System.EventHandler(this.Analizi_Load);
             this.tabs.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.groupBox12.ResumeLayout(false);
-            this.groupBox14.ResumeLayout(false);
-            this.groupBox13.ResumeLayout(false);
-            this.groupBox7.ResumeLayout(false);
-            this.groupBox11.ResumeLayout(false);
-            this.groupBox10.ResumeLayout(false);
-            this.groupBox9.ResumeLayout(false);
-            this.groupBox9.PerformLayout();
-            this.groupBox8.ResumeLayout(false);
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage3.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.tabPage4.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox6.ResumeLayout(false);
+            this.egdsGroupBox.ResumeLayout(false);
+            this.egdsBox.ResumeLayout(false);
+            this.firstEgdsBox.ResumeLayout(false);
+            this.coronographyGroupBox.ResumeLayout(false);
+            this.coronographyManipulationBox.ResumeLayout(false);
+            this.coronographyResultsBox.ResumeLayout(false);
+            this.coronographyTimeBox.ResumeLayout(false);
+            this.coronographyTimeBox.PerformLayout();
+            this.coronographyDateBox.ResumeLayout(false);
+            this.ekgTabContainer.ResumeLayout(false);
+            this.firstEkgTab.ResumeLayout(false);
+            this.ekgTab.ResumeLayout(false);
+            this.whereBox.ResumeLayout(false);
+            this.deviationBox.ResumeLayout(false);
+            this.rhytmGroupBox.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.groupBox20.ResumeLayout(false);
             this.groupBox20.PerformLayout();
@@ -3461,30 +3134,30 @@
             this.groupBox15.ResumeLayout(false);
             this.groupBox15.PerformLayout();
             this.tabPage5.ResumeLayout(false);
-            this.groupBox22.ResumeLayout(false);
-            this.groupBox22.PerformLayout();
-            this.groupBox21.ResumeLayout(false);
-            this.groupBox21.PerformLayout();
+            this.regularAnalysisBox.ResumeLayout(false);
+            this.regularAnalysisBox.PerformLayout();
+            this.firstAnalysisBox.ResumeLayout(false);
+            this.firstAnalysisBox.PerformLayout();
             this.tabPage6.ResumeLayout(false);
-            this.groupBox27.ResumeLayout(false);
-            this.groupBox26.ResumeLayout(false);
-            this.groupBox25.ResumeLayout(false);
-            this.groupBox24.ResumeLayout(false);
-            this.groupBox23.ResumeLayout(false);
-            this.tabPage7.ResumeLayout(false);
-            this.groupBox28.ResumeLayout(false);
-            this.groupBox29.ResumeLayout(false);
-            this.groupBox30.ResumeLayout(false);
-            this.groupBox31.ResumeLayout(false);
-            this.groupBox32.ResumeLayout(false);
-            this.tabPage8.ResumeLayout(false);
-            this.groupBox36.ResumeLayout(false);
-            this.groupBox37.ResumeLayout(false);
-            this.tabPage9.ResumeLayout(false);
-            this.groupBox34.ResumeLayout(false);
-            this.groupBox35.ResumeLayout(false);
-            this.groupBox38.ResumeLayout(false);
-            this.groupBox39.ResumeLayout(false);
+            this.pleursUziBox.ResumeLayout(false);
+            this.uziObpBox.ResumeLayout(false);
+            this.cdsBox.ResumeLayout(false);
+            this.uzdBox.ResumeLayout(false);
+            this.ehoKgBox.ResumeLayout(false);
+            this.xRayTab.ResumeLayout(false);
+            this.mrtBox.ResumeLayout(false);
+            this.ktBox.ResumeLayout(false);
+            this.msktBox.ResumeLayout(false);
+            this.cotrolRadiographyBox.ResumeLayout(false);
+            this.chestXRayBox.ResumeLayout(false);
+            this.holterTab.ResumeLayout(false);
+            this.monitoringAdBox.ResumeLayout(false);
+            this.holterBox.ResumeLayout(false);
+            this.specialistDecisionTab.ResumeLayout(false);
+            this.endicrinologistBox.ResumeLayout(false);
+            this.neuroSurgeonBox.ResumeLayout(false);
+            this.surgeonBox.ResumeLayout(false);
+            this.neurologBox.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -3494,43 +3167,17 @@
         private System.Windows.Forms.TabControl tabs;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.Button button14;
-        private System.Windows.Forms.Button button15;
-        private System.Windows.Forms.Button button16;
-        private System.Windows.Forms.Button button17;
-        private System.Windows.Forms.Button button18;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button23;
-        private System.Windows.Forms.Button button22;
-        private System.Windows.Forms.Button button21;
-        private System.Windows.Forms.Button button20;
-        private System.Windows.Forms.Button button19;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.TabControl ekgTabContainer;
+        private System.Windows.Forms.TabPage firstEkgTab;
+        private System.Windows.Forms.TabPage ekgTab;
+        private System.Windows.Forms.RichTextBox firstEkgTxt;
         private System.Windows.Forms.RichTextBox richTextBox2;
-        private System.Windows.Forms.Button button24;
-        private System.Windows.Forms.Button button25;
+        private System.Windows.Forms.Button clearBtn;
+        private System.Windows.Forms.Button spaceBtn;
         private System.Windows.Forms.Button button26;
         private System.Windows.Forms.Button button27;
-        private System.Windows.Forms.Button button28;
-        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Button commaBtn;
+        private System.Windows.Forms.GroupBox whereBox;
         private System.Windows.Forms.Button button29;
         private System.Windows.Forms.Button button30;
         private System.Windows.Forms.Button button31;
@@ -3543,36 +3190,36 @@
         private System.Windows.Forms.Button button38;
         private System.Windows.Forms.Button button39;
         private System.Windows.Forms.Button button40;
-        private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.Button button41;
-        private System.Windows.Forms.Button button42;
-        private System.Windows.Forms.Button button43;
-        private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.Button button44;
-        private System.Windows.Forms.Button button45;
-        private System.Windows.Forms.Button button46;
-        private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.GroupBox groupBox11;
-        private System.Windows.Forms.GroupBox groupBox10;
-        private System.Windows.Forms.GroupBox groupBox9;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.GroupBox deviationBox;
+        private System.Windows.Forms.Button negativeTBtn;
+        private System.Windows.Forms.Button depressionBtn;
+        private System.Windows.Forms.Button deviationBtn;
+        private System.Windows.Forms.GroupBox rhytmGroupBox;
+        private System.Windows.Forms.Button flutterBtn;
+        private System.Windows.Forms.Button fibrillationBtn;
+        private System.Windows.Forms.Button rhytmSinusBtn;
+        private System.Windows.Forms.GroupBox coronographyGroupBox;
+        private System.Windows.Forms.GroupBox coronographyManipulationBox;
+        private System.Windows.Forms.GroupBox coronographyResultsBox;
+        private System.Windows.Forms.GroupBox coronographyTimeBox;
+        private System.Windows.Forms.DateTimePicker kgTimeStart;
+        private System.Windows.Forms.DateTimePicker kgTimeEnd;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox groupBox8;
-        private System.Windows.Forms.DateTimePicker dateTimePicker3;
-        private System.Windows.Forms.GroupBox groupBox12;
-        private System.Windows.Forms.GroupBox groupBox14;
-        private System.Windows.Forms.RichTextBox richTextBox6;
-        private System.Windows.Forms.GroupBox groupBox13;
-        private System.Windows.Forms.RichTextBox richTextBox5;
-        private System.Windows.Forms.RichTextBox richTextBox4;
-        private System.Windows.Forms.RichTextBox richTextBox3;
+        private System.Windows.Forms.GroupBox coronographyDateBox;
+        private System.Windows.Forms.DateTimePicker kgDate;
+        private System.Windows.Forms.GroupBox egdsGroupBox;
+        private System.Windows.Forms.GroupBox egdsBox;
+        private System.Windows.Forms.RichTextBox egdsTxt;
+        private System.Windows.Forms.GroupBox firstEgdsBox;
+        private System.Windows.Forms.RichTextBox firstEgdsTxt;
+        private System.Windows.Forms.RichTextBox kgManipulatioTxt;
+        private System.Windows.Forms.RichTextBox kgResultsTxt;
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.TabPage tabPage6;
-        private System.Windows.Forms.TabPage tabPage7;
-        private System.Windows.Forms.TabPage tabPage8;
-        private System.Windows.Forms.TabPage tabPage9;
+        private System.Windows.Forms.TabPage xRayTab;
+        private System.Windows.Forms.TabPage holterTab;
+        private System.Windows.Forms.TabPage specialistDecisionTab;
         private System.Windows.Forms.GroupBox groupBox15;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label19;
@@ -3742,33 +3389,32 @@
         private System.Windows.Forms.Label label79;
         private System.Windows.Forms.Label label78;
         private System.Windows.Forms.Label label77;
-        private System.Windows.Forms.GroupBox groupBox21;
-        private System.Windows.Forms.TextBox textBox86;
-        private System.Windows.Forms.TextBox textBox85;
-        private System.Windows.Forms.TextBox textBox84;
-        private System.Windows.Forms.TextBox textBox83;
-        private System.Windows.Forms.TextBox textBox82;
-        private System.Windows.Forms.TextBox textBox81;
-        private System.Windows.Forms.TextBox textBox80;
-        private System.Windows.Forms.TextBox textBox79;
+        private System.Windows.Forms.GroupBox firstAnalysisBox;
+        private System.Windows.Forms.TextBox firstKetonesTxt;
+        private System.Windows.Forms.TextBox firstProteinTxt;
+        private System.Windows.Forms.TextBox firstGlucoseTxt;
+        private System.Windows.Forms.TextBox firstErythrocytesTxt;
+        private System.Windows.Forms.TextBox firstLeucocytesTxt;
+        private System.Windows.Forms.TextBox firstSpecGravityTxt;
+        private System.Windows.Forms.TextBox firstAcidityTxt;
+        private System.Windows.Forms.TextBox firstColorTxt;
         private System.Windows.Forms.Label label90;
         private System.Windows.Forms.Label label89;
         private System.Windows.Forms.Label label88;
         private System.Windows.Forms.Label label87;
         private System.Windows.Forms.Label label86;
-        private System.Windows.Forms.Label label85;
-        private System.Windows.Forms.Label label84;
-        private System.Windows.Forms.Label label83;
-        private System.Windows.Forms.Button button50;
-        private System.Windows.Forms.GroupBox groupBox22;
-        private System.Windows.Forms.TextBox textBox87;
-        private System.Windows.Forms.TextBox textBox88;
-        private System.Windows.Forms.TextBox textBox89;
-        private System.Windows.Forms.TextBox textBox90;
-        private System.Windows.Forms.TextBox textBox91;
-        private System.Windows.Forms.TextBox textBox92;
-        private System.Windows.Forms.TextBox textBox93;
-        private System.Windows.Forms.TextBox textBox94;
+        private System.Windows.Forms.Label firstSpecGravityLbl;
+        private System.Windows.Forms.Label firstAcidityLbl;
+        private System.Windows.Forms.Label firstColorLbl;
+        private System.Windows.Forms.GroupBox regularAnalysisBox;
+        private System.Windows.Forms.TextBox ketonesTxt;
+        private System.Windows.Forms.TextBox proteinTxt;
+        private System.Windows.Forms.TextBox glucoseTxt;
+        private System.Windows.Forms.TextBox erythrocytesTxt;
+        private System.Windows.Forms.TextBox leukocytesTxt;
+        private System.Windows.Forms.TextBox specGravityTxt;
+        private System.Windows.Forms.TextBox acidityTxt;
+        private System.Windows.Forms.TextBox colorTxt;
         private System.Windows.Forms.Label label91;
         private System.Windows.Forms.Label label92;
         private System.Windows.Forms.Label label93;
@@ -3777,41 +3423,38 @@
         private System.Windows.Forms.Label label96;
         private System.Windows.Forms.Label label97;
         private System.Windows.Forms.Label label98;
-        private System.Windows.Forms.Button button51;
-        private System.Windows.Forms.GroupBox groupBox27;
-        private System.Windows.Forms.RichTextBox richTextBox7;
-        private System.Windows.Forms.GroupBox groupBox26;
-        private System.Windows.Forms.RichTextBox richTextBox8;
-        private System.Windows.Forms.GroupBox groupBox25;
-        private System.Windows.Forms.RichTextBox richTextBox9;
-        private System.Windows.Forms.GroupBox groupBox24;
-        private System.Windows.Forms.RichTextBox richTextBox10;
-        private System.Windows.Forms.GroupBox groupBox23;
-        private System.Windows.Forms.RichTextBox richTextBox11;
-        private System.Windows.Forms.Button button52;
-        private System.Windows.Forms.GroupBox groupBox28;
-        private System.Windows.Forms.RichTextBox richTextBox12;
-        private System.Windows.Forms.GroupBox groupBox29;
-        private System.Windows.Forms.RichTextBox richTextBox13;
-        private System.Windows.Forms.GroupBox groupBox30;
-        private System.Windows.Forms.RichTextBox richTextBox14;
-        private System.Windows.Forms.GroupBox groupBox31;
-        private System.Windows.Forms.RichTextBox richTextBox15;
-        private System.Windows.Forms.GroupBox groupBox32;
-        private System.Windows.Forms.RichTextBox richTextBox16;
-        private System.Windows.Forms.Button button53;
-        private System.Windows.Forms.GroupBox groupBox36;
-        private System.Windows.Forms.RichTextBox richTextBox20;
-        private System.Windows.Forms.GroupBox groupBox37;
-        private System.Windows.Forms.RichTextBox richTextBox21;
-        private System.Windows.Forms.Button button54;
-        private System.Windows.Forms.GroupBox groupBox34;
-        private System.Windows.Forms.RichTextBox richTextBox18;
-        private System.Windows.Forms.GroupBox groupBox35;
-        private System.Windows.Forms.RichTextBox richTextBox19;
-        private System.Windows.Forms.GroupBox groupBox38;
-        private System.Windows.Forms.RichTextBox richTextBox22;
-        private System.Windows.Forms.GroupBox groupBox39;
-        private System.Windows.Forms.RichTextBox richTextBox23;
+        private System.Windows.Forms.GroupBox pleursUziBox;
+        private System.Windows.Forms.RichTextBox pleursUziTxt;
+        private System.Windows.Forms.GroupBox uziObpBox;
+        private System.Windows.Forms.RichTextBox uziObpTxt;
+        private System.Windows.Forms.GroupBox cdsBox;
+        private System.Windows.Forms.RichTextBox cdsTxt;
+        private System.Windows.Forms.GroupBox uzdBox;
+        private System.Windows.Forms.RichTextBox uzdTxt;
+        private System.Windows.Forms.GroupBox ehoKgBox;
+        private System.Windows.Forms.RichTextBox ehoKgTxt;
+        private System.Windows.Forms.GroupBox mrtBox;
+        private System.Windows.Forms.RichTextBox mrtTxt;
+        private System.Windows.Forms.GroupBox ktBox;
+        private System.Windows.Forms.RichTextBox ktTxt;
+        private System.Windows.Forms.GroupBox msktBox;
+        private System.Windows.Forms.RichTextBox msktTxt;
+        private System.Windows.Forms.GroupBox cotrolRadiographyBox;
+        private System.Windows.Forms.RichTextBox controlRadiographyTxt;
+        private System.Windows.Forms.GroupBox chestXRayBox;
+        private System.Windows.Forms.RichTextBox chestXRayTxt;
+        private System.Windows.Forms.GroupBox monitoringAdBox;
+        private System.Windows.Forms.RichTextBox monitoringAdTxt;
+        private System.Windows.Forms.GroupBox holterBox;
+        private System.Windows.Forms.RichTextBox holterTxt;
+        private System.Windows.Forms.GroupBox endicrinologistBox;
+        private System.Windows.Forms.RichTextBox endocrinologistTx;
+        private System.Windows.Forms.GroupBox neuroSurgeonBox;
+        private System.Windows.Forms.RichTextBox neuroSurgeonTxt;
+        private System.Windows.Forms.GroupBox surgeonBox;
+        private System.Windows.Forms.RichTextBox surgeonTxt;
+        private System.Windows.Forms.GroupBox neurologBox;
+        private System.Windows.Forms.RichTextBox neurologTxt;
+        private System.Windows.Forms.Button saveBtn;
     }
 }

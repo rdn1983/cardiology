@@ -62,6 +62,7 @@
             this.button1.TabIndex = 2;
             this.button1.Text = "Открыть МЕРОПРИЯТИЯ в Word";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -84,6 +85,7 @@
             // 
             // doctorsBox
             // 
+            this.doctorsBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.doctorsBox.FormattingEnabled = true;
             this.doctorsBox.Location = new System.Drawing.Point(19, 75);
             this.doctorsBox.Name = "doctorsBox";
@@ -104,6 +106,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ReanimDEAD";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Реанимационные мероприятия";
             this.ResumeLayout(false);
             this.PerformLayout();

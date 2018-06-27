@@ -48,7 +48,7 @@ namespace Cardiology
             values.Add(@"{time}", timeCtrl.Text);
             values.Add(@"{body}", bodyArea.Text);
             values.Add(@"{header}", headerArea.Text);
-            values.Add(@"{doctor.who}", doctorsBox.SelectedText);
+            values.Add(@"{doctor.who}", doctorsBox.Text);
             TemplatesUtils.fillTemplate(templatePath, values);
         }
     }

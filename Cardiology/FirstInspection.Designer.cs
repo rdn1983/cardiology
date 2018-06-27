@@ -114,8 +114,8 @@
             this.diagnosisTxt = new System.Windows.Forms.RichTextBox();
             this.issuedMedicineTab = new System.Windows.Forms.TabPage();
             this.button35 = new System.Windows.Forms.Button();
-            this.button34 = new System.Windows.Forms.Button();
             this.issuedMedicineBox = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
@@ -127,10 +127,37 @@
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
             this.issuedMedicineTxt0 = new System.Windows.Forms.TextBox();
             this.templatesLbl = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button25 = new System.Windows.Forms.Button();
+            this.button26 = new System.Windows.Forms.Button();
+            this.button27 = new System.Windows.Forms.Button();
+            this.button28 = new System.Windows.Forms.Button();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button33 = new System.Windows.Forms.Button();
+            this.button34 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button36 = new System.Windows.Forms.Button();
+            this.button37 = new System.Windows.Forms.Button();
+            this.button38 = new System.Windows.Forms.Button();
+            this.button39 = new System.Windows.Forms.Button();
+            this.button40 = new System.Windows.Forms.Button();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.button41 = new System.Windows.Forms.Button();
+            this.button42 = new System.Windows.Forms.Button();
+            this.button43 = new System.Windows.Forms.Button();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.button44 = new System.Windows.Forms.Button();
+            this.button45 = new System.Windows.Forms.Button();
+            this.button46 = new System.Windows.Forms.Button();
             this.complaintsBox.SuspendLayout();
             this.anamnesisMorbiBox.SuspendLayout();
             this.anamnesisAllergyBox.SuspendLayout();
@@ -156,6 +183,10 @@
             this.groupBox17.SuspendLayout();
             this.issuedMedicineTab.SuspendLayout();
             this.issuedMedicineBox.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
             // deathBtn
@@ -601,6 +632,7 @@
             this.tabsContainer.Controls.Add(this.presensTab);
             this.tabsContainer.Controls.Add(this.diagnosisTab);
             this.tabsContainer.Controls.Add(this.issuedMedicineTab);
+            this.tabsContainer.Controls.Add(this.tabPage1);
             this.tabsContainer.Location = new System.Drawing.Point(111, 1);
             this.tabsContainer.Name = "tabsContainer";
             this.tabsContainer.SelectedIndex = 0;
@@ -1057,7 +1089,6 @@
             // 
             this.issuedMedicineTab.BackColor = System.Drawing.SystemColors.Control;
             this.issuedMedicineTab.Controls.Add(this.button35);
-            this.issuedMedicineTab.Controls.Add(this.button34);
             this.issuedMedicineTab.Controls.Add(this.issuedMedicineBox);
             this.issuedMedicineTab.Location = new System.Drawing.Point(4, 22);
             this.issuedMedicineTab.Name = "issuedMedicineTab";
@@ -1074,15 +1105,7 @@
             this.button35.TabIndex = 3;
             this.button35.Text = "Анализы и исследования:";
             this.button35.UseVisualStyleBackColor = true;
-            // 
-            // button34
-            // 
-            this.button34.Location = new System.Drawing.Point(577, 196);
-            this.button34.Name = "button34";
-            this.button34.Size = new System.Drawing.Size(186, 77);
-            this.button34.TabIndex = 2;
-            this.button34.Text = "Открыть первичный осмотр";
-            this.button34.UseVisualStyleBackColor = true;
+            this.button35.Click += new System.EventHandler(this.button35_Click);
             // 
             // issuedMedicineBox
             // 
@@ -1107,6 +1130,16 @@
             this.issuedMedicineBox.TabIndex = 0;
             this.issuedMedicineBox.TabStop = false;
             this.issuedMedicineBox.Text = "Назначения:";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(331, 389);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // checkBox4
             // 
@@ -1200,6 +1233,14 @@
             this.textBox7.Size = new System.Drawing.Size(459, 24);
             this.textBox7.TabIndex = 5;
             // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(8, 138);
+            this.textBox8.Multiline = true;
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(459, 24);
+            this.textBox8.TabIndex = 4;
+            // 
             // issuedMedicineTxt0
             // 
             this.issuedMedicineTxt0.Location = new System.Drawing.Point(8, 20);
@@ -1218,23 +1259,285 @@
             this.templatesLbl.TabIndex = 23;
             this.templatesLbl.Text = "ШАБЛОНЫ";
             // 
-            // textBox8
+            // tabPage1
             // 
-            this.textBox8.Location = new System.Drawing.Point(8, 138);
-            this.textBox8.Multiline = true;
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(459, 24);
-            this.textBox8.TabIndex = 4;
+            this.tabPage1.Controls.Add(this.richTextBox2);
+            this.tabPage1.Controls.Add(this.button2);
+            this.tabPage1.Controls.Add(this.button25);
+            this.tabPage1.Controls.Add(this.button26);
+            this.tabPage1.Controls.Add(this.button27);
+            this.tabPage1.Controls.Add(this.button28);
+            this.tabPage1.Controls.Add(this.groupBox4);
+            this.tabPage1.Controls.Add(this.groupBox5);
+            this.tabPage1.Controls.Add(this.groupBox6);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1043, 545);
+            this.tabPage1.TabIndex = 4;
+            this.tabPage1.Text = "Первичные данные анализов";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // richTextBox2
             // 
-            this.button1.Location = new System.Drawing.Point(331, 389);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.richTextBox2.Location = new System.Drawing.Point(345, 16);
+            this.richTextBox2.Name = "richTextBox2";
+            this.richTextBox2.Size = new System.Drawing.Size(369, 174);
+            this.richTextBox2.TabIndex = 27;
+            this.richTextBox2.Text = "";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(345, 196);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 32);
+            this.button2.TabIndex = 26;
+            this.button2.Text = "Очистить";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button25
+            // 
+            this.button25.Location = new System.Drawing.Point(273, 196);
+            this.button25.Name = "button25";
+            this.button25.Size = new System.Drawing.Size(66, 32);
+            this.button25.TabIndex = 25;
+            this.button25.Text = "Пробел";
+            this.button25.UseVisualStyleBackColor = true;
+            // 
+            // button26
+            // 
+            this.button26.Location = new System.Drawing.Point(310, 162);
+            this.button26.Name = "button26";
+            this.button26.Size = new System.Drawing.Size(29, 28);
+            this.button26.TabIndex = 24;
+            this.button26.UseVisualStyleBackColor = true;
+            // 
+            // button27
+            // 
+            this.button27.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button27.Location = new System.Drawing.Point(273, 162);
+            this.button27.Name = "button27";
+            this.button27.Size = new System.Drawing.Size(30, 28);
+            this.button27.TabIndex = 23;
+            this.button27.Text = "_";
+            this.button27.UseVisualStyleBackColor = true;
+            // 
+            // button28
+            // 
+            this.button28.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button28.Location = new System.Drawing.Point(310, 16);
+            this.button28.Name = "button28";
+            this.button28.Size = new System.Drawing.Size(29, 68);
+            this.button28.TabIndex = 22;
+            this.button28.Text = ",";
+            this.button28.UseVisualStyleBackColor = true;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.button3);
+            this.groupBox4.Controls.Add(this.button4);
+            this.groupBox4.Controls.Add(this.button5);
+            this.groupBox4.Controls.Add(this.button6);
+            this.groupBox4.Controls.Add(this.button33);
+            this.groupBox4.Controls.Add(this.button34);
+            this.groupBox4.Controls.Add(this.button7);
+            this.groupBox4.Controls.Add(this.button36);
+            this.groupBox4.Controls.Add(this.button37);
+            this.groupBox4.Controls.Add(this.button38);
+            this.groupBox4.Controls.Add(this.button39);
+            this.groupBox4.Controls.Add(this.button40);
+            this.groupBox4.Location = new System.Drawing.Point(16, 153);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(252, 75);
+            this.groupBox4.TabIndex = 21;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Где";
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(206, 43);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(40, 23);
+            this.button3.TabIndex = 11;
+            this.button3.Text = "V6";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(166, 43);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(40, 23);
+            this.button4.TabIndex = 10;
+            this.button4.Text = "V5";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(126, 43);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(40, 23);
+            this.button5.TabIndex = 9;
+            this.button5.Text = "V4";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(86, 43);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(40, 23);
+            this.button6.TabIndex = 8;
+            this.button6.Text = "V3";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // button33
+            // 
+            this.button33.Location = new System.Drawing.Point(46, 43);
+            this.button33.Name = "button33";
+            this.button33.Size = new System.Drawing.Size(40, 23);
+            this.button33.TabIndex = 7;
+            this.button33.Text = "V2";
+            this.button33.UseVisualStyleBackColor = true;
+            // 
+            // button34
+            // 
+            this.button34.Location = new System.Drawing.Point(5, 43);
+            this.button34.Name = "button34";
+            this.button34.Size = new System.Drawing.Size(40, 23);
+            this.button34.TabIndex = 6;
+            this.button34.Text = "V1";
+            this.button34.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(206, 20);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(40, 23);
+            this.button7.TabIndex = 5;
+            this.button7.Text = "AVF";
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // button36
+            // 
+            this.button36.Location = new System.Drawing.Point(166, 20);
+            this.button36.Name = "button36";
+            this.button36.Size = new System.Drawing.Size(40, 23);
+            this.button36.TabIndex = 4;
+            this.button36.Text = "AVR";
+            this.button36.UseVisualStyleBackColor = true;
+            // 
+            // button37
+            // 
+            this.button37.Location = new System.Drawing.Point(126, 20);
+            this.button37.Name = "button37";
+            this.button37.Size = new System.Drawing.Size(40, 23);
+            this.button37.TabIndex = 3;
+            this.button37.Text = "AVL";
+            this.button37.UseVisualStyleBackColor = true;
+            // 
+            // button38
+            // 
+            this.button38.Location = new System.Drawing.Point(86, 20);
+            this.button38.Name = "button38";
+            this.button38.Size = new System.Drawing.Size(40, 23);
+            this.button38.TabIndex = 2;
+            this.button38.Text = "III";
+            this.button38.UseVisualStyleBackColor = true;
+            // 
+            // button39
+            // 
+            this.button39.Location = new System.Drawing.Point(46, 20);
+            this.button39.Name = "button39";
+            this.button39.Size = new System.Drawing.Size(40, 23);
+            this.button39.TabIndex = 1;
+            this.button39.Text = "II";
+            this.button39.UseVisualStyleBackColor = true;
+            // 
+            // button40
+            // 
+            this.button40.Location = new System.Drawing.Point(5, 20);
+            this.button40.Name = "button40";
+            this.button40.Size = new System.Drawing.Size(40, 23);
+            this.button40.TabIndex = 0;
+            this.button40.Text = "I";
+            this.button40.UseVisualStyleBackColor = true;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.button41);
+            this.groupBox5.Controls.Add(this.button42);
+            this.groupBox5.Controls.Add(this.button43);
+            this.groupBox5.Location = new System.Drawing.Point(16, 91);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(287, 56);
+            this.groupBox5.TabIndex = 20;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Девиация";
+            // 
+            // button41
+            // 
+            this.button41.Location = new System.Drawing.Point(168, 20);
+            this.button41.Name = "button41";
+            this.button41.Size = new System.Drawing.Size(111, 23);
+            this.button41.TabIndex = 2;
+            this.button41.Text = "Отрицательный Т";
+            this.button41.UseVisualStyleBackColor = true;
+            // 
+            // button42
+            // 
+            this.button42.Location = new System.Drawing.Point(87, 19);
+            this.button42.Name = "button42";
+            this.button42.Size = new System.Drawing.Size(75, 23);
+            this.button42.TabIndex = 1;
+            this.button42.Text = "Депрессия";
+            this.button42.UseVisualStyleBackColor = true;
+            // 
+            // button43
+            // 
+            this.button43.Location = new System.Drawing.Point(6, 20);
+            this.button43.Name = "button43";
+            this.button43.Size = new System.Drawing.Size(75, 23);
+            this.button43.TabIndex = 0;
+            this.button43.Text = "Девиация";
+            this.button43.UseVisualStyleBackColor = true;
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.button44);
+            this.groupBox6.Controls.Add(this.button45);
+            this.groupBox6.Controls.Add(this.button46);
+            this.groupBox6.Location = new System.Drawing.Point(16, 16);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(287, 69);
+            this.groupBox6.TabIndex = 19;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Ритм";
+            // 
+            // button44
+            // 
+            this.button44.Location = new System.Drawing.Point(192, 18);
+            this.button44.Name = "button44";
+            this.button44.Size = new System.Drawing.Size(87, 39);
+            this.button44.TabIndex = 2;
+            this.button44.Text = "Трепетание предсердий";
+            this.button44.UseVisualStyleBackColor = true;
+            // 
+            // button45
+            // 
+            this.button45.Location = new System.Drawing.Point(99, 19);
+            this.button45.Name = "button45";
+            this.button45.Size = new System.Drawing.Size(87, 38);
+            this.button45.TabIndex = 1;
+            this.button45.Text = "Фибриляция предсердий";
+            this.button45.UseVisualStyleBackColor = true;
+            // 
+            // button46
+            // 
+            this.button46.Location = new System.Drawing.Point(6, 19);
+            this.button46.Name = "button46";
+            this.button46.Size = new System.Drawing.Size(87, 38);
+            this.button46.TabIndex = 0;
+            this.button46.Text = "Ритм синусовый";
+            this.button46.UseVisualStyleBackColor = true;
             // 
             // FirstInspection
             // 
@@ -1290,6 +1593,10 @@
             this.issuedMedicineTab.ResumeLayout(false);
             this.issuedMedicineBox.ResumeLayout(false);
             this.issuedMedicineBox.PerformLayout();
+            this.tabPage1.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1381,7 +1688,6 @@
         private System.Windows.Forms.RichTextBox diagnosisTxt;
         private System.Windows.Forms.TabPage issuedMedicineTab;
         private System.Windows.Forms.Button button35;
-        private System.Windows.Forms.Button button34;
         private System.Windows.Forms.GroupBox issuedMedicineBox;
         private System.Windows.Forms.CheckBox checkBox4;
         private System.Windows.Forms.CheckBox checkBox3;
@@ -1398,5 +1704,33 @@
         private System.Windows.Forms.Label templatesLbl;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button25;
+        private System.Windows.Forms.Button button26;
+        private System.Windows.Forms.Button button27;
+        private System.Windows.Forms.Button button28;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button33;
+        private System.Windows.Forms.Button button34;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button36;
+        private System.Windows.Forms.Button button37;
+        private System.Windows.Forms.Button button38;
+        private System.Windows.Forms.Button button39;
+        private System.Windows.Forms.Button button40;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Button button41;
+        private System.Windows.Forms.Button button42;
+        private System.Windows.Forms.Button button43;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.Button button44;
+        private System.Windows.Forms.Button button45;
+        private System.Windows.Forms.Button button46;
     }
 }

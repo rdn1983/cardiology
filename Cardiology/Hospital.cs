@@ -135,7 +135,7 @@ namespace Cardiology
                 string value = cell.Value.ToString();
                 DataService service = new DataService();
                 DdtHospital hospitalSession = service.queryObject<DdtHospital>(@"select * from ddt_hospital where r_object_id='" + value + "'");
-                Analizi form = new Analizi(hospitalSession);
+                AnalysisCabinet form = new AnalysisCabinet(hospitalSession);
                 form.ShowDialog();
             }
 

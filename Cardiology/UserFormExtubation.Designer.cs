@@ -65,6 +65,7 @@
             // 
             // doctorsBox
             // 
+            this.doctorsBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.doctorsBox.FormattingEnabled = true;
             this.doctorsBox.Location = new System.Drawing.Point(54, 317);
             this.doctorsBox.Name = "doctorsBox";
@@ -113,6 +114,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "UserFormExtubation";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Экстубация";
             this.ResumeLayout(false);
             this.PerformLayout();

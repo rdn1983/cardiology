@@ -325,5 +325,10 @@ namespace Cardiology
             txtCtrl.Size = issuedMedicineTxt0.Size;
             issuedMedicineBox.Controls.Add(txtCtrl);
         }
+
+        private void button35_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

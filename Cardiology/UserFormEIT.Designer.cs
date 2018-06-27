@@ -54,6 +54,7 @@
             // 
             // doctorsBox
             // 
+            this.doctorsBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.doctorsBox.FormattingEnabled = true;
             this.doctorsBox.Location = new System.Drawing.Point(102, 115);
             this.doctorsBox.Name = "doctorsBox";
@@ -82,6 +83,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "UserFormEIT";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Протокол ЭИТ";
             this.ResumeLayout(false);
             this.PerformLayout();

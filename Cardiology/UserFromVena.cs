@@ -52,7 +52,7 @@ namespace Cardiology
             values.Add(@"{vena}", veinTxt.Text); 
             values.Add(@"{try_num}", tryNumTxt.Text);
             values.Add(@"{column}", columnTxt.Text);
-            values.Add(@"{doctor.who}", doctorsBox.SelectedText);
+            values.Add(@"{doctor.who}", doctorsBox.Text);
             TemplatesUtils.fillTemplate(templatePath, values);
         }
     }

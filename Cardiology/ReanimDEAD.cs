@@ -53,8 +53,13 @@ namespace Cardiology
             values.Add(@"{patient.birthdate}", "");
             values.Add(@"{patient.sex}", "");
             values.Add(@"{patient.medcode}", patient.DssMedCode);
-            values.Add(@"{doctor.who}", doctorsBox.SelectedText);
+            values.Add(@"{doctor.who}", doctorsBox.Text);
             TemplatesUtils.fillTemplate(templatePath, values);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

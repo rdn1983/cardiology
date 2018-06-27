@@ -59,6 +59,12 @@
             this.aidBlansMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.blanksMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hospitalPatientsTbl = new System.Windows.Forms.DataGridView();
+            this.hospitalSession = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.patient_fio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.patient_place = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.patient_in_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.doctor_who = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.patient_diagnosis = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.patientsContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.firstInspectationItem = new System.Windows.Forms.ToolStripMenuItem();
             this.analysisItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -67,12 +73,6 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.manipulationProtocolItem = new System.Windows.Forms.ToolStripMenuItem();
             this.blanksItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.hospitalSession = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.patient_fio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.patient_place = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.patient_in_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.doctor_who = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.patient_diagnosis = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mainMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hospitalPatientsTbl)).BeginInit();
             this.patientsContextMenu.SuspendLayout();
@@ -275,14 +275,14 @@
             // 
             this.reanimItem.Name = "reanimItem";
             this.reanimItem.Size = new System.Drawing.Size(328, 22);
-            this.reanimItem.Text = "Реанимационные предприятия+ констатация";
+            this.reanimItem.Text = "Реанимационные предприятия";
             this.reanimItem.Click += new System.EventHandler(this.reanimItem_Click);
             // 
             // deadItem
             // 
             this.deadItem.Name = "deadItem";
             this.deadItem.Size = new System.Drawing.Size(328, 22);
-            this.deadItem.Text = "Констатация";
+            this.deadItem.Text = "Констатация смерти";
             this.deadItem.Click += new System.EventHandler(this.deadItem_Click);
             // 
             // aidBlansMenuItem
@@ -321,6 +321,46 @@
             this.hospitalPatientsTbl.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.hospitalPatientsTbl.Size = new System.Drawing.Size(833, 398);
             this.hospitalPatientsTbl.TabIndex = 2;
+            // 
+            // hospitalSession
+            // 
+            this.hospitalSession.HeaderText = "sessionId";
+            this.hospitalSession.Name = "hospitalSession";
+            this.hospitalSession.ReadOnly = true;
+            this.hospitalSession.Visible = false;
+            // 
+            // patient_fio
+            // 
+            this.patient_fio.HeaderText = "ФИО пациента";
+            this.patient_fio.Name = "patient_fio";
+            this.patient_fio.ReadOnly = true;
+            this.patient_fio.Width = 200;
+            // 
+            // patient_place
+            // 
+            this.patient_place.HeaderText = "Палата/Койка";
+            this.patient_place.Name = "patient_place";
+            this.patient_place.ReadOnly = true;
+            // 
+            // patient_in_date
+            // 
+            this.patient_in_date.HeaderText = "Дата поступления";
+            this.patient_in_date.Name = "patient_in_date";
+            this.patient_in_date.ReadOnly = true;
+            // 
+            // doctor_who
+            // 
+            this.doctor_who.HeaderText = "Лечащий врач";
+            this.doctor_who.Name = "doctor_who";
+            this.doctor_who.ReadOnly = true;
+            this.doctor_who.Width = 200;
+            // 
+            // patient_diagnosis
+            // 
+            this.patient_diagnosis.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.patient_diagnosis.HeaderText = "Диагноз";
+            this.patient_diagnosis.Name = "patient_diagnosis";
+            this.patient_diagnosis.ReadOnly = true;
             // 
             // patientsContextMenu
             // 
@@ -379,46 +419,6 @@
             this.blanksItem.Name = "blanksItem";
             this.blanksItem.Size = new System.Drawing.Size(261, 22);
             this.blanksItem.Text = "Бланки";
-            // 
-            // hospitalSession
-            // 
-            this.hospitalSession.HeaderText = "sessionId";
-            this.hospitalSession.Name = "hospitalSession";
-            this.hospitalSession.ReadOnly = true;
-            this.hospitalSession.Visible = false;
-            // 
-            // patient_fio
-            // 
-            this.patient_fio.HeaderText = "ФИО пациента";
-            this.patient_fio.Name = "patient_fio";
-            this.patient_fio.ReadOnly = true;
-            this.patient_fio.Width = 200;
-            // 
-            // patient_place
-            // 
-            this.patient_place.HeaderText = "Палата/Койка";
-            this.patient_place.Name = "patient_place";
-            this.patient_place.ReadOnly = true;
-            // 
-            // patient_in_date
-            // 
-            this.patient_in_date.HeaderText = "Дата поступления";
-            this.patient_in_date.Name = "patient_in_date";
-            this.patient_in_date.ReadOnly = true;
-            // 
-            // doctor_who
-            // 
-            this.doctor_who.HeaderText = "Лечащий врач";
-            this.doctor_who.Name = "doctor_who";
-            this.doctor_who.ReadOnly = true;
-            this.doctor_who.Width = 200;
-            // 
-            // patient_diagnosis
-            // 
-            this.patient_diagnosis.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.patient_diagnosis.HeaderText = "Диагноз";
-            this.patient_diagnosis.Name = "patient_diagnosis";
-            this.patient_diagnosis.ReadOnly = true;
             // 
             // Hospital
             // 

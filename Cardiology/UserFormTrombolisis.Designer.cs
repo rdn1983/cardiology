@@ -40,6 +40,7 @@
             // 
             // doctorOkrCB
             // 
+            this.doctorOkrCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.doctorOkrCB.FormattingEnabled = true;
             this.doctorOkrCB.Location = new System.Drawing.Point(117, 95);
             this.doctorOkrCB.Name = "doctorOkrCB";
@@ -113,6 +114,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "UserFormTrombolizis";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Показания к тромболизису";
             this.ResumeLayout(false);
             this.PerformLayout();

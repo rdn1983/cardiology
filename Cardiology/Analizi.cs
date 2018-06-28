@@ -137,6 +137,7 @@ namespace Cardiology
             saveXRayTab(service);
 
             updateObject<DdtPatientAnalysis>(service, patientAnalysis, DdtPatientAnalysis.TABLE_NAME, patientAnalysis.ObjectId);
+            Close();
 
         }
 

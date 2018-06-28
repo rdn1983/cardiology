@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Analizi));
             this.tabs = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.button49 = new System.Windows.Forms.Button();
             this.egdsGroupBox = new System.Windows.Forms.GroupBox();
             this.egdsBox = new System.Windows.Forms.GroupBox();
             this.egdsTxt = new System.Windows.Forms.RichTextBox();
@@ -96,7 +95,6 @@
             this.label78 = new System.Windows.Forms.Label();
             this.label77 = new System.Windows.Forms.Label();
             this.showABOFormBtn = new System.Windows.Forms.Button();
-            this.button47 = new System.Windows.Forms.Button();
             this.groupBox17 = new System.Windows.Forms.GroupBox();
             this.dateTimePicker5 = new System.Windows.Forms.DateTimePicker();
             this.label39 = new System.Windows.Forms.Label();
@@ -378,7 +376,7 @@
             this.tabs.Controls.Add(this.xRayTab);
             this.tabs.Controls.Add(this.holterTab);
             this.tabs.Controls.Add(this.specialistDecisionTab);
-            this.tabs.Location = new System.Drawing.Point(12, 12);
+            this.tabs.Location = new System.Drawing.Point(12, 38);
             this.tabs.Name = "tabs";
             this.tabs.SelectedIndex = 0;
             this.tabs.Size = new System.Drawing.Size(924, 687);
@@ -386,7 +384,6 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.button49);
             this.tabPage1.Controls.Add(this.egdsGroupBox);
             this.tabPage1.Controls.Add(this.coronographyGroupBox);
             this.tabPage1.Controls.Add(this.ekgTabContainer);
@@ -397,15 +394,6 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "ЭКГ, КАГ, ЭГДС";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // button49
-            // 
-            this.button49.Location = new System.Drawing.Point(835, 6);
-            this.button49.Name = "button49";
-            this.button49.Size = new System.Drawing.Size(75, 23);
-            this.button49.TabIndex = 3;
-            this.button49.Text = "Сохранить";
-            this.button49.UseVisualStyleBackColor = true;
             // 
             // egdsGroupBox
             // 
@@ -884,7 +872,6 @@
             this.tabPage2.Controls.Add(this.groupBox20);
             this.tabPage2.Controls.Add(this.groupBox19);
             this.tabPage2.Controls.Add(this.showABOFormBtn);
-            this.tabPage2.Controls.Add(this.button47);
             this.tabPage2.Controls.Add(this.groupBox17);
             this.tabPage2.Controls.Add(this.groupBox18);
             this.tabPage2.Controls.Add(this.groupBox16);
@@ -1032,15 +1019,6 @@
             this.showABOFormBtn.Text = "Группа крови, резус-фактор, KELL-ag, фенотип; СЕРОЛОГИЯ";
             this.showABOFormBtn.UseVisualStyleBackColor = true;
             this.showABOFormBtn.Click += new System.EventHandler(this.showABOFormBtn_Click);
-            // 
-            // button47
-            // 
-            this.button47.Location = new System.Drawing.Point(835, 6);
-            this.button47.Name = "button47";
-            this.button47.Size = new System.Drawing.Size(75, 23);
-            this.button47.TabIndex = 37;
-            this.button47.Text = "Сохранить";
-            this.button47.UseVisualStyleBackColor = true;
             // 
             // groupBox17
             // 
@@ -3084,7 +3062,7 @@
             // 
             // saveBtn
             // 
-            this.saveBtn.Location = new System.Drawing.Point(938, 284);
+            this.saveBtn.Location = new System.Drawing.Point(857, 9);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(75, 23);
             this.saveBtn.TabIndex = 1;
@@ -3260,7 +3238,6 @@
         private System.Windows.Forms.GroupBox groupBox20;
         private System.Windows.Forms.GroupBox groupBox19;
         private System.Windows.Forms.Button showABOFormBtn;
-        private System.Windows.Forms.Button button47;
         private System.Windows.Forms.GroupBox groupBox17;
         private System.Windows.Forms.DateTimePicker dateTimePicker5;
         private System.Windows.Forms.Label label39;
@@ -3376,7 +3353,6 @@
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.Label label38;
-        private System.Windows.Forms.Button button49;
         private System.Windows.Forms.TextBox textBox78;
         private System.Windows.Forms.TextBox textBox77;
         private System.Windows.Forms.TextBox textBox76;

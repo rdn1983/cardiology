@@ -176,5 +176,10 @@ namespace Cardiology
             Pisma form = new Pisma();
             form.ShowDialog();
         }
+
+        private void Hospital_Activated(object sender, EventArgs e)
+        {
+            loadPatientsGrid();
+        }
     }
 }

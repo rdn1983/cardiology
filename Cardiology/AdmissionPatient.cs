@@ -21,7 +21,7 @@ namespace Cardiology
         {
             DataService service = new DataService();
             List<DdtDoctors> doctors = service.queryObjectsCollection<DdtDoctors>("select * from ddt_doctors");
-            for(int i=0; i<doctors.Count;i++)
+            for (int i = 0; i < doctors.Count; i++)
             {
                 dutyCardioBox.Items.Add(doctors[i]);
                 cardioDocBox.Items.Add(doctors[i]);
@@ -59,7 +59,7 @@ namespace Cardiology
 
             DdtPatient patient = new DdtPatient();
             patient.DssAddress = addressTxt.Text.Trim();
-            patient.DssInitials = patientLastName.Text.Trim() + patientFirstName.Text.Substring(0,1) + "." + patientSecondName.Text.Substring(0,1)+ ".";
+            patient.DssInitials = patientLastName.Text.Trim() + patientFirstName.Text.Substring(0, 1) + "." + patientSecondName.Text.Substring(0, 1) + ".";
             patient.DssFullName = patientLastName.Text.Trim() + " " + patientFirstName.Text.Trim() + " " + patientSecondName.Text.Trim();
             patient.DssMedCode = medCodeTxt.Text.Trim();
             patient.DssPhone = phoneTxt.Text;
@@ -75,7 +75,7 @@ namespace Cardiology
             DdtHospital hospital = new DdtHospital();
             hospital.DsbActive = true;
             hospital.DsidPatient = patientId;
-            DdtDoctors doc = (DdtDoctors) dutyCardioBox.SelectedItem;
+            DdtDoctors doc = (DdtDoctors)dutyCardioBox.SelectedItem;
             hospital.DsidCuringDoctor = doc.ObjectId;
             hospital.DsidDutyDoctor = doc.ObjectId;
             hospital.DsidSubstitutionDoctor = doc.ObjectId;
@@ -89,7 +89,8 @@ namespace Cardiology
         {
             //todo  сделать проверку заполненности полей
             return CommonUtils.isNotBlank(patientLastName.Text) && CommonUtils.isNotBlank(patientFirstName.Text) &&
-                CommonUtils.isNotBlank(patientSecondName.Text);
+                CommonUtils.isNotBlank(patientSecondName.Text) && CommonUtils.isNotBlank(weightTxt.Text) &&
+                CommonUtils.isNotBlank(highTxt.Text);
         }
 
 

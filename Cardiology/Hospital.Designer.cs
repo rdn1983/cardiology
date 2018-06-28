@@ -434,6 +434,7 @@
             this.Name = "Hospital";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Hospital";
+            this.Activated += new System.EventHandler(this.Hospital_Activated);
             this.mainMenu.ResumeLayout(false);
             this.mainMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hospitalPatientsTbl)).EndInit();

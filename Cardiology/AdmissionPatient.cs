@@ -106,7 +106,7 @@ namespace Cardiology
             for (int j = 0; j < initials.Length; j++)
                 for (int i = 0; i < rus.Length; i++)
                     if (initials.Substring(j, 1) == rus[i]) ret.Append(eng[i]);
-            return ret.ToString();
+            return CommonUtils.isBlank(ret.ToString()) ? initials : ret.ToString();
         }
 
     }

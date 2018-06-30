@@ -18,7 +18,7 @@ namespace Cardiology
         {
             Npgsql.NpgsqlConnection connection = null;
             connection = new Npgsql.NpgsqlConnection();
-            connection.ConnectionString = "Server=127.0.0.1;Port=5432;User Id=postgres;Password=111;Database=postgres;";
+            connection.ConnectionString = "Server=pellefant.db.elephantsql.com;Port=5432;User Id=sktsxyvg;Password=lb5iKBHwSdjjciRptPjAsT1QQFK_3JAM;Database=sktsxyvg;";
             connection.Open();
             return connection;
         }

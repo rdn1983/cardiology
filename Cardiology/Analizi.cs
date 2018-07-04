@@ -281,5 +281,120 @@ namespace Cardiology
                 default: return false;
             }
         }
+
+        private void clearBtn_Click(object sender, EventArgs e)
+        {
+            richTextBox2.Text = "";
+        }
+
+        private void spaceBtn_Click(object sender, EventArgs e)
+        {
+            richTextBox2.Text = richTextBox2.Text + " ";
+        }
+
+        private void button40_Click(object sender, EventArgs e)
+        {
+            richTextBox2.Text = richTextBox2.Text + "I";
+        }
+
+        private void rhytmSinusBtn_Click(object sender, EventArgs e)
+        {
+            richTextBox2.Text = richTextBox2.Text + "ритм синусовый";
+        }
+
+        private void fibrillationBtn_Click(object sender, EventArgs e)
+        {
+            richTextBox2.Text = richTextBox2.Text + "фибрилляция предсердий";
+        }
+
+        private void flutterBtn_Click(object sender, EventArgs e)
+        {
+            richTextBox2.Text = richTextBox2.Text + "трепетание предсердий";
+        }
+
+        private void elevation_Click(object sender, EventArgs e)
+        {
+            richTextBox2.Text = richTextBox2.Text + "элевация ST в ";
+        }
+
+        private void button26_Click(object sender, EventArgs e)
+        {
+            richTextBox2.Text = richTextBox2.Text + ".";
+        }
+
+        private void depressionBtn_Click(object sender, EventArgs e)
+        {
+            richTextBox2.Text = richTextBox2.Text + "депрессия ST в ";
+        }
+
+        private void negativeTBtn_Click(object sender, EventArgs e)
+        {
+            richTextBox2.Text = richTextBox2.Text + "отрицательный T";
+        }
+
+        private void button39_Click(object sender, EventArgs e)
+        {
+            richTextBox2.Text = richTextBox2.Text + "II";
+        }
+
+        private void button38_Click(object sender, EventArgs e)
+        {
+            richTextBox2.Text = richTextBox2.Text + "III";
+        }
+
+        private void button37_Click(object sender, EventArgs e)
+        {
+            richTextBox2.Text = richTextBox2.Text + "AVL";
+        }
+
+        private void button36_Click(object sender, EventArgs e)
+        {
+            richTextBox2.Text = richTextBox2.Text + "AVR";
+        }
+
+        private void button35_Click(object sender, EventArgs e)
+        {
+            richTextBox2.Text = richTextBox2.Text + "AVF";
+        }
+
+        private void button34_Click(object sender, EventArgs e)
+        {
+            richTextBox2.Text = richTextBox2.Text + "V1";
+        }
+
+        private void button33_Click(object sender, EventArgs e)
+        {
+            richTextBox2.Text = richTextBox2.Text + "V2";
+        }
+
+        private void button32_Click(object sender, EventArgs e)
+        {
+            richTextBox2.Text = richTextBox2.Text + "V3";
+        }
+
+        private void button31_Click(object sender, EventArgs e)
+        {
+            richTextBox2.Text = richTextBox2.Text + "V4";
+        }
+
+        private void button30_Click(object sender, EventArgs e)
+        {
+            richTextBox2.Text = richTextBox2.Text + "V5";
+        }
+
+        private void button29_Click(object sender, EventArgs e)
+        {
+            richTextBox2.Text = richTextBox2.Text + "V6";
+        }
+
+        private void commaBtn_Click(object sender, EventArgs e)
+        {
+            richTextBox2.Text = richTextBox2.Text + ", ";
+        }
+
+        private void button27_Click(object sender, EventArgs e)
+        {
+            richTextBox2.Text = richTextBox2.Text + "-";
+        }
     }
 }

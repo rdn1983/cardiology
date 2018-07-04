@@ -74,7 +74,7 @@
             this.deviationBox = new System.Windows.Forms.GroupBox();
             this.negativeTBtn = new System.Windows.Forms.Button();
             this.depressionBtn = new System.Windows.Forms.Button();
-            this.deviationBtn = new System.Windows.Forms.Button();
+            this.elevation = new System.Windows.Forms.Button();
             this.rhytmGroupBox = new System.Windows.Forms.GroupBox();
             this.flutterBtn = new System.Windows.Forms.Button();
             this.fibrillationBtn = new System.Windows.Forms.Button();
@@ -377,7 +377,7 @@
             this.tabs.Controls.Add(this.holterTab);
             this.tabs.Controls.Add(this.specialistDecisionTab);
             this.tabs.Location = new System.Drawing.Point(16, 47);
-            this.tabs.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabs.Margin = new System.Windows.Forms.Padding(4);
             this.tabs.Name = "tabs";
             this.tabs.SelectedIndex = 0;
             this.tabs.Size = new System.Drawing.Size(1232, 846);
@@ -389,9 +389,9 @@
             this.tabPage1.Controls.Add(this.coronographyGroupBox);
             this.tabPage1.Controls.Add(this.ekgTabContainer);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage1.Size = new System.Drawing.Size(1224, 817);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "ЭКГ, КАГ, ЭГДС";
@@ -402,9 +402,9 @@
             this.egdsGroupBox.Controls.Add(this.egdsBox);
             this.egdsGroupBox.Controls.Add(this.firstEgdsBox);
             this.egdsGroupBox.Location = new System.Drawing.Point(568, 356);
-            this.egdsGroupBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.egdsGroupBox.Margin = new System.Windows.Forms.Padding(4);
             this.egdsGroupBox.Name = "egdsGroupBox";
-            this.egdsGroupBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.egdsGroupBox.Padding = new System.Windows.Forms.Padding(4);
             this.egdsGroupBox.Size = new System.Drawing.Size(413, 441);
             this.egdsGroupBox.TabIndex = 2;
             this.egdsGroupBox.TabStop = false;
@@ -414,9 +414,9 @@
             // 
             this.egdsBox.Controls.Add(this.egdsTxt);
             this.egdsBox.Location = new System.Drawing.Point(15, 235);
-            this.egdsBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.egdsBox.Margin = new System.Windows.Forms.Padding(4);
             this.egdsBox.Name = "egdsBox";
-            this.egdsBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.egdsBox.Padding = new System.Windows.Forms.Padding(4);
             this.egdsBox.Size = new System.Drawing.Size(377, 187);
             this.egdsBox.TabIndex = 1;
             this.egdsBox.TabStop = false;
@@ -425,7 +425,7 @@
             // egdsTxt
             // 
             this.egdsTxt.Location = new System.Drawing.Point(9, 25);
-            this.egdsTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.egdsTxt.Margin = new System.Windows.Forms.Padding(4);
             this.egdsTxt.Name = "egdsTxt";
             this.egdsTxt.Size = new System.Drawing.Size(359, 154);
             this.egdsTxt.TabIndex = 0;
@@ -435,9 +435,9 @@
             // 
             this.firstEgdsBox.Controls.Add(this.firstEgdsTxt);
             this.firstEgdsBox.Location = new System.Drawing.Point(15, 27);
-            this.firstEgdsBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.firstEgdsBox.Margin = new System.Windows.Forms.Padding(4);
             this.firstEgdsBox.Name = "firstEgdsBox";
-            this.firstEgdsBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.firstEgdsBox.Padding = new System.Windows.Forms.Padding(4);
             this.firstEgdsBox.Size = new System.Drawing.Size(377, 187);
             this.firstEgdsBox.TabIndex = 0;
             this.firstEgdsBox.TabStop = false;
@@ -446,7 +446,7 @@
             // firstEgdsTxt
             // 
             this.firstEgdsTxt.Location = new System.Drawing.Point(9, 23);
-            this.firstEgdsTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.firstEgdsTxt.Margin = new System.Windows.Forms.Padding(4);
             this.firstEgdsTxt.Name = "firstEgdsTxt";
             this.firstEgdsTxt.ReadOnly = true;
             this.firstEgdsTxt.Size = new System.Drawing.Size(359, 155);
@@ -460,9 +460,9 @@
             this.coronographyGroupBox.Controls.Add(this.coronographyTimeBox);
             this.coronographyGroupBox.Controls.Add(this.coronographyDateBox);
             this.coronographyGroupBox.Location = new System.Drawing.Point(8, 356);
-            this.coronographyGroupBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.coronographyGroupBox.Margin = new System.Windows.Forms.Padding(4);
             this.coronographyGroupBox.Name = "coronographyGroupBox";
-            this.coronographyGroupBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.coronographyGroupBox.Padding = new System.Windows.Forms.Padding(4);
             this.coronographyGroupBox.Size = new System.Drawing.Size(533, 441);
             this.coronographyGroupBox.TabIndex = 1;
             this.coronographyGroupBox.TabStop = false;
@@ -472,9 +472,9 @@
             // 
             this.coronographyManipulationBox.Controls.Add(this.kgManipulatioTxt);
             this.coronographyManipulationBox.Location = new System.Drawing.Point(8, 278);
-            this.coronographyManipulationBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.coronographyManipulationBox.Margin = new System.Windows.Forms.Padding(4);
             this.coronographyManipulationBox.Name = "coronographyManipulationBox";
-            this.coronographyManipulationBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.coronographyManipulationBox.Padding = new System.Windows.Forms.Padding(4);
             this.coronographyManipulationBox.Size = new System.Drawing.Size(517, 153);
             this.coronographyManipulationBox.TabIndex = 3;
             this.coronographyManipulationBox.TabStop = false;
@@ -483,7 +483,7 @@
             // kgManipulatioTxt
             // 
             this.kgManipulatioTxt.Location = new System.Drawing.Point(8, 20);
-            this.kgManipulatioTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.kgManipulatioTxt.Margin = new System.Windows.Forms.Padding(4);
             this.kgManipulatioTxt.Name = "kgManipulatioTxt";
             this.kgManipulatioTxt.Size = new System.Drawing.Size(500, 123);
             this.kgManipulatioTxt.TabIndex = 0;
@@ -493,9 +493,9 @@
             // 
             this.coronographyResultsBox.Controls.Add(this.kgResultsTxt);
             this.coronographyResultsBox.Location = new System.Drawing.Point(5, 123);
-            this.coronographyResultsBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.coronographyResultsBox.Margin = new System.Windows.Forms.Padding(4);
             this.coronographyResultsBox.Name = "coronographyResultsBox";
-            this.coronographyResultsBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.coronographyResultsBox.Padding = new System.Windows.Forms.Padding(4);
             this.coronographyResultsBox.Size = new System.Drawing.Size(520, 148);
             this.coronographyResultsBox.TabIndex = 2;
             this.coronographyResultsBox.TabStop = false;
@@ -504,7 +504,7 @@
             // kgResultsTxt
             // 
             this.kgResultsTxt.Location = new System.Drawing.Point(9, 23);
-            this.kgResultsTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.kgResultsTxt.Margin = new System.Windows.Forms.Padding(4);
             this.kgResultsTxt.Name = "kgResultsTxt";
             this.kgResultsTxt.Size = new System.Drawing.Size(501, 117);
             this.kgResultsTxt.TabIndex = 0;
@@ -517,9 +517,9 @@
             this.coronographyTimeBox.Controls.Add(this.label2);
             this.coronographyTimeBox.Controls.Add(this.label1);
             this.coronographyTimeBox.Location = new System.Drawing.Point(253, 27);
-            this.coronographyTimeBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.coronographyTimeBox.Margin = new System.Windows.Forms.Padding(4);
             this.coronographyTimeBox.Name = "coronographyTimeBox";
-            this.coronographyTimeBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.coronographyTimeBox.Padding = new System.Windows.Forms.Padding(4);
             this.coronographyTimeBox.Size = new System.Drawing.Size(272, 89);
             this.coronographyTimeBox.TabIndex = 1;
             this.coronographyTimeBox.TabStop = false;
@@ -529,7 +529,7 @@
             // 
             this.kgTimeStart.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.kgTimeStart.Location = new System.Drawing.Point(68, 17);
-            this.kgTimeStart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.kgTimeStart.Margin = new System.Windows.Forms.Padding(4);
             this.kgTimeStart.Name = "kgTimeStart";
             this.kgTimeStart.Size = new System.Drawing.Size(195, 22);
             this.kgTimeStart.TabIndex = 2;
@@ -538,7 +538,7 @@
             // 
             this.kgTimeEnd.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.kgTimeEnd.Location = new System.Drawing.Point(68, 50);
-            this.kgTimeEnd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.kgTimeEnd.Margin = new System.Windows.Forms.Padding(4);
             this.kgTimeEnd.Name = "kgTimeEnd";
             this.kgTimeEnd.Size = new System.Drawing.Size(195, 22);
             this.kgTimeEnd.TabIndex = 2;
@@ -567,9 +567,9 @@
             // 
             this.coronographyDateBox.Controls.Add(this.kgDate);
             this.coronographyDateBox.Location = new System.Drawing.Point(8, 27);
-            this.coronographyDateBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.coronographyDateBox.Margin = new System.Windows.Forms.Padding(4);
             this.coronographyDateBox.Name = "coronographyDateBox";
-            this.coronographyDateBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.coronographyDateBox.Padding = new System.Windows.Forms.Padding(4);
             this.coronographyDateBox.Size = new System.Drawing.Size(237, 89);
             this.coronographyDateBox.TabIndex = 0;
             this.coronographyDateBox.TabStop = false;
@@ -579,7 +579,7 @@
             // 
             this.kgDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.kgDate.Location = new System.Drawing.Point(12, 31);
-            this.kgDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.kgDate.Margin = new System.Windows.Forms.Padding(4);
             this.kgDate.Name = "kgDate";
             this.kgDate.Size = new System.Drawing.Size(209, 22);
             this.kgDate.TabIndex = 0;
@@ -589,7 +589,7 @@
             this.ekgTabContainer.Controls.Add(this.firstEkgTab);
             this.ekgTabContainer.Controls.Add(this.ekgTab);
             this.ekgTabContainer.Location = new System.Drawing.Point(8, 7);
-            this.ekgTabContainer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ekgTabContainer.Margin = new System.Windows.Forms.Padding(4);
             this.ekgTabContainer.Name = "ekgTabContainer";
             this.ekgTabContainer.SelectedIndex = 0;
             this.ekgTabContainer.Size = new System.Drawing.Size(973, 329);
@@ -599,9 +599,9 @@
             // 
             this.firstEkgTab.Controls.Add(this.firstEkgTxt);
             this.firstEkgTab.Location = new System.Drawing.Point(4, 25);
-            this.firstEkgTab.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.firstEkgTab.Margin = new System.Windows.Forms.Padding(4);
             this.firstEkgTab.Name = "firstEkgTab";
-            this.firstEkgTab.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.firstEkgTab.Padding = new System.Windows.Forms.Padding(4);
             this.firstEkgTab.Size = new System.Drawing.Size(965, 300);
             this.firstEkgTab.TabIndex = 0;
             this.firstEkgTab.Text = "ЭКГ при поступлении";
@@ -610,7 +610,7 @@
             // firstEkgTxt
             // 
             this.firstEkgTxt.Location = new System.Drawing.Point(15, 17);
-            this.firstEkgTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.firstEkgTxt.Margin = new System.Windows.Forms.Padding(4);
             this.firstEkgTxt.Name = "firstEkgTxt";
             this.firstEkgTxt.ReadOnly = true;
             this.firstEkgTxt.Size = new System.Drawing.Size(935, 266);
@@ -629,9 +629,9 @@
             this.ekgTab.Controls.Add(this.deviationBox);
             this.ekgTab.Controls.Add(this.rhytmGroupBox);
             this.ekgTab.Location = new System.Drawing.Point(4, 25);
-            this.ekgTab.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ekgTab.Margin = new System.Windows.Forms.Padding(4);
             this.ekgTab.Name = "ekgTab";
-            this.ekgTab.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ekgTab.Padding = new System.Windows.Forms.Padding(4);
             this.ekgTab.Size = new System.Drawing.Size(965, 300);
             this.ekgTab.TabIndex = 1;
             this.ekgTab.Text = "ЭКГ";
@@ -640,7 +640,7 @@
             // richTextBox2
             // 
             this.richTextBox2.Location = new System.Drawing.Point(449, 7);
-            this.richTextBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.richTextBox2.Margin = new System.Windows.Forms.Padding(4);
             this.richTextBox2.Name = "richTextBox2";
             this.richTextBox2.Size = new System.Drawing.Size(491, 213);
             this.richTextBox2.TabIndex = 18;
@@ -649,53 +649,59 @@
             // clearBtn
             // 
             this.clearBtn.Location = new System.Drawing.Point(449, 229);
-            this.clearBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.clearBtn.Margin = new System.Windows.Forms.Padding(4);
             this.clearBtn.Name = "clearBtn";
             this.clearBtn.Size = new System.Drawing.Size(100, 39);
             this.clearBtn.TabIndex = 17;
             this.clearBtn.Text = "Очистить";
             this.clearBtn.UseVisualStyleBackColor = true;
+            this.clearBtn.Click += new System.EventHandler(this.clearBtn_Click);
             // 
             // spaceBtn
             // 
             this.spaceBtn.Location = new System.Drawing.Point(353, 229);
-            this.spaceBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spaceBtn.Margin = new System.Windows.Forms.Padding(4);
             this.spaceBtn.Name = "spaceBtn";
             this.spaceBtn.Size = new System.Drawing.Size(88, 39);
             this.spaceBtn.TabIndex = 16;
             this.spaceBtn.Text = "Пробел";
             this.spaceBtn.UseVisualStyleBackColor = true;
+            this.spaceBtn.Click += new System.EventHandler(this.spaceBtn_Click);
             // 
             // button26
             // 
             this.button26.Location = new System.Drawing.Point(403, 187);
-            this.button26.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button26.Margin = new System.Windows.Forms.Padding(4);
             this.button26.Name = "button26";
             this.button26.Size = new System.Drawing.Size(39, 34);
             this.button26.TabIndex = 15;
+            this.button26.Text = ".";
             this.button26.UseVisualStyleBackColor = true;
+            this.button26.Click += new System.EventHandler(this.button26_Click);
             // 
             // button27
             // 
             this.button27.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button27.Location = new System.Drawing.Point(353, 187);
-            this.button27.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button27.Margin = new System.Windows.Forms.Padding(4);
             this.button27.Name = "button27";
             this.button27.Size = new System.Drawing.Size(40, 34);
             this.button27.TabIndex = 14;
             this.button27.Text = "-";
             this.button27.UseVisualStyleBackColor = true;
+            this.button27.Click += new System.EventHandler(this.button27_Click);
             // 
             // commaBtn
             // 
             this.commaBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.commaBtn.Location = new System.Drawing.Point(403, 7);
-            this.commaBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.commaBtn.Margin = new System.Windows.Forms.Padding(4);
             this.commaBtn.Name = "commaBtn";
             this.commaBtn.Size = new System.Drawing.Size(39, 84);
             this.commaBtn.TabIndex = 13;
             this.commaBtn.Text = ",";
             this.commaBtn.UseVisualStyleBackColor = true;
+            this.commaBtn.Click += new System.EventHandler(this.commaBtn_Click);
             // 
             // whereBox
             // 
@@ -712,9 +718,9 @@
             this.whereBox.Controls.Add(this.button39);
             this.whereBox.Controls.Add(this.button40);
             this.whereBox.Location = new System.Drawing.Point(11, 176);
-            this.whereBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.whereBox.Margin = new System.Windows.Forms.Padding(4);
             this.whereBox.Name = "whereBox";
-            this.whereBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.whereBox.Padding = new System.Windows.Forms.Padding(4);
             this.whereBox.Size = new System.Drawing.Size(336, 92);
             this.whereBox.TabIndex = 12;
             this.whereBox.TabStop = false;
@@ -723,132 +729,144 @@
             // button29
             // 
             this.button29.Location = new System.Drawing.Point(275, 53);
-            this.button29.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button29.Margin = new System.Windows.Forms.Padding(4);
             this.button29.Name = "button29";
             this.button29.Size = new System.Drawing.Size(53, 28);
             this.button29.TabIndex = 11;
             this.button29.Text = "V6";
             this.button29.UseVisualStyleBackColor = true;
+            this.button29.Click += new System.EventHandler(this.button29_Click);
             // 
             // button30
             // 
             this.button30.Location = new System.Drawing.Point(221, 53);
-            this.button30.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button30.Margin = new System.Windows.Forms.Padding(4);
             this.button30.Name = "button30";
             this.button30.Size = new System.Drawing.Size(53, 28);
             this.button30.TabIndex = 10;
             this.button30.Text = "V5";
             this.button30.UseVisualStyleBackColor = true;
+            this.button30.Click += new System.EventHandler(this.button30_Click);
             // 
             // button31
             // 
             this.button31.Location = new System.Drawing.Point(168, 53);
-            this.button31.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button31.Margin = new System.Windows.Forms.Padding(4);
             this.button31.Name = "button31";
             this.button31.Size = new System.Drawing.Size(53, 28);
             this.button31.TabIndex = 9;
             this.button31.Text = "V4";
             this.button31.UseVisualStyleBackColor = true;
+            this.button31.Click += new System.EventHandler(this.button31_Click);
             // 
             // button32
             // 
             this.button32.Location = new System.Drawing.Point(115, 53);
-            this.button32.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button32.Margin = new System.Windows.Forms.Padding(4);
             this.button32.Name = "button32";
             this.button32.Size = new System.Drawing.Size(53, 28);
             this.button32.TabIndex = 8;
             this.button32.Text = "V3";
             this.button32.UseVisualStyleBackColor = true;
+            this.button32.Click += new System.EventHandler(this.button32_Click);
             // 
             // button33
             // 
             this.button33.Location = new System.Drawing.Point(61, 53);
-            this.button33.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button33.Margin = new System.Windows.Forms.Padding(4);
             this.button33.Name = "button33";
             this.button33.Size = new System.Drawing.Size(53, 28);
             this.button33.TabIndex = 7;
             this.button33.Text = "V2";
             this.button33.UseVisualStyleBackColor = true;
+            this.button33.Click += new System.EventHandler(this.button33_Click);
             // 
             // button34
             // 
             this.button34.Location = new System.Drawing.Point(7, 53);
-            this.button34.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button34.Margin = new System.Windows.Forms.Padding(4);
             this.button34.Name = "button34";
             this.button34.Size = new System.Drawing.Size(53, 28);
             this.button34.TabIndex = 6;
             this.button34.Text = "V1";
             this.button34.UseVisualStyleBackColor = true;
+            this.button34.Click += new System.EventHandler(this.button34_Click);
             // 
             // button35
             // 
             this.button35.Location = new System.Drawing.Point(275, 25);
-            this.button35.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button35.Margin = new System.Windows.Forms.Padding(4);
             this.button35.Name = "button35";
             this.button35.Size = new System.Drawing.Size(53, 28);
             this.button35.TabIndex = 5;
             this.button35.Text = "AVF";
             this.button35.UseVisualStyleBackColor = true;
+            this.button35.Click += new System.EventHandler(this.button35_Click);
             // 
             // button36
             // 
             this.button36.Location = new System.Drawing.Point(221, 25);
-            this.button36.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button36.Margin = new System.Windows.Forms.Padding(4);
             this.button36.Name = "button36";
             this.button36.Size = new System.Drawing.Size(53, 28);
             this.button36.TabIndex = 4;
             this.button36.Text = "AVR";
             this.button36.UseVisualStyleBackColor = true;
+            this.button36.Click += new System.EventHandler(this.button36_Click);
             // 
             // button37
             // 
             this.button37.Location = new System.Drawing.Point(168, 25);
-            this.button37.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button37.Margin = new System.Windows.Forms.Padding(4);
             this.button37.Name = "button37";
             this.button37.Size = new System.Drawing.Size(53, 28);
             this.button37.TabIndex = 3;
             this.button37.Text = "AVL";
             this.button37.UseVisualStyleBackColor = true;
+            this.button37.Click += new System.EventHandler(this.button37_Click);
             // 
             // button38
             // 
             this.button38.Location = new System.Drawing.Point(115, 25);
-            this.button38.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button38.Margin = new System.Windows.Forms.Padding(4);
             this.button38.Name = "button38";
             this.button38.Size = new System.Drawing.Size(53, 28);
             this.button38.TabIndex = 2;
             this.button38.Text = "III";
             this.button38.UseVisualStyleBackColor = true;
+            this.button38.Click += new System.EventHandler(this.button38_Click);
             // 
             // button39
             // 
             this.button39.Location = new System.Drawing.Point(61, 25);
-            this.button39.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button39.Margin = new System.Windows.Forms.Padding(4);
             this.button39.Name = "button39";
             this.button39.Size = new System.Drawing.Size(53, 28);
             this.button39.TabIndex = 1;
             this.button39.Text = "II";
             this.button39.UseVisualStyleBackColor = true;
+            this.button39.Click += new System.EventHandler(this.button39_Click);
             // 
             // button40
             // 
             this.button40.Location = new System.Drawing.Point(7, 25);
-            this.button40.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button40.Margin = new System.Windows.Forms.Padding(4);
             this.button40.Name = "button40";
             this.button40.Size = new System.Drawing.Size(53, 28);
             this.button40.TabIndex = 0;
             this.button40.Text = "I";
             this.button40.UseVisualStyleBackColor = true;
+            this.button40.Click += new System.EventHandler(this.button40_Click);
             // 
             // deviationBox
             // 
             this.deviationBox.Controls.Add(this.negativeTBtn);
             this.deviationBox.Controls.Add(this.depressionBtn);
-            this.deviationBox.Controls.Add(this.deviationBtn);
+            this.deviationBox.Controls.Add(this.elevation);
             this.deviationBox.Location = new System.Drawing.Point(11, 100);
-            this.deviationBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.deviationBox.Margin = new System.Windows.Forms.Padding(4);
             this.deviationBox.Name = "deviationBox";
-            this.deviationBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.deviationBox.Padding = new System.Windows.Forms.Padding(4);
             this.deviationBox.Size = new System.Drawing.Size(383, 69);
             this.deviationBox.TabIndex = 11;
             this.deviationBox.TabStop = false;
@@ -857,32 +875,35 @@
             // negativeTBtn
             // 
             this.negativeTBtn.Location = new System.Drawing.Point(224, 25);
-            this.negativeTBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.negativeTBtn.Margin = new System.Windows.Forms.Padding(4);
             this.negativeTBtn.Name = "negativeTBtn";
             this.negativeTBtn.Size = new System.Drawing.Size(148, 28);
             this.negativeTBtn.TabIndex = 2;
             this.negativeTBtn.Text = "Отрицательный Т";
             this.negativeTBtn.UseVisualStyleBackColor = true;
+            this.negativeTBtn.Click += new System.EventHandler(this.negativeTBtn_Click);
             // 
             // depressionBtn
             // 
             this.depressionBtn.Location = new System.Drawing.Point(116, 23);
-            this.depressionBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.depressionBtn.Margin = new System.Windows.Forms.Padding(4);
             this.depressionBtn.Name = "depressionBtn";
             this.depressionBtn.Size = new System.Drawing.Size(100, 28);
             this.depressionBtn.TabIndex = 1;
             this.depressionBtn.Text = "Депрессия";
             this.depressionBtn.UseVisualStyleBackColor = true;
+            this.depressionBtn.Click += new System.EventHandler(this.depressionBtn_Click);
             // 
-            // deviationBtn
+            // elevation
             // 
-            this.deviationBtn.Location = new System.Drawing.Point(8, 25);
-            this.deviationBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.deviationBtn.Name = "deviationBtn";
-            this.deviationBtn.Size = new System.Drawing.Size(100, 28);
-            this.deviationBtn.TabIndex = 0;
-            this.deviationBtn.Text = "Девиация";
-            this.deviationBtn.UseVisualStyleBackColor = true;
+            this.elevation.Location = new System.Drawing.Point(8, 25);
+            this.elevation.Margin = new System.Windows.Forms.Padding(4);
+            this.elevation.Name = "elevation";
+            this.elevation.Size = new System.Drawing.Size(100, 28);
+            this.elevation.TabIndex = 0;
+            this.elevation.Text = "Элевация";
+            this.elevation.UseVisualStyleBackColor = true;
+            this.elevation.Click += new System.EventHandler(this.elevation_Click);
             // 
             // rhytmGroupBox
             // 
@@ -890,9 +911,9 @@
             this.rhytmGroupBox.Controls.Add(this.fibrillationBtn);
             this.rhytmGroupBox.Controls.Add(this.rhytmSinusBtn);
             this.rhytmGroupBox.Location = new System.Drawing.Point(11, 7);
-            this.rhytmGroupBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rhytmGroupBox.Margin = new System.Windows.Forms.Padding(4);
             this.rhytmGroupBox.Name = "rhytmGroupBox";
-            this.rhytmGroupBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rhytmGroupBox.Padding = new System.Windows.Forms.Padding(4);
             this.rhytmGroupBox.Size = new System.Drawing.Size(383, 85);
             this.rhytmGroupBox.TabIndex = 10;
             this.rhytmGroupBox.TabStop = false;
@@ -901,32 +922,35 @@
             // flutterBtn
             // 
             this.flutterBtn.Location = new System.Drawing.Point(256, 22);
-            this.flutterBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flutterBtn.Margin = new System.Windows.Forms.Padding(4);
             this.flutterBtn.Name = "flutterBtn";
             this.flutterBtn.Size = new System.Drawing.Size(116, 48);
             this.flutterBtn.TabIndex = 2;
             this.flutterBtn.Text = "Трепетание предсердий";
             this.flutterBtn.UseVisualStyleBackColor = true;
+            this.flutterBtn.Click += new System.EventHandler(this.flutterBtn_Click);
             // 
             // fibrillationBtn
             // 
             this.fibrillationBtn.Location = new System.Drawing.Point(132, 23);
-            this.fibrillationBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.fibrillationBtn.Margin = new System.Windows.Forms.Padding(4);
             this.fibrillationBtn.Name = "fibrillationBtn";
             this.fibrillationBtn.Size = new System.Drawing.Size(116, 47);
             this.fibrillationBtn.TabIndex = 1;
             this.fibrillationBtn.Text = "Фибриляция предсердий";
             this.fibrillationBtn.UseVisualStyleBackColor = true;
+            this.fibrillationBtn.Click += new System.EventHandler(this.fibrillationBtn_Click);
             // 
             // rhytmSinusBtn
             // 
             this.rhytmSinusBtn.Location = new System.Drawing.Point(8, 23);
-            this.rhytmSinusBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rhytmSinusBtn.Margin = new System.Windows.Forms.Padding(4);
             this.rhytmSinusBtn.Name = "rhytmSinusBtn";
             this.rhytmSinusBtn.Size = new System.Drawing.Size(116, 47);
             this.rhytmSinusBtn.TabIndex = 0;
             this.rhytmSinusBtn.Text = "Ритм синусовый";
             this.rhytmSinusBtn.UseVisualStyleBackColor = true;
+            this.rhytmSinusBtn.Click += new System.EventHandler(this.rhytmSinusBtn_Click);
             // 
             // tabPage2
             // 
@@ -938,9 +962,9 @@
             this.tabPage2.Controls.Add(this.groupBox16);
             this.tabPage2.Controls.Add(this.groupBox15);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage2.Size = new System.Drawing.Size(1224, 817);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Показатели крови";
@@ -955,9 +979,9 @@
             this.groupBox20.Controls.Add(this.label81);
             this.groupBox20.Controls.Add(this.label80);
             this.groupBox20.Location = new System.Drawing.Point(992, 420);
-            this.groupBox20.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox20.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox20.Name = "groupBox20";
-            this.groupBox20.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox20.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox20.Size = new System.Drawing.Size(221, 169);
             this.groupBox20.TabIndex = 40;
             this.groupBox20.TabStop = false;
@@ -966,7 +990,7 @@
             // textBox78
             // 
             this.textBox78.Location = new System.Drawing.Point(92, 128);
-            this.textBox78.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox78.Margin = new System.Windows.Forms.Padding(4);
             this.textBox78.Name = "textBox78";
             this.textBox78.Size = new System.Drawing.Size(112, 22);
             this.textBox78.TabIndex = 5;
@@ -974,7 +998,7 @@
             // textBox77
             // 
             this.textBox77.Location = new System.Drawing.Point(92, 80);
-            this.textBox77.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox77.Margin = new System.Windows.Forms.Padding(4);
             this.textBox77.Name = "textBox77";
             this.textBox77.Size = new System.Drawing.Size(112, 22);
             this.textBox77.TabIndex = 4;
@@ -982,7 +1006,7 @@
             // textBox76
             // 
             this.textBox76.Location = new System.Drawing.Point(92, 30);
-            this.textBox76.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox76.Margin = new System.Windows.Forms.Padding(4);
             this.textBox76.Name = "textBox76";
             this.textBox76.Size = new System.Drawing.Size(112, 22);
             this.textBox76.TabIndex = 3;
@@ -1026,9 +1050,9 @@
             this.groupBox19.Controls.Add(this.label78);
             this.groupBox19.Controls.Add(this.label77);
             this.groupBox19.Location = new System.Drawing.Point(992, 235);
-            this.groupBox19.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox19.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox19.Name = "groupBox19";
-            this.groupBox19.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox19.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox19.Size = new System.Drawing.Size(221, 162);
             this.groupBox19.TabIndex = 39;
             this.groupBox19.TabStop = false;
@@ -1037,7 +1061,7 @@
             // textBox75
             // 
             this.textBox75.Location = new System.Drawing.Point(92, 118);
-            this.textBox75.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox75.Margin = new System.Windows.Forms.Padding(4);
             this.textBox75.Name = "textBox75";
             this.textBox75.Size = new System.Drawing.Size(112, 22);
             this.textBox75.TabIndex = 5;
@@ -1045,7 +1069,7 @@
             // textBox74
             // 
             this.textBox74.Location = new System.Drawing.Point(92, 76);
-            this.textBox74.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox74.Margin = new System.Windows.Forms.Padding(4);
             this.textBox74.Name = "textBox74";
             this.textBox74.Size = new System.Drawing.Size(112, 22);
             this.textBox74.TabIndex = 4;
@@ -1053,7 +1077,7 @@
             // textBox73
             // 
             this.textBox73.Location = new System.Drawing.Point(92, 34);
-            this.textBox73.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox73.Margin = new System.Windows.Forms.Padding(4);
             this.textBox73.Name = "textBox73";
             this.textBox73.Size = new System.Drawing.Size(112, 22);
             this.textBox73.TabIndex = 3;
@@ -1091,7 +1115,7 @@
             // showABOFormBtn
             // 
             this.showABOFormBtn.Location = new System.Drawing.Point(992, 68);
-            this.showABOFormBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.showABOFormBtn.Margin = new System.Windows.Forms.Padding(4);
             this.showABOFormBtn.Name = "showABOFormBtn";
             this.showABOFormBtn.Size = new System.Drawing.Size(221, 144);
             this.showABOFormBtn.TabIndex = 38;
@@ -1140,9 +1164,9 @@
             this.groupBox17.Controls.Add(this.label56);
             this.groupBox17.Controls.Add(this.label76);
             this.groupBox17.Location = new System.Drawing.Point(511, 7);
-            this.groupBox17.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox17.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox17.Name = "groupBox17";
-            this.groupBox17.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox17.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox17.Size = new System.Drawing.Size(229, 581);
             this.groupBox17.TabIndex = 36;
             this.groupBox17.TabStop = false;
@@ -1152,7 +1176,7 @@
             // 
             this.dateTimePicker5.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker5.Location = new System.Drawing.Point(108, 23);
-            this.dateTimePicker5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTimePicker5.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker5.Name = "dateTimePicker5";
             this.dateTimePicker5.Size = new System.Drawing.Size(104, 22);
             this.dateTimePicker5.TabIndex = 37;
@@ -1200,7 +1224,7 @@
             // textBox37
             // 
             this.textBox37.Location = new System.Drawing.Point(108, 551);
-            this.textBox37.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox37.Margin = new System.Windows.Forms.Padding(4);
             this.textBox37.Name = "textBox37";
             this.textBox37.Size = new System.Drawing.Size(104, 22);
             this.textBox37.TabIndex = 32;
@@ -1208,7 +1232,7 @@
             // textBox38
             // 
             this.textBox38.Location = new System.Drawing.Point(108, 463);
-            this.textBox38.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox38.Margin = new System.Windows.Forms.Padding(4);
             this.textBox38.Name = "textBox38";
             this.textBox38.Size = new System.Drawing.Size(104, 22);
             this.textBox38.TabIndex = 31;
@@ -1216,7 +1240,7 @@
             // textBox39
             // 
             this.textBox39.Location = new System.Drawing.Point(108, 522);
-            this.textBox39.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox39.Margin = new System.Windows.Forms.Padding(4);
             this.textBox39.Name = "textBox39";
             this.textBox39.Size = new System.Drawing.Size(104, 22);
             this.textBox39.TabIndex = 30;
@@ -1224,7 +1248,7 @@
             // textBox40
             // 
             this.textBox40.Location = new System.Drawing.Point(108, 492);
-            this.textBox40.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox40.Margin = new System.Windows.Forms.Padding(4);
             this.textBox40.Name = "textBox40";
             this.textBox40.Size = new System.Drawing.Size(104, 22);
             this.textBox40.TabIndex = 29;
@@ -1232,7 +1256,7 @@
             // textBox41
             // 
             this.textBox41.Location = new System.Drawing.Point(108, 433);
-            this.textBox41.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox41.Margin = new System.Windows.Forms.Padding(4);
             this.textBox41.Name = "textBox41";
             this.textBox41.Size = new System.Drawing.Size(104, 22);
             this.textBox41.TabIndex = 28;
@@ -1240,7 +1264,7 @@
             // textBox42
             // 
             this.textBox42.Location = new System.Drawing.Point(108, 404);
-            this.textBox42.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox42.Margin = new System.Windows.Forms.Padding(4);
             this.textBox42.Name = "textBox42";
             this.textBox42.Size = new System.Drawing.Size(104, 22);
             this.textBox42.TabIndex = 27;
@@ -1248,7 +1272,7 @@
             // textBox43
             // 
             this.textBox43.Location = new System.Drawing.Point(108, 375);
-            this.textBox43.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox43.Margin = new System.Windows.Forms.Padding(4);
             this.textBox43.Name = "textBox43";
             this.textBox43.Size = new System.Drawing.Size(104, 22);
             this.textBox43.TabIndex = 26;
@@ -1256,7 +1280,7 @@
             // textBox44
             // 
             this.textBox44.Location = new System.Drawing.Point(108, 346);
-            this.textBox44.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox44.Margin = new System.Windows.Forms.Padding(4);
             this.textBox44.Name = "textBox44";
             this.textBox44.Size = new System.Drawing.Size(104, 22);
             this.textBox44.TabIndex = 25;
@@ -1264,7 +1288,7 @@
             // textBox45
             // 
             this.textBox45.Location = new System.Drawing.Point(108, 316);
-            this.textBox45.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox45.Margin = new System.Windows.Forms.Padding(4);
             this.textBox45.Name = "textBox45";
             this.textBox45.Size = new System.Drawing.Size(104, 22);
             this.textBox45.TabIndex = 24;
@@ -1272,7 +1296,7 @@
             // textBox46
             // 
             this.textBox46.Location = new System.Drawing.Point(108, 287);
-            this.textBox46.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox46.Margin = new System.Windows.Forms.Padding(4);
             this.textBox46.Name = "textBox46";
             this.textBox46.Size = new System.Drawing.Size(104, 22);
             this.textBox46.TabIndex = 23;
@@ -1280,7 +1304,7 @@
             // textBox47
             // 
             this.textBox47.Location = new System.Drawing.Point(108, 257);
-            this.textBox47.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox47.Margin = new System.Windows.Forms.Padding(4);
             this.textBox47.Name = "textBox47";
             this.textBox47.Size = new System.Drawing.Size(104, 22);
             this.textBox47.TabIndex = 22;
@@ -1288,7 +1312,7 @@
             // textBox48
             // 
             this.textBox48.Location = new System.Drawing.Point(108, 229);
-            this.textBox48.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox48.Margin = new System.Windows.Forms.Padding(4);
             this.textBox48.Name = "textBox48";
             this.textBox48.Size = new System.Drawing.Size(104, 22);
             this.textBox48.TabIndex = 21;
@@ -1296,7 +1320,7 @@
             // textBox49
             // 
             this.textBox49.Location = new System.Drawing.Point(108, 199);
-            this.textBox49.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox49.Margin = new System.Windows.Forms.Padding(4);
             this.textBox49.Name = "textBox49";
             this.textBox49.Size = new System.Drawing.Size(104, 22);
             this.textBox49.TabIndex = 20;
@@ -1304,7 +1328,7 @@
             // textBox50
             // 
             this.textBox50.Location = new System.Drawing.Point(108, 170);
-            this.textBox50.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox50.Margin = new System.Windows.Forms.Padding(4);
             this.textBox50.Name = "textBox50";
             this.textBox50.Size = new System.Drawing.Size(104, 22);
             this.textBox50.TabIndex = 19;
@@ -1312,7 +1336,7 @@
             // textBox51
             // 
             this.textBox51.Location = new System.Drawing.Point(108, 140);
-            this.textBox51.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox51.Margin = new System.Windows.Forms.Padding(4);
             this.textBox51.Name = "textBox51";
             this.textBox51.Size = new System.Drawing.Size(104, 22);
             this.textBox51.TabIndex = 18;
@@ -1320,7 +1344,7 @@
             // textBox52
             // 
             this.textBox52.Location = new System.Drawing.Point(108, 111);
-            this.textBox52.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox52.Margin = new System.Windows.Forms.Padding(4);
             this.textBox52.Name = "textBox52";
             this.textBox52.Size = new System.Drawing.Size(104, 22);
             this.textBox52.TabIndex = 17;
@@ -1328,7 +1352,7 @@
             // textBox53
             // 
             this.textBox53.Location = new System.Drawing.Point(108, 81);
-            this.textBox53.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox53.Margin = new System.Windows.Forms.Padding(4);
             this.textBox53.Name = "textBox53";
             this.textBox53.Size = new System.Drawing.Size(104, 22);
             this.textBox53.TabIndex = 16;
@@ -1336,7 +1360,7 @@
             // textBox54
             // 
             this.textBox54.Location = new System.Drawing.Point(108, 53);
-            this.textBox54.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox54.Margin = new System.Windows.Forms.Padding(4);
             this.textBox54.Name = "textBox54";
             this.textBox54.Size = new System.Drawing.Size(104, 22);
             this.textBox54.TabIndex = 15;
@@ -1530,9 +1554,9 @@
             this.groupBox18.Controls.Add(this.label73);
             this.groupBox18.Controls.Add(this.label74);
             this.groupBox18.Location = new System.Drawing.Point(755, 7);
-            this.groupBox18.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox18.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox18.Name = "groupBox18";
-            this.groupBox18.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox18.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox18.Size = new System.Drawing.Size(229, 581);
             this.groupBox18.TabIndex = 36;
             this.groupBox18.TabStop = false;
@@ -1571,7 +1595,7 @@
             // textBox55
             // 
             this.textBox55.Location = new System.Drawing.Point(108, 522);
-            this.textBox55.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox55.Margin = new System.Windows.Forms.Padding(4);
             this.textBox55.Name = "textBox55";
             this.textBox55.Size = new System.Drawing.Size(104, 22);
             this.textBox55.TabIndex = 32;
@@ -1579,7 +1603,7 @@
             // textBox56
             // 
             this.textBox56.Location = new System.Drawing.Point(108, 433);
-            this.textBox56.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox56.Margin = new System.Windows.Forms.Padding(4);
             this.textBox56.Name = "textBox56";
             this.textBox56.Size = new System.Drawing.Size(104, 22);
             this.textBox56.TabIndex = 31;
@@ -1587,7 +1611,7 @@
             // textBox57
             // 
             this.textBox57.Location = new System.Drawing.Point(108, 492);
-            this.textBox57.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox57.Margin = new System.Windows.Forms.Padding(4);
             this.textBox57.Name = "textBox57";
             this.textBox57.Size = new System.Drawing.Size(104, 22);
             this.textBox57.TabIndex = 30;
@@ -1595,7 +1619,7 @@
             // textBox58
             // 
             this.textBox58.Location = new System.Drawing.Point(108, 463);
-            this.textBox58.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox58.Margin = new System.Windows.Forms.Padding(4);
             this.textBox58.Name = "textBox58";
             this.textBox58.Size = new System.Drawing.Size(104, 22);
             this.textBox58.TabIndex = 29;
@@ -1603,7 +1627,7 @@
             // textBox59
             // 
             this.textBox59.Location = new System.Drawing.Point(108, 404);
-            this.textBox59.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox59.Margin = new System.Windows.Forms.Padding(4);
             this.textBox59.Name = "textBox59";
             this.textBox59.Size = new System.Drawing.Size(104, 22);
             this.textBox59.TabIndex = 28;
@@ -1611,7 +1635,7 @@
             // textBox60
             // 
             this.textBox60.Location = new System.Drawing.Point(108, 374);
-            this.textBox60.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox60.Margin = new System.Windows.Forms.Padding(4);
             this.textBox60.Name = "textBox60";
             this.textBox60.Size = new System.Drawing.Size(104, 22);
             this.textBox60.TabIndex = 27;
@@ -1619,7 +1643,7 @@
             // textBox61
             // 
             this.textBox61.Location = new System.Drawing.Point(108, 346);
-            this.textBox61.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox61.Margin = new System.Windows.Forms.Padding(4);
             this.textBox61.Name = "textBox61";
             this.textBox61.Size = new System.Drawing.Size(104, 22);
             this.textBox61.TabIndex = 26;
@@ -1627,7 +1651,7 @@
             // textBox62
             // 
             this.textBox62.Location = new System.Drawing.Point(108, 316);
-            this.textBox62.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox62.Margin = new System.Windows.Forms.Padding(4);
             this.textBox62.Name = "textBox62";
             this.textBox62.Size = new System.Drawing.Size(104, 22);
             this.textBox62.TabIndex = 25;
@@ -1635,7 +1659,7 @@
             // textBox63
             // 
             this.textBox63.Location = new System.Drawing.Point(108, 287);
-            this.textBox63.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox63.Margin = new System.Windows.Forms.Padding(4);
             this.textBox63.Name = "textBox63";
             this.textBox63.Size = new System.Drawing.Size(104, 22);
             this.textBox63.TabIndex = 24;
@@ -1643,7 +1667,7 @@
             // textBox64
             // 
             this.textBox64.Location = new System.Drawing.Point(108, 257);
-            this.textBox64.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox64.Margin = new System.Windows.Forms.Padding(4);
             this.textBox64.Name = "textBox64";
             this.textBox64.Size = new System.Drawing.Size(104, 22);
             this.textBox64.TabIndex = 23;
@@ -1651,7 +1675,7 @@
             // textBox65
             // 
             this.textBox65.Location = new System.Drawing.Point(108, 228);
-            this.textBox65.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox65.Margin = new System.Windows.Forms.Padding(4);
             this.textBox65.Name = "textBox65";
             this.textBox65.Size = new System.Drawing.Size(104, 22);
             this.textBox65.TabIndex = 22;
@@ -1659,7 +1683,7 @@
             // textBox66
             // 
             this.textBox66.Location = new System.Drawing.Point(108, 199);
-            this.textBox66.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox66.Margin = new System.Windows.Forms.Padding(4);
             this.textBox66.Name = "textBox66";
             this.textBox66.Size = new System.Drawing.Size(104, 22);
             this.textBox66.TabIndex = 21;
@@ -1667,7 +1691,7 @@
             // textBox67
             // 
             this.textBox67.Location = new System.Drawing.Point(108, 170);
-            this.textBox67.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox67.Margin = new System.Windows.Forms.Padding(4);
             this.textBox67.Name = "textBox67";
             this.textBox67.Size = new System.Drawing.Size(104, 22);
             this.textBox67.TabIndex = 20;
@@ -1675,7 +1699,7 @@
             // textBox68
             // 
             this.textBox68.Location = new System.Drawing.Point(108, 140);
-            this.textBox68.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox68.Margin = new System.Windows.Forms.Padding(4);
             this.textBox68.Name = "textBox68";
             this.textBox68.Size = new System.Drawing.Size(104, 22);
             this.textBox68.TabIndex = 19;
@@ -1683,7 +1707,7 @@
             // textBox69
             // 
             this.textBox69.Location = new System.Drawing.Point(108, 111);
-            this.textBox69.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox69.Margin = new System.Windows.Forms.Padding(4);
             this.textBox69.Name = "textBox69";
             this.textBox69.Size = new System.Drawing.Size(104, 22);
             this.textBox69.TabIndex = 18;
@@ -1691,7 +1715,7 @@
             // textBox70
             // 
             this.textBox70.Location = new System.Drawing.Point(108, 81);
-            this.textBox70.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox70.Margin = new System.Windows.Forms.Padding(4);
             this.textBox70.Name = "textBox70";
             this.textBox70.Size = new System.Drawing.Size(104, 22);
             this.textBox70.TabIndex = 17;
@@ -1699,7 +1723,7 @@
             // textBox71
             // 
             this.textBox71.Location = new System.Drawing.Point(108, 52);
-            this.textBox71.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox71.Margin = new System.Windows.Forms.Padding(4);
             this.textBox71.Name = "textBox71";
             this.textBox71.Size = new System.Drawing.Size(104, 22);
             this.textBox71.TabIndex = 16;
@@ -1707,7 +1731,7 @@
             // textBox72
             // 
             this.textBox72.Location = new System.Drawing.Point(108, 23);
-            this.textBox72.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox72.Margin = new System.Windows.Forms.Padding(4);
             this.textBox72.Name = "textBox72";
             this.textBox72.Size = new System.Drawing.Size(104, 22);
             this.textBox72.TabIndex = 15;
@@ -1903,9 +1927,9 @@
             this.groupBox16.Controls.Add(this.label37);
             this.groupBox16.Controls.Add(this.label38);
             this.groupBox16.Location = new System.Drawing.Point(265, 7);
-            this.groupBox16.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox16.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox16.Name = "groupBox16";
-            this.groupBox16.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox16.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox16.Size = new System.Drawing.Size(229, 581);
             this.groupBox16.TabIndex = 1;
             this.groupBox16.TabStop = false;
@@ -1915,7 +1939,7 @@
             // 
             this.dateTimePicker4.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker4.Location = new System.Drawing.Point(108, 23);
-            this.dateTimePicker4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTimePicker4.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker4.Name = "dateTimePicker4";
             this.dateTimePicker4.Size = new System.Drawing.Size(104, 22);
             this.dateTimePicker4.TabIndex = 37;
@@ -1963,7 +1987,7 @@
             // textBox19
             // 
             this.textBox19.Location = new System.Drawing.Point(108, 551);
-            this.textBox19.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox19.Margin = new System.Windows.Forms.Padding(4);
             this.textBox19.Name = "textBox19";
             this.textBox19.Size = new System.Drawing.Size(104, 22);
             this.textBox19.TabIndex = 32;
@@ -1971,7 +1995,7 @@
             // textBox20
             // 
             this.textBox20.Location = new System.Drawing.Point(108, 463);
-            this.textBox20.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox20.Margin = new System.Windows.Forms.Padding(4);
             this.textBox20.Name = "textBox20";
             this.textBox20.Size = new System.Drawing.Size(104, 22);
             this.textBox20.TabIndex = 31;
@@ -1979,7 +2003,7 @@
             // textBox21
             // 
             this.textBox21.Location = new System.Drawing.Point(108, 522);
-            this.textBox21.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox21.Margin = new System.Windows.Forms.Padding(4);
             this.textBox21.Name = "textBox21";
             this.textBox21.Size = new System.Drawing.Size(104, 22);
             this.textBox21.TabIndex = 30;
@@ -1987,7 +2011,7 @@
             // textBox22
             // 
             this.textBox22.Location = new System.Drawing.Point(108, 492);
-            this.textBox22.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox22.Margin = new System.Windows.Forms.Padding(4);
             this.textBox22.Name = "textBox22";
             this.textBox22.Size = new System.Drawing.Size(104, 22);
             this.textBox22.TabIndex = 29;
@@ -1995,7 +2019,7 @@
             // textBox23
             // 
             this.textBox23.Location = new System.Drawing.Point(108, 433);
-            this.textBox23.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox23.Margin = new System.Windows.Forms.Padding(4);
             this.textBox23.Name = "textBox23";
             this.textBox23.Size = new System.Drawing.Size(104, 22);
             this.textBox23.TabIndex = 28;
@@ -2003,7 +2027,7 @@
             // textBox24
             // 
             this.textBox24.Location = new System.Drawing.Point(108, 404);
-            this.textBox24.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox24.Margin = new System.Windows.Forms.Padding(4);
             this.textBox24.Name = "textBox24";
             this.textBox24.Size = new System.Drawing.Size(104, 22);
             this.textBox24.TabIndex = 27;
@@ -2011,7 +2035,7 @@
             // textBox25
             // 
             this.textBox25.Location = new System.Drawing.Point(108, 375);
-            this.textBox25.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox25.Margin = new System.Windows.Forms.Padding(4);
             this.textBox25.Name = "textBox25";
             this.textBox25.Size = new System.Drawing.Size(104, 22);
             this.textBox25.TabIndex = 26;
@@ -2019,7 +2043,7 @@
             // textBox26
             // 
             this.textBox26.Location = new System.Drawing.Point(108, 346);
-            this.textBox26.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox26.Margin = new System.Windows.Forms.Padding(4);
             this.textBox26.Name = "textBox26";
             this.textBox26.Size = new System.Drawing.Size(104, 22);
             this.textBox26.TabIndex = 25;
@@ -2027,7 +2051,7 @@
             // textBox27
             // 
             this.textBox27.Location = new System.Drawing.Point(108, 316);
-            this.textBox27.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox27.Margin = new System.Windows.Forms.Padding(4);
             this.textBox27.Name = "textBox27";
             this.textBox27.Size = new System.Drawing.Size(104, 22);
             this.textBox27.TabIndex = 24;
@@ -2035,7 +2059,7 @@
             // textBox28
             // 
             this.textBox28.Location = new System.Drawing.Point(108, 287);
-            this.textBox28.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox28.Margin = new System.Windows.Forms.Padding(4);
             this.textBox28.Name = "textBox28";
             this.textBox28.Size = new System.Drawing.Size(104, 22);
             this.textBox28.TabIndex = 23;
@@ -2043,7 +2067,7 @@
             // textBox29
             // 
             this.textBox29.Location = new System.Drawing.Point(108, 257);
-            this.textBox29.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox29.Margin = new System.Windows.Forms.Padding(4);
             this.textBox29.Name = "textBox29";
             this.textBox29.Size = new System.Drawing.Size(104, 22);
             this.textBox29.TabIndex = 22;
@@ -2051,7 +2075,7 @@
             // textBox30
             // 
             this.textBox30.Location = new System.Drawing.Point(108, 229);
-            this.textBox30.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox30.Margin = new System.Windows.Forms.Padding(4);
             this.textBox30.Name = "textBox30";
             this.textBox30.Size = new System.Drawing.Size(104, 22);
             this.textBox30.TabIndex = 21;
@@ -2059,7 +2083,7 @@
             // textBox31
             // 
             this.textBox31.Location = new System.Drawing.Point(108, 199);
-            this.textBox31.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox31.Margin = new System.Windows.Forms.Padding(4);
             this.textBox31.Name = "textBox31";
             this.textBox31.Size = new System.Drawing.Size(104, 22);
             this.textBox31.TabIndex = 20;
@@ -2067,7 +2091,7 @@
             // textBox32
             // 
             this.textBox32.Location = new System.Drawing.Point(108, 170);
-            this.textBox32.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox32.Margin = new System.Windows.Forms.Padding(4);
             this.textBox32.Name = "textBox32";
             this.textBox32.Size = new System.Drawing.Size(104, 22);
             this.textBox32.TabIndex = 19;
@@ -2075,7 +2099,7 @@
             // textBox33
             // 
             this.textBox33.Location = new System.Drawing.Point(108, 140);
-            this.textBox33.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox33.Margin = new System.Windows.Forms.Padding(4);
             this.textBox33.Name = "textBox33";
             this.textBox33.Size = new System.Drawing.Size(104, 22);
             this.textBox33.TabIndex = 18;
@@ -2083,7 +2107,7 @@
             // textBox34
             // 
             this.textBox34.Location = new System.Drawing.Point(108, 111);
-            this.textBox34.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox34.Margin = new System.Windows.Forms.Padding(4);
             this.textBox34.Name = "textBox34";
             this.textBox34.Size = new System.Drawing.Size(104, 22);
             this.textBox34.TabIndex = 17;
@@ -2091,7 +2115,7 @@
             // textBox35
             // 
             this.textBox35.Location = new System.Drawing.Point(108, 81);
-            this.textBox35.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox35.Margin = new System.Windows.Forms.Padding(4);
             this.textBox35.Name = "textBox35";
             this.textBox35.Size = new System.Drawing.Size(104, 22);
             this.textBox35.TabIndex = 16;
@@ -2099,7 +2123,7 @@
             // textBox36
             // 
             this.textBox36.Location = new System.Drawing.Point(108, 53);
-            this.textBox36.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox36.Margin = new System.Windows.Forms.Padding(4);
             this.textBox36.Name = "textBox36";
             this.textBox36.Size = new System.Drawing.Size(104, 22);
             this.textBox36.TabIndex = 15;
@@ -2293,9 +2317,9 @@
             this.groupBox15.Controls.Add(this.label4);
             this.groupBox15.Controls.Add(this.label3);
             this.groupBox15.Location = new System.Drawing.Point(17, 7);
-            this.groupBox15.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox15.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox15.Name = "groupBox15";
-            this.groupBox15.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox15.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox15.Size = new System.Drawing.Size(229, 581);
             this.groupBox15.TabIndex = 0;
             this.groupBox15.TabStop = false;
@@ -2334,7 +2358,7 @@
             // textBox18
             // 
             this.textBox18.Location = new System.Drawing.Point(108, 522);
-            this.textBox18.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox18.Margin = new System.Windows.Forms.Padding(4);
             this.textBox18.Name = "textBox18";
             this.textBox18.Size = new System.Drawing.Size(104, 22);
             this.textBox18.TabIndex = 32;
@@ -2342,7 +2366,7 @@
             // textBox17
             // 
             this.textBox17.Location = new System.Drawing.Point(108, 433);
-            this.textBox17.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox17.Margin = new System.Windows.Forms.Padding(4);
             this.textBox17.Name = "textBox17";
             this.textBox17.Size = new System.Drawing.Size(104, 22);
             this.textBox17.TabIndex = 31;
@@ -2350,7 +2374,7 @@
             // textBox16
             // 
             this.textBox16.Location = new System.Drawing.Point(108, 492);
-            this.textBox16.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox16.Margin = new System.Windows.Forms.Padding(4);
             this.textBox16.Name = "textBox16";
             this.textBox16.Size = new System.Drawing.Size(104, 22);
             this.textBox16.TabIndex = 30;
@@ -2358,7 +2382,7 @@
             // textBox15
             // 
             this.textBox15.Location = new System.Drawing.Point(108, 463);
-            this.textBox15.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox15.Margin = new System.Windows.Forms.Padding(4);
             this.textBox15.Name = "textBox15";
             this.textBox15.Size = new System.Drawing.Size(104, 22);
             this.textBox15.TabIndex = 29;
@@ -2366,7 +2390,7 @@
             // textBox14
             // 
             this.textBox14.Location = new System.Drawing.Point(108, 404);
-            this.textBox14.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox14.Margin = new System.Windows.Forms.Padding(4);
             this.textBox14.Name = "textBox14";
             this.textBox14.Size = new System.Drawing.Size(104, 22);
             this.textBox14.TabIndex = 28;
@@ -2374,7 +2398,7 @@
             // textBox13
             // 
             this.textBox13.Location = new System.Drawing.Point(108, 374);
-            this.textBox13.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox13.Margin = new System.Windows.Forms.Padding(4);
             this.textBox13.Name = "textBox13";
             this.textBox13.Size = new System.Drawing.Size(104, 22);
             this.textBox13.TabIndex = 27;
@@ -2382,7 +2406,7 @@
             // textBox12
             // 
             this.textBox12.Location = new System.Drawing.Point(108, 346);
-            this.textBox12.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox12.Margin = new System.Windows.Forms.Padding(4);
             this.textBox12.Name = "textBox12";
             this.textBox12.Size = new System.Drawing.Size(104, 22);
             this.textBox12.TabIndex = 26;
@@ -2390,7 +2414,7 @@
             // textBox11
             // 
             this.textBox11.Location = new System.Drawing.Point(108, 316);
-            this.textBox11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox11.Margin = new System.Windows.Forms.Padding(4);
             this.textBox11.Name = "textBox11";
             this.textBox11.Size = new System.Drawing.Size(104, 22);
             this.textBox11.TabIndex = 25;
@@ -2398,7 +2422,7 @@
             // textBox10
             // 
             this.textBox10.Location = new System.Drawing.Point(108, 287);
-            this.textBox10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox10.Margin = new System.Windows.Forms.Padding(4);
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(104, 22);
             this.textBox10.TabIndex = 24;
@@ -2406,7 +2430,7 @@
             // textBox9
             // 
             this.textBox9.Location = new System.Drawing.Point(108, 257);
-            this.textBox9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox9.Margin = new System.Windows.Forms.Padding(4);
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(104, 22);
             this.textBox9.TabIndex = 23;
@@ -2414,7 +2438,7 @@
             // textBox8
             // 
             this.textBox8.Location = new System.Drawing.Point(108, 228);
-            this.textBox8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox8.Margin = new System.Windows.Forms.Padding(4);
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(104, 22);
             this.textBox8.TabIndex = 22;
@@ -2422,7 +2446,7 @@
             // textBox7
             // 
             this.textBox7.Location = new System.Drawing.Point(108, 199);
-            this.textBox7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox7.Margin = new System.Windows.Forms.Padding(4);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(104, 22);
             this.textBox7.TabIndex = 21;
@@ -2430,7 +2454,7 @@
             // textBox6
             // 
             this.textBox6.Location = new System.Drawing.Point(108, 170);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox6.Margin = new System.Windows.Forms.Padding(4);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(104, 22);
             this.textBox6.TabIndex = 20;
@@ -2438,7 +2462,7 @@
             // textBox5
             // 
             this.textBox5.Location = new System.Drawing.Point(108, 140);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(4);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(104, 22);
             this.textBox5.TabIndex = 19;
@@ -2446,7 +2470,7 @@
             // textBox4
             // 
             this.textBox4.Location = new System.Drawing.Point(108, 111);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(4);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(104, 22);
             this.textBox4.TabIndex = 18;
@@ -2454,7 +2478,7 @@
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(108, 81);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(104, 22);
             this.textBox3.TabIndex = 17;
@@ -2462,7 +2486,7 @@
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(108, 52);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(104, 22);
             this.textBox2.TabIndex = 16;
@@ -2470,7 +2494,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(108, 23);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(104, 22);
             this.textBox1.TabIndex = 15;
@@ -2630,9 +2654,9 @@
             this.tabPage5.Controls.Add(this.regularAnalysisBox);
             this.tabPage5.Controls.Add(this.firstAnalysisBox);
             this.tabPage5.Location = new System.Drawing.Point(4, 25);
-            this.tabPage5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage5.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage5.Size = new System.Drawing.Size(1224, 817);
             this.tabPage5.TabIndex = 2;
             this.tabPage5.Text = "Анализ мочи";
@@ -2657,9 +2681,9 @@
             this.regularAnalysisBox.Controls.Add(this.label97);
             this.regularAnalysisBox.Controls.Add(this.label98);
             this.regularAnalysisBox.Location = new System.Drawing.Point(407, 28);
-            this.regularAnalysisBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.regularAnalysisBox.Margin = new System.Windows.Forms.Padding(4);
             this.regularAnalysisBox.Name = "regularAnalysisBox";
-            this.regularAnalysisBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.regularAnalysisBox.Padding = new System.Windows.Forms.Padding(4);
             this.regularAnalysisBox.Size = new System.Drawing.Size(345, 484);
             this.regularAnalysisBox.TabIndex = 1;
             this.regularAnalysisBox.TabStop = false;
@@ -2668,7 +2692,7 @@
             // ketonesTxt
             // 
             this.ketonesTxt.Location = new System.Drawing.Point(117, 423);
-            this.ketonesTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ketonesTxt.Margin = new System.Windows.Forms.Padding(4);
             this.ketonesTxt.Name = "ketonesTxt";
             this.ketonesTxt.Size = new System.Drawing.Size(207, 22);
             this.ketonesTxt.TabIndex = 15;
@@ -2676,7 +2700,7 @@
             // proteinTxt
             // 
             this.proteinTxt.Location = new System.Drawing.Point(117, 372);
-            this.proteinTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.proteinTxt.Margin = new System.Windows.Forms.Padding(4);
             this.proteinTxt.Name = "proteinTxt";
             this.proteinTxt.Size = new System.Drawing.Size(207, 22);
             this.proteinTxt.TabIndex = 14;
@@ -2684,7 +2708,7 @@
             // glucoseTxt
             // 
             this.glucoseTxt.Location = new System.Drawing.Point(117, 320);
-            this.glucoseTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.glucoseTxt.Margin = new System.Windows.Forms.Padding(4);
             this.glucoseTxt.Name = "glucoseTxt";
             this.glucoseTxt.Size = new System.Drawing.Size(207, 22);
             this.glucoseTxt.TabIndex = 13;
@@ -2692,7 +2716,7 @@
             // erythrocytesTxt
             // 
             this.erythrocytesTxt.Location = new System.Drawing.Point(117, 263);
-            this.erythrocytesTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.erythrocytesTxt.Margin = new System.Windows.Forms.Padding(4);
             this.erythrocytesTxt.Name = "erythrocytesTxt";
             this.erythrocytesTxt.Size = new System.Drawing.Size(207, 22);
             this.erythrocytesTxt.TabIndex = 12;
@@ -2700,7 +2724,7 @@
             // leukocytesTxt
             // 
             this.leukocytesTxt.Location = new System.Drawing.Point(117, 209);
-            this.leukocytesTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.leukocytesTxt.Margin = new System.Windows.Forms.Padding(4);
             this.leukocytesTxt.Name = "leukocytesTxt";
             this.leukocytesTxt.Size = new System.Drawing.Size(207, 22);
             this.leukocytesTxt.TabIndex = 11;
@@ -2708,7 +2732,7 @@
             // specGravityTxt
             // 
             this.specGravityTxt.Location = new System.Drawing.Point(117, 155);
-            this.specGravityTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.specGravityTxt.Margin = new System.Windows.Forms.Padding(4);
             this.specGravityTxt.Name = "specGravityTxt";
             this.specGravityTxt.Size = new System.Drawing.Size(207, 22);
             this.specGravityTxt.TabIndex = 10;
@@ -2716,7 +2740,7 @@
             // acidityTxt
             // 
             this.acidityTxt.Location = new System.Drawing.Point(117, 97);
-            this.acidityTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.acidityTxt.Margin = new System.Windows.Forms.Padding(4);
             this.acidityTxt.Name = "acidityTxt";
             this.acidityTxt.Size = new System.Drawing.Size(207, 22);
             this.acidityTxt.TabIndex = 9;
@@ -2724,7 +2748,7 @@
             // colorTxt
             // 
             this.colorTxt.Location = new System.Drawing.Point(117, 42);
-            this.colorTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.colorTxt.Margin = new System.Windows.Forms.Padding(4);
             this.colorTxt.Name = "colorTxt";
             this.colorTxt.Size = new System.Drawing.Size(207, 22);
             this.colorTxt.TabIndex = 8;
@@ -2828,9 +2852,9 @@
             this.firstAnalysisBox.Controls.Add(this.firstAcidityLbl);
             this.firstAnalysisBox.Controls.Add(this.firstColorLbl);
             this.firstAnalysisBox.Location = new System.Drawing.Point(23, 28);
-            this.firstAnalysisBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.firstAnalysisBox.Margin = new System.Windows.Forms.Padding(4);
             this.firstAnalysisBox.Name = "firstAnalysisBox";
-            this.firstAnalysisBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.firstAnalysisBox.Padding = new System.Windows.Forms.Padding(4);
             this.firstAnalysisBox.Size = new System.Drawing.Size(345, 484);
             this.firstAnalysisBox.TabIndex = 0;
             this.firstAnalysisBox.TabStop = false;
@@ -2839,7 +2863,7 @@
             // firstKetonesTxt
             // 
             this.firstKetonesTxt.Location = new System.Drawing.Point(117, 423);
-            this.firstKetonesTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.firstKetonesTxt.Margin = new System.Windows.Forms.Padding(4);
             this.firstKetonesTxt.Name = "firstKetonesTxt";
             this.firstKetonesTxt.ReadOnly = true;
             this.firstKetonesTxt.Size = new System.Drawing.Size(207, 22);
@@ -2848,7 +2872,7 @@
             // firstProteinTxt
             // 
             this.firstProteinTxt.Location = new System.Drawing.Point(117, 372);
-            this.firstProteinTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.firstProteinTxt.Margin = new System.Windows.Forms.Padding(4);
             this.firstProteinTxt.Name = "firstProteinTxt";
             this.firstProteinTxt.ReadOnly = true;
             this.firstProteinTxt.Size = new System.Drawing.Size(207, 22);
@@ -2857,7 +2881,7 @@
             // firstGlucoseTxt
             // 
             this.firstGlucoseTxt.Location = new System.Drawing.Point(117, 320);
-            this.firstGlucoseTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.firstGlucoseTxt.Margin = new System.Windows.Forms.Padding(4);
             this.firstGlucoseTxt.Name = "firstGlucoseTxt";
             this.firstGlucoseTxt.ReadOnly = true;
             this.firstGlucoseTxt.Size = new System.Drawing.Size(207, 22);
@@ -2866,7 +2890,7 @@
             // firstErythrocytesTxt
             // 
             this.firstErythrocytesTxt.Location = new System.Drawing.Point(117, 263);
-            this.firstErythrocytesTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.firstErythrocytesTxt.Margin = new System.Windows.Forms.Padding(4);
             this.firstErythrocytesTxt.Name = "firstErythrocytesTxt";
             this.firstErythrocytesTxt.ReadOnly = true;
             this.firstErythrocytesTxt.Size = new System.Drawing.Size(207, 22);
@@ -2875,7 +2899,7 @@
             // firstLeucocytesTxt
             // 
             this.firstLeucocytesTxt.Location = new System.Drawing.Point(117, 209);
-            this.firstLeucocytesTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.firstLeucocytesTxt.Margin = new System.Windows.Forms.Padding(4);
             this.firstLeucocytesTxt.Name = "firstLeucocytesTxt";
             this.firstLeucocytesTxt.ReadOnly = true;
             this.firstLeucocytesTxt.Size = new System.Drawing.Size(207, 22);
@@ -2884,7 +2908,7 @@
             // firstSpecGravityTxt
             // 
             this.firstSpecGravityTxt.Location = new System.Drawing.Point(117, 155);
-            this.firstSpecGravityTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.firstSpecGravityTxt.Margin = new System.Windows.Forms.Padding(4);
             this.firstSpecGravityTxt.Name = "firstSpecGravityTxt";
             this.firstSpecGravityTxt.ReadOnly = true;
             this.firstSpecGravityTxt.Size = new System.Drawing.Size(207, 22);
@@ -2893,7 +2917,7 @@
             // firstAcidityTxt
             // 
             this.firstAcidityTxt.Location = new System.Drawing.Point(117, 97);
-            this.firstAcidityTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.firstAcidityTxt.Margin = new System.Windows.Forms.Padding(4);
             this.firstAcidityTxt.Name = "firstAcidityTxt";
             this.firstAcidityTxt.ReadOnly = true;
             this.firstAcidityTxt.Size = new System.Drawing.Size(207, 22);
@@ -2902,7 +2926,7 @@
             // firstColorTxt
             // 
             this.firstColorTxt.Location = new System.Drawing.Point(117, 42);
-            this.firstColorTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.firstColorTxt.Margin = new System.Windows.Forms.Padding(4);
             this.firstColorTxt.Name = "firstColorTxt";
             this.firstColorTxt.ReadOnly = true;
             this.firstColorTxt.Size = new System.Drawing.Size(207, 22);
@@ -2996,9 +3020,9 @@
             this.tabPage6.Controls.Add(this.uzdBox);
             this.tabPage6.Controls.Add(this.ehoKgBox);
             this.tabPage6.Location = new System.Drawing.Point(4, 25);
-            this.tabPage6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage6.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage6.Size = new System.Drawing.Size(1224, 817);
             this.tabPage6.TabIndex = 3;
             this.tabPage6.Text = "УЗИ";
@@ -3008,9 +3032,9 @@
             // 
             this.pleursUziBox.Controls.Add(this.pleursUziTxt);
             this.pleursUziBox.Location = new System.Drawing.Point(23, 604);
-            this.pleursUziBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pleursUziBox.Margin = new System.Windows.Forms.Padding(4);
             this.pleursUziBox.Name = "pleursUziBox";
-            this.pleursUziBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pleursUziBox.Padding = new System.Windows.Forms.Padding(4);
             this.pleursUziBox.Size = new System.Drawing.Size(931, 134);
             this.pleursUziBox.TabIndex = 4;
             this.pleursUziBox.TabStop = false;
@@ -3019,7 +3043,7 @@
             // pleursUziTxt
             // 
             this.pleursUziTxt.Location = new System.Drawing.Point(12, 21);
-            this.pleursUziTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pleursUziTxt.Margin = new System.Windows.Forms.Padding(4);
             this.pleursUziTxt.Name = "pleursUziTxt";
             this.pleursUziTxt.Size = new System.Drawing.Size(905, 102);
             this.pleursUziTxt.TabIndex = 1;
@@ -3029,9 +3053,9 @@
             // 
             this.uziObpBox.Controls.Add(this.uziObpTxt);
             this.uziObpBox.Location = new System.Drawing.Point(23, 454);
-            this.uziObpBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.uziObpBox.Margin = new System.Windows.Forms.Padding(4);
             this.uziObpBox.Name = "uziObpBox";
-            this.uziObpBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.uziObpBox.Padding = new System.Windows.Forms.Padding(4);
             this.uziObpBox.Size = new System.Drawing.Size(931, 134);
             this.uziObpBox.TabIndex = 3;
             this.uziObpBox.TabStop = false;
@@ -3040,7 +3064,7 @@
             // uziObpTxt
             // 
             this.uziObpTxt.Location = new System.Drawing.Point(12, 20);
-            this.uziObpTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.uziObpTxt.Margin = new System.Windows.Forms.Padding(4);
             this.uziObpTxt.Name = "uziObpTxt";
             this.uziObpTxt.Size = new System.Drawing.Size(905, 102);
             this.uziObpTxt.TabIndex = 1;
@@ -3050,9 +3074,9 @@
             // 
             this.cdsBox.Controls.Add(this.cdsTxt);
             this.cdsBox.Location = new System.Drawing.Point(23, 308);
-            this.cdsBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cdsBox.Margin = new System.Windows.Forms.Padding(4);
             this.cdsBox.Name = "cdsBox";
-            this.cdsBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cdsBox.Padding = new System.Windows.Forms.Padding(4);
             this.cdsBox.Size = new System.Drawing.Size(931, 134);
             this.cdsBox.TabIndex = 2;
             this.cdsBox.TabStop = false;
@@ -3061,7 +3085,7 @@
             // cdsTxt
             // 
             this.cdsTxt.Location = new System.Drawing.Point(12, 20);
-            this.cdsTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cdsTxt.Margin = new System.Windows.Forms.Padding(4);
             this.cdsTxt.Name = "cdsTxt";
             this.cdsTxt.Size = new System.Drawing.Size(905, 102);
             this.cdsTxt.TabIndex = 1;
@@ -3071,9 +3095,9 @@
             // 
             this.uzdBox.Controls.Add(this.uzdTxt);
             this.uzdBox.Location = new System.Drawing.Point(23, 164);
-            this.uzdBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.uzdBox.Margin = new System.Windows.Forms.Padding(4);
             this.uzdBox.Name = "uzdBox";
-            this.uzdBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.uzdBox.Padding = new System.Windows.Forms.Padding(4);
             this.uzdBox.Size = new System.Drawing.Size(931, 134);
             this.uzdBox.TabIndex = 1;
             this.uzdBox.TabStop = false;
@@ -3082,7 +3106,7 @@
             // uzdTxt
             // 
             this.uzdTxt.Location = new System.Drawing.Point(12, 20);
-            this.uzdTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.uzdTxt.Margin = new System.Windows.Forms.Padding(4);
             this.uzdTxt.Name = "uzdTxt";
             this.uzdTxt.Size = new System.Drawing.Size(905, 102);
             this.uzdTxt.TabIndex = 1;
@@ -3092,9 +3116,9 @@
             // 
             this.ehoKgBox.Controls.Add(this.ehoKgTxt);
             this.ehoKgBox.Location = new System.Drawing.Point(23, 22);
-            this.ehoKgBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ehoKgBox.Margin = new System.Windows.Forms.Padding(4);
             this.ehoKgBox.Name = "ehoKgBox";
-            this.ehoKgBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ehoKgBox.Padding = new System.Windows.Forms.Padding(4);
             this.ehoKgBox.Size = new System.Drawing.Size(931, 134);
             this.ehoKgBox.TabIndex = 0;
             this.ehoKgBox.TabStop = false;
@@ -3103,7 +3127,7 @@
             // ehoKgTxt
             // 
             this.ehoKgTxt.Location = new System.Drawing.Point(16, 21);
-            this.ehoKgTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ehoKgTxt.Margin = new System.Windows.Forms.Padding(4);
             this.ehoKgTxt.Name = "ehoKgTxt";
             this.ehoKgTxt.Size = new System.Drawing.Size(897, 102);
             this.ehoKgTxt.TabIndex = 0;
@@ -3117,9 +3141,9 @@
             this.xRayTab.Controls.Add(this.cotrolRadiographyBox);
             this.xRayTab.Controls.Add(this.chestXRayBox);
             this.xRayTab.Location = new System.Drawing.Point(4, 25);
-            this.xRayTab.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.xRayTab.Margin = new System.Windows.Forms.Padding(4);
             this.xRayTab.Name = "xRayTab";
-            this.xRayTab.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.xRayTab.Padding = new System.Windows.Forms.Padding(4);
             this.xRayTab.Size = new System.Drawing.Size(1224, 817);
             this.xRayTab.TabIndex = 4;
             this.xRayTab.Text = "Рентген, КТ, МРТ";
@@ -3129,9 +3153,9 @@
             // 
             this.mrtBox.Controls.Add(this.mrtTxt);
             this.mrtBox.Location = new System.Drawing.Point(21, 602);
-            this.mrtBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mrtBox.Margin = new System.Windows.Forms.Padding(4);
             this.mrtBox.Name = "mrtBox";
-            this.mrtBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mrtBox.Padding = new System.Windows.Forms.Padding(4);
             this.mrtBox.Size = new System.Drawing.Size(931, 134);
             this.mrtBox.TabIndex = 9;
             this.mrtBox.TabStop = false;
@@ -3140,7 +3164,7 @@
             // mrtTxt
             // 
             this.mrtTxt.Location = new System.Drawing.Point(12, 21);
-            this.mrtTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mrtTxt.Margin = new System.Windows.Forms.Padding(4);
             this.mrtTxt.Name = "mrtTxt";
             this.mrtTxt.Size = new System.Drawing.Size(905, 102);
             this.mrtTxt.TabIndex = 1;
@@ -3150,9 +3174,9 @@
             // 
             this.ktBox.Controls.Add(this.ktTxt);
             this.ktBox.Location = new System.Drawing.Point(21, 452);
-            this.ktBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ktBox.Margin = new System.Windows.Forms.Padding(4);
             this.ktBox.Name = "ktBox";
-            this.ktBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ktBox.Padding = new System.Windows.Forms.Padding(4);
             this.ktBox.Size = new System.Drawing.Size(931, 134);
             this.ktBox.TabIndex = 8;
             this.ktBox.TabStop = false;
@@ -3161,7 +3185,7 @@
             // ktTxt
             // 
             this.ktTxt.Location = new System.Drawing.Point(12, 20);
-            this.ktTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ktTxt.Margin = new System.Windows.Forms.Padding(4);
             this.ktTxt.Name = "ktTxt";
             this.ktTxt.Size = new System.Drawing.Size(905, 102);
             this.ktTxt.TabIndex = 1;
@@ -3171,9 +3195,9 @@
             // 
             this.msktBox.Controls.Add(this.msktTxt);
             this.msktBox.Location = new System.Drawing.Point(21, 305);
-            this.msktBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.msktBox.Margin = new System.Windows.Forms.Padding(4);
             this.msktBox.Name = "msktBox";
-            this.msktBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.msktBox.Padding = new System.Windows.Forms.Padding(4);
             this.msktBox.Size = new System.Drawing.Size(931, 134);
             this.msktBox.TabIndex = 7;
             this.msktBox.TabStop = false;
@@ -3182,7 +3206,7 @@
             // msktTxt
             // 
             this.msktTxt.Location = new System.Drawing.Point(12, 20);
-            this.msktTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.msktTxt.Margin = new System.Windows.Forms.Padding(4);
             this.msktTxt.Name = "msktTxt";
             this.msktTxt.Size = new System.Drawing.Size(905, 102);
             this.msktTxt.TabIndex = 1;
@@ -3192,9 +3216,9 @@
             // 
             this.cotrolRadiographyBox.Controls.Add(this.controlRadiographyTxt);
             this.cotrolRadiographyBox.Location = new System.Drawing.Point(21, 161);
-            this.cotrolRadiographyBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cotrolRadiographyBox.Margin = new System.Windows.Forms.Padding(4);
             this.cotrolRadiographyBox.Name = "cotrolRadiographyBox";
-            this.cotrolRadiographyBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cotrolRadiographyBox.Padding = new System.Windows.Forms.Padding(4);
             this.cotrolRadiographyBox.Size = new System.Drawing.Size(931, 134);
             this.cotrolRadiographyBox.TabIndex = 6;
             this.cotrolRadiographyBox.TabStop = false;
@@ -3203,7 +3227,7 @@
             // controlRadiographyTxt
             // 
             this.controlRadiographyTxt.Location = new System.Drawing.Point(12, 20);
-            this.controlRadiographyTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.controlRadiographyTxt.Margin = new System.Windows.Forms.Padding(4);
             this.controlRadiographyTxt.Name = "controlRadiographyTxt";
             this.controlRadiographyTxt.Size = new System.Drawing.Size(905, 102);
             this.controlRadiographyTxt.TabIndex = 1;
@@ -3213,9 +3237,9 @@
             // 
             this.chestXRayBox.Controls.Add(this.chestXRayTxt);
             this.chestXRayBox.Location = new System.Drawing.Point(21, 20);
-            this.chestXRayBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chestXRayBox.Margin = new System.Windows.Forms.Padding(4);
             this.chestXRayBox.Name = "chestXRayBox";
-            this.chestXRayBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chestXRayBox.Padding = new System.Windows.Forms.Padding(4);
             this.chestXRayBox.Size = new System.Drawing.Size(931, 134);
             this.chestXRayBox.TabIndex = 5;
             this.chestXRayBox.TabStop = false;
@@ -3224,7 +3248,7 @@
             // chestXRayTxt
             // 
             this.chestXRayTxt.Location = new System.Drawing.Point(16, 21);
-            this.chestXRayTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chestXRayTxt.Margin = new System.Windows.Forms.Padding(4);
             this.chestXRayTxt.Name = "chestXRayTxt";
             this.chestXRayTxt.Size = new System.Drawing.Size(897, 102);
             this.chestXRayTxt.TabIndex = 0;
@@ -3235,9 +3259,9 @@
             this.holterTab.Controls.Add(this.monitoringAdBox);
             this.holterTab.Controls.Add(this.holterBox);
             this.holterTab.Location = new System.Drawing.Point(4, 25);
-            this.holterTab.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.holterTab.Margin = new System.Windows.Forms.Padding(4);
             this.holterTab.Name = "holterTab";
-            this.holterTab.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.holterTab.Padding = new System.Windows.Forms.Padding(4);
             this.holterTab.Size = new System.Drawing.Size(1224, 817);
             this.holterTab.TabIndex = 5;
             this.holterTab.Text = "Холтер, АД мон.";
@@ -3247,9 +3271,9 @@
             // 
             this.monitoringAdBox.Controls.Add(this.monitoringAdTxt);
             this.monitoringAdBox.Location = new System.Drawing.Point(21, 160);
-            this.monitoringAdBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.monitoringAdBox.Margin = new System.Windows.Forms.Padding(4);
             this.monitoringAdBox.Name = "monitoringAdBox";
-            this.monitoringAdBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.monitoringAdBox.Padding = new System.Windows.Forms.Padding(4);
             this.monitoringAdBox.Size = new System.Drawing.Size(931, 134);
             this.monitoringAdBox.TabIndex = 6;
             this.monitoringAdBox.TabStop = false;
@@ -3258,7 +3282,7 @@
             // monitoringAdTxt
             // 
             this.monitoringAdTxt.Location = new System.Drawing.Point(12, 20);
-            this.monitoringAdTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.monitoringAdTxt.Margin = new System.Windows.Forms.Padding(4);
             this.monitoringAdTxt.Name = "monitoringAdTxt";
             this.monitoringAdTxt.Size = new System.Drawing.Size(905, 102);
             this.monitoringAdTxt.TabIndex = 1;
@@ -3268,9 +3292,9 @@
             // 
             this.holterBox.Controls.Add(this.holterTxt);
             this.holterBox.Location = new System.Drawing.Point(21, 18);
-            this.holterBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.holterBox.Margin = new System.Windows.Forms.Padding(4);
             this.holterBox.Name = "holterBox";
-            this.holterBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.holterBox.Padding = new System.Windows.Forms.Padding(4);
             this.holterBox.Size = new System.Drawing.Size(931, 134);
             this.holterBox.TabIndex = 5;
             this.holterBox.TabStop = false;
@@ -3279,7 +3303,7 @@
             // holterTxt
             // 
             this.holterTxt.Location = new System.Drawing.Point(16, 21);
-            this.holterTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.holterTxt.Margin = new System.Windows.Forms.Padding(4);
             this.holterTxt.Name = "holterTxt";
             this.holterTxt.Size = new System.Drawing.Size(897, 102);
             this.holterTxt.TabIndex = 0;
@@ -3292,9 +3316,9 @@
             this.specialistDecisionTab.Controls.Add(this.surgeonBox);
             this.specialistDecisionTab.Controls.Add(this.neurologBox);
             this.specialistDecisionTab.Location = new System.Drawing.Point(4, 25);
-            this.specialistDecisionTab.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.specialistDecisionTab.Margin = new System.Windows.Forms.Padding(4);
             this.specialistDecisionTab.Name = "specialistDecisionTab";
-            this.specialistDecisionTab.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.specialistDecisionTab.Padding = new System.Windows.Forms.Padding(4);
             this.specialistDecisionTab.Size = new System.Drawing.Size(1224, 817);
             this.specialistDecisionTab.TabIndex = 6;
             this.specialistDecisionTab.Text = "Закл. спец-ов";
@@ -3304,9 +3328,9 @@
             // 
             this.endicrinologistBox.Controls.Add(this.endocrinologistTx);
             this.endicrinologistBox.Location = new System.Drawing.Point(21, 453);
-            this.endicrinologistBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.endicrinologistBox.Margin = new System.Windows.Forms.Padding(4);
             this.endicrinologistBox.Name = "endicrinologistBox";
-            this.endicrinologistBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.endicrinologistBox.Padding = new System.Windows.Forms.Padding(4);
             this.endicrinologistBox.Size = new System.Drawing.Size(931, 134);
             this.endicrinologistBox.TabIndex = 8;
             this.endicrinologistBox.TabStop = false;
@@ -3315,7 +3339,7 @@
             // endocrinologistTx
             // 
             this.endocrinologistTx.Location = new System.Drawing.Point(12, 20);
-            this.endocrinologistTx.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.endocrinologistTx.Margin = new System.Windows.Forms.Padding(4);
             this.endocrinologistTx.Name = "endocrinologistTx";
             this.endocrinologistTx.Size = new System.Drawing.Size(905, 102);
             this.endocrinologistTx.TabIndex = 1;
@@ -3325,9 +3349,9 @@
             // 
             this.neuroSurgeonBox.Controls.Add(this.neuroSurgeonTxt);
             this.neuroSurgeonBox.Location = new System.Drawing.Point(21, 306);
-            this.neuroSurgeonBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.neuroSurgeonBox.Margin = new System.Windows.Forms.Padding(4);
             this.neuroSurgeonBox.Name = "neuroSurgeonBox";
-            this.neuroSurgeonBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.neuroSurgeonBox.Padding = new System.Windows.Forms.Padding(4);
             this.neuroSurgeonBox.Size = new System.Drawing.Size(931, 134);
             this.neuroSurgeonBox.TabIndex = 7;
             this.neuroSurgeonBox.TabStop = false;
@@ -3336,7 +3360,7 @@
             // neuroSurgeonTxt
             // 
             this.neuroSurgeonTxt.Location = new System.Drawing.Point(12, 20);
-            this.neuroSurgeonTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.neuroSurgeonTxt.Margin = new System.Windows.Forms.Padding(4);
             this.neuroSurgeonTxt.Name = "neuroSurgeonTxt";
             this.neuroSurgeonTxt.Size = new System.Drawing.Size(905, 102);
             this.neuroSurgeonTxt.TabIndex = 1;
@@ -3346,9 +3370,9 @@
             // 
             this.surgeonBox.Controls.Add(this.surgeonTxt);
             this.surgeonBox.Location = new System.Drawing.Point(21, 162);
-            this.surgeonBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.surgeonBox.Margin = new System.Windows.Forms.Padding(4);
             this.surgeonBox.Name = "surgeonBox";
-            this.surgeonBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.surgeonBox.Padding = new System.Windows.Forms.Padding(4);
             this.surgeonBox.Size = new System.Drawing.Size(931, 134);
             this.surgeonBox.TabIndex = 6;
             this.surgeonBox.TabStop = false;
@@ -3357,7 +3381,7 @@
             // surgeonTxt
             // 
             this.surgeonTxt.Location = new System.Drawing.Point(12, 20);
-            this.surgeonTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.surgeonTxt.Margin = new System.Windows.Forms.Padding(4);
             this.surgeonTxt.Name = "surgeonTxt";
             this.surgeonTxt.Size = new System.Drawing.Size(905, 102);
             this.surgeonTxt.TabIndex = 1;
@@ -3367,9 +3391,9 @@
             // 
             this.neurologBox.Controls.Add(this.neurologTxt);
             this.neurologBox.Location = new System.Drawing.Point(21, 21);
-            this.neurologBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.neurologBox.Margin = new System.Windows.Forms.Padding(4);
             this.neurologBox.Name = "neurologBox";
-            this.neurologBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.neurologBox.Padding = new System.Windows.Forms.Padding(4);
             this.neurologBox.Size = new System.Drawing.Size(931, 134);
             this.neurologBox.TabIndex = 5;
             this.neurologBox.TabStop = false;
@@ -3378,7 +3402,7 @@
             // neurologTxt
             // 
             this.neurologTxt.Location = new System.Drawing.Point(16, 21);
-            this.neurologTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.neurologTxt.Margin = new System.Windows.Forms.Padding(4);
             this.neurologTxt.Name = "neurologTxt";
             this.neurologTxt.Size = new System.Drawing.Size(897, 102);
             this.neurologTxt.TabIndex = 0;
@@ -3387,7 +3411,7 @@
             // saveBtn
             // 
             this.saveBtn.Location = new System.Drawing.Point(1143, 11);
-            this.saveBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.saveBtn.Margin = new System.Windows.Forms.Padding(4);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(100, 28);
             this.saveBtn.TabIndex = 1;
@@ -3404,7 +3428,7 @@
             this.Controls.Add(this.tabs);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Analizi";
             this.Text = "ЭКГ, Рентген, Анализы:";
             this.tabs.ResumeLayout(false);
@@ -3497,7 +3521,7 @@
         private System.Windows.Forms.GroupBox deviationBox;
         private System.Windows.Forms.Button negativeTBtn;
         private System.Windows.Forms.Button depressionBtn;
-        private System.Windows.Forms.Button deviationBtn;
+        private System.Windows.Forms.Button elevation;
         private System.Windows.Forms.GroupBox rhytmGroupBox;
         private System.Windows.Forms.Button flutterBtn;
         private System.Windows.Forms.Button fibrillationBtn;

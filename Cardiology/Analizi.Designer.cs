@@ -1095,7 +1095,7 @@
             this.showABOFormBtn.Name = "showABOFormBtn";
             this.showABOFormBtn.Size = new System.Drawing.Size(221, 144);
             this.showABOFormBtn.TabIndex = 38;
-            this.showABOFormBtn.Text = "Группа крови, резус-фактор, KELL-ag, фенотип; СЕРОЛОГИЯ";
+            this.showABOFormBtn.Text = "Группа крови, резус-фактор, KELL-ag, фенотип; ИНФЕКЦИИ";
             this.showABOFormBtn.UseVisualStyleBackColor = true;
             this.showABOFormBtn.Click += new System.EventHandler(this.showABOFormBtn_Click);
             // 

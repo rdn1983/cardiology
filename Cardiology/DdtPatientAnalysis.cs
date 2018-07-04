@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Cardiology.Model
 {
@@ -25,6 +21,8 @@ namespace Cardiology.Model
         private string dsidSpecialistConclusion;
         [TableAttribute("dsid_xray")]
         private string dsidXray;
+        [TableAttribute("dsid_egds")]
+        private string dsidEgds;
 
         public string ObjectId
         {
@@ -47,5 +45,6 @@ namespace Cardiology.Model
         public string DsisUzi { get => dsisUzi; set => dsisUzi = value; }
         public string DsisUrineAnalysis { get => dsisUrineAnalysis; set => dsisUrineAnalysis = value; }
         public string DsidXray { get => dsidXray; set => dsidXray = value; }
+        public string DsidEgds { get => dsidEgds; set => dsidEgds = value; }
     }
 }

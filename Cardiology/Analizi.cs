@@ -8,14 +8,18 @@ namespace Cardiology
 {
     public partial class Analizi : Form
     {
+        private const int EGDS_TAB_INDX = 1;
+        private const int EKG_TAB_INDX = 0;
+        private const int SPECIALIST_TAB_INDX = 6;
+        private const int HOLTER_TAB_INDX = 5;
+        private const int XRAY_TAB_INDX = 4;
+        private const int URINE_TAB_INDX = 2;
+        private const int UZI_TAB_INDX = 3;
+        private const string REGULAR_ANALYSIS_QRY_TEMPLATE = @"SELECT * FROM {0} WHERE r_object_id='{1}'";
+        private const string FIRST_ANALYSIS_QRY_TEMPLATE = @"SELECT * FROM {0} WHERE dsb_admission_analysis=true and dsid_hospitality_session='{1}'";
+
         private DdtHospital hospitalitySession;
         private DdtPatientAnalysis patientAnalysis;
-
-        private DdtUzi uziObj;
-        private DdtSpecialistConclusion specialistConclusion;
-        private DdtHolter holter;
-        private DdtXRay xRay;
-        private DdtUrineAnalysis urineAnalysis;
 
         public Analizi(DdtHospital hospitalitySession, DdtPatientAnalysis analysis)
         {
@@ -23,26 +27,28 @@ namespace Cardiology
             this.patientAnalysis = analysis;
             InitializeComponent();
 
-            if (patientAnalysis!=null)
+            if (patientAnalysis != null)
             {
                 DataService service = new DataService();
-                uziObj = service.queryObject<DdtUzi>(@"select * from " + DdtUzi.TABLE_NAME + " WHERE r_object_id ='" + patientAnalysis.DsisUzi + "'");
-                specialistConclusion = service.queryObject<DdtSpecialistConclusion>(@"select * from " + DdtSpecialistConclusion.TABLE_NAME + " WHERE r_object_id ='" + patientAnalysis.DsidSpecialistConclusion + "'");
-                holter = service.queryObject<DdtHolter>(@"select * from " + DdtHolter.TABLE_NAME + " WHERE r_object_id ='" + patientAnalysis.DsidHolter + "'");
-                xRay = service.queryObject<DdtXRay>(@"select * from " + DdtXRay.TABLE_NAME + " WHERE r_object_id ='" + patientAnalysis.DsidXray + "'");
-                urineAnalysis = service.queryObject<DdtUrineAnalysis>(@"select * from " + DdtUrineAnalysis.TABLE_NAME + " WHERE r_object_id ='" + patientAnalysis.DsisUrineAnalysis + "'");
+                DdtUzi uziObj = service.queryObject<DdtUzi>(string.Format(REGULAR_ANALYSIS_QRY_TEMPLATE, DdtUzi.TABLE_NAME, patientAnalysis.DsisUzi));
+                DdtSpecialistConclusion specialistConclusion = service.queryObject<DdtSpecialistConclusion>(string.Format(REGULAR_ANALYSIS_QRY_TEMPLATE, DdtSpecialistConclusion.TABLE_NAME, patientAnalysis.DsidSpecialistConclusion));
+                DdtHolter holter = service.queryObject<DdtHolter>(string.Format(REGULAR_ANALYSIS_QRY_TEMPLATE, DdtHolter.TABLE_NAME, patientAnalysis.DsidHolter));
+                DdtXRay xRay = service.queryObject<DdtXRay>(string.Format(REGULAR_ANALYSIS_QRY_TEMPLATE, DdtXRay.TABLE_NAME, patientAnalysis.DsidXray));
+                DdtUrineAnalysis urineAnalysis = service.queryObject<DdtUrineAnalysis>(string.Format(REGULAR_ANALYSIS_QRY_TEMPLATE, DdtUrineAnalysis.TABLE_NAME, patientAnalysis.DsisUrineAnalysis));
+                DdtEgds egds = service.queryObject<DdtEgds>(string.Format(REGULAR_ANALYSIS_QRY_TEMPLATE, DdtEgds.TABLE_NAME, patientAnalysis.DsidEgds));
 
-                initUziTab();
-                intSpecialistConslusionTab();
-                initHolterTab();
-                initXRay();
-                initUrineAnalysis();
+                initUziTab(uziObj);
+                initHolterTab(holter);
+                initSpecialistConslusionTab(specialistConclusion);
+                initXRay(xRay);
+                initUrineAnalysis(urineAnalysis, service);
+                initEgdsAnalysis(egds, service);
             }
         }
 
-        private void initUziTab()
+        private void initUziTab(DdtUzi uziObj)
         {
-            if (CommonUtils.isNotBlank(patientAnalysis.DsisUzi))
+            if (CommonUtils.isNotBlank(patientAnalysis.DsisUzi) && uziObj != null)
             {
                 ehoKgTxt.Text = uziObj.DssEhoKg;
                 cdsTxt.Text = uziObj.DssCds;
@@ -52,9 +58,9 @@ namespace Cardiology
             }
         }
 
-        private void intSpecialistConslusionTab()
+        private void initSpecialistConslusionTab(DdtSpecialistConclusion specialistConclusion)
         {
-            if (CommonUtils.isNotBlank(patientAnalysis.DsidSpecialistConclusion))
+            if (CommonUtils.isNotBlank(patientAnalysis.DsidSpecialistConclusion) && specialistConclusion != null)
             {
                 neurologTxt.Text = specialistConclusion.DssNeurolog;
                 surgeonTxt.Text = specialistConclusion.DssSurgeon;
@@ -63,18 +69,18 @@ namespace Cardiology
             }
         }
 
-        private void initHolterTab()
+        private void initHolterTab(DdtHolter holter)
         {
-            if (CommonUtils.isNotBlank(patientAnalysis.DsidHolter))
+            if (CommonUtils.isNotBlank(patientAnalysis.DsidHolter) && holter != null)
             {
                 holterTxt.Text = holter.DssHolter;
                 monitoringAdTxt.Text = holter.DssMonitoringAd;
             }
         }
 
-        private void initXRay()
+        private void initXRay(DdtXRay xRay)
         {
-            if (CommonUtils.isNotBlank(patientAnalysis.DsidXray))
+            if (CommonUtils.isNotBlank(patientAnalysis.DsidXray) && xRay != null)
             {
                 chestXRayTxt.Text = xRay.DssChestXray;
                 controlRadiographyTxt.Text = xRay.DssControlRadiography;
@@ -84,9 +90,9 @@ namespace Cardiology
             }
         }
 
-        private void initUrineAnalysis()
+        private void initUrineAnalysis(DdtUrineAnalysis urineAnalysis, DataService service)
         {
-            if (CommonUtils.isNotBlank(patientAnalysis.DsisUrineAnalysis))
+            if (CommonUtils.isNotBlank(patientAnalysis.DsisUrineAnalysis) && urineAnalysis != null)
             {
                 colorTxt.Text = urineAnalysis.DssColor;
                 acidityTxt.Text = urineAnalysis.DssAcidity;
@@ -98,9 +104,7 @@ namespace Cardiology
                 specGravityTxt.Text = urineAnalysis.DssSpecificGravity;
             }
 
-            DataService servise = new DataService();
-            DdtUrineAnalysis firstAnalysis = servise.queryObject<DdtUrineAnalysis>(@"select * from ddt_urine_analysis where dsb_admission_analysis=true 
-                        and dsid_hospitality_session='" + hospitalitySession.ObjectId + "'");
+            DdtUrineAnalysis firstAnalysis = service.queryObject<DdtUrineAnalysis>(string.Format(FIRST_ANALYSIS_QRY_TEMPLATE, DdtUrineAnalysis.TABLE_NAME, hospitalitySession.ObjectId));
             if (firstAnalysis != null)
             {
                 firstColorTxt.Text = firstAnalysis.DssColor;
@@ -114,6 +118,21 @@ namespace Cardiology
             }
         }
 
+        private void initEgdsAnalysis(DdtEgds egds, DataService service)
+        {
+            if (CommonUtils.isNotBlank(patientAnalysis.DsidEgds) && egds != null)
+            {
+                regularEgdsTxt.Text = egds.DssEgds;
+            }
+
+            DdtEgds firstAnalysis = service.queryObject<DdtEgds>(string.Format(FIRST_ANALYSIS_QRY_TEMPLATE, DdtEgds.TABLE_NAME, hospitalitySession.ObjectId));
+            if (firstAnalysis != null)
+            {
+                firstEgdsTxt.Text = firstAnalysis.DssEgds;
+            }
+        }
+
+
 
         private void showABOFormBtn_Click(object sender, EventArgs e)
         {
@@ -125,7 +144,7 @@ namespace Cardiology
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
-            if (patientAnalysis==null)
+            if (patientAnalysis == null)
             {
                 patientAnalysis = new DdtPatientAnalysis();
                 patientAnalysis.DsidHospitalitySession = hospitalitySession.ObjectId;
@@ -135,6 +154,7 @@ namespace Cardiology
             saveSpecialistConslusionTab(service);
             saveHolterTab(service);
             saveXRayTab(service);
+            saveEgdsAnalysisTab(service);
 
             updateObject<DdtPatientAnalysis>(service, patientAnalysis, DdtPatientAnalysis.TABLE_NAME, patientAnalysis.ObjectId);
             Close();
@@ -143,8 +163,9 @@ namespace Cardiology
 
         private void saveUziTab(DataService service)
         {
-            if (isNeedSaveTab(3))
+            if (isNeedSaveTab(UZI_TAB_INDX))
             {
+                DdtUzi uziObj = service.queryObject<DdtUzi>(string.Format(REGULAR_ANALYSIS_QRY_TEMPLATE, DdtUzi.TABLE_NAME, patientAnalysis.DsisUzi));
                 if (uziObj == null)
                 {
                     uziObj = new DdtUzi();
@@ -164,8 +185,9 @@ namespace Cardiology
 
         private void saveSpecialistConslusionTab(DataService service)
         {
-            if (isNeedSaveTab(6))
+            if (isNeedSaveTab(SPECIALIST_TAB_INDX))
             {
+                DdtSpecialistConclusion specialistConclusion = service.queryObject<DdtSpecialistConclusion>(string.Format(REGULAR_ANALYSIS_QRY_TEMPLATE, DdtSpecialistConclusion.TABLE_NAME, patientAnalysis.DsidSpecialistConclusion));
                 if (specialistConclusion == null)
                 {
                     specialistConclusion = new DdtSpecialistConclusion();
@@ -184,8 +206,9 @@ namespace Cardiology
 
         private void saveHolterTab(DataService service)
         {
-            if (isNeedSaveTab(5))
+            if (isNeedSaveTab(HOLTER_TAB_INDX))
             {
+                DdtHolter holter = service.queryObject<DdtHolter>(string.Format(REGULAR_ANALYSIS_QRY_TEMPLATE, DdtHolter.TABLE_NAME, patientAnalysis.DsidHolter));
                 if (holter == null)
                 {
                     holter = new DdtHolter();
@@ -202,8 +225,9 @@ namespace Cardiology
 
         private void saveXRayTab(DataService service)
         {
-            if (isNeedSaveTab(4))
+            if (isNeedSaveTab(XRAY_TAB_INDX))
             {
+                DdtXRay xRay = service.queryObject<DdtXRay>(string.Format(REGULAR_ANALYSIS_QRY_TEMPLATE, DdtXRay.TABLE_NAME, patientAnalysis.DsidXray));
                 if (xRay == null)
                 {
                     xRay = new DdtXRay();
@@ -223,8 +247,9 @@ namespace Cardiology
 
         private void saveUrineAnalysisTab(DataService service)
         {
-            if (isNeedSaveTab(2))
+            if (isNeedSaveTab(URINE_TAB_INDX))
             {
+                DdtUrineAnalysis urineAnalysis = service.queryObject<DdtUrineAnalysis>(string.Format(REGULAR_ANALYSIS_QRY_TEMPLATE, DdtUrineAnalysis.TABLE_NAME, patientAnalysis.DsisUrineAnalysis));
                 if (urineAnalysis == null)
                 {
                     urineAnalysis = new DdtUrineAnalysis();
@@ -245,6 +270,24 @@ namespace Cardiology
             }
         }
 
+        private void saveEgdsAnalysisTab(DataService service)
+        {
+            if (isNeedSaveTab(EGDS_TAB_INDX))
+            {
+                DdtEgds egds = service.queryObject<DdtEgds>(string.Format(REGULAR_ANALYSIS_QRY_TEMPLATE, DdtEgds.TABLE_NAME, patientAnalysis.DsidEgds));
+                if (egds == null)
+                {
+                    egds = new DdtEgds();
+                    egds.DsidHospitalitySession = hospitalitySession.ObjectId;
+                    egds.DsidDoctor = hospitalitySession.DsidCuringDoctor;
+                    egds.DsidPatient = hospitalitySession.DsidPatient;
+                }
+                egds.DssEgds = regularEgdsTxt.Text;
+                string id = updateObject<DdtEgds>(service, egds, DdtEgds.TABLE_NAME, egds.ObjectId);
+                patientAnalysis.DsidEgds = id;
+            }
+        }
+
         private string updateObject<T>(DataService service, T obj, string tablName, string objId)
         {
             if (CommonUtils.isBlank(objId))
@@ -262,22 +305,24 @@ namespace Cardiology
         {
             switch (tabindex)
             {
-                case 2:
+                case URINE_TAB_INDX:
                     return CommonUtils.isNotBlank(acidityTxt.Text) || CommonUtils.isNotBlank(colorTxt.Text) ||
                         CommonUtils.isNotBlank(erythrocytesTxt.Text) || CommonUtils.isNotBlank(glucoseTxt.Text) ||
                         CommonUtils.isNotBlank(leukocytesTxt.Text) || CommonUtils.isNotBlank(proteinTxt.Text) ||
                          CommonUtils.isNotBlank(specGravityTxt.Text) || CommonUtils.isNotBlank(ketonesTxt.Text);
-                case 3:
+                case UZI_TAB_INDX:
                     return CommonUtils.isNotBlank(ehoKgTxt.Text) || CommonUtils.isNotBlank(cdsTxt.Text) ||
                         CommonUtils.isNotBlank(pleursUziTxt.Text) || CommonUtils.isNotBlank(uzdTxt.Text) || CommonUtils.isNotBlank(uziObpTxt.Text);
-                case 4:
+                case XRAY_TAB_INDX:
                     return CommonUtils.isNotBlank(chestXRayTxt.Text) || CommonUtils.isNotBlank(controlRadiographyTxt.Text) ||
                         CommonUtils.isNotBlank(ktTxt.Text) || CommonUtils.isNotBlank(mrtTxt.Text) || CommonUtils.isNotBlank(msktTxt.Text);
-                case 5:
+                case HOLTER_TAB_INDX:
                     return CommonUtils.isNotBlank(holterTxt.Text) || CommonUtils.isNotBlank(monitoringAdTxt.Text);
-                case 6:
+                case SPECIALIST_TAB_INDX:
                     return CommonUtils.isNotBlank(endocrinologistTx.Text) || CommonUtils.isNotBlank(neurologTxt.Text) ||
                         CommonUtils.isNotBlank(neuroSurgeonTxt.Text) || CommonUtils.isNotBlank(surgeonTxt.Text);
+                case EGDS_TAB_INDX:
+                    return CommonUtils.isNotBlank(regularEgdsTxt.Text);
                 default: return false;
             }
         }
@@ -395,6 +440,43 @@ namespace Cardiology
         private void button27_Click(object sender, EventArgs e)
         {
             richTextBox2.Text = richTextBox2.Text + "-";
+        }
+
+        private void cutMi_Click(object sender, EventArgs e)
+        {
+            object sourceCtrl = contextMenu.SourceControl;
+            if (sourceCtrl.GetType() == typeof(RichTextBox) || sourceCtrl.GetType() == typeof(TextBox))
+            {
+                TextBoxBase txtCtrl = (TextBoxBase)sourceCtrl;
+                string selectedText = txtCtrl.SelectedText;
+                if (CommonUtils.isNotBlank(selectedText))
+                {
+                    Clipboard.SetText(selectedText);
+                    txtCtrl.Text = txtCtrl.Text.Remove(txtCtrl.SelectionStart, selectedText.Length);
+                }
+            }
+        }
+
+        private void copyMi_Click(object sender, EventArgs e)
+        {
+            object sourceCtrl = contextMenu.SourceControl;
+            if (sourceCtrl.GetType() == typeof(RichTextBox) || sourceCtrl.GetType() == typeof(TextBox))
+            {
+                TextBoxBase txtCtrl = (TextBoxBase)sourceCtrl;
+                string selectedText = txtCtrl.SelectedText;
+                Clipboard.SetText(selectedText);
+            }
+        }
+
+        private void pasteMi_Click(object sender, EventArgs e)
+        {
+            object sourceCtrl = contextMenu.SourceControl;
+            if (sourceCtrl.GetType() == typeof(RichTextBox) || sourceCtrl.GetType() == typeof(TextBox))
+            {
+                TextBoxBase txtCtrl = (TextBoxBase)sourceCtrl;
+                txtCtrl.Text = txtCtrl.Text + Clipboard.GetText();
+            }
+
         }
     }
 }

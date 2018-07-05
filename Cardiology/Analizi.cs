@@ -533,5 +533,15 @@ namespace Cardiology
             }
 
         }
+
+        private void kagStartTime_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime startTime = kagStartTime.Value;
+            if (startTime != null)
+            {
+                kagEndTime.Value = startTime.AddHours(1);
+            }
+
+        }
     }
 }

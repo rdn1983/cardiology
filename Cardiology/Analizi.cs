@@ -28,6 +28,8 @@ namespace Cardiology
             this.patientAnalysis = analysis;
             InitializeComponent();
 
+            DdtKag kag = null;
+
             if (patientAnalysis != null)
             {
                 DataService service = new DataService();
@@ -37,7 +39,7 @@ namespace Cardiology
                 DdtXRay xRay = service.queryObject<DdtXRay>(string.Format(REGULAR_ANALYSIS_QRY_TEMPLATE, DdtXRay.TABLE_NAME, patientAnalysis.DsidXray));
                 DdtUrineAnalysis urineAnalysis = service.queryObject<DdtUrineAnalysis>(string.Format(REGULAR_ANALYSIS_QRY_TEMPLATE, DdtUrineAnalysis.TABLE_NAME, patientAnalysis.DsisUrineAnalysis));
                 DdtEgds egds = service.queryObject<DdtEgds>(string.Format(REGULAR_ANALYSIS_QRY_TEMPLATE, DdtEgds.TABLE_NAME, patientAnalysis.DsidEgds));
-                DdtKag kag = service.queryObject<DdtKag>(string.Format(REGULAR_ANALYSIS_QRY_TEMPLATE, DdtKag.TABLE_NAME, patientAnalysis.DsidKag));
+                kag = service.queryObject<DdtKag>(string.Format(REGULAR_ANALYSIS_QRY_TEMPLATE, DdtKag.TABLE_NAME, patientAnalysis.DsidKag));
 
                 initUziTab(uziObj);
                 initHolterTab(holter);
@@ -45,8 +47,8 @@ namespace Cardiology
                 initXRay(xRay);
                 initUrineAnalysis(urineAnalysis, service);
                 initEgdsAnalysis(egds, service);
-                initKagAnalysis(kag);
             }
+            initKagAnalysis(kag);
         }
 
         private void initUziTab(DdtUzi uziObj)
@@ -137,7 +139,7 @@ namespace Cardiology
 
         private void initKagAnalysis(DdtKag kag)
         {
-            if (CommonUtils.isNotBlank(patientAnalysis.DsidKag) && kag != null)
+            if (patientAnalysis != null && CommonUtils.isNotBlank(patientAnalysis.DsidKag) && kag != null)
             {
                 kagResultsTxt.Text = kag.DssResults;
                 kagManipulationTxt.Text = kag.DssKagManipulation;
@@ -145,10 +147,13 @@ namespace Cardiology
                 kagDate.Value = startTime;
                 kagStartTime.Value = startTime;
                 kagEndTime.Value = kag.DsdtEndTime;
-                
-            } else
+
+            }
+            else
             {
-                //kagStartTime.Value();
+                DateTime admissionDate = hospitalitySession.DsdtAdmissionDate;
+                kagDate.Value = admissionDate;
+                kagStartTime.Value = admissionDate.AddMinutes(30);
             }
         }
 
@@ -325,7 +330,7 @@ namespace Cardiology
                 kag.DssResults = kagResultsTxt.Text;
                 kag.DsdtStartTime = constructDateWIthTime(kagDate.Value, kagStartTime.Value);
                 kag.DsdtEndTime = constructDateWIthTime(kagDate.Value, kagEndTime.Value);
-                
+
                 string id = updateObject<DdtKag>(service, kag, DdtKag.TABLE_NAME, kag.ObjectId);
                 patientAnalysis.DsidKag = id;
             }

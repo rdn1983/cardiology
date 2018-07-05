@@ -32,18 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Analizi));
             this.tabs = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.coronographyGroupBox = new System.Windows.Forms.GroupBox();
-            this.coronographyManipulationBox = new System.Windows.Forms.GroupBox();
-            this.kgManipulatioTxt = new System.Windows.Forms.RichTextBox();
-            this.coronographyResultsBox = new System.Windows.Forms.GroupBox();
-            this.kgResultsTxt = new System.Windows.Forms.RichTextBox();
-            this.coronographyTimeBox = new System.Windows.Forms.GroupBox();
-            this.kgTimeStart = new System.Windows.Forms.DateTimePicker();
-            this.kgTimeEnd = new System.Windows.Forms.DateTimePicker();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.coronographyDateBox = new System.Windows.Forms.GroupBox();
-            this.kgDate = new System.Windows.Forms.DateTimePicker();
             this.ekgTabContainer = new System.Windows.Forms.TabControl();
             this.firstEkgTab = new System.Windows.Forms.TabPage();
             this.firstEkgTxt = new System.Windows.Forms.RichTextBox();
@@ -324,13 +312,20 @@
             this.cutMi = new System.Windows.Forms.ToolStripMenuItem();
             this.copyMi = new System.Windows.Forms.ToolStripMenuItem();
             this.pasteMi = new System.Windows.Forms.ToolStripMenuItem();
+            this.kagTab = new System.Windows.Forms.TabPage();
+            this.manipulationBox = new System.Windows.Forms.GroupBox();
+            this.kagManipulationTxt = new System.Windows.Forms.RichTextBox();
+            this.resultsBox = new System.Windows.Forms.GroupBox();
+            this.kagResultsTxt = new System.Windows.Forms.RichTextBox();
+            this.kagTimeBox = new System.Windows.Forms.GroupBox();
+            this.kagStartTime = new System.Windows.Forms.DateTimePicker();
+            this.kagEndTime = new System.Windows.Forms.DateTimePicker();
+            this.endTimeLbl = new System.Windows.Forms.Label();
+            this.startTimeLbl = new System.Windows.Forms.Label();
+            this.kagDateBox = new System.Windows.Forms.GroupBox();
+            this.kagDate = new System.Windows.Forms.DateTimePicker();
             this.tabs.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.coronographyGroupBox.SuspendLayout();
-            this.coronographyManipulationBox.SuspendLayout();
-            this.coronographyResultsBox.SuspendLayout();
-            this.coronographyTimeBox.SuspendLayout();
-            this.coronographyDateBox.SuspendLayout();
             this.ekgTabContainer.SuspendLayout();
             this.firstEkgTab.SuspendLayout();
             this.ekgTab.SuspendLayout();
@@ -371,11 +366,17 @@
             this.surgeonBox.SuspendLayout();
             this.neurologBox.SuspendLayout();
             this.contextMenu.SuspendLayout();
+            this.kagTab.SuspendLayout();
+            this.manipulationBox.SuspendLayout();
+            this.resultsBox.SuspendLayout();
+            this.kagTimeBox.SuspendLayout();
+            this.kagDateBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabs
             // 
             this.tabs.Controls.Add(this.tabPage1);
+            this.tabs.Controls.Add(this.kagTab);
             this.tabs.Controls.Add(this.egdsTab);
             this.tabs.Controls.Add(this.bloodTab);
             this.tabs.Controls.Add(this.urineTab);
@@ -391,7 +392,6 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.coronographyGroupBox);
             this.tabPage1.Controls.Add(this.ekgTabContainer);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
@@ -400,120 +400,6 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "ЭКГ, КАГ, ЭГДС";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // coronographyGroupBox
-            // 
-            this.coronographyGroupBox.Controls.Add(this.coronographyManipulationBox);
-            this.coronographyGroupBox.Controls.Add(this.coronographyResultsBox);
-            this.coronographyGroupBox.Controls.Add(this.coronographyTimeBox);
-            this.coronographyGroupBox.Controls.Add(this.coronographyDateBox);
-            this.coronographyGroupBox.Location = new System.Drawing.Point(6, 289);
-            this.coronographyGroupBox.Name = "coronographyGroupBox";
-            this.coronographyGroupBox.Size = new System.Drawing.Size(400, 358);
-            this.coronographyGroupBox.TabIndex = 1;
-            this.coronographyGroupBox.TabStop = false;
-            this.coronographyGroupBox.Text = "Коронаграфия:";
-            // 
-            // coronographyManipulationBox
-            // 
-            this.coronographyManipulationBox.Controls.Add(this.kgManipulatioTxt);
-            this.coronographyManipulationBox.Location = new System.Drawing.Point(6, 226);
-            this.coronographyManipulationBox.Name = "coronographyManipulationBox";
-            this.coronographyManipulationBox.Size = new System.Drawing.Size(388, 124);
-            this.coronographyManipulationBox.TabIndex = 3;
-            this.coronographyManipulationBox.TabStop = false;
-            this.coronographyManipulationBox.Text = "Больному выполнено";
-            // 
-            // kgManipulatioTxt
-            // 
-            this.kgManipulatioTxt.Location = new System.Drawing.Point(6, 16);
-            this.kgManipulatioTxt.Name = "kgManipulatioTxt";
-            this.kgManipulatioTxt.Size = new System.Drawing.Size(376, 101);
-            this.kgManipulatioTxt.TabIndex = 0;
-            this.kgManipulatioTxt.Text = "";
-            // 
-            // coronographyResultsBox
-            // 
-            this.coronographyResultsBox.Controls.Add(this.kgResultsTxt);
-            this.coronographyResultsBox.Location = new System.Drawing.Point(4, 100);
-            this.coronographyResultsBox.Name = "coronographyResultsBox";
-            this.coronographyResultsBox.Size = new System.Drawing.Size(390, 120);
-            this.coronographyResultsBox.TabIndex = 2;
-            this.coronographyResultsBox.TabStop = false;
-            this.coronographyResultsBox.Text = "По данным КГ выявлено";
-            // 
-            // kgResultsTxt
-            // 
-            this.kgResultsTxt.Location = new System.Drawing.Point(7, 19);
-            this.kgResultsTxt.Name = "kgResultsTxt";
-            this.kgResultsTxt.Size = new System.Drawing.Size(377, 96);
-            this.kgResultsTxt.TabIndex = 0;
-            this.kgResultsTxt.Text = "";
-            // 
-            // coronographyTimeBox
-            // 
-            this.coronographyTimeBox.Controls.Add(this.kgTimeStart);
-            this.coronographyTimeBox.Controls.Add(this.kgTimeEnd);
-            this.coronographyTimeBox.Controls.Add(this.label2);
-            this.coronographyTimeBox.Controls.Add(this.label1);
-            this.coronographyTimeBox.Location = new System.Drawing.Point(190, 22);
-            this.coronographyTimeBox.Name = "coronographyTimeBox";
-            this.coronographyTimeBox.Size = new System.Drawing.Size(204, 72);
-            this.coronographyTimeBox.TabIndex = 1;
-            this.coronographyTimeBox.TabStop = false;
-            this.coronographyTimeBox.Text = "Время";
-            // 
-            // kgTimeStart
-            // 
-            this.kgTimeStart.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.kgTimeStart.Location = new System.Drawing.Point(51, 14);
-            this.kgTimeStart.Name = "kgTimeStart";
-            this.kgTimeStart.Size = new System.Drawing.Size(147, 20);
-            this.kgTimeStart.TabIndex = 2;
-            // 
-            // kgTimeEnd
-            // 
-            this.kgTimeEnd.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.kgTimeEnd.Location = new System.Drawing.Point(51, 41);
-            this.kgTimeEnd.Name = "kgTimeEnd";
-            this.kgTimeEnd.Size = new System.Drawing.Size(147, 20);
-            this.kgTimeEnd.TabIndex = 2;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 41);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Конец:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Начало:";
-            // 
-            // coronographyDateBox
-            // 
-            this.coronographyDateBox.Controls.Add(this.kgDate);
-            this.coronographyDateBox.Location = new System.Drawing.Point(6, 22);
-            this.coronographyDateBox.Name = "coronographyDateBox";
-            this.coronographyDateBox.Size = new System.Drawing.Size(178, 72);
-            this.coronographyDateBox.TabIndex = 0;
-            this.coronographyDateBox.TabStop = false;
-            this.coronographyDateBox.Text = "Дата";
-            // 
-            // kgDate
-            // 
-            this.kgDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.kgDate.Location = new System.Drawing.Point(9, 25);
-            this.kgDate.Name = "kgDate";
-            this.kgDate.Size = new System.Drawing.Size(158, 20);
-            this.kgDate.TabIndex = 0;
             // 
             // ekgTabContainer
             // 
@@ -3109,28 +2995,148 @@
             this.copyMi,
             this.pasteMi});
             this.contextMenu.Name = "contextMenu";
-            this.contextMenu.Size = new System.Drawing.Size(181, 92);
+            this.contextMenu.Size = new System.Drawing.Size(140, 70);
             // 
             // cutMi
             // 
             this.cutMi.Name = "cutMi";
-            this.cutMi.Size = new System.Drawing.Size(180, 22);
+            this.cutMi.Size = new System.Drawing.Size(139, 22);
             this.cutMi.Text = "Вырезать";
             this.cutMi.Click += new System.EventHandler(this.cutMi_Click);
             // 
             // copyMi
             // 
             this.copyMi.Name = "copyMi";
-            this.copyMi.Size = new System.Drawing.Size(180, 22);
+            this.copyMi.Size = new System.Drawing.Size(139, 22);
             this.copyMi.Text = "Копировать";
             this.copyMi.Click += new System.EventHandler(this.copyMi_Click);
             // 
             // pasteMi
             // 
             this.pasteMi.Name = "pasteMi";
-            this.pasteMi.Size = new System.Drawing.Size(180, 22);
+            this.pasteMi.Size = new System.Drawing.Size(139, 22);
             this.pasteMi.Text = "Вставить";
             this.pasteMi.Click += new System.EventHandler(this.pasteMi_Click);
+            // 
+            // kagTab
+            // 
+            this.kagTab.Controls.Add(this.manipulationBox);
+            this.kagTab.Controls.Add(this.resultsBox);
+            this.kagTab.Controls.Add(this.kagTimeBox);
+            this.kagTab.Controls.Add(this.kagDateBox);
+            this.kagTab.Location = new System.Drawing.Point(4, 22);
+            this.kagTab.Name = "kagTab";
+            this.kagTab.Size = new System.Drawing.Size(916, 661);
+            this.kagTab.TabIndex = 8;
+            this.kagTab.Text = "КАГ";
+            this.kagTab.UseVisualStyleBackColor = true;
+            // 
+            // manipulationBox
+            // 
+            this.manipulationBox.Controls.Add(this.kagManipulationTxt);
+            this.manipulationBox.Location = new System.Drawing.Point(15, 221);
+            this.manipulationBox.Name = "manipulationBox";
+            this.manipulationBox.Size = new System.Drawing.Size(878, 124);
+            this.manipulationBox.TabIndex = 7;
+            this.manipulationBox.TabStop = false;
+            this.manipulationBox.Text = "Больному выполнено";
+            // 
+            // kagManipulationTxt
+            // 
+            this.kagManipulationTxt.ContextMenuStrip = this.contextMenu;
+            this.kagManipulationTxt.Location = new System.Drawing.Point(6, 16);
+            this.kagManipulationTxt.Name = "kagManipulationTxt";
+            this.kagManipulationTxt.Size = new System.Drawing.Size(866, 101);
+            this.kagManipulationTxt.TabIndex = 0;
+            this.kagManipulationTxt.Text = "";
+            // 
+            // resultsBox
+            // 
+            this.resultsBox.Controls.Add(this.kagResultsTxt);
+            this.resultsBox.Location = new System.Drawing.Point(13, 95);
+            this.resultsBox.Name = "resultsBox";
+            this.resultsBox.Size = new System.Drawing.Size(880, 120);
+            this.resultsBox.TabIndex = 6;
+            this.resultsBox.TabStop = false;
+            this.resultsBox.Text = "По данным КГ выявлено";
+            // 
+            // kagResultsTxt
+            // 
+            this.kagResultsTxt.ContextMenuStrip = this.contextMenu;
+            this.kagResultsTxt.Location = new System.Drawing.Point(7, 19);
+            this.kagResultsTxt.Name = "kagResultsTxt";
+            this.kagResultsTxt.Size = new System.Drawing.Size(867, 96);
+            this.kagResultsTxt.TabIndex = 0;
+            this.kagResultsTxt.Text = "";
+            // 
+            // kagTimeBox
+            // 
+            this.kagTimeBox.Controls.Add(this.kagStartTime);
+            this.kagTimeBox.Controls.Add(this.kagEndTime);
+            this.kagTimeBox.Controls.Add(this.endTimeLbl);
+            this.kagTimeBox.Controls.Add(this.startTimeLbl);
+            this.kagTimeBox.Location = new System.Drawing.Point(199, 17);
+            this.kagTimeBox.Name = "kagTimeBox";
+            this.kagTimeBox.Size = new System.Drawing.Size(204, 72);
+            this.kagTimeBox.TabIndex = 5;
+            this.kagTimeBox.TabStop = false;
+            this.kagTimeBox.Text = "Время";
+            // 
+            // kagStartTime
+            // 
+            this.kagStartTime.CustomFormat = "HH:mm tt";
+            this.kagStartTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.kagStartTime.Location = new System.Drawing.Point(51, 14);
+            this.kagStartTime.Name = "kagStartTime";
+            this.kagStartTime.ShowUpDown = true;
+            this.kagStartTime.Size = new System.Drawing.Size(147, 20);
+            this.kagStartTime.TabIndex = 2;
+            // 
+            // kagEndTime
+            // 
+            this.kagEndTime.CustomFormat = "HH:mm tt";
+            this.kagEndTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.kagEndTime.Location = new System.Drawing.Point(51, 41);
+            this.kagEndTime.Name = "kagEndTime";
+            this.kagEndTime.ShowUpDown = true;
+            this.kagEndTime.Size = new System.Drawing.Size(147, 20);
+            this.kagEndTime.TabIndex = 2;
+            // 
+            // endTimeLbl
+            // 
+            this.endTimeLbl.AutoSize = true;
+            this.endTimeLbl.Location = new System.Drawing.Point(10, 41);
+            this.endTimeLbl.Name = "endTimeLbl";
+            this.endTimeLbl.Size = new System.Drawing.Size(41, 13);
+            this.endTimeLbl.TabIndex = 1;
+            this.endTimeLbl.Text = "Конец:";
+            // 
+            // startTimeLbl
+            // 
+            this.startTimeLbl.AutoSize = true;
+            this.startTimeLbl.Location = new System.Drawing.Point(7, 20);
+            this.startTimeLbl.Name = "startTimeLbl";
+            this.startTimeLbl.Size = new System.Drawing.Size(47, 13);
+            this.startTimeLbl.TabIndex = 0;
+            this.startTimeLbl.Text = "Начало:";
+            // 
+            // kagDateBox
+            // 
+            this.kagDateBox.Controls.Add(this.kagDate);
+            this.kagDateBox.Location = new System.Drawing.Point(15, 17);
+            this.kagDateBox.Name = "kagDateBox";
+            this.kagDateBox.Size = new System.Drawing.Size(178, 72);
+            this.kagDateBox.TabIndex = 4;
+            this.kagDateBox.TabStop = false;
+            this.kagDateBox.Text = "Дата";
+            // 
+            // kagDate
+            // 
+            this.kagDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.kagDate.Location = new System.Drawing.Point(9, 25);
+            this.kagDate.Name = "kagDate";
+            this.kagDate.Size = new System.Drawing.Size(158, 20);
+            this.kagDate.TabIndex = 0;
             // 
             // Analizi
             // 
@@ -3145,12 +3151,6 @@
             this.Text = "ЭКГ, Рентген, Анализы:";
             this.tabs.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.coronographyGroupBox.ResumeLayout(false);
-            this.coronographyManipulationBox.ResumeLayout(false);
-            this.coronographyResultsBox.ResumeLayout(false);
-            this.coronographyTimeBox.ResumeLayout(false);
-            this.coronographyTimeBox.PerformLayout();
-            this.coronographyDateBox.ResumeLayout(false);
             this.ekgTabContainer.ResumeLayout(false);
             this.firstEkgTab.ResumeLayout(false);
             this.ekgTab.ResumeLayout(false);
@@ -3199,6 +3199,12 @@
             this.surgeonBox.ResumeLayout(false);
             this.neurologBox.ResumeLayout(false);
             this.contextMenu.ResumeLayout(false);
+            this.kagTab.ResumeLayout(false);
+            this.manipulationBox.ResumeLayout(false);
+            this.resultsBox.ResumeLayout(false);
+            this.kagTimeBox.ResumeLayout(false);
+            this.kagTimeBox.PerformLayout();
+            this.kagDateBox.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -3239,18 +3245,6 @@
         private System.Windows.Forms.Button flutterBtn;
         private System.Windows.Forms.Button fibrillationBtn;
         private System.Windows.Forms.Button rhytmSinusBtn;
-        private System.Windows.Forms.GroupBox coronographyGroupBox;
-        private System.Windows.Forms.GroupBox coronographyManipulationBox;
-        private System.Windows.Forms.GroupBox coronographyResultsBox;
-        private System.Windows.Forms.GroupBox coronographyTimeBox;
-        private System.Windows.Forms.DateTimePicker kgTimeStart;
-        private System.Windows.Forms.DateTimePicker kgTimeEnd;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox coronographyDateBox;
-        private System.Windows.Forms.DateTimePicker kgDate;
-        private System.Windows.Forms.RichTextBox kgManipulatioTxt;
-        private System.Windows.Forms.RichTextBox kgResultsTxt;
         private System.Windows.Forms.TabPage urineTab;
         private System.Windows.Forms.TabPage uziTab;
         private System.Windows.Forms.TabPage xRayTab;
@@ -3499,5 +3493,17 @@
         private System.Windows.Forms.ToolStripMenuItem cutMi;
         private System.Windows.Forms.ToolStripMenuItem copyMi;
         private System.Windows.Forms.ToolStripMenuItem pasteMi;
+        private System.Windows.Forms.TabPage kagTab;
+        private System.Windows.Forms.GroupBox manipulationBox;
+        private System.Windows.Forms.RichTextBox kagManipulationTxt;
+        private System.Windows.Forms.GroupBox resultsBox;
+        private System.Windows.Forms.RichTextBox kagResultsTxt;
+        private System.Windows.Forms.GroupBox kagTimeBox;
+        private System.Windows.Forms.DateTimePicker kagStartTime;
+        private System.Windows.Forms.DateTimePicker kagEndTime;
+        private System.Windows.Forms.Label endTimeLbl;
+        private System.Windows.Forms.Label startTimeLbl;
+        private System.Windows.Forms.GroupBox kagDateBox;
+        private System.Windows.Forms.DateTimePicker kagDate;
     }
 }

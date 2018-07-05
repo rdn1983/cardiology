@@ -78,6 +78,7 @@
     <Compile Include="DdtHospital.cs" />
     <Compile Include="DdtIssuedMedicine.cs" />
     <Compile Include="DdtJournal.cs" />
+    <Compile Include="DdtKag.cs" />
     <Compile Include="DdtPatientAnalysis.cs" />
     <Compile Include="DdtSerology.cs" />
     <Compile Include="DdtSpecialistConclusion.cs" />

@@ -232,7 +232,7 @@ namespace Cardiology
             }
             else if (fieldType == typeof(DateTime))
             {
-                return (@"to_date('" + value + "', 'YYYY-MM-DD')");
+                return (@"to_timestamp('" + value + "', 'DD.MM.YYYY HH24:mi:ss')");
             }
             else
             {

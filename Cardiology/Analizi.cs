@@ -15,6 +15,7 @@ namespace Cardiology
         private const int XRAY_TAB_INDX = 4;
         private const int URINE_TAB_INDX = 2;
         private const int UZI_TAB_INDX = 3;
+        private const int KAG_TAB_INDX = 7;
         private const string REGULAR_ANALYSIS_QRY_TEMPLATE = @"SELECT * FROM {0} WHERE r_object_id='{1}'";
         private const string FIRST_ANALYSIS_QRY_TEMPLATE = @"SELECT * FROM {0} WHERE dsb_admission_analysis=true and dsid_hospitality_session='{1}'";
 
@@ -36,6 +37,7 @@ namespace Cardiology
                 DdtXRay xRay = service.queryObject<DdtXRay>(string.Format(REGULAR_ANALYSIS_QRY_TEMPLATE, DdtXRay.TABLE_NAME, patientAnalysis.DsidXray));
                 DdtUrineAnalysis urineAnalysis = service.queryObject<DdtUrineAnalysis>(string.Format(REGULAR_ANALYSIS_QRY_TEMPLATE, DdtUrineAnalysis.TABLE_NAME, patientAnalysis.DsisUrineAnalysis));
                 DdtEgds egds = service.queryObject<DdtEgds>(string.Format(REGULAR_ANALYSIS_QRY_TEMPLATE, DdtEgds.TABLE_NAME, patientAnalysis.DsidEgds));
+                DdtKag kag = service.queryObject<DdtKag>(string.Format(REGULAR_ANALYSIS_QRY_TEMPLATE, DdtKag.TABLE_NAME, patientAnalysis.DsidKag));
 
                 initUziTab(uziObj);
                 initHolterTab(holter);
@@ -43,6 +45,7 @@ namespace Cardiology
                 initXRay(xRay);
                 initUrineAnalysis(urineAnalysis, service);
                 initEgdsAnalysis(egds, service);
+                initKagAnalysis(kag);
             }
         }
 
@@ -132,6 +135,23 @@ namespace Cardiology
             }
         }
 
+        private void initKagAnalysis(DdtKag kag)
+        {
+            if (CommonUtils.isNotBlank(patientAnalysis.DsidKag) && kag != null)
+            {
+                kagResultsTxt.Text = kag.DssResults;
+                kagManipulationTxt.Text = kag.DssKagManipulation;
+                DateTime startTime = kag.DsdtStartTime;
+                kagDate.Value = startTime;
+                kagStartTime.Value = startTime;
+                kagEndTime.Value = kag.DsdtEndTime;
+                
+            } else
+            {
+                //kagStartTime.Value();
+            }
+        }
+
 
 
         private void showABOFormBtn_Click(object sender, EventArgs e)
@@ -155,6 +175,7 @@ namespace Cardiology
             saveHolterTab(service);
             saveXRayTab(service);
             saveEgdsAnalysisTab(service);
+            saveKagAnalysisTab(service);
 
             updateObject<DdtPatientAnalysis>(service, patientAnalysis, DdtPatientAnalysis.TABLE_NAME, patientAnalysis.ObjectId);
             Close();
@@ -288,6 +309,33 @@ namespace Cardiology
             }
         }
 
+        private void saveKagAnalysisTab(DataService service)
+        {
+            if (isNeedSaveTab(KAG_TAB_INDX))
+            {
+                DdtKag kag = service.queryObject<DdtKag>(string.Format(REGULAR_ANALYSIS_QRY_TEMPLATE, DdtKag.TABLE_NAME, patientAnalysis.DsidKag));
+                if (kag == null)
+                {
+                    kag = new DdtKag();
+                    kag.DsidHospitalitySession = hospitalitySession.ObjectId;
+                    kag.DsidDoctor = hospitalitySession.DsidCuringDoctor;
+                    kag.DsidPatient = hospitalitySession.DsidPatient;
+                }
+                kag.DssKagManipulation = kagManipulationTxt.Text;
+                kag.DssResults = kagResultsTxt.Text;
+                kag.DsdtStartTime = constructDateWIthTime(kagDate.Value, kagStartTime.Value);
+                kag.DsdtEndTime = constructDateWIthTime(kagDate.Value, kagEndTime.Value);
+                
+                string id = updateObject<DdtKag>(service, kag, DdtKag.TABLE_NAME, kag.ObjectId);
+                patientAnalysis.DsidKag = id;
+            }
+        }
+
+        private DateTime constructDateWIthTime(DateTime dateSource, DateTime timeSource)
+        {
+            return new DateTime(dateSource.Year, dateSource.Month, dateSource.Day, timeSource.Hour, timeSource.Minute, 0);
+        }
+
         private string updateObject<T>(DataService service, T obj, string tablName, string objId)
         {
             if (CommonUtils.isBlank(objId))
@@ -323,6 +371,8 @@ namespace Cardiology
                         CommonUtils.isNotBlank(neuroSurgeonTxt.Text) || CommonUtils.isNotBlank(surgeonTxt.Text);
                 case EGDS_TAB_INDX:
                     return CommonUtils.isNotBlank(regularEgdsTxt.Text);
+                case KAG_TAB_INDX:
+                    return CommonUtils.isNotBlank(kagManipulationTxt.Text) || CommonUtils.isNotBlank(kagResultsTxt.Text);
                 default: return false;
             }
         }

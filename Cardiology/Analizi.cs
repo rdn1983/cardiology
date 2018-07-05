@@ -40,6 +40,7 @@ namespace Cardiology
                 DdtUrineAnalysis urineAnalysis = service.queryObject<DdtUrineAnalysis>(string.Format(REGULAR_ANALYSIS_QRY_TEMPLATE, DdtUrineAnalysis.TABLE_NAME, patientAnalysis.DsisUrineAnalysis));
                 DdtEgds egds = service.queryObject<DdtEgds>(string.Format(REGULAR_ANALYSIS_QRY_TEMPLATE, DdtEgds.TABLE_NAME, patientAnalysis.DsidEgds));
                 kag = service.queryObject<DdtKag>(string.Format(REGULAR_ANALYSIS_QRY_TEMPLATE, DdtKag.TABLE_NAME, patientAnalysis.DsidKag));
+                DdtEkg ekg = service.queryObject<DdtEkg>(string.Format(REGULAR_ANALYSIS_QRY_TEMPLATE, DdtEkg.TABLE_NAME, patientAnalysis.DsidEkg));
 
                 initUziTab(uziObj);
                 initHolterTab(holter);
@@ -47,9 +48,12 @@ namespace Cardiology
                 initXRay(xRay);
                 initUrineAnalysis(urineAnalysis, service);
                 initEgdsAnalysis(egds, service);
+                initEkgAnalysis(ekg, service);
             }
             initKagAnalysis(kag);
         }
+
+        #region Initialize Tab Code
 
         private void initUziTab(DdtUzi uziObj)
         {
@@ -157,15 +161,26 @@ namespace Cardiology
             }
         }
 
+        private void initEkgAnalysis(DdtEkg ekg, DataService service)
+        {
+            if (patientAnalysis != null && CommonUtils.isNotBlank(patientAnalysis.DsidEkg) && ekg != null)
+            {
+                regularEkgTxt.Text = ekg.DssEkg;
+                DdtEkg firstAnalysis = service.queryObject<DdtEkg>(string.Format(FIRST_ANALYSIS_QRY_TEMPLATE, DdtEkg.TABLE_NAME, hospitalitySession.ObjectId));
+                if (firstAnalysis != null)
+                {
+                    firstEkgTxt.Text = firstAnalysis.DssEkg;
+                }
+            }
+        }
 
+        #endregion
 
         private void showABOFormBtn_Click(object sender, EventArgs e)
         {
             Serology aboForm = new Serology(hospitalitySession);
             aboForm.ShowDialog();
         }
-
-
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
@@ -181,11 +196,14 @@ namespace Cardiology
             saveXRayTab(service);
             saveEgdsAnalysisTab(service);
             saveKagAnalysisTab(service);
+            saveEkgAnalysisTab(service);
 
             updateObject<DdtPatientAnalysis>(service, patientAnalysis, DdtPatientAnalysis.TABLE_NAME, patientAnalysis.ObjectId);
             Close();
 
         }
+
+        #region Save tabs Code
 
         private void saveUziTab(DataService service)
         {
@@ -336,6 +354,26 @@ namespace Cardiology
             }
         }
 
+        private void saveEkgAnalysisTab(DataService service)
+        {
+            if (isNeedSaveTab(EKG_TAB_INDX))
+            {
+                DdtEkg ekg = service.queryObject<DdtEkg>(string.Format(REGULAR_ANALYSIS_QRY_TEMPLATE, DdtEkg.TABLE_NAME, patientAnalysis.DsidEkg));
+                if (ekg == null)
+                {
+                    ekg = new DdtEkg();
+                    ekg.DsidHospitalitySession = hospitalitySession.ObjectId;
+                    ekg.DsidDoctor = hospitalitySession.DsidCuringDoctor;
+                    ekg.DsidPatient = hospitalitySession.DsidPatient;
+                }
+                ekg.DssEkg = regularEkgTxt.Text;
+                string id = updateObject<DdtEkg>(service, ekg, DdtEkg.TABLE_NAME, ekg.ObjectId);
+                patientAnalysis.DsidEkg = id;
+            }
+        }
+
+        #endregion
+
         private DateTime constructDateWIthTime(DateTime dateSource, DateTime timeSource)
         {
             return new DateTime(dateSource.Year, dateSource.Month, dateSource.Day, timeSource.Hour, timeSource.Minute, 0);
@@ -378,123 +416,125 @@ namespace Cardiology
                     return CommonUtils.isNotBlank(regularEgdsTxt.Text);
                 case KAG_TAB_INDX:
                     return CommonUtils.isNotBlank(kagManipulationTxt.Text) || CommonUtils.isNotBlank(kagResultsTxt.Text);
+                case EKG_TAB_INDX:
+                    return CommonUtils.isNotBlank(regularEkgTxt.Text);
                 default: return false;
             }
         }
 
         private void clearBtn_Click(object sender, EventArgs e)
         {
-            richTextBox2.Text = "";
+            regularEkgTxt.Text = "";
         }
 
         private void spaceBtn_Click(object sender, EventArgs e)
         {
-            richTextBox2.Text = richTextBox2.Text + " ";
+            regularEkgTxt.Text = regularEkgTxt.Text + " ";
         }
 
         private void button40_Click(object sender, EventArgs e)
         {
-            richTextBox2.Text = richTextBox2.Text + "I";
+            regularEkgTxt.Text = regularEkgTxt.Text + "I";
         }
 
         private void rhytmSinusBtn_Click(object sender, EventArgs e)
         {
-            richTextBox2.Text = richTextBox2.Text + "ритм синусовый";
+            regularEkgTxt.Text = regularEkgTxt.Text + "ритм синусовый";
         }
 
         private void fibrillationBtn_Click(object sender, EventArgs e)
         {
-            richTextBox2.Text = richTextBox2.Text + "фибрилляция предсердий";
+            regularEkgTxt.Text = regularEkgTxt.Text + "фибрилляция предсердий";
         }
 
         private void flutterBtn_Click(object sender, EventArgs e)
         {
-            richTextBox2.Text = richTextBox2.Text + "трепетание предсердий";
+            regularEkgTxt.Text = regularEkgTxt.Text + "трепетание предсердий";
         }
 
         private void elevation_Click(object sender, EventArgs e)
         {
-            richTextBox2.Text = richTextBox2.Text + "элевация ST в ";
+            regularEkgTxt.Text = regularEkgTxt.Text + "элевация ST в ";
         }
 
         private void button26_Click(object sender, EventArgs e)
         {
-            richTextBox2.Text = richTextBox2.Text + ".";
+            regularEkgTxt.Text = regularEkgTxt.Text + ".";
         }
 
         private void depressionBtn_Click(object sender, EventArgs e)
         {
-            richTextBox2.Text = richTextBox2.Text + "депрессия ST в ";
+            regularEkgTxt.Text = regularEkgTxt.Text + "депрессия ST в ";
         }
 
         private void negativeTBtn_Click(object sender, EventArgs e)
         {
-            richTextBox2.Text = richTextBox2.Text + "отрицательный T";
+            regularEkgTxt.Text = regularEkgTxt.Text + "отрицательный T";
         }
 
         private void button39_Click(object sender, EventArgs e)
         {
-            richTextBox2.Text = richTextBox2.Text + "II";
+            regularEkgTxt.Text = regularEkgTxt.Text + "II";
         }
 
         private void button38_Click(object sender, EventArgs e)
         {
-            richTextBox2.Text = richTextBox2.Text + "III";
+            regularEkgTxt.Text = regularEkgTxt.Text + "III";
         }
 
         private void button37_Click(object sender, EventArgs e)
         {
-            richTextBox2.Text = richTextBox2.Text + "AVL";
+            regularEkgTxt.Text = regularEkgTxt.Text + "AVL";
         }
 
         private void button36_Click(object sender, EventArgs e)
         {
-            richTextBox2.Text = richTextBox2.Text + "AVR";
+            regularEkgTxt.Text = regularEkgTxt.Text + "AVR";
         }
 
         private void button35_Click(object sender, EventArgs e)
         {
-            richTextBox2.Text = richTextBox2.Text + "AVF";
+            regularEkgTxt.Text = regularEkgTxt.Text + "AVF";
         }
 
         private void button34_Click(object sender, EventArgs e)
         {
-            richTextBox2.Text = richTextBox2.Text + "V1";
+            regularEkgTxt.Text = regularEkgTxt.Text + "V1";
         }
 
         private void button33_Click(object sender, EventArgs e)
         {
-            richTextBox2.Text = richTextBox2.Text + "V2";
+            regularEkgTxt.Text = regularEkgTxt.Text + "V2";
         }
 
         private void button32_Click(object sender, EventArgs e)
         {
-            richTextBox2.Text = richTextBox2.Text + "V3";
+            regularEkgTxt.Text = regularEkgTxt.Text + "V3";
         }
 
         private void button31_Click(object sender, EventArgs e)
         {
-            richTextBox2.Text = richTextBox2.Text + "V4";
+            regularEkgTxt.Text = regularEkgTxt.Text + "V4";
         }
 
         private void button30_Click(object sender, EventArgs e)
         {
-            richTextBox2.Text = richTextBox2.Text + "V5";
+            regularEkgTxt.Text = regularEkgTxt.Text + "V5";
         }
 
         private void button29_Click(object sender, EventArgs e)
         {
-            richTextBox2.Text = richTextBox2.Text + "V6";
+            regularEkgTxt.Text = regularEkgTxt.Text + "V6";
         }
 
         private void commaBtn_Click(object sender, EventArgs e)
         {
-            richTextBox2.Text = richTextBox2.Text + ", ";
+            regularEkgTxt.Text = regularEkgTxt.Text + ", ";
         }
 
         private void button27_Click(object sender, EventArgs e)
         {
-            richTextBox2.Text = richTextBox2.Text + "-";
+            regularEkgTxt.Text = regularEkgTxt.Text + "-";
         }
 
         private void cutMi_Click(object sender, EventArgs e)

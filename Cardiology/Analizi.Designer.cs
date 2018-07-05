@@ -32,29 +32,26 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Analizi));
             this.tabs = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.ekgTabContainer = new System.Windows.Forms.TabControl();
-            this.firstEkgTab = new System.Windows.Forms.TabPage();
             this.firstEkgTxt = new System.Windows.Forms.RichTextBox();
-            this.ekgTab = new System.Windows.Forms.TabPage();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.regularEkgTxt = new System.Windows.Forms.RichTextBox();
             this.clearBtn = new System.Windows.Forms.Button();
             this.spaceBtn = new System.Windows.Forms.Button();
-            this.button26 = new System.Windows.Forms.Button();
-            this.button27 = new System.Windows.Forms.Button();
+            this.dotBtn = new System.Windows.Forms.Button();
+            this.dashBtn = new System.Windows.Forms.Button();
             this.commaBtn = new System.Windows.Forms.Button();
             this.whereBox = new System.Windows.Forms.GroupBox();
-            this.button29 = new System.Windows.Forms.Button();
-            this.button30 = new System.Windows.Forms.Button();
-            this.button31 = new System.Windows.Forms.Button();
-            this.button32 = new System.Windows.Forms.Button();
-            this.button33 = new System.Windows.Forms.Button();
-            this.button34 = new System.Windows.Forms.Button();
-            this.button35 = new System.Windows.Forms.Button();
-            this.button36 = new System.Windows.Forms.Button();
-            this.button37 = new System.Windows.Forms.Button();
-            this.button38 = new System.Windows.Forms.Button();
-            this.button39 = new System.Windows.Forms.Button();
-            this.button40 = new System.Windows.Forms.Button();
+            this.V6Btn = new System.Windows.Forms.Button();
+            this.V5Btn = new System.Windows.Forms.Button();
+            this.V4Btn = new System.Windows.Forms.Button();
+            this.V3Btn = new System.Windows.Forms.Button();
+            this.V2Btn = new System.Windows.Forms.Button();
+            this.V1Btn = new System.Windows.Forms.Button();
+            this.AvfBtn = new System.Windows.Forms.Button();
+            this.AvrBtn = new System.Windows.Forms.Button();
+            this.AvlBtn = new System.Windows.Forms.Button();
+            this.IIIBtn = new System.Windows.Forms.Button();
+            this.IIBtn = new System.Windows.Forms.Button();
+            this.IBtn = new System.Windows.Forms.Button();
             this.deviationBox = new System.Windows.Forms.GroupBox();
             this.negativeTBtn = new System.Windows.Forms.Button();
             this.depressionBtn = new System.Windows.Forms.Button();
@@ -324,11 +321,9 @@
             this.startTimeLbl = new System.Windows.Forms.Label();
             this.kagDateBox = new System.Windows.Forms.GroupBox();
             this.kagDate = new System.Windows.Forms.DateTimePicker();
+            this.firstEkgBox = new System.Windows.Forms.GroupBox();
             this.tabs.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.ekgTabContainer.SuspendLayout();
-            this.firstEkgTab.SuspendLayout();
-            this.ekgTab.SuspendLayout();
             this.whereBox.SuspendLayout();
             this.deviationBox.SuspendLayout();
             this.rhytmGroupBox.SuspendLayout();
@@ -371,6 +366,7 @@
             this.resultsBox.SuspendLayout();
             this.kagTimeBox.SuspendLayout();
             this.kagDateBox.SuspendLayout();
+            this.firstEkgBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabs
@@ -392,7 +388,16 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.ekgTabContainer);
+            this.tabPage1.Controls.Add(this.firstEkgBox);
+            this.tabPage1.Controls.Add(this.regularEkgTxt);
+            this.tabPage1.Controls.Add(this.clearBtn);
+            this.tabPage1.Controls.Add(this.rhytmGroupBox);
+            this.tabPage1.Controls.Add(this.spaceBtn);
+            this.tabPage1.Controls.Add(this.deviationBox);
+            this.tabPage1.Controls.Add(this.dotBtn);
+            this.tabPage1.Controls.Add(this.whereBox);
+            this.tabPage1.Controls.Add(this.dashBtn);
+            this.tabPage1.Controls.Add(this.commaBtn);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -401,66 +406,27 @@
             this.tabPage1.Text = "ЭКГ, КАГ, ЭГДС";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // ekgTabContainer
-            // 
-            this.ekgTabContainer.Controls.Add(this.firstEkgTab);
-            this.ekgTabContainer.Controls.Add(this.ekgTab);
-            this.ekgTabContainer.Location = new System.Drawing.Point(6, 6);
-            this.ekgTabContainer.Name = "ekgTabContainer";
-            this.ekgTabContainer.SelectedIndex = 0;
-            this.ekgTabContainer.Size = new System.Drawing.Size(730, 267);
-            this.ekgTabContainer.TabIndex = 1;
-            // 
-            // firstEkgTab
-            // 
-            this.firstEkgTab.Controls.Add(this.firstEkgTxt);
-            this.firstEkgTab.Location = new System.Drawing.Point(4, 22);
-            this.firstEkgTab.Name = "firstEkgTab";
-            this.firstEkgTab.Padding = new System.Windows.Forms.Padding(3);
-            this.firstEkgTab.Size = new System.Drawing.Size(722, 241);
-            this.firstEkgTab.TabIndex = 0;
-            this.firstEkgTab.Text = "ЭКГ при поступлении";
-            this.firstEkgTab.UseVisualStyleBackColor = true;
-            // 
             // firstEkgTxt
             // 
-            this.firstEkgTxt.Location = new System.Drawing.Point(11, 14);
+            this.firstEkgTxt.Location = new System.Drawing.Point(6, 16);
             this.firstEkgTxt.Name = "firstEkgTxt";
             this.firstEkgTxt.ReadOnly = true;
-            this.firstEkgTxt.Size = new System.Drawing.Size(702, 217);
+            this.firstEkgTxt.Size = new System.Drawing.Size(686, 148);
             this.firstEkgTxt.TabIndex = 9;
             this.firstEkgTxt.Text = "";
             // 
-            // ekgTab
+            // regularEkgTxt
             // 
-            this.ekgTab.Controls.Add(this.richTextBox2);
-            this.ekgTab.Controls.Add(this.clearBtn);
-            this.ekgTab.Controls.Add(this.spaceBtn);
-            this.ekgTab.Controls.Add(this.button26);
-            this.ekgTab.Controls.Add(this.button27);
-            this.ekgTab.Controls.Add(this.commaBtn);
-            this.ekgTab.Controls.Add(this.whereBox);
-            this.ekgTab.Controls.Add(this.deviationBox);
-            this.ekgTab.Controls.Add(this.rhytmGroupBox);
-            this.ekgTab.Location = new System.Drawing.Point(4, 22);
-            this.ekgTab.Name = "ekgTab";
-            this.ekgTab.Padding = new System.Windows.Forms.Padding(3);
-            this.ekgTab.Size = new System.Drawing.Size(722, 241);
-            this.ekgTab.TabIndex = 1;
-            this.ekgTab.Text = "ЭКГ";
-            this.ekgTab.UseVisualStyleBackColor = true;
-            // 
-            // richTextBox2
-            // 
-            this.richTextBox2.Location = new System.Drawing.Point(337, 6);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(369, 174);
-            this.richTextBox2.TabIndex = 18;
-            this.richTextBox2.Text = "";
+            this.regularEkgTxt.ContextMenuStrip = this.contextMenu;
+            this.regularEkgTxt.Location = new System.Drawing.Point(351, 209);
+            this.regularEkgTxt.Name = "regularEkgTxt";
+            this.regularEkgTxt.Size = new System.Drawing.Size(369, 174);
+            this.regularEkgTxt.TabIndex = 18;
+            this.regularEkgTxt.Text = "";
             // 
             // clearBtn
             // 
-            this.clearBtn.Location = new System.Drawing.Point(337, 186);
+            this.clearBtn.Location = new System.Drawing.Point(351, 389);
             this.clearBtn.Name = "clearBtn";
             this.clearBtn.Size = new System.Drawing.Size(75, 32);
             this.clearBtn.TabIndex = 17;
@@ -470,7 +436,7 @@
             // 
             // spaceBtn
             // 
-            this.spaceBtn.Location = new System.Drawing.Point(265, 186);
+            this.spaceBtn.Location = new System.Drawing.Point(279, 389);
             this.spaceBtn.Name = "spaceBtn";
             this.spaceBtn.Size = new System.Drawing.Size(66, 32);
             this.spaceBtn.TabIndex = 16;
@@ -478,31 +444,31 @@
             this.spaceBtn.UseVisualStyleBackColor = true;
             this.spaceBtn.Click += new System.EventHandler(this.spaceBtn_Click);
             // 
-            // button26
+            // dotBtn
             // 
-            this.button26.Location = new System.Drawing.Point(302, 152);
-            this.button26.Name = "button26";
-            this.button26.Size = new System.Drawing.Size(29, 28);
-            this.button26.TabIndex = 15;
-            this.button26.Text = ".";
-            this.button26.UseVisualStyleBackColor = true;
-            this.button26.Click += new System.EventHandler(this.button26_Click);
+            this.dotBtn.Location = new System.Drawing.Point(316, 355);
+            this.dotBtn.Name = "dotBtn";
+            this.dotBtn.Size = new System.Drawing.Size(29, 28);
+            this.dotBtn.TabIndex = 15;
+            this.dotBtn.Text = ".";
+            this.dotBtn.UseVisualStyleBackColor = true;
+            this.dotBtn.Click += new System.EventHandler(this.button26_Click);
             // 
-            // button27
+            // dashBtn
             // 
-            this.button27.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button27.Location = new System.Drawing.Point(265, 152);
-            this.button27.Name = "button27";
-            this.button27.Size = new System.Drawing.Size(30, 28);
-            this.button27.TabIndex = 14;
-            this.button27.Text = "-";
-            this.button27.UseVisualStyleBackColor = true;
-            this.button27.Click += new System.EventHandler(this.button27_Click);
+            this.dashBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dashBtn.Location = new System.Drawing.Point(279, 355);
+            this.dashBtn.Name = "dashBtn";
+            this.dashBtn.Size = new System.Drawing.Size(30, 28);
+            this.dashBtn.TabIndex = 14;
+            this.dashBtn.Text = "-";
+            this.dashBtn.UseVisualStyleBackColor = true;
+            this.dashBtn.Click += new System.EventHandler(this.button27_Click);
             // 
             // commaBtn
             // 
             this.commaBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.commaBtn.Location = new System.Drawing.Point(302, 6);
+            this.commaBtn.Location = new System.Drawing.Point(316, 209);
             this.commaBtn.Name = "commaBtn";
             this.commaBtn.Size = new System.Drawing.Size(29, 68);
             this.commaBtn.TabIndex = 13;
@@ -512,151 +478,151 @@
             // 
             // whereBox
             // 
-            this.whereBox.Controls.Add(this.button29);
-            this.whereBox.Controls.Add(this.button30);
-            this.whereBox.Controls.Add(this.button31);
-            this.whereBox.Controls.Add(this.button32);
-            this.whereBox.Controls.Add(this.button33);
-            this.whereBox.Controls.Add(this.button34);
-            this.whereBox.Controls.Add(this.button35);
-            this.whereBox.Controls.Add(this.button36);
-            this.whereBox.Controls.Add(this.button37);
-            this.whereBox.Controls.Add(this.button38);
-            this.whereBox.Controls.Add(this.button39);
-            this.whereBox.Controls.Add(this.button40);
-            this.whereBox.Location = new System.Drawing.Point(8, 143);
+            this.whereBox.Controls.Add(this.V6Btn);
+            this.whereBox.Controls.Add(this.V5Btn);
+            this.whereBox.Controls.Add(this.V4Btn);
+            this.whereBox.Controls.Add(this.V3Btn);
+            this.whereBox.Controls.Add(this.V2Btn);
+            this.whereBox.Controls.Add(this.V1Btn);
+            this.whereBox.Controls.Add(this.AvfBtn);
+            this.whereBox.Controls.Add(this.AvrBtn);
+            this.whereBox.Controls.Add(this.AvlBtn);
+            this.whereBox.Controls.Add(this.IIIBtn);
+            this.whereBox.Controls.Add(this.IIBtn);
+            this.whereBox.Controls.Add(this.IBtn);
+            this.whereBox.Location = new System.Drawing.Point(22, 346);
             this.whereBox.Name = "whereBox";
             this.whereBox.Size = new System.Drawing.Size(252, 75);
             this.whereBox.TabIndex = 12;
             this.whereBox.TabStop = false;
             this.whereBox.Text = "Где";
             // 
-            // button29
+            // V6Btn
             // 
-            this.button29.Location = new System.Drawing.Point(206, 43);
-            this.button29.Name = "button29";
-            this.button29.Size = new System.Drawing.Size(40, 23);
-            this.button29.TabIndex = 11;
-            this.button29.Text = "V6";
-            this.button29.UseVisualStyleBackColor = true;
-            this.button29.Click += new System.EventHandler(this.button29_Click);
+            this.V6Btn.Location = new System.Drawing.Point(206, 43);
+            this.V6Btn.Name = "V6Btn";
+            this.V6Btn.Size = new System.Drawing.Size(40, 23);
+            this.V6Btn.TabIndex = 11;
+            this.V6Btn.Text = "V6";
+            this.V6Btn.UseVisualStyleBackColor = true;
+            this.V6Btn.Click += new System.EventHandler(this.button29_Click);
             // 
-            // button30
+            // V5Btn
             // 
-            this.button30.Location = new System.Drawing.Point(166, 43);
-            this.button30.Name = "button30";
-            this.button30.Size = new System.Drawing.Size(40, 23);
-            this.button30.TabIndex = 10;
-            this.button30.Text = "V5";
-            this.button30.UseVisualStyleBackColor = true;
-            this.button30.Click += new System.EventHandler(this.button30_Click);
+            this.V5Btn.Location = new System.Drawing.Point(166, 43);
+            this.V5Btn.Name = "V5Btn";
+            this.V5Btn.Size = new System.Drawing.Size(40, 23);
+            this.V5Btn.TabIndex = 10;
+            this.V5Btn.Text = "V5";
+            this.V5Btn.UseVisualStyleBackColor = true;
+            this.V5Btn.Click += new System.EventHandler(this.button30_Click);
             // 
-            // button31
+            // V4Btn
             // 
-            this.button31.Location = new System.Drawing.Point(126, 43);
-            this.button31.Name = "button31";
-            this.button31.Size = new System.Drawing.Size(40, 23);
-            this.button31.TabIndex = 9;
-            this.button31.Text = "V4";
-            this.button31.UseVisualStyleBackColor = true;
-            this.button31.Click += new System.EventHandler(this.button31_Click);
+            this.V4Btn.Location = new System.Drawing.Point(126, 43);
+            this.V4Btn.Name = "V4Btn";
+            this.V4Btn.Size = new System.Drawing.Size(40, 23);
+            this.V4Btn.TabIndex = 9;
+            this.V4Btn.Text = "V4";
+            this.V4Btn.UseVisualStyleBackColor = true;
+            this.V4Btn.Click += new System.EventHandler(this.button31_Click);
             // 
-            // button32
+            // V3Btn
             // 
-            this.button32.Location = new System.Drawing.Point(86, 43);
-            this.button32.Name = "button32";
-            this.button32.Size = new System.Drawing.Size(40, 23);
-            this.button32.TabIndex = 8;
-            this.button32.Text = "V3";
-            this.button32.UseVisualStyleBackColor = true;
-            this.button32.Click += new System.EventHandler(this.button32_Click);
+            this.V3Btn.Location = new System.Drawing.Point(86, 43);
+            this.V3Btn.Name = "V3Btn";
+            this.V3Btn.Size = new System.Drawing.Size(40, 23);
+            this.V3Btn.TabIndex = 8;
+            this.V3Btn.Text = "V3";
+            this.V3Btn.UseVisualStyleBackColor = true;
+            this.V3Btn.Click += new System.EventHandler(this.button32_Click);
             // 
-            // button33
+            // V2Btn
             // 
-            this.button33.Location = new System.Drawing.Point(46, 43);
-            this.button33.Name = "button33";
-            this.button33.Size = new System.Drawing.Size(40, 23);
-            this.button33.TabIndex = 7;
-            this.button33.Text = "V2";
-            this.button33.UseVisualStyleBackColor = true;
-            this.button33.Click += new System.EventHandler(this.button33_Click);
+            this.V2Btn.Location = new System.Drawing.Point(46, 43);
+            this.V2Btn.Name = "V2Btn";
+            this.V2Btn.Size = new System.Drawing.Size(40, 23);
+            this.V2Btn.TabIndex = 7;
+            this.V2Btn.Text = "V2";
+            this.V2Btn.UseVisualStyleBackColor = true;
+            this.V2Btn.Click += new System.EventHandler(this.button33_Click);
             // 
-            // button34
+            // V1Btn
             // 
-            this.button34.Location = new System.Drawing.Point(5, 43);
-            this.button34.Name = "button34";
-            this.button34.Size = new System.Drawing.Size(40, 23);
-            this.button34.TabIndex = 6;
-            this.button34.Text = "V1";
-            this.button34.UseVisualStyleBackColor = true;
-            this.button34.Click += new System.EventHandler(this.button34_Click);
+            this.V1Btn.Location = new System.Drawing.Point(5, 43);
+            this.V1Btn.Name = "V1Btn";
+            this.V1Btn.Size = new System.Drawing.Size(40, 23);
+            this.V1Btn.TabIndex = 6;
+            this.V1Btn.Text = "V1";
+            this.V1Btn.UseVisualStyleBackColor = true;
+            this.V1Btn.Click += new System.EventHandler(this.button34_Click);
             // 
-            // button35
+            // AvfBtn
             // 
-            this.button35.Location = new System.Drawing.Point(206, 20);
-            this.button35.Name = "button35";
-            this.button35.Size = new System.Drawing.Size(40, 23);
-            this.button35.TabIndex = 5;
-            this.button35.Text = "AVF";
-            this.button35.UseVisualStyleBackColor = true;
-            this.button35.Click += new System.EventHandler(this.button35_Click);
+            this.AvfBtn.Location = new System.Drawing.Point(206, 20);
+            this.AvfBtn.Name = "AvfBtn";
+            this.AvfBtn.Size = new System.Drawing.Size(40, 23);
+            this.AvfBtn.TabIndex = 5;
+            this.AvfBtn.Text = "AVF";
+            this.AvfBtn.UseVisualStyleBackColor = true;
+            this.AvfBtn.Click += new System.EventHandler(this.button35_Click);
             // 
-            // button36
+            // AvrBtn
             // 
-            this.button36.Location = new System.Drawing.Point(166, 20);
-            this.button36.Name = "button36";
-            this.button36.Size = new System.Drawing.Size(40, 23);
-            this.button36.TabIndex = 4;
-            this.button36.Text = "AVR";
-            this.button36.UseVisualStyleBackColor = true;
-            this.button36.Click += new System.EventHandler(this.button36_Click);
+            this.AvrBtn.Location = new System.Drawing.Point(166, 20);
+            this.AvrBtn.Name = "AvrBtn";
+            this.AvrBtn.Size = new System.Drawing.Size(40, 23);
+            this.AvrBtn.TabIndex = 4;
+            this.AvrBtn.Text = "AVR";
+            this.AvrBtn.UseVisualStyleBackColor = true;
+            this.AvrBtn.Click += new System.EventHandler(this.button36_Click);
             // 
-            // button37
+            // AvlBtn
             // 
-            this.button37.Location = new System.Drawing.Point(126, 20);
-            this.button37.Name = "button37";
-            this.button37.Size = new System.Drawing.Size(40, 23);
-            this.button37.TabIndex = 3;
-            this.button37.Text = "AVL";
-            this.button37.UseVisualStyleBackColor = true;
-            this.button37.Click += new System.EventHandler(this.button37_Click);
+            this.AvlBtn.Location = new System.Drawing.Point(126, 20);
+            this.AvlBtn.Name = "AvlBtn";
+            this.AvlBtn.Size = new System.Drawing.Size(40, 23);
+            this.AvlBtn.TabIndex = 3;
+            this.AvlBtn.Text = "AVL";
+            this.AvlBtn.UseVisualStyleBackColor = true;
+            this.AvlBtn.Click += new System.EventHandler(this.button37_Click);
             // 
-            // button38
+            // IIIBtn
             // 
-            this.button38.Location = new System.Drawing.Point(86, 20);
-            this.button38.Name = "button38";
-            this.button38.Size = new System.Drawing.Size(40, 23);
-            this.button38.TabIndex = 2;
-            this.button38.Text = "III";
-            this.button38.UseVisualStyleBackColor = true;
-            this.button38.Click += new System.EventHandler(this.button38_Click);
+            this.IIIBtn.Location = new System.Drawing.Point(86, 20);
+            this.IIIBtn.Name = "IIIBtn";
+            this.IIIBtn.Size = new System.Drawing.Size(40, 23);
+            this.IIIBtn.TabIndex = 2;
+            this.IIIBtn.Text = "III";
+            this.IIIBtn.UseVisualStyleBackColor = true;
+            this.IIIBtn.Click += new System.EventHandler(this.button38_Click);
             // 
-            // button39
+            // IIBtn
             // 
-            this.button39.Location = new System.Drawing.Point(46, 20);
-            this.button39.Name = "button39";
-            this.button39.Size = new System.Drawing.Size(40, 23);
-            this.button39.TabIndex = 1;
-            this.button39.Text = "II";
-            this.button39.UseVisualStyleBackColor = true;
-            this.button39.Click += new System.EventHandler(this.button39_Click);
+            this.IIBtn.Location = new System.Drawing.Point(46, 20);
+            this.IIBtn.Name = "IIBtn";
+            this.IIBtn.Size = new System.Drawing.Size(40, 23);
+            this.IIBtn.TabIndex = 1;
+            this.IIBtn.Text = "II";
+            this.IIBtn.UseVisualStyleBackColor = true;
+            this.IIBtn.Click += new System.EventHandler(this.button39_Click);
             // 
-            // button40
+            // IBtn
             // 
-            this.button40.Location = new System.Drawing.Point(5, 20);
-            this.button40.Name = "button40";
-            this.button40.Size = new System.Drawing.Size(40, 23);
-            this.button40.TabIndex = 0;
-            this.button40.Text = "I";
-            this.button40.UseVisualStyleBackColor = true;
-            this.button40.Click += new System.EventHandler(this.button40_Click);
+            this.IBtn.Location = new System.Drawing.Point(5, 20);
+            this.IBtn.Name = "IBtn";
+            this.IBtn.Size = new System.Drawing.Size(40, 23);
+            this.IBtn.TabIndex = 0;
+            this.IBtn.Text = "I";
+            this.IBtn.UseVisualStyleBackColor = true;
+            this.IBtn.Click += new System.EventHandler(this.button40_Click);
             // 
             // deviationBox
             // 
             this.deviationBox.Controls.Add(this.negativeTBtn);
             this.deviationBox.Controls.Add(this.depressionBtn);
             this.deviationBox.Controls.Add(this.elevation);
-            this.deviationBox.Location = new System.Drawing.Point(8, 81);
+            this.deviationBox.Location = new System.Drawing.Point(22, 284);
             this.deviationBox.Name = "deviationBox";
             this.deviationBox.Size = new System.Drawing.Size(287, 56);
             this.deviationBox.TabIndex = 11;
@@ -698,7 +664,7 @@
             this.rhytmGroupBox.Controls.Add(this.flutterBtn);
             this.rhytmGroupBox.Controls.Add(this.fibrillationBtn);
             this.rhytmGroupBox.Controls.Add(this.rhytmSinusBtn);
-            this.rhytmGroupBox.Location = new System.Drawing.Point(8, 6);
+            this.rhytmGroupBox.Location = new System.Drawing.Point(22, 209);
             this.rhytmGroupBox.Name = "rhytmGroupBox";
             this.rhytmGroupBox.Size = new System.Drawing.Size(287, 69);
             this.rhytmGroupBox.TabIndex = 10;
@@ -3139,6 +3105,16 @@
             this.kagDate.Size = new System.Drawing.Size(158, 20);
             this.kagDate.TabIndex = 0;
             // 
+            // firstEkgBox
+            // 
+            this.firstEkgBox.Controls.Add(this.firstEkgTxt);
+            this.firstEkgBox.Location = new System.Drawing.Point(22, 21);
+            this.firstEkgBox.Name = "firstEkgBox";
+            this.firstEkgBox.Size = new System.Drawing.Size(698, 170);
+            this.firstEkgBox.TabIndex = 19;
+            this.firstEkgBox.TabStop = false;
+            this.firstEkgBox.Text = "ЭКГ при поступлении";
+            // 
             // Analizi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3152,9 +3128,6 @@
             this.Text = "ЭКГ, Рентген, Анализы:";
             this.tabs.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.ekgTabContainer.ResumeLayout(false);
-            this.firstEkgTab.ResumeLayout(false);
-            this.ekgTab.ResumeLayout(false);
             this.whereBox.ResumeLayout(false);
             this.deviationBox.ResumeLayout(false);
             this.rhytmGroupBox.ResumeLayout(false);
@@ -3206,6 +3179,7 @@
             this.kagTimeBox.ResumeLayout(false);
             this.kagTimeBox.PerformLayout();
             this.kagDateBox.ResumeLayout(false);
+            this.firstEkgBox.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -3215,29 +3189,26 @@
         private System.Windows.Forms.TabControl tabs;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage bloodTab;
-        private System.Windows.Forms.TabControl ekgTabContainer;
-        private System.Windows.Forms.TabPage firstEkgTab;
-        private System.Windows.Forms.TabPage ekgTab;
         private System.Windows.Forms.RichTextBox firstEkgTxt;
-        private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.RichTextBox regularEkgTxt;
         private System.Windows.Forms.Button clearBtn;
         private System.Windows.Forms.Button spaceBtn;
-        private System.Windows.Forms.Button button26;
-        private System.Windows.Forms.Button button27;
+        private System.Windows.Forms.Button dotBtn;
+        private System.Windows.Forms.Button dashBtn;
         private System.Windows.Forms.Button commaBtn;
         private System.Windows.Forms.GroupBox whereBox;
-        private System.Windows.Forms.Button button29;
-        private System.Windows.Forms.Button button30;
-        private System.Windows.Forms.Button button31;
-        private System.Windows.Forms.Button button32;
-        private System.Windows.Forms.Button button33;
-        private System.Windows.Forms.Button button34;
-        private System.Windows.Forms.Button button35;
-        private System.Windows.Forms.Button button36;
-        private System.Windows.Forms.Button button37;
-        private System.Windows.Forms.Button button38;
-        private System.Windows.Forms.Button button39;
-        private System.Windows.Forms.Button button40;
+        private System.Windows.Forms.Button V6Btn;
+        private System.Windows.Forms.Button V5Btn;
+        private System.Windows.Forms.Button V4Btn;
+        private System.Windows.Forms.Button V3Btn;
+        private System.Windows.Forms.Button V2Btn;
+        private System.Windows.Forms.Button V1Btn;
+        private System.Windows.Forms.Button AvfBtn;
+        private System.Windows.Forms.Button AvrBtn;
+        private System.Windows.Forms.Button AvlBtn;
+        private System.Windows.Forms.Button IIIBtn;
+        private System.Windows.Forms.Button IIBtn;
+        private System.Windows.Forms.Button IBtn;
         private System.Windows.Forms.GroupBox deviationBox;
         private System.Windows.Forms.Button negativeTBtn;
         private System.Windows.Forms.Button depressionBtn;
@@ -3506,5 +3477,6 @@
         private System.Windows.Forms.Label startTimeLbl;
         private System.Windows.Forms.GroupBox kagDateBox;
         private System.Windows.Forms.DateTimePicker kagDate;
+        private System.Windows.Forms.GroupBox firstEkgBox;
     }
 }

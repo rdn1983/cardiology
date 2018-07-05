@@ -10,6 +10,7 @@ CREATE TABLE ddt_patient_analysis (
   dsid_specialist_conclusion VARCHAR(16) ,
   dsid_xray VARCHAR(16),
   dsid_egds VARCHAR(16),
+  dsid_ekg VARCHAR(16),
   dsid_kag VARCHAR(16) 
 );
 

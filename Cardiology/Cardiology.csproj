@@ -74,6 +74,7 @@
     <Compile Include="DdtCureDictionary.cs" />
     <Compile Include="DdtDoctors.cs" />
     <Compile Include="DdtEgds.cs" />
+    <Compile Include="DdtEkg.cs" />
     <Compile Include="DdtHolter.cs" />
     <Compile Include="DdtHospital.cs" />
     <Compile Include="DdtIssuedMedicine.cs" />

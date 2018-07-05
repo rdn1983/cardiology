@@ -25,6 +25,8 @@ namespace Cardiology.Model
         private string dsidEgds;
         [TableAttribute("dsid_kag")]
         private string dsidKag;
+        [TableAttribute("dsid_ekg")]
+        private string dsidEkg;
 
         public string ObjectId
         {
@@ -49,5 +51,6 @@ namespace Cardiology.Model
         public string DsidXray { get => dsidXray; set => dsidXray = value; }
         public string DsidEgds { get => dsidEgds; set => dsidEgds = value; }
         public string DsidKag { get => dsidKag; set => dsidKag = value; }
+        public string DsidEkg { get => dsidEkg; set => dsidEkg = value; }
     }
 }

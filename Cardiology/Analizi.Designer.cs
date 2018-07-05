@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Analizi));
             this.tabs = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.ekgTab = new System.Windows.Forms.TabPage();
             this.firstEkgTxt = new System.Windows.Forms.RichTextBox();
             this.regularEkgTxt = new System.Windows.Forms.RichTextBox();
             this.clearBtn = new System.Windows.Forms.Button();
@@ -323,7 +323,7 @@
             this.kagDate = new System.Windows.Forms.DateTimePicker();
             this.firstEkgBox = new System.Windows.Forms.GroupBox();
             this.tabs.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.ekgTab.SuspendLayout();
             this.whereBox.SuspendLayout();
             this.deviationBox.SuspendLayout();
             this.rhytmGroupBox.SuspendLayout();
@@ -371,7 +371,7 @@
             // 
             // tabs
             // 
-            this.tabs.Controls.Add(this.tabPage1);
+            this.tabs.Controls.Add(this.ekgTab);
             this.tabs.Controls.Add(this.kagTab);
             this.tabs.Controls.Add(this.egdsTab);
             this.tabs.Controls.Add(this.bloodTab);
@@ -386,25 +386,25 @@
             this.tabs.Size = new System.Drawing.Size(924, 687);
             this.tabs.TabIndex = 0;
             // 
-            // tabPage1
+            // ekgTab
             // 
-            this.tabPage1.Controls.Add(this.firstEkgBox);
-            this.tabPage1.Controls.Add(this.regularEkgTxt);
-            this.tabPage1.Controls.Add(this.clearBtn);
-            this.tabPage1.Controls.Add(this.rhytmGroupBox);
-            this.tabPage1.Controls.Add(this.spaceBtn);
-            this.tabPage1.Controls.Add(this.deviationBox);
-            this.tabPage1.Controls.Add(this.dotBtn);
-            this.tabPage1.Controls.Add(this.whereBox);
-            this.tabPage1.Controls.Add(this.dashBtn);
-            this.tabPage1.Controls.Add(this.commaBtn);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(916, 661);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "ЭКГ, КАГ, ЭГДС";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.ekgTab.Controls.Add(this.firstEkgBox);
+            this.ekgTab.Controls.Add(this.regularEkgTxt);
+            this.ekgTab.Controls.Add(this.clearBtn);
+            this.ekgTab.Controls.Add(this.rhytmGroupBox);
+            this.ekgTab.Controls.Add(this.spaceBtn);
+            this.ekgTab.Controls.Add(this.deviationBox);
+            this.ekgTab.Controls.Add(this.dotBtn);
+            this.ekgTab.Controls.Add(this.whereBox);
+            this.ekgTab.Controls.Add(this.dashBtn);
+            this.ekgTab.Controls.Add(this.commaBtn);
+            this.ekgTab.Location = new System.Drawing.Point(4, 22);
+            this.ekgTab.Name = "ekgTab";
+            this.ekgTab.Padding = new System.Windows.Forms.Padding(3);
+            this.ekgTab.Size = new System.Drawing.Size(916, 661);
+            this.ekgTab.TabIndex = 0;
+            this.ekgTab.Text = "ЭКГ";
+            this.ekgTab.UseVisualStyleBackColor = true;
             // 
             // firstEkgTxt
             // 
@@ -3127,7 +3127,7 @@
             this.Name = "Analizi";
             this.Text = "ЭКГ, Рентген, Анализы:";
             this.tabs.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
+            this.ekgTab.ResumeLayout(false);
             this.whereBox.ResumeLayout(false);
             this.deviationBox.ResumeLayout(false);
             this.rhytmGroupBox.ResumeLayout(false);
@@ -3187,7 +3187,7 @@
         #endregion
 
         private System.Windows.Forms.TabControl tabs;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage ekgTab;
         private System.Windows.Forms.TabPage bloodTab;
         private System.Windows.Forms.RichTextBox firstEkgTxt;
         private System.Windows.Forms.RichTextBox regularEkgTxt;

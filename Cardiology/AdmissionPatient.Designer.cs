@@ -178,7 +178,7 @@
             this.groupBox10.Size = new System.Drawing.Size(289, 48);
             this.groupBox10.TabIndex = 2;
             this.groupBox10.TabStop = false;
-            this.groupBox10.Text = "Зав. отделения ангиографии";
+            this.groupBox10.Text = "зав. отделения РХМДиЛ";
             // 
             // subDoctorBox
             // 

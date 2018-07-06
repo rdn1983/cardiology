@@ -281,12 +281,6 @@
             this.ehoKgBox = new System.Windows.Forms.GroupBox();
             this.ehoKgTxt = new System.Windows.Forms.RichTextBox();
             this.xRayTab = new System.Windows.Forms.TabPage();
-            this.mrtBox = new System.Windows.Forms.GroupBox();
-            this.mrtTxt = new System.Windows.Forms.RichTextBox();
-            this.ktBox = new System.Windows.Forms.GroupBox();
-            this.ktTxt = new System.Windows.Forms.RichTextBox();
-            this.msktBox = new System.Windows.Forms.GroupBox();
-            this.msktTxt = new System.Windows.Forms.RichTextBox();
             this.cotrolRadiographyBox = new System.Windows.Forms.GroupBox();
             this.controlRadiographyTxt = new System.Windows.Forms.RichTextBox();
             this.chestXRayBox = new System.Windows.Forms.GroupBox();
@@ -306,6 +300,13 @@
             this.neurologBox = new System.Windows.Forms.GroupBox();
             this.neurologTxt = new System.Windows.Forms.RichTextBox();
             this.saveBtn = new System.Windows.Forms.Button();
+            this.mrtTab = new System.Windows.Forms.TabPage();
+            this.mrtBox = new System.Windows.Forms.GroupBox();
+            this.mrtTxt = new System.Windows.Forms.RichTextBox();
+            this.ktBox = new System.Windows.Forms.GroupBox();
+            this.ktTxt = new System.Windows.Forms.RichTextBox();
+            this.msktBox = new System.Windows.Forms.GroupBox();
+            this.msktTxt = new System.Windows.Forms.RichTextBox();
             this.tabs.SuspendLayout();
             this.ekgTab.SuspendLayout();
             this.firstEkgBox.SuspendLayout();
@@ -338,9 +339,6 @@
             this.uzdBox.SuspendLayout();
             this.ehoKgBox.SuspendLayout();
             this.xRayTab.SuspendLayout();
-            this.mrtBox.SuspendLayout();
-            this.ktBox.SuspendLayout();
-            this.msktBox.SuspendLayout();
             this.cotrolRadiographyBox.SuspendLayout();
             this.chestXRayBox.SuspendLayout();
             this.holterTab.SuspendLayout();
@@ -351,6 +349,10 @@
             this.neuroSurgeonBox.SuspendLayout();
             this.surgeonBox.SuspendLayout();
             this.neurologBox.SuspendLayout();
+            this.mrtTab.SuspendLayout();
+            this.mrtBox.SuspendLayout();
+            this.ktBox.SuspendLayout();
+            this.msktBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabs
@@ -362,6 +364,7 @@
             this.tabs.Controls.Add(this.urineTab);
             this.tabs.Controls.Add(this.uziTab);
             this.tabs.Controls.Add(this.xRayTab);
+            this.tabs.Controls.Add(this.mrtTab);
             this.tabs.Controls.Add(this.holterTab);
             this.tabs.Controls.Add(this.specialistDecisionTab);
             this.tabs.Location = new System.Drawing.Point(12, 38);
@@ -2704,9 +2707,6 @@
             // 
             // xRayTab
             // 
-            this.xRayTab.Controls.Add(this.mrtBox);
-            this.xRayTab.Controls.Add(this.ktBox);
-            this.xRayTab.Controls.Add(this.msktBox);
             this.xRayTab.Controls.Add(this.cotrolRadiographyBox);
             this.xRayTab.Controls.Add(this.chestXRayBox);
             this.xRayTab.Location = new System.Drawing.Point(4, 22);
@@ -2714,62 +2714,8 @@
             this.xRayTab.Padding = new System.Windows.Forms.Padding(3);
             this.xRayTab.Size = new System.Drawing.Size(916, 661);
             this.xRayTab.TabIndex = 4;
-            this.xRayTab.Text = "Рентген, КТ, МРТ";
+            this.xRayTab.Text = "Рентген";
             this.xRayTab.UseVisualStyleBackColor = true;
-            // 
-            // mrtBox
-            // 
-            this.mrtBox.Controls.Add(this.mrtTxt);
-            this.mrtBox.Location = new System.Drawing.Point(16, 489);
-            this.mrtBox.Name = "mrtBox";
-            this.mrtBox.Size = new System.Drawing.Size(698, 109);
-            this.mrtBox.TabIndex = 9;
-            this.mrtBox.TabStop = false;
-            this.mrtBox.Text = "МРТ:";
-            // 
-            // mrtTxt
-            // 
-            this.mrtTxt.Location = new System.Drawing.Point(9, 17);
-            this.mrtTxt.Name = "mrtTxt";
-            this.mrtTxt.Size = new System.Drawing.Size(680, 84);
-            this.mrtTxt.TabIndex = 1;
-            this.mrtTxt.Text = "";
-            // 
-            // ktBox
-            // 
-            this.ktBox.Controls.Add(this.ktTxt);
-            this.ktBox.Location = new System.Drawing.Point(16, 367);
-            this.ktBox.Name = "ktBox";
-            this.ktBox.Size = new System.Drawing.Size(698, 109);
-            this.ktBox.TabIndex = 8;
-            this.ktBox.TabStop = false;
-            this.ktBox.Text = "КТ:";
-            // 
-            // ktTxt
-            // 
-            this.ktTxt.Location = new System.Drawing.Point(9, 16);
-            this.ktTxt.Name = "ktTxt";
-            this.ktTxt.Size = new System.Drawing.Size(680, 84);
-            this.ktTxt.TabIndex = 1;
-            this.ktTxt.Text = "";
-            // 
-            // msktBox
-            // 
-            this.msktBox.Controls.Add(this.msktTxt);
-            this.msktBox.Location = new System.Drawing.Point(16, 248);
-            this.msktBox.Name = "msktBox";
-            this.msktBox.Size = new System.Drawing.Size(698, 109);
-            this.msktBox.TabIndex = 7;
-            this.msktBox.TabStop = false;
-            this.msktBox.Text = "МСКТ:";
-            // 
-            // msktTxt
-            // 
-            this.msktTxt.Location = new System.Drawing.Point(9, 16);
-            this.msktTxt.Name = "msktTxt";
-            this.msktTxt.Size = new System.Drawing.Size(680, 84);
-            this.msktTxt.TabIndex = 1;
-            this.msktTxt.Text = "";
             // 
             // cotrolRadiographyBox
             // 
@@ -2951,6 +2897,72 @@
             this.saveBtn.UseVisualStyleBackColor = true;
             this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
             // 
+            // mrtTab
+            // 
+            this.mrtTab.Controls.Add(this.mrtBox);
+            this.mrtTab.Controls.Add(this.ktBox);
+            this.mrtTab.Controls.Add(this.msktBox);
+            this.mrtTab.Location = new System.Drawing.Point(4, 22);
+            this.mrtTab.Name = "mrtTab";
+            this.mrtTab.Size = new System.Drawing.Size(916, 661);
+            this.mrtTab.TabIndex = 9;
+            this.mrtTab.Text = "КТ, МРТ";
+            this.mrtTab.UseVisualStyleBackColor = true;
+            // 
+            // mrtBox
+            // 
+            this.mrtBox.Controls.Add(this.mrtTxt);
+            this.mrtBox.Location = new System.Drawing.Point(14, 254);
+            this.mrtBox.Name = "mrtBox";
+            this.mrtBox.Size = new System.Drawing.Size(698, 109);
+            this.mrtBox.TabIndex = 12;
+            this.mrtBox.TabStop = false;
+            this.mrtBox.Text = "МРТ:";
+            // 
+            // mrtTxt
+            // 
+            this.mrtTxt.Location = new System.Drawing.Point(9, 17);
+            this.mrtTxt.Name = "mrtTxt";
+            this.mrtTxt.Size = new System.Drawing.Size(680, 84);
+            this.mrtTxt.TabIndex = 1;
+            this.mrtTxt.Text = "";
+            // 
+            // ktBox
+            // 
+            this.ktBox.Controls.Add(this.ktTxt);
+            this.ktBox.Location = new System.Drawing.Point(14, 132);
+            this.ktBox.Name = "ktBox";
+            this.ktBox.Size = new System.Drawing.Size(698, 109);
+            this.ktBox.TabIndex = 11;
+            this.ktBox.TabStop = false;
+            this.ktBox.Text = "КТ:";
+            // 
+            // ktTxt
+            // 
+            this.ktTxt.Location = new System.Drawing.Point(9, 16);
+            this.ktTxt.Name = "ktTxt";
+            this.ktTxt.Size = new System.Drawing.Size(680, 84);
+            this.ktTxt.TabIndex = 1;
+            this.ktTxt.Text = "";
+            // 
+            // msktBox
+            // 
+            this.msktBox.Controls.Add(this.msktTxt);
+            this.msktBox.Location = new System.Drawing.Point(14, 13);
+            this.msktBox.Name = "msktBox";
+            this.msktBox.Size = new System.Drawing.Size(698, 109);
+            this.msktBox.TabIndex = 10;
+            this.msktBox.TabStop = false;
+            this.msktBox.Text = "МСКТ:";
+            // 
+            // msktTxt
+            // 
+            this.msktTxt.Location = new System.Drawing.Point(9, 16);
+            this.msktTxt.Name = "msktTxt";
+            this.msktTxt.Size = new System.Drawing.Size(680, 84);
+            this.msktTxt.TabIndex = 1;
+            this.msktTxt.Text = "";
+            // 
             // Analizi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3003,9 +3015,6 @@
             this.uzdBox.ResumeLayout(false);
             this.ehoKgBox.ResumeLayout(false);
             this.xRayTab.ResumeLayout(false);
-            this.mrtBox.ResumeLayout(false);
-            this.ktBox.ResumeLayout(false);
-            this.msktBox.ResumeLayout(false);
             this.cotrolRadiographyBox.ResumeLayout(false);
             this.chestXRayBox.ResumeLayout(false);
             this.holterTab.ResumeLayout(false);
@@ -3016,6 +3025,10 @@
             this.neuroSurgeonBox.ResumeLayout(false);
             this.surgeonBox.ResumeLayout(false);
             this.neurologBox.ResumeLayout(false);
+            this.mrtTab.ResumeLayout(false);
+            this.mrtBox.ResumeLayout(false);
+            this.ktBox.ResumeLayout(false);
+            this.msktBox.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -3253,12 +3266,6 @@
         private System.Windows.Forms.RichTextBox uzdTxt;
         private System.Windows.Forms.GroupBox ehoKgBox;
         private System.Windows.Forms.RichTextBox ehoKgTxt;
-        private System.Windows.Forms.GroupBox mrtBox;
-        private System.Windows.Forms.RichTextBox mrtTxt;
-        private System.Windows.Forms.GroupBox ktBox;
-        private System.Windows.Forms.RichTextBox ktTxt;
-        private System.Windows.Forms.GroupBox msktBox;
-        private System.Windows.Forms.RichTextBox msktTxt;
         private System.Windows.Forms.GroupBox cotrolRadiographyBox;
         private System.Windows.Forms.RichTextBox controlRadiographyTxt;
         private System.Windows.Forms.GroupBox chestXRayBox;
@@ -3298,5 +3305,12 @@
         private System.Windows.Forms.GroupBox kagDateBox;
         private System.Windows.Forms.DateTimePicker kagDate;
         private System.Windows.Forms.GroupBox firstEkgBox;
+        private System.Windows.Forms.TabPage mrtTab;
+        private System.Windows.Forms.GroupBox mrtBox;
+        private System.Windows.Forms.RichTextBox mrtTxt;
+        private System.Windows.Forms.GroupBox ktBox;
+        private System.Windows.Forms.RichTextBox ktTxt;
+        private System.Windows.Forms.GroupBox msktBox;
+        private System.Windows.Forms.RichTextBox msktTxt;
     }
 }

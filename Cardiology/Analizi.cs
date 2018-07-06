@@ -104,26 +104,18 @@ namespace Cardiology
             if (CommonUtils.isNotBlank(patientAnalysis.DsisUrineAnalysis) && urineAnalysis != null)
             {
                 colorTxt.Text = urineAnalysis.DssColor;
-                acidityTxt.Text = urineAnalysis.DssAcidity;
                 erythrocytesTxt.Text = urineAnalysis.DssErythrocytes;
-                glucoseTxt.Text = urineAnalysis.DssGlucose;
-                ketonesTxt.Text = urineAnalysis.DssKetones;
                 leukocytesTxt.Text = urineAnalysis.DssLeukocytes;
                 proteinTxt.Text = urineAnalysis.DssProtein;
-                specGravityTxt.Text = urineAnalysis.DssSpecificGravity;
             }
 
             DdtUrineAnalysis firstAnalysis = service.queryObject<DdtUrineAnalysis>(string.Format(FIRST_ANALYSIS_QRY_TEMPLATE, DdtUrineAnalysis.TABLE_NAME, hospitalitySession.ObjectId));
             if (firstAnalysis != null)
             {
                 firstColorTxt.Text = firstAnalysis.DssColor;
-                firstAcidityTxt.Text = firstAnalysis.DssAcidity;
                 firstErythrocytesTxt.Text = firstAnalysis.DssErythrocytes;
-                firstGlucoseTxt.Text = firstAnalysis.DssGlucose;
-                firstKetonesTxt.Text = firstAnalysis.DssKetones;
                 firstLeucocytesTxt.Text = firstAnalysis.DssLeukocytes;
                 firstProteinTxt.Text = firstAnalysis.DssProtein;
-                firstSpecGravityTxt.Text = firstAnalysis.DssSpecificGravity;
             }
         }
 
@@ -301,14 +293,10 @@ namespace Cardiology
                     urineAnalysis.DsidDoctor = hospitalitySession.DsidCuringDoctor;
                     urineAnalysis.DsidPatient = hospitalitySession.DsidPatient;
                 }
-                urineAnalysis.DssAcidity = acidityTxt.Text;
                 urineAnalysis.DssColor = colorTxt.Text;
                 urineAnalysis.DssErythrocytes = erythrocytesTxt.Text;
-                urineAnalysis.DssGlucose = glucoseTxt.Text;
-                urineAnalysis.DssKetones = ketonesTxt.Text;
                 urineAnalysis.DssLeukocytes = leukocytesTxt.Text;
                 urineAnalysis.DssProtein = proteinTxt.Text;
-                urineAnalysis.DssSpecificGravity = specGravityTxt.Text;
                 string id = updateObject<DdtUrineAnalysis>(service, urineAnalysis, DdtUrineAnalysis.TABLE_NAME, urineAnalysis.ObjectId);
                 patientAnalysis.DsisUrineAnalysis = id;
             }
@@ -397,10 +385,8 @@ namespace Cardiology
             switch (tabindex)
             {
                 case URINE_TAB_INDX:
-                    return CommonUtils.isNotBlank(acidityTxt.Text) || CommonUtils.isNotBlank(colorTxt.Text) ||
-                        CommonUtils.isNotBlank(erythrocytesTxt.Text) || CommonUtils.isNotBlank(glucoseTxt.Text) ||
-                        CommonUtils.isNotBlank(leukocytesTxt.Text) || CommonUtils.isNotBlank(proteinTxt.Text) ||
-                         CommonUtils.isNotBlank(specGravityTxt.Text) || CommonUtils.isNotBlank(ketonesTxt.Text);
+                    return CommonUtils.isNotBlank(colorTxt.Text) || CommonUtils.isNotBlank(erythrocytesTxt.Text) || 
+                        CommonUtils.isNotBlank(leukocytesTxt.Text) || CommonUtils.isNotBlank(proteinTxt.Text);
                 case UZI_TAB_INDX:
                     return CommonUtils.isNotBlank(ehoKgTxt.Text) || CommonUtils.isNotBlank(cdsTxt.Text) ||
                         CommonUtils.isNotBlank(pleursUziTxt.Text) || CommonUtils.isNotBlank(uzdTxt.Text) || CommonUtils.isNotBlank(uziObpTxt.Text);

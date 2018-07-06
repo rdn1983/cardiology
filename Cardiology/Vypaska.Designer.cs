@@ -55,6 +55,7 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.button2 = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.disabilityBox = new System.Windows.Forms.GroupBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -237,7 +238,7 @@
             // 
             // formTrudBtn
             // 
-            this.formTrudBtn.Location = new System.Drawing.Point(7, 20);
+            this.formTrudBtn.Location = new System.Drawing.Point(7, 70);
             this.formTrudBtn.Name = "formTrudBtn";
             this.formTrudBtn.Size = new System.Drawing.Size(338, 23);
             this.formTrudBtn.TabIndex = 0;
@@ -309,11 +310,20 @@
             this.tabPage3.Text = "Варианты выписки";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // disabilityBox
+            // 
+            this.disabilityBox.Location = new System.Drawing.Point(520, 146);
+            this.disabilityBox.Name = "disabilityBox";
+            this.disabilityBox.Size = new System.Drawing.Size(401, 133);
+            this.disabilityBox.TabIndex = 4;
+            this.disabilityBox.TabStop = false;
+            // 
             // Vypaska
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(526, 450);
+            this.ClientSize = new System.Drawing.Size(973, 450);
+            this.Controls.Add(this.disabilityBox);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -358,5 +368,6 @@
         private System.Windows.Forms.Button formTrudBtn;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.GroupBox disabilityBox;
     }
 }

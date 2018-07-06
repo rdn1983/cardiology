@@ -523,7 +523,7 @@
             this.deviationBox.Size = new System.Drawing.Size(287, 56);
             this.deviationBox.TabIndex = 11;
             this.deviationBox.TabStop = false;
-            this.deviationBox.Text = "Девиация";
+            this.deviationBox.Text = "Девиация ST";
             // 
             // negativeTBtn
             // 

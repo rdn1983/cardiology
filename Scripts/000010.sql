@@ -1,5 +1,5 @@
 CREATE OR REPLACE VIEW ddv_active_hospital_patients(dsdt_admission_date, dss_doc_name, dss_patient_name, 
-dss_romm_cell, dss_diagnosis, dsid_patient_id, dsid_doctor_id, dss_med_code, dsid_hospital_session) AS 
+dss_room_cell, dss_diagnosis, dsid_patient_id, dsid_doctor_id, dss_med_code, dsid_hospital_session) AS 
 SELECT hosp.dsdt_admission_date as dsdt_admission_date, 
 	doc.dss_initials AS dss_doc_name,
 	pat.dss_initials AS dss_patient_name,

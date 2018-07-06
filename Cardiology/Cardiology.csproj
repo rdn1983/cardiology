@@ -126,11 +126,11 @@
     <Compile Include="DB3.Designer.cs">
       <DependentUpon>DB3.cs</DependentUpon>
     </Compile>
-    <Compile Include="Hospital.cs">
+    <Compile Include="PatientList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Hospital.Designer.cs">
-      <DependentUpon>Hospital.cs</DependentUpon>
+    <Compile Include="PatientList.Designer.cs">
+      <DependentUpon>PatientList.cs</DependentUpon>
     </Compile>
     <Compile Include="JournalAfterKAG.cs">
       <SubType>Form</SubType>
@@ -299,8 +299,8 @@
     <EmbeddedResource Include="FirstInspection.resx">
       <DependentUpon>FirstInspection.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Hospital.resx">
-      <DependentUpon>Hospital.cs</DependentUpon>
+    <EmbeddedResource Include="PatientList.resx">
+      <DependentUpon>PatientList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="JournalAfterKAG.resx">
       <DependentUpon>JournalAfterKAG.cs</DependentUpon>

@@ -1,6 +1,6 @@
 ﻿namespace Cardiology
 {
-    partial class Hospital
+    partial class PatientList
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Hospital));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PatientList));
             this.statusBar = new System.Windows.Forms.StatusStrip();
             this.mainMenu = new System.Windows.Forms.MenuStrip();
             this.actionsManu = new System.Windows.Forms.ToolStripMenuItem();

@@ -36,19 +36,6 @@ namespace Cardiology
 
         }
 
-        private void onlyDigits_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
-                (e.KeyChar != '.'))
-            {
-                e.Handled = true;
-            }
-            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
-            {
-                e.Handled = true;
-            }
-        }
-
         private void admisPatient_Click(object sender, EventArgs e)
         {
             if (!getIsValid())
@@ -80,7 +67,7 @@ namespace Cardiology
             hospital.DsidCuringDoctor = doc.ObjectId;
             hospital.DsidDutyDoctor = doc.ObjectId;
             hospital.DsidSubstitutionDoctor = doc.ObjectId;
-            hospital.DssRoomCell = "";
+            hospital.DssRoomCell = roomTxt.Text + "/" + bedTxt.Text;
             service.insertObject(hospital, DdtHospital.TABLENAME);
             //todo перенести в статусную строку
             Close();
@@ -108,6 +95,15 @@ namespace Cardiology
                 for (int i = 0; i < rus.Length; i++)
                     if (initials.Substring(j, 1) == rus[i]) ret.Append(eng[i]);
             return CommonUtils.isBlank(ret.ToString()) ? initials : ret.ToString();
+        }
+
+        private void OnlyDigits_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
         }
 
     }

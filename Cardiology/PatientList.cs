@@ -7,9 +7,9 @@ using System.Windows.Forms;
 
 namespace Cardiology
 {
-    public partial class Hospital : Form
+    public partial class PatientList : Form
     {
-        public Hospital()
+        public PatientList()
         {
             InitializeComponent();
             loadPatientsGrid();

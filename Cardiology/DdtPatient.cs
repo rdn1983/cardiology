@@ -27,6 +27,10 @@ namespace Cardiology.Model
         private double dsdHigh;
         [TableAttribute("dss_med_code")]
         private string dssMedCode;
+        [TableAttribute("dss_snils")]
+        private string dssSnils;
+        [TableAttribute("dss_oms")]
+        private string dssOms;
 
         //add sex
 
@@ -83,7 +87,8 @@ namespace Cardiology.Model
             get { return dssMedCode; }
             set { this.dssMedCode = value; }
         }
-       
 
+        public string DssSnils { get => dssSnils; set => dssSnils = value; }
+        public string DssOms { get => dssOms; set => dssOms = value; }
     }
 }

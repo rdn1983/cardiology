@@ -285,6 +285,13 @@
             this.controlRadiographyTxt = new System.Windows.Forms.RichTextBox();
             this.chestXRayBox = new System.Windows.Forms.GroupBox();
             this.chestXRayTxt = new System.Windows.Forms.RichTextBox();
+            this.mrtTab = new System.Windows.Forms.TabPage();
+            this.mrtBox = new System.Windows.Forms.GroupBox();
+            this.mrtTxt = new System.Windows.Forms.RichTextBox();
+            this.ktBox = new System.Windows.Forms.GroupBox();
+            this.ktTxt = new System.Windows.Forms.RichTextBox();
+            this.msktBox = new System.Windows.Forms.GroupBox();
+            this.msktTxt = new System.Windows.Forms.RichTextBox();
             this.holterTab = new System.Windows.Forms.TabPage();
             this.monitoringAdBox = new System.Windows.Forms.GroupBox();
             this.monitoringAdTxt = new System.Windows.Forms.RichTextBox();
@@ -300,13 +307,6 @@
             this.neurologBox = new System.Windows.Forms.GroupBox();
             this.neurologTxt = new System.Windows.Forms.RichTextBox();
             this.saveBtn = new System.Windows.Forms.Button();
-            this.mrtTab = new System.Windows.Forms.TabPage();
-            this.mrtBox = new System.Windows.Forms.GroupBox();
-            this.mrtTxt = new System.Windows.Forms.RichTextBox();
-            this.ktBox = new System.Windows.Forms.GroupBox();
-            this.ktTxt = new System.Windows.Forms.RichTextBox();
-            this.msktBox = new System.Windows.Forms.GroupBox();
-            this.msktTxt = new System.Windows.Forms.RichTextBox();
             this.tabs.SuspendLayout();
             this.ekgTab.SuspendLayout();
             this.firstEkgBox.SuspendLayout();
@@ -341,6 +341,10 @@
             this.xRayTab.SuspendLayout();
             this.cotrolRadiographyBox.SuspendLayout();
             this.chestXRayBox.SuspendLayout();
+            this.mrtTab.SuspendLayout();
+            this.mrtBox.SuspendLayout();
+            this.ktBox.SuspendLayout();
+            this.msktBox.SuspendLayout();
             this.holterTab.SuspendLayout();
             this.monitoringAdBox.SuspendLayout();
             this.holterBox.SuspendLayout();
@@ -349,10 +353,6 @@
             this.neuroSurgeonBox.SuspendLayout();
             this.surgeonBox.SuspendLayout();
             this.neurologBox.SuspendLayout();
-            this.mrtTab.SuspendLayout();
-            this.mrtBox.SuspendLayout();
-            this.ktBox.SuspendLayout();
-            this.msktBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabs
@@ -2753,6 +2753,72 @@
             this.chestXRayTxt.TabIndex = 0;
             this.chestXRayTxt.Text = "";
             // 
+            // mrtTab
+            // 
+            this.mrtTab.Controls.Add(this.mrtBox);
+            this.mrtTab.Controls.Add(this.ktBox);
+            this.mrtTab.Controls.Add(this.msktBox);
+            this.mrtTab.Location = new System.Drawing.Point(4, 22);
+            this.mrtTab.Name = "mrtTab";
+            this.mrtTab.Size = new System.Drawing.Size(916, 661);
+            this.mrtTab.TabIndex = 9;
+            this.mrtTab.Text = "КТ, МРТ";
+            this.mrtTab.UseVisualStyleBackColor = true;
+            // 
+            // mrtBox
+            // 
+            this.mrtBox.Controls.Add(this.mrtTxt);
+            this.mrtBox.Location = new System.Drawing.Point(14, 254);
+            this.mrtBox.Name = "mrtBox";
+            this.mrtBox.Size = new System.Drawing.Size(698, 109);
+            this.mrtBox.TabIndex = 12;
+            this.mrtBox.TabStop = false;
+            this.mrtBox.Text = "МРТ:";
+            // 
+            // mrtTxt
+            // 
+            this.mrtTxt.Location = new System.Drawing.Point(9, 17);
+            this.mrtTxt.Name = "mrtTxt";
+            this.mrtTxt.Size = new System.Drawing.Size(680, 84);
+            this.mrtTxt.TabIndex = 1;
+            this.mrtTxt.Text = "";
+            // 
+            // ktBox
+            // 
+            this.ktBox.Controls.Add(this.ktTxt);
+            this.ktBox.Location = new System.Drawing.Point(14, 132);
+            this.ktBox.Name = "ktBox";
+            this.ktBox.Size = new System.Drawing.Size(698, 109);
+            this.ktBox.TabIndex = 11;
+            this.ktBox.TabStop = false;
+            this.ktBox.Text = "КТ:";
+            // 
+            // ktTxt
+            // 
+            this.ktTxt.Location = new System.Drawing.Point(9, 16);
+            this.ktTxt.Name = "ktTxt";
+            this.ktTxt.Size = new System.Drawing.Size(680, 84);
+            this.ktTxt.TabIndex = 1;
+            this.ktTxt.Text = "";
+            // 
+            // msktBox
+            // 
+            this.msktBox.Controls.Add(this.msktTxt);
+            this.msktBox.Location = new System.Drawing.Point(14, 13);
+            this.msktBox.Name = "msktBox";
+            this.msktBox.Size = new System.Drawing.Size(698, 109);
+            this.msktBox.TabIndex = 10;
+            this.msktBox.TabStop = false;
+            this.msktBox.Text = "МСКТ:";
+            // 
+            // msktTxt
+            // 
+            this.msktTxt.Location = new System.Drawing.Point(9, 16);
+            this.msktTxt.Name = "msktTxt";
+            this.msktTxt.Size = new System.Drawing.Size(680, 84);
+            this.msktTxt.TabIndex = 1;
+            this.msktTxt.Text = "";
+            // 
             // holterTab
             // 
             this.holterTab.Controls.Add(this.monitoringAdBox);
@@ -2897,72 +2963,6 @@
             this.saveBtn.UseVisualStyleBackColor = true;
             this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
             // 
-            // mrtTab
-            // 
-            this.mrtTab.Controls.Add(this.mrtBox);
-            this.mrtTab.Controls.Add(this.ktBox);
-            this.mrtTab.Controls.Add(this.msktBox);
-            this.mrtTab.Location = new System.Drawing.Point(4, 22);
-            this.mrtTab.Name = "mrtTab";
-            this.mrtTab.Size = new System.Drawing.Size(916, 661);
-            this.mrtTab.TabIndex = 9;
-            this.mrtTab.Text = "КТ, МРТ";
-            this.mrtTab.UseVisualStyleBackColor = true;
-            // 
-            // mrtBox
-            // 
-            this.mrtBox.Controls.Add(this.mrtTxt);
-            this.mrtBox.Location = new System.Drawing.Point(14, 254);
-            this.mrtBox.Name = "mrtBox";
-            this.mrtBox.Size = new System.Drawing.Size(698, 109);
-            this.mrtBox.TabIndex = 12;
-            this.mrtBox.TabStop = false;
-            this.mrtBox.Text = "МРТ:";
-            // 
-            // mrtTxt
-            // 
-            this.mrtTxt.Location = new System.Drawing.Point(9, 17);
-            this.mrtTxt.Name = "mrtTxt";
-            this.mrtTxt.Size = new System.Drawing.Size(680, 84);
-            this.mrtTxt.TabIndex = 1;
-            this.mrtTxt.Text = "";
-            // 
-            // ktBox
-            // 
-            this.ktBox.Controls.Add(this.ktTxt);
-            this.ktBox.Location = new System.Drawing.Point(14, 132);
-            this.ktBox.Name = "ktBox";
-            this.ktBox.Size = new System.Drawing.Size(698, 109);
-            this.ktBox.TabIndex = 11;
-            this.ktBox.TabStop = false;
-            this.ktBox.Text = "КТ:";
-            // 
-            // ktTxt
-            // 
-            this.ktTxt.Location = new System.Drawing.Point(9, 16);
-            this.ktTxt.Name = "ktTxt";
-            this.ktTxt.Size = new System.Drawing.Size(680, 84);
-            this.ktTxt.TabIndex = 1;
-            this.ktTxt.Text = "";
-            // 
-            // msktBox
-            // 
-            this.msktBox.Controls.Add(this.msktTxt);
-            this.msktBox.Location = new System.Drawing.Point(14, 13);
-            this.msktBox.Name = "msktBox";
-            this.msktBox.Size = new System.Drawing.Size(698, 109);
-            this.msktBox.TabIndex = 10;
-            this.msktBox.TabStop = false;
-            this.msktBox.Text = "МСКТ:";
-            // 
-            // msktTxt
-            // 
-            this.msktTxt.Location = new System.Drawing.Point(9, 16);
-            this.msktTxt.Name = "msktTxt";
-            this.msktTxt.Size = new System.Drawing.Size(680, 84);
-            this.msktTxt.TabIndex = 1;
-            this.msktTxt.Text = "";
-            // 
             // Analizi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2973,7 +2973,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Analizi";
-            this.Text = "ЭКГ, Рентген, Анализы:";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Анализы";
             this.tabs.ResumeLayout(false);
             this.ekgTab.ResumeLayout(false);
             this.firstEkgBox.ResumeLayout(false);
@@ -3017,6 +3018,10 @@
             this.xRayTab.ResumeLayout(false);
             this.cotrolRadiographyBox.ResumeLayout(false);
             this.chestXRayBox.ResumeLayout(false);
+            this.mrtTab.ResumeLayout(false);
+            this.mrtBox.ResumeLayout(false);
+            this.ktBox.ResumeLayout(false);
+            this.msktBox.ResumeLayout(false);
             this.holterTab.ResumeLayout(false);
             this.monitoringAdBox.ResumeLayout(false);
             this.holterBox.ResumeLayout(false);
@@ -3025,10 +3030,6 @@
             this.neuroSurgeonBox.ResumeLayout(false);
             this.surgeonBox.ResumeLayout(false);
             this.neurologBox.ResumeLayout(false);
-            this.mrtTab.ResumeLayout(false);
-            this.mrtBox.ResumeLayout(false);
-            this.ktBox.ResumeLayout(false);
-            this.msktBox.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

@@ -12,6 +12,8 @@ CREATE TABLE ddt_patient (
   dsd_weight real,
   dsd_high real,
 
+  dss_snils VARCHAR(40),
+  dss_oms VARCHAR(40),
   dss_med_code VARCHAR(20)
 );
 

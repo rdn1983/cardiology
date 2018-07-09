@@ -19,3 +19,4 @@ CREATE TABLE ddt_patient_analysis (
 CREATE TRIGGER ddt_patient_analysis BEFORE INSERT OR UPDATE
   ON ddt_patient_analysis FOR EACH ROW
 EXECUTE PROCEDURE dmtrg_f_modify_date();
+

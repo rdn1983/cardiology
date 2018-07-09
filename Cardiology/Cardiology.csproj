@@ -63,12 +63,6 @@
     <Compile Include="Analizi.Designer.cs">
       <DependentUpon>Analizi.cs</DependentUpon>
     </Compile>
-    <Compile Include="AnalysisCabinet.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AnalysisCabinet.Designer.cs">
-      <DependentUpon>AnalysisCabinet.cs</DependentUpon>
-    </Compile>
     <Compile Include="DdtAnamnesis.cs" />
     <Compile Include="DdtCure.cs" />
     <Compile Include="DdtCureDictionary.cs" />
@@ -81,13 +75,22 @@
     <Compile Include="DdtJournal.cs" />
     <Compile Include="DdtKag.cs" />
     <Compile Include="DdtPatientAnalysis.cs" />
+    <Compile Include="DdtReleasePatient.cs" />
     <Compile Include="DdtSerology.cs" />
     <Compile Include="DdtSpecialistConclusion.cs" />
     <Compile Include="DdtUrineAnalysis.cs" />
     <Compile Include="DdtUzi.cs" />
+    <Compile Include="DdtValue.cs" />
     <Compile Include="DdtValues.cs" />
     <Compile Include="DdtXRay.cs" />
     <Compile Include="DdvActiveHospitalPatients.cs" />
+    <Compile Include="DdvHistory.cs" />
+    <Compile Include="PatientsHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientsHistory.Designer.cs">
+      <DependentUpon>PatientsHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProtocolsManipulation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,11 +141,11 @@
     <Compile Include="JournalAfterKAG.Designer.cs">
       <DependentUpon>JournalAfterKAG.cs</DependentUpon>
     </Compile>
-    <Compile Include="ListNaznachForm.cs">
+    <Compile Include="IssuedMedicine.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ListNaznachForm.Designer.cs">
-      <DependentUpon>ListNaznachForm.cs</DependentUpon>
+    <Compile Include="IssuedMedicine.Designer.cs">
+      <DependentUpon>IssuedMedicine.cs</DependentUpon>
     </Compile>
     <Compile Include="DdtPatient.cs" />
     <Compile Include="Perelivanie.cs">
@@ -186,12 +189,6 @@
     </Compile>
     <Compile Include="ReanimDEAD.Designer.cs">
       <DependentUpon>ReanimDEAD.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Start.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Start.Designer.cs">
-      <DependentUpon>Start.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -245,11 +242,11 @@
     <Compile Include="UserFormTrombolisis.Designer.cs">
       <DependentUpon>UserFormTrombolisis.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserFormTRUD.cs">
+    <Compile Include="PatientWorkInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UserFormTRUD.Designer.cs">
-      <DependentUpon>UserFormTRUD.cs</DependentUpon>
+    <Compile Include="PatientWorkInfo.Designer.cs">
+      <DependentUpon>PatientWorkInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="UserFormVEKS.cs">
       <SubType>Form</SubType>
@@ -263,11 +260,11 @@
     <Compile Include="UserFromVena.Designer.cs">
       <DependentUpon>UserFromVena.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vypaska.cs">
+    <Compile Include="ReleasePatient.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vypaska.Designer.cs">
-      <DependentUpon>Vypaska.cs</DependentUpon>
+    <Compile Include="ReleasePatient.Designer.cs">
+      <DependentUpon>ReleasePatient.cs</DependentUpon>
     </Compile>
     <Compile Include="Pisma.cs">
       <SubType>Form</SubType>
@@ -280,9 +277,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Analizi.resx">
       <DependentUpon>Analizi.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AnalysisCabinet.resx">
-      <DependentUpon>AnalysisCabinet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ComplaintTemplates.resx">
       <DependentUpon>ComplaintTemplates.cs</DependentUpon>
@@ -305,8 +299,11 @@
     <EmbeddedResource Include="JournalAfterKAG.resx">
       <DependentUpon>JournalAfterKAG.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ListNaznachForm.resx">
-      <DependentUpon>ListNaznachForm.cs</DependentUpon>
+    <EmbeddedResource Include="IssuedMedicine.resx">
+      <DependentUpon>IssuedMedicine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientsHistory.resx">
+      <DependentUpon>PatientsHistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Perelivanie.resx">
       <DependentUpon>Perelivanie.cs</DependentUpon>
@@ -332,12 +329,6 @@
     <EmbeddedResource Include="ReanimDEAD.resx">
       <DependentUpon>ReanimDEAD.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Start.resx">
-      <DependentUpon>Start.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Start.ru-RU.resx">
-      <DependentUpon>Start.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -346,6 +337,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="UserBlanks.resx">
       <DependentUpon>UserBlanks.cs</DependentUpon>
@@ -371,8 +363,8 @@
     <EmbeddedResource Include="UserFormTrombolisis.resx">
       <DependentUpon>UserFormTrombolisis.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserFormTRUD.resx">
-      <DependentUpon>UserFormTRUD.cs</DependentUpon>
+    <EmbeddedResource Include="PatientWorkInfo.resx">
+      <DependentUpon>PatientWorkInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserFormVEKS.resx">
       <DependentUpon>UserFormVEKS.cs</DependentUpon>
@@ -380,8 +372,8 @@
     <EmbeddedResource Include="UserFromVena.resx">
       <DependentUpon>UserFromVena.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vypaska.resx">
-      <DependentUpon>Vypaska.cs</DependentUpon>
+    <EmbeddedResource Include="ReleasePatient.resx">
+      <DependentUpon>ReleasePatient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pisma.resx">
       <DependentUpon>Pisma.cs</DependentUpon>
@@ -431,6 +423,15 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addd1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

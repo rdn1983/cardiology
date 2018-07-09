@@ -2,11 +2,18 @@
 using System;
 using System.Windows.Forms;
 using Cardiology.Utils;
+using System.Collections.Generic;
+using System.Collections;
 
 namespace Cardiology
 {
     public partial class FirstInspection : Form
     {
+        private const string FIRST_ANALYSIS_QRY_TEMPLATE = @"SELECT * FROM {0} WHERE dsb_admission_analysis=true and dsid_hospitality_session='{1}'";
+        private const int EGDS_TAB_INDX = 1;
+        private const int EKG_TAB_INDX = 0;
+        private const int URINE_TAB_INDX = 2;
+
         private const string OKSUP_TYPE = "oksup";
         private const string OKSDOWN_TYPE = "oksdown";
         private const string KAG_TYPE = "kag";
@@ -32,17 +39,51 @@ namespace Cardiology
 
         private DdtHospital hospitalSession;
         private DdtAnamnesis anamnesis;
+        private List<DdtIssuedMedicine> issuedMedicine;
 
         public FirstInspection(DdtHospital hospitalitySession)
         {
             this.hospitalSession = hospitalitySession;
             InitializeComponent();
-            initializeAnamnesis();
+
+            DataService service = new DataService();
+            initializeAnamnesis(service);
+            initIssuedMedicine(service);
+            initDiagnosis();
+            initAdmissionAnalysis(service);
         }
 
-        private void initializeAnamnesis()
+        private void initAdmissionAnalysis(DataService service)
         {
-            DataService service = new DataService();
+            
+            DdtUrineAnalysis firstAnalysis = service.queryObject<DdtUrineAnalysis>(string.Format(FIRST_ANALYSIS_QRY_TEMPLATE, DdtUrineAnalysis.TABLE_NAME, hospitalSession.ObjectId));
+            if (firstAnalysis != null)
+            {
+                firstColorTxt.Text = firstAnalysis.DssColor;
+                firstErythrocytesTxt.Text = firstAnalysis.DssErythrocytes;
+                firstLeucocytesTxt.Text = firstAnalysis.DssLeukocytes;
+                firstProteinTxt.Text = firstAnalysis.DssProtein;
+            }
+            DdtEgds firstEgdsAnalysis = service.queryObject<DdtEgds>(string.Format(FIRST_ANALYSIS_QRY_TEMPLATE, DdtEgds.TABLE_NAME, hospitalSession.ObjectId));
+            if (firstEgdsAnalysis != null)
+            {
+                firstEgdsTxt.Text = firstEgdsAnalysis.DssEgds;
+            }
+
+            DdtEkg firstEkgAnalysis = service.queryObject<DdtEkg>(string.Format(FIRST_ANALYSIS_QRY_TEMPLATE, DdtEkg.TABLE_NAME, hospitalSession.ObjectId));
+            if (firstEkgAnalysis != null)
+            {
+                regularEkgTxt.Text = firstEkgAnalysis.DssEkg;
+            }
+        }
+
+        private void initDiagnosis()
+        {
+            diagnosisTxt.Text = hospitalSession.DssDiagnosis;
+        }
+
+        private void initializeAnamnesis(DataService service)
+        {
             anamnesis = service.queryObject<DdtAnamnesis>(@"select * from ddt_anamnesis WHERE dsid_hospitality_session='" + hospitalSession.ObjectId + "'");
             if (anamnesis != null)
             {
@@ -64,6 +105,33 @@ namespace Cardiology
             }
         }
 
+        private void initIssuedMedicine(DataService service)
+        {
+            CommonUtils.initCureComboboxValues(service, issuedMed0, null);
+
+            issuedMedicine = service.queryObjectsCollection<DdtIssuedMedicine>(@"SELECT * FROM ddt_issued_medicine WHERE dsid_hospitality_session='" +
+                hospitalSession.ObjectId + "' AND dss_parent_type='ddt_anamnesis'");
+            for (int i = 0; i < issuedMedicine.Count; i++)
+            {
+                ComboBox box = null;
+                if (issuedMedicineContainer.Controls.Count <= i)
+                {
+                    box = createCureBox();
+                }
+                else
+                {
+                    box = (ComboBox)issuedMedicineContainer.GetControlFromPosition(0, i);
+                }
+
+                DdtCure cure = service.queryObject<DdtCure>(@"Select * from ddt_cure WHERE r_object_id ='" + issuedMedicine[i].DsidCure + "'");
+                if (cure != null)
+                {
+                    box.SelectedIndex = box.FindStringExact(cure.DssName);
+
+                }
+            }
+        }
+
         private void fixComplaintTeplaintBtn_Click(object sender, EventArgs e)
         {
             ComplaintTemplates templateForm = new ComplaintTemplates();
@@ -74,11 +142,6 @@ namespace Cardiology
         {
             MorbiTemplates templateForm = new MorbiTemplates();
             templateForm.ShowDialog();
-        }
-
-        private void FirstInspection_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void prevBtn_Click(object sender, EventArgs e)
@@ -275,60 +338,307 @@ namespace Cardiology
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
-            bool isValid = false;
+            bool isNotValid = false;
             for (int i = 0; i < tabsContainer.TabCount; i++)
             {
-                isValid |= getIsValid(i);
+                isNotValid |= !getIsValid(i);
             }
 
-            if (isValid)
+            if (!isNotValid)
             {
-                if (anamnesis == null)
-                {
-                    anamnesis = new DdtAnamnesis();
-                    anamnesis.DsidHospitalitySession = hospitalSession.ObjectId;
-                    anamnesis.DsidDoctor = hospitalSession.DsidCuringDoctor;
-                    anamnesis.DsidPatient = hospitalSession.DsidPatient;
-                }
-
-                anamnesis.DssAccompayingIll = accompanyingIllnessesTxt.Text;
-                anamnesis.DssAnamnesisAllergy = anamnesisAllergyTxt.Text;
-                anamnesis.DssAnamnesisEpid = anamnesisEpidTxt.Text;
-                anamnesis.DssAnamnesisMorbi = anamnesisMorbiTxt.Text;
-                anamnesis.DssAnamnesisVitae = anamnesisVitaeTxt.Text;
-                anamnesis.DssCardioVascular = cardiovascularSystemTxt.Text;
-                anamnesis.DssComplaints = complaintsTxt.Text;
-                anamnesis.DssDiagnosisJustifies = justificationTxt.Text;
-                anamnesis.DssDigestiveSystem = digestiveSystemTxt.Text;
-                anamnesis.DssDrugs = drugsTxt.Text;
-                anamnesis.DssNervousSystem = nervousSystemTxt.Text;
-                anamnesis.DssPastSurgeries = pastSurgeriesTxt.Text;
-                anamnesis.DssRespiratorySystem = respiratorySystemTxt.Text;
-                anamnesis.DssStPresens = stPresensTxt.Text;
-                anamnesis.DssUrinarySystem = urinarySystemTxt.Text;
-
                 DataService service = new DataService();
-                if (CommonUtils.isBlank(anamnesis.ObjectId))
+                
+                saveAnamnesis(service);
+                saveIssuedMedicine(service);
+                saveUrineAnalysisTab(service);
+                saveEgdsAnalysisTab(service);
+                saveEkgAnalysisTab(service);
+
+                hospitalSession.DssDiagnosis = diagnosisTxt.Text;
+                service.updateObject<DdtHospital>(hospitalSession, DdtHospital.TABLENAME, "r_object_id", hospitalSession.ObjectId);
+                Close();
+            }
+        }
+
+        #region saveTabsData
+
+        private void saveAnamnesis(DataService service)
+        {
+            if (anamnesis == null)
+            {
+                anamnesis = new DdtAnamnesis();
+                anamnesis.DsidHospitalitySession = hospitalSession.ObjectId;
+                anamnesis.DsidDoctor = hospitalSession.DsidCuringDoctor;
+                anamnesis.DsidPatient = hospitalSession.DsidPatient;
+            }
+
+            anamnesis.DssAccompayingIll = accompanyingIllnessesTxt.Text;
+            anamnesis.DssAnamnesisAllergy = anamnesisAllergyTxt.Text;
+            anamnesis.DssAnamnesisEpid = anamnesisEpidTxt.Text;
+            anamnesis.DssAnamnesisMorbi = anamnesisMorbiTxt.Text;
+            anamnesis.DssAnamnesisVitae = anamnesisVitaeTxt.Text;
+            anamnesis.DssCardioVascular = cardiovascularSystemTxt.Text;
+            anamnesis.DssComplaints = complaintsTxt.Text;
+            anamnesis.DssDiagnosisJustifies = justificationTxt.Text;
+            anamnesis.DssDigestiveSystem = digestiveSystemTxt.Text;
+            anamnesis.DssDrugs = drugsTxt.Text;
+            anamnesis.DssNervousSystem = nervousSystemTxt.Text;
+            anamnesis.DssPastSurgeries = pastSurgeriesTxt.Text;
+            anamnesis.DssRespiratorySystem = respiratorySystemTxt.Text;
+            anamnesis.DssStPresens = stPresensTxt.Text;
+            anamnesis.DssUrinarySystem = urinarySystemTxt.Text;
+
+            string id = updateObject<DdtAnamnesis>(service, anamnesis, DdtAnamnesis.TABLE_NAME, anamnesis.ObjectId);
+            anamnesis.ObjectId = id;
+        }
+
+        private void saveIssuedMedicine(DataService service)
+        {
+            int i = 0;
+            IEnumerator numerator = issuedMedicineContainer.Controls.GetEnumerator();
+            while (numerator.MoveNext())
+            {
+                DdtIssuedMedicine med = null;
+                if (i < issuedMedicine.Count)
                 {
-                    service.insertObject<DdtAnamnesis>(anamnesis, "ddt_anamnesis");
+                    med = issuedMedicine[i];
                 }
                 else
                 {
-                    service.updateObject<DdtAnamnesis>(anamnesis, "ddt_anamnesis", "r_object_id", anamnesis.ObjectId);
+                    med = new DdtIssuedMedicine();
+                    med.DsidDoctor = hospitalSession.DsidDutyDoctor;
+                    med.DsidHospitalitySession = hospitalSession.ObjectId;
+                    med.DsidParentId = anamnesis.ObjectId;
+                    med.DsidPatient = hospitalSession.DsidPatient;
                 }
+                ComboBox box = (ComboBox)numerator.Current;
+                DdtCure cure = (DdtCure)box.SelectedItem;
+                if (cure != null && CommonUtils.isNotBlank(box.Text))
+                {
+                    med.DsidCure = cure.ObjectId;
+                    med.DssParentType = DdtAnamnesis.TABLE_NAME;
+                    updateObject<DdtIssuedMedicine>(service, med, DdtIssuedMedicine.TABLE_NAME, med.ObjectId);
+                }
+                i++;
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void saveUrineAnalysisTab(DataService service)
         {
-            TextBox txtCtrl = new TextBox();
-            txtCtrl.Size = issuedMedicineTxt0.Size;
-            issuedMedicineBox.Controls.Add(txtCtrl);
+            if (isNeedSaveTab(URINE_TAB_INDX))
+            {
+                DdtUrineAnalysis urineAnalysis = service.queryObject<DdtUrineAnalysis>(string.Format(FIRST_ANALYSIS_QRY_TEMPLATE, DdtUrineAnalysis.TABLE_NAME, hospitalSession.ObjectId));
+                if (urineAnalysis == null)
+                {
+                    urineAnalysis = new DdtUrineAnalysis();
+                    urineAnalysis.DsidHospitalitySession = hospitalSession.ObjectId;
+                    urineAnalysis.DsidDoctor = hospitalSession.DsidCuringDoctor;
+                    urineAnalysis.DsidPatient = hospitalSession.DsidPatient;
+                    urineAnalysis.DsbAdmissionAnalysis = true;
+                }
+                urineAnalysis.DssColor = firstColorTxt.Text;
+                urineAnalysis.DssErythrocytes = firstErythrocytesTxt.Text;
+                urineAnalysis.DssLeukocytes = firstLeucocytesTxt.Text;
+                urineAnalysis.DssProtein = firstProteinTxt.Text;
+                
+               updateObject<DdtUrineAnalysis>(service, urineAnalysis, DdtUrineAnalysis.TABLE_NAME, urineAnalysis.ObjectId);
+            }
         }
 
-        private void button35_Click(object sender, EventArgs e)
+        private void saveEgdsAnalysisTab(DataService service)
         {
+            if (isNeedSaveTab(EGDS_TAB_INDX))
+            {
+                DdtEgds egds = service.queryObject<DdtEgds>(string.Format(FIRST_ANALYSIS_QRY_TEMPLATE, DdtEgds.TABLE_NAME, hospitalSession.ObjectId));
+                if (egds == null)
+                {
+                    egds = new DdtEgds();
+                    egds.DsidHospitalitySession = hospitalSession.ObjectId;
+                    egds.DsidDoctor = hospitalSession.DsidCuringDoctor;
+                    egds.DsidPatient = hospitalSession.DsidPatient;
+                    egds.DsbAdmissionAnalysis = true;
+                }
+                egds.DssEgds = firstEgdsTxt.Text;
+                updateObject<DdtEgds>(service, egds, DdtEgds.TABLE_NAME, egds.ObjectId);
+            }
+        }
 
+        private void saveEkgAnalysisTab(DataService service)
+        {
+            if (isNeedSaveTab(EKG_TAB_INDX))
+            {
+                DdtEkg ekg = service.queryObject<DdtEkg>(string.Format(FIRST_ANALYSIS_QRY_TEMPLATE, DdtEkg.TABLE_NAME, hospitalSession.ObjectId));
+                if (ekg == null)
+                {
+                    ekg = new DdtEkg();
+                    ekg.DsidHospitalitySession = hospitalSession.ObjectId;
+                    ekg.DsidDoctor = hospitalSession.DsidCuringDoctor;
+                    ekg.DsidPatient = hospitalSession.DsidPatient;
+                    ekg.DsbAdmissionAnalysis = true;
+                }
+                ekg.DssEkg = regularEkgTxt.Text;
+                updateObject<DdtEkg>(service, ekg, DdtEkg.TABLE_NAME, ekg.ObjectId);
+            }
+        }
+
+        private bool isNeedSaveTab(int tabindex)
+        {
+            switch (tabindex)
+            {
+                case URINE_TAB_INDX:
+                    return CommonUtils.isNotBlank(firstColorTxt.Text) || CommonUtils.isNotBlank(firstErythrocytesTxt.Text) ||
+                        CommonUtils.isNotBlank(firstLeucocytesTxt.Text) || CommonUtils.isNotBlank(firstProteinTxt.Text);
+                case EGDS_TAB_INDX:
+                    return CommonUtils.isNotBlank(firstEgdsTxt.Text);
+                case EKG_TAB_INDX:
+                    return CommonUtils.isNotBlank(regularEkgTxt.Text);
+                default: return false;
+            }
+        }
+
+        private string updateObject<T>(DataService service, T obj, string tablName, string objId)
+        {
+            if (CommonUtils.isBlank(objId))
+            {
+                return service.insertObject<T>(obj, tablName);
+            }
+            else
+            {
+                service.updateObject<T>(obj, tablName, "r_object_id", objId);
+                return objId;
+            }
+        }
+
+        #endregion
+
+        private void AddIssuedMedicine_Click(object sender, EventArgs e)
+        {
+            createCureBox();
+        }
+
+        private ComboBox createCureBox()
+        {
+            ComboBox issuedMedicineBox = new ComboBox();
+            issuedMedicineBox.Size = issuedMed0.Size;
+            issuedMedicineBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            CommonUtils.initCureComboboxValues(new DataService(), issuedMedicineBox, null);
+            issuedMedicineContainer.Controls.Add(issuedMedicineBox);
+            return issuedMedicineBox;
+        }
+
+        private void rhytmSinusBtn_Click(object sender, EventArgs e)
+        {
+            regularEkgTxt.Text = regularEkgTxt.Text + "ритм синусовый";
+        }
+
+        private void fibrillationBtn_Click(object sender, EventArgs e)
+        {
+            regularEkgTxt.Text = regularEkgTxt.Text + "фибрилляция предсердий";
+        }
+
+        private void flutterBtn_Click(object sender, EventArgs e)
+        {
+            regularEkgTxt.Text = regularEkgTxt.Text + "трепетание предсердий";
+        }
+
+        private void elevation_Click(object sender, EventArgs e)
+        {
+            regularEkgTxt.Text = regularEkgTxt.Text + "элевация ST в ";
+        }
+
+        private void depressionBtn_Click(object sender, EventArgs e)
+        {
+            regularEkgTxt.Text = regularEkgTxt.Text + "депрессия ST в ";
+        }
+
+        private void negativeTBtn_Click(object sender, EventArgs e)
+        {
+            regularEkgTxt.Text = regularEkgTxt.Text + "отрицательный T";
+        }
+
+        private void commaBtn_Click(object sender, EventArgs e)
+        {
+            regularEkgTxt.Text = regularEkgTxt.Text + ", ";
+        }
+
+        private void IBtn_Click(object sender, EventArgs e)
+        {
+            regularEkgTxt.Text = regularEkgTxt.Text + "I";
+        }
+
+        private void IIBtn_Click(object sender, EventArgs e)
+        {
+            regularEkgTxt.Text = regularEkgTxt.Text + "II";
+        }
+
+        private void IIIBtn_Click(object sender, EventArgs e)
+        {
+            regularEkgTxt.Text = regularEkgTxt.Text + "III";
+        }
+
+        private void AvlBtn_Click(object sender, EventArgs e)
+        {
+            regularEkgTxt.Text = regularEkgTxt.Text + "AVL";
+        }
+
+        private void AvrBtn_Click(object sender, EventArgs e)
+        {
+            regularEkgTxt.Text = regularEkgTxt.Text + "AVR";
+        }
+
+        private void AvfBtn_Click(object sender, EventArgs e)
+        {
+            regularEkgTxt.Text = regularEkgTxt.Text + "AVF";
+        }
+
+        private void V1Btn_Click(object sender, EventArgs e)
+        {
+            regularEkgTxt.Text = regularEkgTxt.Text + "V1";
+        }
+
+        private void V2Btn_Click(object sender, EventArgs e)
+        {
+            regularEkgTxt.Text = regularEkgTxt.Text + "V2";
+        }
+
+        private void V3Btn_Click(object sender, EventArgs e)
+        {
+            regularEkgTxt.Text = regularEkgTxt.Text + "V3";
+        }
+
+        private void V4Btn_Click(object sender, EventArgs e)
+        {
+            regularEkgTxt.Text = regularEkgTxt.Text + "V4";
+        }
+
+        private void V5Btn_Click(object sender, EventArgs e)
+        {
+            regularEkgTxt.Text = regularEkgTxt.Text + "V5";
+        }
+
+        private void V6Btn_Click(object sender, EventArgs e)
+        {
+            regularEkgTxt.Text = regularEkgTxt.Text + "V6";
+        }
+
+        private void dashBtn_Click(object sender, EventArgs e)
+        {
+            regularEkgTxt.Text = regularEkgTxt.Text + "-";
+        }
+
+        private void dotBtn_Click(object sender, EventArgs e)
+        {
+            regularEkgTxt.Text = regularEkgTxt.Text + ".";
+        }
+
+        private void spaceBtn_Click(object sender, EventArgs e)
+        {
+            regularEkgTxt.Text = regularEkgTxt.Text + " ";
+        }
+
+        private void clearBtn_Click(object sender, EventArgs e)
+        {
+            regularEkgTxt.Text = "";
         }
     }
 }

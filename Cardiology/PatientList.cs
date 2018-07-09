@@ -29,14 +29,6 @@ namespace Cardiology
             
         }
 
-        
-
-        private void toolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-            Vypaska dialog = new Vypaska();
-            dialog.ShowDialog();
-        }
-
         private void patientAdmission_Click(object sender, EventArgs e)
         {
             AdmissionPatient st = new AdmissionPatient();
@@ -149,8 +141,17 @@ namespace Cardiology
 
         private void issuingMedicineItem_Click(object sender, EventArgs e)
         {
-            ListNaznachForm form = new ListNaznachForm();
-            form.ShowDialog();
+            IEnumerator it = hospitalPatientsTbl.SelectedRows.GetEnumerator();
+            if (it.MoveNext())
+            {
+                DataGridViewRow row = (DataGridViewRow)it.Current;
+                DataGridViewCell cell = row.Cells[0];
+                string value = cell.Value.ToString();
+                DataService service = new DataService();
+                DdtHospital hospitalSession = service.queryObject<DdtHospital>(@"select * from ddt_hospital where r_object_id='" + value + "'");
+                IssuedMedicine form = new IssuedMedicine(hospitalSession);
+                form.ShowDialog();
+            }
         }
 
         private void journalAfterKAGMnuItem_Click(object sender, EventArgs e)
@@ -180,6 +181,36 @@ namespace Cardiology
         private void Hospital_Activated(object sender, EventArgs e)
         {
             loadPatientsGrid();
+        }
+
+        private void patientHistoryCardItem_Click(object sender, EventArgs e)
+        {
+            IEnumerator it = hospitalPatientsTbl.SelectedRows.GetEnumerator();
+            if (it.MoveNext())
+            {
+                DataGridViewRow row = (DataGridViewRow)it.Current;
+                DataGridViewCell cell = row.Cells[0];
+                string value = cell.Value.ToString();
+                DataService service = new DataService();
+                DdtHospital hospitalSession = service.queryObject<DdtHospital>(@"select * from ddt_hospital where r_object_id='" + value + "'");
+                PatientsHistory form = new PatientsHistory(hospitalSession);
+                form.ShowDialog();
+            }
+        }
+
+        private void releasePatient_Click(object sender, EventArgs e)
+        {
+            IEnumerator it = hospitalPatientsTbl.SelectedRows.GetEnumerator();
+            if (it.MoveNext())
+            {
+                DataGridViewRow row = (DataGridViewRow)it.Current;
+                DataGridViewCell cell = row.Cells[0];
+                string value = cell.Value.ToString();
+                DataService service = new DataService();
+                DdtHospital hospitalSession = service.queryObject<DdtHospital>(@"select * from ddt_hospital where r_object_id='" + value + "'");
+                ReleasePatient dialog = new ReleasePatient(hospitalSession);
+                dialog.ShowDialog();
+            }
         }
     }
 }

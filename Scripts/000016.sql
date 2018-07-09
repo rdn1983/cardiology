@@ -15,3 +15,17 @@ CREATE TABLE ddt_holter (
 CREATE TRIGGER ddt_holter BEFORE INSERT OR UPDATE
   ON ddt_holter FOR EACH ROW
 EXECUTE PROCEDURE dmtrg_f_modify_date();
+
+CREATE OR REPLACE FUNCTION audit_ddt_holter_creating_row () RETURNS TRIGGER AS '
+BEGIN
+INSERT INTO ddt_history 
+(dsid_hospitality_session, dsid_patient, dsid_doctor, dsid_operation_id, dss_operation_type)
+ VALUES (NEW.dsid_hospitality_session, NEW.dsid_patient, NEW.dsid_doctor, NEW.r_object_id, TG_TABLE_NAME );
+ RETURN NEW;
+END;
+' LANGUAGE  plpgsql;
+
+
+CREATE TRIGGER audit_ddt_holter AFTER INSERT 
+	ON ddt_holter FOR EACH ROW 
+EXECUTE PROCEDURE audit_ddt_holter_creating_row();

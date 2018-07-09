@@ -50,6 +50,8 @@ namespace Cardiology
             patient.DssFullName = patientLastName.Text.Trim() + " " + patientFirstName.Text.Trim() + " " + patientSecondName.Text.Trim();
             patient.DssMedCode = medCodeTxt.Text.Trim();
             patient.DssPhone = phoneTxt.Text;
+            patient.DssSnils = snilsTxt.Text;
+            patient.DssOms = omsTxt.Text;
             //todo Сделаь проверку на существующий логин
             patient.DssLogin = translit(patientLastName.Text.Trim() + patientFirstName.Text.Substring(0, 1) + patientSecondName.Text.Substring(0, 1));
             patient.DsdWeight = Double.Parse(weightTxt.Text.Trim());
@@ -99,9 +101,7 @@ namespace Cardiology
 
         private void OnlyDigits_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
-                (e.KeyChar != '.'))
-            {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) { 
                 e.Handled = true;
             }
         }

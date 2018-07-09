@@ -4,3 +4,4 @@ NEW.r_modify_date=now();
 return NEW;
 END;
 ' LANGUAGE  plpgsql;
+

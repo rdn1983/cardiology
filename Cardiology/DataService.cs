@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Cardiology
 {
-    class DataService
+    internal class DataService
     {
         public DataService()
         {
@@ -183,7 +183,12 @@ namespace Cardiology
                     TableAttribute attrInfo = Attribute.GetCustomAttribute(fieldInfo, typeof(TableAttribute)) as TableAttribute;
                     if (attrInfo != null && attrInfo.AttrName.Equals(columnName))
                     {
-                        fieldInfo.SetValue(result, reader.GetValue(columns.IndexOf(colsNumerator.Current)));
+                        object settedVal = reader.GetValue(columns.IndexOf(colsNumerator.Current));
+                        if (settedVal.GetType() == typeof(DBNull))
+                        {
+                            settedVal = "";
+                        }
+                        fieldInfo.SetValue(result, settedVal);
                     }
                 }
             }

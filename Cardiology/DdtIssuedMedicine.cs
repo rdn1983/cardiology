@@ -4,6 +4,8 @@ namespace Cardiology.Model
 {
     public class DdtIssuedMedicine
     {
+        public const string TABLE_NAME = "ddt_issued_medicine";
+
         [TableAttribute("r_object_id", false)]
         private string rObjectId;
         [TableAttribute("r_creation_date", false)]
@@ -16,6 +18,11 @@ namespace Cardiology.Model
         private string dsidPatient;
         [TableAttribute("dsid_hospitality_session")]
         private string dsidHospitalitySession;
+        [TableAttribute("dsid_parent_id")]
+        private string dsidParentId;
+        [TableAttribute("dss_parent_type")]
+        private string dssParentType;
+
 
         public string ObjectId
         {
@@ -50,5 +57,8 @@ namespace Cardiology.Model
             get { return rCreationDate; }
             set {; }
         }
+
+        public string DsidParentId { get => dsidParentId; set => dsidParentId = value; }
+        public string DssParentType { get => dssParentType; set => dssParentType = value; }
     }
 }

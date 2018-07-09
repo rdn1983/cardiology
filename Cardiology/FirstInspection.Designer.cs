@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FirstInspection));
             this.deathBtn = new System.Windows.Forms.Button();
             this.DEPBtn = new System.Windows.Forms.Button();
@@ -113,51 +114,94 @@
             this.button12 = new System.Windows.Forms.Button();
             this.diagnosisTxt = new System.Windows.Forms.RichTextBox();
             this.issuedMedicineTab = new System.Windows.Forms.TabPage();
-            this.button35 = new System.Windows.Forms.Button();
+            this.addIssuedMedicineBtn = new System.Windows.Forms.Button();
             this.issuedMedicineBox = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.issuedMedicineTxt0 = new System.Windows.Forms.TextBox();
-            this.templatesLbl = new System.Windows.Forms.Label();
+            this.issuedMedicineContainer = new System.Windows.Forms.TableLayoutPanel();
+            this.issuedMed0 = new System.Windows.Forms.ComboBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button25 = new System.Windows.Forms.Button();
-            this.button26 = new System.Windows.Forms.Button();
-            this.button27 = new System.Windows.Forms.Button();
-            this.button28 = new System.Windows.Forms.Button();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button33 = new System.Windows.Forms.Button();
-            this.button34 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button36 = new System.Windows.Forms.Button();
-            this.button37 = new System.Windows.Forms.Button();
-            this.button38 = new System.Windows.Forms.Button();
-            this.button39 = new System.Windows.Forms.Button();
-            this.button40 = new System.Windows.Forms.Button();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.button41 = new System.Windows.Forms.Button();
-            this.button42 = new System.Windows.Forms.Button();
-            this.button43 = new System.Windows.Forms.Button();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.button44 = new System.Windows.Forms.Button();
-            this.button45 = new System.Windows.Forms.Button();
-            this.button46 = new System.Windows.Forms.Button();
+            this.tabs = new System.Windows.Forms.TabControl();
+            this.ekgTab = new System.Windows.Forms.TabPage();
+            this.regularEkgTxt = new System.Windows.Forms.RichTextBox();
+            this.clearBtn = new System.Windows.Forms.Button();
+            this.rhytmGroupBox = new System.Windows.Forms.GroupBox();
+            this.flutterBtn = new System.Windows.Forms.Button();
+            this.fibrillationBtn = new System.Windows.Forms.Button();
+            this.rhytmSinusBtn = new System.Windows.Forms.Button();
+            this.spaceBtn = new System.Windows.Forms.Button();
+            this.deviationBox = new System.Windows.Forms.GroupBox();
+            this.negativeTBtn = new System.Windows.Forms.Button();
+            this.depressionBtn = new System.Windows.Forms.Button();
+            this.elevation = new System.Windows.Forms.Button();
+            this.dotBtn = new System.Windows.Forms.Button();
+            this.whereBox = new System.Windows.Forms.GroupBox();
+            this.V6Btn = new System.Windows.Forms.Button();
+            this.V5Btn = new System.Windows.Forms.Button();
+            this.V4Btn = new System.Windows.Forms.Button();
+            this.V3Btn = new System.Windows.Forms.Button();
+            this.V2Btn = new System.Windows.Forms.Button();
+            this.V1Btn = new System.Windows.Forms.Button();
+            this.AvfBtn = new System.Windows.Forms.Button();
+            this.AvrBtn = new System.Windows.Forms.Button();
+            this.AvlBtn = new System.Windows.Forms.Button();
+            this.IIIBtn = new System.Windows.Forms.Button();
+            this.IIBtn = new System.Windows.Forms.Button();
+            this.IBtn = new System.Windows.Forms.Button();
+            this.dashBtn = new System.Windows.Forms.Button();
+            this.commaBtn = new System.Windows.Forms.Button();
+            this.egdsTab = new System.Windows.Forms.TabPage();
+            this.firstEgdsBox = new System.Windows.Forms.GroupBox();
+            this.firstEgdsTxt = new System.Windows.Forms.RichTextBox();
+            this.bloodTab = new System.Windows.Forms.TabPage();
+            this.groupBox15 = new System.Windows.Forms.GroupBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.textBox18 = new System.Windows.Forms.TextBox();
+            this.textBox17 = new System.Windows.Forms.TextBox();
+            this.textBox16 = new System.Windows.Forms.TextBox();
+            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.urineTab = new System.Windows.Forms.TabPage();
+            this.firstAnalysisBox = new System.Windows.Forms.GroupBox();
+            this.firstProteinTxt = new System.Windows.Forms.TextBox();
+            this.firstErythrocytesTxt = new System.Windows.Forms.TextBox();
+            this.firstLeucocytesTxt = new System.Windows.Forms.TextBox();
+            this.firstColorTxt = new System.Windows.Forms.TextBox();
+            this.label90 = new System.Windows.Forms.Label();
+            this.label87 = new System.Windows.Forms.Label();
+            this.label86 = new System.Windows.Forms.Label();
+            this.firstColorLbl = new System.Windows.Forms.Label();
+            this.templatesLbl = new System.Windows.Forms.Label();
+            this.tip = new System.Windows.Forms.ToolTip(this.components);
+            this.addTip = new System.Windows.Forms.ToolTip(this.components);
             this.complaintsBox.SuspendLayout();
             this.anamnesisMorbiBox.SuspendLayout();
             this.anamnesisAllergyBox.SuspendLayout();
@@ -183,10 +227,19 @@
             this.groupBox17.SuspendLayout();
             this.issuedMedicineTab.SuspendLayout();
             this.issuedMedicineBox.SuspendLayout();
+            this.issuedMedicineContainer.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            this.groupBox5.SuspendLayout();
-            this.groupBox6.SuspendLayout();
+            this.tabs.SuspendLayout();
+            this.ekgTab.SuspendLayout();
+            this.rhytmGroupBox.SuspendLayout();
+            this.deviationBox.SuspendLayout();
+            this.whereBox.SuspendLayout();
+            this.egdsTab.SuspendLayout();
+            this.firstEgdsBox.SuspendLayout();
+            this.bloodTab.SuspendLayout();
+            this.groupBox15.SuspendLayout();
+            this.urineTab.SuspendLayout();
+            this.firstAnalysisBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // deathBtn
@@ -1088,7 +1141,6 @@
             // issuedMedicineTab
             // 
             this.issuedMedicineTab.BackColor = System.Drawing.SystemColors.Control;
-            this.issuedMedicineTab.Controls.Add(this.button35);
             this.issuedMedicineTab.Controls.Add(this.issuedMedicineBox);
             this.issuedMedicineTab.Location = new System.Drawing.Point(4, 22);
             this.issuedMedicineTab.Name = "issuedMedicineTab";
@@ -1097,157 +1149,844 @@
             this.issuedMedicineTab.TabIndex = 3;
             this.issuedMedicineTab.Text = "Назначения";
             // 
-            // button35
+            // addIssuedMedicineBtn
             // 
-            this.button35.Location = new System.Drawing.Point(577, 69);
-            this.button35.Name = "button35";
-            this.button35.Size = new System.Drawing.Size(186, 77);
-            this.button35.TabIndex = 3;
-            this.button35.Text = "Анализы и исследования:";
-            this.button35.UseVisualStyleBackColor = true;
-            this.button35.Click += new System.EventHandler(this.button35_Click);
+            this.addIssuedMedicineBtn.Image = global::Cardiology.Properties.Resources.addd1;
+            this.addIssuedMedicineBtn.Location = new System.Drawing.Point(476, 19);
+            this.addIssuedMedicineBtn.Name = "addIssuedMedicineBtn";
+            this.addIssuedMedicineBtn.Size = new System.Drawing.Size(28, 28);
+            this.addIssuedMedicineBtn.TabIndex = 16;
+            this.addIssuedMedicineBtn.UseVisualStyleBackColor = true;
+            this.addIssuedMedicineBtn.Click += new System.EventHandler(this.AddIssuedMedicine_Click);
             // 
             // issuedMedicineBox
             // 
-            this.issuedMedicineBox.Controls.Add(this.button1);
-            this.issuedMedicineBox.Controls.Add(this.checkBox4);
-            this.issuedMedicineBox.Controls.Add(this.checkBox3);
-            this.issuedMedicineBox.Controls.Add(this.checkBox2);
-            this.issuedMedicineBox.Controls.Add(this.checkBox1);
-            this.issuedMedicineBox.Controls.Add(this.textBox9);
-            this.issuedMedicineBox.Controls.Add(this.textBox10);
-            this.issuedMedicineBox.Controls.Add(this.textBox11);
-            this.issuedMedicineBox.Controls.Add(this.textBox12);
-            this.issuedMedicineBox.Controls.Add(this.textBox5);
-            this.issuedMedicineBox.Controls.Add(this.textBox6);
-            this.issuedMedicineBox.Controls.Add(this.textBox7);
-            this.issuedMedicineBox.Controls.Add(this.textBox8);
-            this.issuedMedicineBox.Controls.Add(this.issuedMedicineTxt0);
+            this.issuedMedicineBox.Controls.Add(this.addIssuedMedicineBtn);
+            this.issuedMedicineBox.Controls.Add(this.issuedMedicineContainer);
             this.issuedMedicineBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.issuedMedicineBox.Location = new System.Drawing.Point(22, 14);
             this.issuedMedicineBox.Name = "issuedMedicineBox";
-            this.issuedMedicineBox.Size = new System.Drawing.Size(479, 429);
+            this.issuedMedicineBox.Size = new System.Drawing.Size(505, 525);
             this.issuedMedicineBox.TabIndex = 0;
             this.issuedMedicineBox.TabStop = false;
             this.issuedMedicineBox.Text = "Назначения:";
             // 
-            // button1
+            // issuedMedicineContainer
             // 
-            this.button1.Location = new System.Drawing.Point(331, 389);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.issuedMedicineContainer.AutoSize = true;
+            this.issuedMedicineContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.issuedMedicineContainer.ColumnCount = 1;
+            this.issuedMedicineContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.issuedMedicineContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.issuedMedicineContainer.Controls.Add(this.issuedMed0, 0, 0);
+            this.issuedMedicineContainer.Location = new System.Drawing.Point(6, 21);
+            this.issuedMedicineContainer.Name = "issuedMedicineContainer";
+            this.issuedMedicineContainer.RowCount = 1;
+            this.issuedMedicineContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.issuedMedicineContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.issuedMedicineContainer.Size = new System.Drawing.Size(467, 27);
+            this.issuedMedicineContainer.TabIndex = 4;
             // 
-            // checkBox4
+            // issuedMed0
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(11, 347);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(15, 14);
-            this.checkBox4.TabIndex = 15;
-            this.checkBox4.UseVisualStyleBackColor = true;
+            this.issuedMed0.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.issuedMed0.FormattingEnabled = true;
+            this.issuedMed0.Location = new System.Drawing.Point(3, 3);
+            this.issuedMed0.Name = "issuedMed0";
+            this.issuedMed0.Size = new System.Drawing.Size(461, 21);
+            this.issuedMed0.TabIndex = 17;
             // 
-            // checkBox3
+            // tabPage1
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(11, 317);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(15, 14);
-            this.checkBox3.TabIndex = 14;
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.tabPage1.Controls.Add(this.tabs);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1043, 545);
+            this.tabPage1.TabIndex = 4;
+            this.tabPage1.Text = "Первичные данные анализов";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // tabs
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(11, 289);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(15, 14);
-            this.checkBox2.TabIndex = 13;
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.tabs.Controls.Add(this.ekgTab);
+            this.tabs.Controls.Add(this.egdsTab);
+            this.tabs.Controls.Add(this.bloodTab);
+            this.tabs.Controls.Add(this.urineTab);
+            this.tabs.Location = new System.Drawing.Point(16, 19);
+            this.tabs.Name = "tabs";
+            this.tabs.SelectedIndex = 0;
+            this.tabs.Size = new System.Drawing.Size(1009, 509);
+            this.tabs.TabIndex = 1;
             // 
-            // checkBox1
+            // ekgTab
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(11, 259);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(15, 14);
-            this.checkBox1.TabIndex = 12;
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.ekgTab.Controls.Add(this.regularEkgTxt);
+            this.ekgTab.Controls.Add(this.clearBtn);
+            this.ekgTab.Controls.Add(this.rhytmGroupBox);
+            this.ekgTab.Controls.Add(this.spaceBtn);
+            this.ekgTab.Controls.Add(this.deviationBox);
+            this.ekgTab.Controls.Add(this.dotBtn);
+            this.ekgTab.Controls.Add(this.whereBox);
+            this.ekgTab.Controls.Add(this.dashBtn);
+            this.ekgTab.Controls.Add(this.commaBtn);
+            this.ekgTab.Location = new System.Drawing.Point(4, 22);
+            this.ekgTab.Name = "ekgTab";
+            this.ekgTab.Padding = new System.Windows.Forms.Padding(3);
+            this.ekgTab.Size = new System.Drawing.Size(1001, 483);
+            this.ekgTab.TabIndex = 0;
+            this.ekgTab.Text = "ЭКГ";
+            this.ekgTab.UseVisualStyleBackColor = true;
             // 
-            // textBox9
+            // regularEkgTxt
             // 
-            this.textBox9.Location = new System.Drawing.Point(32, 344);
-            this.textBox9.Multiline = true;
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(435, 24);
-            this.textBox9.TabIndex = 11;
+            this.regularEkgTxt.Location = new System.Drawing.Point(335, 7);
+            this.regularEkgTxt.Name = "regularEkgTxt";
+            this.regularEkgTxt.Size = new System.Drawing.Size(369, 174);
+            this.regularEkgTxt.TabIndex = 18;
+            this.regularEkgTxt.Text = "";
             // 
-            // textBox10
+            // clearBtn
             // 
-            this.textBox10.Location = new System.Drawing.Point(32, 314);
-            this.textBox10.Multiline = true;
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(435, 24);
-            this.textBox10.TabIndex = 10;
+            this.clearBtn.Location = new System.Drawing.Point(335, 187);
+            this.clearBtn.Name = "clearBtn";
+            this.clearBtn.Size = new System.Drawing.Size(75, 32);
+            this.clearBtn.TabIndex = 17;
+            this.clearBtn.Text = "Очистить";
+            this.clearBtn.UseVisualStyleBackColor = true;
+            this.clearBtn.Click += new System.EventHandler(this.clearBtn_Click);
             // 
-            // textBox11
+            // rhytmGroupBox
             // 
-            this.textBox11.Location = new System.Drawing.Point(32, 286);
-            this.textBox11.Multiline = true;
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(435, 24);
-            this.textBox11.TabIndex = 9;
+            this.rhytmGroupBox.Controls.Add(this.flutterBtn);
+            this.rhytmGroupBox.Controls.Add(this.fibrillationBtn);
+            this.rhytmGroupBox.Controls.Add(this.rhytmSinusBtn);
+            this.rhytmGroupBox.Location = new System.Drawing.Point(6, 7);
+            this.rhytmGroupBox.Name = "rhytmGroupBox";
+            this.rhytmGroupBox.Size = new System.Drawing.Size(287, 69);
+            this.rhytmGroupBox.TabIndex = 10;
+            this.rhytmGroupBox.TabStop = false;
+            this.rhytmGroupBox.Text = "Ритм";
+            // 
+            // flutterBtn
+            // 
+            this.flutterBtn.Location = new System.Drawing.Point(192, 18);
+            this.flutterBtn.Name = "flutterBtn";
+            this.flutterBtn.Size = new System.Drawing.Size(87, 39);
+            this.flutterBtn.TabIndex = 2;
+            this.flutterBtn.Text = "Трепетание предсердий";
+            this.flutterBtn.UseVisualStyleBackColor = true;
+            this.flutterBtn.Click += new System.EventHandler(this.flutterBtn_Click);
+            // 
+            // fibrillationBtn
+            // 
+            this.fibrillationBtn.Location = new System.Drawing.Point(99, 19);
+            this.fibrillationBtn.Name = "fibrillationBtn";
+            this.fibrillationBtn.Size = new System.Drawing.Size(87, 38);
+            this.fibrillationBtn.TabIndex = 1;
+            this.fibrillationBtn.Text = "Фибриляция предсердий";
+            this.fibrillationBtn.UseVisualStyleBackColor = true;
+            this.fibrillationBtn.Click += new System.EventHandler(this.fibrillationBtn_Click);
+            // 
+            // rhytmSinusBtn
+            // 
+            this.rhytmSinusBtn.Location = new System.Drawing.Point(6, 19);
+            this.rhytmSinusBtn.Name = "rhytmSinusBtn";
+            this.rhytmSinusBtn.Size = new System.Drawing.Size(87, 38);
+            this.rhytmSinusBtn.TabIndex = 0;
+            this.rhytmSinusBtn.Text = "Ритм синусовый";
+            this.rhytmSinusBtn.UseVisualStyleBackColor = true;
+            this.rhytmSinusBtn.Click += new System.EventHandler(this.rhytmSinusBtn_Click);
+            // 
+            // spaceBtn
+            // 
+            this.spaceBtn.Location = new System.Drawing.Point(263, 187);
+            this.spaceBtn.Name = "spaceBtn";
+            this.spaceBtn.Size = new System.Drawing.Size(66, 32);
+            this.spaceBtn.TabIndex = 16;
+            this.spaceBtn.Text = "Пробел";
+            this.spaceBtn.UseVisualStyleBackColor = true;
+            this.spaceBtn.Click += new System.EventHandler(this.spaceBtn_Click);
+            // 
+            // deviationBox
+            // 
+            this.deviationBox.Controls.Add(this.negativeTBtn);
+            this.deviationBox.Controls.Add(this.depressionBtn);
+            this.deviationBox.Controls.Add(this.elevation);
+            this.deviationBox.Location = new System.Drawing.Point(6, 82);
+            this.deviationBox.Name = "deviationBox";
+            this.deviationBox.Size = new System.Drawing.Size(287, 56);
+            this.deviationBox.TabIndex = 11;
+            this.deviationBox.TabStop = false;
+            this.deviationBox.Text = "Девиация ST";
+            // 
+            // negativeTBtn
+            // 
+            this.negativeTBtn.Location = new System.Drawing.Point(168, 20);
+            this.negativeTBtn.Name = "negativeTBtn";
+            this.negativeTBtn.Size = new System.Drawing.Size(111, 23);
+            this.negativeTBtn.TabIndex = 2;
+            this.negativeTBtn.Text = "Отрицательный Т";
+            this.negativeTBtn.UseVisualStyleBackColor = true;
+            this.negativeTBtn.Click += new System.EventHandler(this.negativeTBtn_Click);
+            // 
+            // depressionBtn
+            // 
+            this.depressionBtn.Location = new System.Drawing.Point(87, 19);
+            this.depressionBtn.Name = "depressionBtn";
+            this.depressionBtn.Size = new System.Drawing.Size(75, 23);
+            this.depressionBtn.TabIndex = 1;
+            this.depressionBtn.Text = "Депрессия";
+            this.depressionBtn.UseVisualStyleBackColor = true;
+            this.depressionBtn.Click += new System.EventHandler(this.depressionBtn_Click);
+            // 
+            // elevation
+            // 
+            this.elevation.Location = new System.Drawing.Point(6, 20);
+            this.elevation.Name = "elevation";
+            this.elevation.Size = new System.Drawing.Size(75, 23);
+            this.elevation.TabIndex = 0;
+            this.elevation.Text = "Элевация";
+            this.elevation.UseVisualStyleBackColor = true;
+            this.elevation.Click += new System.EventHandler(this.elevation_Click);
+            // 
+            // dotBtn
+            // 
+            this.dotBtn.Location = new System.Drawing.Point(300, 153);
+            this.dotBtn.Name = "dotBtn";
+            this.dotBtn.Size = new System.Drawing.Size(29, 28);
+            this.dotBtn.TabIndex = 15;
+            this.dotBtn.Text = ".";
+            this.dotBtn.UseVisualStyleBackColor = true;
+            this.dotBtn.Click += new System.EventHandler(this.dotBtn_Click);
+            // 
+            // whereBox
+            // 
+            this.whereBox.Controls.Add(this.V6Btn);
+            this.whereBox.Controls.Add(this.V5Btn);
+            this.whereBox.Controls.Add(this.V4Btn);
+            this.whereBox.Controls.Add(this.V3Btn);
+            this.whereBox.Controls.Add(this.V2Btn);
+            this.whereBox.Controls.Add(this.V1Btn);
+            this.whereBox.Controls.Add(this.AvfBtn);
+            this.whereBox.Controls.Add(this.AvrBtn);
+            this.whereBox.Controls.Add(this.AvlBtn);
+            this.whereBox.Controls.Add(this.IIIBtn);
+            this.whereBox.Controls.Add(this.IIBtn);
+            this.whereBox.Controls.Add(this.IBtn);
+            this.whereBox.Location = new System.Drawing.Point(6, 144);
+            this.whereBox.Name = "whereBox";
+            this.whereBox.Size = new System.Drawing.Size(252, 75);
+            this.whereBox.TabIndex = 12;
+            this.whereBox.TabStop = false;
+            this.whereBox.Text = "Где";
+            // 
+            // V6Btn
+            // 
+            this.V6Btn.Location = new System.Drawing.Point(206, 43);
+            this.V6Btn.Name = "V6Btn";
+            this.V6Btn.Size = new System.Drawing.Size(40, 23);
+            this.V6Btn.TabIndex = 11;
+            this.V6Btn.Text = "V6";
+            this.V6Btn.UseVisualStyleBackColor = true;
+            this.V6Btn.Click += new System.EventHandler(this.V6Btn_Click);
+            // 
+            // V5Btn
+            // 
+            this.V5Btn.Location = new System.Drawing.Point(166, 43);
+            this.V5Btn.Name = "V5Btn";
+            this.V5Btn.Size = new System.Drawing.Size(40, 23);
+            this.V5Btn.TabIndex = 10;
+            this.V5Btn.Text = "V5";
+            this.V5Btn.UseVisualStyleBackColor = true;
+            this.V5Btn.Click += new System.EventHandler(this.V5Btn_Click);
+            // 
+            // V4Btn
+            // 
+            this.V4Btn.Location = new System.Drawing.Point(126, 43);
+            this.V4Btn.Name = "V4Btn";
+            this.V4Btn.Size = new System.Drawing.Size(40, 23);
+            this.V4Btn.TabIndex = 9;
+            this.V4Btn.Text = "V4";
+            this.V4Btn.UseVisualStyleBackColor = true;
+            this.V4Btn.Click += new System.EventHandler(this.V4Btn_Click);
+            // 
+            // V3Btn
+            // 
+            this.V3Btn.Location = new System.Drawing.Point(86, 43);
+            this.V3Btn.Name = "V3Btn";
+            this.V3Btn.Size = new System.Drawing.Size(40, 23);
+            this.V3Btn.TabIndex = 8;
+            this.V3Btn.Text = "V3";
+            this.V3Btn.UseVisualStyleBackColor = true;
+            this.V3Btn.Click += new System.EventHandler(this.V3Btn_Click);
+            // 
+            // V2Btn
+            // 
+            this.V2Btn.Location = new System.Drawing.Point(46, 43);
+            this.V2Btn.Name = "V2Btn";
+            this.V2Btn.Size = new System.Drawing.Size(40, 23);
+            this.V2Btn.TabIndex = 7;
+            this.V2Btn.Text = "V2";
+            this.V2Btn.UseVisualStyleBackColor = true;
+            this.V2Btn.Click += new System.EventHandler(this.V2Btn_Click);
+            // 
+            // V1Btn
+            // 
+            this.V1Btn.Location = new System.Drawing.Point(5, 43);
+            this.V1Btn.Name = "V1Btn";
+            this.V1Btn.Size = new System.Drawing.Size(40, 23);
+            this.V1Btn.TabIndex = 6;
+            this.V1Btn.Text = "V1";
+            this.V1Btn.UseVisualStyleBackColor = true;
+            this.V1Btn.Click += new System.EventHandler(this.V1Btn_Click);
+            // 
+            // AvfBtn
+            // 
+            this.AvfBtn.Location = new System.Drawing.Point(206, 20);
+            this.AvfBtn.Name = "AvfBtn";
+            this.AvfBtn.Size = new System.Drawing.Size(40, 23);
+            this.AvfBtn.TabIndex = 5;
+            this.AvfBtn.Text = "AVF";
+            this.AvfBtn.UseVisualStyleBackColor = true;
+            this.AvfBtn.Click += new System.EventHandler(this.AvfBtn_Click);
+            // 
+            // AvrBtn
+            // 
+            this.AvrBtn.Location = new System.Drawing.Point(166, 20);
+            this.AvrBtn.Name = "AvrBtn";
+            this.AvrBtn.Size = new System.Drawing.Size(40, 23);
+            this.AvrBtn.TabIndex = 4;
+            this.AvrBtn.Text = "AVR";
+            this.AvrBtn.UseVisualStyleBackColor = true;
+            this.AvrBtn.Click += new System.EventHandler(this.AvrBtn_Click);
+            // 
+            // AvlBtn
+            // 
+            this.AvlBtn.Location = new System.Drawing.Point(126, 20);
+            this.AvlBtn.Name = "AvlBtn";
+            this.AvlBtn.Size = new System.Drawing.Size(40, 23);
+            this.AvlBtn.TabIndex = 3;
+            this.AvlBtn.Text = "AVL";
+            this.AvlBtn.UseVisualStyleBackColor = true;
+            this.AvlBtn.Click += new System.EventHandler(this.AvlBtn_Click);
+            // 
+            // IIIBtn
+            // 
+            this.IIIBtn.Location = new System.Drawing.Point(86, 20);
+            this.IIIBtn.Name = "IIIBtn";
+            this.IIIBtn.Size = new System.Drawing.Size(40, 23);
+            this.IIIBtn.TabIndex = 2;
+            this.IIIBtn.Text = "III";
+            this.IIIBtn.UseVisualStyleBackColor = true;
+            this.IIIBtn.Click += new System.EventHandler(this.IIIBtn_Click);
+            // 
+            // IIBtn
+            // 
+            this.IIBtn.Location = new System.Drawing.Point(46, 20);
+            this.IIBtn.Name = "IIBtn";
+            this.IIBtn.Size = new System.Drawing.Size(40, 23);
+            this.IIBtn.TabIndex = 1;
+            this.IIBtn.Text = "II";
+            this.IIBtn.UseVisualStyleBackColor = true;
+            this.IIBtn.Click += new System.EventHandler(this.IIBtn_Click);
+            // 
+            // IBtn
+            // 
+            this.IBtn.Location = new System.Drawing.Point(5, 20);
+            this.IBtn.Name = "IBtn";
+            this.IBtn.Size = new System.Drawing.Size(40, 23);
+            this.IBtn.TabIndex = 0;
+            this.IBtn.Text = "I";
+            this.IBtn.UseVisualStyleBackColor = true;
+            this.IBtn.Click += new System.EventHandler(this.IBtn_Click);
+            // 
+            // dashBtn
+            // 
+            this.dashBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dashBtn.Location = new System.Drawing.Point(263, 153);
+            this.dashBtn.Name = "dashBtn";
+            this.dashBtn.Size = new System.Drawing.Size(30, 28);
+            this.dashBtn.TabIndex = 14;
+            this.dashBtn.Text = "-";
+            this.dashBtn.UseVisualStyleBackColor = true;
+            this.dashBtn.Click += new System.EventHandler(this.dashBtn_Click);
+            // 
+            // commaBtn
+            // 
+            this.commaBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.commaBtn.Location = new System.Drawing.Point(300, 7);
+            this.commaBtn.Name = "commaBtn";
+            this.commaBtn.Size = new System.Drawing.Size(29, 68);
+            this.commaBtn.TabIndex = 13;
+            this.commaBtn.Text = ",";
+            this.commaBtn.UseVisualStyleBackColor = true;
+            this.commaBtn.Click += new System.EventHandler(this.commaBtn_Click);
+            // 
+            // egdsTab
+            // 
+            this.egdsTab.Controls.Add(this.firstEgdsBox);
+            this.egdsTab.Location = new System.Drawing.Point(4, 22);
+            this.egdsTab.Name = "egdsTab";
+            this.egdsTab.Padding = new System.Windows.Forms.Padding(3);
+            this.egdsTab.Size = new System.Drawing.Size(1001, 483);
+            this.egdsTab.TabIndex = 7;
+            this.egdsTab.Text = "ЭГДС";
+            this.egdsTab.UseVisualStyleBackColor = true;
+            // 
+            // firstEgdsBox
+            // 
+            this.firstEgdsBox.Controls.Add(this.firstEgdsTxt);
+            this.firstEgdsBox.Location = new System.Drawing.Point(6, 6);
+            this.firstEgdsBox.Name = "firstEgdsBox";
+            this.firstEgdsBox.Size = new System.Drawing.Size(613, 152);
+            this.firstEgdsBox.TabIndex = 4;
+            this.firstEgdsBox.TabStop = false;
+            this.firstEgdsBox.Text = "Первичное исследование";
+            // 
+            // firstEgdsTxt
+            // 
+            this.firstEgdsTxt.Location = new System.Drawing.Point(7, 19);
+            this.firstEgdsTxt.Name = "firstEgdsTxt";
+            this.firstEgdsTxt.Size = new System.Drawing.Size(596, 127);
+            this.firstEgdsTxt.TabIndex = 0;
+            this.firstEgdsTxt.Text = "";
+            // 
+            // bloodTab
+            // 
+            this.bloodTab.Controls.Add(this.groupBox15);
+            this.bloodTab.Location = new System.Drawing.Point(4, 22);
+            this.bloodTab.Name = "bloodTab";
+            this.bloodTab.Padding = new System.Windows.Forms.Padding(3);
+            this.bloodTab.Size = new System.Drawing.Size(1001, 483);
+            this.bloodTab.TabIndex = 1;
+            this.bloodTab.Text = "Показатели крови";
+            this.bloodTab.UseVisualStyleBackColor = true;
+            // 
+            // groupBox15
+            // 
+            this.groupBox15.Controls.Add(this.label20);
+            this.groupBox15.Controls.Add(this.label19);
+            this.groupBox15.Controls.Add(this.label18);
+            this.groupBox15.Controls.Add(this.textBox18);
+            this.groupBox15.Controls.Add(this.textBox17);
+            this.groupBox15.Controls.Add(this.textBox16);
+            this.groupBox15.Controls.Add(this.textBox15);
+            this.groupBox15.Controls.Add(this.textBox14);
+            this.groupBox15.Controls.Add(this.textBox13);
+            this.groupBox15.Controls.Add(this.textBox12);
+            this.groupBox15.Controls.Add(this.textBox11);
+            this.groupBox15.Controls.Add(this.textBox10);
+            this.groupBox15.Controls.Add(this.textBox9);
+            this.groupBox15.Controls.Add(this.textBox8);
+            this.groupBox15.Controls.Add(this.textBox7);
+            this.groupBox15.Controls.Add(this.textBox6);
+            this.groupBox15.Controls.Add(this.textBox5);
+            this.groupBox15.Controls.Add(this.textBox4);
+            this.groupBox15.Controls.Add(this.textBox3);
+            this.groupBox15.Controls.Add(this.textBox2);
+            this.groupBox15.Controls.Add(this.textBox1);
+            this.groupBox15.Controls.Add(this.label17);
+            this.groupBox15.Controls.Add(this.label16);
+            this.groupBox15.Controls.Add(this.label15);
+            this.groupBox15.Controls.Add(this.label14);
+            this.groupBox15.Controls.Add(this.label13);
+            this.groupBox15.Controls.Add(this.label12);
+            this.groupBox15.Controls.Add(this.label11);
+            this.groupBox15.Controls.Add(this.label10);
+            this.groupBox15.Controls.Add(this.label9);
+            this.groupBox15.Controls.Add(this.label8);
+            this.groupBox15.Controls.Add(this.label7);
+            this.groupBox15.Controls.Add(this.label6);
+            this.groupBox15.Controls.Add(this.label5);
+            this.groupBox15.Controls.Add(this.label4);
+            this.groupBox15.Controls.Add(this.label3);
+            this.groupBox15.Location = new System.Drawing.Point(13, 6);
+            this.groupBox15.Name = "groupBox15";
+            this.groupBox15.Size = new System.Drawing.Size(172, 472);
+            this.groupBox15.TabIndex = 0;
+            this.groupBox15.TabStop = false;
+            this.groupBox15.Text = "Анализы при поступлении";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(6, 121);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(64, 13);
+            this.label20.TabIndex = 35;
+            this.label20.Text = "Креатинин:";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(6, 97);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(60, 13);
+            this.label19.TabIndex = 34;
+            this.label19.Text = "Об. белок:";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(6, 73);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(74, 13);
+            this.label18.TabIndex = 33;
+            this.label18.Text = "Тромбоциты:";
+            // 
+            // textBox18
+            // 
+            this.textBox18.Location = new System.Drawing.Point(81, 424);
+            this.textBox18.Name = "textBox18";
+            this.textBox18.Size = new System.Drawing.Size(79, 20);
+            this.textBox18.TabIndex = 32;
+            // 
+            // textBox17
+            // 
+            this.textBox17.Location = new System.Drawing.Point(81, 352);
+            this.textBox17.Name = "textBox17";
+            this.textBox17.Size = new System.Drawing.Size(79, 20);
+            this.textBox17.TabIndex = 31;
+            // 
+            // textBox16
+            // 
+            this.textBox16.Location = new System.Drawing.Point(81, 400);
+            this.textBox16.Name = "textBox16";
+            this.textBox16.Size = new System.Drawing.Size(79, 20);
+            this.textBox16.TabIndex = 30;
+            // 
+            // textBox15
+            // 
+            this.textBox15.Location = new System.Drawing.Point(81, 376);
+            this.textBox15.Name = "textBox15";
+            this.textBox15.Size = new System.Drawing.Size(79, 20);
+            this.textBox15.TabIndex = 29;
+            // 
+            // textBox14
+            // 
+            this.textBox14.Location = new System.Drawing.Point(81, 328);
+            this.textBox14.Name = "textBox14";
+            this.textBox14.Size = new System.Drawing.Size(79, 20);
+            this.textBox14.TabIndex = 28;
+            // 
+            // textBox13
+            // 
+            this.textBox13.Location = new System.Drawing.Point(81, 304);
+            this.textBox13.Name = "textBox13";
+            this.textBox13.Size = new System.Drawing.Size(79, 20);
+            this.textBox13.TabIndex = 27;
             // 
             // textBox12
             // 
-            this.textBox12.Location = new System.Drawing.Point(32, 256);
-            this.textBox12.Multiline = true;
+            this.textBox12.Location = new System.Drawing.Point(81, 281);
             this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(435, 24);
-            this.textBox12.TabIndex = 8;
+            this.textBox12.Size = new System.Drawing.Size(79, 20);
+            this.textBox12.TabIndex = 26;
             // 
-            // textBox5
+            // textBox11
             // 
-            this.textBox5.Location = new System.Drawing.Point(8, 226);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(459, 24);
-            this.textBox5.TabIndex = 7;
+            this.textBox11.Location = new System.Drawing.Point(81, 257);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Size = new System.Drawing.Size(79, 20);
+            this.textBox11.TabIndex = 25;
             // 
-            // textBox6
+            // textBox10
             // 
-            this.textBox6.Location = new System.Drawing.Point(8, 198);
-            this.textBox6.Multiline = true;
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(459, 24);
-            this.textBox6.TabIndex = 6;
+            this.textBox10.Location = new System.Drawing.Point(81, 233);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(79, 20);
+            this.textBox10.TabIndex = 24;
             // 
-            // textBox7
+            // textBox9
             // 
-            this.textBox7.Location = new System.Drawing.Point(8, 168);
-            this.textBox7.Multiline = true;
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(459, 24);
-            this.textBox7.TabIndex = 5;
+            this.textBox9.Location = new System.Drawing.Point(81, 209);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(79, 20);
+            this.textBox9.TabIndex = 23;
             // 
             // textBox8
             // 
-            this.textBox8.Location = new System.Drawing.Point(8, 138);
-            this.textBox8.Multiline = true;
+            this.textBox8.Location = new System.Drawing.Point(81, 185);
             this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(459, 24);
-            this.textBox8.TabIndex = 4;
+            this.textBox8.Size = new System.Drawing.Size(79, 20);
+            this.textBox8.TabIndex = 22;
             // 
-            // issuedMedicineTxt0
+            // textBox7
             // 
-            this.issuedMedicineTxt0.Location = new System.Drawing.Point(8, 20);
-            this.issuedMedicineTxt0.Multiline = true;
-            this.issuedMedicineTxt0.Name = "issuedMedicineTxt0";
-            this.issuedMedicineTxt0.Size = new System.Drawing.Size(459, 24);
-            this.issuedMedicineTxt0.TabIndex = 0;
+            this.textBox7.Location = new System.Drawing.Point(81, 162);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(79, 20);
+            this.textBox7.TabIndex = 21;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(81, 138);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(79, 20);
+            this.textBox6.TabIndex = 20;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(81, 114);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(79, 20);
+            this.textBox5.TabIndex = 19;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(81, 90);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(79, 20);
+            this.textBox4.TabIndex = 18;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(81, 66);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(79, 20);
+            this.textBox3.TabIndex = 17;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(81, 42);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(79, 20);
+            this.textBox2.TabIndex = 16;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(81, 19);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(79, 20);
+            this.textBox1.TabIndex = 15;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(6, 49);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(67, 13);
+            this.label17.TabIndex = 14;
+            this.label17.Text = "Лейкоциты:";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(6, 145);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(70, 13);
+            this.label16.TabIndex = 13;
+            this.label16.Text = "Холестерин:";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(6, 169);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(59, 13);
+            this.label15.TabIndex = 12;
+            this.label15.Text = "Бил. общ.:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(6, 192);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(51, 13);
+            this.label14.TabIndex = 11;
+            this.label14.Text = "Железо:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(6, 264);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(31, 13);
+            this.label13.TabIndex = 10;
+            this.label13.Text = "ЩФ:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(6, 288);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(55, 13);
+            this.label12.TabIndex = 9;
+            this.label12.Text = "Амилаза:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(6, 383);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(41, 13);
+            this.label11.TabIndex = 8;
+            this.label11.Text = "Калий:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(6, 407);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(47, 13);
+            this.label10.TabIndex = 7;
+            this.label10.Text = "Натрий:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(6, 216);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(32, 13);
+            this.label9.TabIndex = 6;
+            this.label9.Text = "АЛТ:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 240);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(31, 13);
+            this.label8.TabIndex = 5;
+            this.label8.Text = "АСТ:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 335);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(54, 13);
+            this.label7.TabIndex = 4;
+            this.label7.Text = "КФК-МВ:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 311);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(35, 13);
+            this.label6.TabIndex = 3;
+            this.label6.Text = "КФК:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 359);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(31, 13);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "СРБ:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 431);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Хлор:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 26);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(71, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Гемоглобин:";
+            // 
+            // urineTab
+            // 
+            this.urineTab.Controls.Add(this.firstAnalysisBox);
+            this.urineTab.Location = new System.Drawing.Point(4, 22);
+            this.urineTab.Name = "urineTab";
+            this.urineTab.Padding = new System.Windows.Forms.Padding(3);
+            this.urineTab.Size = new System.Drawing.Size(1001, 483);
+            this.urineTab.TabIndex = 2;
+            this.urineTab.Text = "Анализ мочи";
+            this.urineTab.UseVisualStyleBackColor = true;
+            // 
+            // firstAnalysisBox
+            // 
+            this.firstAnalysisBox.Controls.Add(this.firstProteinTxt);
+            this.firstAnalysisBox.Controls.Add(this.firstErythrocytesTxt);
+            this.firstAnalysisBox.Controls.Add(this.firstLeucocytesTxt);
+            this.firstAnalysisBox.Controls.Add(this.firstColorTxt);
+            this.firstAnalysisBox.Controls.Add(this.label90);
+            this.firstAnalysisBox.Controls.Add(this.label87);
+            this.firstAnalysisBox.Controls.Add(this.label86);
+            this.firstAnalysisBox.Controls.Add(this.firstColorLbl);
+            this.firstAnalysisBox.Location = new System.Drawing.Point(17, 23);
+            this.firstAnalysisBox.Name = "firstAnalysisBox";
+            this.firstAnalysisBox.Size = new System.Drawing.Size(259, 208);
+            this.firstAnalysisBox.TabIndex = 0;
+            this.firstAnalysisBox.TabStop = false;
+            this.firstAnalysisBox.Text = "При поступлении";
+            // 
+            // firstProteinTxt
+            // 
+            this.firstProteinTxt.Location = new System.Drawing.Point(88, 159);
+            this.firstProteinTxt.Name = "firstProteinTxt";
+            this.firstProteinTxt.Size = new System.Drawing.Size(156, 20);
+            this.firstProteinTxt.TabIndex = 14;
+            // 
+            // firstErythrocytesTxt
+            // 
+            this.firstErythrocytesTxt.Location = new System.Drawing.Point(88, 119);
+            this.firstErythrocytesTxt.Name = "firstErythrocytesTxt";
+            this.firstErythrocytesTxt.Size = new System.Drawing.Size(156, 20);
+            this.firstErythrocytesTxt.TabIndex = 12;
+            // 
+            // firstLeucocytesTxt
+            // 
+            this.firstLeucocytesTxt.Location = new System.Drawing.Point(88, 75);
+            this.firstLeucocytesTxt.Name = "firstLeucocytesTxt";
+            this.firstLeucocytesTxt.Size = new System.Drawing.Size(156, 20);
+            this.firstLeucocytesTxt.TabIndex = 11;
+            // 
+            // firstColorTxt
+            // 
+            this.firstColorTxt.Location = new System.Drawing.Point(88, 34);
+            this.firstColorTxt.Name = "firstColorTxt";
+            this.firstColorTxt.Size = new System.Drawing.Size(156, 20);
+            this.firstColorTxt.TabIndex = 8;
+            // 
+            // label90
+            // 
+            this.label90.AutoSize = true;
+            this.label90.Location = new System.Drawing.Point(8, 166);
+            this.label90.Name = "label90";
+            this.label90.Size = new System.Drawing.Size(41, 13);
+            this.label90.TabIndex = 7;
+            this.label90.Text = "Белок:";
+            // 
+            // label87
+            // 
+            this.label87.AutoSize = true;
+            this.label87.Location = new System.Drawing.Point(8, 126);
+            this.label87.Name = "label87";
+            this.label87.Size = new System.Drawing.Size(71, 13);
+            this.label87.TabIndex = 4;
+            this.label87.Text = "Эритроциты:";
+            // 
+            // label86
+            // 
+            this.label86.AutoSize = true;
+            this.label86.Location = new System.Drawing.Point(8, 82);
+            this.label86.Name = "label86";
+            this.label86.Size = new System.Drawing.Size(67, 13);
+            this.label86.TabIndex = 3;
+            this.label86.Text = "Лейкоциты:";
+            // 
+            // firstColorLbl
+            // 
+            this.firstColorLbl.AutoSize = true;
+            this.firstColorLbl.Location = new System.Drawing.Point(8, 41);
+            this.firstColorLbl.Name = "firstColorLbl";
+            this.firstColorLbl.Size = new System.Drawing.Size(35, 13);
+            this.firstColorLbl.TabIndex = 0;
+            this.firstColorLbl.Text = "Цвет:";
             // 
             // templatesLbl
             // 
@@ -1259,285 +1998,13 @@
             this.templatesLbl.TabIndex = 23;
             this.templatesLbl.Text = "ШАБЛОНЫ";
             // 
-            // tabPage1
+            // tip
             // 
-            this.tabPage1.Controls.Add(this.richTextBox2);
-            this.tabPage1.Controls.Add(this.button2);
-            this.tabPage1.Controls.Add(this.button25);
-            this.tabPage1.Controls.Add(this.button26);
-            this.tabPage1.Controls.Add(this.button27);
-            this.tabPage1.Controls.Add(this.button28);
-            this.tabPage1.Controls.Add(this.groupBox4);
-            this.tabPage1.Controls.Add(this.groupBox5);
-            this.tabPage1.Controls.Add(this.groupBox6);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1043, 545);
-            this.tabPage1.TabIndex = 4;
-            this.tabPage1.Text = "Первичные данные анализов";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tip.Active = false;
             // 
-            // richTextBox2
+            // addTip
             // 
-            this.richTextBox2.Location = new System.Drawing.Point(345, 16);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(369, 174);
-            this.richTextBox2.TabIndex = 27;
-            this.richTextBox2.Text = "";
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(345, 196);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 32);
-            this.button2.TabIndex = 26;
-            this.button2.Text = "Очистить";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button25
-            // 
-            this.button25.Location = new System.Drawing.Point(273, 196);
-            this.button25.Name = "button25";
-            this.button25.Size = new System.Drawing.Size(66, 32);
-            this.button25.TabIndex = 25;
-            this.button25.Text = "Пробел";
-            this.button25.UseVisualStyleBackColor = true;
-            // 
-            // button26
-            // 
-            this.button26.Location = new System.Drawing.Point(310, 162);
-            this.button26.Name = "button26";
-            this.button26.Size = new System.Drawing.Size(29, 28);
-            this.button26.TabIndex = 24;
-            this.button26.UseVisualStyleBackColor = true;
-            // 
-            // button27
-            // 
-            this.button27.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button27.Location = new System.Drawing.Point(273, 162);
-            this.button27.Name = "button27";
-            this.button27.Size = new System.Drawing.Size(30, 28);
-            this.button27.TabIndex = 23;
-            this.button27.Text = "_";
-            this.button27.UseVisualStyleBackColor = true;
-            // 
-            // button28
-            // 
-            this.button28.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button28.Location = new System.Drawing.Point(310, 16);
-            this.button28.Name = "button28";
-            this.button28.Size = new System.Drawing.Size(29, 68);
-            this.button28.TabIndex = 22;
-            this.button28.Text = ",";
-            this.button28.UseVisualStyleBackColor = true;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.button3);
-            this.groupBox4.Controls.Add(this.button4);
-            this.groupBox4.Controls.Add(this.button5);
-            this.groupBox4.Controls.Add(this.button6);
-            this.groupBox4.Controls.Add(this.button33);
-            this.groupBox4.Controls.Add(this.button34);
-            this.groupBox4.Controls.Add(this.button7);
-            this.groupBox4.Controls.Add(this.button36);
-            this.groupBox4.Controls.Add(this.button37);
-            this.groupBox4.Controls.Add(this.button38);
-            this.groupBox4.Controls.Add(this.button39);
-            this.groupBox4.Controls.Add(this.button40);
-            this.groupBox4.Location = new System.Drawing.Point(16, 153);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(252, 75);
-            this.groupBox4.TabIndex = 21;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Где";
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(206, 43);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(40, 23);
-            this.button3.TabIndex = 11;
-            this.button3.Text = "V6";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(166, 43);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(40, 23);
-            this.button4.TabIndex = 10;
-            this.button4.Text = "V5";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(126, 43);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(40, 23);
-            this.button5.TabIndex = 9;
-            this.button5.Text = "V4";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(86, 43);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(40, 23);
-            this.button6.TabIndex = 8;
-            this.button6.Text = "V3";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // button33
-            // 
-            this.button33.Location = new System.Drawing.Point(46, 43);
-            this.button33.Name = "button33";
-            this.button33.Size = new System.Drawing.Size(40, 23);
-            this.button33.TabIndex = 7;
-            this.button33.Text = "V2";
-            this.button33.UseVisualStyleBackColor = true;
-            // 
-            // button34
-            // 
-            this.button34.Location = new System.Drawing.Point(5, 43);
-            this.button34.Name = "button34";
-            this.button34.Size = new System.Drawing.Size(40, 23);
-            this.button34.TabIndex = 6;
-            this.button34.Text = "V1";
-            this.button34.UseVisualStyleBackColor = true;
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(206, 20);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(40, 23);
-            this.button7.TabIndex = 5;
-            this.button7.Text = "AVF";
-            this.button7.UseVisualStyleBackColor = true;
-            // 
-            // button36
-            // 
-            this.button36.Location = new System.Drawing.Point(166, 20);
-            this.button36.Name = "button36";
-            this.button36.Size = new System.Drawing.Size(40, 23);
-            this.button36.TabIndex = 4;
-            this.button36.Text = "AVR";
-            this.button36.UseVisualStyleBackColor = true;
-            // 
-            // button37
-            // 
-            this.button37.Location = new System.Drawing.Point(126, 20);
-            this.button37.Name = "button37";
-            this.button37.Size = new System.Drawing.Size(40, 23);
-            this.button37.TabIndex = 3;
-            this.button37.Text = "AVL";
-            this.button37.UseVisualStyleBackColor = true;
-            // 
-            // button38
-            // 
-            this.button38.Location = new System.Drawing.Point(86, 20);
-            this.button38.Name = "button38";
-            this.button38.Size = new System.Drawing.Size(40, 23);
-            this.button38.TabIndex = 2;
-            this.button38.Text = "III";
-            this.button38.UseVisualStyleBackColor = true;
-            // 
-            // button39
-            // 
-            this.button39.Location = new System.Drawing.Point(46, 20);
-            this.button39.Name = "button39";
-            this.button39.Size = new System.Drawing.Size(40, 23);
-            this.button39.TabIndex = 1;
-            this.button39.Text = "II";
-            this.button39.UseVisualStyleBackColor = true;
-            // 
-            // button40
-            // 
-            this.button40.Location = new System.Drawing.Point(5, 20);
-            this.button40.Name = "button40";
-            this.button40.Size = new System.Drawing.Size(40, 23);
-            this.button40.TabIndex = 0;
-            this.button40.Text = "I";
-            this.button40.UseVisualStyleBackColor = true;
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.button41);
-            this.groupBox5.Controls.Add(this.button42);
-            this.groupBox5.Controls.Add(this.button43);
-            this.groupBox5.Location = new System.Drawing.Point(16, 91);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(287, 56);
-            this.groupBox5.TabIndex = 20;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Девиация";
-            // 
-            // button41
-            // 
-            this.button41.Location = new System.Drawing.Point(168, 20);
-            this.button41.Name = "button41";
-            this.button41.Size = new System.Drawing.Size(111, 23);
-            this.button41.TabIndex = 2;
-            this.button41.Text = "Отрицательный Т";
-            this.button41.UseVisualStyleBackColor = true;
-            // 
-            // button42
-            // 
-            this.button42.Location = new System.Drawing.Point(87, 19);
-            this.button42.Name = "button42";
-            this.button42.Size = new System.Drawing.Size(75, 23);
-            this.button42.TabIndex = 1;
-            this.button42.Text = "Депрессия";
-            this.button42.UseVisualStyleBackColor = true;
-            // 
-            // button43
-            // 
-            this.button43.Location = new System.Drawing.Point(6, 20);
-            this.button43.Name = "button43";
-            this.button43.Size = new System.Drawing.Size(75, 23);
-            this.button43.TabIndex = 0;
-            this.button43.Text = "Девиация";
-            this.button43.UseVisualStyleBackColor = true;
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.button44);
-            this.groupBox6.Controls.Add(this.button45);
-            this.groupBox6.Controls.Add(this.button46);
-            this.groupBox6.Location = new System.Drawing.Point(16, 16);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(287, 69);
-            this.groupBox6.TabIndex = 19;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Ритм";
-            // 
-            // button44
-            // 
-            this.button44.Location = new System.Drawing.Point(192, 18);
-            this.button44.Name = "button44";
-            this.button44.Size = new System.Drawing.Size(87, 39);
-            this.button44.TabIndex = 2;
-            this.button44.Text = "Трепетание предсердий";
-            this.button44.UseVisualStyleBackColor = true;
-            // 
-            // button45
-            // 
-            this.button45.Location = new System.Drawing.Point(99, 19);
-            this.button45.Name = "button45";
-            this.button45.Size = new System.Drawing.Size(87, 38);
-            this.button45.TabIndex = 1;
-            this.button45.Text = "Фибриляция предсердий";
-            this.button45.UseVisualStyleBackColor = true;
-            // 
-            // button46
-            // 
-            this.button46.Location = new System.Drawing.Point(6, 19);
-            this.button46.Name = "button46";
-            this.button46.Size = new System.Drawing.Size(87, 38);
-            this.button46.TabIndex = 0;
-            this.button46.Text = "Ритм синусовый";
-            this.button46.UseVisualStyleBackColor = true;
+            this.addTip.ToolTipTitle = "Добавить назначения";
             // 
             // FirstInspection
             // 
@@ -1564,7 +2031,6 @@
             this.Name = "FirstInspection";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Данные первичного осмотра";
-            this.Load += new System.EventHandler(this.FirstInspection_Load);
             this.complaintsBox.ResumeLayout(false);
             this.anamnesisMorbiBox.ResumeLayout(false);
             this.anamnesisAllergyBox.ResumeLayout(false);
@@ -1593,10 +2059,21 @@
             this.issuedMedicineTab.ResumeLayout(false);
             this.issuedMedicineBox.ResumeLayout(false);
             this.issuedMedicineBox.PerformLayout();
+            this.issuedMedicineContainer.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox6.ResumeLayout(false);
+            this.tabs.ResumeLayout(false);
+            this.ekgTab.ResumeLayout(false);
+            this.rhytmGroupBox.ResumeLayout(false);
+            this.deviationBox.ResumeLayout(false);
+            this.whereBox.ResumeLayout(false);
+            this.egdsTab.ResumeLayout(false);
+            this.firstEgdsBox.ResumeLayout(false);
+            this.bloodTab.ResumeLayout(false);
+            this.groupBox15.ResumeLayout(false);
+            this.groupBox15.PerformLayout();
+            this.urineTab.ResumeLayout(false);
+            this.firstAnalysisBox.ResumeLayout(false);
+            this.firstAnalysisBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1687,50 +2164,93 @@
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.RichTextBox diagnosisTxt;
         private System.Windows.Forms.TabPage issuedMedicineTab;
-        private System.Windows.Forms.Button button35;
         private System.Windows.Forms.GroupBox issuedMedicineBox;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox issuedMedicineTxt0;
         private System.Windows.Forms.Label templatesLbl;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.Button addIssuedMedicineBtn;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.RichTextBox richTextBox2;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button25;
-        private System.Windows.Forms.Button button26;
-        private System.Windows.Forms.Button button27;
-        private System.Windows.Forms.Button button28;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button33;
-        private System.Windows.Forms.Button button34;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button36;
-        private System.Windows.Forms.Button button37;
-        private System.Windows.Forms.Button button38;
-        private System.Windows.Forms.Button button39;
-        private System.Windows.Forms.Button button40;
-        private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.Button button41;
-        private System.Windows.Forms.Button button42;
-        private System.Windows.Forms.Button button43;
-        private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.Button button44;
-        private System.Windows.Forms.Button button45;
-        private System.Windows.Forms.Button button46;
+        private System.Windows.Forms.TableLayoutPanel issuedMedicineContainer;
+        private System.Windows.Forms.ComboBox issuedMed0;
+        private System.Windows.Forms.TabControl tabs;
+        private System.Windows.Forms.TabPage ekgTab;
+        private System.Windows.Forms.RichTextBox regularEkgTxt;
+        private System.Windows.Forms.Button clearBtn;
+        private System.Windows.Forms.GroupBox rhytmGroupBox;
+        private System.Windows.Forms.Button flutterBtn;
+        private System.Windows.Forms.Button fibrillationBtn;
+        private System.Windows.Forms.Button rhytmSinusBtn;
+        private System.Windows.Forms.Button spaceBtn;
+        private System.Windows.Forms.GroupBox deviationBox;
+        private System.Windows.Forms.Button negativeTBtn;
+        private System.Windows.Forms.Button depressionBtn;
+        private System.Windows.Forms.Button elevation;
+        private System.Windows.Forms.Button dotBtn;
+        private System.Windows.Forms.GroupBox whereBox;
+        private System.Windows.Forms.Button V6Btn;
+        private System.Windows.Forms.Button V5Btn;
+        private System.Windows.Forms.Button V4Btn;
+        private System.Windows.Forms.Button V3Btn;
+        private System.Windows.Forms.Button V2Btn;
+        private System.Windows.Forms.Button V1Btn;
+        private System.Windows.Forms.Button AvfBtn;
+        private System.Windows.Forms.Button AvrBtn;
+        private System.Windows.Forms.Button AvlBtn;
+        private System.Windows.Forms.Button IIIBtn;
+        private System.Windows.Forms.Button IIBtn;
+        private System.Windows.Forms.Button IBtn;
+        private System.Windows.Forms.Button dashBtn;
+        private System.Windows.Forms.Button commaBtn;
+        private System.Windows.Forms.TabPage egdsTab;
+        private System.Windows.Forms.GroupBox firstEgdsBox;
+        private System.Windows.Forms.RichTextBox firstEgdsTxt;
+        private System.Windows.Forms.TabPage bloodTab;
+        private System.Windows.Forms.GroupBox groupBox15;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox textBox18;
+        private System.Windows.Forms.TextBox textBox17;
+        private System.Windows.Forms.TextBox textBox16;
+        private System.Windows.Forms.TextBox textBox15;
+        private System.Windows.Forms.TextBox textBox14;
+        private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TabPage urineTab;
+        private System.Windows.Forms.GroupBox firstAnalysisBox;
+        private System.Windows.Forms.TextBox firstProteinTxt;
+        private System.Windows.Forms.TextBox firstErythrocytesTxt;
+        private System.Windows.Forms.TextBox firstLeucocytesTxt;
+        private System.Windows.Forms.TextBox firstColorTxt;
+        private System.Windows.Forms.Label label90;
+        private System.Windows.Forms.Label label87;
+        private System.Windows.Forms.Label label86;
+        private System.Windows.Forms.Label firstColorLbl;
+        private System.Windows.Forms.ToolTip tip;
+        private System.Windows.Forms.ToolTip addTip;
     }
 }

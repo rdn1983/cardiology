@@ -15,16 +15,12 @@ namespace Cardiology
             this.hospitalitySession = hospitalitySession;
             InitializeComponent();
             DataService service = new DataService();
-            initClinicalPharmacologistBox(service);
+            CommonUtils.initDoctorsComboboxValues(service, clinicalPharmacologistBox, "dsi_appointment_type=2");
+            CommonUtils.initDoctorsComboboxValues(service, nurseBox, null);
+            CommonUtils.initDoctorsComboboxValues(service, cardioReanimBox, null);
+            CommonUtils.initDoctorsComboboxValues(service, directorBox, null);
             CommonUtils.initCureComboboxValues(service, issuedMedicineTxt0, null);
         }
-
-        private void initClinicalPharmacologistBox(DataService service)
-        {
-            CommonUtils.initDoctorsComboboxValues(service, clinicalPharmacologistBox, "dsi_appointment_type=2");
-        }
-
-
 
         private void oksBtn_Click(object sender, EventArgs e)
         {

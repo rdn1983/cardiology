@@ -48,6 +48,10 @@
             this.cardioReanimBox = new System.Windows.Forms.GroupBox();
             this.dutyCardioBox = new System.Windows.Forms.ComboBox();
             this.patientBaseInfoBox = new System.Windows.Forms.GroupBox();
+            this.omsTxt = new System.Windows.Forms.TextBox();
+            this.omsLbl = new System.Windows.Forms.Label();
+            this.snilsTxt = new System.Windows.Forms.TextBox();
+            this.snilsLbl = new System.Windows.Forms.Label();
             this.weightTxt = new System.Windows.Forms.TextBox();
             this.highTxt = new System.Windows.Forms.TextBox();
             this.phoneTxt = new System.Windows.Forms.TextBox();
@@ -67,10 +71,6 @@
             this.firstNameLbl = new System.Windows.Forms.Label();
             this.patientLastName = new System.Windows.Forms.TextBox();
             this.lastNameLbl = new System.Windows.Forms.Label();
-            this.snilsLbl = new System.Windows.Forms.Label();
-            this.snilsTxt = new System.Windows.Forms.TextBox();
-            this.omsTxt = new System.Windows.Forms.TextBox();
-            this.omsLbl = new System.Windows.Forms.Label();
             this.lordOfTheCotBox.SuspendLayout();
             this.placeBox.SuspendLayout();
             this.kagInfoBox.SuspendLayout();
@@ -117,7 +117,6 @@
             this.bedTxt.Name = "bedTxt";
             this.bedTxt.Size = new System.Drawing.Size(64, 20);
             this.bedTxt.TabIndex = 1;
-            this.bedTxt.KeyPress += OnlyDigits_KeyPress;
             // 
             // roomTxt
             // 
@@ -125,7 +124,6 @@
             this.roomTxt.Name = "roomTxt";
             this.roomTxt.Size = new System.Drawing.Size(64, 20);
             this.roomTxt.TabIndex = 0;
-            this.roomTxt.KeyPress += OnlyDigits_KeyPress;
             // 
             // kagInfoBox
             // 
@@ -232,7 +230,7 @@
             this.cardioSurgeryBox.Size = new System.Drawing.Size(289, 52);
             this.cardioSurgeryBox.TabIndex = 1;
             this.cardioSurgeryBox.TabStop = false;
-            this.cardioSurgeryBox.Text = "Рентгеноваскулярный хирург";
+            this.cardioSurgeryBox.Text = "Дежурный врач отделения РХМДиЛ";
             // 
             // cardioDocBox
             // 
@@ -290,13 +288,44 @@
             this.patientBaseInfoBox.TabStop = false;
             this.patientBaseInfoBox.Text = "Пациент";
             // 
+            // omsTxt
+            // 
+            this.omsTxt.Location = new System.Drawing.Point(12, 327);
+            this.omsTxt.Name = "omsTxt";
+            this.omsTxt.Size = new System.Drawing.Size(218, 20);
+            this.omsTxt.TabIndex = 19;
+            // 
+            // omsLbl
+            // 
+            this.omsLbl.AutoSize = true;
+            this.omsLbl.Location = new System.Drawing.Point(12, 310);
+            this.omsLbl.Name = "omsLbl";
+            this.omsLbl.Size = new System.Drawing.Size(66, 13);
+            this.omsLbl.TabIndex = 18;
+            this.omsLbl.Text = "Полис ОМС";
+            // 
+            // snilsTxt
+            // 
+            this.snilsTxt.Location = new System.Drawing.Point(12, 287);
+            this.snilsTxt.Name = "snilsTxt";
+            this.snilsTxt.Size = new System.Drawing.Size(218, 20);
+            this.snilsTxt.TabIndex = 17;
+            // 
+            // snilsLbl
+            // 
+            this.snilsLbl.AutoSize = true;
+            this.snilsLbl.Location = new System.Drawing.Point(12, 270);
+            this.snilsLbl.Name = "snilsLbl";
+            this.snilsLbl.Size = new System.Drawing.Size(45, 13);
+            this.snilsLbl.TabIndex = 16;
+            this.snilsLbl.Text = "СНИЛС";
+            // 
             // weightTxt
             // 
             this.weightTxt.Location = new System.Drawing.Point(124, 371);
             this.weightTxt.Name = "weightTxt";
             this.weightTxt.Size = new System.Drawing.Size(100, 20);
             this.weightTxt.TabIndex = 15;
-            this.weightTxt.KeyPress += OnlyDigits_KeyPress;
             // 
             // highTxt
             // 
@@ -304,7 +333,6 @@
             this.highTxt.Name = "highTxt";
             this.highTxt.Size = new System.Drawing.Size(100, 20);
             this.highTxt.TabIndex = 14;
-            this.highTxt.KeyPress += OnlyDigits_KeyPress;
             // 
             // phoneTxt
             // 
@@ -459,38 +487,6 @@
             this.lastNameLbl.Size = new System.Drawing.Size(21, 13);
             this.lastNameLbl.TabIndex = 0;
             this.lastNameLbl.Text = "Ф.";
-            // 
-            // snilsLbl
-            // 
-            this.snilsLbl.AutoSize = true;
-            this.snilsLbl.Location = new System.Drawing.Point(12, 270);
-            this.snilsLbl.Name = "snilsLbl";
-            this.snilsLbl.Size = new System.Drawing.Size(45, 13);
-            this.snilsLbl.TabIndex = 16;
-            this.snilsLbl.Text = "СНИЛС";
-            // 
-            // snilsTxt
-            // 
-            this.snilsTxt.Location = new System.Drawing.Point(12, 287);
-            this.snilsTxt.Name = "snilsTxt";
-            this.snilsTxt.Size = new System.Drawing.Size(218, 20);
-            this.snilsTxt.TabIndex = 17;
-            // 
-            // omsTxt
-            // 
-            this.omsTxt.Location = new System.Drawing.Point(12, 327);
-            this.omsTxt.Name = "omsTxt";
-            this.omsTxt.Size = new System.Drawing.Size(218, 20);
-            this.omsTxt.TabIndex = 19;
-            // 
-            // omsLbl
-            // 
-            this.omsLbl.AutoSize = true;
-            this.omsLbl.Location = new System.Drawing.Point(12, 310);
-            this.omsLbl.Name = "omsLbl";
-            this.omsLbl.Size = new System.Drawing.Size(66, 13);
-            this.omsLbl.TabIndex = 18;
-            this.omsLbl.Text = "Полис ОМС";
             // 
             // AdmissionPatient
             // 

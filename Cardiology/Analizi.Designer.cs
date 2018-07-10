@@ -307,6 +307,7 @@
             this.neurologBox = new System.Windows.Forms.GroupBox();
             this.neurologTxt = new System.Windows.Forms.RichTextBox();
             this.saveBtn = new System.Windows.Forms.Button();
+            this.serologyToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.tabs.SuspendLayout();
             this.ekgTab.SuspendLayout();
             this.firstEkgBox.SuspendLayout();
@@ -372,6 +373,7 @@
             this.tabs.SelectedIndex = 0;
             this.tabs.Size = new System.Drawing.Size(924, 687);
             this.tabs.TabIndex = 0;
+            this.tabs.SelectedIndexChanged += new System.EventHandler(this.tabs_SelectedIndexChanged);
             // 
             // ekgTab
             // 
@@ -2963,6 +2965,13 @@
             this.saveBtn.UseVisualStyleBackColor = true;
             this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
             // 
+            // serologyToolTip
+            // 
+            this.serologyToolTip.AutoPopDelay = 5000;
+            this.serologyToolTip.InitialDelay = 10;
+            this.serologyToolTip.ReshowDelay = 500;
+            this.serologyToolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Warning;
+            // 
             // Analizi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3313,5 +3322,6 @@
         private System.Windows.Forms.RichTextBox ktTxt;
         private System.Windows.Forms.GroupBox msktBox;
         private System.Windows.Forms.RichTextBox msktTxt;
+        private System.Windows.Forms.ToolTip serologyToolTip;
     }
 }

@@ -71,6 +71,8 @@
             this.firstNameLbl = new System.Windows.Forms.Label();
             this.patientLastName = new System.Windows.Forms.TextBox();
             this.lastNameLbl = new System.Windows.Forms.Label();
+            this.directorCardioReanimPnl = new System.Windows.Forms.GroupBox();
+            this.directorCardioReanimBox = new System.Windows.Forms.ComboBox();
             this.lordOfTheCotBox.SuspendLayout();
             this.placeBox.SuspendLayout();
             this.kagInfoBox.SuspendLayout();
@@ -81,10 +83,12 @@
             this.cardioReanimBox.SuspendLayout();
             this.patientBaseInfoBox.SuspendLayout();
             this.sexGroup.SuspendLayout();
+            this.directorCardioReanimPnl.SuspendLayout();
             this.SuspendLayout();
             // 
             // lordOfTheCotBox
             // 
+            this.lordOfTheCotBox.Controls.Add(this.directorCardioReanimPnl);
             this.lordOfTheCotBox.Controls.Add(this.placeBox);
             this.lordOfTheCotBox.Controls.Add(this.kagInfoBox);
             this.lordOfTheCotBox.Controls.Add(this.admisPatient);
@@ -95,7 +99,7 @@
             this.lordOfTheCotBox.Controls.Add(this.cardioReanimBox);
             this.lordOfTheCotBox.Location = new System.Drawing.Point(260, 12);
             this.lordOfTheCotBox.Name = "lordOfTheCotBox";
-            this.lordOfTheCotBox.Size = new System.Drawing.Size(305, 438);
+            this.lordOfTheCotBox.Size = new System.Drawing.Size(305, 462);
             this.lordOfTheCotBox.TabIndex = 3;
             this.lordOfTheCotBox.TabStop = false;
             this.lordOfTheCotBox.Text = "Дежурная бригада";
@@ -104,7 +108,7 @@
             // 
             this.placeBox.Controls.Add(this.bedTxt);
             this.placeBox.Controls.Add(this.roomTxt);
-            this.placeBox.Location = new System.Drawing.Point(6, 327);
+            this.placeBox.Location = new System.Drawing.Point(6, 388);
             this.placeBox.Name = "placeBox";
             this.placeBox.Size = new System.Drawing.Size(287, 42);
             this.placeBox.TabIndex = 10;
@@ -129,7 +133,7 @@
             // 
             this.kagInfoBox.Controls.Add(this.hasKagBtn);
             this.kagInfoBox.Controls.Add(this.hasNoKagBtn);
-            this.kagInfoBox.Location = new System.Drawing.Point(6, 281);
+            this.kagInfoBox.Location = new System.Drawing.Point(6, 342);
             this.kagInfoBox.Name = "kagInfoBox";
             this.kagInfoBox.Size = new System.Drawing.Size(287, 40);
             this.kagInfoBox.TabIndex = 9;
@@ -160,7 +164,7 @@
             // admisPatient
             // 
             this.admisPatient.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.admisPatient.Location = new System.Drawing.Point(158, 409);
+            this.admisPatient.Location = new System.Drawing.Point(156, 433);
             this.admisPatient.Name = "admisPatient";
             this.admisPatient.Size = new System.Drawing.Size(137, 23);
             this.admisPatient.TabIndex = 1;
@@ -171,7 +175,7 @@
             // admissionDateBox
             // 
             this.admissionDateBox.Controls.Add(this.patientReceiptDateTime);
-            this.admissionDateBox.Location = new System.Drawing.Point(6, 231);
+            this.admissionDateBox.Location = new System.Drawing.Point(6, 292);
             this.admissionDateBox.Name = "admissionDateBox";
             this.admissionDateBox.Size = new System.Drawing.Size(287, 48);
             this.admissionDateBox.TabIndex = 7;
@@ -190,7 +194,7 @@
             // medCodeBox
             // 
             this.medCodeBox.Controls.Add(this.medCodeTxt);
-            this.medCodeBox.Location = new System.Drawing.Point(6, 176);
+            this.medCodeBox.Location = new System.Drawing.Point(6, 237);
             this.medCodeBox.Name = "medCodeBox";
             this.medCodeBox.Size = new System.Drawing.Size(287, 50);
             this.medCodeBox.TabIndex = 8;
@@ -207,15 +211,16 @@
             // directorDepartmentBox
             // 
             this.directorDepartmentBox.Controls.Add(this.subDoctorBox);
-            this.directorDepartmentBox.Location = new System.Drawing.Point(6, 125);
+            this.directorDepartmentBox.Location = new System.Drawing.Point(6, 186);
             this.directorDepartmentBox.Name = "directorDepartmentBox";
             this.directorDepartmentBox.Size = new System.Drawing.Size(289, 48);
             this.directorDepartmentBox.TabIndex = 2;
             this.directorDepartmentBox.TabStop = false;
-            this.directorDepartmentBox.Text = "зав. отделения РХМДиЛ";
+            this.directorDepartmentBox.Text = "Зав. отделения РХМДиЛ";
             // 
             // subDoctorBox
             // 
+            this.subDoctorBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.subDoctorBox.FormattingEnabled = true;
             this.subDoctorBox.Location = new System.Drawing.Point(6, 19);
             this.subDoctorBox.Name = "subDoctorBox";
@@ -225,7 +230,7 @@
             // cardioSurgeryBox
             // 
             this.cardioSurgeryBox.Controls.Add(this.cardioDocBox);
-            this.cardioSurgeryBox.Location = new System.Drawing.Point(6, 70);
+            this.cardioSurgeryBox.Location = new System.Drawing.Point(6, 131);
             this.cardioSurgeryBox.Name = "cardioSurgeryBox";
             this.cardioSurgeryBox.Size = new System.Drawing.Size(289, 52);
             this.cardioSurgeryBox.TabIndex = 1;
@@ -234,6 +239,7 @@
             // 
             // cardioDocBox
             // 
+            this.cardioDocBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cardioDocBox.FormattingEnabled = true;
             this.cardioDocBox.Location = new System.Drawing.Point(7, 20);
             this.cardioDocBox.Name = "cardioDocBox";
@@ -252,6 +258,7 @@
             // 
             // dutyCardioBox
             // 
+            this.dutyCardioBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.dutyCardioBox.FormattingEnabled = true;
             this.dutyCardioBox.Location = new System.Drawing.Point(7, 20);
             this.dutyCardioBox.Name = "dutyCardioBox";
@@ -283,7 +290,7 @@
             this.patientBaseInfoBox.Controls.Add(this.lastNameLbl);
             this.patientBaseInfoBox.Location = new System.Drawing.Point(12, 12);
             this.patientBaseInfoBox.Name = "patientBaseInfoBox";
-            this.patientBaseInfoBox.Size = new System.Drawing.Size(242, 438);
+            this.patientBaseInfoBox.Size = new System.Drawing.Size(242, 462);
             this.patientBaseInfoBox.TabIndex = 2;
             this.patientBaseInfoBox.TabStop = false;
             this.patientBaseInfoBox.Text = "Пациент";
@@ -488,11 +495,30 @@
             this.lastNameLbl.TabIndex = 0;
             this.lastNameLbl.Text = "Ф.";
             // 
+            // directorCardioReanimPnl
+            // 
+            this.directorCardioReanimPnl.Controls.Add(this.directorCardioReanimBox);
+            this.directorCardioReanimPnl.Location = new System.Drawing.Point(6, 73);
+            this.directorCardioReanimPnl.Name = "directorCardioReanimPnl";
+            this.directorCardioReanimPnl.Size = new System.Drawing.Size(289, 52);
+            this.directorCardioReanimPnl.TabIndex = 11;
+            this.directorCardioReanimPnl.TabStop = false;
+            this.directorCardioReanimPnl.Text = "Зав.отделения кардиореанимации";
+            // 
+            // directorCardioReanimBox
+            // 
+            this.directorCardioReanimBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.directorCardioReanimBox.FormattingEnabled = true;
+            this.directorCardioReanimBox.Location = new System.Drawing.Point(7, 20);
+            this.directorCardioReanimBox.Name = "directorCardioReanimBox";
+            this.directorCardioReanimBox.Size = new System.Drawing.Size(276, 21);
+            this.directorCardioReanimBox.TabIndex = 0;
+            // 
             // AdmissionPatient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(573, 462);
+            this.ClientSize = new System.Drawing.Size(573, 486);
             this.Controls.Add(this.lordOfTheCotBox);
             this.Controls.Add(this.patientBaseInfoBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -514,6 +540,7 @@
             this.patientBaseInfoBox.PerformLayout();
             this.sexGroup.ResumeLayout(false);
             this.sexGroup.PerformLayout();
+            this.directorCardioReanimPnl.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -562,5 +589,7 @@
         private System.Windows.Forms.Label snilsLbl;
         private System.Windows.Forms.TextBox omsTxt;
         private System.Windows.Forms.Label omsLbl;
+        private System.Windows.Forms.GroupBox directorCardioReanimPnl;
+        private System.Windows.Forms.ComboBox directorCardioReanimBox;
     }
 }

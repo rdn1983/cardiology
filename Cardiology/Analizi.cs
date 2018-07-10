@@ -27,6 +27,7 @@ namespace Cardiology
             this.hospitalitySession = hospitalitySession;
             this.patientAnalysis = analysis;
             InitializeComponent();
+            
 
             DdtKag kag = null;
 
@@ -568,6 +569,14 @@ namespace Cardiology
                 kagEndTime.Value = startTime.AddHours(1);
             }
 
+        }
+
+        private void tabs_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabs.SelectedIndex==3)
+            {
+                serologyToolTip.Show("bubububu", showABOFormBtn, 5000);
+            }
         }
     }
 }

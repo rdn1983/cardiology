@@ -117,22 +117,6 @@ namespace Cardiology
             
         }
 
-        private void analysisItem_Click(object sender, EventArgs e)
-        {
-            IEnumerator it = hospitalPatientsTbl.SelectedRows.GetEnumerator();
-            if (it.MoveNext())
-            {
-                DataGridViewRow row = (DataGridViewRow)it.Current;
-                DataGridViewCell cell = row.Cells[0];
-                string value = cell.Value.ToString();
-                DataService service = new DataService();
-                DdtHospital hospitalSession = service.queryObject<DdtHospital>(@"select * from ddt_hospital where r_object_id='" + value + "'");
-                AnalysisCabinet form = new AnalysisCabinet(hospitalSession);
-                form.ShowDialog();
-            }
-
-        }
-
         private void bloodTrunsfusionMenuItem_Click(object sender, EventArgs e)
         {
             Perelivanie form = new Perelivanie();

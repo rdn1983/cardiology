@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
 using System.Windows.Forms;
@@ -20,20 +19,10 @@ namespace Cardiology
         private void initDutyDoctors()
         {
             DataService service = new DataService();
-            List<DdtDoctors> doctors = service.queryObjectsCollection<DdtDoctors>("select * from ddt_doctors");
-            for (int i = 0; i < doctors.Count; i++)
-            {
-                dutyCardioBox.Items.Add(doctors[i]);
-                cardioDocBox.Items.Add(doctors[i]);
-                subDoctorBox.Items.Add(doctors[i]);
-            }
-            dutyCardioBox.ValueMember = "ObjectId";
-            dutyCardioBox.DisplayMember = "DssFullName";
-            cardioDocBox.ValueMember = "ObjectId";
-            cardioDocBox.DisplayMember = "DssFullName";
-            subDoctorBox.ValueMember = "ObjectId";
-            subDoctorBox.DisplayMember = "DssFullName";
-
+            CommonUtils.initDoctorsComboboxValues(service, directorCardioReanimBox, null);
+            CommonUtils.initDoctorsComboboxValues(service, dutyCardioBox, null);
+            CommonUtils.initDoctorsComboboxValues(service, cardioDocBox, null);
+            CommonUtils.initDoctorsComboboxValues(service, subDoctorBox, null);
         }
 
         private void admisPatient_Click(object sender, EventArgs e)
@@ -101,7 +90,8 @@ namespace Cardiology
 
         private void OnlyDigits_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) { 
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
                 e.Handled = true;
             }
         }

@@ -96,7 +96,6 @@ namespace Cardiology
                 controlRadiographyTxt.Text = xRay.DssControlRadiography;
                 ktTxt.Text = xRay.DssKt;
                 mrtTxt.Text = xRay.DssMrt;
-                msktTxt.Text = xRay.DssMskt;
             }
         }
 
@@ -276,7 +275,6 @@ namespace Cardiology
                 xRay.DssControlRadiography = controlRadiographyTxt.Text;
                 xRay.DssKt = ktTxt.Text;
                 xRay.DssMrt = mrtTxt.Text;
-                xRay.DssMskt = msktTxt.Text;
                 string id = updateObject<DdtXRay>(service, xRay, DdtXRay.TABLE_NAME, xRay.ObjectId);
                 patientAnalysis.DsidXray = id;
             }
@@ -393,7 +391,7 @@ namespace Cardiology
                         CommonUtils.isNotBlank(pleursUziTxt.Text) || CommonUtils.isNotBlank(uzdTxt.Text) || CommonUtils.isNotBlank(uziObpTxt.Text);
                 case XRAY_TAB_INDX:
                     return CommonUtils.isNotBlank(chestXRayTxt.Text) || CommonUtils.isNotBlank(controlRadiographyTxt.Text) ||
-                        CommonUtils.isNotBlank(ktTxt.Text) || CommonUtils.isNotBlank(mrtTxt.Text) || CommonUtils.isNotBlank(msktTxt.Text);
+                        CommonUtils.isNotBlank(ktTxt.Text) || CommonUtils.isNotBlank(mrtTxt.Text);
                 case HOLTER_TAB_INDX:
                     return CommonUtils.isNotBlank(holterTxt.Text) || CommonUtils.isNotBlank(monitoringAdTxt.Text);
                 case SPECIALIST_TAB_INDX:

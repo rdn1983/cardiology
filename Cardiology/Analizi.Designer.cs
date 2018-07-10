@@ -290,8 +290,6 @@
             this.mrtTxt = new System.Windows.Forms.RichTextBox();
             this.ktBox = new System.Windows.Forms.GroupBox();
             this.ktTxt = new System.Windows.Forms.RichTextBox();
-            this.msktBox = new System.Windows.Forms.GroupBox();
-            this.msktTxt = new System.Windows.Forms.RichTextBox();
             this.holterTab = new System.Windows.Forms.TabPage();
             this.monitoringAdBox = new System.Windows.Forms.GroupBox();
             this.monitoringAdTxt = new System.Windows.Forms.RichTextBox();
@@ -345,7 +343,6 @@
             this.mrtTab.SuspendLayout();
             this.mrtBox.SuspendLayout();
             this.ktBox.SuspendLayout();
-            this.msktBox.SuspendLayout();
             this.holterTab.SuspendLayout();
             this.monitoringAdBox.SuspendLayout();
             this.holterBox.SuspendLayout();
@@ -2759,7 +2756,6 @@
             // 
             this.mrtTab.Controls.Add(this.mrtBox);
             this.mrtTab.Controls.Add(this.ktBox);
-            this.mrtTab.Controls.Add(this.msktBox);
             this.mrtTab.Location = new System.Drawing.Point(4, 22);
             this.mrtTab.Name = "mrtTab";
             this.mrtTab.Size = new System.Drawing.Size(916, 661);
@@ -2770,7 +2766,7 @@
             // mrtBox
             // 
             this.mrtBox.Controls.Add(this.mrtTxt);
-            this.mrtBox.Location = new System.Drawing.Point(14, 254);
+            this.mrtBox.Location = new System.Drawing.Point(12, 141);
             this.mrtBox.Name = "mrtBox";
             this.mrtBox.Size = new System.Drawing.Size(698, 109);
             this.mrtBox.TabIndex = 12;
@@ -2788,7 +2784,7 @@
             // ktBox
             // 
             this.ktBox.Controls.Add(this.ktTxt);
-            this.ktBox.Location = new System.Drawing.Point(14, 132);
+            this.ktBox.Location = new System.Drawing.Point(12, 19);
             this.ktBox.Name = "ktBox";
             this.ktBox.Size = new System.Drawing.Size(698, 109);
             this.ktBox.TabIndex = 11;
@@ -2802,24 +2798,6 @@
             this.ktTxt.Size = new System.Drawing.Size(680, 84);
             this.ktTxt.TabIndex = 1;
             this.ktTxt.Text = "";
-            // 
-            // msktBox
-            // 
-            this.msktBox.Controls.Add(this.msktTxt);
-            this.msktBox.Location = new System.Drawing.Point(14, 13);
-            this.msktBox.Name = "msktBox";
-            this.msktBox.Size = new System.Drawing.Size(698, 109);
-            this.msktBox.TabIndex = 10;
-            this.msktBox.TabStop = false;
-            this.msktBox.Text = "МСКТ:";
-            // 
-            // msktTxt
-            // 
-            this.msktTxt.Location = new System.Drawing.Point(9, 16);
-            this.msktTxt.Name = "msktTxt";
-            this.msktTxt.Size = new System.Drawing.Size(680, 84);
-            this.msktTxt.TabIndex = 1;
-            this.msktTxt.Text = "";
             // 
             // holterTab
             // 
@@ -3030,7 +3008,6 @@
             this.mrtTab.ResumeLayout(false);
             this.mrtBox.ResumeLayout(false);
             this.ktBox.ResumeLayout(false);
-            this.msktBox.ResumeLayout(false);
             this.holterTab.ResumeLayout(false);
             this.monitoringAdBox.ResumeLayout(false);
             this.holterBox.ResumeLayout(false);
@@ -3320,8 +3297,6 @@
         private System.Windows.Forms.RichTextBox mrtTxt;
         private System.Windows.Forms.GroupBox ktBox;
         private System.Windows.Forms.RichTextBox ktTxt;
-        private System.Windows.Forms.GroupBox msktBox;
-        private System.Windows.Forms.RichTextBox msktTxt;
         private System.Windows.Forms.ToolTip serologyToolTip;
     }
 }

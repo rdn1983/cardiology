@@ -12,7 +12,7 @@ namespace Cardiology
         public PatientList()
         {
             InitializeComponent();
-            loadPatientsGrid();
+            this.hospitalPatientsTbl.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
         }
 
         private void loadPatientsGrid()
@@ -33,12 +33,6 @@ namespace Cardiology
         {
             AdmissionPatient st = new AdmissionPatient();
             st.ShowDialog();
-        }
-
-        private void toolStripMenuItem3_Click(object sender, EventArgs e)
-        {
-            DB1 form = new DB1();
-            form.ShowDialog();
         }
 
         private void konsiliumItem_Click(object sender, EventArgs e)
@@ -101,41 +95,10 @@ namespace Cardiology
             form.ShowDialog();
         }
 
-        private void firstInspectationItem_Click(object sender, EventArgs e)
-        {
-            IEnumerator it = hospitalPatientsTbl.SelectedRows.GetEnumerator();
-            if (it.MoveNext())
-            {
-                DataGridViewRow row = (DataGridViewRow) it.Current;
-                DataGridViewCell cell = row.Cells[0];
-                string value = cell.Value.ToString();
-                DataService service = new DataService();
-                DdtHospital hospitalSession = service.queryObject<DdtHospital>(@"select * from ddt_hospital where r_object_id='" + value + "'");
-                FirstInspection form = new FirstInspection(hospitalSession);
-                form.ShowDialog();
-            }
-            
-        }
-
         private void bloodTrunsfusionMenuItem_Click(object sender, EventArgs e)
         {
             Perelivanie form = new Perelivanie();
             form.ShowDialog();
-        }
-
-        private void issuingMedicineItem_Click(object sender, EventArgs e)
-        {
-            IEnumerator it = hospitalPatientsTbl.SelectedRows.GetEnumerator();
-            if (it.MoveNext())
-            {
-                DataGridViewRow row = (DataGridViewRow)it.Current;
-                DataGridViewCell cell = row.Cells[0];
-                string value = cell.Value.ToString();
-                DataService service = new DataService();
-                DdtHospital hospitalSession = service.queryObject<DdtHospital>(@"select * from ddt_hospital where r_object_id='" + value + "'");
-                IssuedMedicine form = new IssuedMedicine(hospitalSession);
-                form.ShowDialog();
-            }
         }
 
         private void journalAfterKAGMnuItem_Click(object sender, EventArgs e)

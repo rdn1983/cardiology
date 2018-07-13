@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PatientList));
             this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
             this.kateterItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,10 +50,6 @@
             this.patient_in_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.doctor_who = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.patient_diagnosis = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.patientsContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.firstInspectationItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.manipulationProtocolItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.blanksItem = new System.Windows.Forms.ToolStripMenuItem();
             this.patientAdmission = new System.Windows.Forms.ToolStripMenuItem();
             this.patientHistoryCardItem = new System.Windows.Forms.ToolStripMenuItem();
             this.freePatient = new System.Windows.Forms.ToolStripMenuItem();
@@ -64,7 +61,6 @@
             this.reportsMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.manipulationProtocoli = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.hospitalPatientsTbl)).BeginInit();
-            this.patientsContextMenu.SuspendLayout();
             this.main.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -164,10 +160,19 @@
             // 
             this.hospitalPatientsTbl.AllowUserToAddRows = false;
             this.hospitalPatientsTbl.AllowUserToDeleteRows = false;
+            this.hospitalPatientsTbl.AllowUserToResizeColumns = false;
             this.hospitalPatientsTbl.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
             this.hospitalPatientsTbl.BackgroundColor = System.Drawing.SystemColors.Window;
             this.hospitalPatientsTbl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.hospitalPatientsTbl.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.hospitalPatientsTbl.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.hospitalPatientsTbl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.hospitalPatientsTbl.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.hospitalSession,
@@ -179,7 +184,14 @@
             this.hospitalPatientsTbl.Location = new System.Drawing.Point(12, 27);
             this.hospitalPatientsTbl.Name = "hospitalPatientsTbl";
             this.hospitalPatientsTbl.ReadOnly = true;
-            this.hospitalPatientsTbl.RowTemplate.ContextMenuStrip = this.patientsContextMenu;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.hospitalPatientsTbl.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.hospitalPatientsTbl.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.hospitalPatientsTbl.Size = new System.Drawing.Size(833, 398);
             this.hospitalPatientsTbl.TabIndex = 2;
@@ -223,34 +235,6 @@
             this.patient_diagnosis.HeaderText = "Диагноз";
             this.patient_diagnosis.Name = "patient_diagnosis";
             this.patient_diagnosis.ReadOnly = true;
-            // 
-            // patientsContextMenu
-            // 
-            this.patientsContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.firstInspectationItem,
-            this.manipulationProtocolItem,
-            this.blanksItem});
-            this.patientsContextMenu.Name = "contextMenuStrip1";
-            this.patientsContextMenu.Size = new System.Drawing.Size(218, 70);
-            // 
-            // firstInspectationItem
-            // 
-            this.firstInspectationItem.Name = "firstInspectationItem";
-            this.firstInspectationItem.Size = new System.Drawing.Size(217, 22);
-            this.firstInspectationItem.Text = "Первичный осмотр";
-            this.firstInspectationItem.Click += new System.EventHandler(this.firstInspectationItem_Click);
-            // 
-            // manipulationProtocolItem
-            // 
-            this.manipulationProtocolItem.Name = "manipulationProtocolItem";
-            this.manipulationProtocolItem.Size = new System.Drawing.Size(217, 22);
-            this.manipulationProtocolItem.Text = "Протоколы манипуляций";
-            // 
-            // blanksItem
-            // 
-            this.blanksItem.Name = "blanksItem";
-            this.blanksItem.Size = new System.Drawing.Size(217, 22);
-            this.blanksItem.Text = "Бланки";
             // 
             // patientAdmission
             // 
@@ -341,7 +325,6 @@
             this.Text = "Hospital";
             this.Activated += new System.EventHandler(this.Hospital_Activated);
             ((System.ComponentModel.ISupportInitialize)(this.hospitalPatientsTbl)).EndInit();
-            this.patientsContextMenu.ResumeLayout(false);
             this.main.ResumeLayout(false);
             this.main.PerformLayout();
             this.ResumeLayout(false);
@@ -354,9 +337,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem10;
         private System.Windows.Forms.ToolStripMenuItem aidBlansMenuItem;
         private System.Windows.Forms.ToolStripMenuItem blanksMenuItem;
-        private System.Windows.Forms.ContextMenuStrip patientsContextMenu;
-        private System.Windows.Forms.ToolStripMenuItem manipulationProtocolItem;
-        private System.Windows.Forms.ToolStripMenuItem blanksItem;
         private System.Windows.Forms.ToolStripMenuItem kateterItem;
         private System.Windows.Forms.ToolStripMenuItem trombolisisItem;
         private System.Windows.Forms.ToolStripMenuItem veksItem;
@@ -366,7 +346,6 @@
         private System.Windows.Forms.ToolStripMenuItem ekstubationItem;
         private System.Windows.Forms.ToolStripMenuItem reanimItem;
         private System.Windows.Forms.ToolStripMenuItem deadItem;
-        private System.Windows.Forms.ToolStripMenuItem firstInspectationItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn hospitalSession;
         private System.Windows.Forms.DataGridViewTextBoxColumn patient_fio;
         private System.Windows.Forms.DataGridViewTextBoxColumn patient_place;

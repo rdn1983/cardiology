@@ -111,11 +111,11 @@
       <DependentUpon>AppointmentTemplates.cs</DependentUpon>
     </Compile>
     <Compile Include="DataService.cs" />
-    <Compile Include="DB1.cs">
+    <Compile Include="JournalBeforeKag.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DB1.Designer.cs">
-      <DependentUpon>DB1.cs</DependentUpon>
+    <Compile Include="JournalBeforeKag.Designer.cs">
+      <DependentUpon>JournalBeforeKag.cs</DependentUpon>
     </Compile>
     <Compile Include="FirstInspection.cs">
       <SubType>Form</SubType>
@@ -284,8 +284,8 @@
     <EmbeddedResource Include="AppointmentTemplates.resx">
       <DependentUpon>AppointmentTemplates.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DB1.resx">
-      <DependentUpon>DB1.cs</DependentUpon>
+    <EmbeddedResource Include="JournalBeforeKag.resx">
+      <DependentUpon>JournalBeforeKag.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DB3.resx">
       <DependentUpon>DB3.cs</DependentUpon>

@@ -1,6 +1,7 @@
 ﻿using Cardiology.Model;
 using Cardiology.Utils;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
@@ -9,12 +10,25 @@ namespace Cardiology
     public partial class IssuedMedicine : Form
     {
         private DdtHospital hospitalitySession;
+        private string issuedMedId;
 
-        public IssuedMedicine(DdtHospital hospitalitySession)
+        public IssuedMedicine(DdtHospital hospitalitySession, string issuedMedId)
         {
             this.hospitalitySession = hospitalitySession;
+            this.issuedMedId = issuedMedId;
             InitializeComponent();
             DataService service = new DataService();
+
+            DdtIssuedMedicine med = service.queryObjectById<DdtIssuedMedicine>(DdtIssuedMedicine.TABLE_NAME, issuedMedId);
+            if (med != null)
+            {
+                DdtCure cure = service.queryObjectById<DdtCure>(DdtCure.TABLE_NAME, med.DsidCure);
+                if (cure != null)
+                {
+                    issuedMedicineTxt0.SelectedIndex = issuedMedicineTxt0.FindStringExact(cure.DssName);
+
+                }
+            }
             CommonUtils.initDoctorsComboboxValues(service, clinicalPharmacologistBox, "dsi_appointment_type=2");
             CommonUtils.initDoctorsComboboxValues(service, nurseBox, null);
             CommonUtils.initDoctorsComboboxValues(service, cardioReanimBox, null);
@@ -115,9 +129,9 @@ namespace Cardiology
 
         private void clearMedicine()
         {
-            for (int i=0; i< medicineContainer.Controls.Count; i++)
+            for (int i = 0; i < medicineContainer.Controls.Count; i++)
             {
-                ComboBox cb = (ComboBox) medicineContainer.Controls[i];
+                ComboBox cb = (ComboBox)medicineContainer.Controls[i];
                 cb.SelectedIndex = -1;
             }
         }
@@ -159,7 +173,39 @@ namespace Cardiology
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
+            saveIssuedMedicine();
             Close();
+        }
+
+        private void saveIssuedMedicine()
+        {
+            DataService service = new DataService();
+            int i = 0;
+            IEnumerator numerator = medicineContainer.Controls.GetEnumerator();
+            while (numerator.MoveNext())
+            {
+                DdtIssuedMedicine med = null;
+                if (i == 0 && CommonUtils.isNotBlank(issuedMedId))
+                {
+                    med = service.queryObjectById<DdtIssuedMedicine>(DdtIssuedMedicine.TABLE_NAME, issuedMedId);
+                }
+                else
+                {
+                    med = new DdtIssuedMedicine();
+                    med.DsidDoctor = hospitalitySession.DsidDutyDoctor;
+                    med.DsidHospitalitySession = hospitalitySession.ObjectId;
+                    med.DsidPatient = hospitalitySession.DsidPatient;
+                }
+                ComboBox box = (ComboBox)numerator.Current;
+                DdtCure cure = (DdtCure)box.SelectedItem;
+                if (cure != null && CommonUtils.isNotBlank(box.Text))
+                {
+                    med.DsidCure = cure.ObjectId;
+                    med.DssParentType = DdtAnamnesis.TABLE_NAME;
+                    service.updateOrCreateIfNeedObject<DdtIssuedMedicine>(med, DdtIssuedMedicine.TABLE_NAME, med.ObjectId);
+                }
+                i++;
+            }
         }
     }
 }

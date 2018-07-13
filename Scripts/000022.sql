@@ -6,7 +6,15 @@ SELECT history.dsid_hospitality_session as dsid_hospitality_session,
 	CASE dss_operation_type 
 		WHEN 'ddt_hospital' THEN 'Прием пациента'
 		WHEN 'ddt_anamnesis' THEN 'Первичный осмотр'
-		WHEN 'ddt_patient_analysis' THEN 'Анализы'
+		WHEN 'ddt_ekg' THEN 'Анализы: ЭКГ'
+		WHEN 'ddt_urine_analysis' THEN 'Анализы: Моча'
+		WHEN 'ddt_kag' THEN 'Анализы: КАГ'
+		WHEN 'ddt_egds' THEN 'Анализы: ЭГДС'
+		WHEN 'ddt_xray' THEN 'Анализы: Рентген'
+		WHEN 'ddt_specialist_conclusion' THEN 'Анализы: Заключение специалистов'
+		WHEN 'ddt_holter' THEN 'Анализы: Холтер'
+		WHEN 'ddt_issued_medicine' THEN 'Назначение лекарственных препаратов'
+		WHEN 'ddt_journal' THEN 'Журнал'
 		END AS dss_operation_name,
 	history.r_creation_date AS r_creation_date,
 	doc.dss_initials AS dss_doctor_name,

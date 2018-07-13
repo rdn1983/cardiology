@@ -127,7 +127,6 @@ namespace Cardiology
                 if (cure != null)
                 {
                     box.SelectedIndex = box.FindStringExact(cure.DssName);
-
                 }
             }
         }

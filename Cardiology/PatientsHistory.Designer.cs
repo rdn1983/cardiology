@@ -32,6 +32,14 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PatientsHistory));
             this.patientHistoryGrid = new System.Windows.Forms.DataGridView();
+            this.checkedToPrint = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.hospitalSession = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.operationType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.operationId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.operationName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.operationDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.docExecutor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.operationDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gridContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.editMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteMenu = new System.Windows.Forms.ToolStripMenuItem();
@@ -40,6 +48,7 @@
             this.titleLbl = new System.Windows.Forms.Label();
             this.mainMenu = new System.Windows.Forms.MenuStrip();
             this.actionsManu = new System.Windows.Forms.ToolStripMenuItem();
+            this.firstInspectationsItem = new System.Windows.Forms.ToolStripMenuItem();
             this.analysisMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bloodTrunsfusionMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.issuingMedicineMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,14 +59,6 @@
             this.journalWithoutKAGMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.konsiliumItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.checkedToPrint = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.hospitalSession = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.operationType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.operationId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.operationName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.operationDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.docExecutor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.operationDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.patientHistoryGrid)).BeginInit();
             this.gridContextMenu.SuspendLayout();
             this.mainMenu.SuspendLayout();
@@ -96,24 +97,80 @@
             this.patientHistoryGrid.Size = new System.Drawing.Size(776, 319);
             this.patientHistoryGrid.TabIndex = 0;
             // 
+            // checkedToPrint
+            // 
+            this.checkedToPrint.HeaderText = "";
+            this.checkedToPrint.Name = "checkedToPrint";
+            this.checkedToPrint.ReadOnly = true;
+            this.checkedToPrint.Width = 30;
+            // 
+            // hospitalSession
+            // 
+            this.hospitalSession.HeaderText = "hospitalSession";
+            this.hospitalSession.Name = "hospitalSession";
+            this.hospitalSession.ReadOnly = true;
+            this.hospitalSession.Visible = false;
+            // 
+            // operationType
+            // 
+            this.operationType.HeaderText = "operationType";
+            this.operationType.Name = "operationType";
+            this.operationType.ReadOnly = true;
+            this.operationType.Visible = false;
+            // 
+            // operationId
+            // 
+            this.operationId.HeaderText = "operationId";
+            this.operationId.Name = "operationId";
+            this.operationId.ReadOnly = true;
+            this.operationId.Visible = false;
+            // 
+            // operationName
+            // 
+            this.operationName.HeaderText = "Название операции";
+            this.operationName.Name = "operationName";
+            this.operationName.ReadOnly = true;
+            this.operationName.Width = 250;
+            // 
+            // operationDate
+            // 
+            this.operationDate.HeaderText = "Дата операции";
+            this.operationDate.Name = "operationDate";
+            this.operationDate.ReadOnly = true;
+            // 
+            // docExecutor
+            // 
+            this.docExecutor.HeaderText = "Ответственный врач";
+            this.docExecutor.Name = "docExecutor";
+            this.docExecutor.ReadOnly = true;
+            this.docExecutor.Width = 250;
+            // 
+            // operationDescription
+            // 
+            this.operationDescription.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.operationDescription.HeaderText = "Подробности";
+            this.operationDescription.Name = "operationDescription";
+            this.operationDescription.ReadOnly = true;
+            // 
             // gridContextMenu
             // 
             this.gridContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.editMenu,
             this.deleteMenu});
             this.gridContextMenu.Name = "gridContextMenu";
-            this.gridContextMenu.Size = new System.Drawing.Size(155, 48);
+            this.gridContextMenu.Size = new System.Drawing.Size(181, 70);
             // 
             // editMenu
             // 
             this.editMenu.Name = "editMenu";
-            this.editMenu.Size = new System.Drawing.Size(154, 22);
+            this.editMenu.Size = new System.Drawing.Size(180, 22);
             this.editMenu.Text = "Редактировать";
+            this.editMenu.Click += new System.EventHandler(this.editMenu_Click);
             // 
             // deleteMenu
             // 
             this.deleteMenu.Name = "deleteMenu";
-            this.deleteMenu.Size = new System.Drawing.Size(154, 22);
+            this.deleteMenu.Size = new System.Drawing.Size(180, 22);
             this.deleteMenu.Text = "Удалить";
             // 
             // printTitlePage
@@ -157,6 +214,7 @@
             // actionsManu
             // 
             this.actionsManu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.firstInspectationsItem,
             this.analysisMenuItem,
             this.bloodTrunsfusionMenuItem,
             this.issuingMedicineMenuItem,
@@ -171,11 +229,18 @@
             this.actionsManu.Size = new System.Drawing.Size(70, 20);
             this.actionsManu.Text = "Действия";
             // 
+            // firstInspectationsItem
+            // 
+            this.firstInspectationsItem.Name = "firstInspectationsItem";
+            this.firstInspectationsItem.Size = new System.Drawing.Size(261, 22);
+            this.firstInspectationsItem.Text = "Первичный обход";
+            this.firstInspectationsItem.Click += new System.EventHandler(this.firstInspectationsItem_Click);
+            // 
             // analysisMenuItem
             // 
             this.analysisMenuItem.Name = "analysisMenuItem";
             this.analysisMenuItem.Size = new System.Drawing.Size(261, 22);
-            this.analysisMenuItem.Text = "Анализы, Исследования";
+            this.analysisMenuItem.Text = "Ввести анализы, Исследования";
             this.analysisMenuItem.Click += new System.EventHandler(this.analysisMenuItem_Click);
             // 
             // bloodTrunsfusionMenuItem
@@ -237,61 +302,6 @@
             this.konsiliumItem.Text = "Консилиум";
             this.konsiliumItem.Click += new System.EventHandler(this.konsiliumItem_Click);
             // 
-            // checkedToPrint
-            // 
-            this.checkedToPrint.HeaderText = "";
-            this.checkedToPrint.Name = "checkedToPrint";
-            this.checkedToPrint.ReadOnly = true;
-            this.checkedToPrint.Width = 30;
-            // 
-            // hospitalSession
-            // 
-            this.hospitalSession.HeaderText = "hospitalSession";
-            this.hospitalSession.Name = "hospitalSession";
-            this.hospitalSession.ReadOnly = true;
-            this.hospitalSession.Visible = false;
-            // 
-            // operationType
-            // 
-            this.operationType.HeaderText = "operationType";
-            this.operationType.Name = "operationType";
-            this.operationType.ReadOnly = true;
-            this.operationType.Visible = false;
-            // 
-            // operationId
-            // 
-            this.operationId.HeaderText = "operationId";
-            this.operationId.Name = "operationId";
-            this.operationId.ReadOnly = true;
-            this.operationId.Visible = false;
-            // 
-            // operationName
-            // 
-            this.operationName.HeaderText = "Название операции";
-            this.operationName.Name = "operationName";
-            this.operationName.ReadOnly = true;
-            this.operationName.Width = 250;
-            // 
-            // operationDate
-            // 
-            this.operationDate.HeaderText = "Дата операции";
-            this.operationDate.Name = "operationDate";
-            this.operationDate.ReadOnly = true;
-            // 
-            // docExecutor
-            // 
-            this.docExecutor.HeaderText = "Ответственный врач";
-            this.docExecutor.Name = "docExecutor";
-            this.docExecutor.ReadOnly = true;
-            this.docExecutor.Width = 250;
-            // 
-            // operationDescription
-            // 
-            this.operationDescription.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.operationDescription.HeaderText = "Подробности";
-            this.operationDescription.Name = "operationDescription";
-            this.operationDescription.ReadOnly = true;
-            // 
             // PatientsHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -303,9 +313,10 @@
             this.Controls.Add(this.printTitlePage);
             this.Controls.Add(this.patientHistoryGrid);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Activated += new System.EventHandler(this.PatientHistory_Activated);
             this.Name = "PatientsHistory";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "История болезни";
+            this.Activated += new System.EventHandler(this.PatientHistory_Activated);
             ((System.ComponentModel.ISupportInitialize)(this.patientHistoryGrid)).EndInit();
             this.gridContextMenu.ResumeLayout(false);
             this.mainMenu.ResumeLayout(false);
@@ -344,5 +355,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn operationDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn docExecutor;
         private System.Windows.Forms.DataGridViewTextBoxColumn operationDescription;
+        private System.Windows.Forms.ToolStripMenuItem firstInspectationsItem;
     }
 }

@@ -190,7 +190,7 @@ namespace Cardiology
             saveKagAnalysisTab(service);
             saveEkgAnalysisTab(service);
 
-            updateObject<DdtPatientAnalysis>(service, patientAnalysis, DdtPatientAnalysis.TABLE_NAME, patientAnalysis.ObjectId);
+            service.updateOrCreateIfNeedObject<DdtPatientAnalysis>(patientAnalysis, DdtPatientAnalysis.TABLE_NAME, patientAnalysis.ObjectId);
             Close();
 
         }
@@ -214,7 +214,7 @@ namespace Cardiology
                 uziObj.DssPleursUzi = pleursUziTxt.Text;
                 uziObj.DssUzdBca = uzdTxt.Text;
                 uziObj.DssUziObp = uziObpTxt.Text;
-                string id = updateObject<DdtUzi>(service, uziObj, DdtUzi.TABLE_NAME, uziObj.ObjectId);
+                string id = service.updateOrCreateIfNeedObject<DdtUzi>(uziObj, DdtUzi.TABLE_NAME, uziObj.ObjectId);
                 patientAnalysis.DsisUzi = id;
             }
         }
@@ -235,7 +235,7 @@ namespace Cardiology
                 specialistConclusion.DssNeurolog = neurologTxt.Text;
                 specialistConclusion.DssNeuroSurgeon = neuroSurgeonTxt.Text;
                 specialistConclusion.DssSurgeon = surgeonTxt.Text;
-                string id = updateObject<DdtSpecialistConclusion>(service, specialistConclusion, DdtSpecialistConclusion.TABLE_NAME, specialistConclusion.ObjectId);
+                string id = service.updateOrCreateIfNeedObject<DdtSpecialistConclusion>(specialistConclusion, DdtSpecialistConclusion.TABLE_NAME, specialistConclusion.ObjectId);
                 patientAnalysis.DsidSpecialistConclusion = id;
             }
         }
@@ -254,7 +254,7 @@ namespace Cardiology
                 }
                 holter.DssHolter = holterTxt.Text;
                 holter.DssMonitoringAd = monitoringAdTxt.Text;
-                string id = updateObject<DdtHolter>(service, holter, DdtHolter.TABLE_NAME, holter.ObjectId);
+                string id = service.updateOrCreateIfNeedObject<DdtHolter>(holter, DdtHolter.TABLE_NAME, holter.ObjectId);
                 patientAnalysis.DsidHolter = id;
             }
         }
@@ -275,7 +275,7 @@ namespace Cardiology
                 xRay.DssControlRadiography = controlRadiographyTxt.Text;
                 xRay.DssKt = ktTxt.Text;
                 xRay.DssMrt = mrtTxt.Text;
-                string id = updateObject<DdtXRay>(service, xRay, DdtXRay.TABLE_NAME, xRay.ObjectId);
+                string id = service.updateOrCreateIfNeedObject<DdtXRay>(xRay, DdtXRay.TABLE_NAME, xRay.ObjectId);
                 patientAnalysis.DsidXray = id;
             }
         }
@@ -296,7 +296,7 @@ namespace Cardiology
                 urineAnalysis.DssErythrocytes = erythrocytesTxt.Text;
                 urineAnalysis.DssLeukocytes = leukocytesTxt.Text;
                 urineAnalysis.DssProtein = proteinTxt.Text;
-                string id = updateObject<DdtUrineAnalysis>(service, urineAnalysis, DdtUrineAnalysis.TABLE_NAME, urineAnalysis.ObjectId);
+                string id = service.updateOrCreateIfNeedObject<DdtUrineAnalysis>(urineAnalysis, DdtUrineAnalysis.TABLE_NAME, urineAnalysis.ObjectId);
                 patientAnalysis.DsisUrineAnalysis = id;
             }
         }
@@ -314,7 +314,7 @@ namespace Cardiology
                     egds.DsidPatient = hospitalitySession.DsidPatient;
                 }
                 egds.DssEgds = regularEgdsTxt.Text;
-                string id = updateObject<DdtEgds>(service, egds, DdtEgds.TABLE_NAME, egds.ObjectId);
+                string id = service.updateOrCreateIfNeedObject<DdtEgds>(egds, DdtEgds.TABLE_NAME, egds.ObjectId);
                 patientAnalysis.DsidEgds = id;
             }
         }
@@ -336,7 +336,7 @@ namespace Cardiology
                 kag.DsdtStartTime = constructDateWIthTime(kagDate.Value, kagStartTime.Value);
                 kag.DsdtEndTime = constructDateWIthTime(kagDate.Value, kagEndTime.Value);
 
-                string id = updateObject<DdtKag>(service, kag, DdtKag.TABLE_NAME, kag.ObjectId);
+                string id = service.updateOrCreateIfNeedObject<DdtKag>(kag, DdtKag.TABLE_NAME, kag.ObjectId);
                 patientAnalysis.DsidKag = id;
             }
         }
@@ -354,7 +354,7 @@ namespace Cardiology
                     ekg.DsidPatient = hospitalitySession.DsidPatient;
                 }
                 ekg.DssEkg = regularEkgTxt.Text;
-                string id = updateObject<DdtEkg>(service, ekg, DdtEkg.TABLE_NAME, ekg.ObjectId);
+                string id = service.updateOrCreateIfNeedObject<DdtEkg>(ekg, DdtEkg.TABLE_NAME, ekg.ObjectId);
                 patientAnalysis.DsidEkg = id;
             }
         }
@@ -364,19 +364,6 @@ namespace Cardiology
         private DateTime constructDateWIthTime(DateTime dateSource, DateTime timeSource)
         {
             return new DateTime(dateSource.Year, dateSource.Month, dateSource.Day, timeSource.Hour, timeSource.Minute, 0);
-        }
-
-        private string updateObject<T>(DataService service, T obj, string tablName, string objId)
-        {
-            if (CommonUtils.isBlank(objId))
-            {
-                return service.insertObject<T>(obj, tablName);
-            }
-            else
-            {
-                service.updateObject<T>(obj, tablName, "r_object_id", objId);
-                return objId;
-            }
         }
 
         private bool isNeedSaveTab(int tabindex)

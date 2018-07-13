@@ -1,5 +1,6 @@
 ﻿using Cardiology.Model;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,7 +19,7 @@ namespace Cardiology
         {
             this.hospitalitySession = hospitalitySession;
             InitializeComponent();
-            loadPatientsHistoryGrid();
+            this.patientHistoryGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
         }
 
         private void loadPatientsHistoryGrid()
@@ -49,7 +50,7 @@ namespace Cardiology
 
         private void issuingMedicineMenuItem_Click(object sender, EventArgs e)
         {
-            IssuedMedicine form = new IssuedMedicine(hospitalitySession);
+            IssuedMedicine form = new IssuedMedicine(hospitalitySession, null);
             form.ShowDialog();
         }
 
@@ -61,7 +62,7 @@ namespace Cardiology
 
         private void journalBeforeKAGMeniItem_Click(object sender, EventArgs e)
         {
-            DB1 form = new DB1();
+            JournalBeforeKag form = new JournalBeforeKag(hospitalitySession, null, true);
             form.ShowDialog();
         }
 
@@ -73,7 +74,7 @@ namespace Cardiology
 
         private void journalWithoutKAGMenuItem_Click(object sender, EventArgs e)
         {
-            DB3 form = new DB3();
+            JournalBeforeKag form = new JournalBeforeKag(hospitalitySession, null, false);
             form.ShowDialog();
         }
 
@@ -86,6 +87,47 @@ namespace Cardiology
         private void PatientHistory_Activated(object sender, EventArgs e)
         {
             loadPatientsHistoryGrid();
+        }
+
+        private void firstInspectationsItem_Click(object sender, EventArgs e)
+        {
+            FirstInspection form = new FirstInspection(hospitalitySession);
+            form.ShowDialog();
+        }
+
+        private void editMenu_Click(object sender, EventArgs e)
+        {
+            IEnumerator it = patientHistoryGrid.SelectedRows.GetEnumerator();
+            if (it.MoveNext())
+            {
+                DataGridViewRow row = (DataGridViewRow)it.Current;
+                DataGridViewCell cell = row.Cells[3];
+                string idsValue = cell.Value.ToString();
+                string typeValue = row.Cells[2].Value.ToString();
+                List<string> ids = new List<string>();
+                ids.Add(idsValue);
+                Form form = null;
+                if (DdtAnamnesis.TABLE_NAME.Equals(typeValue))
+                {
+                    form = new FirstInspection(hospitalitySession);
+                } else if (DdtJournal.TABLE_NAME.Equals(typeValue))
+                {
+                    form = new JournalBeforeKag(hospitalitySession, ids, true);
+                }
+                else if (DdtIssuedMedicine.TABLE_NAME.Equals(typeValue))
+                {
+                    form = new IssuedMedicine(hospitalitySession, idsValue);
+                }
+                else if (DdtEgds.TABLE_NAME.Equals(typeValue))
+                {
+
+                }
+                
+                if (form!=null)
+                {
+                    form.ShowDialog();
+                }
+            }
         }
     }
 }

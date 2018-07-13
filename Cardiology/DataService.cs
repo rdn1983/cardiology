@@ -4,6 +4,7 @@ using System.Reflection;
 using Npgsql.Schema;
 using System.Collections.ObjectModel;
 using System.Text;
+using Cardiology.Utils;
 
 namespace Cardiology
 {
@@ -143,6 +144,10 @@ namespace Cardiology
             return result;
         }
 
+        public T queryObjectById<T>(string tableName, string id)
+        {
+            return queryObject<T>(@"Select * FROM " + tableName + " WHERE r_object_id='" + id + "'");
+        }
 
         public T queryObject<T>(string query)
         {
@@ -166,6 +171,19 @@ namespace Cardiology
                 }
             }
             return default(T);
+        }
+
+        public string updateOrCreateIfNeedObject<T>(T obj, string tablName, string objId)
+        {
+            if (CommonUtils.isBlank(objId))
+            {
+                return insertObject<T>(obj, tablName);
+            }
+            else
+            {
+                updateObject<T>(obj, tablName, "r_object_id", objId);
+                return objId;
+            }
         }
 
         private T fillObject<T>(Npgsql.NpgsqlDataReader reader)

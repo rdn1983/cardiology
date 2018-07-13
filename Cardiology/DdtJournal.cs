@@ -5,6 +5,8 @@ namespace Cardiology.Model
 {
     public class DdtJournal
     {
+        public const string TABLE_NAME = "ddt_journal";
+        
         [TableAttribute("r_object_id", false)]
         private string rObjectId;
         [TableAttribute("r_creation_date", false)]
@@ -32,10 +34,34 @@ namespace Cardiology.Model
         [TableAttribute("dss_rhythm")]
         private string dssRhythm;
         [TableAttribute("dsb_good_rhythm")]
-        private bool dsdGoodRhytm;
+        private bool dsbGoodRhytm;
         [TableAttribute("dss_surgeon_exam")]
         private string dssSurgeonExam;
         [TableAttribute("dss_cardio_exam")]
         private string dssCardioExam;
+        [TableAttribute("dss_journal")]
+        private string dssJournal;
+        [TableAttribute("dsb_before_kag")]
+        private bool dsbBeforeKag;
+
+        public string RObjectId { get => rObjectId; }
+        public DateTime RCreationDate { get => rCreationDate; }
+        public string DsidHospitalitySession { get => dsidHospitalitySession; set => dsidHospitalitySession = value; }
+        public string DsidPatient { get => dsidPatient; set => dsidPatient = value; }
+        public DateTime DsdtAdmissionDate { get => dsdtAdmissionDate; set => dsdtAdmissionDate = value; }
+        public string DsidDoctor { get => dsidDoctor; set => dsidDoctor = value; }
+        public string DssComplaints { get => dssComplaints; set => dssComplaints = value; }
+        public string DssChdd { get => dssChdd; set => dssChdd = value; }
+        public string DssChss { get => dssChss; set => dssChss = value; }
+        public string DssPs { get => dssPs; set => dssPs = value; }
+        public string DssAd { get => dssAd; set => dssAd = value; }
+        public string DssMonitor { get => dssMonitor; set => dssMonitor = value; }
+        public string DssRhythm { get => dssRhythm; set => dssRhythm = value; }
+        public string DssSurgeonExam { get => DssSurgeonExam1; set => DssSurgeonExam1 = value; }
+        public bool DsbGoodRhytm { get => dsbGoodRhytm; set => dsbGoodRhytm = value; }
+        public string DssSurgeonExam1 { get => dssSurgeonExam; set => dssSurgeonExam = value; }
+        public string DssCardioExam { get => dssCardioExam; set => dssCardioExam = value; }
+        public string DssJournal { get => dssJournal; set => dssJournal = value; }
+        public bool DsbBeforeKag { get => dsbBeforeKag; set => dsbBeforeKag = value; }
     }
 }

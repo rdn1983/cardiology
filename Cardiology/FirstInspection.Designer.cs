@@ -114,8 +114,8 @@
             this.button12 = new System.Windows.Forms.Button();
             this.diagnosisTxt = new System.Windows.Forms.RichTextBox();
             this.issuedMedicineTab = new System.Windows.Forms.TabPage();
-            this.addIssuedMedicineBtn = new System.Windows.Forms.Button();
             this.issuedMedicineBox = new System.Windows.Forms.GroupBox();
+            this.addIssuedMedicineBtn = new System.Windows.Forms.Button();
             this.issuedMedicineContainer = new System.Windows.Forms.TableLayoutPanel();
             this.issuedMed0 = new System.Windows.Forms.ComboBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -202,6 +202,8 @@
             this.templatesLbl = new System.Windows.Forms.Label();
             this.tip = new System.Windows.Forms.ToolTip(this.components);
             this.addTip = new System.Windows.Forms.ToolTip(this.components);
+            this.issuedPnl0 = new System.Windows.Forms.Panel();
+            this.objectIdLbl0 = new System.Windows.Forms.Label();
             this.complaintsBox.SuspendLayout();
             this.anamnesisMorbiBox.SuspendLayout();
             this.anamnesisAllergyBox.SuspendLayout();
@@ -240,6 +242,7 @@
             this.groupBox15.SuspendLayout();
             this.urineTab.SuspendLayout();
             this.firstAnalysisBox.SuspendLayout();
+            this.issuedPnl0.SuspendLayout();
             this.SuspendLayout();
             // 
             // deathBtn
@@ -1149,16 +1152,6 @@
             this.issuedMedicineTab.TabIndex = 3;
             this.issuedMedicineTab.Text = "Назначения";
             // 
-            // addIssuedMedicineBtn
-            // 
-            this.addIssuedMedicineBtn.Image = global::Cardiology.Properties.Resources.addd1;
-            this.addIssuedMedicineBtn.Location = new System.Drawing.Point(476, 19);
-            this.addIssuedMedicineBtn.Name = "addIssuedMedicineBtn";
-            this.addIssuedMedicineBtn.Size = new System.Drawing.Size(28, 28);
-            this.addIssuedMedicineBtn.TabIndex = 16;
-            this.addIssuedMedicineBtn.UseVisualStyleBackColor = true;
-            this.addIssuedMedicineBtn.Click += new System.EventHandler(this.AddIssuedMedicine_Click);
-            // 
             // issuedMedicineBox
             // 
             this.issuedMedicineBox.Controls.Add(this.addIssuedMedicineBtn);
@@ -1171,6 +1164,16 @@
             this.issuedMedicineBox.TabStop = false;
             this.issuedMedicineBox.Text = "Назначения:";
             // 
+            // addIssuedMedicineBtn
+            // 
+            this.addIssuedMedicineBtn.Image = global::Cardiology.Properties.Resources.addd1;
+            this.addIssuedMedicineBtn.Location = new System.Drawing.Point(476, 19);
+            this.addIssuedMedicineBtn.Name = "addIssuedMedicineBtn";
+            this.addIssuedMedicineBtn.Size = new System.Drawing.Size(28, 28);
+            this.addIssuedMedicineBtn.TabIndex = 16;
+            this.addIssuedMedicineBtn.UseVisualStyleBackColor = true;
+            this.addIssuedMedicineBtn.Click += new System.EventHandler(this.AddIssuedMedicine_Click);
+            // 
             // issuedMedicineContainer
             // 
             this.issuedMedicineContainer.AutoSize = true;
@@ -1178,13 +1181,13 @@
             this.issuedMedicineContainer.ColumnCount = 1;
             this.issuedMedicineContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.issuedMedicineContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.issuedMedicineContainer.Controls.Add(this.issuedMed0, 0, 0);
-            this.issuedMedicineContainer.Location = new System.Drawing.Point(6, 21);
+            this.issuedMedicineContainer.Controls.Add(this.issuedPnl0, 0, 0);
+            this.issuedMedicineContainer.Location = new System.Drawing.Point(6, 19);
             this.issuedMedicineContainer.Name = "issuedMedicineContainer";
             this.issuedMedicineContainer.RowCount = 1;
             this.issuedMedicineContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.issuedMedicineContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.issuedMedicineContainer.Size = new System.Drawing.Size(467, 27);
+            this.issuedMedicineContainer.Size = new System.Drawing.Size(467, 34);
             this.issuedMedicineContainer.TabIndex = 4;
             // 
             // issuedMed0
@@ -1193,7 +1196,7 @@
             this.issuedMed0.FormattingEnabled = true;
             this.issuedMed0.Location = new System.Drawing.Point(3, 3);
             this.issuedMed0.Name = "issuedMed0";
-            this.issuedMed0.Size = new System.Drawing.Size(461, 21);
+            this.issuedMed0.Size = new System.Drawing.Size(453, 21);
             this.issuedMed0.TabIndex = 17;
             // 
             // tabPage1
@@ -2006,6 +2009,24 @@
             // 
             this.addTip.ToolTipTitle = "Добавить назначения";
             // 
+            // issuedPnl0
+            // 
+            this.issuedPnl0.Controls.Add(this.objectIdLbl0);
+            this.issuedPnl0.Controls.Add(this.issuedMed0);
+            this.issuedPnl0.Location = new System.Drawing.Point(3, 3);
+            this.issuedPnl0.Name = "issuedPnl0";
+            this.issuedPnl0.Size = new System.Drawing.Size(461, 28);
+            this.issuedPnl0.TabIndex = 17;
+            // 
+            // objectIdLbl0
+            // 
+            this.objectIdLbl0.AutoSize = true;
+            this.objectIdLbl0.Location = new System.Drawing.Point(464, 6);
+            this.objectIdLbl0.Name = "objectIdLbl0";
+            this.objectIdLbl0.Size = new System.Drawing.Size(0, 13);
+            this.objectIdLbl0.TabIndex = 18;
+            this.objectIdLbl0.Visible = false;
+            // 
             // FirstInspection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2074,6 +2095,8 @@
             this.urineTab.ResumeLayout(false);
             this.firstAnalysisBox.ResumeLayout(false);
             this.firstAnalysisBox.PerformLayout();
+            this.issuedPnl0.ResumeLayout(false);
+            this.issuedPnl0.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2252,5 +2275,7 @@
         private System.Windows.Forms.Label firstColorLbl;
         private System.Windows.Forms.ToolTip tip;
         private System.Windows.Forms.ToolTip addTip;
+        private System.Windows.Forms.Panel issuedPnl0;
+        private System.Windows.Forms.Label objectIdLbl0;
     }
 }

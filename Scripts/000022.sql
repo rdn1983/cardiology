@@ -13,7 +13,7 @@ SELECT history.dsid_hospitality_session as dsid_hospitality_session,
 		WHEN 'ddt_xray' THEN 'Анализы: Рентген'
 		WHEN 'ddt_specialist_conclusion' THEN 'Анализы: Заключение специалистов'
 		WHEN 'ddt_holter' THEN 'Анализы: Холтер'
-		WHEN 'ddt_issued_medicine' THEN 'Назначение лекарственных препаратов'
+		WHEN 'ddt_issued_medicine_list' THEN 'Назначение лекарственных препаратов'
 		WHEN 'ddt_journal' THEN 'Журнал'
 		END AS dss_operation_name,
 	history.r_creation_date AS r_creation_date,

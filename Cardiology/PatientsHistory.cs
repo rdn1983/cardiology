@@ -114,7 +114,7 @@ namespace Cardiology
                 {
                     form = new JournalBeforeKag(hospitalitySession, ids, true);
                 }
-                else if (DdtIssuedMedicine.TABLE_NAME.Equals(typeValue))
+                else if (DdtIssuedMedicineList.TABLE_NAME.Equals(typeValue))
                 {
                     form = new IssuedMedicine(hospitalitySession, idsValue);
                 }

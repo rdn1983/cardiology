@@ -82,6 +82,7 @@
     <Compile Include="DdtHolter.cs" />
     <Compile Include="DdtHospital.cs" />
     <Compile Include="DdtIssuedMedicine.cs" />
+    <Compile Include="DdtIssuedMedicineList.cs" />
     <Compile Include="DdtJournal.cs" />
     <Compile Include="DdtKag.cs" />
     <Compile Include="DdtPatientAnalysis.cs" />

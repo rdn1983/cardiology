@@ -18,6 +18,11 @@ namespace Cardiology.Utils
             return str == null || str.Length == 0;
         }
 
+        public static string toQuotedStr(string str)
+        {
+            return isNotBlank(str) ? String.Intern("'" + str + "'") : "";
+        }
+
         internal static void initDoctorsComboboxValues(DataService service, ComboBox cb, string whereCnd)
         {
             cb.Items.Clear();
@@ -40,13 +45,13 @@ namespace Cardiology.Utils
 
         internal static Control copyControl(Control srcContainer, int index)
         {
-            Control c = createControl(srcContainer);
+            Control c = createControl(srcContainer, index);
             if (c != null)
             {
                 for (int i = 0; i < srcContainer.Controls.Count; i++)
                 {
                     Control sourceCtrl = srcContainer.Controls[i];
-                    Control child = createControl(sourceCtrl);
+                    Control child = createControl(sourceCtrl, index);
                     if (child != null)
                     {
                         child.Bounds = sourceCtrl.Bounds;
@@ -57,13 +62,14 @@ namespace Cardiology.Utils
             return c;
         }
 
-        private static Control createControl(Control sourceCtrl)
+        private static Control createControl(Control sourceCtrl, int index)
         {
             Control result = null;
             if (sourceCtrl.GetType() == typeof(Label))
             {
                 result = new Label();
                 result.Text = sourceCtrl.Text;
+                result.Visible = sourceCtrl.Visible;
             }
             if (sourceCtrl.GetType() == typeof(TextBox))
             {
@@ -98,12 +104,9 @@ namespace Cardiology.Utils
             {
                 result.Size = sourceCtrl.Size;
                 result.Font = sourceCtrl.Font;
-                result.Visible = sourceCtrl.Visible;
                 string controlName = sourceCtrl.Name;
                 int firstDigitIndx = getFirstDigitIndex(controlName);
-                string indexPart = String.Intern(controlName.Substring(firstDigitIndx));
-                int newINdx = Convert.ToInt16(indexPart) + 1;
-                result.Name = String.Intern(controlName.Substring(0, firstDigitIndx - 1)) + newINdx;
+                result.Name = String.Intern(controlName.Substring(0, firstDigitIndx)) + index;
             }
 
             return result;
@@ -119,6 +122,36 @@ namespace Cardiology.Utils
                 }
             }
             return -1;
+        }
+
+        public static string getStrigControlValue(Control container, string ctrlName)
+        {
+            Control c = findControl(container, ctrlName);
+            if (c != null)
+            {
+                return c.Text;
+            }
+            return "";
+
+        }
+
+        public static void updateControl(Control container, string ctrlName, string value)
+        {
+            Control c = findControl(container, ctrlName);
+            if (c != null)
+            {
+                c.Text = value;
+            }
+        }
+
+        public static Control findControl(Control container, string name)
+        {
+            Control[] c = container.Controls.Find(name, true);
+            if (c.Length > 0)
+            {
+                return c[0];
+            }
+            return null;
         }
 
 

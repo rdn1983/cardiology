@@ -119,7 +119,12 @@ namespace Cardiology
             }
         }
 
-        public List<T> queryObjectsCollection<T>(String query)
+        public List<T> queryObjectsCollectionByAttrCond<T>(string tableName, string AttrName, string attrValue, bool isQuoted)
+        {
+            return queryObjectsCollection<T>(@"SELECT * FROM " + tableName + " WHERE " + AttrName + "=" + (isQuoted ? CommonUtils.toQuotedStr(attrValue) : attrValue));
+        }
+
+        public List<T> queryObjectsCollection<T>(string query)
         {
             List<T> result = new List<T>();
             Npgsql.NpgsqlConnection connection = null;
@@ -147,6 +152,12 @@ namespace Cardiology
         public T queryObjectById<T>(string tableName, string id)
         {
             return queryObject<T>(@"Select * FROM " + tableName + " WHERE r_object_id='" + id + "'");
+        }
+
+
+        public T queryObjectByAttrCond<T>(string tableName, string attrName, string attrValue, bool isQuoted)
+        {
+            return queryObject<T>(@"Select * FROM " + tableName + " WHERE " + attrName + "=" + (isQuoted ? CommonUtils.toQuotedStr(attrValue) : attrValue));
         }
 
         public T queryObject<T>(string query)

@@ -20,7 +20,7 @@ CREATE TABLE ddt_journal (
   dss_surgeon_exam VARCHAR(512),
   dss_cardio_exam VARCHAR(512),
   dss_journal VARCHAR(1024),
-  dsb_before_kag boolean
+  dsi_journal_type int
 );
 
 CREATE TRIGGER ddt_journal BEFORE INSERT OR UPDATE
@@ -30,7 +30,7 @@ EXECUTE PROCEDURE dmtrg_f_modify_date();
 CREATE OR REPLACE FUNCTION audit_ddt_journal_creating_row () RETURNS TRIGGER AS '
 BEGIN
 INSERT INTO ddt_history 
-(dsid_hospitality_session, dsid_patient, dsid_doctor, dsid_operation_id, dss_operation_type)
+(dsid_hospitality_session, dsid_patient, dsid_doctor, dsid_operation_id, dss_operation_type, dss_description)
  VALUES (NEW.dsid_hospitality_session, NEW.dsid_patient, NEW.dsid_doctor, NEW.r_object_id, TG_TABLE_NAME );
  RETURN NEW;
 END;

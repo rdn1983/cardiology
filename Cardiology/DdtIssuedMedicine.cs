@@ -12,53 +12,12 @@ namespace Cardiology.Model
         private DateTime rCreationDate;
         [TableAttribute("dsid_cure")]
         private string dsidCure;
-        [TableAttribute("dsid_doctor")]
-        private string dsidDoctor;
-        [TableAttribute("dsid_patient")]
-        private string dsidPatient;
-        [TableAttribute("dsid_hospitality_session")]
-        private string dsidHospitalitySession;
-        [TableAttribute("dsid_parent_id")]
-        private string dsidParentId;
-        [TableAttribute("dss_parent_type")]
-        private string dssParentType;
+        [TableAttribute("dsid_med_list")]
+        private string dsidMedList;
 
-
-        public string ObjectId
-        {
-            get { return rObjectId; }
-        }
-        public string DsidCure
-        {
-            get { return dsidCure; }
-            set { this.dsidCure = value; }
-
-        }
-        public string DsidDoctor
-        {
-            get { return dsidDoctor; }
-            set { this.dsidDoctor = value; }
-
-        }
-        public string DsidPatient
-        {
-            get { return dsidPatient; }
-            set { this.dsidPatient = value; }
-
-        }
-        public string DsidHospitalitySession
-        {
-            get { return dsidHospitalitySession; }
-            set { this.dsidHospitalitySession = value; }
-
-        }
-        public DateTime CreationDate
-        {
-            get { return rCreationDate; }
-            set {; }
-        }
-
-        public string DsidParentId { get => dsidParentId; set => dsidParentId = value; }
-        public string DssParentType { get => dssParentType; set => dssParentType = value; }
+        public string RObjectId { get => rObjectId; set => rObjectId = value; }
+        public DateTime RCreationDate { get => rCreationDate; set => rCreationDate = value; }
+        public string DsidCure { get => dsidCure; set => dsidCure = value; }
+        public string DsidMedList { get => dsidMedList; set => dsidMedList = value; }
     }
 }

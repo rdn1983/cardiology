@@ -75,41 +75,24 @@ namespace Cardiology
                     {
                         panelCntr = journalContainer.Controls[i];
                     }
-                    updateControl(panelCntr, "adTxt" + i, journal.DssAd);
+                    CommonUtils.updateControl(panelCntr, "adTxt" + i, journal.DssAd);
                     //updateControl(panelCntr, "adTxt0", journal.DssCardioExam);
-                    updateControl(panelCntr, "chddTxt" + i, journal.DssChdd);
-                    updateControl(panelCntr, "chssTxt" + i, journal.DssChss);
+                    CommonUtils.updateControl(panelCntr, "chddTxt" + i, journal.DssChdd);
+                    CommonUtils.updateControl(panelCntr, "chssTxt" + i, journal.DssChss);
                     //updateControl(panelCntr, "adTxt0", journal.DssComplaints);
-                    updateControl(panelCntr, "monitorTxt" + i, journal.DssMonitor);
-                    updateControl(panelCntr, "psTxt" + i, journal.DssPs);
+                    CommonUtils.updateControl(panelCntr, "monitorTxt" + i, journal.DssMonitor);
+                    CommonUtils.updateControl(panelCntr, "psTxt" + i, journal.DssPs);
                     //updateControl(panelCntr, "adTxt0", journal.DssRhythm);
                     //updateControl(panelCntr, "adTxt0", journal.DssSurgeonExam);
                     //updateControl(panelCntr, "adTxt0", journal.DssSurgeonExam1);
-                    updateControl(panelCntr, "objectId" + i, journal.RObjectId);
-                    updateControl(panelCntr, "journalTxt" + i, journal.DssJournal);
+                    CommonUtils.updateControl(panelCntr, "objectId" + i, journal.RObjectId);
+                    CommonUtils.updateControl(panelCntr, "journalTxt" + i, journal.DssJournal);
 
                 }
             }
         }
 
-        private void updateControl(Control container, string ctrlName, string value)
-        {
-            Control c = findControl(container, ctrlName);
-            if (c != null)
-            {
-                c.Text = value;
-            }
-        }
-
-        private Control findControl(Control container, string name)
-        {
-            Control[] c = container.Controls.Find(name, true);
-            if (c.Length > 0)
-            {
-                return c[0];
-            }
-            return null;
-        }
+        
 
         private void addJournalBtn_Click(object sender, EventArgs e)
         {
@@ -130,14 +113,14 @@ namespace Cardiology
             for (int i = 0; i < journalContainer.Controls.Count; i++)
             {
                 Control panelCntr = journalContainer.Controls[i];
-                Control idCtrl = findControl(panelCntr, "objectId" + i);
+                Control idCtrl = CommonUtils.findControl(panelCntr, "objectId" + i);
                 if (idCtrl != null && CommonUtils.isNotBlank(idCtrl.Text))
                 {
                     journal = service.queryObject<DdtJournal>(@"SELECT * FROM ddt_journal WHERE r_object_id ='" + idCtrl.Text + "'");
                 }
                 else
                 {
-                    if (CommonUtils.isBlank(getStrigControlValue(panelCntr, "journalTxt" + i)))
+                    if (CommonUtils.isBlank(CommonUtils.getStrigControlValue(panelCntr, "journalTxt" + i)))
                     {
                         //Пропускаем все группы для оторых не указано хотя бы заключение
                         continue;
@@ -149,26 +132,17 @@ namespace Cardiology
                     journal.DsbBeforeKag = isWithKag;
                 }
 
-                journal.DssAd = getStrigControlValue(panelCntr, "adTxt" + i);
-                journal.DssChdd = getStrigControlValue(panelCntr, "chddTxt" + i);
-                journal.DssChss = getStrigControlValue(panelCntr, "chssTxt" + i);
-                journal.DssMonitor = getStrigControlValue(panelCntr, "monitorTxt" + i);
-                journal.DssJournal = getStrigControlValue(panelCntr, "journalTxt" + i);
+                journal.DssAd = CommonUtils.getStrigControlValue(panelCntr, "adTxt" + i);
+                journal.DssChdd = CommonUtils.getStrigControlValue(panelCntr, "chddTxt" + i);
+                journal.DssChss = CommonUtils.getStrigControlValue(panelCntr, "chssTxt" + i);
+                journal.DssMonitor = CommonUtils.getStrigControlValue(panelCntr, "monitorTxt" + i);
+                journal.DssJournal = CommonUtils.getStrigControlValue(panelCntr, "journalTxt" + i);
 
                 service.updateOrCreateIfNeedObject<DdtJournal>(journal, DdtJournal.TABLE_NAME, journal.RObjectId);
             }
             Close();
         }
 
-        private string getStrigControlValue(Control container, string ctrlName)
-        {
-            Control c = findControl(container, ctrlName);
-            if (c != null)
-            {
-                return c.Text;
-            }
-            return "";
-
-        }
+        
     }
 }

@@ -60,25 +60,16 @@
             this.releasePatient = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.manipulationProtocoli = new System.Windows.Forms.ToolStripMenuItem();
+            this.ambulanceLettersItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.blanksItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.hospitalPatientsTbl)).BeginInit();
             this.main.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStripMenuItem10
             // 
-            this.toolStripMenuItem10.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.kateterItem,
-            this.trombolisisItem,
-            this.veksItem,
-            this.toracatezosItem,
-            this.eitItem,
-            this.intubationItem,
-            this.ekstubationItem,
-            this.reanimItem,
-            this.deadItem});
             this.toolStripMenuItem10.Name = "toolStripMenuItem10";
-            this.toolStripMenuItem10.Size = new System.Drawing.Size(217, 22);
-            this.toolStripMenuItem10.Text = "Протоколы манипуляций";
+            this.toolStripMenuItem10.Size = new System.Drawing.Size(32, 19);
             // 
             // kateterItem
             // 
@@ -98,21 +89,21 @@
             // 
             this.veksItem.Name = "veksItem";
             this.veksItem.Size = new System.Drawing.Size(328, 22);
-            this.veksItem.Text = "Протокол постановки ВЭКС";
+            this.veksItem.Text = "Протокол показаний постановки ВЭКС";
             this.veksItem.Click += new System.EventHandler(this.veksItem_Click);
             // 
             // toracatezosItem
             // 
             this.toracatezosItem.Name = "toracatezosItem";
             this.toracatezosItem.Size = new System.Drawing.Size(328, 22);
-            this.toracatezosItem.Text = "Протокол торакацентоза";
+            this.toracatezosItem.Text = "Протокол показаний торакацентоза";
             this.toracatezosItem.Click += new System.EventHandler(this.toracatezosItem_Click);
             // 
             // eitItem
             // 
             this.eitItem.Name = "eitItem";
             this.eitItem.Size = new System.Drawing.Size(328, 22);
-            this.eitItem.Text = "Протокол ЭИТ";
+            this.eitItem.Text = "Протокол показаний ЭИТ";
             this.eitItem.Click += new System.EventHandler(this.eitItem_Click);
             // 
             // intubationItem
@@ -299,16 +290,40 @@
             // reportsMenu
             // 
             this.reportsMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.manipulationProtocoli});
+            this.manipulationProtocoli,
+            this.ambulanceLettersItem,
+            this.blanksItem});
             this.reportsMenu.Name = "reportsMenu";
             this.reportsMenu.Size = new System.Drawing.Size(99, 20);
             this.reportsMenu.Text = "Документация";
             // 
             // manipulationProtocoli
             // 
+            this.manipulationProtocoli.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.kateterItem,
+            this.trombolisisItem,
+            this.veksItem,
+            this.toracatezosItem,
+            this.eitItem,
+            this.intubationItem,
+            this.ekstubationItem,
+            this.reanimItem,
+            this.deadItem});
             this.manipulationProtocoli.Name = "manipulationProtocoli";
             this.manipulationProtocoli.Size = new System.Drawing.Size(217, 22);
             this.manipulationProtocoli.Text = "Протоколы манипуляций";
+            // 
+            // ambulanceLettersItem
+            // 
+            this.ambulanceLettersItem.Name = "ambulanceLettersItem";
+            this.ambulanceLettersItem.Size = new System.Drawing.Size(217, 22);
+            this.ambulanceLettersItem.Text = "Письма для скорой";
+            // 
+            // blanksItem
+            // 
+            this.blanksItem.Name = "blanksItem";
+            this.blanksItem.Size = new System.Drawing.Size(217, 22);
+            this.blanksItem.Text = "Бланки";
             // 
             // PatientList
             // 
@@ -362,5 +377,7 @@
         private System.Windows.Forms.ToolStripMenuItem releasePatient;
         private System.Windows.Forms.ToolStripMenuItem reportsMenu;
         private System.Windows.Forms.ToolStripMenuItem manipulationProtocoli;
+        private System.Windows.Forms.ToolStripMenuItem ambulanceLettersItem;
+        private System.Windows.Forms.ToolStripMenuItem blanksItem;
     }
 }

@@ -41,7 +41,7 @@ namespace Cardiology.Utils
 
                 string filledDocPath = Path.GetTempFileName();
                 Console.WriteLine(filledDocPath);
-                doc.SaveAs2(filledDocPath);
+                doc.SaveAs(filledDocPath);
 
                 app.Documents.Open(filledDocPath);
                 app.Activate();

@@ -1,6 +1,6 @@
 ﻿namespace Cardiology
 {
-    partial class Konsilium
+    partial class Consilium
     {
         /// <summary>
         /// Required designer variable.
@@ -28,11 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Konsilium));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Consilium));
             this.appointmentTxt0 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.adminTxt = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.addDoctor = new System.Windows.Forms.Button();
+            this.allDoctorsPnl = new System.Windows.Forms.Panel();
+            this.doctorsContainer = new System.Windows.Forms.TableLayoutPanel();
+            this.dotorInfoPnl0 = new System.Windows.Forms.Panel();
+            this.objectIdLbl0 = new System.Windows.Forms.Label();
+            this.doctorWho0 = new System.Windows.Forms.TextBox();
             this.consiliumMembersLbl = new System.Windows.Forms.Label();
             this.dutyAdminTodayPnl = new System.Windows.Forms.Panel();
             this.dutyAdminLbl = new System.Windows.Forms.Label();
@@ -59,13 +65,10 @@
             this.saveBtn = new System.Windows.Forms.Button();
             this.printBtn = new System.Windows.Forms.Button();
             this.printOperationBtn = new System.Windows.Forms.Button();
-            this.dotorInfoPnl0 = new System.Windows.Forms.Panel();
-            this.doctorWho0 = new System.Windows.Forms.TextBox();
-            this.doctorsContainer = new System.Windows.Forms.TableLayoutPanel();
-            this.allDoctorsPnl = new System.Windows.Forms.Panel();
-            this.addDoctor = new System.Windows.Forms.Button();
-            this.objectIdLbl0 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            this.allDoctorsPnl.SuspendLayout();
+            this.doctorsContainer.SuspendLayout();
+            this.dotorInfoPnl0.SuspendLayout();
             this.dutyAdminTodayPnl.SuspendLayout();
             this.goalContainer.SuspendLayout();
             this.dynamicsContainer.SuspendLayout();
@@ -73,13 +76,11 @@
             this.decisionContainer.SuspendLayout();
             this.decisionVariantsPnl.SuspendLayout();
             this.operationGoalPnl.SuspendLayout();
-            this.dotorInfoPnl0.SuspendLayout();
-            this.doctorsContainer.SuspendLayout();
-            this.allDoctorsPnl.SuspendLayout();
             this.SuspendLayout();
             // 
             // appointmentTxt0
             // 
+            this.appointmentTxt0.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.appointmentTxt0.FormattingEnabled = true;
             this.appointmentTxt0.Items.AddRange(new object[] {
             "Заведующей отделения кардиореанимации",
@@ -105,6 +106,7 @@
             // 
             // adminTxt
             // 
+            this.adminTxt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.adminTxt.FormattingEnabled = true;
             this.adminTxt.Location = new System.Drawing.Point(48, 120);
             this.adminTxt.Name = "adminTxt";
@@ -121,6 +123,67 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(468, 242);
             this.panel1.TabIndex = 27;
+            // 
+            // addDoctor
+            // 
+            this.addDoctor.Image = global::Cardiology.Properties.Resources.addd1;
+            this.addDoctor.Location = new System.Drawing.Point(440, 46);
+            this.addDoctor.Name = "addDoctor";
+            this.addDoctor.Size = new System.Drawing.Size(28, 28);
+            this.addDoctor.TabIndex = 28;
+            this.addDoctor.UseVisualStyleBackColor = true;
+            this.addDoctor.Click += new System.EventHandler(this.addDoctor_Click);
+            // 
+            // allDoctorsPnl
+            // 
+            this.allDoctorsPnl.AutoScroll = true;
+            this.allDoctorsPnl.Controls.Add(this.doctorsContainer);
+            this.allDoctorsPnl.Location = new System.Drawing.Point(3, 42);
+            this.allDoctorsPnl.Name = "allDoctorsPnl";
+            this.allDoctorsPnl.Size = new System.Drawing.Size(436, 197);
+            this.allDoctorsPnl.TabIndex = 27;
+            // 
+            // doctorsContainer
+            // 
+            this.doctorsContainer.AutoSize = true;
+            this.doctorsContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.doctorsContainer.ColumnCount = 1;
+            this.doctorsContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.doctorsContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.doctorsContainer.Controls.Add(this.dotorInfoPnl0, 0, 0);
+            this.doctorsContainer.Location = new System.Drawing.Point(2, 3);
+            this.doctorsContainer.Name = "doctorsContainer";
+            this.doctorsContainer.RowCount = 1;
+            this.doctorsContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.doctorsContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.doctorsContainer.Size = new System.Drawing.Size(418, 33);
+            this.doctorsContainer.TabIndex = 26;
+            // 
+            // dotorInfoPnl0
+            // 
+            this.dotorInfoPnl0.Controls.Add(this.objectIdLbl0);
+            this.dotorInfoPnl0.Controls.Add(this.appointmentTxt0);
+            this.dotorInfoPnl0.Controls.Add(this.doctorWho0);
+            this.dotorInfoPnl0.Location = new System.Drawing.Point(3, 3);
+            this.dotorInfoPnl0.Name = "dotorInfoPnl0";
+            this.dotorInfoPnl0.Size = new System.Drawing.Size(412, 27);
+            this.dotorInfoPnl0.TabIndex = 25;
+            // 
+            // objectIdLbl0
+            // 
+            this.objectIdLbl0.AutoSize = true;
+            this.objectIdLbl0.Location = new System.Drawing.Point(304, 6);
+            this.objectIdLbl0.Name = "objectIdLbl0";
+            this.objectIdLbl0.Size = new System.Drawing.Size(0, 13);
+            this.objectIdLbl0.TabIndex = 3;
+            this.objectIdLbl0.Visible = false;
+            // 
+            // doctorWho0
+            // 
+            this.doctorWho0.Location = new System.Drawing.Point(192, 3);
+            this.doctorWho0.Name = "doctorWho0";
+            this.doctorWho0.Size = new System.Drawing.Size(218, 20);
+            this.doctorWho0.TabIndex = 2;
             // 
             // consiliumMembersLbl
             // 
@@ -395,68 +458,7 @@
             this.printOperationBtn.Text = "Открыть ворд преопер";
             this.printOperationBtn.UseVisualStyleBackColor = true;
             // 
-            // dotorInfoPnl0
-            // 
-            this.dotorInfoPnl0.Controls.Add(this.objectIdLbl0);
-            this.dotorInfoPnl0.Controls.Add(this.appointmentTxt0);
-            this.dotorInfoPnl0.Controls.Add(this.doctorWho0);
-            this.dotorInfoPnl0.Location = new System.Drawing.Point(3, 3);
-            this.dotorInfoPnl0.Name = "dotorInfoPnl0";
-            this.dotorInfoPnl0.Size = new System.Drawing.Size(412, 27);
-            this.dotorInfoPnl0.TabIndex = 25;
-            // 
-            // doctorWho0
-            // 
-            this.doctorWho0.Location = new System.Drawing.Point(192, 3);
-            this.doctorWho0.Name = "doctorWho0";
-            this.doctorWho0.Size = new System.Drawing.Size(218, 20);
-            this.doctorWho0.TabIndex = 2;
-            // 
-            // doctorsContainer
-            // 
-            this.doctorsContainer.AutoSize = true;
-            this.doctorsContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.doctorsContainer.ColumnCount = 1;
-            this.doctorsContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.doctorsContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.doctorsContainer.Controls.Add(this.dotorInfoPnl0, 0, 0);
-            this.doctorsContainer.Location = new System.Drawing.Point(2, 3);
-            this.doctorsContainer.Name = "doctorsContainer";
-            this.doctorsContainer.RowCount = 1;
-            this.doctorsContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.doctorsContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.doctorsContainer.Size = new System.Drawing.Size(418, 33);
-            this.doctorsContainer.TabIndex = 26;
-            // 
-            // allDoctorsPnl
-            // 
-            this.allDoctorsPnl.AutoScroll = true;
-            this.allDoctorsPnl.Controls.Add(this.doctorsContainer);
-            this.allDoctorsPnl.Location = new System.Drawing.Point(3, 42);
-            this.allDoctorsPnl.Name = "allDoctorsPnl";
-            this.allDoctorsPnl.Size = new System.Drawing.Size(436, 197);
-            this.allDoctorsPnl.TabIndex = 27;
-            // 
-            // addDoctor
-            // 
-            this.addDoctor.Image = global::Cardiology.Properties.Resources.addd1;
-            this.addDoctor.Location = new System.Drawing.Point(440, 46);
-            this.addDoctor.Name = "addDoctor";
-            this.addDoctor.Size = new System.Drawing.Size(28, 28);
-            this.addDoctor.TabIndex = 28;
-            this.addDoctor.UseVisualStyleBackColor = true;
-            this.addDoctor.Click += new System.EventHandler(this.addDoctor_Click);
-            // 
-            // objectIdLbl0
-            // 
-            this.objectIdLbl0.AutoSize = true;
-            this.objectIdLbl0.Location = new System.Drawing.Point(304, 6);
-            this.objectIdLbl0.Name = "objectIdLbl0";
-            this.objectIdLbl0.Size = new System.Drawing.Size(0, 13);
-            this.objectIdLbl0.TabIndex = 3;
-            this.objectIdLbl0.Visible = false;
-            // 
-            // Konsilium
+            // Consilium
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -474,11 +476,16 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Konsilium";
+            this.Name = "Consilium";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Консилиум";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.allDoctorsPnl.ResumeLayout(false);
+            this.allDoctorsPnl.PerformLayout();
+            this.doctorsContainer.ResumeLayout(false);
+            this.dotorInfoPnl0.ResumeLayout(false);
+            this.dotorInfoPnl0.PerformLayout();
             this.dutyAdminTodayPnl.ResumeLayout(false);
             this.dutyAdminTodayPnl.PerformLayout();
             this.goalContainer.ResumeLayout(false);
@@ -493,11 +500,6 @@
             this.decisionVariantsPnl.PerformLayout();
             this.operationGoalPnl.ResumeLayout(false);
             this.operationGoalPnl.PerformLayout();
-            this.dotorInfoPnl0.ResumeLayout(false);
-            this.dotorInfoPnl0.PerformLayout();
-            this.doctorsContainer.ResumeLayout(false);
-            this.allDoctorsPnl.ResumeLayout(false);
-            this.allDoctorsPnl.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

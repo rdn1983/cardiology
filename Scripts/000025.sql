@@ -34,7 +34,7 @@ EXECUTE PROCEDURE audit_ddt_consilium_creating_row();
 
 
 
-CREATE TABLE ddt_consilium_members (
+CREATE TABLE ddt_consilium_member (
   r_object_id varchar(16) PRIMARY KEY DEFAULT GetNextId(),
   r_creation_date TIMESTAMP DEFAULT NOW() NOT NULL,
   r_modify_date TIMESTAMP NOT NULL,
@@ -45,6 +45,6 @@ CREATE TABLE ddt_consilium_members (
   dss_doctor_name VARCHAR(512)
 );
 
-CREATE TRIGGER ddt_consilium_members BEFORE INSERT OR UPDATE
-  ON ddt_consilium_members FOR EACH ROW
+CREATE TRIGGER ddt_consilium_member BEFORE INSERT OR UPDATE
+  ON ddt_consilium_member FOR EACH ROW
 EXECUTE PROCEDURE dmtrg_f_modify_date();

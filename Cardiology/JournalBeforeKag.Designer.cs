@@ -33,6 +33,9 @@
             this.journalGrouppedPanel = new System.Windows.Forms.Panel();
             this.journalContainer = new System.Windows.Forms.TableLayoutPanel();
             this.journalPnl0 = new System.Windows.Forms.Panel();
+            this.complaintsTxt0 = new System.Windows.Forms.TextBox();
+            this.complaintsLbl0 = new System.Windows.Forms.Label();
+            this.objectId0 = new System.Windows.Forms.Label();
             this.startDateTxt0 = new System.Windows.Forms.DateTimePicker();
             this.monitorLbl0 = new System.Windows.Forms.Label();
             this.addDayCb0 = new System.Windows.Forms.CheckBox();
@@ -73,9 +76,6 @@
             this.printBtn = new System.Windows.Forms.Button();
             this.addJournalBtn = new System.Windows.Forms.Button();
             this.addDefferedBtn = new System.Windows.Forms.Button();
-            this.objectId0 = new System.Windows.Forms.Label();
-            this.complaintsTxt0 = new System.Windows.Forms.TextBox();
-            this.complaintsLbl0 = new System.Windows.Forms.Label();
             this.journalAllPnl.SuspendLayout();
             this.journalGrouppedPanel.SuspendLayout();
             this.journalContainer.SuspendLayout();
@@ -103,7 +103,7 @@
             this.journalGrouppedPanel.Controls.Add(this.journalContainer);
             this.journalGrouppedPanel.Location = new System.Drawing.Point(4, 16);
             this.journalGrouppedPanel.Name = "journalGrouppedPanel";
-            this.journalGrouppedPanel.Size = new System.Drawing.Size(845, 264);
+            this.journalGrouppedPanel.Size = new System.Drawing.Size(835, 264);
             this.journalGrouppedPanel.TabIndex = 38;
             // 
             // journalContainer
@@ -148,6 +148,32 @@
             this.journalPnl0.Name = "journalPnl0";
             this.journalPnl0.Size = new System.Drawing.Size(799, 183);
             this.journalPnl0.TabIndex = 36;
+            // 
+            // complaintsTxt0
+            // 
+            this.complaintsTxt0.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.complaintsTxt0.Location = new System.Drawing.Point(324, 3);
+            this.complaintsTxt0.Name = "complaintsTxt0";
+            this.complaintsTxt0.Size = new System.Drawing.Size(464, 20);
+            this.complaintsTxt0.TabIndex = 44;
+            // 
+            // complaintsLbl0
+            // 
+            this.complaintsLbl0.AutoSize = true;
+            this.complaintsLbl0.Location = new System.Drawing.Point(262, 6);
+            this.complaintsLbl0.Name = "complaintsLbl0";
+            this.complaintsLbl0.Size = new System.Drawing.Size(60, 13);
+            this.complaintsLbl0.TabIndex = 43;
+            this.complaintsLbl0.Text = "Жалобы:";
+            // 
+            // objectId0
+            // 
+            this.objectId0.AutoSize = true;
+            this.objectId0.Location = new System.Drawing.Point(755, 112);
+            this.objectId0.Name = "objectId0";
+            this.objectId0.Size = new System.Drawing.Size(0, 13);
+            this.objectId0.TabIndex = 36;
+            this.objectId0.Visible = false;
             // 
             // startDateTxt0
             // 
@@ -349,7 +375,7 @@
             this.defferedGrouppedPanel.Controls.Add(this.deferredContainer);
             this.defferedGrouppedPanel.Location = new System.Drawing.Point(147, 21);
             this.defferedGrouppedPanel.Name = "defferedGrouppedPanel";
-            this.defferedGrouppedPanel.Size = new System.Drawing.Size(702, 260);
+            this.defferedGrouppedPanel.Size = new System.Drawing.Size(692, 260);
             this.defferedGrouppedPanel.TabIndex = 42;
             // 
             // deferredContainer
@@ -585,32 +611,6 @@
             this.addDefferedBtn.TabIndex = 39;
             this.addDefferedBtn.UseVisualStyleBackColor = true;
             this.addDefferedBtn.Click += new System.EventHandler(this.addDefferedBtn_Click);
-            // 
-            // objectId0
-            // 
-            this.objectId0.AutoSize = true;
-            this.objectId0.Location = new System.Drawing.Point(755, 112);
-            this.objectId0.Name = "objectId0";
-            this.objectId0.Size = new System.Drawing.Size(0, 13);
-            this.objectId0.TabIndex = 36;
-            this.objectId0.Visible = false;
-            // 
-            // complaintsTxt0
-            // 
-            this.complaintsTxt0.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.complaintsTxt0.Location = new System.Drawing.Point(324, 3);
-            this.complaintsTxt0.Name = "complaintsTxt0";
-            this.complaintsTxt0.Size = new System.Drawing.Size(464, 20);
-            this.complaintsTxt0.TabIndex = 44;
-            // 
-            // complaintsLbl0
-            // 
-            this.complaintsLbl0.AutoSize = true;
-            this.complaintsLbl0.Location = new System.Drawing.Point(262, 6);
-            this.complaintsLbl0.Name = "complaintsLbl0";
-            this.complaintsLbl0.Size = new System.Drawing.Size(60, 13);
-            this.complaintsLbl0.TabIndex = 43;
-            this.complaintsLbl0.Text = "Жалобы:";
             // 
             // JournalBeforeKag
             // 

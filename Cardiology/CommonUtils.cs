@@ -68,12 +68,16 @@ namespace Cardiology.Utils
             if (sourceCtrl.GetType() == typeof(Label))
             {
                 result = new Label();
-                result.Text = sourceCtrl.Text;
                 result.Visible = sourceCtrl.Visible;
+                if (sourceCtrl.Visible)
+                {
+                    result.Text = sourceCtrl.Text;
+                }
             }
             if (sourceCtrl.GetType() == typeof(TextBox))
             {
                 result = new TextBox();
+                result.Visible = sourceCtrl.Visible;
             }
             if (sourceCtrl.GetType() == typeof(Panel))
             {

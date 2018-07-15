@@ -12,12 +12,12 @@ using System.Windows.Forms;
 
 namespace Cardiology
 {
-    public partial class Konsilium : Form
+    public partial class Consilium : Form
     {
         private DdtHospital hospitalitySession;
         private string consiliumId;
 
-        public Konsilium(DdtHospital hospitalitySession, string consiliumId)
+        public Consilium(DdtHospital hospitalitySession, string consiliumId)
         {
             this.hospitalitySession = hospitalitySession;
             this.consiliumId = consiliumId;
@@ -27,15 +27,17 @@ namespace Cardiology
 
         private void initControls()
         {
+            DataService service = new DataService();
+            CommonUtils.initDoctorsComboboxValues(service, adminTxt, " dsi_appointment_type=3");
+
             if (CommonUtils.isNotBlank(consiliumId))
             {
-                DataService service = new DataService();
                 DdtConsilium consilium = service.queryObjectById<DdtConsilium>(DdtConsilium.TABLE_NAME, consiliumId);
                 if (consilium != null)
                 {
                     goalTxt.Text = consilium.DssGoal;
                     dynamicsTxt.Text = consilium.DssDynamics;
-                    adminTxt.Text = consilium.DssDutyAdminName;
+                    adminTxt.SelectedIndex = adminTxt.FindStringExact(consilium.DssDutyAdminName);
                     diagnosisTxt1.Text = consilium.DssDiagnosis;
                     decisionTxt.Text = consilium.DssDecision;
                     List<DdtConsiliumMember> cardioConclusions = service.queryObjectsCollectionByAttrCond<DdtConsiliumMember>
@@ -55,8 +57,8 @@ namespace Cardiology
                         c.Text = cardioConclusions[i].RObjectId;
                     }
                 }
-
             }
+            
         }
 
         private void kagBtn_CheckedChanged(object sender, EventArgs e)
@@ -123,18 +125,22 @@ namespace Cardiology
             {
                 DdtConsiliumMember member = null;
                 Control c = CommonUtils.findControl(doctorsContainer, "objectIdLbl" + i);
+                Control appointment = CommonUtils.findControl(doctorsContainer, "appointmentTxt" + i);
                 if (CommonUtils.isNotBlank(c.Text))
                 {
                     member = service.queryObjectById<DdtConsiliumMember>(DdtConsiliumMember.TABLE_NAME, c.Text);
                 }
                 else
                 {
+                    if (CommonUtils.isBlank(appointment.Text))
+                    {
+                        continue;
+                    }
+
                     member = new DdtConsiliumMember();
                     member.DsidConsilium = consiliumId;
                 }
-
-                c = CommonUtils.findControl(doctorsContainer, "appointmentTxt" + i);
-                member.DssAppointmentName = c.Text;
+                member.DssAppointmentName = appointment.Text;
                 c = CommonUtils.findControl(doctorsContainer, "doctorWho" + i);
                 member.DssDoctorName = c.Text;
                 service.updateOrCreateIfNeedObject<DdtConsiliumMember>(member, DdtConsiliumMember.TABLE_NAME, member.RObjectId);

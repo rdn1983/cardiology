@@ -55,7 +55,7 @@ namespace Cardiology
                         ComboBox box = (ComboBox)CommonUtils.findControl(container, "issuedMedicineTxt" + i);
                         box.SelectedIndex = box.FindStringExact(cure.DssName);
                         Label idLbl = (Label)CommonUtils.findControl(container, "objectIdLbl" + i);
-                        idLbl.Text = cure.ObjectId;
+                        idLbl.Text = med[i].RObjectId;
                     }
 
                 }
@@ -218,13 +218,13 @@ namespace Cardiology
                 else
                 {
                     med = new DdtIssuedMedicine();
+                    med.DsidMedList = medList.ObjectId;
                 }
                 ComboBox box = (ComboBox)CommonUtils.findControl(container, "issuedMedicineTxt" + i);
                 DdtCure cure = (DdtCure)box.SelectedItem;
                 if (cure != null && CommonUtils.isNotBlank(box.Text))
                 {
                     med.DsidCure = cure.ObjectId;
-                    med.DsidMedList = medList.ObjectId;
                     service.updateOrCreateIfNeedObject<DdtIssuedMedicine>(med, DdtIssuedMedicine.TABLE_NAME, med.RObjectId);
                 }
             }

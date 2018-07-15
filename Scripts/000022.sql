@@ -15,10 +15,10 @@ SELECT history.dsid_hospitality_session as dsid_hospitality_session,
 		WHEN 'ddt_holter' THEN 'Анализы: Холтер'
 		WHEN 'ddt_issued_medicine_list' THEN 'Назначение лекарственных препаратов'
 		WHEN 'ddt_journal' THEN 'Журнал'
+		WHEN 'ddt_consilium' THEN 'Консилиум'
 		END AS dss_operation_name,
 	history.r_creation_date AS r_creation_date,
 	doc.dss_initials AS dss_doctor_name,
 	history.dss_description AS dss_description
 	
-FROM ddt_doctors doc, ddt_history history 
-WHERE history.dsid_doctor=doc.r_object_id;
+FROM ddt_history history LEFT JOIN ddt_doctors doc ON history.dsid_doctor=doc.r_object_id;

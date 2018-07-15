@@ -27,30 +27,32 @@ namespace Cardiology
             this.hospitalitySession = hospitalitySession;
             this.patientAnalysis = analysis;
             InitializeComponent();
-            
 
+
+            DataService service = new DataService();
             DdtKag kag = null;
-
+            DdtUrineAnalysis urineAnalysis = null;
+            DdtEgds egds = null;
+            DdtEkg ekg = null;
             if (patientAnalysis != null)
             {
-                DataService service = new DataService();
                 DdtUzi uziObj = service.queryObject<DdtUzi>(string.Format(REGULAR_ANALYSIS_QRY_TEMPLATE, DdtUzi.TABLE_NAME, patientAnalysis.DsisUzi));
                 DdtSpecialistConclusion specialistConclusion = service.queryObject<DdtSpecialistConclusion>(string.Format(REGULAR_ANALYSIS_QRY_TEMPLATE, DdtSpecialistConclusion.TABLE_NAME, patientAnalysis.DsidSpecialistConclusion));
                 DdtHolter holter = service.queryObject<DdtHolter>(string.Format(REGULAR_ANALYSIS_QRY_TEMPLATE, DdtHolter.TABLE_NAME, patientAnalysis.DsidHolter));
                 DdtXRay xRay = service.queryObject<DdtXRay>(string.Format(REGULAR_ANALYSIS_QRY_TEMPLATE, DdtXRay.TABLE_NAME, patientAnalysis.DsidXray));
-                DdtUrineAnalysis urineAnalysis = service.queryObject<DdtUrineAnalysis>(string.Format(REGULAR_ANALYSIS_QRY_TEMPLATE, DdtUrineAnalysis.TABLE_NAME, patientAnalysis.DsisUrineAnalysis));
-                DdtEgds egds = service.queryObject<DdtEgds>(string.Format(REGULAR_ANALYSIS_QRY_TEMPLATE, DdtEgds.TABLE_NAME, patientAnalysis.DsidEgds));
+                urineAnalysis = service.queryObject<DdtUrineAnalysis>(string.Format(REGULAR_ANALYSIS_QRY_TEMPLATE, DdtUrineAnalysis.TABLE_NAME, patientAnalysis.DsisUrineAnalysis));
+                egds = service.queryObject<DdtEgds>(string.Format(REGULAR_ANALYSIS_QRY_TEMPLATE, DdtEgds.TABLE_NAME, patientAnalysis.DsidEgds));
                 kag = service.queryObject<DdtKag>(string.Format(REGULAR_ANALYSIS_QRY_TEMPLATE, DdtKag.TABLE_NAME, patientAnalysis.DsidKag));
-                DdtEkg ekg = service.queryObject<DdtEkg>(string.Format(REGULAR_ANALYSIS_QRY_TEMPLATE, DdtEkg.TABLE_NAME, patientAnalysis.DsidEkg));
+                ekg = service.queryObject<DdtEkg>(string.Format(REGULAR_ANALYSIS_QRY_TEMPLATE, DdtEkg.TABLE_NAME, patientAnalysis.DsidEkg));
 
                 initUziTab(uziObj);
                 initHolterTab(holter);
                 initSpecialistConslusionTab(specialistConclusion);
                 initXRay(xRay);
-                initUrineAnalysis(urineAnalysis, service);
-                initEgdsAnalysis(egds, service);
-                initEkgAnalysis(ekg, service);
             }
+            initUrineAnalysis(urineAnalysis, service);
+            initEgdsAnalysis(egds, service);
+            initEkgAnalysis(ekg, service);
             initKagAnalysis(kag);
         }
 
@@ -101,7 +103,7 @@ namespace Cardiology
 
         private void initUrineAnalysis(DdtUrineAnalysis urineAnalysis, DataService service)
         {
-            if (CommonUtils.isNotBlank(patientAnalysis.DsisUrineAnalysis) && urineAnalysis != null)
+            if (patientAnalysis != null && urineAnalysis != null)
             {
                 colorTxt.Text = urineAnalysis.DssColor;
                 erythrocytesTxt.Text = urineAnalysis.DssErythrocytes;
@@ -121,7 +123,7 @@ namespace Cardiology
 
         private void initEgdsAnalysis(DdtEgds egds, DataService service)
         {
-            if (CommonUtils.isNotBlank(patientAnalysis.DsidEgds) && egds != null)
+            if (patientAnalysis != null && egds != null)
             {
                 regularEgdsTxt.Text = egds.DssEgds;
             }
@@ -371,7 +373,7 @@ namespace Cardiology
             switch (tabindex)
             {
                 case URINE_TAB_INDX:
-                    return CommonUtils.isNotBlank(colorTxt.Text) || CommonUtils.isNotBlank(erythrocytesTxt.Text) || 
+                    return CommonUtils.isNotBlank(colorTxt.Text) || CommonUtils.isNotBlank(erythrocytesTxt.Text) ||
                         CommonUtils.isNotBlank(leukocytesTxt.Text) || CommonUtils.isNotBlank(proteinTxt.Text);
                 case UZI_TAB_INDX:
                     return CommonUtils.isNotBlank(ehoKgTxt.Text) || CommonUtils.isNotBlank(cdsTxt.Text) ||
@@ -558,7 +560,7 @@ namespace Cardiology
 
         private void tabs_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (tabs.SelectedIndex==3)
+            if (tabs.SelectedIndex == 3)
             {
                 serologyToolTip.Show("bubububu", showABOFormBtn, 5000);
             }

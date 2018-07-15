@@ -187,11 +187,11 @@
     <Compile Include="DiagnosisTemplates.Designer.cs">
       <DependentUpon>DiagnosisTemplates.cs</DependentUpon>
     </Compile>
-    <Compile Include="Konsilium.cs">
+    <Compile Include="Consilium.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Konsilium.Designer.cs">
-      <DependentUpon>Konsilium.cs</DependentUpon>
+    <Compile Include="Consilium.Designer.cs">
+      <DependentUpon>Consilium.cs</DependentUpon>
     </Compile>
     <Compile Include="Obhod.cs">
       <SubType>Form</SubType>
@@ -332,8 +332,8 @@
     <EmbeddedResource Include="DiagnosisTemplates.resx">
       <DependentUpon>DiagnosisTemplates.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Konsilium.resx">
-      <DependentUpon>Konsilium.cs</DependentUpon>
+    <EmbeddedResource Include="Consilium.resx">
+      <DependentUpon>Consilium.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Obhod.resx">
       <DependentUpon>Obhod.cs</DependentUpon>

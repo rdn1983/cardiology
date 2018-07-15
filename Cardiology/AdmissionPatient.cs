@@ -29,7 +29,7 @@ namespace Cardiology
         {
             if (!getIsValid())
             {
-                MessageBox.Show("Error in edit", "Warning", MessageBoxButtons.OK);
+                MessageBox.Show("Заполните поля помеченные жирным шрифтом!", "Warning", MessageBoxButtons.OK);
                 return;
             }
 
@@ -66,10 +66,9 @@ namespace Cardiology
 
         private bool getIsValid()
         {
-            //todo  сделать проверку заполненности полей
             return CommonUtils.isNotBlank(patientLastName.Text) && CommonUtils.isNotBlank(patientFirstName.Text) &&
                 CommonUtils.isNotBlank(patientSecondName.Text) && CommonUtils.isNotBlank(weightTxt.Text) &&
-                CommonUtils.isNotBlank(highTxt.Text);
+                CommonUtils.isNotBlank(highTxt.Text) && dutyCardioBox.SelectedIndex >= 0 && CommonUtils.isNotBlank(medCodeTxt.Text);
         }
 
 
@@ -96,5 +95,6 @@ namespace Cardiology
             }
         }
 
+       
     }
 }

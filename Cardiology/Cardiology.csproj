@@ -84,6 +84,7 @@
     <Compile Include="DdtIssuedMedicine.cs" />
     <Compile Include="DdtIssuedMedicineList.cs" />
     <Compile Include="DdtJournal.cs" />
+    <Compile Include="DdtJournalDsiType.cs" />
     <Compile Include="DdtKag.cs" />
     <Compile Include="DdtPatientAnalysis.cs" />
     <Compile Include="DdtReleasePatient.cs" />
@@ -93,6 +94,7 @@
     <Compile Include="DdtUzi.cs" />
     <Compile Include="DdtValue.cs" />
     <Compile Include="DdtValues.cs" />
+    <Compile Include="DdtVariousSpecConcluson.cs" />
     <Compile Include="DdtXRay.cs" />
     <Compile Include="DdvActiveHospitalPatients.cs" />
     <Compile Include="DdvHistory.cs" />

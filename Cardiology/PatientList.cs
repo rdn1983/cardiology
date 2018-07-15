@@ -101,18 +101,6 @@ namespace Cardiology
             form.ShowDialog();
         }
 
-        private void journalAfterKAGMnuItem_Click(object sender, EventArgs e)
-        {
-            JournalAfterKAG form = new JournalAfterKAG();
-            form.ShowDialog();
-        }
-
-        private void journalWithoutKAGMenuItem_Click(object sender, EventArgs e)
-        {
-            DB3 form = new DB3();
-            form.ShowDialog();
-        }
-
         private void morningInspectationMenuItem_Click(object sender, EventArgs e)
         {
             Obhod form = new Obhod();

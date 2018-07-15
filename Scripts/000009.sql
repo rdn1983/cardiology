@@ -30,7 +30,7 @@ EXECUTE PROCEDURE dmtrg_f_modify_date();
 CREATE OR REPLACE FUNCTION audit_ddt_journal_creating_row () RETURNS TRIGGER AS '
 BEGIN
 INSERT INTO ddt_history 
-(dsid_hospitality_session, dsid_patient, dsid_doctor, dsid_operation_id, dss_operation_type, dss_description)
+(dsid_hospitality_session, dsid_patient, dsid_doctor, dsid_operation_id, dss_operation_type)
  VALUES (NEW.dsid_hospitality_session, NEW.dsid_patient, NEW.dsid_doctor, NEW.r_object_id, TG_TABLE_NAME );
  RETURN NEW;
 END;

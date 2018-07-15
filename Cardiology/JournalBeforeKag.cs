@@ -1,4 +1,5 @@
 ﻿using Cardiology.Model;
+using Cardiology.Model.Dictionary;
 using Cardiology.Utils;
 using System;
 using System.Collections.Generic;
@@ -8,15 +9,15 @@ namespace Cardiology
 {
     public partial class JournalBeforeKag : Form
     {
-        private bool isWithKag = false;
+        private int journalType;
         private List<string> journalIds;
         private DdtHospital hospitalitySession;
 
-        public JournalBeforeKag(DdtHospital hospitalitySession, List<string> journalIds, bool isWithKag)
+        public JournalBeforeKag(DdtHospital hospitalitySession, List<string> journalIds, int journalType)
         {
             this.hospitalitySession = hospitalitySession;
             this.journalIds = journalIds;
-            this.isWithKag = isWithKag;
+            this.journalType = journalType;
             InitializeComponent();
             initRangedItems(chssTxt0, 40, 200);
             initRangedItems(psTxt0, 40, 200);
@@ -27,6 +28,7 @@ namespace Cardiology
 
         private void initControlVisibility()
         {
+            bool isWithKag = (int)DdtJournalDsiType.BEFORE_KAG == journalType;
             deffedredAllPnl.Visible = isWithKag;
             goodRhytmBtn0.Visible = isWithKag;
             badRhytmBtn0.Visible = isWithKag;
@@ -65,6 +67,7 @@ namespace Cardiology
                 journal = service.queryObject<DdtJournal>("Select * FROM ddt_journal WHERE r_object_id ='" + journalIds[i] + "'");
                 if (journal != null)
                 {
+                    journalType = journal.DsiJournalType;
                     Control panelCntr = null;
                     if (journalContainer.Controls.Count <= i)
                     {
@@ -92,7 +95,7 @@ namespace Cardiology
             }
         }
 
-        
+
 
         private void addJournalBtn_Click(object sender, EventArgs e)
         {
@@ -129,7 +132,7 @@ namespace Cardiology
                     journal.DsidDoctor = hospitalitySession.DsidDutyDoctor;
                     journal.DsidHospitalitySession = hospitalitySession.ObjectId;
                     journal.DsidPatient = hospitalitySession.DsidPatient;
-                    journal.DsbBeforeKag = isWithKag;
+                    journal.DsiJournalType = journalType;
                 }
 
                 journal.DssAd = CommonUtils.getStrigControlValue(panelCntr, "adTxt" + i);
@@ -143,6 +146,6 @@ namespace Cardiology
             Close();
         }
 
-        
+
     }
 }

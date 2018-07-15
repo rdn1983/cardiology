@@ -1,4 +1,5 @@
 ﻿using Cardiology.Model;
+using Cardiology.Model.Dictionary;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -62,19 +63,19 @@ namespace Cardiology
 
         private void journalBeforeKAGMeniItem_Click(object sender, EventArgs e)
         {
-            JournalBeforeKag form = new JournalBeforeKag(hospitalitySession, null, true);
+            JournalBeforeKag form = new JournalBeforeKag(hospitalitySession, null, (int)DdtJournalDsiType.BEFORE_KAG);
             form.ShowDialog();
         }
 
         private void journalAfterKAGMnuItem_Click(object sender, EventArgs e)
         {
-            JournalAfterKAG form = new JournalAfterKAG();
+            JournalAfterKAG form = new JournalAfterKAG(hospitalitySession, null);
             form.ShowDialog();
         }
 
         private void journalWithoutKAGMenuItem_Click(object sender, EventArgs e)
         {
-            JournalBeforeKag form = new JournalBeforeKag(hospitalitySession, null, false);
+            JournalBeforeKag form = new JournalBeforeKag(hospitalitySession, null, (int)DdtJournalDsiType.WITHOUT_KAG);
             form.ShowDialog();
         }
 
@@ -110,9 +111,19 @@ namespace Cardiology
                 if (DdtAnamnesis.TABLE_NAME.Equals(typeValue))
                 {
                     form = new FirstInspection(hospitalitySession);
-                } else if (DdtJournal.TABLE_NAME.Equals(typeValue))
+                }
+                else if (DdtJournal.TABLE_NAME.Equals(typeValue))
                 {
-                    form = new JournalBeforeKag(hospitalitySession, ids, true);
+                    DataService service = new DataService();
+                    DdtJournal jourmal = service.queryObjectById<DdtJournal>(DdtJournal.TABLE_NAME, idsValue);
+                    if (jourmal.DsiJournalType == (int)DdtJournalDsiType.AFTER_KAG)
+                    {
+                        form = new JournalAfterKAG(hospitalitySession, idsValue);
+                    }
+                    else
+                    {
+                        form = new JournalBeforeKag(hospitalitySession, ids, -1);
+                    }
                 }
                 else if (DdtIssuedMedicineList.TABLE_NAME.Equals(typeValue))
                 {
@@ -122,8 +133,8 @@ namespace Cardiology
                 {
 
                 }
-                
-                if (form!=null)
+
+                if (form != null)
                 {
                     form.ShowDialog();
                 }

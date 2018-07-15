@@ -41,8 +41,8 @@ namespace Cardiology.Model
         private string dssCardioExam;
         [TableAttribute("dss_journal")]
         private string dssJournal;
-        [TableAttribute("dsb_before_kag")]
-        private bool dsbBeforeKag;
+        [TableAttribute("dsi_journal_type")]
+        private int dsiJournalType;
 
         public string RObjectId { get => rObjectId; }
         public DateTime RCreationDate { get => rCreationDate; }
@@ -62,6 +62,6 @@ namespace Cardiology.Model
         public string DssSurgeonExam1 { get => dssSurgeonExam; set => dssSurgeonExam = value; }
         public string DssCardioExam { get => dssCardioExam; set => dssCardioExam = value; }
         public string DssJournal { get => dssJournal; set => dssJournal = value; }
-        public bool DsbBeforeKag { get => dsbBeforeKag; set => dsbBeforeKag = value; }
+        public int DsiJournalType { get => dsiJournalType; set => dsiJournalType = value; }
     }
 }

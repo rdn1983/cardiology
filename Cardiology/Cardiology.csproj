@@ -74,6 +74,8 @@
       <DependentUpon>Analizi.cs</DependentUpon>
     </Compile>
     <Compile Include="DdtAnamnesis.cs" />
+    <Compile Include="DdtConsilium.cs" />
+    <Compile Include="DdtConsiliumMember.cs" />
     <Compile Include="DdtCure.cs" />
     <Compile Include="DdtCureDictionary.cs" />
     <Compile Include="DdtDoctors.cs" />

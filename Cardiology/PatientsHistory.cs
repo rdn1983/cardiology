@@ -81,7 +81,7 @@ namespace Cardiology
 
         private void konsiliumItem_Click(object sender, EventArgs e)
         {
-            Konsilium form = new Konsilium();
+            Konsilium form = new Konsilium(hospitalitySession, null);
             form.ShowDialog();
         }
 
@@ -132,6 +132,10 @@ namespace Cardiology
                 else if (DdtEgds.TABLE_NAME.Equals(typeValue))
                 {
 
+                }
+                else if (DdtConsilium.TABLE_NAME.Equals(typeValue))
+                {
+                    form = new Konsilium(hospitalitySession, idsValue);
                 }
 
                 if (form != null)

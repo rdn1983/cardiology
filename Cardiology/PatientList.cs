@@ -34,13 +34,7 @@ namespace Cardiology
             AdmissionPatient st = new AdmissionPatient();
             st.ShowDialog();
         }
-
-        private void konsiliumItem_Click(object sender, EventArgs e)
-        {
-            Konsilium form = new Konsilium();
-            form.ShowDialog();
-        }
-
+        
         private void kateterItem_Click(object sender, EventArgs e)
         {
             UserFromVena form = new UserFromVena();

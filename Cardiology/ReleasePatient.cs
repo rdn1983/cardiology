@@ -26,8 +26,8 @@ namespace Cardiology
             form.ShowDialog();
             releasePatientInfo = form.ReleasePatientInfo;
             sickListNumTxt.Text = releasePatientInfo.DssOurSicklistNum;
-            sickListStartDateTxt.Value = releasePatientInfo.DsdtOurStartDate;
-            sickListEndDateTxt.Value = releasePatientInfo.DsdtOurEndDate;
+            //sickListStartDateTxt.Value = releasePatientInfo.DsdtOurStartDate;
+            //sickListEndDateTxt.Value = releasePatientInfo.DsdtOurEndDate;
         }
 
         private void releasePatientBtn_Click(object sender, EventArgs e)

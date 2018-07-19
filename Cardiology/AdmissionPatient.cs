@@ -41,6 +41,10 @@ namespace Cardiology
             patient.DssPhone = phoneTxt.Text;
             patient.DssSnils = snilsTxt.Text;
             patient.DssOms = omsTxt.Text;
+            patient.DssPassportDate = passportDataTxt.Value;
+            patient.DssPassportIssuePlace = passportIssuePlaceTxt.Text;
+            patient.DssPassportNum = passportNumTxt.Text;
+            patient.DssPassportSerial = passportSerialTxt.Text;
             //todo Сделаь проверку на существующий логин
             patient.DssLogin = translit(patientLastName.Text.Trim() + patientFirstName.Text.Substring(0, 1) + patientSecondName.Text.Substring(0, 1));
             patient.DsdWeight = Double.Parse(weightTxt.Text.Trim());

@@ -32,6 +32,15 @@ namespace Cardiology.Model
         [TableAttribute("dss_oms")]
         private string dssOms;
 
+        [TableAttribute("pss_passport_serial")]
+        private string dssPassportSerial;
+        [TableAttribute("pss_passport_num")]
+        private string dssPassportNum;
+        [TableAttribute("pss_passport_date")]
+        private DateTime dssPassportDate;
+        [TableAttribute("pss_passport_issue_place")]
+        private string dssPassportIssuePlace;
+
         //add sex
 
         public string ObjectId
@@ -90,5 +99,9 @@ namespace Cardiology.Model
 
         public string DssSnils { get => dssSnils; set => dssSnils = value; }
         public string DssOms { get => dssOms; set => dssOms = value; }
+        public string DssPassportSerial { get => dssPassportSerial; set => dssPassportSerial = value; }
+        public string DssPassportNum { get => dssPassportNum; set => dssPassportNum = value; }
+        public DateTime DssPassportDate { get => dssPassportDate; set => dssPassportDate = value; }
+        public string DssPassportIssuePlace { get => dssPassportIssuePlace; set => dssPassportIssuePlace = value; }
     }
 }

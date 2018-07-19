@@ -14,7 +14,12 @@ CREATE TABLE ddt_patient (
 
   dss_snils VARCHAR(40),
   dss_oms VARCHAR(40),
-  dss_med_code VARCHAR(20)
+  dss_med_code VARCHAR(20),
+
+  pss_passport_serial VARCHAR(10),
+  pss_passport_num VARCHAR(20),
+  pss_passport_issue_place VARCHAR(128),
+  pss_passport_date TIMESTAMP
 );
 
 CREATE TRIGGER ddt_patient_trg_modify_date BEFORE INSERT OR UPDATE

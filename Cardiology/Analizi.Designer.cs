@@ -306,6 +306,9 @@
             this.neurologTxt = new System.Windows.Forms.RichTextBox();
             this.saveBtn = new System.Windows.Forms.Button();
             this.serologyToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.ktDateTxt = new System.Windows.Forms.DateTimePicker();
+            this.ktTimeTxt = new System.Windows.Forms.DateTimePicker();
+            this.dateLbl = new System.Windows.Forms.Label();
             this.tabs.SuspendLayout();
             this.ekgTab.SuspendLayout();
             this.firstEkgBox.SuspendLayout();
@@ -2754,6 +2757,9 @@
             // 
             // mrtTab
             // 
+            this.mrtTab.Controls.Add(this.dateLbl);
+            this.mrtTab.Controls.Add(this.ktTimeTxt);
+            this.mrtTab.Controls.Add(this.ktDateTxt);
             this.mrtTab.Controls.Add(this.mrtBox);
             this.mrtTab.Controls.Add(this.ktBox);
             this.mrtTab.Location = new System.Drawing.Point(4, 22);
@@ -2766,7 +2772,7 @@
             // mrtBox
             // 
             this.mrtBox.Controls.Add(this.mrtTxt);
-            this.mrtBox.Location = new System.Drawing.Point(12, 141);
+            this.mrtBox.Location = new System.Drawing.Point(13, 179);
             this.mrtBox.Name = "mrtBox";
             this.mrtBox.Size = new System.Drawing.Size(698, 109);
             this.mrtBox.TabIndex = 12;
@@ -2784,7 +2790,7 @@
             // ktBox
             // 
             this.ktBox.Controls.Add(this.ktTxt);
-            this.ktBox.Location = new System.Drawing.Point(12, 19);
+            this.ktBox.Location = new System.Drawing.Point(13, 57);
             this.ktBox.Name = "ktBox";
             this.ktBox.Size = new System.Drawing.Size(698, 109);
             this.ktBox.TabIndex = 11;
@@ -2950,6 +2956,31 @@
             this.serologyToolTip.ReshowDelay = 500;
             this.serologyToolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Warning;
             // 
+            // ktDateTxt
+            // 
+            this.ktDateTxt.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.ktDateTxt.Location = new System.Drawing.Point(13, 29);
+            this.ktDateTxt.Name = "ktDateTxt";
+            this.ktDateTxt.Size = new System.Drawing.Size(117, 20);
+            this.ktDateTxt.TabIndex = 13;
+            // 
+            // ktTimeTxt
+            // 
+            this.ktTimeTxt.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.ktTimeTxt.Location = new System.Drawing.Point(136, 29);
+            this.ktTimeTxt.Name = "ktTimeTxt";
+            this.ktTimeTxt.Size = new System.Drawing.Size(117, 20);
+            this.ktTimeTxt.TabIndex = 14;
+            // 
+            // dateLbl
+            // 
+            this.dateLbl.AutoSize = true;
+            this.dateLbl.Location = new System.Drawing.Point(13, 10);
+            this.dateLbl.Name = "dateLbl";
+            this.dateLbl.Size = new System.Drawing.Size(185, 13);
+            this.dateLbl.TabIndex = 15;
+            this.dateLbl.Text = "Дата/Время проведения анализов";
+            // 
             // Analizi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3006,6 +3037,7 @@
             this.cotrolRadiographyBox.ResumeLayout(false);
             this.chestXRayBox.ResumeLayout(false);
             this.mrtTab.ResumeLayout(false);
+            this.mrtTab.PerformLayout();
             this.mrtBox.ResumeLayout(false);
             this.ktBox.ResumeLayout(false);
             this.holterTab.ResumeLayout(false);
@@ -3298,5 +3330,8 @@
         private System.Windows.Forms.GroupBox ktBox;
         private System.Windows.Forms.RichTextBox ktTxt;
         private System.Windows.Forms.ToolTip serologyToolTip;
+        private System.Windows.Forms.Label dateLbl;
+        private System.Windows.Forms.DateTimePicker ktTimeTxt;
+        private System.Windows.Forms.DateTimePicker ktDateTxt;
     }
 }

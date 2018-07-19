@@ -10,7 +10,8 @@ CREATE TABLE ddt_xray (
   dss_control_radiography VARCHAR(512),
   dss_mskt VARCHAR(512),
   dss_kt VARCHAR(512),
-  dss_mrt VARCHAR(512)
+  dss_mrt VARCHAR(512),
+  dsdt_kt_date timestamp
 );
 
 

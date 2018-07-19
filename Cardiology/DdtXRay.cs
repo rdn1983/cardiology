@@ -26,6 +26,8 @@ namespace Cardiology.Model
         private string dssKt;
         [TableAttribute("dss_mrt")]
         private string dssMrt;
+        [TableAttribute("dsdt_kt_date")]
+        private DateTime dsdtKtDate;
 
         public string ObjectId
         {
@@ -60,5 +62,6 @@ namespace Cardiology.Model
         public string DssMskt { get => dssMskt; set => dssMskt = value; }
         public string DssKt { get => dssKt; set => dssKt = value; }
         public string DssMrt { get => dssMrt; set => dssMrt = value; }
+        public DateTime DsdtKtDate { get => dsdtKtDate; set => dsdtKtDate = value; }
     }
 }

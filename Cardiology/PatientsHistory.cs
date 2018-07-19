@@ -129,9 +129,12 @@ namespace Cardiology
                 {
                     form = new IssuedMedicine(hospitalitySession, idsValue);
                 }
-                else if (DdtEgds.TABLE_NAME.Equals(typeValue))
+                else if (DdtEgds.TABLE_NAME.Equals(typeValue) || DdtXRay.TABLE_NAME.Equals(typeValue)
+                    || DdtUrineAnalysis.TABLE_NAME.Equals(typeValue) || DdtEkg.TABLE_NAME.Equals(typeValue)
+                    || DdtSpecialistConclusion.TABLE_NAME.Equals(typeValue) || DdtUzi.TABLE_NAME.Equals(typeValue)
+                    || DdtKag.TABLE_NAME.Equals(typeValue) || DdtHolter.TABLE_NAME.Equals(typeValue))
                 {
-
+                    form = new Analizi(hospitalitySession, idsValue);
                 }
                 else if (DdtConsilium.TABLE_NAME.Equals(typeValue))
                 {

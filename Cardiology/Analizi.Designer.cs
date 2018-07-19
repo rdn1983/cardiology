@@ -286,6 +286,9 @@
             this.chestXRayBox = new System.Windows.Forms.GroupBox();
             this.chestXRayTxt = new System.Windows.Forms.RichTextBox();
             this.mrtTab = new System.Windows.Forms.TabPage();
+            this.dateLbl = new System.Windows.Forms.Label();
+            this.ktTimeTxt = new System.Windows.Forms.DateTimePicker();
+            this.ktDateTxt = new System.Windows.Forms.DateTimePicker();
             this.mrtBox = new System.Windows.Forms.GroupBox();
             this.mrtTxt = new System.Windows.Forms.RichTextBox();
             this.ktBox = new System.Windows.Forms.GroupBox();
@@ -306,9 +309,6 @@
             this.neurologTxt = new System.Windows.Forms.RichTextBox();
             this.saveBtn = new System.Windows.Forms.Button();
             this.serologyToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.ktDateTxt = new System.Windows.Forms.DateTimePicker();
-            this.ktTimeTxt = new System.Windows.Forms.DateTimePicker();
-            this.dateLbl = new System.Windows.Forms.Label();
             this.tabs.SuspendLayout();
             this.ekgTab.SuspendLayout();
             this.firstEkgBox.SuspendLayout();
@@ -400,7 +400,7 @@
             this.firstEkgBox.Controls.Add(this.firstEkgTxt);
             this.firstEkgBox.Location = new System.Drawing.Point(22, 21);
             this.firstEkgBox.Name = "firstEkgBox";
-            this.firstEkgBox.Size = new System.Drawing.Size(698, 170);
+            this.firstEkgBox.Size = new System.Drawing.Size(698, 82);
             this.firstEkgBox.TabIndex = 19;
             this.firstEkgBox.TabStop = false;
             this.firstEkgBox.Text = "ЭКГ при поступлении";
@@ -410,14 +410,14 @@
             this.firstEkgTxt.Location = new System.Drawing.Point(6, 16);
             this.firstEkgTxt.Name = "firstEkgTxt";
             this.firstEkgTxt.ReadOnly = true;
-            this.firstEkgTxt.Size = new System.Drawing.Size(686, 148);
+            this.firstEkgTxt.Size = new System.Drawing.Size(686, 57);
             this.firstEkgTxt.TabIndex = 9;
             this.firstEkgTxt.Text = "";
             // 
             // regularEkgTxt
             // 
             this.regularEkgTxt.ContextMenuStrip = this.contextMenu;
-            this.regularEkgTxt.Location = new System.Drawing.Point(351, 209);
+            this.regularEkgTxt.Location = new System.Drawing.Point(351, 123);
             this.regularEkgTxt.Name = "regularEkgTxt";
             this.regularEkgTxt.Size = new System.Drawing.Size(369, 174);
             this.regularEkgTxt.TabIndex = 18;
@@ -455,7 +455,7 @@
             // 
             // clearBtn
             // 
-            this.clearBtn.Location = new System.Drawing.Point(351, 389);
+            this.clearBtn.Location = new System.Drawing.Point(351, 303);
             this.clearBtn.Name = "clearBtn";
             this.clearBtn.Size = new System.Drawing.Size(75, 32);
             this.clearBtn.TabIndex = 17;
@@ -468,7 +468,7 @@
             this.rhytmGroupBox.Controls.Add(this.flutterBtn);
             this.rhytmGroupBox.Controls.Add(this.fibrillationBtn);
             this.rhytmGroupBox.Controls.Add(this.rhytmSinusBtn);
-            this.rhytmGroupBox.Location = new System.Drawing.Point(22, 209);
+            this.rhytmGroupBox.Location = new System.Drawing.Point(22, 123);
             this.rhytmGroupBox.Name = "rhytmGroupBox";
             this.rhytmGroupBox.Size = new System.Drawing.Size(287, 69);
             this.rhytmGroupBox.TabIndex = 10;
@@ -507,7 +507,7 @@
             // 
             // spaceBtn
             // 
-            this.spaceBtn.Location = new System.Drawing.Point(279, 389);
+            this.spaceBtn.Location = new System.Drawing.Point(279, 303);
             this.spaceBtn.Name = "spaceBtn";
             this.spaceBtn.Size = new System.Drawing.Size(66, 32);
             this.spaceBtn.TabIndex = 16;
@@ -520,7 +520,7 @@
             this.deviationBox.Controls.Add(this.negativeTBtn);
             this.deviationBox.Controls.Add(this.depressionBtn);
             this.deviationBox.Controls.Add(this.elevation);
-            this.deviationBox.Location = new System.Drawing.Point(22, 284);
+            this.deviationBox.Location = new System.Drawing.Point(22, 198);
             this.deviationBox.Name = "deviationBox";
             this.deviationBox.Size = new System.Drawing.Size(287, 56);
             this.deviationBox.TabIndex = 11;
@@ -559,7 +559,7 @@
             // 
             // dotBtn
             // 
-            this.dotBtn.Location = new System.Drawing.Point(316, 355);
+            this.dotBtn.Location = new System.Drawing.Point(316, 269);
             this.dotBtn.Name = "dotBtn";
             this.dotBtn.Size = new System.Drawing.Size(29, 28);
             this.dotBtn.TabIndex = 15;
@@ -581,7 +581,7 @@
             this.whereBox.Controls.Add(this.IIIBtn);
             this.whereBox.Controls.Add(this.IIBtn);
             this.whereBox.Controls.Add(this.IBtn);
-            this.whereBox.Location = new System.Drawing.Point(22, 346);
+            this.whereBox.Location = new System.Drawing.Point(22, 260);
             this.whereBox.Name = "whereBox";
             this.whereBox.Size = new System.Drawing.Size(252, 75);
             this.whereBox.TabIndex = 12;
@@ -711,7 +711,7 @@
             // dashBtn
             // 
             this.dashBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dashBtn.Location = new System.Drawing.Point(279, 355);
+            this.dashBtn.Location = new System.Drawing.Point(279, 269);
             this.dashBtn.Name = "dashBtn";
             this.dashBtn.Size = new System.Drawing.Size(30, 28);
             this.dashBtn.TabIndex = 14;
@@ -722,7 +722,7 @@
             // commaBtn
             // 
             this.commaBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.commaBtn.Location = new System.Drawing.Point(316, 209);
+            this.commaBtn.Location = new System.Drawing.Point(316, 123);
             this.commaBtn.Name = "commaBtn";
             this.commaBtn.Size = new System.Drawing.Size(29, 68);
             this.commaBtn.TabIndex = 13;
@@ -2769,6 +2769,31 @@
             this.mrtTab.Text = "КТ, МРТ";
             this.mrtTab.UseVisualStyleBackColor = true;
             // 
+            // dateLbl
+            // 
+            this.dateLbl.AutoSize = true;
+            this.dateLbl.Location = new System.Drawing.Point(13, 10);
+            this.dateLbl.Name = "dateLbl";
+            this.dateLbl.Size = new System.Drawing.Size(185, 13);
+            this.dateLbl.TabIndex = 15;
+            this.dateLbl.Text = "Дата/Время проведения анализов";
+            // 
+            // ktTimeTxt
+            // 
+            this.ktTimeTxt.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.ktTimeTxt.Location = new System.Drawing.Point(136, 29);
+            this.ktTimeTxt.Name = "ktTimeTxt";
+            this.ktTimeTxt.Size = new System.Drawing.Size(117, 20);
+            this.ktTimeTxt.TabIndex = 14;
+            // 
+            // ktDateTxt
+            // 
+            this.ktDateTxt.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.ktDateTxt.Location = new System.Drawing.Point(13, 29);
+            this.ktDateTxt.Name = "ktDateTxt";
+            this.ktDateTxt.Size = new System.Drawing.Size(117, 20);
+            this.ktDateTxt.TabIndex = 13;
+            // 
             // mrtBox
             // 
             this.mrtBox.Controls.Add(this.mrtTxt);
@@ -2955,31 +2980,6 @@
             this.serologyToolTip.InitialDelay = 10;
             this.serologyToolTip.ReshowDelay = 500;
             this.serologyToolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Warning;
-            // 
-            // ktDateTxt
-            // 
-            this.ktDateTxt.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.ktDateTxt.Location = new System.Drawing.Point(13, 29);
-            this.ktDateTxt.Name = "ktDateTxt";
-            this.ktDateTxt.Size = new System.Drawing.Size(117, 20);
-            this.ktDateTxt.TabIndex = 13;
-            // 
-            // ktTimeTxt
-            // 
-            this.ktTimeTxt.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.ktTimeTxt.Location = new System.Drawing.Point(136, 29);
-            this.ktTimeTxt.Name = "ktTimeTxt";
-            this.ktTimeTxt.Size = new System.Drawing.Size(117, 20);
-            this.ktTimeTxt.TabIndex = 14;
-            // 
-            // dateLbl
-            // 
-            this.dateLbl.AutoSize = true;
-            this.dateLbl.Location = new System.Drawing.Point(13, 10);
-            this.dateLbl.Name = "dateLbl";
-            this.dateLbl.Size = new System.Drawing.Size(185, 13);
-            this.dateLbl.TabIndex = 15;
-            this.dateLbl.Text = "Дата/Время проведения анализов";
             // 
             // Analizi
             // 

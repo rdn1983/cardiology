@@ -43,6 +43,15 @@ namespace Cardiology.Utils
             cb.DisplayMember = "DssName";
         }
 
+        internal static void initRangedItems(ComboBox c, int start, int end)
+        {
+            for (int i = start; i <= end; i++)
+            {
+                c.Items.Add(i);
+            }
+        }
+
+
         internal static Control copyControl(Control srcContainer, int index)
         {
             Control c = createControl(srcContainer, index);
@@ -78,6 +87,12 @@ namespace Cardiology.Utils
             {
                 result = new TextBox();
                 result.Visible = sourceCtrl.Visible;
+            }
+            if (sourceCtrl.GetType() == typeof(CheckBox))
+            {
+                result = new CheckBox();
+                result.Visible = sourceCtrl.Visible;
+                result.Text = sourceCtrl.Text;
             }
             if (sourceCtrl.GetType() == typeof(Panel))
             {

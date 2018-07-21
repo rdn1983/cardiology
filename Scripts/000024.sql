@@ -10,7 +10,13 @@ CREATE TABLE ddt_various_spec_concluson (
   dsdt_admission_date timestamp,
   dss_specialist_type VARCHAR(256),
   dss_specialist_conclusion VARCHAR(2048),
-  dss_additional_info0 VARCHAR(1024)
+  dss_additional_info0 VARCHAR(1024),
+  dss_additional_info1 VARCHAR(1024),
+  dss_additional_info2 VARCHAR(1024),
+  dss_additional_info3 VARCHAR(1024),
+  dss_additional_info4 VARCHAR(1024),
+  dsb_visible BOOLEAN default true,
+  dsb_additional_bool BOOLEAN default false
 );
 
 CREATE TRIGGER ddt_various_spec_concluson BEFORE INSERT OR UPDATE

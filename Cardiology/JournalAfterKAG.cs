@@ -22,6 +22,17 @@ namespace Cardiology
 
         private void initControls()
         {
+            CommonUtils.initRangedItems(chssSurgeryTxt, 40, 200);
+            CommonUtils.initRangedItems(chddSurgeryTxt, 14, 26);
+            CommonUtils.initRangedItems(surgeryPsTxt, 40, 200);
+
+            CommonUtils.initRangedItems(releaseChssTxt, 40, 200);
+            CommonUtils.initRangedItems(releaseChddTxt, 14, 26);
+            CommonUtils.initRangedItems(releasePsTxt, 40, 200);
+
+            CommonUtils.initRangedItems(chssText0, 40, 200);
+            CommonUtils.initRangedItems(chddTxt0, 14, 26);
+
             afterKagDiagnosisTxt.Text = hospitalitySession.DssDiagnosis;
             DataService service = new DataService();
             if (CommonUtils.isNotBlank(journalId))
@@ -30,8 +41,13 @@ namespace Cardiology
                 if (journal != null)
                 {
                     surgeryInspectationTxt.Text = journal.DssSurgeonExam;
-                    List<DdtVariousSpecConcluson> cardioConclusions = service.queryObjectsCollectionByAttrCond<DdtVariousSpecConcluson>
-                        (DdtVariousSpecConcluson.TABLE_NAME, "dsid_parent", journal.RObjectId, true);
+                    chssSurgeryTxt.Text = journal.DssChss;
+                    chddSurgeryTxt.Text = journal.DssChdd;
+                    adSurgeryTxt.Text = journal.DssAd;
+                    surgeryPsTxt.Text = journal.DssPs;
+                    ekgTxt0.Text = journal.DssEkg;
+                    List<DdtVariousSpecConcluson> cardioConclusions = service.queryObjectsCollection<DdtVariousSpecConcluson>
+                        ("Select * from " + DdtVariousSpecConcluson.TABLE_NAME + " WHERE dsid_parent='" + journalId + "' AND dsb_additional_bool=false");
                     for (int i = 0; i < cardioConclusions.Count; i++)
                     {
                         if (dutyCardioContainer.Controls.Count <= i)
@@ -40,11 +56,28 @@ namespace Cardiology
                         }
                         Control c = CommonUtils.findControl(dutyCardioContainer, "inspectionTxt" + i);
                         c.Text = cardioConclusions[i].DssSpecialistConclusion;
-                        c = CommonUtils.findControl(dutyCardioContainer, "ekgTxt" + i);
-                        c.Text = cardioConclusions[i].DssSpecialistConclusion;
                         c = CommonUtils.findControl(dutyCardioContainer, "objectIdLbl" + i);
                         c.Text = cardioConclusions[i].RObjectId;
+                        c = CommonUtils.findControl(dutyCardioContainer, "chddTxt" + i);
+                        c.Text = cardioConclusions[i].DssAdditionalInfo1;
+                        c = CommonUtils.findControl(dutyCardioContainer, "chssText" + i);
+                        c.Text = cardioConclusions[i].DssAdditionalInfo2;
+                        c = CommonUtils.findControl(dutyCardioContainer, "adText" + i);
+                        c.Text = cardioConclusions[i].DssAdditionalInfo3;
+                        c = CommonUtils.findControl(dutyCardioContainer, "monitorTxt" + i);
+                        c.Text = cardioConclusions[i].DssAdditionalInfo4;
+                        CheckBox boolCtrl = (CheckBox)CommonUtils.findControl(dutyCardioContainer, "hideBtn" + i);
+                        boolCtrl.Checked = cardioConclusions[i].DsbVisible;
                     }
+
+                    DdtVariousSpecConcluson releaseConclusion = service.queryObject<DdtVariousSpecConcluson>("Select * from " + DdtVariousSpecConcluson.TABLE_NAME +
+                " WHERE dsid_parent='" + journalId + "' AND dsb_additional_bool=true");
+                    releaseInspectionTxt.Text = releaseConclusion.DssSpecialistConclusion;
+                    releasePsTxt.Text = releaseConclusion.DssAdditionalInfo0;
+                    releaseChddTxt.Text = releaseConclusion.DssAdditionalInfo1;
+                    releaseChssTxt.Text = releaseConclusion.DssAdditionalInfo2;
+                    releaseAdTxt.Text = releaseConclusion.DssAdditionalInfo3;
+                    releaseMonitorTxt.Text = releaseConclusion.DssAdditionalInfo4;
                 }
 
             }
@@ -73,9 +106,15 @@ namespace Cardiology
                 journal.DsidDoctor = hospitalitySession.DsidDutyDoctor;
                 journal.DsidHospitalitySession = hospitalitySession.ObjectId;
                 journal.DsidPatient = hospitalitySession.DsidPatient;
-                journal.DsiJournalType = (int) DdtJournalDsiType.AFTER_KAG;
+                journal.DsiJournalType = (int)DdtJournalDsiType.AFTER_KAG;
             }
             journal.DssSurgeonExam = surgeryInspectationTxt.Text;
+            journal.DsbGoodRhytm = goodRhytmBtn.Checked;
+            journal.DssChdd = chddSurgeryTxt.Text;
+            journal.DssChss = chssSurgeryTxt.Text;
+            journal.DssAd = adSurgeryTxt.Text;
+            journal.DssPs = surgeryPsTxt.Text;
+            journal.DssEkg = ekgTxt0.Text;
             journalId = service.updateOrCreateIfNeedObject<DdtJournal>(journal, DdtJournal.TABLE_NAME, journal.RObjectId);
 
             for (int i = 0; i < dutyCardioContainer.Controls.Count; i++)
@@ -96,11 +135,57 @@ namespace Cardiology
 
                 c = CommonUtils.findControl(dutyCardioContainer, "inspectionTxt" + i);
                 conclusion.DssSpecialistConclusion = c.Text;
-                c = CommonUtils.findControl(dutyCardioContainer, "ekgTxt" + i);
-                conclusion.DssAdditionalInfo0 = c.Text;
+                c = CommonUtils.findControl(dutyCardioContainer, "chddTxt" + i);
+                conclusion.DssAdditionalInfo1 = c.Text;
+                c = CommonUtils.findControl(dutyCardioContainer, "chssText" + i);
+                conclusion.DssAdditionalInfo2 = c.Text;
+                c = CommonUtils.findControl(dutyCardioContainer, "adText" + i);
+                conclusion.DssAdditionalInfo3 = c.Text;
+                c = CommonUtils.findControl(dutyCardioContainer, "monitorTxt" + i);
+                conclusion.DssAdditionalInfo4 = c.Text;
+                CheckBox boolCtrl = (CheckBox)CommonUtils.findControl(dutyCardioContainer, "hideBtn" + i);
+                conclusion.DsbVisible = boolCtrl.Checked;
+                conclusion.DsbAdditionalBool = false;
+                boolCtrl = null;
+                c = null;
+
                 service.updateOrCreateIfNeedObject<DdtVariousSpecConcluson>(conclusion, DdtVariousSpecConcluson.TABLE_NAME, conclusion.RObjectId);
             }
+
+            DdtVariousSpecConcluson releaseConclusion = service.queryObject<DdtVariousSpecConcluson>("Select * from " + DdtVariousSpecConcluson.TABLE_NAME +
+                " WHERE dsid_parent='" + journalId + "' AND dsb_additional_bool=true");
+            if (releaseConclusion == null)
+            {
+                releaseConclusion = new DdtVariousSpecConcluson();
+                releaseConclusion.DssParentType = DdtJournal.TABLE_NAME;
+                releaseConclusion.DsidParent = journalId;
+                releaseConclusion.DssSpecialistType = "Дежурный кардиореаниматолог";
+
+            }
+
+            releaseConclusion.DssSpecialistConclusion = releaseInspectionTxt.Text;
+            releaseConclusion.DssAdditionalInfo0 = releasePsTxt.Text;
+            releaseConclusion.DssAdditionalInfo1 = releaseChddTxt.Text;
+            releaseConclusion.DssAdditionalInfo2 = releaseChssTxt.Text;
+            releaseConclusion.DssAdditionalInfo3 = releaseAdTxt.Text;
+            releaseConclusion.DssAdditionalInfo4 = releaseMonitorTxt.Text;
+            releaseConclusion.DsbVisible = false;
+            releaseConclusion.DsbAdditionalBool = true;
+
+            service.updateOrCreateIfNeedObject<DdtVariousSpecConcluson>(releaseConclusion, DdtVariousSpecConcluson.TABLE_NAME, releaseConclusion.RObjectId);
+
+
             Close();
         }
+
+        private void goodRhytmBtn_CheckedChanged(object sender, EventArgs e)
+        {
+            for (int i = 0; i < dutyCardioContainer.Controls.Count; i++)
+            {
+                Control c = CommonUtils.findControl(dutyCardioContainer, "monitorTxt" + i);
+                c.Text = goodRhytmBtn.Checked?"синусовый ритм":"трепетание предсердий";
+            }
+        }
+
     }
 }

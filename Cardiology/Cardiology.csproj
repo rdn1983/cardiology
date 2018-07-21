@@ -74,6 +74,8 @@
       <DependentUpon>Analizi.cs</DependentUpon>
     </Compile>
     <Compile Include="DdtAnamnesis.cs" />
+    <Compile Include="DdtBloodAnalysis.cs" />
+    <Compile Include="DdtCoagulogram.cs" />
     <Compile Include="DdtConsilium.cs" />
     <Compile Include="DdtConsiliumMember.cs" />
     <Compile Include="DdtCure.cs" />
@@ -82,6 +84,7 @@
     <Compile Include="DdtEgds.cs" />
     <Compile Include="DdtEkg.cs" />
     <Compile Include="DdtHolter.cs" />
+    <Compile Include="DdtHormones.cs" />
     <Compile Include="DdtHospital.cs" />
     <Compile Include="DdtIssuedMedicine.cs" />
     <Compile Include="DdtIssuedMedicineList.cs" />
@@ -94,7 +97,6 @@
     <Compile Include="DdtSpecialistConclusion.cs" />
     <Compile Include="DdtUrineAnalysis.cs" />
     <Compile Include="DdtUzi.cs" />
-    <Compile Include="DdtValue.cs" />
     <Compile Include="DdtValues.cs" />
     <Compile Include="DdtVariousSpecConcluson.cs" />
     <Compile Include="DdtXRay.cs" />

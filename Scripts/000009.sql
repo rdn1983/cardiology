@@ -19,6 +19,7 @@ CREATE TABLE ddt_journal (
   dsb_good_rhythm boolean,
   dss_surgeon_exam VARCHAR(512),
   dss_cardio_exam VARCHAR(512),
+  dss_ekg VARCHAR(512),
   dss_journal VARCHAR(1024),
   dsi_journal_type int
 );

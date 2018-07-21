@@ -83,74 +83,35 @@
             this.firstEgdsBox = new System.Windows.Forms.GroupBox();
             this.firstEgdsTxt = new System.Windows.Forms.RichTextBox();
             this.bloodTab = new System.Windows.Forms.TabPage();
-            this.groupBox20 = new System.Windows.Forms.GroupBox();
-            this.textBox78 = new System.Windows.Forms.TextBox();
-            this.textBox77 = new System.Windows.Forms.TextBox();
-            this.textBox76 = new System.Windows.Forms.TextBox();
-            this.label82 = new System.Windows.Forms.Label();
-            this.label81 = new System.Windows.Forms.Label();
-            this.label80 = new System.Windows.Forms.Label();
-            this.groupBox19 = new System.Windows.Forms.GroupBox();
-            this.textBox75 = new System.Windows.Forms.TextBox();
-            this.textBox74 = new System.Windows.Forms.TextBox();
-            this.textBox73 = new System.Windows.Forms.TextBox();
-            this.label79 = new System.Windows.Forms.Label();
-            this.label78 = new System.Windows.Forms.Label();
-            this.label77 = new System.Windows.Forms.Label();
+            this.hormonesPnl = new System.Windows.Forms.GroupBox();
+            this.ttgTxt = new System.Windows.Forms.TextBox();
+            this.t4Txt = new System.Windows.Forms.TextBox();
+            this.t3Txt = new System.Windows.Forms.TextBox();
+            this.ttgLbl = new System.Windows.Forms.Label();
+            this.t4Lbl = new System.Windows.Forms.Label();
+            this.t3Lbl = new System.Windows.Forms.Label();
+            this.coagulogramPnl = new System.Windows.Forms.GroupBox();
+            this.ddimerTxt = new System.Windows.Forms.TextBox();
+            this.mchoTxt = new System.Windows.Forms.TextBox();
+            this.achtvTxt = new System.Windows.Forms.TextBox();
+            this.ddimerLbl = new System.Windows.Forms.Label();
+            this.mchoLbl = new System.Windows.Forms.Label();
+            this.achtvLbl = new System.Windows.Forms.Label();
             this.showABOFormBtn = new System.Windows.Forms.Button();
-            this.groupBox17 = new System.Windows.Forms.GroupBox();
-            this.dateTimePicker5 = new System.Windows.Forms.DateTimePicker();
-            this.label39 = new System.Windows.Forms.Label();
-            this.label40 = new System.Windows.Forms.Label();
-            this.label41 = new System.Windows.Forms.Label();
-            this.label42 = new System.Windows.Forms.Label();
-            this.textBox37 = new System.Windows.Forms.TextBox();
-            this.textBox38 = new System.Windows.Forms.TextBox();
-            this.textBox39 = new System.Windows.Forms.TextBox();
-            this.textBox40 = new System.Windows.Forms.TextBox();
-            this.textBox41 = new System.Windows.Forms.TextBox();
-            this.textBox42 = new System.Windows.Forms.TextBox();
-            this.textBox43 = new System.Windows.Forms.TextBox();
-            this.textBox44 = new System.Windows.Forms.TextBox();
-            this.textBox45 = new System.Windows.Forms.TextBox();
-            this.textBox46 = new System.Windows.Forms.TextBox();
-            this.textBox47 = new System.Windows.Forms.TextBox();
-            this.textBox48 = new System.Windows.Forms.TextBox();
-            this.textBox49 = new System.Windows.Forms.TextBox();
-            this.textBox50 = new System.Windows.Forms.TextBox();
-            this.textBox51 = new System.Windows.Forms.TextBox();
-            this.textBox52 = new System.Windows.Forms.TextBox();
-            this.textBox53 = new System.Windows.Forms.TextBox();
-            this.textBox54 = new System.Windows.Forms.TextBox();
-            this.label43 = new System.Windows.Forms.Label();
-            this.label44 = new System.Windows.Forms.Label();
-            this.label45 = new System.Windows.Forms.Label();
-            this.label46 = new System.Windows.Forms.Label();
-            this.label47 = new System.Windows.Forms.Label();
-            this.label48 = new System.Windows.Forms.Label();
-            this.label49 = new System.Windows.Forms.Label();
-            this.label50 = new System.Windows.Forms.Label();
-            this.label51 = new System.Windows.Forms.Label();
-            this.label52 = new System.Windows.Forms.Label();
-            this.label53 = new System.Windows.Forms.Label();
-            this.label54 = new System.Windows.Forms.Label();
-            this.label55 = new System.Windows.Forms.Label();
-            this.label56 = new System.Windows.Forms.Label();
-            this.label76 = new System.Windows.Forms.Label();
-            this.groupBox18 = new System.Windows.Forms.GroupBox();
-            this.label57 = new System.Windows.Forms.Label();
-            this.label58 = new System.Windows.Forms.Label();
-            this.label59 = new System.Windows.Forms.Label();
-            this.textBox55 = new System.Windows.Forms.TextBox();
-            this.textBox56 = new System.Windows.Forms.TextBox();
-            this.textBox57 = new System.Windows.Forms.TextBox();
-            this.textBox58 = new System.Windows.Forms.TextBox();
-            this.textBox59 = new System.Windows.Forms.TextBox();
-            this.textBox60 = new System.Windows.Forms.TextBox();
-            this.textBox61 = new System.Windows.Forms.TextBox();
-            this.textBox62 = new System.Windows.Forms.TextBox();
-            this.textBox63 = new System.Windows.Forms.TextBox();
-            this.textBox64 = new System.Windows.Forms.TextBox();
+            this.releaseBloodPnl = new System.Windows.Forms.GroupBox();
+            this.releaseKreaininLbl = new System.Windows.Forms.Label();
+            this.releaseProteinLbl = new System.Windows.Forms.Label();
+            this.releaseTromboLbl = new System.Windows.Forms.Label();
+            this.releaseChlorineTxt = new System.Windows.Forms.TextBox();
+            this.releaseSrbTxt = new System.Windows.Forms.TextBox();
+            this.releaseSodiumTxt = new System.Windows.Forms.TextBox();
+            this.releasePotassiumTxt = new System.Windows.Forms.TextBox();
+            this.releaseKfkMvTxt = new System.Windows.Forms.TextBox();
+            this.releaseKfkTxt = new System.Windows.Forms.TextBox();
+            this.releaseAmilazaTxt = new System.Windows.Forms.TextBox();
+            this.releaseSchfTxt = new System.Windows.Forms.TextBox();
+            this.releaseAstTxt = new System.Windows.Forms.TextBox();
+            this.releaseAltTxt = new System.Windows.Forms.TextBox();
             this.textBox65 = new System.Windows.Forms.TextBox();
             this.textBox66 = new System.Windows.Forms.TextBox();
             this.textBox67 = new System.Windows.Forms.TextBox();
@@ -159,97 +120,97 @@
             this.textBox70 = new System.Windows.Forms.TextBox();
             this.textBox71 = new System.Windows.Forms.TextBox();
             this.textBox72 = new System.Windows.Forms.TextBox();
-            this.label60 = new System.Windows.Forms.Label();
-            this.label61 = new System.Windows.Forms.Label();
-            this.label62 = new System.Windows.Forms.Label();
-            this.label63 = new System.Windows.Forms.Label();
-            this.label64 = new System.Windows.Forms.Label();
-            this.label65 = new System.Windows.Forms.Label();
-            this.label66 = new System.Windows.Forms.Label();
-            this.label67 = new System.Windows.Forms.Label();
-            this.label68 = new System.Windows.Forms.Label();
-            this.label69 = new System.Windows.Forms.Label();
-            this.label70 = new System.Windows.Forms.Label();
-            this.label71 = new System.Windows.Forms.Label();
-            this.label72 = new System.Windows.Forms.Label();
-            this.label73 = new System.Windows.Forms.Label();
-            this.label74 = new System.Windows.Forms.Label();
-            this.groupBox16 = new System.Windows.Forms.GroupBox();
-            this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
-            this.label75 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.textBox19 = new System.Windows.Forms.TextBox();
-            this.textBox20 = new System.Windows.Forms.TextBox();
-            this.textBox21 = new System.Windows.Forms.TextBox();
-            this.textBox22 = new System.Windows.Forms.TextBox();
-            this.textBox23 = new System.Windows.Forms.TextBox();
-            this.textBox24 = new System.Windows.Forms.TextBox();
-            this.textBox25 = new System.Windows.Forms.TextBox();
-            this.textBox26 = new System.Windows.Forms.TextBox();
-            this.textBox27 = new System.Windows.Forms.TextBox();
-            this.textBox28 = new System.Windows.Forms.TextBox();
-            this.textBox29 = new System.Windows.Forms.TextBox();
-            this.textBox30 = new System.Windows.Forms.TextBox();
-            this.textBox31 = new System.Windows.Forms.TextBox();
-            this.textBox32 = new System.Windows.Forms.TextBox();
-            this.textBox33 = new System.Windows.Forms.TextBox();
-            this.textBox34 = new System.Windows.Forms.TextBox();
-            this.textBox35 = new System.Windows.Forms.TextBox();
-            this.textBox36 = new System.Windows.Forms.TextBox();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.label32 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
-            this.label35 = new System.Windows.Forms.Label();
-            this.label36 = new System.Windows.Forms.Label();
-            this.label37 = new System.Windows.Forms.Label();
-            this.label38 = new System.Windows.Forms.Label();
-            this.groupBox15 = new System.Windows.Forms.GroupBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.textBox18 = new System.Windows.Forms.TextBox();
-            this.textBox17 = new System.Windows.Forms.TextBox();
-            this.textBox16 = new System.Windows.Forms.TextBox();
-            this.textBox15 = new System.Windows.Forms.TextBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.releaseBloodLeucoLbl = new System.Windows.Forms.Label();
+            this.releaseHolesterolLbl = new System.Windows.Forms.Label();
+            this.releaseBilLbl = new System.Windows.Forms.Label();
+            this.releaseIronLbl = new System.Windows.Forms.Label();
+            this.releaseSchfLbl = new System.Windows.Forms.Label();
+            this.releaseAmilazaLbl = new System.Windows.Forms.Label();
+            this.releasePotassiumLbl = new System.Windows.Forms.Label();
+            this.releaseSodiumLbl = new System.Windows.Forms.Label();
+            this.releaseAltLbl = new System.Windows.Forms.Label();
+            this.releaseAstLbl = new System.Windows.Forms.Label();
+            this.releaseKfkMvLbl = new System.Windows.Forms.Label();
+            this.releaseKfkLbl = new System.Windows.Forms.Label();
+            this.releaseSrbLbl = new System.Windows.Forms.Label();
+            this.releaseChlorineLbl = new System.Windows.Forms.Label();
+            this.releaseHemoglobinLbl = new System.Windows.Forms.Label();
+            this.regularBloodPnl = new System.Windows.Forms.GroupBox();
+            this.regularBloodDateTxt = new System.Windows.Forms.DateTimePicker();
+            this.regularBloodDateLbl = new System.Windows.Forms.Label();
+            this.regularKreatininLbl = new System.Windows.Forms.Label();
+            this.regularProteinLbl = new System.Windows.Forms.Label();
+            this.regularTrombocytesLbl = new System.Windows.Forms.Label();
+            this.regularChloriumTxt = new System.Windows.Forms.TextBox();
+            this.regularSrbTxt = new System.Windows.Forms.TextBox();
+            this.regularSodiumTxt = new System.Windows.Forms.TextBox();
+            this.regularPotassiumTxt = new System.Windows.Forms.TextBox();
+            this.regularKfkMvTxt = new System.Windows.Forms.TextBox();
+            this.regularKfkTxt = new System.Windows.Forms.TextBox();
+            this.regularAmilazaTzt = new System.Windows.Forms.TextBox();
+            this.regularSchfTxt = new System.Windows.Forms.TextBox();
+            this.regularAstTxt = new System.Windows.Forms.TextBox();
+            this.regularAltTxt = new System.Windows.Forms.TextBox();
+            this.regularIronTxt = new System.Windows.Forms.TextBox();
+            this.regularBilTxt = new System.Windows.Forms.TextBox();
+            this.regularCholesterolTxt = new System.Windows.Forms.TextBox();
+            this.regularKreatininTxt = new System.Windows.Forms.TextBox();
+            this.regularProreinTxt = new System.Windows.Forms.TextBox();
+            this.regularTrombocytesTxt = new System.Windows.Forms.TextBox();
+            this.regularBloodLeucoTxt = new System.Windows.Forms.TextBox();
+            this.regularHemoglobinTxt = new System.Windows.Forms.TextBox();
+            this.regularBloodLeucoLbl = new System.Windows.Forms.Label();
+            this.regularHolesterolLbl = new System.Windows.Forms.Label();
+            this.regularBilLbl = new System.Windows.Forms.Label();
+            this.regularIronLbl = new System.Windows.Forms.Label();
+            this.regularSchfLbl = new System.Windows.Forms.Label();
+            this.regularAmilazaLbl = new System.Windows.Forms.Label();
+            this.regularPotassiumLbl = new System.Windows.Forms.Label();
+            this.regularSodiumLbl = new System.Windows.Forms.Label();
+            this.regularAltLbl = new System.Windows.Forms.Label();
+            this.regularAstLbl = new System.Windows.Forms.Label();
+            this.regularKfkMvLbl = new System.Windows.Forms.Label();
+            this.regularKfkLbl = new System.Windows.Forms.Label();
+            this.regularSrbLbl = new System.Windows.Forms.Label();
+            this.regularChloriumLbl = new System.Windows.Forms.Label();
+            this.regularHemogloinLbl = new System.Windows.Forms.Label();
+            this.firstBloodPnl = new System.Windows.Forms.GroupBox();
+            this.firstKreatininLbl = new System.Windows.Forms.Label();
+            this.firstProteintLbl = new System.Windows.Forms.Label();
+            this.firstPlatelesLbl = new System.Windows.Forms.Label();
+            this.firstChlorineTxt = new System.Windows.Forms.TextBox();
+            this.firstSrbTxt = new System.Windows.Forms.TextBox();
+            this.firstSodiumTxt = new System.Windows.Forms.TextBox();
+            this.firstPotassiumTxt = new System.Windows.Forms.TextBox();
+            this.firstKfkMvTxt = new System.Windows.Forms.TextBox();
+            this.firstKfkTxt = new System.Windows.Forms.TextBox();
+            this.firstAmilazaTxt = new System.Windows.Forms.TextBox();
+            this.firstSchfTxt = new System.Windows.Forms.TextBox();
+            this.firstAstTxt = new System.Windows.Forms.TextBox();
+            this.firstAltTxt = new System.Windows.Forms.TextBox();
+            this.firstIronTxt = new System.Windows.Forms.TextBox();
+            this.firstBilTxt = new System.Windows.Forms.TextBox();
+            this.firstHolesterolTxt = new System.Windows.Forms.TextBox();
+            this.firstKreatininTxt = new System.Windows.Forms.TextBox();
+            this.firstBloodProteintTxt = new System.Windows.Forms.TextBox();
+            this.firstTrombocytesTxt = new System.Windows.Forms.TextBox();
+            this.firstBloodLeucoTxt = new System.Windows.Forms.TextBox();
+            this.firstHemoglobinTxt = new System.Windows.Forms.TextBox();
+            this.firstLeucocytesLbl = new System.Windows.Forms.Label();
+            this.firstHolesterolLbl = new System.Windows.Forms.Label();
+            this.firstBilLbl = new System.Windows.Forms.Label();
+            this.firstIronLbl = new System.Windows.Forms.Label();
+            this.firstSchfLbl = new System.Windows.Forms.Label();
+            this.firstAmilazaLbl = new System.Windows.Forms.Label();
+            this.firstPotassiumLbl = new System.Windows.Forms.Label();
+            this.firstSodiumLbl = new System.Windows.Forms.Label();
+            this.firstAltLbl = new System.Windows.Forms.Label();
+            this.firstAstLbl = new System.Windows.Forms.Label();
+            this.firstKfkMvLbl = new System.Windows.Forms.Label();
+            this.firstKfkLbl = new System.Windows.Forms.Label();
+            this.firstSrbLbl = new System.Windows.Forms.Label();
+            this.firstChlorineLbl = new System.Windows.Forms.Label();
+            this.firstHemoglobinLbl = new System.Windows.Forms.Label();
             this.urineTab = new System.Windows.Forms.TabPage();
             this.regularAnalysisBox = new System.Windows.Forms.GroupBox();
             this.proteinTxt = new System.Windows.Forms.TextBox();
@@ -325,12 +286,11 @@
             this.regularEgdsBox.SuspendLayout();
             this.firstEgdsBox.SuspendLayout();
             this.bloodTab.SuspendLayout();
-            this.groupBox20.SuspendLayout();
-            this.groupBox19.SuspendLayout();
-            this.groupBox17.SuspendLayout();
-            this.groupBox18.SuspendLayout();
-            this.groupBox16.SuspendLayout();
-            this.groupBox15.SuspendLayout();
+            this.hormonesPnl.SuspendLayout();
+            this.coagulogramPnl.SuspendLayout();
+            this.releaseBloodPnl.SuspendLayout();
+            this.regularBloodPnl.SuspendLayout();
+            this.firstBloodPnl.SuspendLayout();
             this.urineTab.SuspendLayout();
             this.regularAnalysisBox.SuspendLayout();
             this.firstAnalysisBox.SuspendLayout();
@@ -903,13 +863,12 @@
             // 
             // bloodTab
             // 
-            this.bloodTab.Controls.Add(this.groupBox20);
-            this.bloodTab.Controls.Add(this.groupBox19);
+            this.bloodTab.Controls.Add(this.hormonesPnl);
+            this.bloodTab.Controls.Add(this.coagulogramPnl);
             this.bloodTab.Controls.Add(this.showABOFormBtn);
-            this.bloodTab.Controls.Add(this.groupBox17);
-            this.bloodTab.Controls.Add(this.groupBox18);
-            this.bloodTab.Controls.Add(this.groupBox16);
-            this.bloodTab.Controls.Add(this.groupBox15);
+            this.bloodTab.Controls.Add(this.releaseBloodPnl);
+            this.bloodTab.Controls.Add(this.regularBloodPnl);
+            this.bloodTab.Controls.Add(this.firstBloodPnl);
             this.bloodTab.Location = new System.Drawing.Point(4, 22);
             this.bloodTab.Name = "bloodTab";
             this.bloodTab.Padding = new System.Windows.Forms.Padding(3);
@@ -918,131 +877,131 @@
             this.bloodTab.Text = "Показатели крови";
             this.bloodTab.UseVisualStyleBackColor = true;
             // 
-            // groupBox20
+            // hormonesPnl
             // 
-            this.groupBox20.Controls.Add(this.textBox78);
-            this.groupBox20.Controls.Add(this.textBox77);
-            this.groupBox20.Controls.Add(this.textBox76);
-            this.groupBox20.Controls.Add(this.label82);
-            this.groupBox20.Controls.Add(this.label81);
-            this.groupBox20.Controls.Add(this.label80);
-            this.groupBox20.Location = new System.Drawing.Point(744, 341);
-            this.groupBox20.Name = "groupBox20";
-            this.groupBox20.Size = new System.Drawing.Size(166, 137);
-            this.groupBox20.TabIndex = 40;
-            this.groupBox20.TabStop = false;
-            this.groupBox20.Text = "Гормоны";
+            this.hormonesPnl.Controls.Add(this.ttgTxt);
+            this.hormonesPnl.Controls.Add(this.t4Txt);
+            this.hormonesPnl.Controls.Add(this.t3Txt);
+            this.hormonesPnl.Controls.Add(this.ttgLbl);
+            this.hormonesPnl.Controls.Add(this.t4Lbl);
+            this.hormonesPnl.Controls.Add(this.t3Lbl);
+            this.hormonesPnl.Location = new System.Drawing.Point(547, 151);
+            this.hormonesPnl.Name = "hormonesPnl";
+            this.hormonesPnl.Size = new System.Drawing.Size(166, 137);
+            this.hormonesPnl.TabIndex = 40;
+            this.hormonesPnl.TabStop = false;
+            this.hormonesPnl.Text = "Гормоны";
             // 
-            // textBox78
+            // ttgTxt
             // 
-            this.textBox78.Location = new System.Drawing.Point(69, 104);
-            this.textBox78.Name = "textBox78";
-            this.textBox78.Size = new System.Drawing.Size(85, 20);
-            this.textBox78.TabIndex = 5;
+            this.ttgTxt.Location = new System.Drawing.Point(69, 104);
+            this.ttgTxt.Name = "ttgTxt";
+            this.ttgTxt.Size = new System.Drawing.Size(85, 20);
+            this.ttgTxt.TabIndex = 5;
             // 
-            // textBox77
+            // t4Txt
             // 
-            this.textBox77.Location = new System.Drawing.Point(69, 65);
-            this.textBox77.Name = "textBox77";
-            this.textBox77.Size = new System.Drawing.Size(85, 20);
-            this.textBox77.TabIndex = 4;
+            this.t4Txt.Location = new System.Drawing.Point(69, 65);
+            this.t4Txt.Name = "t4Txt";
+            this.t4Txt.Size = new System.Drawing.Size(85, 20);
+            this.t4Txt.TabIndex = 4;
             // 
-            // textBox76
+            // t3Txt
             // 
-            this.textBox76.Location = new System.Drawing.Point(69, 24);
-            this.textBox76.Name = "textBox76";
-            this.textBox76.Size = new System.Drawing.Size(85, 20);
-            this.textBox76.TabIndex = 3;
+            this.t3Txt.Location = new System.Drawing.Point(69, 24);
+            this.t3Txt.Name = "t3Txt";
+            this.t3Txt.Size = new System.Drawing.Size(85, 20);
+            this.t3Txt.TabIndex = 3;
             // 
-            // label82
+            // ttgLbl
             // 
-            this.label82.AutoSize = true;
-            this.label82.Location = new System.Drawing.Point(14, 111);
-            this.label82.Name = "label82";
-            this.label82.Size = new System.Drawing.Size(30, 13);
-            this.label82.TabIndex = 2;
-            this.label82.Text = "ТТГ:";
+            this.ttgLbl.AutoSize = true;
+            this.ttgLbl.Location = new System.Drawing.Point(14, 111);
+            this.ttgLbl.Name = "ttgLbl";
+            this.ttgLbl.Size = new System.Drawing.Size(30, 13);
+            this.ttgLbl.TabIndex = 2;
+            this.ttgLbl.Text = "ТТГ:";
             // 
-            // label81
+            // t4Lbl
             // 
-            this.label81.AutoSize = true;
-            this.label81.Location = new System.Drawing.Point(14, 72);
-            this.label81.Name = "label81";
-            this.label81.Size = new System.Drawing.Size(26, 13);
-            this.label81.TabIndex = 1;
-            this.label81.Text = "Т-4:";
+            this.t4Lbl.AutoSize = true;
+            this.t4Lbl.Location = new System.Drawing.Point(14, 72);
+            this.t4Lbl.Name = "t4Lbl";
+            this.t4Lbl.Size = new System.Drawing.Size(26, 13);
+            this.t4Lbl.TabIndex = 1;
+            this.t4Lbl.Text = "Т-4:";
             // 
-            // label80
+            // t3Lbl
             // 
-            this.label80.AutoSize = true;
-            this.label80.Location = new System.Drawing.Point(14, 31);
-            this.label80.Name = "label80";
-            this.label80.Size = new System.Drawing.Size(26, 13);
-            this.label80.TabIndex = 0;
-            this.label80.Text = "Т-3:";
+            this.t3Lbl.AutoSize = true;
+            this.t3Lbl.Location = new System.Drawing.Point(14, 31);
+            this.t3Lbl.Name = "t3Lbl";
+            this.t3Lbl.Size = new System.Drawing.Size(26, 13);
+            this.t3Lbl.TabIndex = 0;
+            this.t3Lbl.Text = "Т-3:";
             // 
-            // groupBox19
+            // coagulogramPnl
             // 
-            this.groupBox19.Controls.Add(this.textBox75);
-            this.groupBox19.Controls.Add(this.textBox74);
-            this.groupBox19.Controls.Add(this.textBox73);
-            this.groupBox19.Controls.Add(this.label79);
-            this.groupBox19.Controls.Add(this.label78);
-            this.groupBox19.Controls.Add(this.label77);
-            this.groupBox19.Location = new System.Drawing.Point(744, 191);
-            this.groupBox19.Name = "groupBox19";
-            this.groupBox19.Size = new System.Drawing.Size(166, 132);
-            this.groupBox19.TabIndex = 39;
-            this.groupBox19.TabStop = false;
-            this.groupBox19.Text = "Коагулограмма";
+            this.coagulogramPnl.Controls.Add(this.ddimerTxt);
+            this.coagulogramPnl.Controls.Add(this.mchoTxt);
+            this.coagulogramPnl.Controls.Add(this.achtvTxt);
+            this.coagulogramPnl.Controls.Add(this.ddimerLbl);
+            this.coagulogramPnl.Controls.Add(this.mchoLbl);
+            this.coagulogramPnl.Controls.Add(this.achtvLbl);
+            this.coagulogramPnl.Location = new System.Drawing.Point(547, 8);
+            this.coagulogramPnl.Name = "coagulogramPnl";
+            this.coagulogramPnl.Size = new System.Drawing.Size(166, 132);
+            this.coagulogramPnl.TabIndex = 39;
+            this.coagulogramPnl.TabStop = false;
+            this.coagulogramPnl.Text = "Коагулограмма";
             // 
-            // textBox75
+            // ddimerTxt
             // 
-            this.textBox75.Location = new System.Drawing.Point(69, 96);
-            this.textBox75.Name = "textBox75";
-            this.textBox75.Size = new System.Drawing.Size(85, 20);
-            this.textBox75.TabIndex = 5;
+            this.ddimerTxt.Location = new System.Drawing.Point(69, 96);
+            this.ddimerTxt.Name = "ddimerTxt";
+            this.ddimerTxt.Size = new System.Drawing.Size(85, 20);
+            this.ddimerTxt.TabIndex = 5;
             // 
-            // textBox74
+            // mchoTxt
             // 
-            this.textBox74.Location = new System.Drawing.Point(69, 62);
-            this.textBox74.Name = "textBox74";
-            this.textBox74.Size = new System.Drawing.Size(85, 20);
-            this.textBox74.TabIndex = 4;
+            this.mchoTxt.Location = new System.Drawing.Point(69, 62);
+            this.mchoTxt.Name = "mchoTxt";
+            this.mchoTxt.Size = new System.Drawing.Size(85, 20);
+            this.mchoTxt.TabIndex = 4;
             // 
-            // textBox73
+            // achtvTxt
             // 
-            this.textBox73.Location = new System.Drawing.Point(69, 28);
-            this.textBox73.Name = "textBox73";
-            this.textBox73.Size = new System.Drawing.Size(85, 20);
-            this.textBox73.TabIndex = 3;
+            this.achtvTxt.Location = new System.Drawing.Point(69, 28);
+            this.achtvTxt.Name = "achtvTxt";
+            this.achtvTxt.Size = new System.Drawing.Size(85, 20);
+            this.achtvTxt.TabIndex = 3;
             // 
-            // label79
+            // ddimerLbl
             // 
-            this.label79.AutoSize = true;
-            this.label79.Location = new System.Drawing.Point(9, 103);
-            this.label79.Name = "label79";
-            this.label79.Size = new System.Drawing.Size(46, 13);
-            this.label79.TabIndex = 2;
-            this.label79.Text = "D-dimer:";
+            this.ddimerLbl.AutoSize = true;
+            this.ddimerLbl.Location = new System.Drawing.Point(9, 103);
+            this.ddimerLbl.Name = "ddimerLbl";
+            this.ddimerLbl.Size = new System.Drawing.Size(46, 13);
+            this.ddimerLbl.TabIndex = 2;
+            this.ddimerLbl.Text = "D-dimer:";
             // 
-            // label78
+            // mchoLbl
             // 
-            this.label78.AutoSize = true;
-            this.label78.Location = new System.Drawing.Point(9, 69);
-            this.label78.Name = "label78";
-            this.label78.Size = new System.Drawing.Size(35, 13);
-            this.label78.TabIndex = 1;
-            this.label78.Text = "МНО:";
+            this.mchoLbl.AutoSize = true;
+            this.mchoLbl.Location = new System.Drawing.Point(9, 69);
+            this.mchoLbl.Name = "mchoLbl";
+            this.mchoLbl.Size = new System.Drawing.Size(35, 13);
+            this.mchoLbl.TabIndex = 1;
+            this.mchoLbl.Text = "МНО:";
             // 
-            // label77
+            // achtvLbl
             // 
-            this.label77.AutoSize = true;
-            this.label77.Location = new System.Drawing.Point(9, 31);
-            this.label77.Name = "label77";
-            this.label77.Size = new System.Drawing.Size(39, 13);
-            this.label77.TabIndex = 0;
-            this.label77.Text = "АЧТВ:";
+            this.achtvLbl.AutoSize = true;
+            this.achtvLbl.Location = new System.Drawing.Point(9, 31);
+            this.achtvLbl.Name = "achtvLbl";
+            this.achtvLbl.Size = new System.Drawing.Size(39, 13);
+            this.achtvLbl.TabIndex = 0;
+            this.achtvLbl.Text = "АЧТВ:";
             // 
             // showABOFormBtn
             // 
@@ -1054,504 +1013,163 @@
             this.showABOFormBtn.UseVisualStyleBackColor = true;
             this.showABOFormBtn.Click += new System.EventHandler(this.showABOFormBtn_Click);
             // 
-            // groupBox17
-            // 
-            this.groupBox17.Controls.Add(this.dateTimePicker5);
-            this.groupBox17.Controls.Add(this.label39);
-            this.groupBox17.Controls.Add(this.label40);
-            this.groupBox17.Controls.Add(this.label41);
-            this.groupBox17.Controls.Add(this.label42);
-            this.groupBox17.Controls.Add(this.textBox37);
-            this.groupBox17.Controls.Add(this.textBox38);
-            this.groupBox17.Controls.Add(this.textBox39);
-            this.groupBox17.Controls.Add(this.textBox40);
-            this.groupBox17.Controls.Add(this.textBox41);
-            this.groupBox17.Controls.Add(this.textBox42);
-            this.groupBox17.Controls.Add(this.textBox43);
-            this.groupBox17.Controls.Add(this.textBox44);
-            this.groupBox17.Controls.Add(this.textBox45);
-            this.groupBox17.Controls.Add(this.textBox46);
-            this.groupBox17.Controls.Add(this.textBox47);
-            this.groupBox17.Controls.Add(this.textBox48);
-            this.groupBox17.Controls.Add(this.textBox49);
-            this.groupBox17.Controls.Add(this.textBox50);
-            this.groupBox17.Controls.Add(this.textBox51);
-            this.groupBox17.Controls.Add(this.textBox52);
-            this.groupBox17.Controls.Add(this.textBox53);
-            this.groupBox17.Controls.Add(this.textBox54);
-            this.groupBox17.Controls.Add(this.label43);
-            this.groupBox17.Controls.Add(this.label44);
-            this.groupBox17.Controls.Add(this.label45);
-            this.groupBox17.Controls.Add(this.label46);
-            this.groupBox17.Controls.Add(this.label47);
-            this.groupBox17.Controls.Add(this.label48);
-            this.groupBox17.Controls.Add(this.label49);
-            this.groupBox17.Controls.Add(this.label50);
-            this.groupBox17.Controls.Add(this.label51);
-            this.groupBox17.Controls.Add(this.label52);
-            this.groupBox17.Controls.Add(this.label53);
-            this.groupBox17.Controls.Add(this.label54);
-            this.groupBox17.Controls.Add(this.label55);
-            this.groupBox17.Controls.Add(this.label56);
-            this.groupBox17.Controls.Add(this.label76);
-            this.groupBox17.Location = new System.Drawing.Point(383, 6);
-            this.groupBox17.Name = "groupBox17";
-            this.groupBox17.Size = new System.Drawing.Size(172, 472);
-            this.groupBox17.TabIndex = 36;
-            this.groupBox17.TabStop = false;
-            this.groupBox17.Text = "Анализы промежуточные 3";
-            // 
-            // dateTimePicker5
-            // 
-            this.dateTimePicker5.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker5.Location = new System.Drawing.Point(81, 19);
-            this.dateTimePicker5.Name = "dateTimePicker5";
-            this.dateTimePicker5.Size = new System.Drawing.Size(79, 20);
-            this.dateTimePicker5.TabIndex = 37;
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(6, 26);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(36, 13);
-            this.label39.TabIndex = 36;
-            this.label39.Text = "Дата:";
-            // 
-            // label40
-            // 
-            this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(6, 145);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(64, 13);
-            this.label40.TabIndex = 35;
-            this.label40.Text = "Креатинин:";
-            // 
-            // label41
-            // 
-            this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(6, 121);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(60, 13);
-            this.label41.TabIndex = 34;
-            this.label41.Text = "Об. белок:";
-            // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(6, 97);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(74, 13);
-            this.label42.TabIndex = 33;
-            this.label42.Text = "Тромбоциты:";
-            // 
-            // textBox37
-            // 
-            this.textBox37.Location = new System.Drawing.Point(81, 448);
-            this.textBox37.Name = "textBox37";
-            this.textBox37.Size = new System.Drawing.Size(79, 20);
-            this.textBox37.TabIndex = 32;
-            // 
-            // textBox38
-            // 
-            this.textBox38.Location = new System.Drawing.Point(81, 376);
-            this.textBox38.Name = "textBox38";
-            this.textBox38.Size = new System.Drawing.Size(79, 20);
-            this.textBox38.TabIndex = 31;
-            // 
-            // textBox39
-            // 
-            this.textBox39.Location = new System.Drawing.Point(81, 424);
-            this.textBox39.Name = "textBox39";
-            this.textBox39.Size = new System.Drawing.Size(79, 20);
-            this.textBox39.TabIndex = 30;
-            // 
-            // textBox40
-            // 
-            this.textBox40.Location = new System.Drawing.Point(81, 400);
-            this.textBox40.Name = "textBox40";
-            this.textBox40.Size = new System.Drawing.Size(79, 20);
-            this.textBox40.TabIndex = 29;
-            // 
-            // textBox41
-            // 
-            this.textBox41.Location = new System.Drawing.Point(81, 352);
-            this.textBox41.Name = "textBox41";
-            this.textBox41.Size = new System.Drawing.Size(79, 20);
-            this.textBox41.TabIndex = 28;
-            // 
-            // textBox42
-            // 
-            this.textBox42.Location = new System.Drawing.Point(81, 328);
-            this.textBox42.Name = "textBox42";
-            this.textBox42.Size = new System.Drawing.Size(79, 20);
-            this.textBox42.TabIndex = 27;
-            // 
-            // textBox43
-            // 
-            this.textBox43.Location = new System.Drawing.Point(81, 305);
-            this.textBox43.Name = "textBox43";
-            this.textBox43.Size = new System.Drawing.Size(79, 20);
-            this.textBox43.TabIndex = 26;
-            // 
-            // textBox44
-            // 
-            this.textBox44.Location = new System.Drawing.Point(81, 281);
-            this.textBox44.Name = "textBox44";
-            this.textBox44.Size = new System.Drawing.Size(79, 20);
-            this.textBox44.TabIndex = 25;
-            // 
-            // textBox45
-            // 
-            this.textBox45.Location = new System.Drawing.Point(81, 257);
-            this.textBox45.Name = "textBox45";
-            this.textBox45.Size = new System.Drawing.Size(79, 20);
-            this.textBox45.TabIndex = 24;
-            // 
-            // textBox46
-            // 
-            this.textBox46.Location = new System.Drawing.Point(81, 233);
-            this.textBox46.Name = "textBox46";
-            this.textBox46.Size = new System.Drawing.Size(79, 20);
-            this.textBox46.TabIndex = 23;
-            // 
-            // textBox47
-            // 
-            this.textBox47.Location = new System.Drawing.Point(81, 209);
-            this.textBox47.Name = "textBox47";
-            this.textBox47.Size = new System.Drawing.Size(79, 20);
-            this.textBox47.TabIndex = 22;
-            // 
-            // textBox48
-            // 
-            this.textBox48.Location = new System.Drawing.Point(81, 186);
-            this.textBox48.Name = "textBox48";
-            this.textBox48.Size = new System.Drawing.Size(79, 20);
-            this.textBox48.TabIndex = 21;
-            // 
-            // textBox49
-            // 
-            this.textBox49.Location = new System.Drawing.Point(81, 162);
-            this.textBox49.Name = "textBox49";
-            this.textBox49.Size = new System.Drawing.Size(79, 20);
-            this.textBox49.TabIndex = 20;
-            // 
-            // textBox50
-            // 
-            this.textBox50.Location = new System.Drawing.Point(81, 138);
-            this.textBox50.Name = "textBox50";
-            this.textBox50.Size = new System.Drawing.Size(79, 20);
-            this.textBox50.TabIndex = 19;
-            // 
-            // textBox51
-            // 
-            this.textBox51.Location = new System.Drawing.Point(81, 114);
-            this.textBox51.Name = "textBox51";
-            this.textBox51.Size = new System.Drawing.Size(79, 20);
-            this.textBox51.TabIndex = 18;
-            // 
-            // textBox52
-            // 
-            this.textBox52.Location = new System.Drawing.Point(81, 90);
-            this.textBox52.Name = "textBox52";
-            this.textBox52.Size = new System.Drawing.Size(79, 20);
-            this.textBox52.TabIndex = 17;
-            // 
-            // textBox53
-            // 
-            this.textBox53.Location = new System.Drawing.Point(81, 66);
-            this.textBox53.Name = "textBox53";
-            this.textBox53.Size = new System.Drawing.Size(79, 20);
-            this.textBox53.TabIndex = 16;
-            // 
-            // textBox54
-            // 
-            this.textBox54.Location = new System.Drawing.Point(81, 43);
-            this.textBox54.Name = "textBox54";
-            this.textBox54.Size = new System.Drawing.Size(79, 20);
-            this.textBox54.TabIndex = 15;
-            // 
-            // label43
-            // 
-            this.label43.AutoSize = true;
-            this.label43.Location = new System.Drawing.Point(6, 73);
-            this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(67, 13);
-            this.label43.TabIndex = 14;
-            this.label43.Text = "Лейкоциты:";
-            // 
-            // label44
-            // 
-            this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(6, 169);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(70, 13);
-            this.label44.TabIndex = 13;
-            this.label44.Text = "Холестерин:";
-            // 
-            // label45
-            // 
-            this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(6, 193);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(59, 13);
-            this.label45.TabIndex = 12;
-            this.label45.Text = "Бил. общ.:";
-            // 
-            // label46
-            // 
-            this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(6, 216);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(51, 13);
-            this.label46.TabIndex = 11;
-            this.label46.Text = "Железо:";
-            // 
-            // label47
-            // 
-            this.label47.AutoSize = true;
-            this.label47.Location = new System.Drawing.Point(6, 288);
-            this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(31, 13);
-            this.label47.TabIndex = 10;
-            this.label47.Text = "ЩФ:";
-            // 
-            // label48
-            // 
-            this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(6, 312);
-            this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(55, 13);
-            this.label48.TabIndex = 9;
-            this.label48.Text = "Амилаза:";
-            // 
-            // label49
-            // 
-            this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(6, 407);
-            this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(41, 13);
-            this.label49.TabIndex = 8;
-            this.label49.Text = "Калий:";
-            // 
-            // label50
-            // 
-            this.label50.AutoSize = true;
-            this.label50.Location = new System.Drawing.Point(6, 431);
-            this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(47, 13);
-            this.label50.TabIndex = 7;
-            this.label50.Text = "Натрий:";
-            // 
-            // label51
-            // 
-            this.label51.AutoSize = true;
-            this.label51.Location = new System.Drawing.Point(6, 240);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(32, 13);
-            this.label51.TabIndex = 6;
-            this.label51.Text = "АЛТ:";
-            // 
-            // label52
-            // 
-            this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(6, 264);
-            this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(31, 13);
-            this.label52.TabIndex = 5;
-            this.label52.Text = "АСТ:";
-            // 
-            // label53
-            // 
-            this.label53.AutoSize = true;
-            this.label53.Location = new System.Drawing.Point(6, 359);
-            this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(54, 13);
-            this.label53.TabIndex = 4;
-            this.label53.Text = "КФК-МВ:";
-            // 
-            // label54
-            // 
-            this.label54.AutoSize = true;
-            this.label54.Location = new System.Drawing.Point(6, 335);
-            this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(35, 13);
-            this.label54.TabIndex = 3;
-            this.label54.Text = "КФК:";
-            // 
-            // label55
-            // 
-            this.label55.AutoSize = true;
-            this.label55.Location = new System.Drawing.Point(6, 383);
-            this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(31, 13);
-            this.label55.TabIndex = 2;
-            this.label55.Text = "СРБ:";
-            // 
-            // label56
-            // 
-            this.label56.AutoSize = true;
-            this.label56.Location = new System.Drawing.Point(6, 455);
-            this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(35, 13);
-            this.label56.TabIndex = 1;
-            this.label56.Text = "Хлор:";
-            // 
-            // label76
-            // 
-            this.label76.AutoSize = true;
-            this.label76.Location = new System.Drawing.Point(6, 50);
-            this.label76.Name = "label76";
-            this.label76.Size = new System.Drawing.Size(71, 13);
-            this.label76.TabIndex = 0;
-            this.label76.Text = "Гемоглобин:";
-            // 
-            // groupBox18
-            // 
-            this.groupBox18.Controls.Add(this.label57);
-            this.groupBox18.Controls.Add(this.label58);
-            this.groupBox18.Controls.Add(this.label59);
-            this.groupBox18.Controls.Add(this.textBox55);
-            this.groupBox18.Controls.Add(this.textBox56);
-            this.groupBox18.Controls.Add(this.textBox57);
-            this.groupBox18.Controls.Add(this.textBox58);
-            this.groupBox18.Controls.Add(this.textBox59);
-            this.groupBox18.Controls.Add(this.textBox60);
-            this.groupBox18.Controls.Add(this.textBox61);
-            this.groupBox18.Controls.Add(this.textBox62);
-            this.groupBox18.Controls.Add(this.textBox63);
-            this.groupBox18.Controls.Add(this.textBox64);
-            this.groupBox18.Controls.Add(this.textBox65);
-            this.groupBox18.Controls.Add(this.textBox66);
-            this.groupBox18.Controls.Add(this.textBox67);
-            this.groupBox18.Controls.Add(this.textBox68);
-            this.groupBox18.Controls.Add(this.textBox69);
-            this.groupBox18.Controls.Add(this.textBox70);
-            this.groupBox18.Controls.Add(this.textBox71);
-            this.groupBox18.Controls.Add(this.textBox72);
-            this.groupBox18.Controls.Add(this.label60);
-            this.groupBox18.Controls.Add(this.label61);
-            this.groupBox18.Controls.Add(this.label62);
-            this.groupBox18.Controls.Add(this.label63);
-            this.groupBox18.Controls.Add(this.label64);
-            this.groupBox18.Controls.Add(this.label65);
-            this.groupBox18.Controls.Add(this.label66);
-            this.groupBox18.Controls.Add(this.label67);
-            this.groupBox18.Controls.Add(this.label68);
-            this.groupBox18.Controls.Add(this.label69);
-            this.groupBox18.Controls.Add(this.label70);
-            this.groupBox18.Controls.Add(this.label71);
-            this.groupBox18.Controls.Add(this.label72);
-            this.groupBox18.Controls.Add(this.label73);
-            this.groupBox18.Controls.Add(this.label74);
-            this.groupBox18.Location = new System.Drawing.Point(566, 6);
-            this.groupBox18.Name = "groupBox18";
-            this.groupBox18.Size = new System.Drawing.Size(172, 472);
-            this.groupBox18.TabIndex = 36;
-            this.groupBox18.TabStop = false;
-            this.groupBox18.Text = "Анализы последние";
-            // 
-            // label57
-            // 
-            this.label57.AutoSize = true;
-            this.label57.Location = new System.Drawing.Point(6, 121);
-            this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(64, 13);
-            this.label57.TabIndex = 35;
-            this.label57.Text = "Креатинин:";
-            // 
-            // label58
-            // 
-            this.label58.AutoSize = true;
-            this.label58.Location = new System.Drawing.Point(6, 97);
-            this.label58.Name = "label58";
-            this.label58.Size = new System.Drawing.Size(60, 13);
-            this.label58.TabIndex = 34;
-            this.label58.Text = "Об. белок:";
-            // 
-            // label59
-            // 
-            this.label59.AutoSize = true;
-            this.label59.Location = new System.Drawing.Point(6, 73);
-            this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(74, 13);
-            this.label59.TabIndex = 33;
-            this.label59.Text = "Тромбоциты:";
-            // 
-            // textBox55
-            // 
-            this.textBox55.Location = new System.Drawing.Point(81, 424);
-            this.textBox55.Name = "textBox55";
-            this.textBox55.Size = new System.Drawing.Size(79, 20);
-            this.textBox55.TabIndex = 32;
-            // 
-            // textBox56
-            // 
-            this.textBox56.Location = new System.Drawing.Point(81, 352);
-            this.textBox56.Name = "textBox56";
-            this.textBox56.Size = new System.Drawing.Size(79, 20);
-            this.textBox56.TabIndex = 31;
-            // 
-            // textBox57
-            // 
-            this.textBox57.Location = new System.Drawing.Point(81, 400);
-            this.textBox57.Name = "textBox57";
-            this.textBox57.Size = new System.Drawing.Size(79, 20);
-            this.textBox57.TabIndex = 30;
-            // 
-            // textBox58
-            // 
-            this.textBox58.Location = new System.Drawing.Point(81, 376);
-            this.textBox58.Name = "textBox58";
-            this.textBox58.Size = new System.Drawing.Size(79, 20);
-            this.textBox58.TabIndex = 29;
-            // 
-            // textBox59
-            // 
-            this.textBox59.Location = new System.Drawing.Point(81, 328);
-            this.textBox59.Name = "textBox59";
-            this.textBox59.Size = new System.Drawing.Size(79, 20);
-            this.textBox59.TabIndex = 28;
-            // 
-            // textBox60
-            // 
-            this.textBox60.Location = new System.Drawing.Point(81, 304);
-            this.textBox60.Name = "textBox60";
-            this.textBox60.Size = new System.Drawing.Size(79, 20);
-            this.textBox60.TabIndex = 27;
-            // 
-            // textBox61
-            // 
-            this.textBox61.Location = new System.Drawing.Point(81, 281);
-            this.textBox61.Name = "textBox61";
-            this.textBox61.Size = new System.Drawing.Size(79, 20);
-            this.textBox61.TabIndex = 26;
-            // 
-            // textBox62
-            // 
-            this.textBox62.Location = new System.Drawing.Point(81, 257);
-            this.textBox62.Name = "textBox62";
-            this.textBox62.Size = new System.Drawing.Size(79, 20);
-            this.textBox62.TabIndex = 25;
-            // 
-            // textBox63
-            // 
-            this.textBox63.Location = new System.Drawing.Point(81, 233);
-            this.textBox63.Name = "textBox63";
-            this.textBox63.Size = new System.Drawing.Size(79, 20);
-            this.textBox63.TabIndex = 24;
-            // 
-            // textBox64
-            // 
-            this.textBox64.Location = new System.Drawing.Point(81, 209);
-            this.textBox64.Name = "textBox64";
-            this.textBox64.Size = new System.Drawing.Size(79, 20);
-            this.textBox64.TabIndex = 23;
+            // releaseBloodPnl
+            // 
+            this.releaseBloodPnl.Controls.Add(this.releaseKreaininLbl);
+            this.releaseBloodPnl.Controls.Add(this.releaseProteinLbl);
+            this.releaseBloodPnl.Controls.Add(this.releaseTromboLbl);
+            this.releaseBloodPnl.Controls.Add(this.releaseChlorineTxt);
+            this.releaseBloodPnl.Controls.Add(this.releaseSrbTxt);
+            this.releaseBloodPnl.Controls.Add(this.releaseSodiumTxt);
+            this.releaseBloodPnl.Controls.Add(this.releasePotassiumTxt);
+            this.releaseBloodPnl.Controls.Add(this.releaseKfkMvTxt);
+            this.releaseBloodPnl.Controls.Add(this.releaseKfkTxt);
+            this.releaseBloodPnl.Controls.Add(this.releaseAmilazaTxt);
+            this.releaseBloodPnl.Controls.Add(this.releaseSchfTxt);
+            this.releaseBloodPnl.Controls.Add(this.releaseAstTxt);
+            this.releaseBloodPnl.Controls.Add(this.releaseAltTxt);
+            this.releaseBloodPnl.Controls.Add(this.textBox65);
+            this.releaseBloodPnl.Controls.Add(this.textBox66);
+            this.releaseBloodPnl.Controls.Add(this.textBox67);
+            this.releaseBloodPnl.Controls.Add(this.textBox68);
+            this.releaseBloodPnl.Controls.Add(this.textBox69);
+            this.releaseBloodPnl.Controls.Add(this.textBox70);
+            this.releaseBloodPnl.Controls.Add(this.textBox71);
+            this.releaseBloodPnl.Controls.Add(this.textBox72);
+            this.releaseBloodPnl.Controls.Add(this.releaseBloodLeucoLbl);
+            this.releaseBloodPnl.Controls.Add(this.releaseHolesterolLbl);
+            this.releaseBloodPnl.Controls.Add(this.releaseBilLbl);
+            this.releaseBloodPnl.Controls.Add(this.releaseIronLbl);
+            this.releaseBloodPnl.Controls.Add(this.releaseSchfLbl);
+            this.releaseBloodPnl.Controls.Add(this.releaseAmilazaLbl);
+            this.releaseBloodPnl.Controls.Add(this.releasePotassiumLbl);
+            this.releaseBloodPnl.Controls.Add(this.releaseSodiumLbl);
+            this.releaseBloodPnl.Controls.Add(this.releaseAltLbl);
+            this.releaseBloodPnl.Controls.Add(this.releaseAstLbl);
+            this.releaseBloodPnl.Controls.Add(this.releaseKfkMvLbl);
+            this.releaseBloodPnl.Controls.Add(this.releaseKfkLbl);
+            this.releaseBloodPnl.Controls.Add(this.releaseSrbLbl);
+            this.releaseBloodPnl.Controls.Add(this.releaseChlorineLbl);
+            this.releaseBloodPnl.Controls.Add(this.releaseHemoglobinLbl);
+            this.releaseBloodPnl.Location = new System.Drawing.Point(369, 6);
+            this.releaseBloodPnl.Name = "releaseBloodPnl";
+            this.releaseBloodPnl.Size = new System.Drawing.Size(172, 472);
+            this.releaseBloodPnl.TabIndex = 36;
+            this.releaseBloodPnl.TabStop = false;
+            this.releaseBloodPnl.Text = "Анализы при выписке";
+            // 
+            // releaseKreaininLbl
+            // 
+            this.releaseKreaininLbl.AutoSize = true;
+            this.releaseKreaininLbl.Location = new System.Drawing.Point(6, 121);
+            this.releaseKreaininLbl.Name = "releaseKreaininLbl";
+            this.releaseKreaininLbl.Size = new System.Drawing.Size(64, 13);
+            this.releaseKreaininLbl.TabIndex = 35;
+            this.releaseKreaininLbl.Text = "Креатинин:";
+            // 
+            // releaseProteinLbl
+            // 
+            this.releaseProteinLbl.AutoSize = true;
+            this.releaseProteinLbl.Location = new System.Drawing.Point(6, 97);
+            this.releaseProteinLbl.Name = "releaseProteinLbl";
+            this.releaseProteinLbl.Size = new System.Drawing.Size(60, 13);
+            this.releaseProteinLbl.TabIndex = 34;
+            this.releaseProteinLbl.Text = "Об. белок:";
+            // 
+            // releaseTromboLbl
+            // 
+            this.releaseTromboLbl.AutoSize = true;
+            this.releaseTromboLbl.Location = new System.Drawing.Point(6, 73);
+            this.releaseTromboLbl.Name = "releaseTromboLbl";
+            this.releaseTromboLbl.Size = new System.Drawing.Size(74, 13);
+            this.releaseTromboLbl.TabIndex = 33;
+            this.releaseTromboLbl.Text = "Тромбоциты:";
+            // 
+            // releaseChlorineTxt
+            // 
+            this.releaseChlorineTxt.Location = new System.Drawing.Point(81, 424);
+            this.releaseChlorineTxt.Name = "releaseChlorineTxt";
+            this.releaseChlorineTxt.ReadOnly = true;
+            this.releaseChlorineTxt.Size = new System.Drawing.Size(79, 20);
+            this.releaseChlorineTxt.TabIndex = 32;
+            // 
+            // releaseSrbTxt
+            // 
+            this.releaseSrbTxt.Location = new System.Drawing.Point(81, 352);
+            this.releaseSrbTxt.Name = "releaseSrbTxt";
+            this.releaseSrbTxt.ReadOnly = true;
+            this.releaseSrbTxt.Size = new System.Drawing.Size(79, 20);
+            this.releaseSrbTxt.TabIndex = 31;
+            // 
+            // releaseSodiumTxt
+            // 
+            this.releaseSodiumTxt.Location = new System.Drawing.Point(81, 400);
+            this.releaseSodiumTxt.Name = "releaseSodiumTxt";
+            this.releaseSodiumTxt.ReadOnly = true;
+            this.releaseSodiumTxt.Size = new System.Drawing.Size(79, 20);
+            this.releaseSodiumTxt.TabIndex = 30;
+            // 
+            // releasePotassiumTxt
+            // 
+            this.releasePotassiumTxt.Location = new System.Drawing.Point(81, 376);
+            this.releasePotassiumTxt.Name = "releasePotassiumTxt";
+            this.releasePotassiumTxt.ReadOnly = true;
+            this.releasePotassiumTxt.Size = new System.Drawing.Size(79, 20);
+            this.releasePotassiumTxt.TabIndex = 29;
+            // 
+            // releaseKfkMvTxt
+            // 
+            this.releaseKfkMvTxt.Location = new System.Drawing.Point(81, 328);
+            this.releaseKfkMvTxt.Name = "releaseKfkMvTxt";
+            this.releaseKfkMvTxt.ReadOnly = true;
+            this.releaseKfkMvTxt.Size = new System.Drawing.Size(79, 20);
+            this.releaseKfkMvTxt.TabIndex = 28;
+            // 
+            // releaseKfkTxt
+            // 
+            this.releaseKfkTxt.Location = new System.Drawing.Point(81, 304);
+            this.releaseKfkTxt.Name = "releaseKfkTxt";
+            this.releaseKfkTxt.ReadOnly = true;
+            this.releaseKfkTxt.Size = new System.Drawing.Size(79, 20);
+            this.releaseKfkTxt.TabIndex = 27;
+            // 
+            // releaseAmilazaTxt
+            // 
+            this.releaseAmilazaTxt.Location = new System.Drawing.Point(81, 281);
+            this.releaseAmilazaTxt.Name = "releaseAmilazaTxt";
+            this.releaseAmilazaTxt.ReadOnly = true;
+            this.releaseAmilazaTxt.Size = new System.Drawing.Size(79, 20);
+            this.releaseAmilazaTxt.TabIndex = 26;
+            // 
+            // releaseSchfTxt
+            // 
+            this.releaseSchfTxt.Location = new System.Drawing.Point(81, 257);
+            this.releaseSchfTxt.Name = "releaseSchfTxt";
+            this.releaseSchfTxt.ReadOnly = true;
+            this.releaseSchfTxt.Size = new System.Drawing.Size(79, 20);
+            this.releaseSchfTxt.TabIndex = 25;
+            // 
+            // releaseAstTxt
+            // 
+            this.releaseAstTxt.Location = new System.Drawing.Point(81, 233);
+            this.releaseAstTxt.Name = "releaseAstTxt";
+            this.releaseAstTxt.ReadOnly = true;
+            this.releaseAstTxt.Size = new System.Drawing.Size(79, 20);
+            this.releaseAstTxt.TabIndex = 24;
+            // 
+            // releaseAltTxt
+            // 
+            this.releaseAltTxt.Location = new System.Drawing.Point(81, 209);
+            this.releaseAltTxt.Name = "releaseAltTxt";
+            this.releaseAltTxt.ReadOnly = true;
+            this.releaseAltTxt.Size = new System.Drawing.Size(79, 20);
+            this.releaseAltTxt.TabIndex = 23;
             // 
             // textBox65
             // 
             this.textBox65.Location = new System.Drawing.Point(81, 185);
             this.textBox65.Name = "textBox65";
+            this.textBox65.ReadOnly = true;
             this.textBox65.Size = new System.Drawing.Size(79, 20);
             this.textBox65.TabIndex = 22;
             // 
@@ -1559,6 +1177,7 @@
             // 
             this.textBox66.Location = new System.Drawing.Point(81, 162);
             this.textBox66.Name = "textBox66";
+            this.textBox66.ReadOnly = true;
             this.textBox66.Size = new System.Drawing.Size(79, 20);
             this.textBox66.TabIndex = 21;
             // 
@@ -1566,6 +1185,7 @@
             // 
             this.textBox67.Location = new System.Drawing.Point(81, 138);
             this.textBox67.Name = "textBox67";
+            this.textBox67.ReadOnly = true;
             this.textBox67.Size = new System.Drawing.Size(79, 20);
             this.textBox67.TabIndex = 20;
             // 
@@ -1573,6 +1193,7 @@
             // 
             this.textBox68.Location = new System.Drawing.Point(81, 114);
             this.textBox68.Name = "textBox68";
+            this.textBox68.ReadOnly = true;
             this.textBox68.Size = new System.Drawing.Size(79, 20);
             this.textBox68.TabIndex = 19;
             // 
@@ -1580,6 +1201,7 @@
             // 
             this.textBox69.Location = new System.Drawing.Point(81, 90);
             this.textBox69.Name = "textBox69";
+            this.textBox69.ReadOnly = true;
             this.textBox69.Size = new System.Drawing.Size(79, 20);
             this.textBox69.TabIndex = 18;
             // 
@@ -1587,6 +1209,7 @@
             // 
             this.textBox70.Location = new System.Drawing.Point(81, 66);
             this.textBox70.Name = "textBox70";
+            this.textBox70.ReadOnly = true;
             this.textBox70.Size = new System.Drawing.Size(79, 20);
             this.textBox70.TabIndex = 17;
             // 
@@ -1594,6 +1217,7 @@
             // 
             this.textBox71.Location = new System.Drawing.Point(81, 42);
             this.textBox71.Name = "textBox71";
+            this.textBox71.ReadOnly = true;
             this.textBox71.Size = new System.Drawing.Size(79, 20);
             this.textBox71.TabIndex = 16;
             // 
@@ -1601,828 +1225,847 @@
             // 
             this.textBox72.Location = new System.Drawing.Point(81, 19);
             this.textBox72.Name = "textBox72";
+            this.textBox72.ReadOnly = true;
             this.textBox72.Size = new System.Drawing.Size(79, 20);
             this.textBox72.TabIndex = 15;
             // 
-            // label60
-            // 
-            this.label60.AutoSize = true;
-            this.label60.Location = new System.Drawing.Point(6, 49);
-            this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(67, 13);
-            this.label60.TabIndex = 14;
-            this.label60.Text = "Лейкоциты:";
-            // 
-            // label61
-            // 
-            this.label61.AutoSize = true;
-            this.label61.Location = new System.Drawing.Point(6, 145);
-            this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(70, 13);
-            this.label61.TabIndex = 13;
-            this.label61.Text = "Холестерин:";
-            // 
-            // label62
-            // 
-            this.label62.AutoSize = true;
-            this.label62.Location = new System.Drawing.Point(6, 169);
-            this.label62.Name = "label62";
-            this.label62.Size = new System.Drawing.Size(59, 13);
-            this.label62.TabIndex = 12;
-            this.label62.Text = "Бил. общ.:";
-            // 
-            // label63
-            // 
-            this.label63.AutoSize = true;
-            this.label63.Location = new System.Drawing.Point(6, 192);
-            this.label63.Name = "label63";
-            this.label63.Size = new System.Drawing.Size(51, 13);
-            this.label63.TabIndex = 11;
-            this.label63.Text = "Железо:";
-            // 
-            // label64
-            // 
-            this.label64.AutoSize = true;
-            this.label64.Location = new System.Drawing.Point(6, 264);
-            this.label64.Name = "label64";
-            this.label64.Size = new System.Drawing.Size(31, 13);
-            this.label64.TabIndex = 10;
-            this.label64.Text = "ЩФ:";
-            // 
-            // label65
-            // 
-            this.label65.AutoSize = true;
-            this.label65.Location = new System.Drawing.Point(6, 288);
-            this.label65.Name = "label65";
-            this.label65.Size = new System.Drawing.Size(55, 13);
-            this.label65.TabIndex = 9;
-            this.label65.Text = "Амилаза:";
-            // 
-            // label66
-            // 
-            this.label66.AutoSize = true;
-            this.label66.Location = new System.Drawing.Point(6, 383);
-            this.label66.Name = "label66";
-            this.label66.Size = new System.Drawing.Size(41, 13);
-            this.label66.TabIndex = 8;
-            this.label66.Text = "Калий:";
-            // 
-            // label67
-            // 
-            this.label67.AutoSize = true;
-            this.label67.Location = new System.Drawing.Point(6, 407);
-            this.label67.Name = "label67";
-            this.label67.Size = new System.Drawing.Size(47, 13);
-            this.label67.TabIndex = 7;
-            this.label67.Text = "Натрий:";
-            // 
-            // label68
-            // 
-            this.label68.AutoSize = true;
-            this.label68.Location = new System.Drawing.Point(6, 216);
-            this.label68.Name = "label68";
-            this.label68.Size = new System.Drawing.Size(32, 13);
-            this.label68.TabIndex = 6;
-            this.label68.Text = "АЛТ:";
-            // 
-            // label69
-            // 
-            this.label69.AutoSize = true;
-            this.label69.Location = new System.Drawing.Point(6, 240);
-            this.label69.Name = "label69";
-            this.label69.Size = new System.Drawing.Size(31, 13);
-            this.label69.TabIndex = 5;
-            this.label69.Text = "АСТ:";
-            // 
-            // label70
-            // 
-            this.label70.AutoSize = true;
-            this.label70.Location = new System.Drawing.Point(6, 335);
-            this.label70.Name = "label70";
-            this.label70.Size = new System.Drawing.Size(54, 13);
-            this.label70.TabIndex = 4;
-            this.label70.Text = "КФК-МВ:";
-            // 
-            // label71
-            // 
-            this.label71.AutoSize = true;
-            this.label71.Location = new System.Drawing.Point(6, 311);
-            this.label71.Name = "label71";
-            this.label71.Size = new System.Drawing.Size(35, 13);
-            this.label71.TabIndex = 3;
-            this.label71.Text = "КФК:";
-            // 
-            // label72
-            // 
-            this.label72.AutoSize = true;
-            this.label72.Location = new System.Drawing.Point(6, 359);
-            this.label72.Name = "label72";
-            this.label72.Size = new System.Drawing.Size(31, 13);
-            this.label72.TabIndex = 2;
-            this.label72.Text = "СРБ:";
-            // 
-            // label73
-            // 
-            this.label73.AutoSize = true;
-            this.label73.Location = new System.Drawing.Point(6, 431);
-            this.label73.Name = "label73";
-            this.label73.Size = new System.Drawing.Size(35, 13);
-            this.label73.TabIndex = 1;
-            this.label73.Text = "Хлор:";
-            // 
-            // label74
-            // 
-            this.label74.AutoSize = true;
-            this.label74.Location = new System.Drawing.Point(6, 26);
-            this.label74.Name = "label74";
-            this.label74.Size = new System.Drawing.Size(71, 13);
-            this.label74.TabIndex = 0;
-            this.label74.Text = "Гемоглобин:";
-            // 
-            // groupBox16
-            // 
-            this.groupBox16.Controls.Add(this.dateTimePicker4);
-            this.groupBox16.Controls.Add(this.label75);
-            this.groupBox16.Controls.Add(this.label21);
-            this.groupBox16.Controls.Add(this.label22);
-            this.groupBox16.Controls.Add(this.label23);
-            this.groupBox16.Controls.Add(this.textBox19);
-            this.groupBox16.Controls.Add(this.textBox20);
-            this.groupBox16.Controls.Add(this.textBox21);
-            this.groupBox16.Controls.Add(this.textBox22);
-            this.groupBox16.Controls.Add(this.textBox23);
-            this.groupBox16.Controls.Add(this.textBox24);
-            this.groupBox16.Controls.Add(this.textBox25);
-            this.groupBox16.Controls.Add(this.textBox26);
-            this.groupBox16.Controls.Add(this.textBox27);
-            this.groupBox16.Controls.Add(this.textBox28);
-            this.groupBox16.Controls.Add(this.textBox29);
-            this.groupBox16.Controls.Add(this.textBox30);
-            this.groupBox16.Controls.Add(this.textBox31);
-            this.groupBox16.Controls.Add(this.textBox32);
-            this.groupBox16.Controls.Add(this.textBox33);
-            this.groupBox16.Controls.Add(this.textBox34);
-            this.groupBox16.Controls.Add(this.textBox35);
-            this.groupBox16.Controls.Add(this.textBox36);
-            this.groupBox16.Controls.Add(this.label24);
-            this.groupBox16.Controls.Add(this.label25);
-            this.groupBox16.Controls.Add(this.label26);
-            this.groupBox16.Controls.Add(this.label27);
-            this.groupBox16.Controls.Add(this.label28);
-            this.groupBox16.Controls.Add(this.label29);
-            this.groupBox16.Controls.Add(this.label30);
-            this.groupBox16.Controls.Add(this.label31);
-            this.groupBox16.Controls.Add(this.label32);
-            this.groupBox16.Controls.Add(this.label33);
-            this.groupBox16.Controls.Add(this.label34);
-            this.groupBox16.Controls.Add(this.label35);
-            this.groupBox16.Controls.Add(this.label36);
-            this.groupBox16.Controls.Add(this.label37);
-            this.groupBox16.Controls.Add(this.label38);
-            this.groupBox16.Location = new System.Drawing.Point(199, 6);
-            this.groupBox16.Name = "groupBox16";
-            this.groupBox16.Size = new System.Drawing.Size(172, 472);
-            this.groupBox16.TabIndex = 1;
-            this.groupBox16.TabStop = false;
-            this.groupBox16.Text = "Анализы промежуточные 2";
-            // 
-            // dateTimePicker4
-            // 
-            this.dateTimePicker4.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker4.Location = new System.Drawing.Point(81, 19);
-            this.dateTimePicker4.Name = "dateTimePicker4";
-            this.dateTimePicker4.Size = new System.Drawing.Size(79, 20);
-            this.dateTimePicker4.TabIndex = 37;
-            // 
-            // label75
-            // 
-            this.label75.AutoSize = true;
-            this.label75.Location = new System.Drawing.Point(6, 26);
-            this.label75.Name = "label75";
-            this.label75.Size = new System.Drawing.Size(36, 13);
-            this.label75.TabIndex = 36;
-            this.label75.Text = "Дата:";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(6, 145);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(64, 13);
-            this.label21.TabIndex = 35;
-            this.label21.Text = "Креатинин:";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(6, 121);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(60, 13);
-            this.label22.TabIndex = 34;
-            this.label22.Text = "Об. белок:";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(6, 97);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(74, 13);
-            this.label23.TabIndex = 33;
-            this.label23.Text = "Тромбоциты:";
-            // 
-            // textBox19
-            // 
-            this.textBox19.Location = new System.Drawing.Point(81, 448);
-            this.textBox19.Name = "textBox19";
-            this.textBox19.Size = new System.Drawing.Size(79, 20);
-            this.textBox19.TabIndex = 32;
-            // 
-            // textBox20
-            // 
-            this.textBox20.Location = new System.Drawing.Point(81, 376);
-            this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(79, 20);
-            this.textBox20.TabIndex = 31;
-            // 
-            // textBox21
-            // 
-            this.textBox21.Location = new System.Drawing.Point(81, 424);
-            this.textBox21.Name = "textBox21";
-            this.textBox21.Size = new System.Drawing.Size(79, 20);
-            this.textBox21.TabIndex = 30;
-            // 
-            // textBox22
-            // 
-            this.textBox22.Location = new System.Drawing.Point(81, 400);
-            this.textBox22.Name = "textBox22";
-            this.textBox22.Size = new System.Drawing.Size(79, 20);
-            this.textBox22.TabIndex = 29;
-            // 
-            // textBox23
-            // 
-            this.textBox23.Location = new System.Drawing.Point(81, 352);
-            this.textBox23.Name = "textBox23";
-            this.textBox23.Size = new System.Drawing.Size(79, 20);
-            this.textBox23.TabIndex = 28;
-            // 
-            // textBox24
-            // 
-            this.textBox24.Location = new System.Drawing.Point(81, 328);
-            this.textBox24.Name = "textBox24";
-            this.textBox24.Size = new System.Drawing.Size(79, 20);
-            this.textBox24.TabIndex = 27;
-            // 
-            // textBox25
-            // 
-            this.textBox25.Location = new System.Drawing.Point(81, 305);
-            this.textBox25.Name = "textBox25";
-            this.textBox25.Size = new System.Drawing.Size(79, 20);
-            this.textBox25.TabIndex = 26;
-            // 
-            // textBox26
-            // 
-            this.textBox26.Location = new System.Drawing.Point(81, 281);
-            this.textBox26.Name = "textBox26";
-            this.textBox26.Size = new System.Drawing.Size(79, 20);
-            this.textBox26.TabIndex = 25;
-            // 
-            // textBox27
-            // 
-            this.textBox27.Location = new System.Drawing.Point(81, 257);
-            this.textBox27.Name = "textBox27";
-            this.textBox27.Size = new System.Drawing.Size(79, 20);
-            this.textBox27.TabIndex = 24;
-            // 
-            // textBox28
-            // 
-            this.textBox28.Location = new System.Drawing.Point(81, 233);
-            this.textBox28.Name = "textBox28";
-            this.textBox28.Size = new System.Drawing.Size(79, 20);
-            this.textBox28.TabIndex = 23;
-            // 
-            // textBox29
-            // 
-            this.textBox29.Location = new System.Drawing.Point(81, 209);
-            this.textBox29.Name = "textBox29";
-            this.textBox29.Size = new System.Drawing.Size(79, 20);
-            this.textBox29.TabIndex = 22;
-            // 
-            // textBox30
-            // 
-            this.textBox30.Location = new System.Drawing.Point(81, 186);
-            this.textBox30.Name = "textBox30";
-            this.textBox30.Size = new System.Drawing.Size(79, 20);
-            this.textBox30.TabIndex = 21;
-            // 
-            // textBox31
-            // 
-            this.textBox31.Location = new System.Drawing.Point(81, 162);
-            this.textBox31.Name = "textBox31";
-            this.textBox31.Size = new System.Drawing.Size(79, 20);
-            this.textBox31.TabIndex = 20;
-            // 
-            // textBox32
-            // 
-            this.textBox32.Location = new System.Drawing.Point(81, 138);
-            this.textBox32.Name = "textBox32";
-            this.textBox32.Size = new System.Drawing.Size(79, 20);
-            this.textBox32.TabIndex = 19;
-            // 
-            // textBox33
-            // 
-            this.textBox33.Location = new System.Drawing.Point(81, 114);
-            this.textBox33.Name = "textBox33";
-            this.textBox33.Size = new System.Drawing.Size(79, 20);
-            this.textBox33.TabIndex = 18;
-            // 
-            // textBox34
-            // 
-            this.textBox34.Location = new System.Drawing.Point(81, 90);
-            this.textBox34.Name = "textBox34";
-            this.textBox34.Size = new System.Drawing.Size(79, 20);
-            this.textBox34.TabIndex = 17;
-            // 
-            // textBox35
-            // 
-            this.textBox35.Location = new System.Drawing.Point(81, 66);
-            this.textBox35.Name = "textBox35";
-            this.textBox35.Size = new System.Drawing.Size(79, 20);
-            this.textBox35.TabIndex = 16;
-            // 
-            // textBox36
-            // 
-            this.textBox36.Location = new System.Drawing.Point(81, 43);
-            this.textBox36.Name = "textBox36";
-            this.textBox36.Size = new System.Drawing.Size(79, 20);
-            this.textBox36.TabIndex = 15;
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(6, 73);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(67, 13);
-            this.label24.TabIndex = 14;
-            this.label24.Text = "Лейкоциты:";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(6, 169);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(70, 13);
-            this.label25.TabIndex = 13;
-            this.label25.Text = "Холестерин:";
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(6, 193);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(59, 13);
-            this.label26.TabIndex = 12;
-            this.label26.Text = "Бил. общ.:";
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(6, 216);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(51, 13);
-            this.label27.TabIndex = 11;
-            this.label27.Text = "Железо:";
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(6, 288);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(31, 13);
-            this.label28.TabIndex = 10;
-            this.label28.Text = "ЩФ:";
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(6, 312);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(55, 13);
-            this.label29.TabIndex = 9;
-            this.label29.Text = "Амилаза:";
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(6, 407);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(41, 13);
-            this.label30.TabIndex = 8;
-            this.label30.Text = "Калий:";
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(6, 431);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(47, 13);
-            this.label31.TabIndex = 7;
-            this.label31.Text = "Натрий:";
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(6, 240);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(32, 13);
-            this.label32.TabIndex = 6;
-            this.label32.Text = "АЛТ:";
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(6, 264);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(31, 13);
-            this.label33.TabIndex = 5;
-            this.label33.Text = "АСТ:";
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(6, 359);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(54, 13);
-            this.label34.TabIndex = 4;
-            this.label34.Text = "КФК-МВ:";
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(6, 335);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(35, 13);
-            this.label35.TabIndex = 3;
-            this.label35.Text = "КФК:";
-            // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(6, 383);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(31, 13);
-            this.label36.TabIndex = 2;
-            this.label36.Text = "СРБ:";
-            // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(6, 455);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(35, 13);
-            this.label37.TabIndex = 1;
-            this.label37.Text = "Хлор:";
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(6, 50);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(71, 13);
-            this.label38.TabIndex = 0;
-            this.label38.Text = "Гемоглобин:";
-            // 
-            // groupBox15
-            // 
-            this.groupBox15.Controls.Add(this.label20);
-            this.groupBox15.Controls.Add(this.label19);
-            this.groupBox15.Controls.Add(this.label18);
-            this.groupBox15.Controls.Add(this.textBox18);
-            this.groupBox15.Controls.Add(this.textBox17);
-            this.groupBox15.Controls.Add(this.textBox16);
-            this.groupBox15.Controls.Add(this.textBox15);
-            this.groupBox15.Controls.Add(this.textBox14);
-            this.groupBox15.Controls.Add(this.textBox13);
-            this.groupBox15.Controls.Add(this.textBox12);
-            this.groupBox15.Controls.Add(this.textBox11);
-            this.groupBox15.Controls.Add(this.textBox10);
-            this.groupBox15.Controls.Add(this.textBox9);
-            this.groupBox15.Controls.Add(this.textBox8);
-            this.groupBox15.Controls.Add(this.textBox7);
-            this.groupBox15.Controls.Add(this.textBox6);
-            this.groupBox15.Controls.Add(this.textBox5);
-            this.groupBox15.Controls.Add(this.textBox4);
-            this.groupBox15.Controls.Add(this.textBox3);
-            this.groupBox15.Controls.Add(this.textBox2);
-            this.groupBox15.Controls.Add(this.textBox1);
-            this.groupBox15.Controls.Add(this.label17);
-            this.groupBox15.Controls.Add(this.label16);
-            this.groupBox15.Controls.Add(this.label15);
-            this.groupBox15.Controls.Add(this.label14);
-            this.groupBox15.Controls.Add(this.label13);
-            this.groupBox15.Controls.Add(this.label12);
-            this.groupBox15.Controls.Add(this.label11);
-            this.groupBox15.Controls.Add(this.label10);
-            this.groupBox15.Controls.Add(this.label9);
-            this.groupBox15.Controls.Add(this.label8);
-            this.groupBox15.Controls.Add(this.label7);
-            this.groupBox15.Controls.Add(this.label6);
-            this.groupBox15.Controls.Add(this.label5);
-            this.groupBox15.Controls.Add(this.label4);
-            this.groupBox15.Controls.Add(this.label3);
-            this.groupBox15.Location = new System.Drawing.Point(13, 6);
-            this.groupBox15.Name = "groupBox15";
-            this.groupBox15.Size = new System.Drawing.Size(172, 472);
-            this.groupBox15.TabIndex = 0;
-            this.groupBox15.TabStop = false;
-            this.groupBox15.Text = "Анализы при поступлении";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(6, 121);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(64, 13);
-            this.label20.TabIndex = 35;
-            this.label20.Text = "Креатинин:";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(6, 97);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(60, 13);
-            this.label19.TabIndex = 34;
-            this.label19.Text = "Об. белок:";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(6, 73);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(74, 13);
-            this.label18.TabIndex = 33;
-            this.label18.Text = "Тромбоциты:";
-            // 
-            // textBox18
-            // 
-            this.textBox18.Location = new System.Drawing.Point(81, 424);
-            this.textBox18.Name = "textBox18";
-            this.textBox18.Size = new System.Drawing.Size(79, 20);
-            this.textBox18.TabIndex = 32;
-            // 
-            // textBox17
-            // 
-            this.textBox17.Location = new System.Drawing.Point(81, 352);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(79, 20);
-            this.textBox17.TabIndex = 31;
-            // 
-            // textBox16
-            // 
-            this.textBox16.Location = new System.Drawing.Point(81, 400);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(79, 20);
-            this.textBox16.TabIndex = 30;
-            // 
-            // textBox15
-            // 
-            this.textBox15.Location = new System.Drawing.Point(81, 376);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(79, 20);
-            this.textBox15.TabIndex = 29;
-            // 
-            // textBox14
-            // 
-            this.textBox14.Location = new System.Drawing.Point(81, 328);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(79, 20);
-            this.textBox14.TabIndex = 28;
-            // 
-            // textBox13
-            // 
-            this.textBox13.Location = new System.Drawing.Point(81, 304);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(79, 20);
-            this.textBox13.TabIndex = 27;
-            // 
-            // textBox12
-            // 
-            this.textBox12.Location = new System.Drawing.Point(81, 281);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(79, 20);
-            this.textBox12.TabIndex = 26;
-            // 
-            // textBox11
-            // 
-            this.textBox11.Location = new System.Drawing.Point(81, 257);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(79, 20);
-            this.textBox11.TabIndex = 25;
-            // 
-            // textBox10
-            // 
-            this.textBox10.Location = new System.Drawing.Point(81, 233);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(79, 20);
-            this.textBox10.TabIndex = 24;
-            // 
-            // textBox9
-            // 
-            this.textBox9.Location = new System.Drawing.Point(81, 209);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(79, 20);
-            this.textBox9.TabIndex = 23;
-            // 
-            // textBox8
-            // 
-            this.textBox8.Location = new System.Drawing.Point(81, 185);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(79, 20);
-            this.textBox8.TabIndex = 22;
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(81, 162);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(79, 20);
-            this.textBox7.TabIndex = 21;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(81, 138);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(79, 20);
-            this.textBox6.TabIndex = 20;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(81, 114);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(79, 20);
-            this.textBox5.TabIndex = 19;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(81, 90);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(79, 20);
-            this.textBox4.TabIndex = 18;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(81, 66);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(79, 20);
-            this.textBox3.TabIndex = 17;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(81, 42);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(79, 20);
-            this.textBox2.TabIndex = 16;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(81, 19);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(79, 20);
-            this.textBox1.TabIndex = 15;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(6, 49);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(67, 13);
-            this.label17.TabIndex = 14;
-            this.label17.Text = "Лейкоциты:";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(6, 145);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(70, 13);
-            this.label16.TabIndex = 13;
-            this.label16.Text = "Холестерин:";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(6, 169);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(59, 13);
-            this.label15.TabIndex = 12;
-            this.label15.Text = "Бил. общ.:";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(6, 192);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(51, 13);
-            this.label14.TabIndex = 11;
-            this.label14.Text = "Железо:";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(6, 264);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(31, 13);
-            this.label13.TabIndex = 10;
-            this.label13.Text = "ЩФ:";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(6, 288);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(55, 13);
-            this.label12.TabIndex = 9;
-            this.label12.Text = "Амилаза:";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(6, 383);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(41, 13);
-            this.label11.TabIndex = 8;
-            this.label11.Text = "Калий:";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(6, 407);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(47, 13);
-            this.label10.TabIndex = 7;
-            this.label10.Text = "Натрий:";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 216);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(32, 13);
-            this.label9.TabIndex = 6;
-            this.label9.Text = "АЛТ:";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 240);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(31, 13);
-            this.label8.TabIndex = 5;
-            this.label8.Text = "АСТ:";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 335);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(54, 13);
-            this.label7.TabIndex = 4;
-            this.label7.Text = "КФК-МВ:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 311);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(35, 13);
-            this.label6.TabIndex = 3;
-            this.label6.Text = "КФК:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 359);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(31, 13);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "СРБ:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 431);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Хлор:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 26);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(71, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Гемоглобин:";
+            // releaseBloodLeucoLbl
+            // 
+            this.releaseBloodLeucoLbl.AutoSize = true;
+            this.releaseBloodLeucoLbl.Location = new System.Drawing.Point(6, 49);
+            this.releaseBloodLeucoLbl.Name = "releaseBloodLeucoLbl";
+            this.releaseBloodLeucoLbl.Size = new System.Drawing.Size(67, 13);
+            this.releaseBloodLeucoLbl.TabIndex = 14;
+            this.releaseBloodLeucoLbl.Text = "Лейкоциты:";
+            // 
+            // releaseHolesterolLbl
+            // 
+            this.releaseHolesterolLbl.AutoSize = true;
+            this.releaseHolesterolLbl.Location = new System.Drawing.Point(6, 145);
+            this.releaseHolesterolLbl.Name = "releaseHolesterolLbl";
+            this.releaseHolesterolLbl.Size = new System.Drawing.Size(70, 13);
+            this.releaseHolesterolLbl.TabIndex = 13;
+            this.releaseHolesterolLbl.Text = "Холестерин:";
+            // 
+            // releaseBilLbl
+            // 
+            this.releaseBilLbl.AutoSize = true;
+            this.releaseBilLbl.Location = new System.Drawing.Point(6, 169);
+            this.releaseBilLbl.Name = "releaseBilLbl";
+            this.releaseBilLbl.Size = new System.Drawing.Size(59, 13);
+            this.releaseBilLbl.TabIndex = 12;
+            this.releaseBilLbl.Text = "Бил. общ.:";
+            // 
+            // releaseIronLbl
+            // 
+            this.releaseIronLbl.AutoSize = true;
+            this.releaseIronLbl.Location = new System.Drawing.Point(6, 192);
+            this.releaseIronLbl.Name = "releaseIronLbl";
+            this.releaseIronLbl.Size = new System.Drawing.Size(51, 13);
+            this.releaseIronLbl.TabIndex = 11;
+            this.releaseIronLbl.Text = "Железо:";
+            // 
+            // releaseSchfLbl
+            // 
+            this.releaseSchfLbl.AutoSize = true;
+            this.releaseSchfLbl.Location = new System.Drawing.Point(6, 264);
+            this.releaseSchfLbl.Name = "releaseSchfLbl";
+            this.releaseSchfLbl.Size = new System.Drawing.Size(31, 13);
+            this.releaseSchfLbl.TabIndex = 10;
+            this.releaseSchfLbl.Text = "ЩФ:";
+            // 
+            // releaseAmilazaLbl
+            // 
+            this.releaseAmilazaLbl.AutoSize = true;
+            this.releaseAmilazaLbl.Location = new System.Drawing.Point(6, 288);
+            this.releaseAmilazaLbl.Name = "releaseAmilazaLbl";
+            this.releaseAmilazaLbl.Size = new System.Drawing.Size(55, 13);
+            this.releaseAmilazaLbl.TabIndex = 9;
+            this.releaseAmilazaLbl.Text = "Амилаза:";
+            // 
+            // releasePotassiumLbl
+            // 
+            this.releasePotassiumLbl.AutoSize = true;
+            this.releasePotassiumLbl.Location = new System.Drawing.Point(6, 383);
+            this.releasePotassiumLbl.Name = "releasePotassiumLbl";
+            this.releasePotassiumLbl.Size = new System.Drawing.Size(41, 13);
+            this.releasePotassiumLbl.TabIndex = 8;
+            this.releasePotassiumLbl.Text = "Калий:";
+            // 
+            // releaseSodiumLbl
+            // 
+            this.releaseSodiumLbl.AutoSize = true;
+            this.releaseSodiumLbl.Location = new System.Drawing.Point(6, 407);
+            this.releaseSodiumLbl.Name = "releaseSodiumLbl";
+            this.releaseSodiumLbl.Size = new System.Drawing.Size(47, 13);
+            this.releaseSodiumLbl.TabIndex = 7;
+            this.releaseSodiumLbl.Text = "Натрий:";
+            // 
+            // releaseAltLbl
+            // 
+            this.releaseAltLbl.AutoSize = true;
+            this.releaseAltLbl.Location = new System.Drawing.Point(6, 216);
+            this.releaseAltLbl.Name = "releaseAltLbl";
+            this.releaseAltLbl.Size = new System.Drawing.Size(32, 13);
+            this.releaseAltLbl.TabIndex = 6;
+            this.releaseAltLbl.Text = "АЛТ:";
+            // 
+            // releaseAstLbl
+            // 
+            this.releaseAstLbl.AutoSize = true;
+            this.releaseAstLbl.Location = new System.Drawing.Point(6, 240);
+            this.releaseAstLbl.Name = "releaseAstLbl";
+            this.releaseAstLbl.Size = new System.Drawing.Size(31, 13);
+            this.releaseAstLbl.TabIndex = 5;
+            this.releaseAstLbl.Text = "АСТ:";
+            // 
+            // releaseKfkMvLbl
+            // 
+            this.releaseKfkMvLbl.AutoSize = true;
+            this.releaseKfkMvLbl.Location = new System.Drawing.Point(6, 335);
+            this.releaseKfkMvLbl.Name = "releaseKfkMvLbl";
+            this.releaseKfkMvLbl.Size = new System.Drawing.Size(54, 13);
+            this.releaseKfkMvLbl.TabIndex = 4;
+            this.releaseKfkMvLbl.Text = "КФК-МВ:";
+            // 
+            // releaseKfkLbl
+            // 
+            this.releaseKfkLbl.AutoSize = true;
+            this.releaseKfkLbl.Location = new System.Drawing.Point(6, 311);
+            this.releaseKfkLbl.Name = "releaseKfkLbl";
+            this.releaseKfkLbl.Size = new System.Drawing.Size(35, 13);
+            this.releaseKfkLbl.TabIndex = 3;
+            this.releaseKfkLbl.Text = "КФК:";
+            // 
+            // releaseSrbLbl
+            // 
+            this.releaseSrbLbl.AutoSize = true;
+            this.releaseSrbLbl.Location = new System.Drawing.Point(6, 359);
+            this.releaseSrbLbl.Name = "releaseSrbLbl";
+            this.releaseSrbLbl.Size = new System.Drawing.Size(31, 13);
+            this.releaseSrbLbl.TabIndex = 2;
+            this.releaseSrbLbl.Text = "СРБ:";
+            // 
+            // releaseChlorineLbl
+            // 
+            this.releaseChlorineLbl.AutoSize = true;
+            this.releaseChlorineLbl.Location = new System.Drawing.Point(6, 431);
+            this.releaseChlorineLbl.Name = "releaseChlorineLbl";
+            this.releaseChlorineLbl.Size = new System.Drawing.Size(35, 13);
+            this.releaseChlorineLbl.TabIndex = 1;
+            this.releaseChlorineLbl.Text = "Хлор:";
+            // 
+            // releaseHemoglobinLbl
+            // 
+            this.releaseHemoglobinLbl.AutoSize = true;
+            this.releaseHemoglobinLbl.Location = new System.Drawing.Point(6, 26);
+            this.releaseHemoglobinLbl.Name = "releaseHemoglobinLbl";
+            this.releaseHemoglobinLbl.Size = new System.Drawing.Size(71, 13);
+            this.releaseHemoglobinLbl.TabIndex = 0;
+            this.releaseHemoglobinLbl.Text = "Гемоглобин:";
+            // 
+            // regularBloodPnl
+            // 
+            this.regularBloodPnl.Controls.Add(this.regularBloodDateTxt);
+            this.regularBloodPnl.Controls.Add(this.regularBloodDateLbl);
+            this.regularBloodPnl.Controls.Add(this.regularKreatininLbl);
+            this.regularBloodPnl.Controls.Add(this.regularProteinLbl);
+            this.regularBloodPnl.Controls.Add(this.regularTrombocytesLbl);
+            this.regularBloodPnl.Controls.Add(this.regularChloriumTxt);
+            this.regularBloodPnl.Controls.Add(this.regularSrbTxt);
+            this.regularBloodPnl.Controls.Add(this.regularSodiumTxt);
+            this.regularBloodPnl.Controls.Add(this.regularPotassiumTxt);
+            this.regularBloodPnl.Controls.Add(this.regularKfkMvTxt);
+            this.regularBloodPnl.Controls.Add(this.regularKfkTxt);
+            this.regularBloodPnl.Controls.Add(this.regularAmilazaTzt);
+            this.regularBloodPnl.Controls.Add(this.regularSchfTxt);
+            this.regularBloodPnl.Controls.Add(this.regularAstTxt);
+            this.regularBloodPnl.Controls.Add(this.regularAltTxt);
+            this.regularBloodPnl.Controls.Add(this.regularIronTxt);
+            this.regularBloodPnl.Controls.Add(this.regularBilTxt);
+            this.regularBloodPnl.Controls.Add(this.regularCholesterolTxt);
+            this.regularBloodPnl.Controls.Add(this.regularKreatininTxt);
+            this.regularBloodPnl.Controls.Add(this.regularProreinTxt);
+            this.regularBloodPnl.Controls.Add(this.regularTrombocytesTxt);
+            this.regularBloodPnl.Controls.Add(this.regularBloodLeucoTxt);
+            this.regularBloodPnl.Controls.Add(this.regularHemoglobinTxt);
+            this.regularBloodPnl.Controls.Add(this.regularBloodLeucoLbl);
+            this.regularBloodPnl.Controls.Add(this.regularHolesterolLbl);
+            this.regularBloodPnl.Controls.Add(this.regularBilLbl);
+            this.regularBloodPnl.Controls.Add(this.regularIronLbl);
+            this.regularBloodPnl.Controls.Add(this.regularSchfLbl);
+            this.regularBloodPnl.Controls.Add(this.regularAmilazaLbl);
+            this.regularBloodPnl.Controls.Add(this.regularPotassiumLbl);
+            this.regularBloodPnl.Controls.Add(this.regularSodiumLbl);
+            this.regularBloodPnl.Controls.Add(this.regularAltLbl);
+            this.regularBloodPnl.Controls.Add(this.regularAstLbl);
+            this.regularBloodPnl.Controls.Add(this.regularKfkMvLbl);
+            this.regularBloodPnl.Controls.Add(this.regularKfkLbl);
+            this.regularBloodPnl.Controls.Add(this.regularSrbLbl);
+            this.regularBloodPnl.Controls.Add(this.regularChloriumLbl);
+            this.regularBloodPnl.Controls.Add(this.regularHemogloinLbl);
+            this.regularBloodPnl.Location = new System.Drawing.Point(191, 6);
+            this.regularBloodPnl.Name = "regularBloodPnl";
+            this.regularBloodPnl.Size = new System.Drawing.Size(172, 472);
+            this.regularBloodPnl.TabIndex = 1;
+            this.regularBloodPnl.TabStop = false;
+            this.regularBloodPnl.Text = "Анализы промежуточные";
+            // 
+            // regularBloodDateTxt
+            // 
+            this.regularBloodDateTxt.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.regularBloodDateTxt.Location = new System.Drawing.Point(81, 19);
+            this.regularBloodDateTxt.Name = "regularBloodDateTxt";
+            this.regularBloodDateTxt.Size = new System.Drawing.Size(79, 20);
+            this.regularBloodDateTxt.TabIndex = 37;
+            // 
+            // regularBloodDateLbl
+            // 
+            this.regularBloodDateLbl.AutoSize = true;
+            this.regularBloodDateLbl.Location = new System.Drawing.Point(6, 26);
+            this.regularBloodDateLbl.Name = "regularBloodDateLbl";
+            this.regularBloodDateLbl.Size = new System.Drawing.Size(36, 13);
+            this.regularBloodDateLbl.TabIndex = 36;
+            this.regularBloodDateLbl.Text = "Дата:";
+            // 
+            // regularKreatininLbl
+            // 
+            this.regularKreatininLbl.AutoSize = true;
+            this.regularKreatininLbl.Location = new System.Drawing.Point(6, 145);
+            this.regularKreatininLbl.Name = "regularKreatininLbl";
+            this.regularKreatininLbl.Size = new System.Drawing.Size(64, 13);
+            this.regularKreatininLbl.TabIndex = 35;
+            this.regularKreatininLbl.Text = "Креатинин:";
+            // 
+            // regularProteinLbl
+            // 
+            this.regularProteinLbl.AutoSize = true;
+            this.regularProteinLbl.Location = new System.Drawing.Point(6, 121);
+            this.regularProteinLbl.Name = "regularProteinLbl";
+            this.regularProteinLbl.Size = new System.Drawing.Size(60, 13);
+            this.regularProteinLbl.TabIndex = 34;
+            this.regularProteinLbl.Text = "Об. белок:";
+            // 
+            // regularTrombocytesLbl
+            // 
+            this.regularTrombocytesLbl.AutoSize = true;
+            this.regularTrombocytesLbl.Location = new System.Drawing.Point(6, 97);
+            this.regularTrombocytesLbl.Name = "regularTrombocytesLbl";
+            this.regularTrombocytesLbl.Size = new System.Drawing.Size(74, 13);
+            this.regularTrombocytesLbl.TabIndex = 33;
+            this.regularTrombocytesLbl.Text = "Тромбоциты:";
+            // 
+            // regularChloriumTxt
+            // 
+            this.regularChloriumTxt.Location = new System.Drawing.Point(81, 448);
+            this.regularChloriumTxt.Name = "regularChloriumTxt";
+            this.regularChloriumTxt.Size = new System.Drawing.Size(79, 20);
+            this.regularChloriumTxt.TabIndex = 32;
+            // 
+            // regularSrbTxt
+            // 
+            this.regularSrbTxt.Location = new System.Drawing.Point(81, 376);
+            this.regularSrbTxt.Name = "regularSrbTxt";
+            this.regularSrbTxt.Size = new System.Drawing.Size(79, 20);
+            this.regularSrbTxt.TabIndex = 31;
+            // 
+            // regularSodiumTxt
+            // 
+            this.regularSodiumTxt.Location = new System.Drawing.Point(81, 424);
+            this.regularSodiumTxt.Name = "regularSodiumTxt";
+            this.regularSodiumTxt.Size = new System.Drawing.Size(79, 20);
+            this.regularSodiumTxt.TabIndex = 30;
+            // 
+            // regularPotassiumTxt
+            // 
+            this.regularPotassiumTxt.Location = new System.Drawing.Point(81, 400);
+            this.regularPotassiumTxt.Name = "regularPotassiumTxt";
+            this.regularPotassiumTxt.Size = new System.Drawing.Size(79, 20);
+            this.regularPotassiumTxt.TabIndex = 29;
+            // 
+            // regularKfkMvTxt
+            // 
+            this.regularKfkMvTxt.Location = new System.Drawing.Point(81, 352);
+            this.regularKfkMvTxt.Name = "regularKfkMvTxt";
+            this.regularKfkMvTxt.Size = new System.Drawing.Size(79, 20);
+            this.regularKfkMvTxt.TabIndex = 28;
+            // 
+            // regularKfkTxt
+            // 
+            this.regularKfkTxt.Location = new System.Drawing.Point(81, 328);
+            this.regularKfkTxt.Name = "regularKfkTxt";
+            this.regularKfkTxt.Size = new System.Drawing.Size(79, 20);
+            this.regularKfkTxt.TabIndex = 27;
+            // 
+            // regularAmilazaTzt
+            // 
+            this.regularAmilazaTzt.Location = new System.Drawing.Point(81, 305);
+            this.regularAmilazaTzt.Name = "regularAmilazaTzt";
+            this.regularAmilazaTzt.Size = new System.Drawing.Size(79, 20);
+            this.regularAmilazaTzt.TabIndex = 26;
+            // 
+            // regularSchfTxt
+            // 
+            this.regularSchfTxt.Location = new System.Drawing.Point(81, 281);
+            this.regularSchfTxt.Name = "regularSchfTxt";
+            this.regularSchfTxt.Size = new System.Drawing.Size(79, 20);
+            this.regularSchfTxt.TabIndex = 25;
+            // 
+            // regularAstTxt
+            // 
+            this.regularAstTxt.Location = new System.Drawing.Point(81, 257);
+            this.regularAstTxt.Name = "regularAstTxt";
+            this.regularAstTxt.Size = new System.Drawing.Size(79, 20);
+            this.regularAstTxt.TabIndex = 24;
+            // 
+            // regularAltTxt
+            // 
+            this.regularAltTxt.Location = new System.Drawing.Point(81, 233);
+            this.regularAltTxt.Name = "regularAltTxt";
+            this.regularAltTxt.Size = new System.Drawing.Size(79, 20);
+            this.regularAltTxt.TabIndex = 23;
+            // 
+            // regularIronTxt
+            // 
+            this.regularIronTxt.Location = new System.Drawing.Point(81, 209);
+            this.regularIronTxt.Name = "regularIronTxt";
+            this.regularIronTxt.Size = new System.Drawing.Size(79, 20);
+            this.regularIronTxt.TabIndex = 22;
+            // 
+            // regularBilTxt
+            // 
+            this.regularBilTxt.Location = new System.Drawing.Point(81, 186);
+            this.regularBilTxt.Name = "regularBilTxt";
+            this.regularBilTxt.Size = new System.Drawing.Size(79, 20);
+            this.regularBilTxt.TabIndex = 21;
+            // 
+            // regularCholesterolTxt
+            // 
+            this.regularCholesterolTxt.Location = new System.Drawing.Point(81, 162);
+            this.regularCholesterolTxt.Name = "regularCholesterolTxt";
+            this.regularCholesterolTxt.Size = new System.Drawing.Size(79, 20);
+            this.regularCholesterolTxt.TabIndex = 20;
+            // 
+            // regularKreatininTxt
+            // 
+            this.regularKreatininTxt.Location = new System.Drawing.Point(81, 138);
+            this.regularKreatininTxt.Name = "regularKreatininTxt";
+            this.regularKreatininTxt.Size = new System.Drawing.Size(79, 20);
+            this.regularKreatininTxt.TabIndex = 19;
+            // 
+            // regularProreinTxt
+            // 
+            this.regularProreinTxt.Location = new System.Drawing.Point(81, 114);
+            this.regularProreinTxt.Name = "regularProreinTxt";
+            this.regularProreinTxt.Size = new System.Drawing.Size(79, 20);
+            this.regularProreinTxt.TabIndex = 18;
+            // 
+            // regularTrombocytesTxt
+            // 
+            this.regularTrombocytesTxt.Location = new System.Drawing.Point(81, 90);
+            this.regularTrombocytesTxt.Name = "regularTrombocytesTxt";
+            this.regularTrombocytesTxt.Size = new System.Drawing.Size(79, 20);
+            this.regularTrombocytesTxt.TabIndex = 17;
+            // 
+            // regularBloodLeucoTxt
+            // 
+            this.regularBloodLeucoTxt.Location = new System.Drawing.Point(81, 66);
+            this.regularBloodLeucoTxt.Name = "regularBloodLeucoTxt";
+            this.regularBloodLeucoTxt.Size = new System.Drawing.Size(79, 20);
+            this.regularBloodLeucoTxt.TabIndex = 16;
+            // 
+            // regularHemoglobinTxt
+            // 
+            this.regularHemoglobinTxt.Location = new System.Drawing.Point(81, 43);
+            this.regularHemoglobinTxt.Name = "regularHemoglobinTxt";
+            this.regularHemoglobinTxt.Size = new System.Drawing.Size(79, 20);
+            this.regularHemoglobinTxt.TabIndex = 15;
+            // 
+            // regularBloodLeucoLbl
+            // 
+            this.regularBloodLeucoLbl.AutoSize = true;
+            this.regularBloodLeucoLbl.Location = new System.Drawing.Point(6, 73);
+            this.regularBloodLeucoLbl.Name = "regularBloodLeucoLbl";
+            this.regularBloodLeucoLbl.Size = new System.Drawing.Size(67, 13);
+            this.regularBloodLeucoLbl.TabIndex = 14;
+            this.regularBloodLeucoLbl.Text = "Лейкоциты:";
+            // 
+            // regularHolesterolLbl
+            // 
+            this.regularHolesterolLbl.AutoSize = true;
+            this.regularHolesterolLbl.Location = new System.Drawing.Point(6, 169);
+            this.regularHolesterolLbl.Name = "regularHolesterolLbl";
+            this.regularHolesterolLbl.Size = new System.Drawing.Size(70, 13);
+            this.regularHolesterolLbl.TabIndex = 13;
+            this.regularHolesterolLbl.Text = "Холестерин:";
+            // 
+            // regularBilLbl
+            // 
+            this.regularBilLbl.AutoSize = true;
+            this.regularBilLbl.Location = new System.Drawing.Point(6, 193);
+            this.regularBilLbl.Name = "regularBilLbl";
+            this.regularBilLbl.Size = new System.Drawing.Size(59, 13);
+            this.regularBilLbl.TabIndex = 12;
+            this.regularBilLbl.Text = "Бил. общ.:";
+            // 
+            // regularIronLbl
+            // 
+            this.regularIronLbl.AutoSize = true;
+            this.regularIronLbl.Location = new System.Drawing.Point(6, 216);
+            this.regularIronLbl.Name = "regularIronLbl";
+            this.regularIronLbl.Size = new System.Drawing.Size(51, 13);
+            this.regularIronLbl.TabIndex = 11;
+            this.regularIronLbl.Text = "Железо:";
+            // 
+            // regularSchfLbl
+            // 
+            this.regularSchfLbl.AutoSize = true;
+            this.regularSchfLbl.Location = new System.Drawing.Point(6, 288);
+            this.regularSchfLbl.Name = "regularSchfLbl";
+            this.regularSchfLbl.Size = new System.Drawing.Size(31, 13);
+            this.regularSchfLbl.TabIndex = 10;
+            this.regularSchfLbl.Text = "ЩФ:";
+            // 
+            // regularAmilazaLbl
+            // 
+            this.regularAmilazaLbl.AutoSize = true;
+            this.regularAmilazaLbl.Location = new System.Drawing.Point(6, 312);
+            this.regularAmilazaLbl.Name = "regularAmilazaLbl";
+            this.regularAmilazaLbl.Size = new System.Drawing.Size(55, 13);
+            this.regularAmilazaLbl.TabIndex = 9;
+            this.regularAmilazaLbl.Text = "Амилаза:";
+            // 
+            // regularPotassiumLbl
+            // 
+            this.regularPotassiumLbl.AutoSize = true;
+            this.regularPotassiumLbl.Location = new System.Drawing.Point(6, 407);
+            this.regularPotassiumLbl.Name = "regularPotassiumLbl";
+            this.regularPotassiumLbl.Size = new System.Drawing.Size(41, 13);
+            this.regularPotassiumLbl.TabIndex = 8;
+            this.regularPotassiumLbl.Text = "Калий:";
+            // 
+            // regularSodiumLbl
+            // 
+            this.regularSodiumLbl.AutoSize = true;
+            this.regularSodiumLbl.Location = new System.Drawing.Point(6, 431);
+            this.regularSodiumLbl.Name = "regularSodiumLbl";
+            this.regularSodiumLbl.Size = new System.Drawing.Size(47, 13);
+            this.regularSodiumLbl.TabIndex = 7;
+            this.regularSodiumLbl.Text = "Натрий:";
+            // 
+            // regularAltLbl
+            // 
+            this.regularAltLbl.AutoSize = true;
+            this.regularAltLbl.Location = new System.Drawing.Point(6, 240);
+            this.regularAltLbl.Name = "regularAltLbl";
+            this.regularAltLbl.Size = new System.Drawing.Size(32, 13);
+            this.regularAltLbl.TabIndex = 6;
+            this.regularAltLbl.Text = "АЛТ:";
+            // 
+            // regularAstLbl
+            // 
+            this.regularAstLbl.AutoSize = true;
+            this.regularAstLbl.Location = new System.Drawing.Point(6, 264);
+            this.regularAstLbl.Name = "regularAstLbl";
+            this.regularAstLbl.Size = new System.Drawing.Size(31, 13);
+            this.regularAstLbl.TabIndex = 5;
+            this.regularAstLbl.Text = "АСТ:";
+            // 
+            // regularKfkMvLbl
+            // 
+            this.regularKfkMvLbl.AutoSize = true;
+            this.regularKfkMvLbl.Location = new System.Drawing.Point(6, 359);
+            this.regularKfkMvLbl.Name = "regularKfkMvLbl";
+            this.regularKfkMvLbl.Size = new System.Drawing.Size(54, 13);
+            this.regularKfkMvLbl.TabIndex = 4;
+            this.regularKfkMvLbl.Text = "КФК-МВ:";
+            // 
+            // regularKfkLbl
+            // 
+            this.regularKfkLbl.AutoSize = true;
+            this.regularKfkLbl.Location = new System.Drawing.Point(6, 335);
+            this.regularKfkLbl.Name = "regularKfkLbl";
+            this.regularKfkLbl.Size = new System.Drawing.Size(35, 13);
+            this.regularKfkLbl.TabIndex = 3;
+            this.regularKfkLbl.Text = "КФК:";
+            // 
+            // regularSrbLbl
+            // 
+            this.regularSrbLbl.AutoSize = true;
+            this.regularSrbLbl.Location = new System.Drawing.Point(6, 383);
+            this.regularSrbLbl.Name = "regularSrbLbl";
+            this.regularSrbLbl.Size = new System.Drawing.Size(31, 13);
+            this.regularSrbLbl.TabIndex = 2;
+            this.regularSrbLbl.Text = "СРБ:";
+            // 
+            // regularChloriumLbl
+            // 
+            this.regularChloriumLbl.AutoSize = true;
+            this.regularChloriumLbl.Location = new System.Drawing.Point(6, 455);
+            this.regularChloriumLbl.Name = "regularChloriumLbl";
+            this.regularChloriumLbl.Size = new System.Drawing.Size(35, 13);
+            this.regularChloriumLbl.TabIndex = 1;
+            this.regularChloriumLbl.Text = "Хлор:";
+            // 
+            // regularHemogloinLbl
+            // 
+            this.regularHemogloinLbl.AutoSize = true;
+            this.regularHemogloinLbl.Location = new System.Drawing.Point(6, 50);
+            this.regularHemogloinLbl.Name = "regularHemogloinLbl";
+            this.regularHemogloinLbl.Size = new System.Drawing.Size(71, 13);
+            this.regularHemogloinLbl.TabIndex = 0;
+            this.regularHemogloinLbl.Text = "Гемоглобин:";
+            // 
+            // firstBloodPnl
+            // 
+            this.firstBloodPnl.Controls.Add(this.firstKreatininLbl);
+            this.firstBloodPnl.Controls.Add(this.firstProteintLbl);
+            this.firstBloodPnl.Controls.Add(this.firstPlatelesLbl);
+            this.firstBloodPnl.Controls.Add(this.firstChlorineTxt);
+            this.firstBloodPnl.Controls.Add(this.firstSrbTxt);
+            this.firstBloodPnl.Controls.Add(this.firstSodiumTxt);
+            this.firstBloodPnl.Controls.Add(this.firstPotassiumTxt);
+            this.firstBloodPnl.Controls.Add(this.firstKfkMvTxt);
+            this.firstBloodPnl.Controls.Add(this.firstKfkTxt);
+            this.firstBloodPnl.Controls.Add(this.firstAmilazaTxt);
+            this.firstBloodPnl.Controls.Add(this.firstSchfTxt);
+            this.firstBloodPnl.Controls.Add(this.firstAstTxt);
+            this.firstBloodPnl.Controls.Add(this.firstAltTxt);
+            this.firstBloodPnl.Controls.Add(this.firstIronTxt);
+            this.firstBloodPnl.Controls.Add(this.firstBilTxt);
+            this.firstBloodPnl.Controls.Add(this.firstHolesterolTxt);
+            this.firstBloodPnl.Controls.Add(this.firstKreatininTxt);
+            this.firstBloodPnl.Controls.Add(this.firstBloodProteintTxt);
+            this.firstBloodPnl.Controls.Add(this.firstTrombocytesTxt);
+            this.firstBloodPnl.Controls.Add(this.firstBloodLeucoTxt);
+            this.firstBloodPnl.Controls.Add(this.firstHemoglobinTxt);
+            this.firstBloodPnl.Controls.Add(this.firstLeucocytesLbl);
+            this.firstBloodPnl.Controls.Add(this.firstHolesterolLbl);
+            this.firstBloodPnl.Controls.Add(this.firstBilLbl);
+            this.firstBloodPnl.Controls.Add(this.firstIronLbl);
+            this.firstBloodPnl.Controls.Add(this.firstSchfLbl);
+            this.firstBloodPnl.Controls.Add(this.firstAmilazaLbl);
+            this.firstBloodPnl.Controls.Add(this.firstPotassiumLbl);
+            this.firstBloodPnl.Controls.Add(this.firstSodiumLbl);
+            this.firstBloodPnl.Controls.Add(this.firstAltLbl);
+            this.firstBloodPnl.Controls.Add(this.firstAstLbl);
+            this.firstBloodPnl.Controls.Add(this.firstKfkMvLbl);
+            this.firstBloodPnl.Controls.Add(this.firstKfkLbl);
+            this.firstBloodPnl.Controls.Add(this.firstSrbLbl);
+            this.firstBloodPnl.Controls.Add(this.firstChlorineLbl);
+            this.firstBloodPnl.Controls.Add(this.firstHemoglobinLbl);
+            this.firstBloodPnl.Location = new System.Drawing.Point(13, 6);
+            this.firstBloodPnl.Name = "firstBloodPnl";
+            this.firstBloodPnl.Size = new System.Drawing.Size(172, 472);
+            this.firstBloodPnl.TabIndex = 0;
+            this.firstBloodPnl.TabStop = false;
+            this.firstBloodPnl.Text = "Анализы при поступлении";
+            // 
+            // firstKreatininLbl
+            // 
+            this.firstKreatininLbl.AutoSize = true;
+            this.firstKreatininLbl.Location = new System.Drawing.Point(6, 121);
+            this.firstKreatininLbl.Name = "firstKreatininLbl";
+            this.firstKreatininLbl.Size = new System.Drawing.Size(64, 13);
+            this.firstKreatininLbl.TabIndex = 35;
+            this.firstKreatininLbl.Text = "Креатинин:";
+            // 
+            // firstProteintLbl
+            // 
+            this.firstProteintLbl.AutoSize = true;
+            this.firstProteintLbl.Location = new System.Drawing.Point(6, 97);
+            this.firstProteintLbl.Name = "firstProteintLbl";
+            this.firstProteintLbl.Size = new System.Drawing.Size(60, 13);
+            this.firstProteintLbl.TabIndex = 34;
+            this.firstProteintLbl.Text = "Об. белок:";
+            // 
+            // firstPlatelesLbl
+            // 
+            this.firstPlatelesLbl.AutoSize = true;
+            this.firstPlatelesLbl.Location = new System.Drawing.Point(6, 73);
+            this.firstPlatelesLbl.Name = "firstPlatelesLbl";
+            this.firstPlatelesLbl.Size = new System.Drawing.Size(74, 13);
+            this.firstPlatelesLbl.TabIndex = 33;
+            this.firstPlatelesLbl.Text = "Тромбоциты:";
+            // 
+            // firstChlorineTxt
+            // 
+            this.firstChlorineTxt.Location = new System.Drawing.Point(81, 424);
+            this.firstChlorineTxt.Name = "firstChlorineTxt";
+            this.firstChlorineTxt.ReadOnly = true;
+            this.firstChlorineTxt.Size = new System.Drawing.Size(79, 20);
+            this.firstChlorineTxt.TabIndex = 32;
+            // 
+            // firstSrbTxt
+            // 
+            this.firstSrbTxt.Location = new System.Drawing.Point(81, 352);
+            this.firstSrbTxt.Name = "firstSrbTxt";
+            this.firstSrbTxt.ReadOnly = true;
+            this.firstSrbTxt.Size = new System.Drawing.Size(79, 20);
+            this.firstSrbTxt.TabIndex = 31;
+            // 
+            // firstSodiumTxt
+            // 
+            this.firstSodiumTxt.Location = new System.Drawing.Point(81, 400);
+            this.firstSodiumTxt.Name = "firstSodiumTxt";
+            this.firstSodiumTxt.ReadOnly = true;
+            this.firstSodiumTxt.Size = new System.Drawing.Size(79, 20);
+            this.firstSodiumTxt.TabIndex = 30;
+            // 
+            // firstPotassiumTxt
+            // 
+            this.firstPotassiumTxt.Location = new System.Drawing.Point(81, 376);
+            this.firstPotassiumTxt.Name = "firstPotassiumTxt";
+            this.firstPotassiumTxt.ReadOnly = true;
+            this.firstPotassiumTxt.Size = new System.Drawing.Size(79, 20);
+            this.firstPotassiumTxt.TabIndex = 29;
+            // 
+            // firstKfkMvTxt
+            // 
+            this.firstKfkMvTxt.Location = new System.Drawing.Point(81, 328);
+            this.firstKfkMvTxt.Name = "firstKfkMvTxt";
+            this.firstKfkMvTxt.ReadOnly = true;
+            this.firstKfkMvTxt.Size = new System.Drawing.Size(79, 20);
+            this.firstKfkMvTxt.TabIndex = 28;
+            // 
+            // firstKfkTxt
+            // 
+            this.firstKfkTxt.Location = new System.Drawing.Point(81, 304);
+            this.firstKfkTxt.Name = "firstKfkTxt";
+            this.firstKfkTxt.ReadOnly = true;
+            this.firstKfkTxt.Size = new System.Drawing.Size(79, 20);
+            this.firstKfkTxt.TabIndex = 27;
+            // 
+            // firstAmilazaTxt
+            // 
+            this.firstAmilazaTxt.Location = new System.Drawing.Point(81, 281);
+            this.firstAmilazaTxt.Name = "firstAmilazaTxt";
+            this.firstAmilazaTxt.ReadOnly = true;
+            this.firstAmilazaTxt.Size = new System.Drawing.Size(79, 20);
+            this.firstAmilazaTxt.TabIndex = 26;
+            // 
+            // firstSchfTxt
+            // 
+            this.firstSchfTxt.Location = new System.Drawing.Point(81, 257);
+            this.firstSchfTxt.Name = "firstSchfTxt";
+            this.firstSchfTxt.ReadOnly = true;
+            this.firstSchfTxt.Size = new System.Drawing.Size(79, 20);
+            this.firstSchfTxt.TabIndex = 25;
+            // 
+            // firstAstTxt
+            // 
+            this.firstAstTxt.Location = new System.Drawing.Point(81, 233);
+            this.firstAstTxt.Name = "firstAstTxt";
+            this.firstAstTxt.ReadOnly = true;
+            this.firstAstTxt.Size = new System.Drawing.Size(79, 20);
+            this.firstAstTxt.TabIndex = 24;
+            // 
+            // firstAltTxt
+            // 
+            this.firstAltTxt.Location = new System.Drawing.Point(81, 209);
+            this.firstAltTxt.Name = "firstAltTxt";
+            this.firstAltTxt.ReadOnly = true;
+            this.firstAltTxt.Size = new System.Drawing.Size(79, 20);
+            this.firstAltTxt.TabIndex = 23;
+            // 
+            // firstIronTxt
+            // 
+            this.firstIronTxt.Location = new System.Drawing.Point(81, 185);
+            this.firstIronTxt.Name = "firstIronTxt";
+            this.firstIronTxt.ReadOnly = true;
+            this.firstIronTxt.Size = new System.Drawing.Size(79, 20);
+            this.firstIronTxt.TabIndex = 22;
+            // 
+            // firstBilTxt
+            // 
+            this.firstBilTxt.Location = new System.Drawing.Point(81, 162);
+            this.firstBilTxt.Name = "firstBilTxt";
+            this.firstBilTxt.ReadOnly = true;
+            this.firstBilTxt.Size = new System.Drawing.Size(79, 20);
+            this.firstBilTxt.TabIndex = 21;
+            // 
+            // firstHolesterolTxt
+            // 
+            this.firstHolesterolTxt.Location = new System.Drawing.Point(81, 138);
+            this.firstHolesterolTxt.Name = "firstHolesterolTxt";
+            this.firstHolesterolTxt.ReadOnly = true;
+            this.firstHolesterolTxt.Size = new System.Drawing.Size(79, 20);
+            this.firstHolesterolTxt.TabIndex = 20;
+            // 
+            // firstKreatininTxt
+            // 
+            this.firstKreatininTxt.Location = new System.Drawing.Point(81, 114);
+            this.firstKreatininTxt.Name = "firstKreatininTxt";
+            this.firstKreatininTxt.ReadOnly = true;
+            this.firstKreatininTxt.Size = new System.Drawing.Size(79, 20);
+            this.firstKreatininTxt.TabIndex = 19;
+            // 
+            // firstBloodProteintTxt
+            // 
+            this.firstBloodProteintTxt.Location = new System.Drawing.Point(81, 90);
+            this.firstBloodProteintTxt.Name = "firstBloodProteintTxt";
+            this.firstBloodProteintTxt.ReadOnly = true;
+            this.firstBloodProteintTxt.Size = new System.Drawing.Size(79, 20);
+            this.firstBloodProteintTxt.TabIndex = 18;
+            // 
+            // firstTrombocytesTxt
+            // 
+            this.firstTrombocytesTxt.Location = new System.Drawing.Point(81, 66);
+            this.firstTrombocytesTxt.Name = "firstTrombocytesTxt";
+            this.firstTrombocytesTxt.ReadOnly = true;
+            this.firstTrombocytesTxt.Size = new System.Drawing.Size(79, 20);
+            this.firstTrombocytesTxt.TabIndex = 17;
+            // 
+            // firstBloodLeucoTxt
+            // 
+            this.firstBloodLeucoTxt.Location = new System.Drawing.Point(81, 42);
+            this.firstBloodLeucoTxt.Name = "firstBloodLeucoTxt";
+            this.firstBloodLeucoTxt.ReadOnly = true;
+            this.firstBloodLeucoTxt.Size = new System.Drawing.Size(79, 20);
+            this.firstBloodLeucoTxt.TabIndex = 16;
+            // 
+            // firstHemoglobinTxt
+            // 
+            this.firstHemoglobinTxt.Location = new System.Drawing.Point(81, 19);
+            this.firstHemoglobinTxt.Name = "firstHemoglobinTxt";
+            this.firstHemoglobinTxt.ReadOnly = true;
+            this.firstHemoglobinTxt.Size = new System.Drawing.Size(79, 20);
+            this.firstHemoglobinTxt.TabIndex = 15;
+            // 
+            // firstLeucocytesLbl
+            // 
+            this.firstLeucocytesLbl.AutoSize = true;
+            this.firstLeucocytesLbl.Location = new System.Drawing.Point(6, 49);
+            this.firstLeucocytesLbl.Name = "firstLeucocytesLbl";
+            this.firstLeucocytesLbl.Size = new System.Drawing.Size(67, 13);
+            this.firstLeucocytesLbl.TabIndex = 14;
+            this.firstLeucocytesLbl.Text = "Лейкоциты:";
+            // 
+            // firstHolesterolLbl
+            // 
+            this.firstHolesterolLbl.AutoSize = true;
+            this.firstHolesterolLbl.Location = new System.Drawing.Point(6, 145);
+            this.firstHolesterolLbl.Name = "firstHolesterolLbl";
+            this.firstHolesterolLbl.Size = new System.Drawing.Size(70, 13);
+            this.firstHolesterolLbl.TabIndex = 13;
+            this.firstHolesterolLbl.Text = "Холестерин:";
+            // 
+            // firstBilLbl
+            // 
+            this.firstBilLbl.AutoSize = true;
+            this.firstBilLbl.Location = new System.Drawing.Point(6, 169);
+            this.firstBilLbl.Name = "firstBilLbl";
+            this.firstBilLbl.Size = new System.Drawing.Size(59, 13);
+            this.firstBilLbl.TabIndex = 12;
+            this.firstBilLbl.Text = "Бил. общ.:";
+            // 
+            // firstIronLbl
+            // 
+            this.firstIronLbl.AutoSize = true;
+            this.firstIronLbl.Location = new System.Drawing.Point(6, 192);
+            this.firstIronLbl.Name = "firstIronLbl";
+            this.firstIronLbl.Size = new System.Drawing.Size(51, 13);
+            this.firstIronLbl.TabIndex = 11;
+            this.firstIronLbl.Text = "Железо:";
+            // 
+            // firstSchfLbl
+            // 
+            this.firstSchfLbl.AutoSize = true;
+            this.firstSchfLbl.Location = new System.Drawing.Point(6, 264);
+            this.firstSchfLbl.Name = "firstSchfLbl";
+            this.firstSchfLbl.Size = new System.Drawing.Size(31, 13);
+            this.firstSchfLbl.TabIndex = 10;
+            this.firstSchfLbl.Text = "ЩФ:";
+            // 
+            // firstAmilazaLbl
+            // 
+            this.firstAmilazaLbl.AutoSize = true;
+            this.firstAmilazaLbl.Location = new System.Drawing.Point(6, 288);
+            this.firstAmilazaLbl.Name = "firstAmilazaLbl";
+            this.firstAmilazaLbl.Size = new System.Drawing.Size(55, 13);
+            this.firstAmilazaLbl.TabIndex = 9;
+            this.firstAmilazaLbl.Text = "Амилаза:";
+            // 
+            // firstPotassiumLbl
+            // 
+            this.firstPotassiumLbl.AutoSize = true;
+            this.firstPotassiumLbl.Location = new System.Drawing.Point(6, 383);
+            this.firstPotassiumLbl.Name = "firstPotassiumLbl";
+            this.firstPotassiumLbl.Size = new System.Drawing.Size(41, 13);
+            this.firstPotassiumLbl.TabIndex = 8;
+            this.firstPotassiumLbl.Text = "Калий:";
+            // 
+            // firstSodiumLbl
+            // 
+            this.firstSodiumLbl.AutoSize = true;
+            this.firstSodiumLbl.Location = new System.Drawing.Point(6, 407);
+            this.firstSodiumLbl.Name = "firstSodiumLbl";
+            this.firstSodiumLbl.Size = new System.Drawing.Size(47, 13);
+            this.firstSodiumLbl.TabIndex = 7;
+            this.firstSodiumLbl.Text = "Натрий:";
+            // 
+            // firstAltLbl
+            // 
+            this.firstAltLbl.AutoSize = true;
+            this.firstAltLbl.Location = new System.Drawing.Point(6, 216);
+            this.firstAltLbl.Name = "firstAltLbl";
+            this.firstAltLbl.Size = new System.Drawing.Size(32, 13);
+            this.firstAltLbl.TabIndex = 6;
+            this.firstAltLbl.Text = "АЛТ:";
+            // 
+            // firstAstLbl
+            // 
+            this.firstAstLbl.AutoSize = true;
+            this.firstAstLbl.Location = new System.Drawing.Point(6, 240);
+            this.firstAstLbl.Name = "firstAstLbl";
+            this.firstAstLbl.Size = new System.Drawing.Size(31, 13);
+            this.firstAstLbl.TabIndex = 5;
+            this.firstAstLbl.Text = "АСТ:";
+            // 
+            // firstKfkMvLbl
+            // 
+            this.firstKfkMvLbl.AutoSize = true;
+            this.firstKfkMvLbl.Location = new System.Drawing.Point(6, 335);
+            this.firstKfkMvLbl.Name = "firstKfkMvLbl";
+            this.firstKfkMvLbl.Size = new System.Drawing.Size(54, 13);
+            this.firstKfkMvLbl.TabIndex = 4;
+            this.firstKfkMvLbl.Text = "КФК-МВ:";
+            // 
+            // firstKfkLbl
+            // 
+            this.firstKfkLbl.AutoSize = true;
+            this.firstKfkLbl.Location = new System.Drawing.Point(6, 311);
+            this.firstKfkLbl.Name = "firstKfkLbl";
+            this.firstKfkLbl.Size = new System.Drawing.Size(35, 13);
+            this.firstKfkLbl.TabIndex = 3;
+            this.firstKfkLbl.Text = "КФК:";
+            // 
+            // firstSrbLbl
+            // 
+            this.firstSrbLbl.AutoSize = true;
+            this.firstSrbLbl.Location = new System.Drawing.Point(6, 359);
+            this.firstSrbLbl.Name = "firstSrbLbl";
+            this.firstSrbLbl.Size = new System.Drawing.Size(31, 13);
+            this.firstSrbLbl.TabIndex = 2;
+            this.firstSrbLbl.Text = "СРБ:";
+            // 
+            // firstChlorineLbl
+            // 
+            this.firstChlorineLbl.AutoSize = true;
+            this.firstChlorineLbl.Location = new System.Drawing.Point(6, 431);
+            this.firstChlorineLbl.Name = "firstChlorineLbl";
+            this.firstChlorineLbl.Size = new System.Drawing.Size(35, 13);
+            this.firstChlorineLbl.TabIndex = 1;
+            this.firstChlorineLbl.Text = "Хлор:";
+            // 
+            // firstHemoglobinLbl
+            // 
+            this.firstHemoglobinLbl.AutoSize = true;
+            this.firstHemoglobinLbl.Location = new System.Drawing.Point(6, 26);
+            this.firstHemoglobinLbl.Name = "firstHemoglobinLbl";
+            this.firstHemoglobinLbl.Size = new System.Drawing.Size(71, 13);
+            this.firstHemoglobinLbl.TabIndex = 0;
+            this.firstHemoglobinLbl.Text = "Гемоглобин:";
             // 
             // urineTab
             // 
@@ -3010,18 +2653,16 @@
             this.regularEgdsBox.ResumeLayout(false);
             this.firstEgdsBox.ResumeLayout(false);
             this.bloodTab.ResumeLayout(false);
-            this.groupBox20.ResumeLayout(false);
-            this.groupBox20.PerformLayout();
-            this.groupBox19.ResumeLayout(false);
-            this.groupBox19.PerformLayout();
-            this.groupBox17.ResumeLayout(false);
-            this.groupBox17.PerformLayout();
-            this.groupBox18.ResumeLayout(false);
-            this.groupBox18.PerformLayout();
-            this.groupBox16.ResumeLayout(false);
-            this.groupBox16.PerformLayout();
-            this.groupBox15.ResumeLayout(false);
-            this.groupBox15.PerformLayout();
+            this.hormonesPnl.ResumeLayout(false);
+            this.hormonesPnl.PerformLayout();
+            this.coagulogramPnl.ResumeLayout(false);
+            this.coagulogramPnl.PerformLayout();
+            this.releaseBloodPnl.ResumeLayout(false);
+            this.releaseBloodPnl.PerformLayout();
+            this.regularBloodPnl.ResumeLayout(false);
+            this.regularBloodPnl.PerformLayout();
+            this.firstBloodPnl.ResumeLayout(false);
+            this.firstBloodPnl.PerformLayout();
             this.urineTab.ResumeLayout(false);
             this.regularAnalysisBox.ResumeLayout(false);
             this.regularAnalysisBox.PerformLayout();
@@ -3090,99 +2731,60 @@
         private System.Windows.Forms.TabPage xRayTab;
         private System.Windows.Forms.TabPage holterTab;
         private System.Windows.Forms.TabPage specialistDecisionTab;
-        private System.Windows.Forms.GroupBox groupBox15;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox textBox18;
-        private System.Windows.Forms.TextBox textBox17;
-        private System.Windows.Forms.TextBox textBox16;
-        private System.Windows.Forms.TextBox textBox15;
-        private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.GroupBox groupBox20;
-        private System.Windows.Forms.GroupBox groupBox19;
+        private System.Windows.Forms.GroupBox firstBloodPnl;
+        private System.Windows.Forms.Label firstKreatininLbl;
+        private System.Windows.Forms.Label firstProteintLbl;
+        private System.Windows.Forms.Label firstPlatelesLbl;
+        private System.Windows.Forms.TextBox firstChlorineTxt;
+        private System.Windows.Forms.TextBox firstSrbTxt;
+        private System.Windows.Forms.TextBox firstSodiumTxt;
+        private System.Windows.Forms.TextBox firstPotassiumTxt;
+        private System.Windows.Forms.TextBox firstKfkMvTxt;
+        private System.Windows.Forms.TextBox firstKfkTxt;
+        private System.Windows.Forms.TextBox firstAmilazaTxt;
+        private System.Windows.Forms.TextBox firstSchfTxt;
+        private System.Windows.Forms.TextBox firstAstTxt;
+        private System.Windows.Forms.TextBox firstAltTxt;
+        private System.Windows.Forms.TextBox firstIronTxt;
+        private System.Windows.Forms.TextBox firstBilTxt;
+        private System.Windows.Forms.TextBox firstHolesterolTxt;
+        private System.Windows.Forms.TextBox firstKreatininTxt;
+        private System.Windows.Forms.TextBox firstBloodProteintTxt;
+        private System.Windows.Forms.TextBox firstTrombocytesTxt;
+        private System.Windows.Forms.TextBox firstBloodLeucoTxt;
+        private System.Windows.Forms.TextBox firstHemoglobinTxt;
+        private System.Windows.Forms.Label firstLeucocytesLbl;
+        private System.Windows.Forms.Label firstHolesterolLbl;
+        private System.Windows.Forms.Label firstBilLbl;
+        private System.Windows.Forms.Label firstIronLbl;
+        private System.Windows.Forms.Label firstSchfLbl;
+        private System.Windows.Forms.Label firstAmilazaLbl;
+        private System.Windows.Forms.Label firstPotassiumLbl;
+        private System.Windows.Forms.Label firstSodiumLbl;
+        private System.Windows.Forms.Label firstAltLbl;
+        private System.Windows.Forms.Label firstAstLbl;
+        private System.Windows.Forms.Label firstKfkMvLbl;
+        private System.Windows.Forms.Label firstKfkLbl;
+        private System.Windows.Forms.Label firstSrbLbl;
+        private System.Windows.Forms.Label firstChlorineLbl;
+        private System.Windows.Forms.Label firstHemoglobinLbl;
+        private System.Windows.Forms.GroupBox hormonesPnl;
+        private System.Windows.Forms.GroupBox coagulogramPnl;
         private System.Windows.Forms.Button showABOFormBtn;
-        private System.Windows.Forms.GroupBox groupBox17;
-        private System.Windows.Forms.DateTimePicker dateTimePicker5;
-        private System.Windows.Forms.Label label39;
-        private System.Windows.Forms.Label label40;
-        private System.Windows.Forms.Label label41;
-        private System.Windows.Forms.Label label42;
-        private System.Windows.Forms.TextBox textBox37;
-        private System.Windows.Forms.TextBox textBox38;
-        private System.Windows.Forms.TextBox textBox39;
-        private System.Windows.Forms.TextBox textBox40;
-        private System.Windows.Forms.TextBox textBox41;
-        private System.Windows.Forms.TextBox textBox42;
-        private System.Windows.Forms.TextBox textBox43;
-        private System.Windows.Forms.TextBox textBox44;
-        private System.Windows.Forms.TextBox textBox45;
-        private System.Windows.Forms.TextBox textBox46;
-        private System.Windows.Forms.TextBox textBox47;
-        private System.Windows.Forms.TextBox textBox48;
-        private System.Windows.Forms.TextBox textBox49;
-        private System.Windows.Forms.TextBox textBox50;
-        private System.Windows.Forms.TextBox textBox51;
-        private System.Windows.Forms.TextBox textBox52;
-        private System.Windows.Forms.TextBox textBox53;
-        private System.Windows.Forms.TextBox textBox54;
-        private System.Windows.Forms.Label label43;
-        private System.Windows.Forms.Label label44;
-        private System.Windows.Forms.Label label45;
-        private System.Windows.Forms.Label label46;
-        private System.Windows.Forms.Label label47;
-        private System.Windows.Forms.Label label48;
-        private System.Windows.Forms.Label label49;
-        private System.Windows.Forms.Label label50;
-        private System.Windows.Forms.Label label51;
-        private System.Windows.Forms.Label label52;
-        private System.Windows.Forms.Label label53;
-        private System.Windows.Forms.Label label54;
-        private System.Windows.Forms.Label label55;
-        private System.Windows.Forms.Label label56;
-        private System.Windows.Forms.Label label76;
-        private System.Windows.Forms.GroupBox groupBox18;
-        private System.Windows.Forms.Label label57;
-        private System.Windows.Forms.Label label58;
-        private System.Windows.Forms.Label label59;
-        private System.Windows.Forms.TextBox textBox55;
-        private System.Windows.Forms.TextBox textBox56;
-        private System.Windows.Forms.TextBox textBox57;
-        private System.Windows.Forms.TextBox textBox58;
-        private System.Windows.Forms.TextBox textBox59;
-        private System.Windows.Forms.TextBox textBox60;
-        private System.Windows.Forms.TextBox textBox61;
-        private System.Windows.Forms.TextBox textBox62;
-        private System.Windows.Forms.TextBox textBox63;
-        private System.Windows.Forms.TextBox textBox64;
+        private System.Windows.Forms.GroupBox releaseBloodPnl;
+        private System.Windows.Forms.Label releaseKreaininLbl;
+        private System.Windows.Forms.Label releaseProteinLbl;
+        private System.Windows.Forms.Label releaseTromboLbl;
+        private System.Windows.Forms.TextBox releaseChlorineTxt;
+        private System.Windows.Forms.TextBox releaseSrbTxt;
+        private System.Windows.Forms.TextBox releaseSodiumTxt;
+        private System.Windows.Forms.TextBox releasePotassiumTxt;
+        private System.Windows.Forms.TextBox releaseKfkMvTxt;
+        private System.Windows.Forms.TextBox releaseKfkTxt;
+        private System.Windows.Forms.TextBox releaseAmilazaTxt;
+        private System.Windows.Forms.TextBox releaseSchfTxt;
+        private System.Windows.Forms.TextBox releaseAstTxt;
+        private System.Windows.Forms.TextBox releaseAltTxt;
         private System.Windows.Forms.TextBox textBox65;
         private System.Windows.Forms.TextBox textBox66;
         private System.Windows.Forms.TextBox textBox67;
@@ -3191,72 +2793,72 @@
         private System.Windows.Forms.TextBox textBox70;
         private System.Windows.Forms.TextBox textBox71;
         private System.Windows.Forms.TextBox textBox72;
-        private System.Windows.Forms.Label label60;
-        private System.Windows.Forms.Label label61;
-        private System.Windows.Forms.Label label62;
-        private System.Windows.Forms.Label label63;
-        private System.Windows.Forms.Label label64;
-        private System.Windows.Forms.Label label65;
-        private System.Windows.Forms.Label label66;
-        private System.Windows.Forms.Label label67;
-        private System.Windows.Forms.Label label68;
-        private System.Windows.Forms.Label label69;
-        private System.Windows.Forms.Label label70;
-        private System.Windows.Forms.Label label71;
-        private System.Windows.Forms.Label label72;
-        private System.Windows.Forms.Label label73;
-        private System.Windows.Forms.Label label74;
-        private System.Windows.Forms.GroupBox groupBox16;
-        private System.Windows.Forms.DateTimePicker dateTimePicker4;
-        private System.Windows.Forms.Label label75;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.TextBox textBox19;
-        private System.Windows.Forms.TextBox textBox20;
-        private System.Windows.Forms.TextBox textBox21;
-        private System.Windows.Forms.TextBox textBox22;
-        private System.Windows.Forms.TextBox textBox23;
-        private System.Windows.Forms.TextBox textBox24;
-        private System.Windows.Forms.TextBox textBox25;
-        private System.Windows.Forms.TextBox textBox26;
-        private System.Windows.Forms.TextBox textBox27;
-        private System.Windows.Forms.TextBox textBox28;
-        private System.Windows.Forms.TextBox textBox29;
-        private System.Windows.Forms.TextBox textBox30;
-        private System.Windows.Forms.TextBox textBox31;
-        private System.Windows.Forms.TextBox textBox32;
-        private System.Windows.Forms.TextBox textBox33;
-        private System.Windows.Forms.TextBox textBox34;
-        private System.Windows.Forms.TextBox textBox35;
-        private System.Windows.Forms.TextBox textBox36;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.Label label35;
-        private System.Windows.Forms.Label label36;
-        private System.Windows.Forms.Label label37;
-        private System.Windows.Forms.Label label38;
-        private System.Windows.Forms.TextBox textBox78;
-        private System.Windows.Forms.TextBox textBox77;
-        private System.Windows.Forms.TextBox textBox76;
-        private System.Windows.Forms.Label label82;
-        private System.Windows.Forms.Label label81;
-        private System.Windows.Forms.Label label80;
-        private System.Windows.Forms.TextBox textBox75;
-        private System.Windows.Forms.TextBox textBox74;
-        private System.Windows.Forms.TextBox textBox73;
-        private System.Windows.Forms.Label label79;
-        private System.Windows.Forms.Label label78;
-        private System.Windows.Forms.Label label77;
+        private System.Windows.Forms.Label releaseBloodLeucoLbl;
+        private System.Windows.Forms.Label releaseHolesterolLbl;
+        private System.Windows.Forms.Label releaseBilLbl;
+        private System.Windows.Forms.Label releaseIronLbl;
+        private System.Windows.Forms.Label releaseSchfLbl;
+        private System.Windows.Forms.Label releaseAmilazaLbl;
+        private System.Windows.Forms.Label releasePotassiumLbl;
+        private System.Windows.Forms.Label releaseSodiumLbl;
+        private System.Windows.Forms.Label releaseAltLbl;
+        private System.Windows.Forms.Label releaseAstLbl;
+        private System.Windows.Forms.Label releaseKfkMvLbl;
+        private System.Windows.Forms.Label releaseKfkLbl;
+        private System.Windows.Forms.Label releaseSrbLbl;
+        private System.Windows.Forms.Label releaseChlorineLbl;
+        private System.Windows.Forms.Label releaseHemoglobinLbl;
+        private System.Windows.Forms.GroupBox regularBloodPnl;
+        private System.Windows.Forms.DateTimePicker regularBloodDateTxt;
+        private System.Windows.Forms.Label regularBloodDateLbl;
+        private System.Windows.Forms.Label regularKreatininLbl;
+        private System.Windows.Forms.Label regularProteinLbl;
+        private System.Windows.Forms.Label regularTrombocytesLbl;
+        private System.Windows.Forms.TextBox regularChloriumTxt;
+        private System.Windows.Forms.TextBox regularSrbTxt;
+        private System.Windows.Forms.TextBox regularSodiumTxt;
+        private System.Windows.Forms.TextBox regularPotassiumTxt;
+        private System.Windows.Forms.TextBox regularKfkMvTxt;
+        private System.Windows.Forms.TextBox regularKfkTxt;
+        private System.Windows.Forms.TextBox regularAmilazaTzt;
+        private System.Windows.Forms.TextBox regularSchfTxt;
+        private System.Windows.Forms.TextBox regularAstTxt;
+        private System.Windows.Forms.TextBox regularAltTxt;
+        private System.Windows.Forms.TextBox regularIronTxt;
+        private System.Windows.Forms.TextBox regularBilTxt;
+        private System.Windows.Forms.TextBox regularCholesterolTxt;
+        private System.Windows.Forms.TextBox regularKreatininTxt;
+        private System.Windows.Forms.TextBox regularProreinTxt;
+        private System.Windows.Forms.TextBox regularTrombocytesTxt;
+        private System.Windows.Forms.TextBox regularBloodLeucoTxt;
+        private System.Windows.Forms.TextBox regularHemoglobinTxt;
+        private System.Windows.Forms.Label regularBloodLeucoLbl;
+        private System.Windows.Forms.Label regularHolesterolLbl;
+        private System.Windows.Forms.Label regularBilLbl;
+        private System.Windows.Forms.Label regularIronLbl;
+        private System.Windows.Forms.Label regularSchfLbl;
+        private System.Windows.Forms.Label regularAmilazaLbl;
+        private System.Windows.Forms.Label regularPotassiumLbl;
+        private System.Windows.Forms.Label regularSodiumLbl;
+        private System.Windows.Forms.Label regularAltLbl;
+        private System.Windows.Forms.Label regularAstLbl;
+        private System.Windows.Forms.Label regularKfkMvLbl;
+        private System.Windows.Forms.Label regularKfkLbl;
+        private System.Windows.Forms.Label regularSrbLbl;
+        private System.Windows.Forms.Label regularChloriumLbl;
+        private System.Windows.Forms.Label regularHemogloinLbl;
+        private System.Windows.Forms.TextBox ttgTxt;
+        private System.Windows.Forms.TextBox t4Txt;
+        private System.Windows.Forms.TextBox t3Txt;
+        private System.Windows.Forms.Label ttgLbl;
+        private System.Windows.Forms.Label t4Lbl;
+        private System.Windows.Forms.Label t3Lbl;
+        private System.Windows.Forms.TextBox ddimerTxt;
+        private System.Windows.Forms.TextBox mchoTxt;
+        private System.Windows.Forms.TextBox achtvTxt;
+        private System.Windows.Forms.Label ddimerLbl;
+        private System.Windows.Forms.Label mchoLbl;
+        private System.Windows.Forms.Label achtvLbl;
         private System.Windows.Forms.GroupBox firstAnalysisBox;
         private System.Windows.Forms.TextBox firstProteinTxt;
         private System.Windows.Forms.TextBox firstErythrocytesTxt;

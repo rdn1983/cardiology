@@ -19,9 +19,9 @@ namespace Cardiology
             this.journalIds = journalIds;
             this.journalType = journalType;
             InitializeComponent();
-            initRangedItems(chssTxt0, 40, 200);
-            initRangedItems(psTxt0, 40, 200);
-            initRangedItems(chddTxt0, 14, 26);
+            CommonUtils.initRangedItems(chssTxt0, 40, 200);
+            CommonUtils.initRangedItems(psTxt0, 40, 200);
+            CommonUtils.initRangedItems(chddTxt0, 14, 26);
             initJournals();
             initControlVisibility();
         }
@@ -49,7 +49,6 @@ namespace Cardiology
             for (int i = start; i <= end; i++)
             {
                 c.Items.Add(i);
-
             }
         }
 

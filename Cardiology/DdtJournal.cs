@@ -41,6 +41,8 @@ namespace Cardiology.Model
         private string dssCardioExam;
         [TableAttribute("dss_journal")]
         private string dssJournal;
+        [TableAttribute("dss_ekg")]
+        private string dssEkg;
         [TableAttribute("dsi_journal_type")]
         private int dsiJournalType;
 
@@ -63,5 +65,6 @@ namespace Cardiology.Model
         public string DssCardioExam { get => dssCardioExam; set => dssCardioExam = value; }
         public string DssJournal { get => dssJournal; set => dssJournal = value; }
         public int DsiJournalType { get => dsiJournalType; set => dsiJournalType = value; }
+        public string DssEkg { get => dssEkg; set => dssEkg = value; }
     }
 }

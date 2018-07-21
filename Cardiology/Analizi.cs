@@ -16,6 +16,8 @@ namespace Cardiology
         private const int URINE_TAB_INDX = 2;
         private const int UZI_TAB_INDX = 3;
         private const int KAG_TAB_INDX = 7;
+        private const int COAGULOGRAM_TAB_INDX = 8;
+        private const int HORMONES_TAB_INDX = 9;
         private const string REGULAR_ANALYSIS_QRY_TEMPLATE = @"SELECT * FROM {0} WHERE r_object_id='{1}'";
         private const string FIRST_ANALYSIS_QRY_TEMPLATE = @"SELECT * FROM {0} WHERE dsb_admission_analysis=true and dsid_hospitality_session='{1}'";
 
@@ -44,11 +46,15 @@ namespace Cardiology
                 egds = service.queryObject<DdtEgds>(string.Format(REGULAR_ANALYSIS_QRY_TEMPLATE, DdtEgds.TABLE_NAME, objectId));
                 kag = service.queryObject<DdtKag>(string.Format(REGULAR_ANALYSIS_QRY_TEMPLATE, DdtKag.TABLE_NAME, objectId));
                 ekg = service.queryObject<DdtEkg>(string.Format(REGULAR_ANALYSIS_QRY_TEMPLATE, DdtEkg.TABLE_NAME, objectId));
+                DdtCoagulogram coagulogram = service.queryObject<DdtCoagulogram>(string.Format(REGULAR_ANALYSIS_QRY_TEMPLATE, DdtCoagulogram.TABLE_NAME, objectId));
+                DdtHormones hormones = service.queryObject<DdtHormones>(string.Format(REGULAR_ANALYSIS_QRY_TEMPLATE, DdtHormones.TABLE_NAME, objectId));
 
                 initUziTab(uziObj);
                 initHolterTab(holter);
                 initSpecialistConslusionTab(specialistConclusion);
                 initXRay(xRay);
+                initCoagulogram(coagulogram);
+                initHormones(hormones);
             }
             initUrineAnalysis(urineAnalysis, service);
             initEgdsAnalysis(egds, service);
@@ -100,6 +106,27 @@ namespace Cardiology
                 mrtTxt.Text = xRay.DssMrt;
                 ktDateTxt.Value = xRay.DsdtKtDate;
                 ktTimeTxt.Value = xRay.DsdtKtDate;
+            }
+        }
+
+        private void initCoagulogram(DdtCoagulogram coagulogram)
+        {
+            if (coagulogram != null)
+            {
+                achtvTxt.Text = coagulogram.DssAchtv;
+                ddimerTxt.Text = coagulogram.DssDdimer;
+                mchoTxt.Text = coagulogram.DssMcho;
+            }
+        }
+
+
+        private void initHormones(DdtHormones hormones)
+        {
+            if (hormones != null)
+            {
+                t3Txt.Text = hormones.DssT3;
+                t4Txt.Text = hormones.DssT4;
+                ttgTxt.Text = hormones.DssTtg;
             }
         }
 
@@ -188,6 +215,7 @@ namespace Cardiology
             saveEgdsAnalysisTab(service);
             saveKagAnalysisTab(service);
             saveEkgAnalysisTab(service);
+            saveCoagulogram(service);
 
             Close();
 
@@ -214,6 +242,46 @@ namespace Cardiology
                 uziObj.DssUziObp = uziObpTxt.Text;
                 service.updateOrCreateIfNeedObject<DdtUzi>(uziObj, DdtUzi.TABLE_NAME, uziObj.ObjectId);
                 
+            }
+        }
+
+        private void saveCoagulogram(DataService service)
+        {
+            if (isNeedSaveTab(COAGULOGRAM_TAB_INDX))
+            {
+                DdtCoagulogram coagulogramObj = service.queryObject<DdtCoagulogram>(string.Format(REGULAR_ANALYSIS_QRY_TEMPLATE, DdtCoagulogram.TABLE_NAME, objectId));
+                if (coagulogramObj == null)
+                {
+                    coagulogramObj = new DdtCoagulogram();
+                    coagulogramObj.DsidHospitalitySession = hospitalitySession.ObjectId;
+                    coagulogramObj.DsidDoctor = hospitalitySession.DsidCuringDoctor;
+                    coagulogramObj.DsidPatient = hospitalitySession.DsidPatient;
+                }
+                coagulogramObj.DssAchtv = achtvTxt.Text;
+                coagulogramObj.DssDdimer = ddimerTxt.Text;
+                coagulogramObj.DssMcho = mchoTxt.Text;
+                service.updateOrCreateIfNeedObject<DdtCoagulogram>(coagulogramObj, DdtCoagulogram.TABLE_NAME, coagulogramObj.RObjectId);
+
+            }
+        }
+
+        private void saveHormones(DataService service)
+        {
+            if (isNeedSaveTab(HORMONES_TAB_INDX))
+            {
+                DdtHormones hormonesObj = service.queryObject<DdtHormones>(string.Format(REGULAR_ANALYSIS_QRY_TEMPLATE, DdtHormones.TABLE_NAME, objectId));
+                if (hormonesObj == null)
+                {
+                    hormonesObj = new DdtHormones();
+                    hormonesObj.DsidHospitalitySession = hospitalitySession.ObjectId;
+                    hormonesObj.DsidDoctor = hospitalitySession.DsidCuringDoctor;
+                    hormonesObj.DsidPatient = hospitalitySession.DsidPatient;
+                }
+                hormonesObj.DssT3 = t3Txt.Text;
+                hormonesObj.DssT4 = t4Txt.Text;
+                hormonesObj.DssTtg = ttgTxt.Text;
+                service.updateOrCreateIfNeedObject<DdtHormones>(hormonesObj, DdtHormones.TABLE_NAME, hormonesObj.RObjectId);
+
             }
         }
 
@@ -389,6 +457,10 @@ namespace Cardiology
                     return CommonUtils.isNotBlank(kagManipulationTxt.Text) || CommonUtils.isNotBlank(kagResultsTxt.Text);
                 case EKG_TAB_INDX:
                     return CommonUtils.isNotBlank(regularEkgTxt.Text);
+                case COAGULOGRAM_TAB_INDX:
+                    return CommonUtils.isNotBlank(achtvTxt.Text) || CommonUtils.isNotBlank(ddimerTxt.Text) || CommonUtils.isNotBlank(mchoTxt.Text);
+                case HORMONES_TAB_INDX:
+                    return CommonUtils.isNotBlank(t3Txt.Text) || CommonUtils.isNotBlank(t4Txt.Text) || CommonUtils.isNotBlank(ttgTxt.Text);
                 default: return false;
             }
         }

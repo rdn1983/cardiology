@@ -28,17 +28,20 @@ namespace Cardiology.Utils
                     wRange = mark.Range;
                     foreach (KeyValuePair<string, string> entry in mappedValues)
                     {
-                        string oldValue = wRange.Text;
-                        if (oldValue.Contains(entry.Key))
+                        if (wRange != null)
                         {
-                            string newParagraphVal = oldValue.Replace(entry.Key, entry.Value).Trim();
-                            Console.Write(newParagraphVal);
-                            wRange.Text = newParagraphVal;
+                            string oldValue = wRange.Text;
+                            if (oldValue.Contains(entry.Key))
+                            {
+                                bool hasCaretFlag = oldValue.Contains("\n");
+                                string newParagraphVal = oldValue.Replace(entry.Key, entry.Value);
+                                Console.Write(newParagraphVal);
+                                wRange.Text = newParagraphVal;
+                            }
+
                         }
-                        
                     }
                 }
-
                 string filledDocPath = Path.GetTempFileName();
                 Console.WriteLine(filledDocPath);
                 doc.SaveAs(filledDocPath);
@@ -46,7 +49,6 @@ namespace Cardiology.Utils
                 app.Documents.Open(filledDocPath);
                 app.Activate();
                 app.Visible = true;
-                
             }
             catch (Exception ex)
             {
@@ -57,12 +59,13 @@ namespace Cardiology.Utils
             {
                 if (doc != null)
                 {
-             
+
                     doc = null;
                 }
             }
 
         }
     }
+
 }
 

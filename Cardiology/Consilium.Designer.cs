@@ -38,7 +38,6 @@
             this.doctorsContainer = new System.Windows.Forms.TableLayoutPanel();
             this.dotorInfoPnl0 = new System.Windows.Forms.Panel();
             this.objectIdLbl0 = new System.Windows.Forms.Label();
-            this.doctorWho0 = new System.Windows.Forms.TextBox();
             this.consiliumMembersLbl = new System.Windows.Forms.Label();
             this.dutyAdminTodayPnl = new System.Windows.Forms.Panel();
             this.dutyAdminLbl = new System.Windows.Forms.Label();
@@ -65,6 +64,7 @@
             this.saveBtn = new System.Windows.Forms.Button();
             this.printBtn = new System.Windows.Forms.Button();
             this.printOperationBtn = new System.Windows.Forms.Button();
+            this.doctorWho0 = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.allDoctorsPnl.SuspendLayout();
             this.doctorsContainer.SuspendLayout();
@@ -94,6 +94,7 @@
             this.appointmentTxt0.Name = "appointmentTxt0";
             this.appointmentTxt0.Size = new System.Drawing.Size(187, 21);
             this.appointmentTxt0.TabIndex = 1;
+            this.appointmentTxt0.SelectedIndexChanged += new System.EventHandler(this.appointmentTxt0_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -161,9 +162,9 @@
             // 
             // dotorInfoPnl0
             // 
+            this.dotorInfoPnl0.Controls.Add(this.doctorWho0);
             this.dotorInfoPnl0.Controls.Add(this.objectIdLbl0);
             this.dotorInfoPnl0.Controls.Add(this.appointmentTxt0);
-            this.dotorInfoPnl0.Controls.Add(this.doctorWho0);
             this.dotorInfoPnl0.Location = new System.Drawing.Point(3, 3);
             this.dotorInfoPnl0.Name = "dotorInfoPnl0";
             this.dotorInfoPnl0.Size = new System.Drawing.Size(412, 27);
@@ -177,13 +178,6 @@
             this.objectIdLbl0.Size = new System.Drawing.Size(0, 13);
             this.objectIdLbl0.TabIndex = 3;
             this.objectIdLbl0.Visible = false;
-            // 
-            // doctorWho0
-            // 
-            this.doctorWho0.Location = new System.Drawing.Point(192, 3);
-            this.doctorWho0.Name = "doctorWho0";
-            this.doctorWho0.Size = new System.Drawing.Size(218, 20);
-            this.doctorWho0.TabIndex = 2;
             // 
             // consiliumMembersLbl
             // 
@@ -233,7 +227,7 @@
             this.goalTxt.Name = "goalTxt";
             this.goalTxt.Size = new System.Drawing.Size(779, 58);
             this.goalTxt.TabIndex = 1;
-            this.goalTxt.Text = "";
+            this.goalTxt.Text = "определить необходимость проведения эндоваскулярного вмешательства";
             // 
             // goalLbl
             // 
@@ -448,6 +442,7 @@
             this.printBtn.TabIndex = 36;
             this.printBtn.Text = "Открыть MSWord";
             this.printBtn.UseVisualStyleBackColor = true;
+            this.printBtn.Click += new System.EventHandler(this.printBtn_Click);
             // 
             // printOperationBtn
             // 
@@ -457,6 +452,15 @@
             this.printOperationBtn.TabIndex = 37;
             this.printOperationBtn.Text = "Открыть ворд преопер";
             this.printOperationBtn.UseVisualStyleBackColor = true;
+            // 
+            // doctorWho0
+            // 
+            this.doctorWho0.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.doctorWho0.FormattingEnabled = true;
+            this.doctorWho0.Location = new System.Drawing.Point(196, 3);
+            this.doctorWho0.Name = "doctorWho0";
+            this.doctorWho0.Size = new System.Drawing.Size(213, 21);
+            this.doctorWho0.TabIndex = 4;
             // 
             // Consilium
             // 
@@ -537,10 +541,10 @@
         private System.Windows.Forms.Button printBtn;
         private System.Windows.Forms.Button printOperationBtn;
         private System.Windows.Forms.Panel dotorInfoPnl0;
-        private System.Windows.Forms.TextBox doctorWho0;
         private System.Windows.Forms.TableLayoutPanel doctorsContainer;
         private System.Windows.Forms.Button addDoctor;
         private System.Windows.Forms.Panel allDoctorsPnl;
         private System.Windows.Forms.Label objectIdLbl0;
+        private System.Windows.Forms.ComboBox doctorWho0;
     }
 }

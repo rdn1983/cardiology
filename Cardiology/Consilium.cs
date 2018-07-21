@@ -2,12 +2,8 @@
 using Cardiology.Utils;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
+using System.IO;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Cardiology
@@ -29,6 +25,7 @@ namespace Cardiology
         {
             DataService service = new DataService();
             CommonUtils.initDoctorsComboboxValues(service, adminTxt, " dsi_appointment_type=3");
+            CommonUtils.initDoctorsComboboxValues(service, doctorWho0, null);
 
             if (CommonUtils.isNotBlank(consiliumId))
             {
@@ -38,7 +35,7 @@ namespace Cardiology
                     goalTxt.Text = consilium.DssGoal;
                     dynamicsTxt.Text = consilium.DssDynamics;
                     adminTxt.SelectedIndex = adminTxt.FindStringExact(consilium.DssDutyAdminName);
-                    diagnosisTxt1.Text = consilium.DssDiagnosis;
+                    diagnosisTxt0.Text = consilium.DssDiagnosis;
                     decisionTxt.Text = consilium.DssDecision;
                     List<DdtConsiliumMember> cardioConclusions = service.queryObjectsCollectionByAttrCond<DdtConsiliumMember>
                         (DdtConsiliumMember.TABLE_NAME, "dsid_consilium", consilium.RObjectId, true);
@@ -51,14 +48,14 @@ namespace Cardiology
 
                         Control c = CommonUtils.findControl(doctorsContainer, "appointmentTxt" + i);
                         c.Text = cardioConclusions[i].DssAppointmentName;
-                        c = CommonUtils.findControl(doctorsContainer, "doctorWho" + i);
-                        c.Text = cardioConclusions[i].DssDoctorName;
+                        ComboBox cb = (ComboBox) CommonUtils.findControl(doctorsContainer, "doctorWho" + i);
+                        cb.SelectedIndex = cb.FindStringExact(cardioConclusions[i].DssDoctorName);
                         c = CommonUtils.findControl(doctorsContainer, "objectIdLbl" + i);
                         c.Text = cardioConclusions[i].RObjectId;
                     }
                 }
             }
-            
+
         }
 
         private void kagBtn_CheckedChanged(object sender, EventArgs e)
@@ -115,7 +112,7 @@ namespace Cardiology
                 consilium.DsidPatient = hospitalitySession.DsidPatient;
             }
             consilium.DssDecision = decisionTxt.Text;
-            consilium.DssDiagnosis = diagnosisTxt1.Text;
+            consilium.DssDiagnosis = diagnosisTxt0.Text;
             consilium.DssDutyAdminName = adminTxt.Text;
             consilium.DssDynamics = dynamicsTxt.Text;
             consilium.DssGoal = goalTxt.Text;
@@ -147,5 +144,60 @@ namespace Cardiology
             }
             Close();
         }
+
+        private void printBtn_Click(object sender, EventArgs e)
+        {
+            DataService service = new DataService();
+            Dictionary<string, string> values = new Dictionary<string, string>();
+            values.Add(@"{consilium.date}", DateTime.Now.ToString("dd.MM.yyyy"));
+            values.Add(@"{consilium.time}", DateTime.Now.ToString("HH:mm"));
+            values.Add(@"{consilium.members}", getMembersInString());
+            values.Add(@"{consilium.goal}", goalTxt.Text);
+            DdtPatient patient = service.queryObjectById<DdtPatient>(DdtPatient.TABLENAME, hospitalitySession.DsidPatient);
+            values.Add(@"{patient.initials}", patient.DssInitials);
+            double age = Math.Floor((DateTime.Now - patient.DsdtBirthdate).TotalDays / 365);
+            values.Add(@"{patient.age}", age + "");
+            values.Add(@"{patient.diagnosis}", diagnosisTxt0.Text);
+            values.Add(@"{consilium.decision}", decisionTxt.Text);
+            values.Add(@"{journal}", "");
+
+            DdtXRay xray = service.queryObject<DdtXRay>("Select * from " + DdtXRay.TABLE_NAME +
+                " WHERE dsid_hospitality_session='" + hospitalitySession.ObjectId + "' order by  r_creation_date desc");
+            values.Add(@"{analysis.xray}", xray == null ? "" : xray.DssControlRadiography);
+            values.Add(@"{analysis.blood}", " ");
+            DdtEkg ekg = service.queryObject<DdtEkg>("Select * from " + DdtEkg.TABLE_NAME +
+                " WHERE dsid_hospitality_session='" + hospitalitySession.ObjectId + "' order by r_creation_date desc");
+            values.Add(@"{analysis.ekg}", ekg == null ? "" : ekg.DssEkg);
+
+            DdtDoctors doc = service.queryObjectById<DdtDoctors>(DdtDoctors.TABLE_NAME, hospitalitySession.DsidDutyDoctor);
+            values.Add(@"{doctor.who}", doc.DssInitials);
+            string templatePath = Directory.GetCurrentDirectory() + "\\Templates\\consilium_template.docx";
+            TemplatesUtils.fillTemplate(templatePath, values);
+        }
+
+        private string getMembersInString()
+        {
+            StringBuilder str = new StringBuilder();
+            for (int i = 0; i < doctorsContainer.Controls.Count; i++)
+            {
+                Control c = CommonUtils.findControl(doctorsContainer, "appointmentTxt" + i);
+                str.Append(c.Text).Append(" ");
+                c = CommonUtils.findControl(doctorsContainer, "doctorWho" + i);
+                str.Append(c.Text).Append('\n');
+            }
+            return str.ToString();
+        }
+
+        private void appointmentTxt0_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            /*string ctrlName = ((ComboBox)sender).Name;
+            int indxPlace = CommonUtils.getFirstDigitIndex(ctrlName);
+            int index = Convert.ToInt32(String.Intern(ctrlName.Substring(indxPlace)));
+            ComboBox c = (ComboBox)CommonUtils.findControl(doctorsContainer, "doctorWho" + index);
+            CommonUtils.initDoctorsComboboxValues(new DataService(), c, "dsi_appointment_type=0");*/
+
+        }
+
+
     }
 }

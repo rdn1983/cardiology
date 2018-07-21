@@ -131,7 +131,7 @@ namespace Cardiology.Utils
             return result;
         }
 
-        private static int getFirstDigitIndex(string str)
+        internal static int getFirstDigitIndex(string str)
         {
             for (int i = str.Length - 1; i >= 0; i--)
             {

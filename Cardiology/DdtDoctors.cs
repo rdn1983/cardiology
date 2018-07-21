@@ -5,6 +5,8 @@ namespace Cardiology.Model
 {
     public class DdtDoctors
     {
+        public const string TABLE_NAME = "ddt_doctors";
+
         [TableAttribute("r_object_id", false)]
         private string rObjecId;
         [TableAttribute("r_creation_date", false)]

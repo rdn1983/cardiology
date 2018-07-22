@@ -1,7 +1,6 @@
 ﻿using Cardiology.Model;
 using Cardiology.Utils;
 using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace Cardiology
@@ -18,6 +17,7 @@ namespace Cardiology
         private const int KAG_TAB_INDX = 7;
         private const int COAGULOGRAM_TAB_INDX = 8;
         private const int HORMONES_TAB_INDX = 9;
+        private const int BLOOD_TAB_INDX = 10;
         private const string REGULAR_ANALYSIS_QRY_TEMPLATE = @"SELECT * FROM {0} WHERE r_object_id='{1}'";
         private const string FIRST_ANALYSIS_QRY_TEMPLATE = @"SELECT * FROM {0} WHERE dsb_admission_analysis=true and dsid_hospitality_session='{1}'";
 
@@ -48,6 +48,7 @@ namespace Cardiology
                 ekg = service.queryObject<DdtEkg>(string.Format(REGULAR_ANALYSIS_QRY_TEMPLATE, DdtEkg.TABLE_NAME, objectId));
                 DdtCoagulogram coagulogram = service.queryObject<DdtCoagulogram>(string.Format(REGULAR_ANALYSIS_QRY_TEMPLATE, DdtCoagulogram.TABLE_NAME, objectId));
                 DdtHormones hormones = service.queryObject<DdtHormones>(string.Format(REGULAR_ANALYSIS_QRY_TEMPLATE, DdtHormones.TABLE_NAME, objectId));
+                DdtBloodAnalysis blood = service.queryObject<DdtBloodAnalysis>(string.Format(REGULAR_ANALYSIS_QRY_TEMPLATE, DdtBloodAnalysis.TABLE_NAME, objectId));
 
                 initUziTab(uziObj);
                 initHolterTab(holter);
@@ -55,6 +56,7 @@ namespace Cardiology
                 initXRay(xRay);
                 initCoagulogram(coagulogram);
                 initHormones(hormones);
+                initBloodAnalysis(blood, service);
             }
             initUrineAnalysis(urineAnalysis, service);
             initEgdsAnalysis(egds, service);
@@ -150,6 +152,54 @@ namespace Cardiology
             }
         }
 
+        private void initBloodAnalysis(DdtBloodAnalysis blood, DataService service)
+        {
+            if (blood != null)
+            {
+                regularAltTxt.Text = blood.DsdAlt + "";
+                regularAmilazaTzt.Text = blood.DsdAmylase + "";
+                regularAstTxt.Text = blood.DsdAst + "";
+                regularBilTxt.Text = blood.DsdBil + "";
+                regularChloriumTxt.Text = blood.DsdChlorine + "";
+                regularCholesterolTxt.Text = blood.DsdCholesterolr + "";
+                regularKreatininTxt.Text = blood.DsdCreatinine + "";
+                regularHemoglobinTxt.Text = blood.DsdHemoglobin + "";
+                regularIronTxt.Text = blood.DsdIron + "";
+                regularKfkTxt.Text = blood.DsdKfk + "";
+                regularKfkMvTxt.Text = blood.DsdKfkMv + "";
+                regularBloodLeucoTxt.Text = blood.DsdLeucocytes + "";
+                regularTrombocytesTxt.Text = blood.DsdPlatelets + "";
+                regularPotassiumTxt.Text = blood.DsdPotassium + "";
+                regularProreinTxt.Text = blood.DsdProtein + "";
+                regularSchfTxt.Text = blood.DsdSchf + "";
+                regularSodiumTxt.Text = blood.DsdSodium + "";
+                regularSrbTxt.Text = blood.DsdSrp + "";
+            }
+
+            DdtBloodAnalysis firstAnalysis = service.queryObject<DdtBloodAnalysis>(string.Format(FIRST_ANALYSIS_QRY_TEMPLATE, DdtBloodAnalysis.TABLE_NAME, hospitalitySession.ObjectId));
+            if (firstAnalysis != null)
+            {
+                firstAltTxt.Text = firstAnalysis.DsdAlt + "";
+                firstAmilazaTxt.Text = firstAnalysis.DsdAmylase + "";
+                firstAstTxt.Text = firstAnalysis.DsdAst + "";
+                firstBilTxt.Text = firstAnalysis.DsdBil + "";
+                firstChlorineTxt.Text = firstAnalysis.DsdChlorine + "";
+                firstHolesterolTxt.Text = firstAnalysis.DsdCholesterolr + "";
+                firstKreatininTxt.Text = firstAnalysis.DsdCreatinine + "";
+                firstHemoglobinTxt.Text = firstAnalysis.DsdHemoglobin + "";
+                firstIronTxt.Text = firstAnalysis.DsdIron + "";
+                firstKfkTxt.Text = firstAnalysis.DsdKfk + "";
+                firstKfkMvTxt.Text = firstAnalysis.DsdKfkMv + "";
+                firstBloodLeucoTxt.Text = firstAnalysis.DsdLeucocytes + "";
+                firstTrombocytesTxt.Text = firstAnalysis.DsdPlatelets + "";
+                firstPotassiumTxt.Text = firstAnalysis.DsdPotassium + "";
+                firstProteinTxt.Text = firstAnalysis.DsdProtein + "";
+                firstSchfTxt.Text = firstAnalysis.DsdSchf + "";
+                firstSodiumTxt.Text = firstAnalysis.DsdSodium + "";
+                firstSrbTxt.Text = firstAnalysis.DsdSrp + "";
+            }
+        }
+
         private void initEgdsAnalysis(DdtEgds egds, DataService service)
         {
             if (egds != null)
@@ -216,6 +266,8 @@ namespace Cardiology
             saveKagAnalysisTab(service);
             saveEkgAnalysisTab(service);
             saveCoagulogram(service);
+            saveHormones(service);
+            saveBloodAnalysis(service);
 
             Close();
 
@@ -241,7 +293,7 @@ namespace Cardiology
                 uziObj.DssUzdBca = uzdTxt.Text;
                 uziObj.DssUziObp = uziObpTxt.Text;
                 service.updateOrCreateIfNeedObject<DdtUzi>(uziObj, DdtUzi.TABLE_NAME, uziObj.ObjectId);
-                
+
             }
         }
 
@@ -261,6 +313,41 @@ namespace Cardiology
                 coagulogramObj.DssDdimer = ddimerTxt.Text;
                 coagulogramObj.DssMcho = mchoTxt.Text;
                 service.updateOrCreateIfNeedObject<DdtCoagulogram>(coagulogramObj, DdtCoagulogram.TABLE_NAME, coagulogramObj.RObjectId);
+
+            }
+        }
+
+        private void saveBloodAnalysis(DataService service)
+        {
+            if (isNeedSaveTab(BLOOD_TAB_INDX))
+            {
+                DdtBloodAnalysis bloodObj = service.queryObject<DdtBloodAnalysis>(string.Format(REGULAR_ANALYSIS_QRY_TEMPLATE, DdtBloodAnalysis.TABLE_NAME, objectId));
+                if (bloodObj == null)
+                {
+                    bloodObj = new DdtBloodAnalysis();
+                    bloodObj.DsidHospitalitySession = hospitalitySession.ObjectId;
+                    bloodObj.DsidDoctor = hospitalitySession.DsidCuringDoctor;
+                    bloodObj.DsidPatient = hospitalitySession.DsidPatient;
+                }
+                bloodObj.DsdAlt = regularAltTxt.Text;
+                bloodObj.DsdAmylase = regularAmilazaTzt.Text;
+                bloodObj.DsdAst = regularAstTxt.Text;
+                bloodObj.DsdBil = regularBilTxt.Text;
+                bloodObj.DsdChlorine = regularChloriumTxt.Text;
+                bloodObj.DsdCholesterolr = regularCholesterolTxt.Text;
+                bloodObj.DsdCreatinine = regularKreatininTxt.Text;
+                bloodObj.DsdHemoglobin = regularHemoglobinTxt.Text;
+                bloodObj.DsdIron = regularIronTxt.Text;
+                bloodObj.DsdKfk = regularKfkTxt.Text;
+                bloodObj.DsdKfkMv = regularKfkMvTxt.Text;
+                bloodObj.DsdLeucocytes = regularBloodLeucoTxt.Text;
+                bloodObj.DsdPlatelets = regularTrombocytesTxt.Text;
+                bloodObj.DsdPotassium = regularPotassiumTxt.Text;
+                bloodObj.DsdProtein = regularProreinTxt.Text;
+                bloodObj.DsdSchf = regularSchfTxt.Text;
+                bloodObj.DsdSodium = regularSodiumTxt.Text;
+                bloodObj.DsdSrp = regularSrbTxt.Text;
+                service.updateOrCreateIfNeedObject<DdtBloodAnalysis>(bloodObj, DdtBloodAnalysis.TABLE_NAME, bloodObj.RObjectId);
 
             }
         }
@@ -302,7 +389,7 @@ namespace Cardiology
                 specialistConclusion.DssNeuroSurgeon = neuroSurgeonTxt.Text;
                 specialistConclusion.DssSurgeon = surgeonTxt.Text;
                 service.updateOrCreateIfNeedObject<DdtSpecialistConclusion>(specialistConclusion, DdtSpecialistConclusion.TABLE_NAME, specialistConclusion.ObjectId);
-                
+
             }
         }
 
@@ -321,7 +408,7 @@ namespace Cardiology
                 holter.DssHolter = holterTxt.Text;
                 holter.DssMonitoringAd = monitoringAdTxt.Text;
                 service.updateOrCreateIfNeedObject<DdtHolter>(holter, DdtHolter.TABLE_NAME, holter.ObjectId);
-                
+
             }
         }
 
@@ -343,7 +430,7 @@ namespace Cardiology
                 xRay.DssMrt = mrtTxt.Text;
                 xRay.DsdtKtDate = constructDateWIthTime(ktDateTxt.Value, ktTimeTxt.Value);
                 service.updateOrCreateIfNeedObject<DdtXRay>(xRay, DdtXRay.TABLE_NAME, xRay.ObjectId);
-                
+
             }
         }
 
@@ -364,7 +451,7 @@ namespace Cardiology
                 urineAnalysis.DssLeukocytes = leukocytesTxt.Text;
                 urineAnalysis.DssProtein = proteinTxt.Text;
                 service.updateOrCreateIfNeedObject<DdtUrineAnalysis>(urineAnalysis, DdtUrineAnalysis.TABLE_NAME, urineAnalysis.ObjectId);
-                
+
             }
         }
 
@@ -382,7 +469,7 @@ namespace Cardiology
                 }
                 egds.DssEgds = regularEgdsTxt.Text;
                 service.updateOrCreateIfNeedObject<DdtEgds>(egds, DdtEgds.TABLE_NAME, egds.ObjectId);
-                
+
             }
         }
 
@@ -404,7 +491,7 @@ namespace Cardiology
                 kag.DsdtEndTime = constructDateWIthTime(kagDate.Value, kagEndTime.Value);
 
                 service.updateOrCreateIfNeedObject<DdtKag>(kag, DdtKag.TABLE_NAME, kag.ObjectId);
-               
+
             }
         }
 
@@ -422,7 +509,7 @@ namespace Cardiology
                 }
                 ekg.DssEkg = regularEkgTxt.Text;
                 service.updateOrCreateIfNeedObject<DdtEkg>(ekg, DdtEkg.TABLE_NAME, ekg.ObjectId);
-                
+
             }
         }
 
@@ -461,6 +548,16 @@ namespace Cardiology
                     return CommonUtils.isNotBlank(achtvTxt.Text) || CommonUtils.isNotBlank(ddimerTxt.Text) || CommonUtils.isNotBlank(mchoTxt.Text);
                 case HORMONES_TAB_INDX:
                     return CommonUtils.isNotBlank(t3Txt.Text) || CommonUtils.isNotBlank(t4Txt.Text) || CommonUtils.isNotBlank(ttgTxt.Text);
+                case BLOOD_TAB_INDX:
+                    return CommonUtils.isNotBlank(regularTrombocytesTxt.Text) || CommonUtils.isNotBlank(regularSrbTxt.Text)
+                        || CommonUtils.isNotBlank(regularSodiumTxt.Text) || CommonUtils.isNotBlank(regularSchfTxt.Text)
+                        || CommonUtils.isNotBlank(regularKreatininTxt.Text) || CommonUtils.isNotBlank(regularKfkTxt.Text)
+                        || CommonUtils.isNotBlank(regularKfkMvTxt.Text) || CommonUtils.isNotBlank(regularIronTxt.Text)
+                        || CommonUtils.isNotBlank(regularHemoglobinTxt.Text) ||CommonUtils.isNotBlank(regularCholesterolTxt.Text)
+                        || CommonUtils.isNotBlank(regularChloriumTxt.Text) || CommonUtils.isNotBlank(regularBloodLeucoTxt.Text)
+                        || CommonUtils.isNotBlank(regularBilTxt.Text) || CommonUtils.isNotBlank(regularAstTxt.Text)
+                        || CommonUtils.isNotBlank(regularAltTxt.Text) || CommonUtils.isNotBlank(regularProreinTxt.Text)
+                        || CommonUtils.isNotBlank(regularPotassiumTxt.Text);
                 default: return false;
             }
         }

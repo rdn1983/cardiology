@@ -13,6 +13,7 @@ namespace Cardiology
         private const int EGDS_TAB_INDX = 1;
         private const int EKG_TAB_INDX = 0;
         private const int URINE_TAB_INDX = 2;
+        private const int BLOOD_TAB_INDX = 3;
 
         private const string OKSUP_TYPE = "oksup";
         private const string OKSDOWN_TYPE = "oksdown";
@@ -361,6 +362,7 @@ namespace Cardiology
                 saveUrineAnalysisTab(service);
                 saveEgdsAnalysisTab(service);
                 saveEkgAnalysisTab(service);
+                saveBloodAnalysis(service);
 
                 hospitalSession.DssDiagnosis = diagnosisTxt.Text;
                 service.updateObject<DdtHospital>(hospitalSession, DdtHospital.TABLENAME, "r_object_id", hospitalSession.ObjectId);
@@ -369,6 +371,45 @@ namespace Cardiology
         }
 
         #region saveTabsData
+
+        private void saveBloodAnalysis(DataService service)
+        {
+            DdtIssuedMedicineList medList = service.queryObject<DdtIssuedMedicineList>(@"SELECT * FROM ddt_issued_medicine_list WHERE dsid_hospitality_session='" +
+                   hospitalSession.ObjectId + "' AND dss_parent_type='ddt_anamnesis'");
+
+            if (isNeedSaveTab(BLOOD_TAB_INDX))
+            {
+                DdtBloodAnalysis bloodObj = service.queryObject<DdtBloodAnalysis>(string.Format(FIRST_ANALYSIS_QRY_TEMPLATE, DdtBloodAnalysis.TABLE_NAME, hospitalSession.ObjectId));
+                if (bloodObj == null)
+                {
+                    bloodObj = new DdtBloodAnalysis();
+                    bloodObj.DsidHospitalitySession = hospitalSession.ObjectId;
+                    bloodObj.DsidDoctor = hospitalSession.DsidCuringDoctor;
+                    bloodObj.DsidPatient = hospitalSession.DsidPatient;
+                    bloodObj.DsbAdmissionAnalysis = true;
+                }
+                bloodObj.DsdAlt = altTxt.Text;
+                bloodObj.DsdAmylase = amilazaTxt.Text;
+                bloodObj.DsdAst = astTxt.Text;
+                bloodObj.DsdBil = bilTxt.Text;
+                bloodObj.DsdChlorine = chlorineTxt.Text;
+                bloodObj.DsdCholesterolr = cholesterolTxt.Text;
+                bloodObj.DsdCreatinine = kreatininTxt.Text;
+                bloodObj.DsdHemoglobin = hemoglobinTxt.Text;
+                bloodObj.DsdIron = ironTxt.Text;
+                bloodObj.DsdKfk = kfkTxt.Text;
+                bloodObj.DsdKfkMv = kfkMvTxt.Text;
+                bloodObj.DsdLeucocytes = leucocytesTxt.Text;
+                bloodObj.DsdPlatelets = plateletsTxt.Text;
+                bloodObj.DsdPotassium = potassiumTxt.Text;
+                bloodObj.DsdProtein = proteinTxt.Text;
+                bloodObj.DsdSchf = schfTxt.Text;
+                bloodObj.DsdSodium = sodiumTxt.Text;
+                bloodObj.DsdSrp = srbTxt.Text;
+                service.updateOrCreateIfNeedObject<DdtBloodAnalysis>(bloodObj, DdtBloodAnalysis.TABLE_NAME, bloodObj.RObjectId);
+
+            }
+        }
 
         private void saveAnamnesis(DataService service)
         {
@@ -511,6 +552,16 @@ namespace Cardiology
                     return CommonUtils.isNotBlank(firstEgdsTxt.Text);
                 case EKG_TAB_INDX:
                     return CommonUtils.isNotBlank(regularEkgTxt.Text);
+                case BLOOD_TAB_INDX:
+                    return CommonUtils.isNotBlank(plateletsTxt.Text) || CommonUtils.isNotBlank(srbTxt.Text)
+                        || CommonUtils.isNotBlank(sodiumTxt.Text) || CommonUtils.isNotBlank(schfTxt.Text)
+                        || CommonUtils.isNotBlank(kreatininTxt.Text) || CommonUtils.isNotBlank(kfkTxt.Text)
+                        || CommonUtils.isNotBlank(kfkMvTxt.Text) || CommonUtils.isNotBlank(ironTxt.Text)
+                        || CommonUtils.isNotBlank(hemoglobinTxt.Text) || CommonUtils.isNotBlank(cholesterolTxt.Text)
+                        || CommonUtils.isNotBlank(chlorineTxt.Text) || CommonUtils.isNotBlank(leucocytesTxt.Text)
+                        || CommonUtils.isNotBlank(bilTxt.Text) || CommonUtils.isNotBlank(astTxt.Text)
+                        || CommonUtils.isNotBlank(altTxt.Text) || CommonUtils.isNotBlank(proteinTxt.Text)
+                        || CommonUtils.isNotBlank(potassiumTxt.Text);
                 default: return false;
             }
         }

@@ -112,14 +112,14 @@
             this.releaseSchfTxt = new System.Windows.Forms.TextBox();
             this.releaseAstTxt = new System.Windows.Forms.TextBox();
             this.releaseAltTxt = new System.Windows.Forms.TextBox();
-            this.textBox65 = new System.Windows.Forms.TextBox();
-            this.textBox66 = new System.Windows.Forms.TextBox();
-            this.textBox67 = new System.Windows.Forms.TextBox();
-            this.textBox68 = new System.Windows.Forms.TextBox();
-            this.textBox69 = new System.Windows.Forms.TextBox();
-            this.textBox70 = new System.Windows.Forms.TextBox();
-            this.textBox71 = new System.Windows.Forms.TextBox();
-            this.textBox72 = new System.Windows.Forms.TextBox();
+            this.releaseIronTxt = new System.Windows.Forms.TextBox();
+            this.releaseBilTxt = new System.Windows.Forms.TextBox();
+            this.releaseHolesterolTxt = new System.Windows.Forms.TextBox();
+            this.releaseKreatininTxt = new System.Windows.Forms.TextBox();
+            this.releaseProteinTxt = new System.Windows.Forms.TextBox();
+            this.releaseTromboTxt = new System.Windows.Forms.TextBox();
+            this.releaseBloodLeucoTxt = new System.Windows.Forms.TextBox();
+            this.releaseHemoglobinTxt = new System.Windows.Forms.TextBox();
             this.releaseBloodLeucoLbl = new System.Windows.Forms.Label();
             this.releaseHolesterolLbl = new System.Windows.Forms.Label();
             this.releaseBilLbl = new System.Windows.Forms.Label();
@@ -1028,14 +1028,14 @@
             this.releaseBloodPnl.Controls.Add(this.releaseSchfTxt);
             this.releaseBloodPnl.Controls.Add(this.releaseAstTxt);
             this.releaseBloodPnl.Controls.Add(this.releaseAltTxt);
-            this.releaseBloodPnl.Controls.Add(this.textBox65);
-            this.releaseBloodPnl.Controls.Add(this.textBox66);
-            this.releaseBloodPnl.Controls.Add(this.textBox67);
-            this.releaseBloodPnl.Controls.Add(this.textBox68);
-            this.releaseBloodPnl.Controls.Add(this.textBox69);
-            this.releaseBloodPnl.Controls.Add(this.textBox70);
-            this.releaseBloodPnl.Controls.Add(this.textBox71);
-            this.releaseBloodPnl.Controls.Add(this.textBox72);
+            this.releaseBloodPnl.Controls.Add(this.releaseIronTxt);
+            this.releaseBloodPnl.Controls.Add(this.releaseBilTxt);
+            this.releaseBloodPnl.Controls.Add(this.releaseHolesterolTxt);
+            this.releaseBloodPnl.Controls.Add(this.releaseKreatininTxt);
+            this.releaseBloodPnl.Controls.Add(this.releaseProteinTxt);
+            this.releaseBloodPnl.Controls.Add(this.releaseTromboTxt);
+            this.releaseBloodPnl.Controls.Add(this.releaseBloodLeucoTxt);
+            this.releaseBloodPnl.Controls.Add(this.releaseHemoglobinTxt);
             this.releaseBloodPnl.Controls.Add(this.releaseBloodLeucoLbl);
             this.releaseBloodPnl.Controls.Add(this.releaseHolesterolLbl);
             this.releaseBloodPnl.Controls.Add(this.releaseBilLbl);
@@ -1165,69 +1165,69 @@
             this.releaseAltTxt.Size = new System.Drawing.Size(79, 20);
             this.releaseAltTxt.TabIndex = 23;
             // 
-            // textBox65
+            // releaseIronTxt
             // 
-            this.textBox65.Location = new System.Drawing.Point(81, 185);
-            this.textBox65.Name = "textBox65";
-            this.textBox65.ReadOnly = true;
-            this.textBox65.Size = new System.Drawing.Size(79, 20);
-            this.textBox65.TabIndex = 22;
+            this.releaseIronTxt.Location = new System.Drawing.Point(81, 185);
+            this.releaseIronTxt.Name = "releaseIronTxt";
+            this.releaseIronTxt.ReadOnly = true;
+            this.releaseIronTxt.Size = new System.Drawing.Size(79, 20);
+            this.releaseIronTxt.TabIndex = 22;
             // 
-            // textBox66
+            // releaseBilTxt
             // 
-            this.textBox66.Location = new System.Drawing.Point(81, 162);
-            this.textBox66.Name = "textBox66";
-            this.textBox66.ReadOnly = true;
-            this.textBox66.Size = new System.Drawing.Size(79, 20);
-            this.textBox66.TabIndex = 21;
+            this.releaseBilTxt.Location = new System.Drawing.Point(81, 162);
+            this.releaseBilTxt.Name = "releaseBilTxt";
+            this.releaseBilTxt.ReadOnly = true;
+            this.releaseBilTxt.Size = new System.Drawing.Size(79, 20);
+            this.releaseBilTxt.TabIndex = 21;
             // 
-            // textBox67
+            // releaseHolesterolTxt
             // 
-            this.textBox67.Location = new System.Drawing.Point(81, 138);
-            this.textBox67.Name = "textBox67";
-            this.textBox67.ReadOnly = true;
-            this.textBox67.Size = new System.Drawing.Size(79, 20);
-            this.textBox67.TabIndex = 20;
+            this.releaseHolesterolTxt.Location = new System.Drawing.Point(81, 138);
+            this.releaseHolesterolTxt.Name = "releaseHolesterolTxt";
+            this.releaseHolesterolTxt.ReadOnly = true;
+            this.releaseHolesterolTxt.Size = new System.Drawing.Size(79, 20);
+            this.releaseHolesterolTxt.TabIndex = 20;
             // 
-            // textBox68
+            // releaseKreatininTxt
             // 
-            this.textBox68.Location = new System.Drawing.Point(81, 114);
-            this.textBox68.Name = "textBox68";
-            this.textBox68.ReadOnly = true;
-            this.textBox68.Size = new System.Drawing.Size(79, 20);
-            this.textBox68.TabIndex = 19;
+            this.releaseKreatininTxt.Location = new System.Drawing.Point(81, 114);
+            this.releaseKreatininTxt.Name = "releaseKreatininTxt";
+            this.releaseKreatininTxt.ReadOnly = true;
+            this.releaseKreatininTxt.Size = new System.Drawing.Size(79, 20);
+            this.releaseKreatininTxt.TabIndex = 19;
             // 
-            // textBox69
+            // releaseProteinTxt
             // 
-            this.textBox69.Location = new System.Drawing.Point(81, 90);
-            this.textBox69.Name = "textBox69";
-            this.textBox69.ReadOnly = true;
-            this.textBox69.Size = new System.Drawing.Size(79, 20);
-            this.textBox69.TabIndex = 18;
+            this.releaseProteinTxt.Location = new System.Drawing.Point(81, 90);
+            this.releaseProteinTxt.Name = "releaseProteinTxt";
+            this.releaseProteinTxt.ReadOnly = true;
+            this.releaseProteinTxt.Size = new System.Drawing.Size(79, 20);
+            this.releaseProteinTxt.TabIndex = 18;
             // 
-            // textBox70
+            // releaseTromboTxt
             // 
-            this.textBox70.Location = new System.Drawing.Point(81, 66);
-            this.textBox70.Name = "textBox70";
-            this.textBox70.ReadOnly = true;
-            this.textBox70.Size = new System.Drawing.Size(79, 20);
-            this.textBox70.TabIndex = 17;
+            this.releaseTromboTxt.Location = new System.Drawing.Point(81, 66);
+            this.releaseTromboTxt.Name = "releaseTromboTxt";
+            this.releaseTromboTxt.ReadOnly = true;
+            this.releaseTromboTxt.Size = new System.Drawing.Size(79, 20);
+            this.releaseTromboTxt.TabIndex = 17;
             // 
-            // textBox71
+            // releaseBloodLeucoTxt
             // 
-            this.textBox71.Location = new System.Drawing.Point(81, 42);
-            this.textBox71.Name = "textBox71";
-            this.textBox71.ReadOnly = true;
-            this.textBox71.Size = new System.Drawing.Size(79, 20);
-            this.textBox71.TabIndex = 16;
+            this.releaseBloodLeucoTxt.Location = new System.Drawing.Point(81, 42);
+            this.releaseBloodLeucoTxt.Name = "releaseBloodLeucoTxt";
+            this.releaseBloodLeucoTxt.ReadOnly = true;
+            this.releaseBloodLeucoTxt.Size = new System.Drawing.Size(79, 20);
+            this.releaseBloodLeucoTxt.TabIndex = 16;
             // 
-            // textBox72
+            // releaseHemoglobinTxt
             // 
-            this.textBox72.Location = new System.Drawing.Point(81, 19);
-            this.textBox72.Name = "textBox72";
-            this.textBox72.ReadOnly = true;
-            this.textBox72.Size = new System.Drawing.Size(79, 20);
-            this.textBox72.TabIndex = 15;
+            this.releaseHemoglobinTxt.Location = new System.Drawing.Point(81, 19);
+            this.releaseHemoglobinTxt.Name = "releaseHemoglobinTxt";
+            this.releaseHemoglobinTxt.ReadOnly = true;
+            this.releaseHemoglobinTxt.Size = new System.Drawing.Size(79, 20);
+            this.releaseHemoglobinTxt.TabIndex = 15;
             // 
             // releaseBloodLeucoLbl
             // 
@@ -2785,14 +2785,14 @@
         private System.Windows.Forms.TextBox releaseSchfTxt;
         private System.Windows.Forms.TextBox releaseAstTxt;
         private System.Windows.Forms.TextBox releaseAltTxt;
-        private System.Windows.Forms.TextBox textBox65;
-        private System.Windows.Forms.TextBox textBox66;
-        private System.Windows.Forms.TextBox textBox67;
-        private System.Windows.Forms.TextBox textBox68;
-        private System.Windows.Forms.TextBox textBox69;
-        private System.Windows.Forms.TextBox textBox70;
-        private System.Windows.Forms.TextBox textBox71;
-        private System.Windows.Forms.TextBox textBox72;
+        private System.Windows.Forms.TextBox releaseIronTxt;
+        private System.Windows.Forms.TextBox releaseBilTxt;
+        private System.Windows.Forms.TextBox releaseHolesterolTxt;
+        private System.Windows.Forms.TextBox releaseKreatininTxt;
+        private System.Windows.Forms.TextBox releaseProteinTxt;
+        private System.Windows.Forms.TextBox releaseTromboTxt;
+        private System.Windows.Forms.TextBox releaseBloodLeucoTxt;
+        private System.Windows.Forms.TextBox releaseHemoglobinTxt;
         private System.Windows.Forms.Label releaseBloodLeucoLbl;
         private System.Windows.Forms.Label releaseHolesterolLbl;
         private System.Windows.Forms.Label releaseBilLbl;

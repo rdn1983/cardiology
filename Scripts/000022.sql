@@ -16,6 +16,9 @@ SELECT history.dsid_hospitality_session as dsid_hospitality_session,
 		WHEN 'ddt_issued_medicine_list' THEN 'Назначение лекарственных препаратов'
 		WHEN 'ddt_journal' THEN 'Журнал'
 		WHEN 'ddt_consilium' THEN 'Консилиум'
+		WHEN 'ddt_blood_analysis' THEN 'Анализы:Кровь'
+		WHEN 'ddt_hormones' THEN 'Анализы:Гормоны'
+		WHEN 'ddt_coagulogram' THEN 'Анализы:Коагулограмма'
 		END AS dss_operation_name,
 	history.r_creation_date AS r_creation_date,
 	doc.dss_initials AS dss_doctor_name,

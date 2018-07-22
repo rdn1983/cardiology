@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Cardiology.Model
 {
@@ -20,65 +16,71 @@ namespace Cardiology.Model
         private string dsidPatient;
         [TableAttribute("dsid_doctor")]
         private string dsidDoctor;
-        [TableAttribute("dsd_hemoglobin")]
-        private double dsdHemoglobin;
-        [TableAttribute("dsd_leucocytes")]
-        private double dsdLeucocytes;
-        [TableAttribute("dsd_platelets")]
-        private double dsdPlatelets;
-        [TableAttribute("dsd_protein")]
-        private double dsdProtein;
-        [TableAttribute("dsd_creatinine")]
-        private double dsdCreatinine;
-        [TableAttribute("dsd_cholesterol")]
-        private double dsdCholesterolr;
-        [TableAttribute("dsd_bil")]
-        private double dsdBil;
-        [TableAttribute("dsd_iron")]
-        private double dsdIron;
-        [TableAttribute("dsd_alt")]
-        private double dsdAlt;
-        [TableAttribute("dsd_ast")]
-        private double dsdAst;
-        [TableAttribute("dsd_schf")]
-        private double dsdSchf;
-        [TableAttribute("dsd_amylase")]
-        private double dsdAmylase;
-        [TableAttribute("dsd_kfk")]
-        private double dsdKfk;
-        [TableAttribute("dsd_kfk_mv")]
-        private double dsdKfkMv;
-        [TableAttribute("dsd_srp")]
-        private double dsdSrp;
-        [TableAttribute("dsd_potassium")]
-        private double dsdPotassium;
-        [TableAttribute("dsd_sodium")]
-        private double dsdSodium;
-        [TableAttribute("dsd_chlorine")]
-        private double dsdChlorine;
+        [TableAttribute("dss_hemoglobin")]
+        private string dssHemoglobin;
+        [TableAttribute("dss_leucocytes")]
+        private string dssLeucocytes;
+        [TableAttribute("dss_platelets")]
+        private string dssPlatelets;
+        [TableAttribute("dss_protein")]
+        private string dssProtein;
+        [TableAttribute("dss_creatinine")]
+        private string dssCreatinine;
+        [TableAttribute("dss_cholesterol")]
+        private string dssCholesterol;
+        [TableAttribute("dss_bil")]
+        private string dssBil;
+        [TableAttribute("dss_iron")]
+        private string dssIron;
+        [TableAttribute("dss_alt")]
+        private string dssAlt;
+        [TableAttribute("dss_ast")]
+        private string dssAst;
+        [TableAttribute("dss_schf")]
+        private string dssSchf;
+        [TableAttribute("dss_amylase")]
+        private string dssAmylase;
+        [TableAttribute("dss_kfk")]
+        private string dssKfk;
+        [TableAttribute("dss_kfk_mv")]
+        private string dssKfkMv;
+        [TableAttribute("dss_srp")]
+        private string dssSrp;
+        [TableAttribute("dss_potassium")]
+        private string dssPotassium;
+        [TableAttribute("dss_sodium")]
+        private string dssSodium;
+        [TableAttribute("dss_chlorine")]
+        private string dssChlorine;
+        [TableAttribute("dsb_admission_analysis")]
+        private bool dsbAdmissionAnalysis;
+        [TableAttribute("dsb_discharge_analysis")]
+        private bool dsbDischargeAnalysis;
 
         public string RObjectId { get => rObjectId; set => rObjectId = value; }
         public DateTime RCreationDate { get => rCreationDate; set => rCreationDate = value; }
         public string DsidHospitalitySession { get => dsidHospitalitySession; set => dsidHospitalitySession = value; }
         public string DsidPatient { get => dsidPatient; set => dsidPatient = value; }
         public string DsidDoctor { get => dsidDoctor; set => dsidDoctor = value; }
-        public double DsdHemoglobin { get => dsdHemoglobin; set => dsdHemoglobin = value; }
-        public double DsdLeucocytes { get => dsdLeucocytes; set => dsdLeucocytes = value; }
-        public double DsdPlatelets { get => dsdPlatelets; set => dsdPlatelets = value; }
-        public double DsdProtein { get => dsdProtein; set => dsdProtein = value; }
-        public double DsdCreatinine { get => dsdCreatinine; set => dsdCreatinine = value; }
-        public double DsdCholesterolr { get => dsdCholesterolr; set => dsdCholesterolr = value; }
-        public double DsdBil { get => dsdBil; set => dsdBil = value; }
-        public double DsdIron { get => dsdIron; set => dsdIron = value; }
-        public double DsdAlt { get => dsdAlt; set => dsdAlt = value; }
-        public double DsdAst { get => dsdAst; set => dsdAst = value; }
-        public double DsdSchf { get => dsdSchf; set => dsdSchf = value; }
-        public double DsdAmylase { get => dsdAmylase; set => dsdAmylase = value; }
-        public double DsdKfk { get => dsdKfk; set => dsdKfk = value; }
-        public double DsdKfkMv { get => dsdKfkMv; set => dsdKfkMv = value; }
-        public double DsdSrp { get => dsdSrp; set => dsdSrp = value; }
-        public double DsdPotassium { get => dsdPotassium; set => dsdPotassium = value; }
-        public double DsdSodium { get => dsdSodium; set => dsdSodium = value; }
-        public double DsdChlorine { get => dsdChlorine; set => dsdChlorine = value; }
+        public string DsdHemoglobin { get => dssHemoglobin; set => dssHemoglobin = value; }
+        public string DsdLeucocytes { get => dssLeucocytes; set => dssLeucocytes = value; }
+        public string DsdPlatelets { get => dssPlatelets; set => dssPlatelets = value; }
+        public string DsdProtein { get => dssProtein; set => dssProtein = value; }
+        public string DsdCreatinine { get => dssCreatinine; set => dssCreatinine = value; }
+        public string DsdCholesterolr { get => dssCholesterol; set => dssCholesterol = value; }
+        public string DsdBil { get => dssBil; set => dssBil = value; }
+        public string DsdIron { get => dssIron; set => dssIron = value; }
+        public string DsdAlt { get => dssAlt; set => dssAlt = value; }
+        public string DsdAst { get => dssAst; set => dssAst = value; }
+        public string DsdSchf { get => dssSchf; set => dssSchf = value; }
+        public string DsdAmylase { get => dssAmylase; set => dssAmylase = value; }
+        public string DsdKfk { get => dssKfk; set => dssKfk = value; }
+        public string DsdKfkMv { get => dssKfkMv; set => dssKfkMv = value; }
+        public string DsdSrp { get => dssSrp; set => dssSrp = value; }
+        public string DsdPotassium { get => dssPotassium; set => dssPotassium = value; }
+        public string DsdSodium { get => dssSodium; set => dssSodium = value; }
+        public string DsdChlorine { get => dssChlorine; set => dssChlorine = value; }
+        public bool DsbAdmissionAnalysis { get => dsbAdmissionAnalysis; set => dsbAdmissionAnalysis = value; }
+        public bool DsbDischargeAnalysis { get => dsbDischargeAnalysis; set => dsbDischargeAnalysis = value; }
     }
 }

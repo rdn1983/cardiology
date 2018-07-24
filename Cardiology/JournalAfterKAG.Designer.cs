@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JournalAfterKAG));
             this.afterKagDiagnosisPnl = new System.Windows.Forms.GroupBox();
             this.afterKagDiagnosisTxt = new System.Windows.Forms.RichTextBox();
+            this.rhytmPnl = new System.Windows.Forms.GroupBox();
             this.surgeryInspectationPnl = new System.Windows.Forms.GroupBox();
             this.surgeryPsLbl = new System.Windows.Forms.Label();
             this.surgeryPsTxt = new System.Windows.Forms.ComboBox();
@@ -59,6 +60,8 @@
             this.allCardionInspectionsPnl = new System.Windows.Forms.Panel();
             this.dutyCardioContainer = new System.Windows.Forms.TableLayoutPanel();
             this.inspectionPnl0 = new System.Windows.Forms.Panel();
+            this.badRhytmBtn0 = new System.Windows.Forms.RadioButton();
+            this.goodRhytmBtn0 = new System.Windows.Forms.RadioButton();
             this.monitorLbl0 = new System.Windows.Forms.Label();
             this.adLbl0 = new System.Windows.Forms.Label();
             this.chssLbl0 = new System.Windows.Forms.Label();
@@ -76,9 +79,8 @@
             this.ekgLbl0 = new System.Windows.Forms.Label();
             this.printBtn = new System.Windows.Forms.Button();
             this.saveBtn = new System.Windows.Forms.Button();
-            this.rhytmPnl = new System.Windows.Forms.GroupBox();
-            this.badRhytmBtn = new System.Windows.Forms.RadioButton();
-            this.goodRhytmBtn = new System.Windows.Forms.RadioButton();
+            this.hidingPnl0 = new System.Windows.Forms.Panel();
+            this.admissionDateTxt = new System.Windows.Forms.DateTimePicker();
             this.afterKagDiagnosisPnl.SuspendLayout();
             this.surgeryInspectationPnl.SuspendLayout();
             this.dutyCardioInspectationPnl.SuspendLayout();
@@ -86,10 +88,12 @@
             this.allCardionInspectionsPnl.SuspendLayout();
             this.dutyCardioContainer.SuspendLayout();
             this.inspectionPnl0.SuspendLayout();
+            this.hidingPnl0.SuspendLayout();
             this.SuspendLayout();
             // 
             // afterKagDiagnosisPnl
             // 
+            this.afterKagDiagnosisPnl.Controls.Add(this.admissionDateTxt);
             this.afterKagDiagnosisPnl.Controls.Add(this.afterKagDiagnosisTxt);
             this.afterKagDiagnosisPnl.Controls.Add(this.rhytmPnl);
             this.afterKagDiagnosisPnl.Location = new System.Drawing.Point(12, 12);
@@ -101,13 +105,22 @@
             // 
             // afterKagDiagnosisTxt
             // 
-            this.afterKagDiagnosisTxt.Location = new System.Drawing.Point(6, 19);
+            this.afterKagDiagnosisTxt.Location = new System.Drawing.Point(6, 39);
             this.afterKagDiagnosisTxt.Name = "afterKagDiagnosisTxt";
-            this.afterKagDiagnosisTxt.Size = new System.Drawing.Size(406, 75);
+            this.afterKagDiagnosisTxt.Size = new System.Drawing.Size(690, 55);
             this.afterKagDiagnosisTxt.TabIndex = 0;
             this.afterKagDiagnosisTxt.Text = "ИБС: Острый нижний инфаркт миокарда от 07.08.2016. Атеросклероз коронарных артери" +
     "й. Состояние после ТЛАП и стентирования пр/3 ПКА(стентом xience V 3,0 x18мм с ле" +
     "карственным покрытием) от 07.08.2016";
+            // 
+            // rhytmPnl
+            // 
+            this.rhytmPnl.Location = new System.Drawing.Point(702, 0);
+            this.rhytmPnl.Name = "rhytmPnl";
+            this.rhytmPnl.Size = new System.Drawing.Size(100, 100);
+            this.rhytmPnl.TabIndex = 5;
+            this.rhytmPnl.TabStop = false;
+            this.rhytmPnl.Text = "Ритм";
             // 
             // surgeryInspectationPnl
             // 
@@ -131,7 +144,7 @@
             // 
             this.surgeryPsLbl.AutoSize = true;
             this.surgeryPsLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.surgeryPsLbl.Location = new System.Drawing.Point(502, 43);
+            this.surgeryPsLbl.Location = new System.Drawing.Point(628, 49);
             this.surgeryPsLbl.Name = "surgeryPsLbl";
             this.surgeryPsLbl.Size = new System.Drawing.Size(22, 13);
             this.surgeryPsLbl.TabIndex = 41;
@@ -142,7 +155,7 @@
             this.surgeryPsTxt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.surgeryPsTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.surgeryPsTxt.FormattingEnabled = true;
-            this.surgeryPsTxt.Location = new System.Drawing.Point(530, 37);
+            this.surgeryPsTxt.Location = new System.Drawing.Point(656, 43);
             this.surgeryPsTxt.Name = "surgeryPsTxt";
             this.surgeryPsTxt.Size = new System.Drawing.Size(49, 21);
             this.surgeryPsTxt.TabIndex = 40;
@@ -151,7 +164,7 @@
             // 
             this.adSurgeryLbl.AutoSize = true;
             this.adSurgeryLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.adSurgeryLbl.Location = new System.Drawing.Point(504, 18);
+            this.adSurgeryLbl.Location = new System.Drawing.Point(630, 24);
             this.adSurgeryLbl.Name = "adSurgeryLbl";
             this.adSurgeryLbl.Size = new System.Drawing.Size(26, 13);
             this.adSurgeryLbl.TabIndex = 29;
@@ -161,7 +174,7 @@
             // 
             this.chssSurgeryLbl.AutoSize = true;
             this.chssSurgeryLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.chssSurgeryLbl.Location = new System.Drawing.Point(418, 43);
+            this.chssSurgeryLbl.Location = new System.Drawing.Point(544, 49);
             this.chssSurgeryLbl.Name = "chssSurgeryLbl";
             this.chssSurgeryLbl.Size = new System.Drawing.Size(32, 13);
             this.chssSurgeryLbl.TabIndex = 27;
@@ -171,7 +184,7 @@
             // 
             this.chddSurgeryLbl.AutoSize = true;
             this.chddSurgeryLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.chddSurgeryLbl.Location = new System.Drawing.Point(414, 19);
+            this.chddSurgeryLbl.Location = new System.Drawing.Point(540, 25);
             this.chddSurgeryLbl.Name = "chddSurgeryLbl";
             this.chddSurgeryLbl.Size = new System.Drawing.Size(36, 13);
             this.chddSurgeryLbl.TabIndex = 26;
@@ -195,7 +208,7 @@
             "130/90",
             "140/100",
             "150/110"});
-            this.adSurgeryTxt.Location = new System.Drawing.Point(530, 13);
+            this.adSurgeryTxt.Location = new System.Drawing.Point(656, 19);
             this.adSurgeryTxt.Name = "adSurgeryTxt";
             this.adSurgeryTxt.Size = new System.Drawing.Size(49, 21);
             this.adSurgeryTxt.TabIndex = 25;
@@ -205,7 +218,7 @@
             this.chddSurgeryTxt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.chddSurgeryTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.chddSurgeryTxt.FormattingEnabled = true;
-            this.chddSurgeryTxt.Location = new System.Drawing.Point(452, 13);
+            this.chddSurgeryTxt.Location = new System.Drawing.Point(578, 19);
             this.chddSurgeryTxt.Name = "chddSurgeryTxt";
             this.chddSurgeryTxt.Size = new System.Drawing.Size(49, 21);
             this.chddSurgeryTxt.TabIndex = 22;
@@ -215,7 +228,7 @@
             this.chssSurgeryTxt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.chssSurgeryTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.chssSurgeryTxt.FormattingEnabled = true;
-            this.chssSurgeryTxt.Location = new System.Drawing.Point(452, 37);
+            this.chssSurgeryTxt.Location = new System.Drawing.Point(578, 43);
             this.chssSurgeryTxt.Name = "chssSurgeryTxt";
             this.chssSurgeryTxt.Size = new System.Drawing.Size(49, 21);
             this.chssSurgeryTxt.TabIndex = 23;
@@ -224,7 +237,7 @@
             // 
             this.surgeryInspectationTxt.Location = new System.Drawing.Point(6, 19);
             this.surgeryInspectationTxt.Name = "surgeryInspectationTxt";
-            this.surgeryInspectationTxt.Size = new System.Drawing.Size(406, 75);
+            this.surgeryInspectationTxt.Size = new System.Drawing.Size(528, 75);
             this.surgeryInspectationTxt.TabIndex = 0;
             this.surgeryInspectationTxt.Text = "Объективно: Над легкими аускультативно: дыхание жесткое, ЧД 19 уд в мин. Тоны сер" +
     "дца приглушены, ритм не правильный. ЧСС 60 в мин. PS 60 в мин. АД 120/70 мм рт с" +
@@ -246,6 +259,7 @@
             // 
             // panel1
             // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.releaseTitleLbl);
             this.panel1.Controls.Add(this.releasePsLbl);
             this.panel1.Controls.Add(this.releasePsTxt);
@@ -261,7 +275,7 @@
             this.panel1.Controls.Add(this.releaseInspectionTxt);
             this.panel1.Location = new System.Drawing.Point(7, 294);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(570, 113);
+            this.panel1.Size = new System.Drawing.Size(663, 113);
             this.panel1.TabIndex = 12;
             // 
             // releaseTitleLbl
@@ -277,7 +291,7 @@
             // 
             this.releasePsLbl.AutoSize = true;
             this.releasePsLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.releasePsLbl.Location = new System.Drawing.Point(465, 36);
+            this.releasePsLbl.Location = new System.Drawing.Point(584, 45);
             this.releasePsLbl.Name = "releasePsLbl";
             this.releasePsLbl.Size = new System.Drawing.Size(22, 13);
             this.releasePsLbl.TabIndex = 39;
@@ -288,7 +302,7 @@
             this.releasePsTxt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.releasePsTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.releasePsTxt.FormattingEnabled = true;
-            this.releasePsTxt.Location = new System.Drawing.Point(493, 30);
+            this.releasePsTxt.Location = new System.Drawing.Point(612, 39);
             this.releasePsTxt.Name = "releasePsTxt";
             this.releasePsTxt.Size = new System.Drawing.Size(44, 21);
             this.releasePsTxt.TabIndex = 38;
@@ -296,7 +310,7 @@
             // releaseMonitorLbl
             // 
             this.releaseMonitorLbl.AutoSize = true;
-            this.releaseMonitorLbl.Location = new System.Drawing.Point(378, 66);
+            this.releaseMonitorLbl.Location = new System.Drawing.Point(497, 63);
             this.releaseMonitorLbl.Name = "releaseMonitorLbl";
             this.releaseMonitorLbl.Size = new System.Drawing.Size(54, 13);
             this.releaseMonitorLbl.TabIndex = 30;
@@ -306,7 +320,7 @@
             // 
             this.releaseAdLbl.AutoSize = true;
             this.releaseAdLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.releaseAdLbl.Location = new System.Drawing.Point(380, 34);
+            this.releaseAdLbl.Location = new System.Drawing.Point(499, 43);
             this.releaseAdLbl.Name = "releaseAdLbl";
             this.releaseAdLbl.Size = new System.Drawing.Size(26, 13);
             this.releaseAdLbl.TabIndex = 37;
@@ -316,7 +330,7 @@
             // 
             this.releaseChssLbl.AutoSize = true;
             this.releaseChssLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.releaseChssLbl.Location = new System.Drawing.Point(458, 9);
+            this.releaseChssLbl.Location = new System.Drawing.Point(577, 18);
             this.releaseChssLbl.Name = "releaseChssLbl";
             this.releaseChssLbl.Size = new System.Drawing.Size(32, 13);
             this.releaseChssLbl.TabIndex = 36;
@@ -326,7 +340,7 @@
             // 
             this.releaseChddLbl.AutoSize = true;
             this.releaseChddLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.releaseChddLbl.Location = new System.Drawing.Point(370, 8);
+            this.releaseChddLbl.Location = new System.Drawing.Point(489, 17);
             this.releaseChddLbl.Name = "releaseChddLbl";
             this.releaseChddLbl.Size = new System.Drawing.Size(36, 13);
             this.releaseChddLbl.TabIndex = 35;
@@ -335,7 +349,7 @@
             // releaseMonitorTxt
             // 
             this.releaseMonitorTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.releaseMonitorTxt.Location = new System.Drawing.Point(378, 82);
+            this.releaseMonitorTxt.Location = new System.Drawing.Point(497, 79);
             this.releaseMonitorTxt.Name = "releaseMonitorTxt";
             this.releaseMonitorTxt.Size = new System.Drawing.Size(159, 20);
             this.releaseMonitorTxt.TabIndex = 31;
@@ -358,7 +372,7 @@
             "130/90",
             "140/100",
             "150/110"});
-            this.releaseAdTxt.Location = new System.Drawing.Point(409, 31);
+            this.releaseAdTxt.Location = new System.Drawing.Point(528, 40);
             this.releaseAdTxt.Name = "releaseAdTxt";
             this.releaseAdTxt.Size = new System.Drawing.Size(44, 21);
             this.releaseAdTxt.TabIndex = 34;
@@ -368,7 +382,7 @@
             this.releaseChddTxt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.releaseChddTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.releaseChddTxt.FormattingEnabled = true;
-            this.releaseChddTxt.Location = new System.Drawing.Point(409, 4);
+            this.releaseChddTxt.Location = new System.Drawing.Point(528, 13);
             this.releaseChddTxt.Name = "releaseChddTxt";
             this.releaseChddTxt.Size = new System.Drawing.Size(44, 21);
             this.releaseChddTxt.TabIndex = 32;
@@ -378,7 +392,7 @@
             this.releaseChssTxt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.releaseChssTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.releaseChssTxt.FormattingEnabled = true;
-            this.releaseChssTxt.Location = new System.Drawing.Point(493, 5);
+            this.releaseChssTxt.Location = new System.Drawing.Point(612, 14);
             this.releaseChssTxt.Name = "releaseChssTxt";
             this.releaseChssTxt.Size = new System.Drawing.Size(44, 21);
             this.releaseChssTxt.TabIndex = 33;
@@ -396,13 +410,14 @@
             // 
             this.releaseInspectionTxt.Location = new System.Drawing.Point(5, 27);
             this.releaseInspectionTxt.Name = "releaseInspectionTxt";
-            this.releaseInspectionTxt.Size = new System.Drawing.Size(368, 75);
+            this.releaseInspectionTxt.Size = new System.Drawing.Size(486, 75);
             this.releaseInspectionTxt.TabIndex = 1;
             this.releaseInspectionTxt.Text = resources.GetString("releaseInspectionTxt.Text");
             // 
             // allCardionInspectionsPnl
             // 
             this.allCardionInspectionsPnl.AutoScroll = true;
+            this.allCardionInspectionsPnl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.allCardionInspectionsPnl.Controls.Add(this.dutyCardioContainer);
             this.allCardionInspectionsPnl.Location = new System.Drawing.Point(6, 19);
             this.allCardionInspectionsPnl.Name = "allCardionInspectionsPnl";
@@ -422,34 +437,50 @@
             this.dutyCardioContainer.RowCount = 1;
             this.dutyCardioContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.dutyCardioContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.dutyCardioContainer.Size = new System.Drawing.Size(637, 119);
+            this.dutyCardioContainer.Size = new System.Drawing.Size(639, 117);
             this.dutyCardioContainer.TabIndex = 6;
             // 
             // inspectionPnl0
             // 
-            this.inspectionPnl0.Controls.Add(this.badRhytmBtn);
-            this.inspectionPnl0.Controls.Add(this.goodRhytmBtn);
-            this.inspectionPnl0.Controls.Add(this.monitorLbl0);
-            this.inspectionPnl0.Controls.Add(this.adLbl0);
-            this.inspectionPnl0.Controls.Add(this.chssLbl0);
-            this.inspectionPnl0.Controls.Add(this.chddLbl0);
-            this.inspectionPnl0.Controls.Add(this.monitorTxt0);
-            this.inspectionPnl0.Controls.Add(this.adText0);
-            this.inspectionPnl0.Controls.Add(this.chddTxt0);
-            this.inspectionPnl0.Controls.Add(this.chssText0);
+            this.inspectionPnl0.AutoSize = true;
+            this.inspectionPnl0.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.inspectionPnl0.Controls.Add(this.hidingPnl0);
             this.inspectionPnl0.Controls.Add(this.objectIdLbl0);
             this.inspectionPnl0.Controls.Add(this.hideBtn0);
-            this.inspectionPnl0.Controls.Add(this.inspectionTxt0);
             this.inspectionPnl0.Controls.Add(this.inspectionTime0);
             this.inspectionPnl0.Location = new System.Drawing.Point(3, 3);
             this.inspectionPnl0.Name = "inspectionPnl0";
-            this.inspectionPnl0.Size = new System.Drawing.Size(631, 113);
+            this.inspectionPnl0.Size = new System.Drawing.Size(633, 111);
             this.inspectionPnl0.TabIndex = 5;
+            // 
+            // badRhytmBtn0
+            // 
+            this.badRhytmBtn0.AutoSize = true;
+            this.badRhytmBtn0.Location = new System.Drawing.Point(538, -4);
+            this.badRhytmBtn0.Name = "badRhytmBtn0";
+            this.badRhytmBtn0.Size = new System.Drawing.Size(85, 30);
+            this.badRhytmBtn0.TabIndex = 1;
+            this.badRhytmBtn0.TabStop = true;
+            this.badRhytmBtn0.Text = "трепетание\r\nпредсердий";
+            this.badRhytmBtn0.UseVisualStyleBackColor = true;
+            this.badRhytmBtn0.CheckedChanged += new System.EventHandler(this.goodRhytmBtn_CheckedChanged);
+            // 
+            // goodRhytmBtn0
+            // 
+            this.goodRhytmBtn0.AutoSize = true;
+            this.goodRhytmBtn0.Location = new System.Drawing.Point(459, -4);
+            this.goodRhytmBtn0.Name = "goodRhytmBtn0";
+            this.goodRhytmBtn0.Size = new System.Drawing.Size(80, 30);
+            this.goodRhytmBtn0.TabIndex = 0;
+            this.goodRhytmBtn0.TabStop = true;
+            this.goodRhytmBtn0.Text = "синусовый\r\nритм";
+            this.goodRhytmBtn0.UseVisualStyleBackColor = true;
+            this.goodRhytmBtn0.CheckedChanged += new System.EventHandler(this.goodRhytmBtn_CheckedChanged);
             // 
             // monitorLbl0
             // 
             this.monitorLbl0.AutoSize = true;
-            this.monitorLbl0.Location = new System.Drawing.Point(378, 66);
+            this.monitorLbl0.Location = new System.Drawing.Point(506, 32);
             this.monitorLbl0.Name = "monitorLbl0";
             this.monitorLbl0.Size = new System.Drawing.Size(54, 13);
             this.monitorLbl0.TabIndex = 30;
@@ -459,7 +490,7 @@
             // 
             this.adLbl0.AutoSize = true;
             this.adLbl0.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.adLbl0.Location = new System.Drawing.Point(380, 34);
+            this.adLbl0.Location = new System.Drawing.Point(379, 31);
             this.adLbl0.Name = "adLbl0";
             this.adLbl0.Size = new System.Drawing.Size(26, 13);
             this.adLbl0.TabIndex = 37;
@@ -469,7 +500,7 @@
             // 
             this.chssLbl0.AutoSize = true;
             this.chssLbl0.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.chssLbl0.Location = new System.Drawing.Point(458, 9);
+            this.chssLbl0.Location = new System.Drawing.Point(373, 56);
             this.chssLbl0.Name = "chssLbl0";
             this.chssLbl0.Size = new System.Drawing.Size(32, 13);
             this.chssLbl0.TabIndex = 36;
@@ -479,7 +510,7 @@
             // 
             this.chddLbl0.AutoSize = true;
             this.chddLbl0.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.chddLbl0.Location = new System.Drawing.Point(370, 8);
+            this.chddLbl0.Location = new System.Drawing.Point(369, 5);
             this.chddLbl0.Name = "chddLbl0";
             this.chddLbl0.Size = new System.Drawing.Size(36, 13);
             this.chddLbl0.TabIndex = 35;
@@ -488,9 +519,9 @@
             // monitorTxt0
             // 
             this.monitorTxt0.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.monitorTxt0.Location = new System.Drawing.Point(378, 82);
+            this.monitorTxt0.Location = new System.Drawing.Point(459, 52);
             this.monitorTxt0.Name = "monitorTxt0";
-            this.monitorTxt0.Size = new System.Drawing.Size(159, 20);
+            this.monitorTxt0.Size = new System.Drawing.Size(160, 20);
             this.monitorTxt0.TabIndex = 31;
             // 
             // adText0
@@ -511,7 +542,7 @@
             "130/90",
             "140/100",
             "150/110"});
-            this.adText0.Location = new System.Drawing.Point(409, 31);
+            this.adText0.Location = new System.Drawing.Point(408, 26);
             this.adText0.Name = "adText0";
             this.adText0.Size = new System.Drawing.Size(44, 21);
             this.adText0.TabIndex = 34;
@@ -521,7 +552,7 @@
             this.chddTxt0.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.chddTxt0.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.chddTxt0.FormattingEnabled = true;
-            this.chddTxt0.Location = new System.Drawing.Point(409, 4);
+            this.chddTxt0.Location = new System.Drawing.Point(408, 0);
             this.chddTxt0.Name = "chddTxt0";
             this.chddTxt0.Size = new System.Drawing.Size(44, 21);
             this.chddTxt0.TabIndex = 32;
@@ -531,7 +562,7 @@
             this.chssText0.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.chssText0.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.chssText0.FormattingEnabled = true;
-            this.chssText0.Location = new System.Drawing.Point(493, 5);
+            this.chssText0.Location = new System.Drawing.Point(408, 51);
             this.chssText0.Name = "chssText0";
             this.chssText0.Size = new System.Drawing.Size(44, 21);
             this.chssText0.TabIndex = 33;
@@ -554,12 +585,13 @@
             this.hideBtn0.TabIndex = 10;
             this.hideBtn0.Text = "скрыть";
             this.hideBtn0.UseVisualStyleBackColor = true;
+            this.hideBtn0.CheckedChanged += new System.EventHandler(this.hideBtn0_CheckedChanged);
             // 
             // inspectionTxt0
             // 
-            this.inspectionTxt0.Location = new System.Drawing.Point(4, 29);
+            this.inspectionTxt0.Location = new System.Drawing.Point(5, 5);
             this.inspectionTxt0.Name = "inspectionTxt0";
-            this.inspectionTxt0.Size = new System.Drawing.Size(368, 75);
+            this.inspectionTxt0.Size = new System.Drawing.Size(368, 71);
             this.inspectionTxt0.TabIndex = 1;
             this.inspectionTxt0.Text = resources.GetString("inspectionTxt0.Text");
             // 
@@ -618,38 +650,35 @@
             this.saveBtn.UseVisualStyleBackColor = true;
             this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
             // 
-            // rhytmPnl
+            // hidingPnl0
             // 
-            this.rhytmPnl.Location = new System.Drawing.Point(702, 0);
-            this.rhytmPnl.Name = "rhytmPnl";
-            this.rhytmPnl.Size = new System.Drawing.Size(100, 100);
-            this.rhytmPnl.TabIndex = 5;
-            this.rhytmPnl.TabStop = false;
-            this.rhytmPnl.Text = "Ритм";
+            this.hidingPnl0.AutoSize = true;
+            this.hidingPnl0.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.hidingPnl0.Controls.Add(this.badRhytmBtn0);
+            this.hidingPnl0.Controls.Add(this.inspectionTxt0);
+            this.hidingPnl0.Controls.Add(this.goodRhytmBtn0);
+            this.hidingPnl0.Controls.Add(this.chssText0);
+            this.hidingPnl0.Controls.Add(this.monitorLbl0);
+            this.hidingPnl0.Controls.Add(this.chddTxt0);
+            this.hidingPnl0.Controls.Add(this.adLbl0);
+            this.hidingPnl0.Controls.Add(this.adText0);
+            this.hidingPnl0.Controls.Add(this.chssLbl0);
+            this.hidingPnl0.Controls.Add(this.monitorTxt0);
+            this.hidingPnl0.Controls.Add(this.chddLbl0);
+            this.hidingPnl0.Location = new System.Drawing.Point(4, 29);
+            this.hidingPnl0.Name = "hidingPnl0";
+            this.hidingPnl0.Size = new System.Drawing.Size(626, 79);
+            this.hidingPnl0.TabIndex = 13;
             // 
-            // badRhytmBtn
+            // admissionDateTxt
             // 
-            this.badRhytmBtn.AutoSize = true;
-            this.badRhytmBtn.Location = new System.Drawing.Point(543, 42);
-            this.badRhytmBtn.Name = "badRhytmBtn";
-            this.badRhytmBtn.Size = new System.Drawing.Size(85, 30);
-            this.badRhytmBtn.TabIndex = 1;
-            this.badRhytmBtn.TabStop = true;
-            this.badRhytmBtn.Text = "трепетание\r\nпредсердий";
-            this.badRhytmBtn.UseVisualStyleBackColor = true;
-            this.badRhytmBtn.CheckedChanged += new System.EventHandler(this.goodRhytmBtn_CheckedChanged);
-            // 
-            // goodRhytmBtn
-            // 
-            this.goodRhytmBtn.AutoSize = true;
-            this.goodRhytmBtn.Location = new System.Drawing.Point(543, 8);
-            this.goodRhytmBtn.Name = "goodRhytmBtn";
-            this.goodRhytmBtn.Size = new System.Drawing.Size(80, 30);
-            this.goodRhytmBtn.TabIndex = 0;
-            this.goodRhytmBtn.TabStop = true;
-            this.goodRhytmBtn.Text = "синусовый\r\nритм";
-            this.goodRhytmBtn.UseVisualStyleBackColor = true;
-            this.goodRhytmBtn.CheckedChanged += new System.EventHandler(this.goodRhytmBtn_CheckedChanged);
+            this.admissionDateTxt.CustomFormat = "HH:mm tt";
+            this.admissionDateTxt.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.admissionDateTxt.Location = new System.Drawing.Point(7, 15);
+            this.admissionDateTxt.Name = "admissionDateTxt";
+            this.admissionDateTxt.ShowUpDown = true;
+            this.admissionDateTxt.Size = new System.Drawing.Size(87, 20);
+            this.admissionDateTxt.TabIndex = 6;
             // 
             // JournalAfterKAG
             // 
@@ -676,8 +705,11 @@
             this.allCardionInspectionsPnl.ResumeLayout(false);
             this.allCardionInspectionsPnl.PerformLayout();
             this.dutyCardioContainer.ResumeLayout(false);
+            this.dutyCardioContainer.PerformLayout();
             this.inspectionPnl0.ResumeLayout(false);
             this.inspectionPnl0.PerformLayout();
+            this.hidingPnl0.ResumeLayout(false);
+            this.hidingPnl0.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -702,8 +734,8 @@
         private System.Windows.Forms.Button addCardioInspetions;
         private System.Windows.Forms.Label objectIdLbl0;
         private System.Windows.Forms.GroupBox rhytmPnl;
-        private System.Windows.Forms.RadioButton badRhytmBtn;
-        private System.Windows.Forms.RadioButton goodRhytmBtn;
+        private System.Windows.Forms.RadioButton badRhytmBtn0;
+        private System.Windows.Forms.RadioButton goodRhytmBtn0;
         private System.Windows.Forms.Label adSurgeryLbl;
         private System.Windows.Forms.Label chssSurgeryLbl;
         private System.Windows.Forms.Label chddSurgeryLbl;
@@ -734,5 +766,7 @@
         private System.Windows.Forms.Label releaseTitleLbl;
         private System.Windows.Forms.Label surgeryPsLbl;
         private System.Windows.Forms.ComboBox surgeryPsTxt;
+        private System.Windows.Forms.Panel hidingPnl0;
+        private System.Windows.Forms.DateTimePicker admissionDateTxt;
     }
 }

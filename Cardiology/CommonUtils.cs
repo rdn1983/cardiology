@@ -60,7 +60,14 @@ namespace Cardiology.Utils
                 for (int i = 0; i < srcContainer.Controls.Count; i++)
                 {
                     Control sourceCtrl = srcContainer.Controls[i];
-                    Control child = createControl(sourceCtrl, index);
+                    Control child;
+                    if (sourceCtrl.Controls.Count > 0)
+                    {
+                        child = copyControl(sourceCtrl, index);
+                    } else
+                    {
+                        child = createControl(sourceCtrl, index);
+                    }
                     if (child != null)
                     {
                         child.Bounds = sourceCtrl.Bounds;
@@ -102,6 +109,9 @@ namespace Cardiology.Utils
             {
                 result = new DateTimePicker();
                 ((DateTimePicker)result).Format = ((DateTimePicker)sourceCtrl).Format;
+                ((DateTimePicker)result).CustomFormat = ((DateTimePicker)sourceCtrl).CustomFormat;
+                ((DateTimePicker)result).ShowUpDown = ((DateTimePicker)sourceCtrl).ShowUpDown;
+
             }
             if (sourceCtrl.GetType() == typeof(ComboBox))
             {
@@ -118,6 +128,11 @@ namespace Cardiology.Utils
             if (sourceCtrl.GetType() == typeof(RichTextBox))
             {
                 result = new RichTextBox();
+            }
+            if (sourceCtrl.GetType() == typeof(RadioButton))
+            {
+                result = new RadioButton();
+                result.Text = sourceCtrl.Text;
             }
             if (result != null)
             {

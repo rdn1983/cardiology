@@ -45,6 +45,7 @@ namespace Cardiology
                     chddSurgeryTxt.Text = journal.DssChdd;
                     adSurgeryTxt.Text = journal.DssAd;
                     surgeryPsTxt.Text = journal.DssPs;
+                    admissionDateTxt.Value = journal.DsdtAdmissionDate;
                     ekgTxt0.Text = journal.DssEkg;
                     List<DdtVariousSpecConcluson> cardioConclusions = service.queryObjectsCollection<DdtVariousSpecConcluson>
                         ("Select * from " + DdtVariousSpecConcluson.TABLE_NAME + " WHERE dsid_parent='" + journalId + "' AND dsb_additional_bool=false");
@@ -78,14 +79,27 @@ namespace Cardiology
                     releaseChssTxt.Text = releaseConclusion.DssAdditionalInfo2;
                     releaseAdTxt.Text = releaseConclusion.DssAdditionalInfo3;
                     releaseMonitorTxt.Text = releaseConclusion.DssAdditionalInfo4;
-                }
 
+                }
+            }
+            else
+            {
+                admissionDateTxt.Value = hospitalitySession.DsdtAdmissionDate.AddHours(1);
             }
         }
 
         private void addCardioInspetions_Click(object sender, EventArgs e)
         {
             dutyCardioContainer.Controls.Add(CommonUtils.copyControl(inspectionPnl0, dutyCardioContainer.Controls.Count));
+            int currentIndex = dutyCardioContainer.Controls.Count - 1;
+            CheckBox cb = (CheckBox)CommonUtils.findControl(dutyCardioContainer, ("hideBtn" + currentIndex));
+            cb.CheckedChanged += new System.EventHandler(this.hideBtn0_CheckedChanged);
+            RadioButton good = (RadioButton)CommonUtils.findControl(dutyCardioContainer, ("goodRhytmBtn" + currentIndex));
+            good.CheckedChanged += new System.EventHandler(this.goodRhytmBtn_CheckedChanged);
+            RadioButton bad = (RadioButton)CommonUtils.findControl(dutyCardioContainer, ("badRhytmBtn" + currentIndex));
+            bad.CheckedChanged += new System.EventHandler(this.goodRhytmBtn_CheckedChanged);
+            DateTimePicker dtPick = (DateTimePicker)CommonUtils.findControl(dutyCardioContainer, ("inspectionTime" + currentIndex));
+            dtPick.Value = (inspectionTime0.Value.AddHours(currentIndex));
         }
 
         private void saveBtn_Click(object sender, EventArgs e)
@@ -109,12 +123,13 @@ namespace Cardiology
                 journal.DsiJournalType = (int)DdtJournalDsiType.AFTER_KAG;
             }
             journal.DssSurgeonExam = surgeryInspectationTxt.Text;
-            journal.DsbGoodRhytm = goodRhytmBtn.Checked;
+            journal.DsbGoodRhytm = goodRhytmBtn0.Checked;
             journal.DssChdd = chddSurgeryTxt.Text;
             journal.DssChss = chssSurgeryTxt.Text;
             journal.DssAd = adSurgeryTxt.Text;
             journal.DssPs = surgeryPsTxt.Text;
             journal.DssEkg = ekgTxt0.Text;
+            journal.DsdtAdmissionDate = admissionDateTxt.Value;
             journalId = service.updateOrCreateIfNeedObject<DdtJournal>(journal, DdtJournal.TABLE_NAME, journal.RObjectId);
 
             for (int i = 0; i < dutyCardioContainer.Controls.Count; i++)
@@ -180,12 +195,20 @@ namespace Cardiology
 
         private void goodRhytmBtn_CheckedChanged(object sender, EventArgs e)
         {
-            for (int i = 0; i < dutyCardioContainer.Controls.Count; i++)
-            {
-                Control c = CommonUtils.findControl(dutyCardioContainer, "monitorTxt" + i);
-                c.Text = goodRhytmBtn.Checked?"синусовый ритм":"трепетание предсердий";
-            }
+            string ctrlName = ((Control)sender).Name;
+            string indxStr = String.Intern(ctrlName.Substring(CommonUtils.getFirstDigitIndex(ctrlName)));
+            Control c = CommonUtils.findControl(dutyCardioContainer, "monitorTxt" + indxStr);
+            RadioButton cb = (RadioButton)CommonUtils.findControl(dutyCardioContainer, "goodRhytmBtn" + indxStr);
+            c.Text = cb.Checked ? "синусовый ритм" : "трепетание предсердий";
         }
 
+        private void hideBtn0_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox cb = (CheckBox)sender;
+            string ctrlName = cb.Name;
+            string indxStr = String.Intern(ctrlName.Substring(CommonUtils.getFirstDigitIndex(ctrlName)));
+            Control c = CommonUtils.findControl(dutyCardioContainer, "hidingPnl" + indxStr);
+            c.Visible = !cb.Checked;
+        }
     }
 }

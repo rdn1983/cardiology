@@ -77,6 +77,7 @@
             // 
             // dateCtrl
             // 
+            this.dateCtrl.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateCtrl.Location = new System.Drawing.Point(117, 27);
             this.dateCtrl.Name = "dateCtrl";
             this.dateCtrl.Size = new System.Drawing.Size(159, 20);
@@ -84,9 +85,11 @@
             // 
             // timeCtrl
             // 
-            this.timeCtrl.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.timeCtrl.CustomFormat = "HH:mm tt";
+            this.timeCtrl.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.timeCtrl.Location = new System.Drawing.Point(117, 61);
             this.timeCtrl.Name = "timeCtrl";
+            this.timeCtrl.ShowUpDown = true;
             this.timeCtrl.Size = new System.Drawing.Size(159, 20);
             this.timeCtrl.TabIndex = 6;
             // 

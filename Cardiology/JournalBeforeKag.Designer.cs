@@ -216,10 +216,12 @@
             // 
             // startTimeTxt0
             // 
+            this.startTimeTxt0.CustomFormat = "HH:mm tt";
             this.startTimeTxt0.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.startTimeTxt0.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.startTimeTxt0.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.startTimeTxt0.Location = new System.Drawing.Point(4, 29);
             this.startTimeTxt0.Name = "startTimeTxt0";
+            this.startTimeTxt0.ShowUpDown = true;
             this.startTimeTxt0.Size = new System.Drawing.Size(100, 20);
             this.startTimeTxt0.TabIndex = 2;
             // 
@@ -416,10 +418,12 @@
             // 
             // deferredStartTime0
             // 
+            this.deferredStartTime0.CustomFormat = "HH:mm tt";
             this.deferredStartTime0.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.deferredStartTime0.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.deferredStartTime0.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.deferredStartTime0.Location = new System.Drawing.Point(91, 3);
             this.deferredStartTime0.Name = "deferredStartTime0";
+            this.deferredStartTime0.ShowUpDown = true;
             this.deferredStartTime0.Size = new System.Drawing.Size(121, 20);
             this.deferredStartTime0.TabIndex = 2;
             // 

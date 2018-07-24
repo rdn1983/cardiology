@@ -86,15 +86,15 @@
             this.allCardionInspectionsPnl.SuspendLayout();
             this.dutyCardioContainer.SuspendLayout();
             this.inspectionPnl0.SuspendLayout();
-            this.rhytmPnl.SuspendLayout();
             this.SuspendLayout();
             // 
             // afterKagDiagnosisPnl
             // 
             this.afterKagDiagnosisPnl.Controls.Add(this.afterKagDiagnosisTxt);
+            this.afterKagDiagnosisPnl.Controls.Add(this.rhytmPnl);
             this.afterKagDiagnosisPnl.Location = new System.Drawing.Point(12, 12);
             this.afterKagDiagnosisPnl.Name = "afterKagDiagnosisPnl";
-            this.afterKagDiagnosisPnl.Size = new System.Drawing.Size(452, 100);
+            this.afterKagDiagnosisPnl.Size = new System.Drawing.Size(710, 100);
             this.afterKagDiagnosisPnl.TabIndex = 0;
             this.afterKagDiagnosisPnl.TabStop = false;
             this.afterKagDiagnosisPnl.Text = "После КАГ. Выставлен диагноз:";
@@ -122,7 +122,7 @@
             this.surgeryInspectationPnl.Controls.Add(this.surgeryInspectationTxt);
             this.surgeryInspectationPnl.Location = new System.Drawing.Point(12, 118);
             this.surgeryInspectationPnl.Name = "surgeryInspectationPnl";
-            this.surgeryInspectationPnl.Size = new System.Drawing.Size(617, 98);
+            this.surgeryInspectationPnl.Size = new System.Drawing.Size(710, 98);
             this.surgeryInspectationPnl.TabIndex = 1;
             this.surgeryInspectationPnl.TabStop = false;
             this.surgeryInspectationPnl.Text = "Осмотр ренгеноваскулярного хирурга (через 1 час после КАГ).";
@@ -239,7 +239,7 @@
             this.dutyCardioInspectationPnl.Controls.Add(this.ekgLbl0);
             this.dutyCardioInspectationPnl.Location = new System.Drawing.Point(12, 218);
             this.dutyCardioInspectationPnl.Name = "dutyCardioInspectationPnl";
-            this.dutyCardioInspectationPnl.Size = new System.Drawing.Size(617, 439);
+            this.dutyCardioInspectationPnl.Size = new System.Drawing.Size(710, 439);
             this.dutyCardioInspectationPnl.TabIndex = 2;
             this.dutyCardioInspectationPnl.TabStop = false;
             this.dutyCardioInspectationPnl.Text = "Осмотр дежурного кардиореаниматолога:";
@@ -406,7 +406,7 @@
             this.allCardionInspectionsPnl.Controls.Add(this.dutyCardioContainer);
             this.allCardionInspectionsPnl.Location = new System.Drawing.Point(6, 19);
             this.allCardionInspectionsPnl.Name = "allCardionInspectionsPnl";
-            this.allCardionInspectionsPnl.Size = new System.Drawing.Size(570, 272);
+            this.allCardionInspectionsPnl.Size = new System.Drawing.Size(664, 272);
             this.allCardionInspectionsPnl.TabIndex = 7;
             // 
             // dutyCardioContainer
@@ -422,11 +422,13 @@
             this.dutyCardioContainer.RowCount = 1;
             this.dutyCardioContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.dutyCardioContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.dutyCardioContainer.Size = new System.Drawing.Size(546, 119);
+            this.dutyCardioContainer.Size = new System.Drawing.Size(637, 119);
             this.dutyCardioContainer.TabIndex = 6;
             // 
             // inspectionPnl0
             // 
+            this.inspectionPnl0.Controls.Add(this.badRhytmBtn);
+            this.inspectionPnl0.Controls.Add(this.goodRhytmBtn);
             this.inspectionPnl0.Controls.Add(this.monitorLbl0);
             this.inspectionPnl0.Controls.Add(this.adLbl0);
             this.inspectionPnl0.Controls.Add(this.chssLbl0);
@@ -441,7 +443,7 @@
             this.inspectionPnl0.Controls.Add(this.inspectionTime0);
             this.inspectionPnl0.Location = new System.Drawing.Point(3, 3);
             this.inspectionPnl0.Name = "inspectionPnl0";
-            this.inspectionPnl0.Size = new System.Drawing.Size(540, 113);
+            this.inspectionPnl0.Size = new System.Drawing.Size(631, 113);
             this.inspectionPnl0.TabIndex = 5;
             // 
             // monitorLbl0
@@ -563,9 +565,11 @@
             // 
             // inspectionTime0
             // 
-            this.inspectionTime0.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.inspectionTime0.CustomFormat = "HH:mm tt";
+            this.inspectionTime0.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.inspectionTime0.Location = new System.Drawing.Point(4, 3);
             this.inspectionTime0.Name = "inspectionTime0";
+            this.inspectionTime0.ShowUpDown = true;
             this.inspectionTime0.Size = new System.Drawing.Size(90, 20);
             this.inspectionTime0.TabIndex = 0;
             // 
@@ -579,7 +583,7 @@
             // addCardioInspetions
             // 
             this.addCardioInspetions.Image = global::Cardiology.Properties.Resources.addd1;
-            this.addCardioInspetions.Location = new System.Drawing.Point(582, 19);
+            this.addCardioInspetions.Location = new System.Drawing.Point(676, 22);
             this.addCardioInspetions.Name = "addCardioInspetions";
             this.addCardioInspetions.Size = new System.Drawing.Size(29, 28);
             this.addCardioInspetions.TabIndex = 5;
@@ -616,11 +620,9 @@
             // 
             // rhytmPnl
             // 
-            this.rhytmPnl.Controls.Add(this.badRhytmBtn);
-            this.rhytmPnl.Controls.Add(this.goodRhytmBtn);
-            this.rhytmPnl.Location = new System.Drawing.Point(470, 12);
+            this.rhytmPnl.Location = new System.Drawing.Point(702, 0);
             this.rhytmPnl.Name = "rhytmPnl";
-            this.rhytmPnl.Size = new System.Drawing.Size(159, 100);
+            this.rhytmPnl.Size = new System.Drawing.Size(100, 100);
             this.rhytmPnl.TabIndex = 5;
             this.rhytmPnl.TabStop = false;
             this.rhytmPnl.Text = "Ритм";
@@ -628,24 +630,24 @@
             // badRhytmBtn
             // 
             this.badRhytmBtn.AutoSize = true;
-            this.badRhytmBtn.Location = new System.Drawing.Point(7, 61);
+            this.badRhytmBtn.Location = new System.Drawing.Point(543, 42);
             this.badRhytmBtn.Name = "badRhytmBtn";
-            this.badRhytmBtn.Size = new System.Drawing.Size(102, 17);
+            this.badRhytmBtn.Size = new System.Drawing.Size(85, 30);
             this.badRhytmBtn.TabIndex = 1;
             this.badRhytmBtn.TabStop = true;
-            this.badRhytmBtn.Text = "не правильный";
+            this.badRhytmBtn.Text = "трепетание\r\nпредсердий";
             this.badRhytmBtn.UseVisualStyleBackColor = true;
             this.badRhytmBtn.CheckedChanged += new System.EventHandler(this.goodRhytmBtn_CheckedChanged);
             // 
             // goodRhytmBtn
             // 
             this.goodRhytmBtn.AutoSize = true;
-            this.goodRhytmBtn.Location = new System.Drawing.Point(7, 27);
+            this.goodRhytmBtn.Location = new System.Drawing.Point(543, 8);
             this.goodRhytmBtn.Name = "goodRhytmBtn";
-            this.goodRhytmBtn.Size = new System.Drawing.Size(87, 17);
+            this.goodRhytmBtn.Size = new System.Drawing.Size(80, 30);
             this.goodRhytmBtn.TabIndex = 0;
             this.goodRhytmBtn.TabStop = true;
-            this.goodRhytmBtn.Text = "правильный";
+            this.goodRhytmBtn.Text = "синусовый\r\nритм";
             this.goodRhytmBtn.UseVisualStyleBackColor = true;
             this.goodRhytmBtn.CheckedChanged += new System.EventHandler(this.goodRhytmBtn_CheckedChanged);
             // 
@@ -653,8 +655,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(635, 689);
-            this.Controls.Add(this.rhytmPnl);
+            this.ClientSize = new System.Drawing.Size(731, 689);
             this.Controls.Add(this.saveBtn);
             this.Controls.Add(this.printBtn);
             this.Controls.Add(this.dutyCardioInspectationPnl);
@@ -677,8 +678,6 @@
             this.dutyCardioContainer.ResumeLayout(false);
             this.inspectionPnl0.ResumeLayout(false);
             this.inspectionPnl0.PerformLayout();
-            this.rhytmPnl.ResumeLayout(false);
-            this.rhytmPnl.PerformLayout();
             this.ResumeLayout(false);
 
         }

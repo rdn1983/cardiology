@@ -84,9 +84,11 @@
             // 
             // timeCtrl
             // 
-            this.timeCtrl.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.timeCtrl.CustomFormat = "HH:mm tt";
+            this.timeCtrl.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.timeCtrl.Location = new System.Drawing.Point(54, 12);
             this.timeCtrl.Name = "timeCtrl";
+            this.timeCtrl.ShowUpDown = true;
             this.timeCtrl.Size = new System.Drawing.Size(82, 20);
             this.timeCtrl.TabIndex = 8;
             // 

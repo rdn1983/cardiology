@@ -553,7 +553,7 @@ namespace Cardiology
                         || CommonUtils.isNotBlank(regularSodiumTxt.Text) || CommonUtils.isNotBlank(regularSchfTxt.Text)
                         || CommonUtils.isNotBlank(regularKreatininTxt.Text) || CommonUtils.isNotBlank(regularKfkTxt.Text)
                         || CommonUtils.isNotBlank(regularKfkMvTxt.Text) || CommonUtils.isNotBlank(regularIronTxt.Text)
-                        || CommonUtils.isNotBlank(regularHemoglobinTxt.Text) ||CommonUtils.isNotBlank(regularCholesterolTxt.Text)
+                        || CommonUtils.isNotBlank(regularHemoglobinTxt.Text) || CommonUtils.isNotBlank(regularCholesterolTxt.Text)
                         || CommonUtils.isNotBlank(regularChloriumTxt.Text) || CommonUtils.isNotBlank(regularBloodLeucoTxt.Text)
                         || CommonUtils.isNotBlank(regularBilTxt.Text) || CommonUtils.isNotBlank(regularAstTxt.Text)
                         || CommonUtils.isNotBlank(regularAltTxt.Text) || CommonUtils.isNotBlank(regularProreinTxt.Text)
@@ -730,6 +730,37 @@ namespace Cardiology
             {
                 serologyToolTip.Show("bubububu", showABOFormBtn, 5000);
             }
+        }
+
+
+        private void frontType1_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            string name = btn.Name;
+            string indxStr = String.Intern(name.Substring(CommonUtils.getFirstDigitIndex(name), 1));
+            string mirrorCtrlName = null;
+            if (name.StartsWith("frontType"))
+            {
+                mirrorCtrlName = "frontDesc" + indxStr;
+            }
+            else if (name.StartsWith("frontDesc"))
+            {
+                mirrorCtrlName = "frontType" + indxStr;
+            }
+            else if (name.StartsWith("backType"))
+            {
+                mirrorCtrlName = "backDesc" + indxStr;
+            }
+            else if (name.StartsWith("backDesc"))
+            {
+                mirrorCtrlName = "backType" + indxStr;
+            }
+            Control mirrorCtrl = CommonUtils.findControl(ekgTemplates, mirrorCtrlName);
+            if (mirrorCtrl!=null)
+            {
+                regularEkgTxt.Text += mirrorCtrl.Text;
+            }
+
         }
     }
 }

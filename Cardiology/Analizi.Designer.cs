@@ -32,6 +32,32 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Analizi));
             this.tabs = new System.Windows.Forms.TabControl();
             this.ekgTab = new System.Windows.Forms.TabPage();
+            this.ekgTemplates = new System.Windows.Forms.GroupBox();
+            this.backPnl = new System.Windows.Forms.GroupBox();
+            this.backDesc2_2 = new System.Windows.Forms.Button();
+            this.backDesc4_4 = new System.Windows.Forms.Button();
+            this.backLbl = new System.Windows.Forms.Label();
+            this.backType1 = new System.Windows.Forms.Button();
+            this.backDesc4 = new System.Windows.Forms.Button();
+            this.backType2 = new System.Windows.Forms.Button();
+            this.backType3 = new System.Windows.Forms.Button();
+            this.backDesc3 = new System.Windows.Forms.Button();
+            this.backDesc2 = new System.Windows.Forms.Button();
+            this.backType4 = new System.Windows.Forms.Button();
+            this.backDesc1 = new System.Windows.Forms.Button();
+            this.frontPnl = new System.Windows.Forms.GroupBox();
+            this.frontLbl = new System.Windows.Forms.Label();
+            this.frontDesc5_5 = new System.Windows.Forms.Button();
+            this.frontType1 = new System.Windows.Forms.Button();
+            this.frontDesc5 = new System.Windows.Forms.Button();
+            this.frontType2 = new System.Windows.Forms.Button();
+            this.frontDesc4 = new System.Windows.Forms.Button();
+            this.frontType3 = new System.Windows.Forms.Button();
+            this.frontDesc3 = new System.Windows.Forms.Button();
+            this.frontType4 = new System.Windows.Forms.Button();
+            this.frontDesc2 = new System.Windows.Forms.Button();
+            this.frontType5 = new System.Windows.Forms.Button();
+            this.frontDesc1 = new System.Windows.Forms.Button();
             this.firstEkgBox = new System.Windows.Forms.GroupBox();
             this.firstEkgTxt = new System.Windows.Forms.RichTextBox();
             this.regularEkgTxt = new System.Windows.Forms.RichTextBox();
@@ -270,8 +296,12 @@
             this.neurologTxt = new System.Windows.Forms.RichTextBox();
             this.saveBtn = new System.Windows.Forms.Button();
             this.serologyToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.button3 = new System.Windows.Forms.Button();
             this.tabs.SuspendLayout();
             this.ekgTab.SuspendLayout();
+            this.ekgTemplates.SuspendLayout();
+            this.backPnl.SuspendLayout();
+            this.frontPnl.SuspendLayout();
             this.firstEkgBox.SuspendLayout();
             this.contextMenu.SuspendLayout();
             this.rhytmGroupBox.SuspendLayout();
@@ -331,12 +361,13 @@
             this.tabs.Location = new System.Drawing.Point(12, 38);
             this.tabs.Name = "tabs";
             this.tabs.SelectedIndex = 0;
-            this.tabs.Size = new System.Drawing.Size(924, 687);
+            this.tabs.Size = new System.Drawing.Size(924, 554);
             this.tabs.TabIndex = 0;
             this.tabs.SelectedIndexChanged += new System.EventHandler(this.tabs_SelectedIndexChanged);
             // 
             // ekgTab
             // 
+            this.ekgTab.Controls.Add(this.ekgTemplates);
             this.ekgTab.Controls.Add(this.firstEkgBox);
             this.ekgTab.Controls.Add(this.regularEkgTxt);
             this.ekgTab.Controls.Add(this.clearBtn);
@@ -350,17 +381,295 @@
             this.ekgTab.Location = new System.Drawing.Point(4, 22);
             this.ekgTab.Name = "ekgTab";
             this.ekgTab.Padding = new System.Windows.Forms.Padding(3);
-            this.ekgTab.Size = new System.Drawing.Size(916, 661);
+            this.ekgTab.Size = new System.Drawing.Size(916, 528);
             this.ekgTab.TabIndex = 0;
             this.ekgTab.Text = "ЭКГ";
             this.ekgTab.UseVisualStyleBackColor = true;
+            // 
+            // ekgTemplates
+            // 
+            this.ekgTemplates.Controls.Add(this.backPnl);
+            this.ekgTemplates.Controls.Add(this.frontPnl);
+            this.ekgTemplates.Location = new System.Drawing.Point(22, 337);
+            this.ekgTemplates.Name = "ekgTemplates";
+            this.ekgTemplates.Size = new System.Drawing.Size(714, 184);
+            this.ekgTemplates.TabIndex = 20;
+            this.ekgTemplates.TabStop = false;
+            this.ekgTemplates.Text = "Шаблоны ЭКГ";
+            // 
+            // backPnl
+            // 
+            this.backPnl.Controls.Add(this.backDesc2_2);
+            this.backPnl.Controls.Add(this.backDesc4_4);
+            this.backPnl.Controls.Add(this.backLbl);
+            this.backPnl.Controls.Add(this.backType1);
+            this.backPnl.Controls.Add(this.backDesc4);
+            this.backPnl.Controls.Add(this.backType2);
+            this.backPnl.Controls.Add(this.backType3);
+            this.backPnl.Controls.Add(this.backDesc3);
+            this.backPnl.Controls.Add(this.backDesc2);
+            this.backPnl.Controls.Add(this.backType4);
+            this.backPnl.Controls.Add(this.backDesc1);
+            this.backPnl.Location = new System.Drawing.Point(359, 11);
+            this.backPnl.Name = "backPnl";
+            this.backPnl.Size = new System.Drawing.Size(348, 168);
+            this.backPnl.TabIndex = 33;
+            this.backPnl.TabStop = false;
+            // 
+            // backDesc2_2
+            // 
+            this.backDesc2_2.Location = new System.Drawing.Point(262, 66);
+            this.backDesc2_2.Name = "backDesc2_2";
+            this.backDesc2_2.Size = new System.Drawing.Size(79, 23);
+            this.backDesc2_2.TabIndex = 32;
+            this.backDesc2_2.Text = "V1-V3";
+            this.backDesc2_2.UseVisualStyleBackColor = true;
+            this.backDesc2_2.Click += new System.EventHandler(this.frontType1_Click);
+            // 
+            // backDesc4_4
+            // 
+            this.backDesc4_4.Location = new System.Drawing.Point(296, 114);
+            this.backDesc4_4.Name = "backDesc4_4";
+            this.backDesc4_4.Size = new System.Drawing.Size(45, 23);
+            this.backDesc4_4.TabIndex = 31;
+            this.backDesc4_4.Text = "V1-V3";
+            this.backDesc4_4.UseVisualStyleBackColor = true;
+            this.backDesc4_4.Click += new System.EventHandler(this.frontType1_Click);
+            // 
+            // backLbl
+            // 
+            this.backLbl.AutoSize = true;
+            this.backLbl.Location = new System.Drawing.Point(73, 11);
+            this.backLbl.Name = "backLbl";
+            this.backLbl.Size = new System.Drawing.Size(204, 13);
+            this.backLbl.TabIndex = 1;
+            this.backLbl.Text = "Инфаркт миокарда задней стенки ЛЖ";
+            // 
+            // backType1
+            // 
+            this.backType1.Location = new System.Drawing.Point(7, 31);
+            this.backType1.Name = "backType1";
+            this.backType1.Size = new System.Drawing.Size(161, 34);
+            this.backType1.TabIndex = 21;
+            this.backType1.Text = "Заднедиафрагмальный\r\n(нижний)";
+            this.backType1.UseVisualStyleBackColor = true;
+            this.backType1.Click += new System.EventHandler(this.frontType1_Click);
+            // 
+            // backDesc4
+            // 
+            this.backDesc4.Location = new System.Drawing.Point(169, 114);
+            this.backDesc4.Name = "backDesc4";
+            this.backDesc4.Size = new System.Drawing.Size(127, 23);
+            this.backDesc4.TabIndex = 30;
+            this.backDesc4.Text = "III,aVF,II,V5,V6,V7-V9";
+            this.backDesc4.UseVisualStyleBackColor = true;
+            this.backDesc4.Click += new System.EventHandler(this.frontType1_Click);
+            // 
+            // backType2
+            // 
+            this.backType2.Location = new System.Drawing.Point(7, 66);
+            this.backType2.Name = "backType2";
+            this.backType2.Size = new System.Drawing.Size(161, 23);
+            this.backType2.TabIndex = 22;
+            this.backType2.Text = "Заднебазальный";
+            this.backType2.UseVisualStyleBackColor = true;
+            this.backType2.Click += new System.EventHandler(this.frontType1_Click);
+            // 
+            // backType3
+            // 
+            this.backType3.Location = new System.Drawing.Point(7, 90);
+            this.backType3.Name = "backType3";
+            this.backType3.Size = new System.Drawing.Size(161, 23);
+            this.backType3.TabIndex = 23;
+            this.backType3.Text = "Заднебоковой";
+            this.backType3.UseVisualStyleBackColor = true;
+            this.backType3.Click += new System.EventHandler(this.frontType1_Click);
+            // 
+            // backDesc3
+            // 
+            this.backDesc3.Location = new System.Drawing.Point(169, 90);
+            this.backDesc3.Name = "backDesc3";
+            this.backDesc3.Size = new System.Drawing.Size(172, 23);
+            this.backDesc3.TabIndex = 28;
+            this.backDesc3.Text = "V5,V6,II,aVF";
+            this.backDesc3.UseVisualStyleBackColor = true;
+            this.backDesc3.Click += new System.EventHandler(this.frontType1_Click);
+            // 
+            // backDesc2
+            // 
+            this.backDesc2.Location = new System.Drawing.Point(169, 66);
+            this.backDesc2.Name = "backDesc2";
+            this.backDesc2.Size = new System.Drawing.Size(92, 23);
+            this.backDesc2.TabIndex = 27;
+            this.backDesc2.Text = "V7-V9";
+            this.backDesc2.UseVisualStyleBackColor = true;
+            this.backDesc2.Click += new System.EventHandler(this.frontType1_Click);
+            // 
+            // backType4
+            // 
+            this.backType4.Location = new System.Drawing.Point(7, 114);
+            this.backType4.Name = "backType4";
+            this.backType4.Size = new System.Drawing.Size(161, 23);
+            this.backType4.TabIndex = 25;
+            this.backType4.Text = "Распространенный задний";
+            this.backType4.UseVisualStyleBackColor = true;
+            this.backType4.Click += new System.EventHandler(this.frontType1_Click);
+            // 
+            // backDesc1
+            // 
+            this.backDesc1.Location = new System.Drawing.Point(169, 31);
+            this.backDesc1.Name = "backDesc1";
+            this.backDesc1.Size = new System.Drawing.Size(173, 34);
+            this.backDesc1.TabIndex = 26;
+            this.backDesc1.Text = "III,aVF,II";
+            this.backDesc1.UseVisualStyleBackColor = true;
+            this.backDesc1.Click += new System.EventHandler(this.frontType1_Click);
+            // 
+            // frontPnl
+            // 
+            this.frontPnl.Controls.Add(this.frontLbl);
+            this.frontPnl.Controls.Add(this.frontDesc5_5);
+            this.frontPnl.Controls.Add(this.frontType1);
+            this.frontPnl.Controls.Add(this.frontDesc5);
+            this.frontPnl.Controls.Add(this.frontType2);
+            this.frontPnl.Controls.Add(this.frontDesc4);
+            this.frontPnl.Controls.Add(this.frontType3);
+            this.frontPnl.Controls.Add(this.frontDesc3);
+            this.frontPnl.Controls.Add(this.frontType4);
+            this.frontPnl.Controls.Add(this.frontDesc2);
+            this.frontPnl.Controls.Add(this.frontType5);
+            this.frontPnl.Controls.Add(this.frontDesc1);
+            this.frontPnl.Location = new System.Drawing.Point(6, 11);
+            this.frontPnl.Name = "frontPnl";
+            this.frontPnl.Size = new System.Drawing.Size(348, 168);
+            this.frontPnl.TabIndex = 32;
+            this.frontPnl.TabStop = false;
+            // 
+            // frontLbl
+            // 
+            this.frontLbl.AutoSize = true;
+            this.frontLbl.Location = new System.Drawing.Point(61, 11);
+            this.frontLbl.Name = "frontLbl";
+            this.frontLbl.Size = new System.Drawing.Size(216, 13);
+            this.frontLbl.TabIndex = 0;
+            this.frontLbl.Text = "Инфаркт миокарда передней стенки ЛЖ";
+            // 
+            // frontDesc5_5
+            // 
+            this.frontDesc5_5.Location = new System.Drawing.Point(265, 139);
+            this.frontDesc5_5.Name = "frontDesc5_5";
+            this.frontDesc5_5.Size = new System.Drawing.Size(75, 23);
+            this.frontDesc5_5.TabIndex = 31;
+            this.frontDesc5_5.Text = "III,aVF,II";
+            this.frontDesc5_5.UseVisualStyleBackColor = true;
+            this.frontDesc5_5.Click += new System.EventHandler(this.frontType1_Click);
+            // 
+            // frontType1
+            // 
+            this.frontType1.Location = new System.Drawing.Point(8, 31);
+            this.frontType1.Name = "frontType1";
+            this.frontType1.Size = new System.Drawing.Size(181, 23);
+            this.frontType1.TabIndex = 21;
+            this.frontType1.Text = "Переднеперегородочный";
+            this.frontType1.UseVisualStyleBackColor = true;
+            this.frontType1.Click += new System.EventHandler(this.frontType1_Click);
+            // 
+            // frontDesc5
+            // 
+            this.frontDesc5.Location = new System.Drawing.Point(189, 139);
+            this.frontDesc5.Name = "frontDesc5";
+            this.frontDesc5.Size = new System.Drawing.Size(75, 23);
+            this.frontDesc5.TabIndex = 30;
+            this.frontDesc5.Text = "I,aVL,V1-V6";
+            this.frontDesc5.UseVisualStyleBackColor = true;
+            this.frontDesc5.Click += new System.EventHandler(this.frontType1_Click);
+            // 
+            // frontType2
+            // 
+            this.frontType2.Location = new System.Drawing.Point(8, 55);
+            this.frontType2.Name = "frontType2";
+            this.frontType2.Size = new System.Drawing.Size(181, 23);
+            this.frontType2.TabIndex = 22;
+            this.frontType2.Text = "Передневерхушечный";
+            this.frontType2.UseVisualStyleBackColor = true;
+            this.frontType2.Click += new System.EventHandler(this.frontType1_Click);
+            // 
+            // frontDesc4
+            // 
+            this.frontDesc4.Location = new System.Drawing.Point(189, 103);
+            this.frontDesc4.Name = "frontDesc4";
+            this.frontDesc4.Size = new System.Drawing.Size(151, 35);
+            this.frontDesc4.TabIndex = 29;
+            this.frontDesc4.Text = "V24-V26 и/или V34-V36";
+            this.frontDesc4.UseVisualStyleBackColor = true;
+            this.frontDesc4.Click += new System.EventHandler(this.frontType1_Click);
+            // 
+            // frontType3
+            // 
+            this.frontType3.Location = new System.Drawing.Point(8, 79);
+            this.frontType3.Name = "frontType3";
+            this.frontType3.Size = new System.Drawing.Size(181, 23);
+            this.frontType3.TabIndex = 23;
+            this.frontType3.Text = "Переднебоковой";
+            this.frontType3.UseVisualStyleBackColor = true;
+            this.frontType3.Click += new System.EventHandler(this.frontType1_Click);
+            // 
+            // frontDesc3
+            // 
+            this.frontDesc3.Location = new System.Drawing.Point(190, 79);
+            this.frontDesc3.Name = "frontDesc3";
+            this.frontDesc3.Size = new System.Drawing.Size(150, 23);
+            this.frontDesc3.TabIndex = 28;
+            this.frontDesc3.Text = "I, aVL, V5, V6";
+            this.frontDesc3.UseVisualStyleBackColor = true;
+            this.frontDesc3.Click += new System.EventHandler(this.frontType1_Click);
+            // 
+            // frontType4
+            // 
+            this.frontType4.Location = new System.Drawing.Point(7, 103);
+            this.frontType4.Name = "frontType4";
+            this.frontType4.Size = new System.Drawing.Size(181, 35);
+            this.frontType4.TabIndex = 24;
+            this.frontType4.Text = "Переднебазальный\r\n(высокий передний)";
+            this.frontType4.UseVisualStyleBackColor = true;
+            this.frontType4.Click += new System.EventHandler(this.frontType1_Click);
+            // 
+            // frontDesc2
+            // 
+            this.frontDesc2.Location = new System.Drawing.Point(190, 55);
+            this.frontDesc2.Name = "frontDesc2";
+            this.frontDesc2.Size = new System.Drawing.Size(150, 23);
+            this.frontDesc2.TabIndex = 27;
+            this.frontDesc2.Text = "V3,V4";
+            this.frontDesc2.UseVisualStyleBackColor = true;
+            this.frontDesc2.Click += new System.EventHandler(this.frontType1_Click);
+            // 
+            // frontType5
+            // 
+            this.frontType5.Location = new System.Drawing.Point(7, 139);
+            this.frontType5.Name = "frontType5";
+            this.frontType5.Size = new System.Drawing.Size(181, 23);
+            this.frontType5.TabIndex = 25;
+            this.frontType5.Text = "Распространенный передний";
+            this.frontType5.UseVisualStyleBackColor = true;
+            this.frontType5.Click += new System.EventHandler(this.frontType1_Click);
+            // 
+            // frontDesc1
+            // 
+            this.frontDesc1.Location = new System.Drawing.Point(190, 31);
+            this.frontDesc1.Name = "frontDesc1";
+            this.frontDesc1.Size = new System.Drawing.Size(150, 23);
+            this.frontDesc1.TabIndex = 26;
+            this.frontDesc1.Text = "V1-V3";
+            this.frontDesc1.UseVisualStyleBackColor = true;
+            this.frontDesc1.Click += new System.EventHandler(this.frontType1_Click);
             // 
             // firstEkgBox
             // 
             this.firstEkgBox.Controls.Add(this.firstEkgTxt);
             this.firstEkgBox.Location = new System.Drawing.Point(22, 21);
             this.firstEkgBox.Name = "firstEkgBox";
-            this.firstEkgBox.Size = new System.Drawing.Size(698, 82);
+            this.firstEkgBox.Size = new System.Drawing.Size(714, 82);
             this.firstEkgBox.TabIndex = 19;
             this.firstEkgBox.TabStop = false;
             this.firstEkgBox.Text = "ЭКГ при поступлении";
@@ -370,7 +679,7 @@
             this.firstEkgTxt.Location = new System.Drawing.Point(6, 16);
             this.firstEkgTxt.Name = "firstEkgTxt";
             this.firstEkgTxt.ReadOnly = true;
-            this.firstEkgTxt.Size = new System.Drawing.Size(686, 57);
+            this.firstEkgTxt.Size = new System.Drawing.Size(701, 57);
             this.firstEkgTxt.TabIndex = 9;
             this.firstEkgTxt.Text = "";
             // 
@@ -379,7 +688,7 @@
             this.regularEkgTxt.ContextMenuStrip = this.contextMenu;
             this.regularEkgTxt.Location = new System.Drawing.Point(351, 123);
             this.regularEkgTxt.Name = "regularEkgTxt";
-            this.regularEkgTxt.Size = new System.Drawing.Size(369, 174);
+            this.regularEkgTxt.Size = new System.Drawing.Size(385, 174);
             this.regularEkgTxt.TabIndex = 18;
             this.regularEkgTxt.Text = "";
             // 
@@ -698,7 +1007,7 @@
             this.kagTab.Controls.Add(this.kagDateBox);
             this.kagTab.Location = new System.Drawing.Point(4, 22);
             this.kagTab.Name = "kagTab";
-            this.kagTab.Size = new System.Drawing.Size(916, 661);
+            this.kagTab.Size = new System.Drawing.Size(916, 528);
             this.kagTab.TabIndex = 8;
             this.kagTab.Text = "КАГ";
             this.kagTab.UseVisualStyleBackColor = true;
@@ -818,7 +1127,7 @@
             this.egdsTab.Location = new System.Drawing.Point(4, 22);
             this.egdsTab.Name = "egdsTab";
             this.egdsTab.Padding = new System.Windows.Forms.Padding(3);
-            this.egdsTab.Size = new System.Drawing.Size(916, 661);
+            this.egdsTab.Size = new System.Drawing.Size(916, 528);
             this.egdsTab.TabIndex = 7;
             this.egdsTab.Text = "ЭГДС";
             this.egdsTab.UseVisualStyleBackColor = true;
@@ -872,7 +1181,7 @@
             this.bloodTab.Location = new System.Drawing.Point(4, 22);
             this.bloodTab.Name = "bloodTab";
             this.bloodTab.Padding = new System.Windows.Forms.Padding(3);
-            this.bloodTab.Size = new System.Drawing.Size(916, 661);
+            this.bloodTab.Size = new System.Drawing.Size(916, 528);
             this.bloodTab.TabIndex = 1;
             this.bloodTab.Text = "Показатели крови";
             this.bloodTab.UseVisualStyleBackColor = true;
@@ -2074,7 +2383,7 @@
             this.urineTab.Location = new System.Drawing.Point(4, 22);
             this.urineTab.Name = "urineTab";
             this.urineTab.Padding = new System.Windows.Forms.Padding(3);
-            this.urineTab.Size = new System.Drawing.Size(916, 661);
+            this.urineTab.Size = new System.Drawing.Size(916, 528);
             this.urineTab.TabIndex = 2;
             this.urineTab.Text = "Анализ мочи";
             this.urineTab.UseVisualStyleBackColor = true;
@@ -2255,7 +2564,7 @@
             this.uziTab.Location = new System.Drawing.Point(4, 22);
             this.uziTab.Name = "uziTab";
             this.uziTab.Padding = new System.Windows.Forms.Padding(3);
-            this.uziTab.Size = new System.Drawing.Size(916, 661);
+            this.uziTab.Size = new System.Drawing.Size(916, 528);
             this.uziTab.TabIndex = 3;
             this.uziTab.Text = "УЗИ";
             this.uziTab.UseVisualStyleBackColor = true;
@@ -2357,7 +2666,7 @@
             this.xRayTab.Location = new System.Drawing.Point(4, 22);
             this.xRayTab.Name = "xRayTab";
             this.xRayTab.Padding = new System.Windows.Forms.Padding(3);
-            this.xRayTab.Size = new System.Drawing.Size(916, 661);
+            this.xRayTab.Size = new System.Drawing.Size(916, 528);
             this.xRayTab.TabIndex = 4;
             this.xRayTab.Text = "Рентген";
             this.xRayTab.UseVisualStyleBackColor = true;
@@ -2407,7 +2716,7 @@
             this.mrtTab.Controls.Add(this.ktBox);
             this.mrtTab.Location = new System.Drawing.Point(4, 22);
             this.mrtTab.Name = "mrtTab";
-            this.mrtTab.Size = new System.Drawing.Size(916, 661);
+            this.mrtTab.Size = new System.Drawing.Size(916, 528);
             this.mrtTab.TabIndex = 9;
             this.mrtTab.Text = "КТ, МРТ";
             this.mrtTab.UseVisualStyleBackColor = true;
@@ -2423,9 +2732,11 @@
             // 
             // ktTimeTxt
             // 
-            this.ktTimeTxt.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.ktTimeTxt.CustomFormat = "HH:mm tt";
+            this.ktTimeTxt.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.ktTimeTxt.Location = new System.Drawing.Point(136, 29);
             this.ktTimeTxt.Name = "ktTimeTxt";
+            this.ktTimeTxt.ShowUpDown = true;
             this.ktTimeTxt.Size = new System.Drawing.Size(117, 20);
             this.ktTimeTxt.TabIndex = 14;
             // 
@@ -2480,7 +2791,7 @@
             this.holterTab.Location = new System.Drawing.Point(4, 22);
             this.holterTab.Name = "holterTab";
             this.holterTab.Padding = new System.Windows.Forms.Padding(3);
-            this.holterTab.Size = new System.Drawing.Size(916, 661);
+            this.holterTab.Size = new System.Drawing.Size(916, 528);
             this.holterTab.TabIndex = 5;
             this.holterTab.Text = "Холтер, АД мон.";
             this.holterTab.UseVisualStyleBackColor = true;
@@ -2530,7 +2841,7 @@
             this.specialistDecisionTab.Location = new System.Drawing.Point(4, 22);
             this.specialistDecisionTab.Name = "specialistDecisionTab";
             this.specialistDecisionTab.Padding = new System.Windows.Forms.Padding(3);
-            this.specialistDecisionTab.Size = new System.Drawing.Size(916, 661);
+            this.specialistDecisionTab.Size = new System.Drawing.Size(916, 528);
             this.specialistDecisionTab.TabIndex = 6;
             this.specialistDecisionTab.Text = "Закл. спец-ов";
             this.specialistDecisionTab.UseVisualStyleBackColor = true;
@@ -2624,6 +2935,18 @@
             this.serologyToolTip.ReshowDelay = 500;
             this.serologyToolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Warning;
             // 
+            // button3
+            // 
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button3.Location = new System.Drawing.Point(233, 107);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(54, 20);
+            this.button3.TabIndex = 2;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
             // Analizi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2638,6 +2961,11 @@
             this.Text = "Анализы";
             this.tabs.ResumeLayout(false);
             this.ekgTab.ResumeLayout(false);
+            this.ekgTemplates.ResumeLayout(false);
+            this.backPnl.ResumeLayout(false);
+            this.backPnl.PerformLayout();
+            this.frontPnl.ResumeLayout(false);
+            this.frontPnl.PerformLayout();
             this.firstEkgBox.ResumeLayout(false);
             this.contextMenu.ResumeLayout(false);
             this.rhytmGroupBox.ResumeLayout(false);
@@ -2935,5 +3263,32 @@
         private System.Windows.Forms.Label dateLbl;
         private System.Windows.Forms.DateTimePicker ktTimeTxt;
         private System.Windows.Forms.DateTimePicker ktDateTxt;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.GroupBox ekgTemplates;
+        private System.Windows.Forms.GroupBox backPnl;
+        private System.Windows.Forms.Button backDesc2_2;
+        private System.Windows.Forms.Button backDesc4_4;
+        private System.Windows.Forms.Label backLbl;
+        private System.Windows.Forms.Button backType1;
+        private System.Windows.Forms.Button backDesc4;
+        private System.Windows.Forms.Button backType2;
+        private System.Windows.Forms.Button backType3;
+        private System.Windows.Forms.Button backDesc3;
+        private System.Windows.Forms.Button backDesc2;
+        private System.Windows.Forms.Button backType4;
+        private System.Windows.Forms.Button backDesc1;
+        private System.Windows.Forms.GroupBox frontPnl;
+        private System.Windows.Forms.Label frontLbl;
+        private System.Windows.Forms.Button frontDesc5_5;
+        private System.Windows.Forms.Button frontType1;
+        private System.Windows.Forms.Button frontDesc5;
+        private System.Windows.Forms.Button frontType2;
+        private System.Windows.Forms.Button frontDesc4;
+        private System.Windows.Forms.Button frontType3;
+        private System.Windows.Forms.Button frontDesc3;
+        private System.Windows.Forms.Button frontType4;
+        private System.Windows.Forms.Button frontDesc2;
+        private System.Windows.Forms.Button frontType5;
+        private System.Windows.Forms.Button frontDesc1;
     }
 }

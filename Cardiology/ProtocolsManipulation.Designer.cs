@@ -58,11 +58,9 @@
             // doctorGroupBox
             // 
             this.doctorGroupBox.Controls.Add(this.doctorsBox);
-            this.doctorGroupBox.Location = new System.Drawing.Point(4, 172);
-            this.doctorGroupBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.doctorGroupBox.Location = new System.Drawing.Point(3, 140);
             this.doctorGroupBox.Name = "doctorGroupBox";
-            this.doctorGroupBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.doctorGroupBox.Size = new System.Drawing.Size(281, 63);
+            this.doctorGroupBox.Size = new System.Drawing.Size(211, 51);
             this.doctorGroupBox.TabIndex = 5;
             this.doctorGroupBox.TabStop = false;
             this.doctorGroupBox.Text = "Врач";
@@ -71,41 +69,37 @@
             // 
             this.doctorsBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.doctorsBox.FormattingEnabled = true;
-            this.doctorsBox.Location = new System.Drawing.Point(8, 23);
-            this.doctorsBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.doctorsBox.Location = new System.Drawing.Point(6, 19);
             this.doctorsBox.Name = "doctorsBox";
-            this.doctorsBox.Size = new System.Drawing.Size(264, 24);
+            this.doctorsBox.Size = new System.Drawing.Size(199, 21);
             this.doctorsBox.TabIndex = 0;
             // 
             // timeGroupBox
             // 
             this.timeGroupBox.Controls.Add(this.timeCtrl);
-            this.timeGroupBox.Location = new System.Drawing.Point(4, 108);
-            this.timeGroupBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.timeGroupBox.Location = new System.Drawing.Point(3, 88);
             this.timeGroupBox.Name = "timeGroupBox";
-            this.timeGroupBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.timeGroupBox.Size = new System.Drawing.Size(281, 62);
+            this.timeGroupBox.Size = new System.Drawing.Size(211, 50);
             this.timeGroupBox.TabIndex = 4;
             this.timeGroupBox.TabStop = false;
             this.timeGroupBox.Text = "Время";
             // 
             // timeCtrl
             // 
-            this.timeCtrl.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.timeCtrl.Location = new System.Drawing.Point(8, 23);
-            this.timeCtrl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.timeCtrl.CustomFormat = "HH:mm tt";
+            this.timeCtrl.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.timeCtrl.Location = new System.Drawing.Point(6, 19);
             this.timeCtrl.Name = "timeCtrl";
-            this.timeCtrl.Size = new System.Drawing.Size(264, 22);
+            this.timeCtrl.ShowUpDown = true;
+            this.timeCtrl.Size = new System.Drawing.Size(199, 20);
             this.timeCtrl.TabIndex = 0;
             // 
             // dateGroupBox
             // 
             this.dateGroupBox.Controls.Add(this.dateCtrl);
-            this.dateGroupBox.Location = new System.Drawing.Point(4, 44);
-            this.dateGroupBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateGroupBox.Location = new System.Drawing.Point(3, 36);
             this.dateGroupBox.Name = "dateGroupBox";
-            this.dateGroupBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.dateGroupBox.Size = new System.Drawing.Size(281, 63);
+            this.dateGroupBox.Size = new System.Drawing.Size(211, 51);
             this.dateGroupBox.TabIndex = 3;
             this.dateGroupBox.TabStop = false;
             this.dateGroupBox.Text = "Дата";
@@ -113,10 +107,9 @@
             // dateCtrl
             // 
             this.dateCtrl.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateCtrl.Location = new System.Drawing.Point(8, 23);
-            this.dateCtrl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateCtrl.Location = new System.Drawing.Point(6, 19);
             this.dateCtrl.Name = "dateCtrl";
-            this.dateCtrl.Size = new System.Drawing.Size(264, 22);
+            this.dateCtrl.Size = new System.Drawing.Size(199, 20);
             this.dateCtrl.TabIndex = 0;
             // 
             // veinsKateterInfo
@@ -132,11 +125,9 @@
             this.veinsKateterInfo.Controls.Add(this.value3Lbl);
             this.veinsKateterInfo.Controls.Add(this.value2Lbl);
             this.veinsKateterInfo.Controls.Add(this.value1Lbl);
-            this.veinsKateterInfo.Location = new System.Drawing.Point(293, 44);
-            this.veinsKateterInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.veinsKateterInfo.Location = new System.Drawing.Point(220, 36);
             this.veinsKateterInfo.Name = "veinsKateterInfo";
-            this.veinsKateterInfo.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.veinsKateterInfo.Size = new System.Drawing.Size(456, 240);
+            this.veinsKateterInfo.Size = new System.Drawing.Size(342, 195);
             this.veinsKateterInfo.TabIndex = 6;
             this.veinsKateterInfo.TabStop = false;
             this.veinsKateterInfo.Text = "Показания к манипуляции";
@@ -145,113 +136,101 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(11, 66);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(8, 54);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(332, 17);
+            this.label1.Size = new System.Drawing.Size(254, 13);
             this.label1.TabIndex = 15;
             this.label1.Text = " инфузионной терапии в асептических условиях,";
             // 
             // value8Lbl
             // 
             this.value8Lbl.AutoSize = true;
-            this.value8Lbl.Location = new System.Drawing.Point(168, 199);
-            this.value8Lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.value8Lbl.Location = new System.Drawing.Point(126, 162);
             this.value8Lbl.Name = "value8Lbl";
-            this.value8Lbl.Size = new System.Drawing.Size(134, 17);
+            this.value8Lbl.Size = new System.Drawing.Size(106, 13);
             this.value8Lbl.TabIndex = 12;
             this.value8Lbl.Text = "см водного столба.";
             // 
             // columnTxt
             // 
-            this.columnTxt.Location = new System.Drawing.Point(63, 191);
-            this.columnTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.columnTxt.Location = new System.Drawing.Point(47, 155);
             this.columnTxt.Name = "columnTxt";
-            this.columnTxt.Size = new System.Drawing.Size(96, 22);
+            this.columnTxt.Size = new System.Drawing.Size(73, 20);
             this.columnTxt.TabIndex = 11;
             // 
             // value7Lbl
             // 
             this.value7Lbl.AutoSize = true;
-            this.value7Lbl.Location = new System.Drawing.Point(13, 199);
-            this.value7Lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.value7Lbl.Location = new System.Drawing.Point(10, 162);
             this.value7Lbl.Name = "value7Lbl";
-            this.value7Lbl.Size = new System.Drawing.Size(39, 17);
+            this.value7Lbl.Size = new System.Drawing.Size(31, 13);
             this.value7Lbl.TabIndex = 10;
             this.value7Lbl.Text = "ЦВД";
             // 
             // value6Lbl
             // 
             this.value6Lbl.AutoSize = true;
-            this.value6Lbl.Location = new System.Drawing.Point(344, 164);
-            this.value6Lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.value6Lbl.Location = new System.Drawing.Point(258, 133);
             this.value6Lbl.Name = "value6Lbl";
-            this.value6Lbl.Size = new System.Drawing.Size(68, 17);
+            this.value6Lbl.Size = new System.Drawing.Size(53, 13);
             this.value6Lbl.TabIndex = 9;
             this.value6Lbl.Text = "попытки.";
             // 
             // tryNumTxt
             // 
-            this.tryNumTxt.Location = new System.Drawing.Point(252, 158);
-            this.tryNumTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tryNumTxt.Location = new System.Drawing.Point(189, 128);
             this.tryNumTxt.Name = "tryNumTxt";
-            this.tryNumTxt.Size = new System.Drawing.Size(83, 22);
+            this.tryNumTxt.Size = new System.Drawing.Size(63, 20);
             this.tryNumTxt.TabIndex = 8;
             // 
             // value4Lbl
             // 
             this.value4Lbl.AutoSize = true;
-            this.value4Lbl.Location = new System.Drawing.Point(9, 164);
-            this.value4Lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.value4Lbl.Location = new System.Drawing.Point(7, 133);
             this.value4Lbl.Name = "value4Lbl";
-            this.value4Lbl.Size = new System.Drawing.Size(230, 17);
+            this.value4Lbl.Size = new System.Drawing.Size(179, 13);
             this.value4Lbl.TabIndex = 6;
             this.value4Lbl.Text = " вена по методике Сельдингера с";
             // 
             // veinTxt
             // 
-            this.veinTxt.Location = new System.Drawing.Point(257, 122);
-            this.veinTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.veinTxt.Location = new System.Drawing.Point(193, 99);
             this.veinTxt.Name = "veinTxt";
-            this.veinTxt.Size = new System.Drawing.Size(173, 22);
+            this.veinTxt.Size = new System.Drawing.Size(131, 20);
             this.veinTxt.TabIndex = 4;
             // 
             // value3Lbl
             // 
             this.value3Lbl.AutoSize = true;
-            this.value3Lbl.Location = new System.Drawing.Point(13, 130);
-            this.value3Lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.value3Lbl.Location = new System.Drawing.Point(10, 106);
             this.value3Lbl.Name = "value3Lbl";
-            this.value3Lbl.Size = new System.Drawing.Size(239, 17);
+            this.value3Lbl.Size = new System.Drawing.Size(183, 13);
             this.value3Lbl.TabIndex = 2;
             this.value3Lbl.Text = "пунктирована и катетеризирована";
             // 
             // value2Lbl
             // 
             this.value2Lbl.AutoSize = true;
-            this.value2Lbl.Location = new System.Drawing.Point(11, 98);
-            this.value2Lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.value2Lbl.Location = new System.Drawing.Point(8, 80);
             this.value2Lbl.Name = "value2Lbl";
-            this.value2Lbl.Size = new System.Drawing.Size(377, 17);
+            this.value2Lbl.Size = new System.Drawing.Size(286, 13);
             this.value2Lbl.TabIndex = 1;
             this.value2Lbl.Text = " под местной анестезией Sol. Novocaini 0, 25 % - 10 ml, ";
             // 
             // value1Lbl
             // 
             this.value1Lbl.AutoSize = true;
-            this.value1Lbl.Location = new System.Drawing.Point(13, 34);
-            this.value1Lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.value1Lbl.Location = new System.Drawing.Point(10, 28);
             this.value1Lbl.Name = "value1Lbl";
-            this.value1Lbl.Size = new System.Drawing.Size(347, 17);
+            this.value1Lbl.Size = new System.Drawing.Size(266, 13);
             this.value1Lbl.TabIndex = 0;
             this.value1Lbl.Text = "С целью контроля ЦВД и проведения интенсивной";
             // 
             // openInWord
             // 
-            this.openInWord.Location = new System.Drawing.Point(4, 256);
-            this.openInWord.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.openInWord.Location = new System.Drawing.Point(3, 208);
             this.openInWord.Name = "openInWord";
-            this.openInWord.Size = new System.Drawing.Size(281, 28);
+            this.openInWord.Size = new System.Drawing.Size(211, 23);
             this.openInWord.TabIndex = 14;
             this.openInWord.Text = "MsWord";
             this.openInWord.UseVisualStyleBackColor = true;
@@ -260,17 +239,16 @@
             // titleLbl
             // 
             this.titleLbl.AutoSize = true;
-            this.titleLbl.Location = new System.Drawing.Point(12, 16);
-            this.titleLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.titleLbl.Location = new System.Drawing.Point(9, 13);
             this.titleLbl.Name = "titleLbl";
-            this.titleLbl.Size = new System.Drawing.Size(0, 17);
+            this.titleLbl.Size = new System.Drawing.Size(0, 13);
             this.titleLbl.TabIndex = 15;
             // 
             // ProtocolsManipulation
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(809, 298);
+            this.ClientSize = new System.Drawing.Size(607, 242);
             this.Controls.Add(this.titleLbl);
             this.Controls.Add(this.veinsKateterInfo);
             this.Controls.Add(this.openInWord);
@@ -279,7 +257,6 @@
             this.Controls.Add(this.dateGroupBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ProtocolsManipulation";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Протоколы манипуляций";

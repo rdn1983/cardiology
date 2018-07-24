@@ -50,6 +50,15 @@
             this.cardioReanimBox = new System.Windows.Forms.GroupBox();
             this.dutyCardioBox = new System.Windows.Forms.ComboBox();
             this.patientBaseInfoBox = new System.Windows.Forms.GroupBox();
+            this.passportData = new System.Windows.Forms.GroupBox();
+            this.passportIsuePlaceLbl = new System.Windows.Forms.Label();
+            this.passIssueDateLbl = new System.Windows.Forms.Label();
+            this.passportNumLbl = new System.Windows.Forms.Label();
+            this.seriaLbl = new System.Windows.Forms.Label();
+            this.passportIssuePlaceTxt = new System.Windows.Forms.RichTextBox();
+            this.passportDataTxt = new System.Windows.Forms.DateTimePicker();
+            this.passportNumTxt = new System.Windows.Forms.TextBox();
+            this.passportSerialTxt = new System.Windows.Forms.TextBox();
             this.omsTxt = new System.Windows.Forms.TextBox();
             this.omsLbl = new System.Windows.Forms.Label();
             this.snilsTxt = new System.Windows.Forms.TextBox();
@@ -73,15 +82,6 @@
             this.firstNameLbl = new System.Windows.Forms.Label();
             this.patientLastName = new System.Windows.Forms.TextBox();
             this.lastNameLbl = new System.Windows.Forms.Label();
-            this.passportData = new System.Windows.Forms.GroupBox();
-            this.passportSerialTxt = new System.Windows.Forms.TextBox();
-            this.passportNumTxt = new System.Windows.Forms.TextBox();
-            this.passportDataTxt = new System.Windows.Forms.DateTimePicker();
-            this.passportIssuePlaceTxt = new System.Windows.Forms.RichTextBox();
-            this.seriaLbl = new System.Windows.Forms.Label();
-            this.passportNumLbl = new System.Windows.Forms.Label();
-            this.passIssueDateLbl = new System.Windows.Forms.Label();
-            this.passportIsuePlaceLbl = new System.Windows.Forms.Label();
             this.lordOfTheCotBox.SuspendLayout();
             this.directorCardioReanimPnl.SuspendLayout();
             this.placeBox.SuspendLayout();
@@ -92,8 +92,8 @@
             this.cardioSurgeryBox.SuspendLayout();
             this.cardioReanimBox.SuspendLayout();
             this.patientBaseInfoBox.SuspendLayout();
-            this.sexGroup.SuspendLayout();
             this.passportData.SuspendLayout();
+            this.sexGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // lordOfTheCotBox
@@ -225,7 +225,7 @@
             // medCodeBox
             // 
             this.medCodeBox.Controls.Add(this.medCodeTxt);
-            this.medCodeBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.medCodeBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.medCodeBox.Location = new System.Drawing.Point(6, 237);
             this.medCodeBox.Name = "medCodeBox";
             this.medCodeBox.Size = new System.Drawing.Size(254, 50);
@@ -331,6 +331,89 @@
             this.patientBaseInfoBox.TabStop = false;
             this.patientBaseInfoBox.Text = "Пациент";
             // 
+            // passportData
+            // 
+            this.passportData.Controls.Add(this.passportIsuePlaceLbl);
+            this.passportData.Controls.Add(this.passIssueDateLbl);
+            this.passportData.Controls.Add(this.passportNumLbl);
+            this.passportData.Controls.Add(this.seriaLbl);
+            this.passportData.Controls.Add(this.passportIssuePlaceTxt);
+            this.passportData.Controls.Add(this.passportDataTxt);
+            this.passportData.Controls.Add(this.passportNumTxt);
+            this.passportData.Controls.Add(this.passportSerialTxt);
+            this.passportData.Location = new System.Drawing.Point(11, 248);
+            this.passportData.Name = "passportData";
+            this.passportData.Size = new System.Drawing.Size(259, 118);
+            this.passportData.TabIndex = 20;
+            this.passportData.TabStop = false;
+            this.passportData.Text = "Паспортные данные";
+            // 
+            // passportIsuePlaceLbl
+            // 
+            this.passportIsuePlaceLbl.AutoSize = true;
+            this.passportIsuePlaceLbl.Location = new System.Drawing.Point(8, 54);
+            this.passportIsuePlaceLbl.Name = "passportIsuePlaceLbl";
+            this.passportIsuePlaceLbl.Size = new System.Drawing.Size(63, 13);
+            this.passportIsuePlaceLbl.TabIndex = 7;
+            this.passportIsuePlaceLbl.Text = "Кем выдан";
+            // 
+            // passIssueDateLbl
+            // 
+            this.passIssueDateLbl.AutoSize = true;
+            this.passIssueDateLbl.Location = new System.Drawing.Point(163, 15);
+            this.passIssueDateLbl.Name = "passIssueDateLbl";
+            this.passIssueDateLbl.Size = new System.Drawing.Size(73, 13);
+            this.passIssueDateLbl.TabIndex = 6;
+            this.passIssueDateLbl.Text = "Дата выдачи";
+            // 
+            // passportNumLbl
+            // 
+            this.passportNumLbl.AutoSize = true;
+            this.passportNumLbl.Location = new System.Drawing.Point(70, 15);
+            this.passportNumLbl.Name = "passportNumLbl";
+            this.passportNumLbl.Size = new System.Drawing.Size(41, 13);
+            this.passportNumLbl.TabIndex = 5;
+            this.passportNumLbl.Text = "Номер";
+            // 
+            // seriaLbl
+            // 
+            this.seriaLbl.AutoSize = true;
+            this.seriaLbl.Location = new System.Drawing.Point(8, 16);
+            this.seriaLbl.Name = "seriaLbl";
+            this.seriaLbl.Size = new System.Drawing.Size(38, 13);
+            this.seriaLbl.TabIndex = 4;
+            this.seriaLbl.Text = "Серия";
+            // 
+            // passportIssuePlaceTxt
+            // 
+            this.passportIssuePlaceTxt.Location = new System.Drawing.Point(8, 73);
+            this.passportIssuePlaceTxt.Name = "passportIssuePlaceTxt";
+            this.passportIssuePlaceTxt.Size = new System.Drawing.Size(245, 39);
+            this.passportIssuePlaceTxt.TabIndex = 3;
+            this.passportIssuePlaceTxt.Text = "";
+            // 
+            // passportDataTxt
+            // 
+            this.passportDataTxt.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.passportDataTxt.Location = new System.Drawing.Point(163, 31);
+            this.passportDataTxt.Name = "passportDataTxt";
+            this.passportDataTxt.Size = new System.Drawing.Size(90, 20);
+            this.passportDataTxt.TabIndex = 2;
+            // 
+            // passportNumTxt
+            // 
+            this.passportNumTxt.Location = new System.Drawing.Point(69, 31);
+            this.passportNumTxt.Name = "passportNumTxt";
+            this.passportNumTxt.Size = new System.Drawing.Size(87, 20);
+            this.passportNumTxt.TabIndex = 1;
+            // 
+            // passportSerialTxt
+            // 
+            this.passportSerialTxt.Location = new System.Drawing.Point(8, 31);
+            this.passportSerialTxt.Name = "passportSerialTxt";
+            this.passportSerialTxt.Size = new System.Drawing.Size(55, 20);
+            this.passportSerialTxt.TabIndex = 0;
+            // 
             // omsTxt
             // 
             this.omsTxt.Location = new System.Drawing.Point(8, 427);
@@ -406,20 +489,20 @@
             // weightLbl
             // 
             this.weightLbl.AutoSize = true;
-            this.weightLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.weightLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.weightLbl.Location = new System.Drawing.Point(120, 489);
             this.weightLbl.Name = "weightLbl";
-            this.weightLbl.Size = new System.Drawing.Size(50, 13);
+            this.weightLbl.Size = new System.Drawing.Size(43, 13);
             this.weightLbl.TabIndex = 10;
             this.weightLbl.Text = "Вес(кг)";
             // 
             // highLbl
             // 
             this.highLbl.AutoSize = true;
-            this.highLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.highLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.highLbl.Location = new System.Drawing.Point(6, 489);
             this.highLbl.Name = "highLbl";
-            this.highLbl.Size = new System.Drawing.Size(59, 13);
+            this.highLbl.Size = new System.Drawing.Size(51, 13);
             this.highLbl.TabIndex = 9;
             this.highLbl.Text = "Рост(см)";
             // 
@@ -538,89 +621,6 @@
             this.lastNameLbl.TabIndex = 0;
             this.lastNameLbl.Text = "Ф.";
             // 
-            // passportData
-            // 
-            this.passportData.Controls.Add(this.passportIsuePlaceLbl);
-            this.passportData.Controls.Add(this.passIssueDateLbl);
-            this.passportData.Controls.Add(this.passportNumLbl);
-            this.passportData.Controls.Add(this.seriaLbl);
-            this.passportData.Controls.Add(this.passportIssuePlaceTxt);
-            this.passportData.Controls.Add(this.passportDataTxt);
-            this.passportData.Controls.Add(this.passportNumTxt);
-            this.passportData.Controls.Add(this.passportSerialTxt);
-            this.passportData.Location = new System.Drawing.Point(11, 248);
-            this.passportData.Name = "passportData";
-            this.passportData.Size = new System.Drawing.Size(259, 118);
-            this.passportData.TabIndex = 20;
-            this.passportData.TabStop = false;
-            this.passportData.Text = "Паспортные данные";
-            // 
-            // passportSerialTxt
-            // 
-            this.passportSerialTxt.Location = new System.Drawing.Point(8, 31);
-            this.passportSerialTxt.Name = "passportSerialTxt";
-            this.passportSerialTxt.Size = new System.Drawing.Size(55, 20);
-            this.passportSerialTxt.TabIndex = 0;
-            // 
-            // passportNumTxt
-            // 
-            this.passportNumTxt.Location = new System.Drawing.Point(69, 31);
-            this.passportNumTxt.Name = "passportNumTxt";
-            this.passportNumTxt.Size = new System.Drawing.Size(87, 20);
-            this.passportNumTxt.TabIndex = 1;
-            // 
-            // passportDataTxt
-            // 
-            this.passportDataTxt.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.passportDataTxt.Location = new System.Drawing.Point(163, 31);
-            this.passportDataTxt.Name = "passportDataTxt";
-            this.passportDataTxt.Size = new System.Drawing.Size(90, 20);
-            this.passportDataTxt.TabIndex = 2;
-            // 
-            // passportIssuePlaceTxt
-            // 
-            this.passportIssuePlaceTxt.Location = new System.Drawing.Point(8, 73);
-            this.passportIssuePlaceTxt.Name = "passportIssuePlaceTxt";
-            this.passportIssuePlaceTxt.Size = new System.Drawing.Size(245, 39);
-            this.passportIssuePlaceTxt.TabIndex = 3;
-            this.passportIssuePlaceTxt.Text = "";
-            // 
-            // seriaLbl
-            // 
-            this.seriaLbl.AutoSize = true;
-            this.seriaLbl.Location = new System.Drawing.Point(8, 16);
-            this.seriaLbl.Name = "seriaLbl";
-            this.seriaLbl.Size = new System.Drawing.Size(38, 13);
-            this.seriaLbl.TabIndex = 4;
-            this.seriaLbl.Text = "Серия";
-            // 
-            // passportNumLbl
-            // 
-            this.passportNumLbl.AutoSize = true;
-            this.passportNumLbl.Location = new System.Drawing.Point(70, 15);
-            this.passportNumLbl.Name = "passportNumLbl";
-            this.passportNumLbl.Size = new System.Drawing.Size(41, 13);
-            this.passportNumLbl.TabIndex = 5;
-            this.passportNumLbl.Text = "Номер";
-            // 
-            // passIssueDateLbl
-            // 
-            this.passIssueDateLbl.AutoSize = true;
-            this.passIssueDateLbl.Location = new System.Drawing.Point(163, 15);
-            this.passIssueDateLbl.Name = "passIssueDateLbl";
-            this.passIssueDateLbl.Size = new System.Drawing.Size(73, 13);
-            this.passIssueDateLbl.TabIndex = 6;
-            this.passIssueDateLbl.Text = "Дата выдачи";
-            // 
-            // passportIsuePlaceLbl
-            // 
-            this.passportIsuePlaceLbl.AutoSize = true;
-            this.passportIsuePlaceLbl.Location = new System.Drawing.Point(8, 54);
-            this.passportIsuePlaceLbl.Name = "passportIsuePlaceLbl";
-            this.passportIsuePlaceLbl.Size = new System.Drawing.Size(63, 13);
-            this.passportIsuePlaceLbl.TabIndex = 7;
-            this.passportIsuePlaceLbl.Text = "Кем выдан";
-            // 
             // AdmissionPatient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -646,10 +646,10 @@
             this.cardioReanimBox.ResumeLayout(false);
             this.patientBaseInfoBox.ResumeLayout(false);
             this.patientBaseInfoBox.PerformLayout();
-            this.sexGroup.ResumeLayout(false);
-            this.sexGroup.PerformLayout();
             this.passportData.ResumeLayout(false);
             this.passportData.PerformLayout();
+            this.sexGroup.ResumeLayout(false);
+            this.sexGroup.PerformLayout();
             this.ResumeLayout(false);
 
         }

@@ -47,8 +47,15 @@ namespace Cardiology
             patient.DssPassportSerial = passportSerialTxt.Text;
             //todo Сделаь проверку на существующий логин
             patient.DssLogin = translit(patientLastName.Text.Trim() + patientFirstName.Text.Substring(0, 1) + patientSecondName.Text.Substring(0, 1));
-            patient.DsdWeight = Double.Parse(weightTxt.Text.Trim());
-            patient.DsdHigh = Double.Parse(highTxt.Text.Trim());
+
+            if (CommonUtils.isNotBlank(weightTxt.Text))
+            {
+                patient.DsdWeight = Double.Parse(weightTxt.Text.Trim());
+            }
+            if (CommonUtils.isNotBlank(highTxt.Text))
+            {
+                patient.DsdHigh = Double.Parse(highTxt.Text.Trim());
+            }
             patient.DsdtBirthdate = DateTime.ParseExact(patientBirthDate.Text.Trim(), "dd.MM.yyyy", CultureInfo.InvariantCulture);
 
             DataService service = new DataService();
@@ -71,8 +78,7 @@ namespace Cardiology
         private bool getIsValid()
         {
             return CommonUtils.isNotBlank(patientLastName.Text) && CommonUtils.isNotBlank(patientFirstName.Text) &&
-                CommonUtils.isNotBlank(patientSecondName.Text) && CommonUtils.isNotBlank(weightTxt.Text) &&
-                CommonUtils.isNotBlank(highTxt.Text) && dutyCardioBox.SelectedIndex >= 0 && CommonUtils.isNotBlank(medCodeTxt.Text);
+                CommonUtils.isNotBlank(patientSecondName.Text)  && dutyCardioBox.SelectedIndex >= 0;
         }
 
 

@@ -179,6 +179,11 @@ namespace Cardiology
             DdtBloodAnalysis firstAnalysis = service.queryObject<DdtBloodAnalysis>(string.Format(FIRST_ANALYSIS_QRY_TEMPLATE, DdtBloodAnalysis.TABLE_NAME, hospitalitySession.ObjectId));
             if (firstAnalysis != null)
             {
+                if (firstAnalysis.DsbAdmissionAnalysis)
+                {
+                    dateTimePicker1.Text = firstAnalysis.RCreationDate + "";
+                    dateTimePicker1.Enabled = false;
+                }
                 firstAltTxt.Text = firstAnalysis.DsdAlt + "";
                 firstAmilazaTxt.Text = firstAnalysis.DsdAmylase + "";
                 firstAstTxt.Text = firstAnalysis.DsdAst + "";

@@ -174,46 +174,55 @@ namespace Cardiology
         private void OKSUpBtn_Click(object sender, EventArgs e)
         {
             fillControlsFromTemplate(OKSUP_TYPE);
+            updatemedicineFromTemplate(OKSUP_TYPE + ".medicine");
         }
 
         private void OKSDownBtn_Click(object sender, EventArgs e)
         {
             fillControlsFromTemplate(OKSDOWN_TYPE);
+            updatemedicineFromTemplate(OKSDOWN_TYPE + ".medicine");
         }
 
         private void KAGBtn_Click(object sender, EventArgs e)
         {
             fillControlsFromTemplate(KAG_TYPE);
+            updatemedicineFromTemplate(KAG_TYPE + ".medicine");
         }
 
         private void aorticDissectionBtn_Click(object sender, EventArgs e)
         {
             fillControlsFromTemplate(AORTA_TYPE);
+            updatemedicineFromTemplate(AORTA_TYPE + ".medicine");
         }
 
         private void GBBtn_Click(object sender, EventArgs e)
         {
             fillControlsFromTemplate(GB_TYPE);
+            updatemedicineFromTemplate(GB_TYPE + ".medicine");
         }
 
         private void PIKSBtn_Click(object sender, EventArgs e)
         {
             fillControlsFromTemplate(PIKS_TYPE);
+            updatemedicineFromTemplate(PIKS_TYPE + ".medicine");
         }
 
         private void PIKVIKBtn_Click(object sender, EventArgs e)
         {
             fillControlsFromTemplate(PIKVIK_TYPE);
+            updatemedicineFromTemplate(PIKVIK_TYPE + ".medicine");
         }
 
         private void DEPBtn_Click(object sender, EventArgs e)
         {
             fillControlsFromTemplate(DEP_TYPE);
+            updatemedicineFromTemplate(DEP_TYPE + ".medicine");
         }
 
         private void deathBtn_Click(object sender, EventArgs e)
         {
             fillControlsFromTemplate(DEATH_TYPE);
+            updatemedicineFromTemplate(DEATH_TYPE + ".medicine");
         }
 
         private void fillControlsFromTemplate(string type)
@@ -226,6 +235,14 @@ namespace Cardiology
             drugsTxt.Text = getDefaultValueForType(drugsTxt.Name, type);
             anamnesisMorbiTxt.Text = getDefaultValueForType(anamnesisMorbiTxt.Name, type);
             complaintsTxt.Text = getDefaultValueForType(complaintsTxt.Name, type);
+        }
+
+        private void updatemedicineFromTemplate(string template)
+        {
+            DataService service = new DataService();
+            List<DdtCure> medicineTemplates = service.queryObjectsCollection<DdtCure>(@"Select cure.* from ddt_values vv, ddt_cure cure 
+                            where vv.dss_name like '" + template + "%' AND vv.dss_value=cure.dss_name");
+            issuedMedicineControl1.refreshData(service, medicineTemplates);
         }
 
         private string getDefaultValueForType(string controlName, string baseType)

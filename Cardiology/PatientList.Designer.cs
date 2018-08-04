@@ -62,6 +62,18 @@
             this.manipulationProtocoli = new System.Windows.Forms.ToolStripMenuItem();
             this.ambulanceLettersItem = new System.Windows.Forms.ToolStripMenuItem();
             this.blanksItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.commonConsentItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aidAgreementItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stentItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kagItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manipulationAggreementItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manipulationRefusalItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.refusalTreatmentItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.justificationCostlyCureItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.alcoExamItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.hospitalPatientsTbl)).BeginInit();
             this.main.SuspendLayout();
             this.SuspendLayout();
@@ -321,9 +333,100 @@
             // 
             // blanksItem
             // 
+            this.blanksItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.commonConsentItem,
+            this.aidAgreementItem,
+            this.stentItem,
+            this.kagItem,
+            this.manipulationAggreementItem,
+            this.manipulationRefusalItem,
+            this.refusalTreatmentItem,
+            this.justificationCostlyCureItem,
+            this.alcoExamItem,
+            this.toolStripMenuItem1,
+            this.toolStripSeparator1,
+            this.toolStripMenuItem6});
             this.blanksItem.Name = "blanksItem";
             this.blanksItem.Size = new System.Drawing.Size(217, 22);
             this.blanksItem.Text = "Бланки";
+            // 
+            // commonConsentItem
+            // 
+            this.commonConsentItem.Name = "commonConsentItem";
+            this.commonConsentItem.Size = new System.Drawing.Size(323, 22);
+            this.commonConsentItem.Text = "Согласие общее";
+            this.commonConsentItem.Click += new System.EventHandler(this.commonConsentItem_Click);
+            // 
+            // aidAgreementItem
+            // 
+            this.aidAgreementItem.Name = "aidAgreementItem";
+            this.aidAgreementItem.Size = new System.Drawing.Size(323, 22);
+            this.aidAgreementItem.Text = "Согласие на ВИЧ";
+            this.aidAgreementItem.Click += new System.EventHandler(this.aidAgreementItem_Click);
+            // 
+            // stentItem
+            // 
+            this.stentItem.Name = "stentItem";
+            this.stentItem.Size = new System.Drawing.Size(323, 22);
+            this.stentItem.Text = "Согласие на СТЕНТ";
+            this.stentItem.Click += new System.EventHandler(this.stentItem_Click);
+            // 
+            // kagItem
+            // 
+            this.kagItem.Name = "kagItem";
+            this.kagItem.Size = new System.Drawing.Size(323, 22);
+            this.kagItem.Text = "Согласие на КАГ";
+            this.kagItem.Click += new System.EventHandler(this.kagItem_Click);
+            // 
+            // manipulationAggreementItem
+            // 
+            this.manipulationAggreementItem.Name = "manipulationAggreementItem";
+            this.manipulationAggreementItem.Size = new System.Drawing.Size(323, 22);
+            this.manipulationAggreementItem.Text = "Согласие на манипуляцию";
+            // 
+            // manipulationRefusalItem
+            // 
+            this.manipulationRefusalItem.Name = "manipulationRefusalItem";
+            this.manipulationRefusalItem.Size = new System.Drawing.Size(323, 22);
+            this.manipulationRefusalItem.Text = "Отказ от манипуляции";
+            this.manipulationRefusalItem.Click += new System.EventHandler(this.manipulationRefusalItem_Click);
+            // 
+            // refusalTreatmentItem
+            // 
+            this.refusalTreatmentItem.Name = "refusalTreatmentItem";
+            this.refusalTreatmentItem.Size = new System.Drawing.Size(323, 22);
+            this.refusalTreatmentItem.Text = "Отказ от стац. лечения";
+            this.refusalTreatmentItem.Click += new System.EventHandler(this.refusalTreatmentItem_Click);
+            // 
+            // justificationCostlyCureItem
+            // 
+            this.justificationCostlyCureItem.Name = "justificationCostlyCureItem";
+            this.justificationCostlyCureItem.Size = new System.Drawing.Size(323, 22);
+            this.justificationCostlyCureItem.Text = "Обоснование назначения дорогостоящих АБ";
+            this.justificationCostlyCureItem.Click += new System.EventHandler(this.justificationCostlyCureItem_Click);
+            // 
+            // alcoExamItem
+            // 
+            this.alcoExamItem.Name = "alcoExamItem";
+            this.alcoExamItem.Size = new System.Drawing.Size(323, 22);
+            this.alcoExamItem.Text = "Алко освидетельствование";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(323, 22);
+            this.toolStripMenuItem1.Text = "Направление НАРКО кровь";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(320, 6);
+            // 
+            // toolStripMenuItem6
+            // 
+            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(323, 22);
+            this.toolStripMenuItem6.Text = "КЭК";
             // 
             // PatientList
             // 
@@ -379,5 +482,17 @@
         private System.Windows.Forms.ToolStripMenuItem manipulationProtocoli;
         private System.Windows.Forms.ToolStripMenuItem ambulanceLettersItem;
         private System.Windows.Forms.ToolStripMenuItem blanksItem;
+        private System.Windows.Forms.ToolStripMenuItem commonConsentItem;
+        private System.Windows.Forms.ToolStripMenuItem aidAgreementItem;
+        private System.Windows.Forms.ToolStripMenuItem stentItem;
+        private System.Windows.Forms.ToolStripMenuItem kagItem;
+        private System.Windows.Forms.ToolStripMenuItem manipulationAggreementItem;
+        private System.Windows.Forms.ToolStripMenuItem manipulationRefusalItem;
+        private System.Windows.Forms.ToolStripMenuItem refusalTreatmentItem;
+        private System.Windows.Forms.ToolStripMenuItem justificationCostlyCureItem;
+        private System.Windows.Forms.ToolStripMenuItem alcoExamItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem6;
     }
 }

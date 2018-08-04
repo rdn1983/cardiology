@@ -22,7 +22,6 @@ namespace Cardiology
             CommonUtils.initDoctorsComboboxValues(service, nurseBox, null);
             CommonUtils.initDoctorsComboboxValues(service, cardioReanimBox, null);
             CommonUtils.initDoctorsComboboxValues(service, directorBox, null);
-            CommonUtils.initCureComboboxValues(service, issuedMedicineTxt0, null);
             initIssuedCure(service);
         }
 
@@ -36,29 +35,7 @@ namespace Cardiology
         {
             if (medList != null)
             {
-                List<DdtIssuedMedicine> med = service.queryObjectsCollectionByAttrCond<DdtIssuedMedicine>(DdtIssuedMedicine.TABLE_NAME, "dsid_med_list", medList.ObjectId, true);
-                for (int i = 0; i < med.Count; i++)
-                {
-                    DdtCure cure = service.queryObjectById<DdtCure>(DdtCure.TABLE_NAME, med[i].DsidCure);
-                    if (cure != null)
-                    {
-                        Control container = null;
-                        if (medicineContainer.Controls.Count <= i)
-                        {
-                            container = CommonUtils.copyControl(issuedMedPnl0, medicineContainer.Controls.Count);
-                            medicineContainer.Controls.Add(container);
-                        }
-                        else
-                        {
-                            container = medicineContainer.Controls[i];
-                        }
-                        ComboBox box = (ComboBox)CommonUtils.findControl(container, "issuedMedicineTxt" + i);
-                        box.SelectedIndex = box.FindStringExact(cure.DssName);
-                        Label idLbl = (Label)CommonUtils.findControl(container, "objectIdLbl" + i);
-                        idLbl.Text = med[i].RObjectId;
-                    }
-
-                }
+                issuedMedicineControl1.Init(service, medList);
             }
         }
 
@@ -124,8 +101,7 @@ namespace Cardiology
 
         private void addCureBtn_Click(object sender, EventArgs e)
         {
-            Control c = CommonUtils.copyControl(issuedMedPnl0, medicineContainer.Controls.Count);
-            medicineContainer.Controls.Add(c);
+            issuedMedicineControl1.addMedicineBox();
         }
 
         private void oksTemplateMed_Click(object sender, EventArgs e)
@@ -135,20 +111,10 @@ namespace Cardiology
 
         private void updatemedicineFromTemplate(string template)
         {
-            clearMedicine();
             DataService service = new DataService();
-            List<DdtValues> medicineTemplates = service.queryObjectsCollection<DdtValues>(@"Select * from ddt_values where dss_name like '" + template + "%'");
-            for (int i = 0; i < medicineTemplates.Count; i++)
-            {
-                if (medicineContainer.Controls.Count <= i)
-                {
-                    Control c = CommonUtils.copyControl(issuedMedPnl0, medicineContainer.Controls.Count);
-                    medicineContainer.Controls.Add(c);
-                }
-                ComboBox box = (ComboBox)CommonUtils.findControl(medicineContainer, "issuedMedicineTxt" + i);
-                box.SelectedIndex = box.FindStringExact(medicineTemplates[i].DssValue);
-
-            }
+            List<DdtCure> medicineTemplates = service.queryObjectsCollection<DdtCure>(@"Select cure.* from ddt_values vv, ddt_cure cure 
+                            where vv.dss_name like '" + template + "%' AND vv.dss_value=cure.dss_name");
+            issuedMedicineControl1.refreshData(service, medicineTemplates);
         }
 
         private void clearMedicine()
@@ -182,7 +148,7 @@ namespace Cardiology
 
         private void clearMedBtn_Click(object sender, EventArgs e)
         {
-            clearMedicine();
+            issuedMedicineControl1.clearMedicine();
         }
 
         private void saveBtn_Click(object sender, EventArgs e)
@@ -194,37 +160,22 @@ namespace Cardiology
         private void saveIssuedMedicine()
         {
             DataService service = new DataService();
-            DdtIssuedMedicineList medList = service.queryObjectById<DdtIssuedMedicineList>(DdtIssuedMedicineList.TABLE_NAME, issuedMedId);
-            if (medList == null)
+            List<DdtIssuedMedicine> meds = issuedMedicineControl1.getIssuedMedicines();
+            if (meds.Count>0)
             {
-                medList = new DdtIssuedMedicineList();
-                medList.DsidDoctor = hospitalitySession.DsidDutyDoctor;
-                medList.DsidHospitalitySession = hospitalitySession.ObjectId;
-                medList.DsidPatient = hospitalitySession.DsidPatient;
-                string id = service.insertObject<DdtIssuedMedicineList>(medList, DdtIssuedMedicineList.TABLE_NAME);
-                medList.ObjectId = id;
-            }
-
-
-            for (int i = 0; i < medicineContainer.Controls.Count; i++)
-            {
-                Control container = medicineContainer.Controls[i];
-                Label idLbl = (Label)CommonUtils.findControl(container, "objectIdLbl" + i);
-                DdtIssuedMedicine med = null;
-                if (CommonUtils.isNotBlank(idLbl.Text))
+                DdtIssuedMedicineList medList = service.queryObjectById<DdtIssuedMedicineList>(DdtIssuedMedicineList.TABLE_NAME, issuedMedId);
+                if (medList == null)
                 {
-                    med = service.queryObjectById<DdtIssuedMedicine>(DdtIssuedMedicine.TABLE_NAME, idLbl.Text);
+                    medList = new DdtIssuedMedicineList();
+                    medList.DsidDoctor = hospitalitySession.DsidDutyDoctor;
+                    medList.DsidHospitalitySession = hospitalitySession.ObjectId;
+                    medList.DsidPatient = hospitalitySession.DsidPatient;
+                    string id = service.insertObject<DdtIssuedMedicineList>(medList, DdtIssuedMedicineList.TABLE_NAME);
+                    medList.ObjectId = id;
                 }
-                else
+                foreach (DdtIssuedMedicine med in meds)
                 {
-                    med = new DdtIssuedMedicine();
                     med.DsidMedList = medList.ObjectId;
-                }
-                ComboBox box = (ComboBox)CommonUtils.findControl(container, "issuedMedicineTxt" + i);
-                DdtCure cure = (DdtCure)box.SelectedItem;
-                if (cure != null && CommonUtils.isNotBlank(box.Text))
-                {
-                    med.DsidCure = cure.ObjectId;
                     service.updateOrCreateIfNeedObject<DdtIssuedMedicine>(med, DdtIssuedMedicine.TABLE_NAME, med.RObjectId);
                 }
             }
@@ -232,11 +183,25 @@ namespace Cardiology
 
         private void copyFirstMedicineBtn_Click(object sender, EventArgs e)
         {
-            clearMedicine();
             DataService service = new DataService();
             DdtIssuedMedicineList medList = service.queryObject<DdtIssuedMedicineList>(@"SELECT * FROM ddt_issued_medicine_list WHERE dsid_hospitality_session='" +
                    hospitalitySession.ObjectId + "' AND dss_parent_type='ddt_anamnesis'");
-            reinitFromMedList(service, medList);
+            issuedMedicineControl1.Init(service, medList);
+        }
+
+        private void copyJournalMedBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void copyYesterdayMedBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void printBtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

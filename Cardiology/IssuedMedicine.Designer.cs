@@ -62,10 +62,6 @@
             this.clinicalPharmacologistBox = new System.Windows.Forms.ComboBox();
             this.issuedMedicinePnl = new System.Windows.Forms.GroupBox();
             this.addCureBtn = new System.Windows.Forms.Button();
-            this.medicineContainer = new System.Windows.Forms.TableLayoutPanel();
-            this.issuedMedPnl0 = new System.Windows.Forms.Panel();
-            this.objectIdLbl0 = new System.Windows.Forms.Label();
-            this.issuedMedicineTxt0 = new System.Windows.Forms.ComboBox();
             this.saveBtn = new System.Windows.Forms.Button();
             this.printBtn = new System.Windows.Forms.Button();
             this.nursePnl = new System.Windows.Forms.GroupBox();
@@ -74,6 +70,9 @@
             this.directorBox = new System.Windows.Forms.ComboBox();
             this.cardioReanimPnl = new System.Windows.Forms.GroupBox();
             this.cardioReanimBox = new System.Windows.Forms.ComboBox();
+            this.issuedMedicineControl1 = new Cardiology.IssuedMedicineControl();
+            this.medicineContainer = new System.Windows.Forms.TableLayoutPanel();
+            this.issuedCntr = new System.Windows.Forms.Panel();
             this.shortlyDiagnosisPnl.SuspendLayout();
             this.shortlyOperationPnl.SuspendLayout();
             this.insertIssuedMedPnl.SuspendLayout();
@@ -81,11 +80,10 @@
             this.createDatePnl.SuspendLayout();
             this.clinicalPharmacologistPnl.SuspendLayout();
             this.issuedMedicinePnl.SuspendLayout();
-            this.medicineContainer.SuspendLayout();
-            this.issuedMedPnl0.SuspendLayout();
             this.nursePnl.SuspendLayout();
             this.directorPnl.SuspendLayout();
             this.cardioReanimPnl.SuspendLayout();
+            this.issuedCntr.SuspendLayout();
             this.SuspendLayout();
             // 
             // shortlyDiagnosisPnl
@@ -309,6 +307,7 @@
             this.copyYesterdayMedBtn.TabIndex = 2;
             this.copyYesterdayMedBtn.Text = "Из вчерашнего листа";
             this.copyYesterdayMedBtn.UseVisualStyleBackColor = true;
+            this.copyYesterdayMedBtn.Click += new System.EventHandler(this.copyYesterdayMedBtn_Click);
             // 
             // copyJournalMedBtn
             // 
@@ -319,6 +318,7 @@
             this.copyJournalMedBtn.TabIndex = 1;
             this.copyJournalMedBtn.Text = "Из ежедневки";
             this.copyJournalMedBtn.UseVisualStyleBackColor = true;
+            this.copyJournalMedBtn.Click += new System.EventHandler(this.copyJournalMedBtn_Click);
             // 
             // copyFirstMedicineBtn
             // 
@@ -424,7 +424,7 @@
             this.clinicalPharmacologistPnl.Controls.Add(this.clinicalPharmacologistBox);
             this.clinicalPharmacologistPnl.Location = new System.Drawing.Point(285, 12);
             this.clinicalPharmacologistPnl.Name = "clinicalPharmacologistPnl";
-            this.clinicalPharmacologistPnl.Size = new System.Drawing.Size(231, 45);
+            this.clinicalPharmacologistPnl.Size = new System.Drawing.Size(294, 45);
             this.clinicalPharmacologistPnl.TabIndex = 5;
             this.clinicalPharmacologistPnl.TabStop = false;
             this.clinicalPharmacologistPnl.Text = "Клинфармаколог";
@@ -435,17 +435,17 @@
             this.clinicalPharmacologistBox.FormattingEnabled = true;
             this.clinicalPharmacologistBox.Location = new System.Drawing.Point(6, 16);
             this.clinicalPharmacologistBox.Name = "clinicalPharmacologistBox";
-            this.clinicalPharmacologistBox.Size = new System.Drawing.Size(216, 21);
+            this.clinicalPharmacologistBox.Size = new System.Drawing.Size(279, 21);
             this.clinicalPharmacologistBox.TabIndex = 0;
             // 
             // issuedMedicinePnl
             // 
-            this.issuedMedicinePnl.Controls.Add(this.addCureBtn);
+            this.issuedMedicinePnl.Controls.Add(this.issuedCntr);
             this.issuedMedicinePnl.Controls.Add(this.medicineContainer);
             this.issuedMedicinePnl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.issuedMedicinePnl.Location = new System.Drawing.Point(285, 143);
             this.issuedMedicinePnl.Name = "issuedMedicinePnl";
-            this.issuedMedicinePnl.Size = new System.Drawing.Size(486, 334);
+            this.issuedMedicinePnl.Size = new System.Drawing.Size(586, 346);
             this.issuedMedicinePnl.TabIndex = 7;
             this.issuedMedicinePnl.TabStop = false;
             this.issuedMedicinePnl.Text = "Лекарства";
@@ -454,59 +454,16 @@
             // 
             this.addCureBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.addCureBtn.Image = global::Cardiology.Properties.Resources.addd1;
-            this.addCureBtn.Location = new System.Drawing.Point(450, 22);
+            this.addCureBtn.Location = new System.Drawing.Point(842, 117);
             this.addCureBtn.Name = "addCureBtn";
             this.addCureBtn.Size = new System.Drawing.Size(29, 29);
             this.addCureBtn.TabIndex = 12;
             this.addCureBtn.UseVisualStyleBackColor = true;
             this.addCureBtn.Click += new System.EventHandler(this.addCureBtn_Click);
             // 
-            // medicineContainer
-            // 
-            this.medicineContainer.AutoSize = true;
-            this.medicineContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.medicineContainer.ColumnCount = 1;
-            this.medicineContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.medicineContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.medicineContainer.Controls.Add(this.issuedMedPnl0, 0, 0);
-            this.medicineContainer.Location = new System.Drawing.Point(6, 22);
-            this.medicineContainer.Name = "medicineContainer";
-            this.medicineContainer.RowCount = 1;
-            this.medicineContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.medicineContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.medicineContainer.Size = new System.Drawing.Size(441, 34);
-            this.medicineContainer.TabIndex = 1;
-            // 
-            // issuedMedPnl0
-            // 
-            this.issuedMedPnl0.Controls.Add(this.objectIdLbl0);
-            this.issuedMedPnl0.Controls.Add(this.issuedMedicineTxt0);
-            this.issuedMedPnl0.Location = new System.Drawing.Point(3, 3);
-            this.issuedMedPnl0.Name = "issuedMedPnl0";
-            this.issuedMedPnl0.Size = new System.Drawing.Size(435, 28);
-            this.issuedMedPnl0.TabIndex = 13;
-            // 
-            // objectIdLbl0
-            // 
-            this.objectIdLbl0.AutoSize = true;
-            this.objectIdLbl0.Location = new System.Drawing.Point(438, 6);
-            this.objectIdLbl0.Name = "objectIdLbl0";
-            this.objectIdLbl0.Size = new System.Drawing.Size(0, 13);
-            this.objectIdLbl0.TabIndex = 1;
-            this.objectIdLbl0.Visible = false;
-            // 
-            // issuedMedicineTxt0
-            // 
-            this.issuedMedicineTxt0.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.issuedMedicineTxt0.FormattingEnabled = true;
-            this.issuedMedicineTxt0.Location = new System.Drawing.Point(3, 4);
-            this.issuedMedicineTxt0.Name = "issuedMedicineTxt0";
-            this.issuedMedicineTxt0.Size = new System.Drawing.Size(420, 21);
-            this.issuedMedicineTxt0.TabIndex = 0;
-            // 
             // saveBtn
             // 
-            this.saveBtn.Location = new System.Drawing.Point(650, 495);
+            this.saveBtn.Location = new System.Drawing.Point(750, 496);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(121, 23);
             this.saveBtn.TabIndex = 9;
@@ -516,19 +473,20 @@
             // 
             // printBtn
             // 
-            this.printBtn.Location = new System.Drawing.Point(521, 495);
+            this.printBtn.Location = new System.Drawing.Point(623, 496);
             this.printBtn.Name = "printBtn";
             this.printBtn.Size = new System.Drawing.Size(121, 23);
             this.printBtn.TabIndex = 11;
             this.printBtn.Text = "MsWord";
             this.printBtn.UseVisualStyleBackColor = true;
+            this.printBtn.Click += new System.EventHandler(this.printBtn_Click);
             // 
             // nursePnl
             // 
             this.nursePnl.Controls.Add(this.nurseBox);
-            this.nursePnl.Location = new System.Drawing.Point(527, 12);
+            this.nursePnl.Location = new System.Drawing.Point(579, 12);
             this.nursePnl.Name = "nursePnl";
-            this.nursePnl.Size = new System.Drawing.Size(231, 45);
+            this.nursePnl.Size = new System.Drawing.Size(292, 45);
             this.nursePnl.TabIndex = 12;
             this.nursePnl.TabStop = false;
             this.nursePnl.Text = "Дежурная мед.сестра";
@@ -539,15 +497,15 @@
             this.nurseBox.FormattingEnabled = true;
             this.nurseBox.Location = new System.Drawing.Point(6, 16);
             this.nurseBox.Name = "nurseBox";
-            this.nurseBox.Size = new System.Drawing.Size(216, 21);
+            this.nurseBox.Size = new System.Drawing.Size(280, 21);
             this.nurseBox.TabIndex = 0;
             // 
             // directorPnl
             // 
             this.directorPnl.Controls.Add(this.directorBox);
-            this.directorPnl.Location = new System.Drawing.Point(527, 57);
+            this.directorPnl.Location = new System.Drawing.Point(579, 57);
             this.directorPnl.Name = "directorPnl";
-            this.directorPnl.Size = new System.Drawing.Size(231, 44);
+            this.directorPnl.Size = new System.Drawing.Size(292, 44);
             this.directorPnl.TabIndex = 14;
             this.directorPnl.TabStop = false;
             this.directorPnl.Text = "Зав. отделением";
@@ -558,7 +516,7 @@
             this.directorBox.FormattingEnabled = true;
             this.directorBox.Location = new System.Drawing.Point(6, 16);
             this.directorBox.Name = "directorBox";
-            this.directorBox.Size = new System.Drawing.Size(216, 21);
+            this.directorBox.Size = new System.Drawing.Size(280, 21);
             this.directorBox.TabIndex = 0;
             // 
             // cardioReanimPnl
@@ -566,7 +524,7 @@
             this.cardioReanimPnl.Controls.Add(this.cardioReanimBox);
             this.cardioReanimPnl.Location = new System.Drawing.Point(285, 58);
             this.cardioReanimPnl.Name = "cardioReanimPnl";
-            this.cardioReanimPnl.Size = new System.Drawing.Size(231, 43);
+            this.cardioReanimPnl.Size = new System.Drawing.Size(294, 43);
             this.cardioReanimPnl.TabIndex = 13;
             this.cardioReanimPnl.TabStop = false;
             this.cardioReanimPnl.Text = "Деж. кардиореаниматолог";
@@ -577,14 +535,48 @@
             this.cardioReanimBox.FormattingEnabled = true;
             this.cardioReanimBox.Location = new System.Drawing.Point(6, 16);
             this.cardioReanimBox.Name = "cardioReanimBox";
-            this.cardioReanimBox.Size = new System.Drawing.Size(216, 21);
+            this.cardioReanimBox.Size = new System.Drawing.Size(279, 21);
             this.cardioReanimBox.TabIndex = 0;
+            // 
+            // issuedMedicineControl1
+            // 
+            this.issuedMedicineControl1.AutoSize = true;
+            this.issuedMedicineControl1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.issuedMedicineControl1.Location = new System.Drawing.Point(3, 3);
+            this.issuedMedicineControl1.Name = "issuedMedicineControl1";
+            this.issuedMedicineControl1.Size = new System.Drawing.Size(9, 10);
+            this.issuedMedicineControl1.TabIndex = 15;
+            // 
+            // medicineContainer
+            // 
+            this.medicineContainer.AutoSize = true;
+            this.medicineContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.medicineContainer.ColumnCount = 1;
+            this.medicineContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.medicineContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.medicineContainer.Location = new System.Drawing.Point(6, 19);
+            this.medicineContainer.Name = "medicineContainer";
+            this.medicineContainer.RowCount = 1;
+            this.medicineContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.medicineContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.medicineContainer.Size = new System.Drawing.Size(0, 0);
+            this.medicineContainer.TabIndex = 1;
+            // 
+            // issuedCntr
+            // 
+            this.issuedCntr.AutoScroll = true;
+            this.issuedCntr.Controls.Add(this.issuedMedicineControl1);
+            this.issuedCntr.Location = new System.Drawing.Point(6, 19);
+            this.issuedCntr.Name = "issuedCntr";
+            this.issuedCntr.Size = new System.Drawing.Size(574, 321);
+            this.issuedCntr.TabIndex = 16;
             // 
             // IssuedMedicine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(783, 524);
+            this.ClientSize = new System.Drawing.Size(881, 524);
+            this.Controls.Add(this.addCureBtn);
             this.Controls.Add(this.directorPnl);
             this.Controls.Add(this.cardioReanimPnl);
             this.Controls.Add(this.nursePnl);
@@ -611,12 +603,11 @@
             this.clinicalPharmacologistPnl.ResumeLayout(false);
             this.issuedMedicinePnl.ResumeLayout(false);
             this.issuedMedicinePnl.PerformLayout();
-            this.medicineContainer.ResumeLayout(false);
-            this.issuedMedPnl0.ResumeLayout(false);
-            this.issuedMedPnl0.PerformLayout();
             this.nursePnl.ResumeLayout(false);
             this.directorPnl.ResumeLayout(false);
             this.cardioReanimPnl.ResumeLayout(false);
+            this.issuedCntr.ResumeLayout(false);
+            this.issuedCntr.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -655,10 +646,8 @@
         private System.Windows.Forms.GroupBox clinicalPharmacologistPnl;
         private System.Windows.Forms.ComboBox clinicalPharmacologistBox;
         private System.Windows.Forms.GroupBox issuedMedicinePnl;
-        private System.Windows.Forms.ComboBox issuedMedicineTxt0;
         private System.Windows.Forms.Button saveBtn;
         private System.Windows.Forms.Button printBtn;
-        private System.Windows.Forms.TableLayoutPanel medicineContainer;
         private System.Windows.Forms.Button addCureBtn;
         private System.Windows.Forms.GroupBox nursePnl;
         private System.Windows.Forms.ComboBox nurseBox;
@@ -666,7 +655,8 @@
         private System.Windows.Forms.ComboBox directorBox;
         private System.Windows.Forms.GroupBox cardioReanimPnl;
         private System.Windows.Forms.ComboBox cardioReanimBox;
-        private System.Windows.Forms.Panel issuedMedPnl0;
-        private System.Windows.Forms.Label objectIdLbl0;
+        private IssuedMedicineControl issuedMedicineControl1;
+        private System.Windows.Forms.TableLayoutPanel medicineContainer;
+        private System.Windows.Forms.Panel issuedCntr;
     }
 }

@@ -134,9 +134,9 @@ INSERT INTO ddt_values (dss_name, dss_value) VALUES ('serology.inwork', 'в ра
 INSERT INTO ddt_values (dss_name, dss_value) VALUES ('oks.medicine.0', 'Tab. Clopidogreli 300mg/однократно');
 INSERT INTO ddt_values (dss_name, dss_value) VALUES ('oks.medicine.1', 'Tab. Atorvastatini  80mg однократно');
 INSERT INTO ddt_values (dss_name, dss_value) VALUES ('oks.medicine.2', 'Sol. Nitrogliserini 1% - 20,0 ml со v 2 мл/час');
-INSERT INTO ddt_values (dss_name, dss_value) VALUES ('oks.medicine.3', 'Sol. NaCl 0,9% - 500,0 х 1р в/в');
+INSERT INTO ddt_values (dss_name, dss_value) VALUES ('oks.medicine.3', 'Sol. NaCl 0,9% - 500,0 в/в кап');
 INSERT INTO ddt_values (dss_name, dss_value) VALUES ('oks.medicine.4', 'Sol. Сlexani 0,8ml х 2р/сутки п/к');
-INSERT INTO ddt_values (dss_name, dss_value) VALUES ('oks.medicine.5', 'Tab. Metoprololi 25mg х 2р/сут');
+INSERT INTO ddt_values (dss_name, dss_value) VALUES ('oks.medicine.5', 'Tab. Metoprololi 25mg х 2р/сутки');
 INSERT INTO ddt_values (dss_name, dss_value) VALUES ('oks.medicine.6', 'Tab. Enalaprili 5mg х 2 р/сутки');
 INSERT INTO ddt_values (dss_name, dss_value) VALUES ('oks.medicine.7', 'Tab. Spironolactoni 25mg/утро');
 INSERT INTO ddt_values (dss_name, dss_value) VALUES ('oks.medicine.8', 'Tab. Omeprazoli 20mg/вечер');
@@ -146,7 +146,7 @@ INSERT INTO ddt_values (dss_name, dss_value) VALUES ('oks.medicine.11', 'Tab. As
 
 INSERT INTO ddt_values (dss_name, dss_value) VALUES ('okslongs.medicine.0', 'Sol. NaCl 0,9% - 500,0 х 3р/сут в/в кап');
 INSERT INTO ddt_values (dss_name, dss_value) VALUES ('okslongs.medicine.1', 'Sol. Furosemidi 40 mg в/в стр');
-INSERT INTO ddt_values (dss_name, dss_value) VALUES ('okslongs.medicine.2', 'Tab. Metoprololi 25mg х 2р/сут');
+INSERT INTO ddt_values (dss_name, dss_value) VALUES ('okslongs.medicine.2', 'Tab. Metoprololi 25mg х 2р/сутки');
 INSERT INTO ddt_values (dss_name, dss_value) VALUES ('okslongs.medicine.3', 'Tab. Enalaprili 5mg х 2 р/сутки');
 INSERT INTO ddt_values (dss_name, dss_value) VALUES ('okslongs.medicine.4', 'Tab. Spironolactoni 25mg/утро');
 INSERT INTO ddt_values (dss_name, dss_value) VALUES ('okslongs.medicine.5', 'Tab. Clopidogreli 75 mg/вечер');
@@ -155,11 +155,11 @@ INSERT INTO ddt_values (dss_name, dss_value) VALUES ('okslongs.medicine.7', 'Tab
 INSERT INTO ddt_values (dss_name, dss_value) VALUES ('okslongs.medicine.8', 'Tab. Omeprazoli 20mg/вечер');
 INSERT INTO ddt_values (dss_name, dss_value) VALUES ('okslongs.medicine.9', 'Sol. Сlexani 0,8ml х 2р/сутки п/к');
 
-INSERT INTO ddt_values (dss_name, dss_value) VALUES ('hobl.medicine.0', 'Sol NaCl 500,0 в/в кап');
+INSERT INTO ddt_values (dss_name, dss_value) VALUES ('hobl.medicine.0', 'Sol. NaCl 0,9% - 500,0 в/в кап');
 INSERT INTO ddt_values (dss_name, dss_value) VALUES ('hobl.medicine.1', 'Sol Furosemidi 20 mg в/в стр');
-INSERT INTO ddt_values (dss_name, dss_value) VALUES ('hobl.medicine.2', 'Tab Enapi 2,5  mg вечер');
-INSERT INTO ddt_values (dss_name, dss_value) VALUES ('hobl.medicine.3', 'Tab Bravadini 7,5 mg 2 р/сут');
-INSERT INTO ddt_values (dss_name, dss_value) VALUES ('hobl.medicine.4', 'Tab. Omeprazoli 20 mg  вечер');
+INSERT INTO ddt_values (dss_name, dss_value) VALUES ('hobl.medicine.2', 'Tab. Enapi 2,5mg вечер');
+INSERT INTO ddt_values (dss_name, dss_value) VALUES ('hobl.medicine.3', 'Tab. Bravadini 7,5 mg 2 р/сут');
+INSERT INTO ddt_values (dss_name, dss_value) VALUES ('hobl.medicine.4', 'Tab. Omeprazoli 20mg/вечер');
 INSERT INTO ddt_values (dss_name, dss_value) VALUES ('hobl.medicine.5', 'Tab Atorvastatini 20 mg/вечер');
 INSERT INTO ddt_values (dss_name, dss_value) VALUES ('hobl.medicine.6', 'Tab. Spironolactoni 25mg/утро');
 INSERT INTO ddt_values (dss_name, dss_value) VALUES ('hobl.medicine.7', 'Sol. Сlexani 0,8ml х 2р/сутки п/к');
@@ -168,7 +168,7 @@ INSERT INTO ddt_values (dss_name, dss_value) VALUES ('hobl.medicine.8', 'Sol. At
 INSERT INTO ddt_values (dss_name, dss_value) VALUES ('nk.medicine.0', 'Sol. Nitrogliserini 1% - 20,0 ml со v 2 мл/час');
 INSERT INTO ddt_values (dss_name, dss_value) VALUES ('nk.medicine.1', 'Sol. Furosemidi 40 mg в/в стр');
 INSERT INTO ddt_values (dss_name, dss_value) VALUES ('nk.medicine.2', 'Sol. Сlexani 0,4ml х 2р/сутки п/к');
-INSERT INTO ddt_values (dss_name, dss_value) VALUES ('nk.medicine.3', 'Tab Metoprololi 12,5мг х 2р/сут');
+INSERT INTO ddt_values (dss_name, dss_value) VALUES ('nk.medicine.3', 'Tab. Metoprololi 12,5mg х 2р/сутки');
 INSERT INTO ddt_values (dss_name, dss_value) VALUES ('nk.medicine.4', 'Tab. Spironolactoni 50mg/утро');
 INSERT INTO ddt_values (dss_name, dss_value) VALUES ('nk.medicine.5', 'Tab Atorvastatini 20 mg/вечер');
 INSERT INTO ddt_values (dss_name, dss_value) VALUES ('nk.medicine.6', 'Tab. Omeprazoli 20mg/вечер');

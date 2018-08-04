@@ -43,6 +43,26 @@ namespace Cardiology.Utils
             cb.DisplayMember = "DssName";
         }
 
+        internal static void initCureComboboxValues(DataService service, ComboBox cb, int cureType)
+        {
+            cb.Items.Clear();
+            string query = @"SELECT * FROM ddt_cure WHERE dsi_type= " + cureType;
+            List<DdtCure> cureList = service.queryObjectsCollection<DdtCure>(query);
+            cb.Items.AddRange(cureList.ToArray());
+            cb.ValueMember = "ObjectId";
+            cb.DisplayMember = "DssName";
+        }
+
+        internal static void initCureTypeComboboxValues(DataService service, ComboBox cb)
+        {
+            cb.Items.Clear();
+            string query = @"SELECT * FROM ddt_cure_type";
+            List<DdtCureType> cureList = service.queryObjectsCollection<DdtCureType>(query);
+            cb.Items.AddRange(cureList.ToArray());
+            cb.ValueMember = "DsiType";
+            cb.DisplayMember = "DssName";
+        }
+
         internal static void initRangedItems(ComboBox c, int start, int end)
         {
             for (int i = start; i <= end; i++)
@@ -133,6 +153,12 @@ namespace Cardiology.Utils
             {
                 result = new RadioButton();
                 result.Text = sourceCtrl.Text;
+            }
+            if (sourceCtrl.GetType() == typeof(Button))
+            {
+                result = new Button();
+                result.Text = sourceCtrl.Text;
+                ((Button)result).Image = ((Button)sourceCtrl).Image;
             }
             if (result != null)
             {

@@ -32,13 +32,13 @@ namespace Cardiology.Model
         [TableAttribute("dss_oms")]
         private string dssOms;
 
-        [TableAttribute("pss_passport_serial")]
+        [TableAttribute("dss_passport_serial")]
         private string dssPassportSerial;
-        [TableAttribute("pss_passport_num")]
+        [TableAttribute("dss_passport_num")]
         private string dssPassportNum;
-        [TableAttribute("pss_passport_date")]
+        [TableAttribute("dss_passport_date")]
         private DateTime dssPassportDate;
-        [TableAttribute("pss_passport_issue_place")]
+        [TableAttribute("dss_passport_issue_place")]
         private string dssPassportIssuePlace;
 
         //add sex

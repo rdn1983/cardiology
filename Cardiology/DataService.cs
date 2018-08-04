@@ -24,6 +24,11 @@ namespace Cardiology
             return connection;
         }
 
+        internal T queryObjectById<T>(string tABLENAME, object value)
+        {
+            throw new NotImplementedException();
+        }
+
         public void update(string query)
         {
             Npgsql.NpgsqlConnection connection = null;
@@ -215,7 +220,7 @@ namespace Cardiology
                         object settedVal = reader.GetValue(columns.IndexOf(colsNumerator.Current));
                         if (settedVal.GetType() == typeof(DBNull))
                         {
-                            settedVal = "";
+                            settedVal = null;
                         }
                         fieldInfo.SetValue(result, settedVal);
                     }

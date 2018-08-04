@@ -1,7 +1,9 @@
 ﻿using Cardiology.Model;
+using Cardiology.Utils;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -121,7 +123,7 @@ namespace Cardiology
                 DataGridViewCell cell = row.Cells[0];
                 string value = cell.Value.ToString();
                 DataService service = new DataService();
-                DdtHospital hospitalSession = service.queryObject<DdtHospital>(@"select * from ddt_hospital where r_object_id='" + value + "'");
+                DdtHospital hospitalSession = service.queryObjectById<DdtHospital>(DdtHospital.TABLENAME, value);
                 PatientsHistory form = new PatientsHistory(hospitalSession);
                 form.ShowDialog();
             }
@@ -136,10 +138,103 @@ namespace Cardiology
                 DataGridViewCell cell = row.Cells[0];
                 string value = cell.Value.ToString();
                 DataService service = new DataService();
-                DdtHospital hospitalSession = service.queryObject<DdtHospital>(@"select * from ddt_hospital where r_object_id='" + value + "'");
+                DdtHospital hospitalSession = service.queryObjectById<DdtHospital>(DdtHospital.TABLENAME, value);
                 ReleasePatient dialog = new ReleasePatient(hospitalSession);
                 dialog.ShowDialog();
             }
+        }
+
+        private void commonConsentItem_Click(object sender, EventArgs e)
+        {
+            IEnumerator it = hospitalPatientsTbl.SelectedRows.GetEnumerator();
+            if (it.MoveNext())
+            {
+                DataGridViewRow row = (DataGridViewRow)it.Current;
+                DataGridViewCell cell = row.Cells[0];
+                string value = cell.Value.ToString();
+                Dictionary<string, string> values = new Dictionary<string, string>();
+                TemplatesUtils.fillBlankTemplate("blank_common_consent_template.docx", value, values);
+            }
+        }
+
+        private void aidAgreementItem_Click(object sender, EventArgs e)
+        {
+            IEnumerator it = hospitalPatientsTbl.SelectedRows.GetEnumerator();
+            if (it.MoveNext())
+            {
+                DataGridViewRow row = (DataGridViewRow)it.Current;
+                DataGridViewCell cell = row.Cells[0];
+                string value = cell.Value.ToString();
+                Dictionary<string, string> values = new Dictionary<string, string>();
+                TemplatesUtils.fillBlankTemplate("blank_aid_aggrement_template.docx", value, values);
+            }
+        }
+
+        private void stentItem_Click(object sender, EventArgs e)
+        {
+            IEnumerator it = hospitalPatientsTbl.SelectedRows.GetEnumerator();
+            if (it.MoveNext())
+            {
+                DataGridViewRow row = (DataGridViewRow)it.Current;
+                DataGridViewCell cell = row.Cells[0];
+                string value = cell.Value.ToString();
+                Dictionary<string, string> values = new Dictionary<string, string>();
+                TemplatesUtils.fillBlankTemplate("blank_stent_template.docx", value, values);
+            }
+        }
+
+        private void kagItem_Click(object sender, EventArgs e)
+        {
+            IEnumerator it = hospitalPatientsTbl.SelectedRows.GetEnumerator();
+            if (it.MoveNext())
+            {
+                DataGridViewRow row = (DataGridViewRow)it.Current;
+                DataGridViewCell cell = row.Cells[0];
+                string value = cell.Value.ToString();
+                Dictionary<string, string> values = new Dictionary<string, string>();
+                TemplatesUtils.fillBlankTemplate("blank_kag_template.docx", value, values);
+            }
+        }
+
+        private void manipulationRefusalItem_Click(object sender, EventArgs e)
+        {
+            IEnumerator it = hospitalPatientsTbl.SelectedRows.GetEnumerator();
+            if (it.MoveNext())
+            {
+                DataGridViewRow row = (DataGridViewRow)it.Current;
+                DataGridViewCell cell = row.Cells[0];
+                string value = cell.Value.ToString();
+                Dictionary<string, string> values = new Dictionary<string, string>();
+                TemplatesUtils.fillBlankTemplate("blank_refusal_medical_injure.docx", value, values);
+            }
+        }
+
+        private void refusalTreatmentItem_Click(object sender, EventArgs e)
+        {
+            IEnumerator it = hospitalPatientsTbl.SelectedRows.GetEnumerator();
+            if (it.MoveNext())
+            {
+                DataGridViewRow row = (DataGridViewRow)it.Current;
+                DataGridViewCell cell = row.Cells[0];
+                string value = cell.Value.ToString();
+                Dictionary<string, string> values = new Dictionary<string, string>();
+                TemplatesUtils.fillBlankTemplate("blank_refusal_of_treatment_template.docx", value, values);
+            }
+        }
+
+        private void justificationCostlyCureItem_Click(object sender, EventArgs e)
+        {
+            IEnumerator it = hospitalPatientsTbl.SelectedRows.GetEnumerator();
+            if (it.MoveNext())
+            {
+                DataGridViewRow row = (DataGridViewRow)it.Current;
+                DataGridViewCell cell = row.Cells[0];
+                string value = cell.Value.ToString();
+                Dictionary<string, string> values = new Dictionary<string, string>();
+                
+                TemplatesUtils.fillBlankTemplate("blank_justification_costly_cure_template.docx", value, values);
+            }
+            
         }
     }
 }

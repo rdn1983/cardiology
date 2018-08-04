@@ -80,6 +80,7 @@
     <Compile Include="DdtConsiliumMember.cs" />
     <Compile Include="DdtCure.cs" />
     <Compile Include="DdtCureDictionary.cs" />
+    <Compile Include="DdtCureType.cs" />
     <Compile Include="DdtDoctors.cs" />
     <Compile Include="DdtEgds.cs" />
     <Compile Include="DdtEkg.cs" />
@@ -223,6 +224,12 @@
     <Compile Include="Serology.Designer.cs">
       <DependentUpon>Serology.cs</DependentUpon>
     </Compile>
+    <Compile Include="IssuedMedicineControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IssuedMedicineControl.Designer.cs">
+      <DependentUpon>IssuedMedicineControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserFormEIT.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -300,6 +307,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AppointmentTemplates.resx">
       <DependentUpon>AppointmentTemplates.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IssuedMedicineControl.resx">
+      <DependentUpon>IssuedMedicineControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="JournalBeforeKag.resx">
       <DependentUpon>JournalBeforeKag.cs</DependentUpon>
@@ -431,6 +441,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\remove.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

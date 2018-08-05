@@ -116,9 +116,9 @@ INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Tab. Pradaxa 150/110mg x 2р/
 INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Tab. Syncumar 6 mg х 1р/утро', 4);
 INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Tab.Warfarini 2,5mg х 1р/вечер', 4);
 INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Tab. Xarelti 20mg х 1р/вечер', 4);
-INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Tab. Zilti 75mg х 1р/сутки', 4);
+INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Tab. Clopidogreli 75mg х 1р/сутки', 4);
 
-INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Tab. Nolpaza 20mg х 1р/вечер', 5);
+INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Tab. Pantoprazole 20mg х 1р/вечер', 5);
 INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Tab. Omeprazoli 20mg/вечер', 5);
 INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Tab. Quamateli 20mg х 2 р/сутки', 5);
 INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Sol. Almagel по 1-3 ч.л. х 3-4 р/сутки за 30 мин до еды', 5);
@@ -138,6 +138,7 @@ INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Tab. Hydrochlorothiazidi 25mg
 
 INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Tab. Capoteni 25 mg х однократно', 7);
 INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Tab. Enapi 2,5mg вечер', 7);
+INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Tab. Enapi 5mg x 2 р/сутки', 7);
 INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Tab. Amlodipini 5mg х 2р/сутки', 7);
 INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Tab. Nifedipini 30mg х 2р/сутки', 7);
 INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Tab. Verapamili 40mg/80mg х 2р/сутки', 7);
@@ -179,7 +180,7 @@ INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Tab. Thyrozoli (Thiamazoli) 5
 
 INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Tab. Allopurinoli 100mg х 1 р/сутки', 11);
 
-INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Tab. Sorbiferi 1таб х 2р/сутки', 12);
+INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Tab. Sorbiferi 1таб х 3р/сутки', 12);
 INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Sol. Ferric (III) hydroxide polymaltosate 20mg/ml – 5,0ml х 1р/сутки', 12);
 
 INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Sol. Actropidi 16Ед х 3р/сутки п/з, п/о, п/у.', 13);
@@ -224,6 +225,7 @@ INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Sol. NaCl  0,9% - 250,0 + Pre
 INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Sol. NaCl 200,0 + Sol. Euphуllini 20,0 мл  в/в кап', 22);
 
 INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Sol. NaCL 0,9% - 400,0 + Sol. Cordaroni 450 mg в/в кап', 23);
+INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Sol. NaCL 250,0 0,9 % + Mexidoli 5,0 х 1 раза в/в кап', 23);
 INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Sol. NaCl 0,9% - 200,0 + Sol. Asparcami 20,0 в/в кап', 23);
 INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Sol. NaCl 0,9% - 250 мл + Sol. Asparkami 20 + Sol. Digoхini 1,0 мл в/в кап, v 150 мл/ч.', 23);
 INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Sol. Glucosi 5% - 200,0 + Sol. KCl 4% - 60,0 + Sol. MgSO4 25% - 20,0 в/в кап', 23);
@@ -233,7 +235,7 @@ INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Sol. Digoxini 0,025% - 1,0/2,
 
 INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Sol. Enapi 1,25 мкг х 1р/сутки в/в стр', 24);
 INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Sol. Furosemidi 20 mg в/в стр, после инфузии', 24);
-INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Sol. Lasici 40mg в/в стр', 24);
+INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Sol. Lazixi 40mg в/в стр', 24);
 INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Sol. NaCl 0,9%, - 250,0 + Sol. MgSO4 25% - 20,0 в/в кап', 24);
 INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Sol. Metoprololi 1мг/кг - 5,0 в/в, стр', 24);
 

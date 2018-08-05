@@ -23,6 +23,7 @@ namespace Cardiology
             CommonUtils.initDoctorsComboboxValues(service, dutyCardioBox, null);
             CommonUtils.initDoctorsComboboxValues(service, cardioDocBox, null);
             CommonUtils.initDoctorsComboboxValues(service, subDoctorBox, null);
+            CommonUtils.initDoctorsComboboxValues(service, anesthetistComboBox, null);
         }
 
         private void admisPatient_Click(object sender, EventArgs e)
@@ -65,10 +66,12 @@ namespace Cardiology
             hospital.DsbActive = true;
             hospital.DsidPatient = patientId;
             hospital.DsdtAdmissionDate = DateTime.Now;
-            DdtDoctors doc = (DdtDoctors)dutyCardioBox.SelectedItem;
-            hospital.DsidCuringDoctor = doc.ObjectId;
-            hospital.DsidDutyDoctor = doc.ObjectId;
-            hospital.DsidSubstitutionDoctor = doc.ObjectId;
+            DdtDoctors docDuty = (DdtDoctors)dutyCardioBox.SelectedItem;
+            hospital.DsidDutyDoctor = docDuty.ObjectId;
+            DdtDoctors docCuring = (DdtDoctors)cardioDocBox.SelectedItem;
+            hospital.DsidCuringDoctor = docCuring.ObjectId;
+            DdtDoctors docSubstitution = (DdtDoctors)subDoctorBox.SelectedItem;
+            hospital.DsidSubstitutionDoctor = docSubstitution.ObjectId;
             hospital.DssRoomCell = roomTxt.Text + "/" + bedTxt.Text;
             service.insertObject(hospital, DdtHospital.TABLENAME);
             //todo перенести в статусную строку
@@ -78,7 +81,7 @@ namespace Cardiology
         private bool getIsValid()
         {
             return CommonUtils.isNotBlank(patientLastName.Text) && CommonUtils.isNotBlank(patientFirstName.Text) &&
-                CommonUtils.isNotBlank(patientSecondName.Text)  && dutyCardioBox.SelectedIndex >= 0;
+                CommonUtils.isNotBlank(patientSecondName.Text) && dutyCardioBox.SelectedIndex >= 0  && cardioDocBox.SelectedIndex >= 0  && subDoctorBox.SelectedIndex >= 0;
         }
 
 

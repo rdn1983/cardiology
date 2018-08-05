@@ -82,6 +82,8 @@
             this.firstNameLbl = new System.Windows.Forms.Label();
             this.patientLastName = new System.Windows.Forms.TextBox();
             this.lastNameLbl = new System.Windows.Forms.Label();
+            this.anesthetistBox = new System.Windows.Forms.GroupBox();
+            this.anesthetistComboBox = new System.Windows.Forms.ComboBox();
             this.lordOfTheCotBox.SuspendLayout();
             this.directorCardioReanimPnl.SuspendLayout();
             this.placeBox.SuspendLayout();
@@ -94,10 +96,12 @@
             this.patientBaseInfoBox.SuspendLayout();
             this.passportData.SuspendLayout();
             this.sexGroup.SuspendLayout();
+            this.anesthetistBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // lordOfTheCotBox
             // 
+            this.lordOfTheCotBox.Controls.Add(this.anesthetistBox);
             this.lordOfTheCotBox.Controls.Add(this.directorCardioReanimPnl);
             this.lordOfTheCotBox.Controls.Add(this.placeBox);
             this.lordOfTheCotBox.Controls.Add(this.kagInfoBox);
@@ -117,6 +121,7 @@
             // directorCardioReanimPnl
             // 
             this.directorCardioReanimPnl.Controls.Add(this.directorCardioReanimBox);
+            this.directorCardioReanimPnl.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
             this.directorCardioReanimPnl.Location = new System.Drawing.Point(6, 73);
             this.directorCardioReanimPnl.Name = "directorCardioReanimPnl";
             this.directorCardioReanimPnl.Size = new System.Drawing.Size(254, 52);
@@ -127,6 +132,7 @@
             // directorCardioReanimBox
             // 
             this.directorCardioReanimBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.directorCardioReanimBox.Font = new System.Drawing.Font("Tahoma", 8F);
             this.directorCardioReanimBox.FormattingEnabled = true;
             this.directorCardioReanimBox.Location = new System.Drawing.Point(7, 20);
             this.directorCardioReanimBox.Name = "directorCardioReanimBox";
@@ -137,9 +143,9 @@
             // 
             this.placeBox.Controls.Add(this.bedTxt);
             this.placeBox.Controls.Add(this.roomTxt);
-            this.placeBox.Location = new System.Drawing.Point(6, 388);
+            this.placeBox.Location = new System.Drawing.Point(6, 440);
             this.placeBox.Name = "placeBox";
-            this.placeBox.Size = new System.Drawing.Size(254, 42);
+            this.placeBox.Size = new System.Drawing.Size(254, 46);
             this.placeBox.TabIndex = 10;
             this.placeBox.TabStop = false;
             this.placeBox.Text = "Палата/Койка";
@@ -164,9 +170,9 @@
             // 
             this.kagInfoBox.Controls.Add(this.hasKagBtn);
             this.kagInfoBox.Controls.Add(this.hasNoKagBtn);
-            this.kagInfoBox.Location = new System.Drawing.Point(6, 342);
+            this.kagInfoBox.Location = new System.Drawing.Point(6, 394);
             this.kagInfoBox.Name = "kagInfoBox";
-            this.kagInfoBox.Size = new System.Drawing.Size(254, 40);
+            this.kagInfoBox.Size = new System.Drawing.Size(254, 46);
             this.kagInfoBox.TabIndex = 9;
             this.kagInfoBox.TabStop = false;
             // 
@@ -175,7 +181,7 @@
             this.hasKagBtn.AutoSize = true;
             this.hasKagBtn.Location = new System.Drawing.Point(98, 17);
             this.hasKagBtn.Name = "hasKagBtn";
-            this.hasKagBtn.Size = new System.Drawing.Size(75, 17);
+            this.hasKagBtn.Size = new System.Drawing.Size(74, 17);
             this.hasKagBtn.TabIndex = 1;
             this.hasKagBtn.Text = "Было КАГ";
             this.hasKagBtn.UseVisualStyleBackColor = true;
@@ -186,7 +192,7 @@
             this.hasNoKagBtn.Checked = true;
             this.hasNoKagBtn.Location = new System.Drawing.Point(7, 17);
             this.hasNoKagBtn.Name = "hasNoKagBtn";
-            this.hasNoKagBtn.Size = new System.Drawing.Size(91, 17);
+            this.hasNoKagBtn.Size = new System.Drawing.Size(90, 17);
             this.hasNoKagBtn.TabIndex = 0;
             this.hasNoKagBtn.TabStop = true;
             this.hasNoKagBtn.Text = "Не было КАГ";
@@ -206,9 +212,9 @@
             // admissionDateBox
             // 
             this.admissionDateBox.Controls.Add(this.patientReceiptDateTime);
-            this.admissionDateBox.Location = new System.Drawing.Point(6, 292);
+            this.admissionDateBox.Location = new System.Drawing.Point(6, 344);
             this.admissionDateBox.Name = "admissionDateBox";
-            this.admissionDateBox.Size = new System.Drawing.Size(254, 48);
+            this.admissionDateBox.Size = new System.Drawing.Size(254, 46);
             this.admissionDateBox.TabIndex = 7;
             this.admissionDateBox.TabStop = false;
             this.admissionDateBox.Text = "Дата и время поступления";
@@ -219,16 +225,16 @@
             this.patientReceiptDateTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.patientReceiptDateTime.Location = new System.Drawing.Point(7, 20);
             this.patientReceiptDateTime.Name = "patientReceiptDateTime";
-            this.patientReceiptDateTime.Size = new System.Drawing.Size(122, 20);
+            this.patientReceiptDateTime.Size = new System.Drawing.Size(130, 20);
             this.patientReceiptDateTime.TabIndex = 0;
             // 
             // medCodeBox
             // 
             this.medCodeBox.Controls.Add(this.medCodeTxt);
             this.medCodeBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.medCodeBox.Location = new System.Drawing.Point(6, 237);
+            this.medCodeBox.Location = new System.Drawing.Point(6, 290);
             this.medCodeBox.Name = "medCodeBox";
-            this.medCodeBox.Size = new System.Drawing.Size(254, 50);
+            this.medCodeBox.Size = new System.Drawing.Size(254, 46);
             this.medCodeBox.TabIndex = 8;
             this.medCodeBox.TabStop = false;
             this.medCodeBox.Text = "Номер истории болезни";
@@ -244,6 +250,7 @@
             // directorDepartmentBox
             // 
             this.directorDepartmentBox.Controls.Add(this.subDoctorBox);
+            this.directorDepartmentBox.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
             this.directorDepartmentBox.Location = new System.Drawing.Point(6, 186);
             this.directorDepartmentBox.Name = "directorDepartmentBox";
             this.directorDepartmentBox.Size = new System.Drawing.Size(254, 48);
@@ -254,6 +261,7 @@
             // subDoctorBox
             // 
             this.subDoctorBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.subDoctorBox.Font = new System.Drawing.Font("Tahoma", 8F);
             this.subDoctorBox.FormattingEnabled = true;
             this.subDoctorBox.Location = new System.Drawing.Point(6, 19);
             this.subDoctorBox.Name = "subDoctorBox";
@@ -263,6 +271,7 @@
             // cardioSurgeryBox
             // 
             this.cardioSurgeryBox.Controls.Add(this.cardioDocBox);
+            this.cardioSurgeryBox.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
             this.cardioSurgeryBox.Location = new System.Drawing.Point(6, 131);
             this.cardioSurgeryBox.Name = "cardioSurgeryBox";
             this.cardioSurgeryBox.Size = new System.Drawing.Size(254, 52);
@@ -273,6 +282,7 @@
             // cardioDocBox
             // 
             this.cardioDocBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cardioDocBox.Font = new System.Drawing.Font("Tahoma", 8F);
             this.cardioDocBox.FormattingEnabled = true;
             this.cardioDocBox.Location = new System.Drawing.Point(7, 20);
             this.cardioDocBox.Name = "cardioDocBox";
@@ -353,7 +363,7 @@
             this.passportIsuePlaceLbl.AutoSize = true;
             this.passportIsuePlaceLbl.Location = new System.Drawing.Point(8, 54);
             this.passportIsuePlaceLbl.Name = "passportIsuePlaceLbl";
-            this.passportIsuePlaceLbl.Size = new System.Drawing.Size(63, 13);
+            this.passportIsuePlaceLbl.Size = new System.Drawing.Size(62, 13);
             this.passportIsuePlaceLbl.TabIndex = 7;
             this.passportIsuePlaceLbl.Text = "Кем выдан";
             // 
@@ -362,7 +372,7 @@
             this.passIssueDateLbl.AutoSize = true;
             this.passIssueDateLbl.Location = new System.Drawing.Point(163, 15);
             this.passIssueDateLbl.Name = "passIssueDateLbl";
-            this.passIssueDateLbl.Size = new System.Drawing.Size(73, 13);
+            this.passIssueDateLbl.Size = new System.Drawing.Size(75, 13);
             this.passIssueDateLbl.TabIndex = 6;
             this.passIssueDateLbl.Text = "Дата выдачи";
             // 
@@ -371,7 +381,7 @@
             this.passportNumLbl.AutoSize = true;
             this.passportNumLbl.Location = new System.Drawing.Point(70, 15);
             this.passportNumLbl.Name = "passportNumLbl";
-            this.passportNumLbl.Size = new System.Drawing.Size(41, 13);
+            this.passportNumLbl.Size = new System.Drawing.Size(38, 13);
             this.passportNumLbl.TabIndex = 5;
             this.passportNumLbl.Text = "Номер";
             // 
@@ -426,7 +436,7 @@
             this.omsLbl.AutoSize = true;
             this.omsLbl.Location = new System.Drawing.Point(8, 411);
             this.omsLbl.Name = "omsLbl";
-            this.omsLbl.Size = new System.Drawing.Size(66, 13);
+            this.omsLbl.Size = new System.Drawing.Size(63, 13);
             this.omsLbl.TabIndex = 18;
             this.omsLbl.Text = "Полис ОМС";
             // 
@@ -442,7 +452,7 @@
             this.snilsLbl.AutoSize = true;
             this.snilsLbl.Location = new System.Drawing.Point(8, 371);
             this.snilsLbl.Name = "snilsLbl";
-            this.snilsLbl.Size = new System.Drawing.Size(45, 13);
+            this.snilsLbl.Size = new System.Drawing.Size(42, 13);
             this.snilsLbl.TabIndex = 16;
             this.snilsLbl.Text = "СНИЛС";
             // 
@@ -482,7 +492,7 @@
             this.birthDateLbl.AutoSize = true;
             this.birthDateLbl.Location = new System.Drawing.Point(7, 450);
             this.birthDateLbl.Name = "birthDateLbl";
-            this.birthDateLbl.Size = new System.Drawing.Size(86, 13);
+            this.birthDateLbl.Size = new System.Drawing.Size(87, 13);
             this.birthDateLbl.TabIndex = 11;
             this.birthDateLbl.Text = "Дата рождения";
             // 
@@ -511,7 +521,7 @@
             this.phoneLbl.AutoSize = true;
             this.phoneLbl.Location = new System.Drawing.Point(12, 209);
             this.phoneLbl.Name = "phoneLbl";
-            this.phoneLbl.Size = new System.Drawing.Size(52, 13);
+            this.phoneLbl.Size = new System.Drawing.Size(51, 13);
             this.phoneLbl.TabIndex = 8;
             this.phoneLbl.Text = "Телефон";
             // 
@@ -549,7 +559,7 @@
             this.femaleChb.AutoSize = true;
             this.femaleChb.Location = new System.Drawing.Point(91, 16);
             this.femaleChb.Name = "femaleChb";
-            this.femaleChb.Size = new System.Drawing.Size(69, 17);
+            this.femaleChb.Size = new System.Drawing.Size(68, 17);
             this.femaleChb.TabIndex = 1;
             this.femaleChb.Text = "женский";
             this.femaleChb.UseVisualStyleBackColor = true;
@@ -560,7 +570,7 @@
             this.maleChb.Checked = true;
             this.maleChb.Location = new System.Drawing.Point(15, 16);
             this.maleChb.Name = "maleChb";
-            this.maleChb.Size = new System.Drawing.Size(70, 17);
+            this.maleChb.Size = new System.Drawing.Size(68, 17);
             this.maleChb.TabIndex = 0;
             this.maleChb.TabStop = true;
             this.maleChb.Text = "мужской";
@@ -621,6 +631,27 @@
             this.lastNameLbl.TabIndex = 0;
             this.lastNameLbl.Text = "Ф.";
             // 
+            // anesthetistBox
+            // 
+            this.anesthetistBox.Controls.Add(this.anesthetistComboBox);
+            this.anesthetistBox.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.anesthetistBox.Location = new System.Drawing.Point(8, 240);
+            this.anesthetistBox.Name = "anesthetistBox";
+            this.anesthetistBox.Size = new System.Drawing.Size(254, 48);
+            this.anesthetistBox.TabIndex = 12;
+            this.anesthetistBox.TabStop = false;
+            this.anesthetistBox.Text = "Дежурный анестезиолог";
+            // 
+            // anesthetistComboBox
+            // 
+            this.anesthetistComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.anesthetistComboBox.Font = new System.Drawing.Font("Tahoma", 8F);
+            this.anesthetistComboBox.FormattingEnabled = true;
+            this.anesthetistComboBox.Location = new System.Drawing.Point(6, 19);
+            this.anesthetistComboBox.Name = "anesthetistComboBox";
+            this.anesthetistComboBox.Size = new System.Drawing.Size(223, 21);
+            this.anesthetistComboBox.TabIndex = 0;
+            // 
             // AdmissionPatient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -650,6 +681,7 @@
             this.passportData.PerformLayout();
             this.sexGroup.ResumeLayout(false);
             this.sexGroup.PerformLayout();
+            this.anesthetistBox.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -709,5 +741,7 @@
         private System.Windows.Forms.DateTimePicker passportDataTxt;
         private System.Windows.Forms.TextBox passportNumTxt;
         private System.Windows.Forms.TextBox passportSerialTxt;
+        private System.Windows.Forms.GroupBox anesthetistBox;
+        private System.Windows.Forms.ComboBox anesthetistComboBox;
     }
 }

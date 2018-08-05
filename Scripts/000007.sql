@@ -12,7 +12,7 @@ CREATE TABLE ddt_hospital (
   dsb_reject_cure boolean,
   dsb_death boolean,
   dss_room_cell VARCHAR(16),
-  dss_diagnosis VARCHAR(128)
+  dss_diagnosis VARCHAR(512)
 );
 
 CREATE TRIGGER ddt_hospital BEFORE INSERT OR UPDATE

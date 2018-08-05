@@ -47,8 +47,8 @@ INSERT INTO ddt_cure_type (dss_name, dsi_type) VALUES ('Седативная т�
 INSERT INTO ddt_cure_type (dss_name, dsi_type) VALUES ('Лечение шока', 21);
 INSERT INTO ddt_cure_type (dss_name, dsi_type) VALUES ('Инфузионная терапия', 22);
 INSERT INTO ddt_cure_type (dss_name, dsi_type) VALUES ('Антиаритмическая терапия (внутривенная)', 23);
-INSERT INTO ddt_cure_type (dss_name, dsi_type) VALUES ('', 5);
-INSERT INTO ddt_cure_type (dss_name, dsi_type) VALUES ('', 5);
+INSERT INTO ddt_cure_type (dss_name, dsi_type) VALUES ('Лечение гипертонического криза', 24);
+INSERT INTO ddt_cure_type (dss_name, dsi_type) VALUES ('Кровоостанавливающая терапия', 25);
 
 INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Sol. Integrilini со ск 6,6 мл/час ч/з инфузомат', 0);
 INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Sol. Heparini 5000ED x 4 р/сутки п/к', 0);
@@ -231,7 +231,22 @@ INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Sol. Glucosi 5% - 200,0 + Sol
 INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Sol. Coradroni 600mg х 1 в/в стр', 23);
 INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Sol. Digoxini 0,025% - 1,0/2,0 в/в, стр', 23);
 
-INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('', 23);
+INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Sol. Enapi 1,25 мкг х 1р/сутки в/в стр', 24);
+INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Sol. Furosemidi 20 mg в/в стр, после инфузии', 24);
+INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Sol. Lasici 40mg в/в стр', 24);
+INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Sol. NaCl 0,9%, - 250,0 + Sol. MgSO4 25% - 20,0 в/в кап', 24);
+INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Sol. Metoprololi 1мг/кг - 5,0 в/в, стр', 24);
+
+INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Sol. Dicinoni 2,0ml х 3 р/д в/в', 25);
+INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Sol. Tranexamic acid 1g (Traksara) х 3р/сутки в/в кап медленно', 25);
+INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Sol. Ac.Aminocapronici 100ml х 2 р\д в\в кап', 25);
+INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Sol. B12 1000 mcg/ml х 1р/сутки в/м в 12:00', 25);
+INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Tab. Folic Acidi 1g х 2р/сутки (фоливая к-та)', 25);
+INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Sol. Metoclopramidi (Cerucali) 2,0 х 3р/сутки в/в стр (Церукал)', 25);
+INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Sol. Heptor 400 мг в/в кап', 25);
+INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Sol. Drotaverini 2,0 ml в/в', 25);
+
+
 
 
 

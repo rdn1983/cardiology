@@ -235,6 +235,8 @@ namespace Cardiology
             drugsTxt.Text = getDefaultValueForType(drugsTxt.Name, type);
             anamnesisMorbiTxt.Text = getDefaultValueForType(anamnesisMorbiTxt.Name, type);
             complaintsTxt.Text = getDefaultValueForType(complaintsTxt.Name, type);
+            anamnesisAllergyTxt.Text = getDefaultValueForType(anamnesisAllergyTxt.Name, type);
+            anamnesisEpidTxt.Text = getDefaultValueForType(anamnesisEpidTxt.Name, type);
         }
 
         private void updatemedicineFromTemplate(string template)

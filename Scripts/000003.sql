@@ -96,6 +96,26 @@ INSERT INTO ddt_values (dss_name, dss_value) VALUES ('diagnosisTxt.pikvik', 'С�
 INSERT INTO ddt_values (dss_name, dss_value) VALUES ('diagnosisTxt.dep', 'ДЭП последствие перенесённых ОНМК со стойким неврологическим дефицитом.        ИБС: атеросклеротический кардиосклероз. Нарушения ритма и проводимости: Гипертоническая болезнь III ст, риск 4. Гипертонический криз от ');
 INSERT INTO ddt_values (dss_name, dss_value) VALUES ('diagnosisTxt.death', 'ИБС. Многососудистое поражение коронарных артерий. Пароксизмальная форма мерцательной аритмии. Узловой ритм. НК2Б. Гипертоническая болезнь III ст, риск высокий.');
 
+INSERT INTO ddt_values (dss_name, dss_value) VALUES ('anamnesisEpidTxt.oksup', 'За последние 6 месяцев из Москвы не выезжал, в контакт с инфекционными больными, больными с ОРВИ не вступал');
+INSERT INTO ddt_values (dss_name, dss_value) VALUES ('anamnesisEpidTxt.oksdown', 'За последние 6 месяцев из Москвы не выезжал, в контакт с инфекционными больными, больными с ОРВИ не вступал');
+INSERT INTO ddt_values (dss_name, dss_value) VALUES ('anamnesisEpidTxt.kag', 'За последние 6 месяцев из Москвы не выезжал, в контакт с инфекционными больными, больными с ОРВИ не вступал');
+INSERT INTO ddt_values (dss_name, dss_value) VALUES ('anamnesisEpidTxt.aorta', 'За последние 6 месяцев из Москвы не выезжал, в контакт с инфекционными больными, больными с ОРВИ не вступал');
+INSERT INTO ddt_values (dss_name, dss_value) VALUES ('anamnesisEpidTxt.gb', 'За последние 6 месяцев из Москвы не выезжал, в контакт с инфекционными больными, больными с ОРВИ не вступал');
+INSERT INTO ddt_values (dss_name, dss_value) VALUES ('anamnesisEpidTxt.piks', 'За последние 6 месяцев из Москвы не выезжал, в контакт с инфекционными больными, больными с ОРВИ не вступал');
+INSERT INTO ddt_values (dss_name, dss_value) VALUES ('anamnesisEpidTxt.pikvik', 'За последние 6 месяцев из Москвы не выезжал, в контакт с инфекционными больными, больными с ОРВИ не вступал');
+INSERT INTO ddt_values (dss_name, dss_value) VALUES ('anamnesisEpidTxt.dep', 'За последние 6 месяцев из Москвы не выезжал, в контакт с инфекционными больными, больными с ОРВИ не вступал');
+INSERT INTO ddt_values (dss_name, dss_value) VALUES ('anamnesisEpidTxt.death', 'За последние 6 месяцев из Москвы не выезжал, в контакт с инфекционными больными, больными с ОРВИ не вступал');
+
+INSERT INTO ddt_values (dss_name, dss_value) VALUES ('anamnesisAllergyTxt.oksup', 'не отягощен');
+INSERT INTO ddt_values (dss_name, dss_value) VALUES ('anamnesisAllergyTxt.oksdown', 'не отягощен');
+INSERT INTO ddt_values (dss_name, dss_value) VALUES ('anamnesisAllergyTxt.kag', 'не отягощен');
+INSERT INTO ddt_values (dss_name, dss_value) VALUES ('anamnesisAllergyTxt.aorta', 'не отягощен');
+INSERT INTO ddt_values (dss_name, dss_value) VALUES ('anamnesisAllergyTxt.gb', 'не отягощен');
+INSERT INTO ddt_values (dss_name, dss_value) VALUES ('anamnesisAllergyTxt.piks', 'не отягощен');
+INSERT INTO ddt_values (dss_name, dss_value) VALUES ('anamnesisAllergyTxt.pikvik', 'не отягощен');
+INSERT INTO ddt_values (dss_name, dss_value) VALUES ('anamnesisAllergyTxt.dep', 'не отягощен');
+INSERT INTO ddt_values (dss_name, dss_value) VALUES ('anamnesisAllergyTxt.death', 'не отягощен');
+
 INSERT INTO ddt_values (dss_name, dss_value) VALUES ('accompanyingIllnessesTxt.ma', 'Мерцательная аритмия. Пароксизмальная/Персистирующая форма.');
 INSERT INTO ddt_values (dss_name, dss_value) VALUES ('accompanyingIllnessesTxt.gb', 'Гипертоническая болезнь IIIст., риск 4.');
 INSERT INTO ddt_values (dss_name, dss_value) VALUES ('accompanyingIllnessesTxt.dep', 'ДЭП 3ст., последствия перенесенного ОНМК, субкомпенсация.');

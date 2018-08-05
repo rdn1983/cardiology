@@ -195,8 +195,8 @@
             this.templatesLbl = new System.Windows.Forms.Label();
             this.tip = new System.Windows.Forms.ToolTip(this.components);
             this.addTip = new System.Windows.Forms.ToolTip(this.components);
-            this.issuedMedicineControl1 = new Cardiology.IssuedMedicineControl();
             this.issuedCntr = new System.Windows.Forms.Panel();
+            this.issuedMedicineControl1 = new Cardiology.IssuedMedicineControl();
             this.complaintsBox.SuspendLayout();
             this.anamnesisMorbiBox.SuspendLayout();
             this.anamnesisAllergyBox.SuspendLayout();
@@ -468,7 +468,7 @@
             this.chronicBox.Size = new System.Drawing.Size(179, 142);
             this.chronicBox.TabIndex = 1;
             this.chronicBox.TabStop = false;
-            this.chronicBox.Text = "варианты хрони";
+            this.chronicBox.Text = "Хронические заболевания";
             // 
             // chronicHOBL
             // 
@@ -1924,14 +1924,6 @@
             // 
             this.addTip.ToolTipTitle = "Добавить назначения";
             // 
-            // issuedMedicineControl1
-            // 
-            this.issuedMedicineControl1.AutoSize = true;
-            this.issuedMedicineControl1.Location = new System.Drawing.Point(3, 0);
-            this.issuedMedicineControl1.Name = "issuedMedicineControl1";
-            this.issuedMedicineControl1.Size = new System.Drawing.Size(10, 10);
-            this.issuedMedicineControl1.TabIndex = 17;
-            // 
             // issuedCntr
             // 
             this.issuedCntr.AutoScroll = true;
@@ -1940,6 +1932,14 @@
             this.issuedCntr.Name = "issuedCntr";
             this.issuedCntr.Size = new System.Drawing.Size(653, 501);
             this.issuedCntr.TabIndex = 18;
+            // 
+            // issuedMedicineControl1
+            // 
+            this.issuedMedicineControl1.AutoSize = true;
+            this.issuedMedicineControl1.Location = new System.Drawing.Point(3, 0);
+            this.issuedMedicineControl1.Name = "issuedMedicineControl1";
+            this.issuedMedicineControl1.Size = new System.Drawing.Size(10, 10);
+            this.issuedMedicineControl1.TabIndex = 17;
             // 
             // FirstInspection
             // 

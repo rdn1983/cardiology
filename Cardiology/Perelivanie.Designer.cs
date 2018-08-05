@@ -315,6 +315,10 @@
             this.button22 = new System.Windows.Forms.Button();
             this.button23 = new System.Windows.Forms.Button();
             this.button24 = new System.Windows.Forms.Button();
+            this.textBox66 = new System.Windows.Forms.TextBox();
+            this.label81 = new System.Windows.Forms.Label();
+            this.textBox67 = new System.Windows.Forms.TextBox();
+            this.label82 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -471,7 +475,7 @@
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(7, 44);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(57, 13);
+            this.label11.Size = new System.Drawing.Size(56, 13);
             this.label11.TabIndex = 1;
             this.label11.Text = "Альбумин";
             // 
@@ -480,7 +484,7 @@
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(6, 20);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(71, 13);
+            this.label12.Size = new System.Drawing.Size(69, 13);
             this.label12.TabIndex = 0;
             this.label12.Text = "Тромбоциты";
             // 
@@ -566,7 +570,7 @@
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(7, 44);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(57, 13);
+            this.label14.Size = new System.Drawing.Size(56, 13);
             this.label14.TabIndex = 1;
             this.label14.Text = "Альбумин";
             // 
@@ -608,7 +612,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(10, 118);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(66, 13);
+            this.label6.Size = new System.Drawing.Size(67, 13);
             this.label6.TabIndex = 14;
             this.label6.Text = "Количество";
             // 
@@ -698,7 +702,7 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(10, 92);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(32, 13);
+            this.label7.Size = new System.Drawing.Size(30, 13);
             this.label7.TabIndex = 3;
             this.label7.Text = "МНО";
             // 
@@ -707,7 +711,7 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(10, 68);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(36, 13);
+            this.label8.Size = new System.Drawing.Size(33, 13);
             this.label8.TabIndex = 2;
             this.label8.Text = "АЧТВ";
             // 
@@ -725,7 +729,7 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(10, 20);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(68, 13);
+            this.label10.Size = new System.Drawing.Size(66, 13);
             this.label10.TabIndex = 0;
             this.label10.Text = "Гемоглобин";
             // 
@@ -758,7 +762,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(10, 118);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(66, 13);
+            this.label5.Size = new System.Drawing.Size(67, 13);
             this.label5.TabIndex = 14;
             this.label5.Text = "Количество";
             // 
@@ -848,7 +852,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(10, 92);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(32, 13);
+            this.label4.Size = new System.Drawing.Size(30, 13);
             this.label4.TabIndex = 3;
             this.label4.Text = "МНО";
             // 
@@ -857,7 +861,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(10, 68);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(36, 13);
+            this.label3.Size = new System.Drawing.Size(33, 13);
             this.label3.TabIndex = 2;
             this.label3.Text = "АЧТВ";
             // 
@@ -875,7 +879,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(10, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 13);
+            this.label1.Size = new System.Drawing.Size(66, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Гемоглобин";
             // 
@@ -914,7 +918,7 @@
             this.radioButton4.AutoSize = true;
             this.radioButton4.Location = new System.Drawing.Point(198, 16);
             this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(72, 17);
+            this.radioButton4.Size = new System.Drawing.Size(71, 17);
             this.radioButton4.TabIndex = 3;
             this.radioButton4.TabStop = true;
             this.radioButton4.Text = "Тромбо-т";
@@ -925,7 +929,7 @@
             this.radioButton3.AutoSize = true;
             this.radioButton3.Location = new System.Drawing.Point(126, 16);
             this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(75, 17);
+            this.radioButton3.Size = new System.Drawing.Size(74, 17);
             this.radioButton3.TabIndex = 2;
             this.radioButton3.TabStop = true;
             this.radioButton3.Text = "Альбумин";
@@ -936,7 +940,7 @@
             this.radioButton2.AutoSize = true;
             this.radioButton2.Location = new System.Drawing.Point(62, 16);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(65, 17);
+            this.radioButton2.Size = new System.Drawing.Size(61, 17);
             this.radioButton2.TabIndex = 1;
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "Плазма";
@@ -1102,7 +1106,7 @@
             this.label52.AutoSize = true;
             this.label52.Location = new System.Drawing.Point(184, 16);
             this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(74, 26);
+            this.label52.Size = new System.Drawing.Size(73, 26);
             this.label52.TabIndex = 2;
             this.label52.Text = "Температура\r\nград.С";
             // 
@@ -1120,7 +1124,7 @@
             this.label54.AutoSize = true;
             this.label54.Location = new System.Drawing.Point(10, 28);
             this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(79, 13);
+            this.label54.Size = new System.Drawing.Size(80, 13);
             this.label54.TabIndex = 0;
             this.label54.Text = "АД (мм.рт.ст.)";
             // 
@@ -1183,7 +1187,7 @@
             this.label48.AutoSize = true;
             this.label48.Location = new System.Drawing.Point(184, 16);
             this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(74, 26);
+            this.label48.Size = new System.Drawing.Size(73, 26);
             this.label48.TabIndex = 2;
             this.label48.Text = "Температура\r\nград.С";
             // 
@@ -1201,7 +1205,7 @@
             this.label50.AutoSize = true;
             this.label50.Location = new System.Drawing.Point(10, 28);
             this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(79, 13);
+            this.label50.Size = new System.Drawing.Size(80, 13);
             this.label50.TabIndex = 0;
             this.label50.Text = "АД (мм.рт.ст.)";
             // 
@@ -1264,7 +1268,7 @@
             this.label45.AutoSize = true;
             this.label45.Location = new System.Drawing.Point(184, 16);
             this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(74, 26);
+            this.label45.Size = new System.Drawing.Size(73, 26);
             this.label45.TabIndex = 2;
             this.label45.Text = "Температура\r\nград.С";
             // 
@@ -1282,7 +1286,7 @@
             this.label43.AutoSize = true;
             this.label43.Location = new System.Drawing.Point(10, 28);
             this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(79, 13);
+            this.label43.Size = new System.Drawing.Size(80, 13);
             this.label43.TabIndex = 0;
             this.label43.Text = "АД (мм.рт.ст.)";
             // 
@@ -1295,9 +1299,9 @@
             this.groupBox16.Controls.Add(this.textBox33);
             this.groupBox16.Controls.Add(this.label41);
             this.groupBox16.Controls.Add(this.label42);
-            this.groupBox16.Location = new System.Drawing.Point(553, 118);
+            this.groupBox16.Location = new System.Drawing.Point(553, 108);
             this.groupBox16.Name = "groupBox16";
-            this.groupBox16.Size = new System.Drawing.Size(225, 133);
+            this.groupBox16.Size = new System.Drawing.Size(225, 153);
             this.groupBox16.TabIndex = 14;
             this.groupBox16.TabStop = false;
             this.groupBox16.Text = "Полиглюкин 33%:";
@@ -1305,9 +1309,9 @@
             // groupBox17
             // 
             this.groupBox17.Controls.Add(this.comboBox7);
-            this.groupBox17.Location = new System.Drawing.Point(6, 87);
+            this.groupBox17.Location = new System.Drawing.Point(6, 95);
             this.groupBox17.Name = "groupBox17";
-            this.groupBox17.Size = new System.Drawing.Size(211, 39);
+            this.groupBox17.Size = new System.Drawing.Size(211, 50);
             this.groupBox17.TabIndex = 17;
             this.groupBox17.TabStop = false;
             this.groupBox17.Text = "Результат пробы";
@@ -1315,7 +1319,7 @@
             // comboBox7
             // 
             this.comboBox7.FormattingEnabled = true;
-            this.comboBox7.Location = new System.Drawing.Point(6, 12);
+            this.comboBox7.Location = new System.Drawing.Point(6, 20);
             this.comboBox7.Name = "comboBox7";
             this.comboBox7.Size = new System.Drawing.Size(199, 21);
             this.comboBox7.TabIndex = 0;
@@ -1333,7 +1337,7 @@
             this.label40.AutoSize = true;
             this.label40.Location = new System.Drawing.Point(7, 71);
             this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(58, 13);
+            this.label40.Size = new System.Drawing.Size(61, 13);
             this.label40.TabIndex = 12;
             this.label40.Text = "Годен до: ";
             // 
@@ -1356,7 +1360,7 @@
             this.label41.AutoSize = true;
             this.label41.Location = new System.Drawing.Point(7, 24);
             this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(81, 13);
+            this.label41.Size = new System.Drawing.Size(82, 13);
             this.label41.TabIndex = 6;
             this.label41.Text = "Изготовитель:";
             // 
@@ -1365,12 +1369,16 @@
             this.label42.AutoSize = true;
             this.label42.Location = new System.Drawing.Point(7, 48);
             this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(44, 13);
+            this.label42.Size = new System.Drawing.Size(45, 13);
             this.label42.TabIndex = 9;
             this.label42.Text = "Серия: ";
             // 
             // groupBox15
             // 
+            this.groupBox15.Controls.Add(this.textBox66);
+            this.groupBox15.Controls.Add(this.label81);
+            this.groupBox15.Controls.Add(this.textBox67);
+            this.groupBox15.Controls.Add(this.label82);
             this.groupBox15.Controls.Add(this.textBox30);
             this.groupBox15.Controls.Add(this.label39);
             this.groupBox15.Controls.Add(this.textBox27);
@@ -1379,16 +1387,16 @@
             this.groupBox15.Controls.Add(this.label36);
             this.groupBox15.Controls.Add(this.textBox29);
             this.groupBox15.Controls.Add(this.label37);
-            this.groupBox15.Location = new System.Drawing.Point(308, 118);
+            this.groupBox15.Location = new System.Drawing.Point(308, 108);
             this.groupBox15.Name = "groupBox15";
-            this.groupBox15.Size = new System.Drawing.Size(239, 133);
+            this.groupBox15.Size = new System.Drawing.Size(239, 153);
             this.groupBox15.TabIndex = 7;
             this.groupBox15.TabStop = false;
             this.groupBox15.Text = "Цоликлоны:";
             // 
             // textBox30
             // 
-            this.textBox30.Location = new System.Drawing.Point(101, 98);
+            this.textBox30.Location = new System.Drawing.Point(101, 88);
             this.textBox30.Name = "textBox30";
             this.textBox30.Size = new System.Drawing.Size(123, 20);
             this.textBox30.TabIndex = 13;
@@ -1396,22 +1404,22 @@
             // label39
             // 
             this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(6, 105);
+            this.label39.Location = new System.Drawing.Point(6, 89);
             this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(58, 13);
+            this.label39.Size = new System.Drawing.Size(61, 13);
             this.label39.TabIndex = 12;
             this.label39.Text = "Годен до: ";
             // 
             // textBox27
             // 
-            this.textBox27.Location = new System.Drawing.Point(101, 72);
+            this.textBox27.Location = new System.Drawing.Point(101, 64);
             this.textBox27.Name = "textBox27";
             this.textBox27.Size = new System.Drawing.Size(123, 20);
             this.textBox27.TabIndex = 11;
             // 
             // textBox28
             // 
-            this.textBox28.Location = new System.Drawing.Point(101, 46);
+            this.textBox28.Location = new System.Drawing.Point(101, 39);
             this.textBox28.Name = "textBox28";
             this.textBox28.Size = new System.Drawing.Size(123, 20);
             this.textBox28.TabIndex = 10;
@@ -1419,24 +1427,24 @@
             // label38
             // 
             this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(6, 28);
+            this.label38.Location = new System.Drawing.Point(6, 19);
             this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(78, 13);
+            this.label38.Size = new System.Drawing.Size(81, 13);
             this.label38.TabIndex = 6;
             this.label38.Text = "Анти-А Серия:";
             // 
             // label36
             // 
             this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(6, 52);
+            this.label36.Location = new System.Drawing.Point(6, 42);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(55, 13);
+            this.label36.Size = new System.Drawing.Size(58, 13);
             this.label36.TabIndex = 9;
             this.label36.Text = "Годен до:";
             // 
             // textBox29
             // 
-            this.textBox29.Location = new System.Drawing.Point(101, 21);
+            this.textBox29.Location = new System.Drawing.Point(101, 15);
             this.textBox29.Name = "textBox29";
             this.textBox29.Size = new System.Drawing.Size(123, 20);
             this.textBox29.TabIndex = 7;
@@ -1444,9 +1452,9 @@
             // label37
             // 
             this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(6, 79);
+            this.label37.Location = new System.Drawing.Point(6, 68);
             this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(78, 13);
+            this.label37.Size = new System.Drawing.Size(80, 13);
             this.label37.TabIndex = 8;
             this.label37.Text = "Анти-В Серия:";
             // 
@@ -1477,7 +1485,7 @@
             this.label33.AutoSize = true;
             this.label33.Location = new System.Drawing.Point(6, 44);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(85, 13);
+            this.label33.Size = new System.Drawing.Size(84, 13);
             this.label33.TabIndex = 9;
             this.label33.Text = "Номер партии: ";
             // 
@@ -1493,7 +1501,7 @@
             this.label35.AutoSize = true;
             this.label35.Location = new System.Drawing.Point(6, 20);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(89, 13);
+            this.label35.Size = new System.Drawing.Size(90, 13);
             this.label35.TabIndex = 6;
             this.label35.Text = "Производитель:";
             // 
@@ -1509,7 +1517,7 @@
             this.label34.AutoSize = true;
             this.label34.Location = new System.Drawing.Point(6, 71);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(58, 13);
+            this.label34.Size = new System.Drawing.Size(61, 13);
             this.label34.TabIndex = 8;
             this.label34.Text = "Годен до: ";
             // 
@@ -1547,7 +1555,7 @@
             this.label32.AutoSize = true;
             this.label32.Location = new System.Drawing.Point(7, 47);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(85, 13);
+            this.label32.Size = new System.Drawing.Size(84, 13);
             this.label32.TabIndex = 3;
             this.label32.Text = "Номер партии: ";
             // 
@@ -1556,7 +1564,7 @@
             this.label31.AutoSize = true;
             this.label31.Location = new System.Drawing.Point(7, 74);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(58, 13);
+            this.label31.Size = new System.Drawing.Size(61, 13);
             this.label31.TabIndex = 2;
             this.label31.Text = "Годен до: ";
             // 
@@ -1572,7 +1580,7 @@
             this.label30.AutoSize = true;
             this.label30.Location = new System.Drawing.Point(7, 23);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(89, 13);
+            this.label30.Size = new System.Drawing.Size(90, 13);
             this.label30.TabIndex = 0;
             this.label30.Text = "Производитель:";
             // 
@@ -1613,7 +1621,7 @@
             this.label29.AutoSize = true;
             this.label29.Location = new System.Drawing.Point(218, 75);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(65, 13);
+            this.label29.Size = new System.Drawing.Size(64, 13);
             this.label29.TabIndex = 14;
             this.label29.Text = "Объем(мл):";
             // 
@@ -1682,7 +1690,7 @@
             this.label27.AutoSize = true;
             this.label27.Location = new System.Drawing.Point(6, 152);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(68, 13);
+            this.label27.Size = new System.Drawing.Size(71, 13);
             this.label27.TabIndex = 5;
             this.label27.Text = "Код донора:";
             // 
@@ -1691,7 +1699,7 @@
             this.label26.AutoSize = true;
             this.label26.Location = new System.Drawing.Point(6, 125);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(80, 13);
+            this.label26.Size = new System.Drawing.Size(81, 13);
             this.label26.TabIndex = 4;
             this.label26.Text = "N контейнера:";
             // 
@@ -1700,7 +1708,7 @@
             this.label25.AutoSize = true;
             this.label25.Location = new System.Drawing.Point(8, 102);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(84, 13);
+            this.label25.Size = new System.Drawing.Size(86, 13);
             this.label25.TabIndex = 3;
             this.label25.Text = "Срок годности:";
             // 
@@ -1709,7 +1717,7 @@
             this.label24.AutoSize = true;
             this.label24.Location = new System.Drawing.Point(8, 75);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(91, 13);
+            this.label24.Size = new System.Drawing.Size(92, 13);
             this.label24.TabIndex = 2;
             this.label24.Text = "Дата заготовки:";
             // 
@@ -1864,7 +1872,7 @@
             this.label19.AutoSize = true;
             this.label19.Location = new System.Drawing.Point(8, 39);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(127, 13);
+            this.label19.Size = new System.Drawing.Size(132, 13);
             this.label19.TabIndex = 1;
             this.label19.Text = "по индивид-му подбору:";
             // 
@@ -1910,7 +1918,7 @@
             this.label17.AutoSize = true;
             this.label17.Location = new System.Drawing.Point(6, 39);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(162, 13);
+            this.label17.Size = new System.Drawing.Size(161, 13);
             this.label17.TabIndex = 1;
             this.label17.Text = "Время окончания трансфузии:";
             // 
@@ -1919,7 +1927,7 @@
             this.label16.AutoSize = true;
             this.label16.Location = new System.Drawing.Point(6, 16);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(144, 13);
+            this.label16.Size = new System.Drawing.Size(143, 13);
             this.label16.TabIndex = 0;
             this.label16.Text = "Время начала трансфузии:";
             // 
@@ -1955,7 +1963,7 @@
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(6, 16);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(183, 39);
+            this.label13.Size = new System.Drawing.Size(181, 39);
             this.label13.TabIndex = 0;
             this.label13.Text = "Дата и время взятия пробы крови\r\n реципиента для проведения \r\nпроб на совместимос" +
     "ть:";
@@ -2075,7 +2083,7 @@
             this.label69.AutoSize = true;
             this.label69.Location = new System.Drawing.Point(184, 16);
             this.label69.Name = "label69";
-            this.label69.Size = new System.Drawing.Size(74, 26);
+            this.label69.Size = new System.Drawing.Size(73, 26);
             this.label69.TabIndex = 2;
             this.label69.Text = "Температура\r\nград.С";
             // 
@@ -2093,7 +2101,7 @@
             this.label71.AutoSize = true;
             this.label71.Location = new System.Drawing.Point(10, 28);
             this.label71.Name = "label71";
-            this.label71.Size = new System.Drawing.Size(79, 13);
+            this.label71.Size = new System.Drawing.Size(80, 13);
             this.label71.TabIndex = 0;
             this.label71.Text = "АД (мм.рт.ст.)";
             // 
@@ -2156,7 +2164,7 @@
             this.label73.AutoSize = true;
             this.label73.Location = new System.Drawing.Point(184, 16);
             this.label73.Name = "label73";
-            this.label73.Size = new System.Drawing.Size(74, 26);
+            this.label73.Size = new System.Drawing.Size(73, 26);
             this.label73.TabIndex = 2;
             this.label73.Text = "Температура\r\nград.С";
             // 
@@ -2174,7 +2182,7 @@
             this.label75.AutoSize = true;
             this.label75.Location = new System.Drawing.Point(10, 28);
             this.label75.Name = "label75";
-            this.label75.Size = new System.Drawing.Size(79, 13);
+            this.label75.Size = new System.Drawing.Size(80, 13);
             this.label75.TabIndex = 0;
             this.label75.Text = "АД (мм.рт.ст.)";
             // 
@@ -2237,7 +2245,7 @@
             this.label77.AutoSize = true;
             this.label77.Location = new System.Drawing.Point(184, 16);
             this.label77.Name = "label77";
-            this.label77.Size = new System.Drawing.Size(74, 26);
+            this.label77.Size = new System.Drawing.Size(73, 26);
             this.label77.TabIndex = 2;
             this.label77.Text = "Температура\r\nград.С";
             // 
@@ -2255,7 +2263,7 @@
             this.label79.AutoSize = true;
             this.label79.Location = new System.Drawing.Point(10, 28);
             this.label79.Name = "label79";
-            this.label79.Size = new System.Drawing.Size(79, 13);
+            this.label79.Size = new System.Drawing.Size(80, 13);
             this.label79.TabIndex = 0;
             this.label79.Text = "АД (мм.рт.ст.)";
             // 
@@ -2293,7 +2301,7 @@
             this.label65.AutoSize = true;
             this.label65.Location = new System.Drawing.Point(7, 47);
             this.label65.Name = "label65";
-            this.label65.Size = new System.Drawing.Size(85, 13);
+            this.label65.Size = new System.Drawing.Size(84, 13);
             this.label65.TabIndex = 3;
             this.label65.Text = "Номер партии: ";
             // 
@@ -2302,7 +2310,7 @@
             this.label66.AutoSize = true;
             this.label66.Location = new System.Drawing.Point(7, 74);
             this.label66.Name = "label66";
-            this.label66.Size = new System.Drawing.Size(58, 13);
+            this.label66.Size = new System.Drawing.Size(61, 13);
             this.label66.TabIndex = 2;
             this.label66.Text = "Годен до: ";
             // 
@@ -2318,7 +2326,7 @@
             this.label67.AutoSize = true;
             this.label67.Location = new System.Drawing.Point(7, 23);
             this.label67.Name = "label67";
-            this.label67.Size = new System.Drawing.Size(89, 13);
+            this.label67.Size = new System.Drawing.Size(90, 13);
             this.label67.TabIndex = 0;
             this.label67.Text = "Производитель:";
             // 
@@ -2359,7 +2367,7 @@
             this.label57.AutoSize = true;
             this.label57.Location = new System.Drawing.Point(218, 75);
             this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(65, 13);
+            this.label57.Size = new System.Drawing.Size(64, 13);
             this.label57.TabIndex = 14;
             this.label57.Text = "Объем(мл):";
             // 
@@ -2428,7 +2436,7 @@
             this.label59.AutoSize = true;
             this.label59.Location = new System.Drawing.Point(6, 152);
             this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(68, 13);
+            this.label59.Size = new System.Drawing.Size(71, 13);
             this.label59.TabIndex = 5;
             this.label59.Text = "Код донора:";
             // 
@@ -2437,7 +2445,7 @@
             this.label60.AutoSize = true;
             this.label60.Location = new System.Drawing.Point(6, 125);
             this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(80, 13);
+            this.label60.Size = new System.Drawing.Size(81, 13);
             this.label60.TabIndex = 4;
             this.label60.Text = "N контейнера:";
             // 
@@ -2446,7 +2454,7 @@
             this.label61.AutoSize = true;
             this.label61.Location = new System.Drawing.Point(8, 102);
             this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(84, 13);
+            this.label61.Size = new System.Drawing.Size(86, 13);
             this.label61.TabIndex = 3;
             this.label61.Text = "Срок годности:";
             // 
@@ -2455,7 +2463,7 @@
             this.label62.AutoSize = true;
             this.label62.Location = new System.Drawing.Point(8, 75);
             this.label62.Name = "label62";
-            this.label62.Size = new System.Drawing.Size(91, 13);
+            this.label62.Size = new System.Drawing.Size(92, 13);
             this.label62.TabIndex = 2;
             this.label62.Text = "Дата заготовки:";
             // 
@@ -2510,7 +2518,7 @@
             this.label55.AutoSize = true;
             this.label55.Location = new System.Drawing.Point(6, 39);
             this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(162, 13);
+            this.label55.Size = new System.Drawing.Size(161, 13);
             this.label55.TabIndex = 1;
             this.label55.Text = "Время окончания трансфузии:";
             // 
@@ -2519,7 +2527,7 @@
             this.label56.AutoSize = true;
             this.label56.Location = new System.Drawing.Point(6, 16);
             this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(144, 13);
+            this.label56.Size = new System.Drawing.Size(143, 13);
             this.label56.TabIndex = 0;
             this.label56.Text = "Время начала трансфузии:";
             // 
@@ -2636,7 +2644,7 @@
             this.label85.AutoSize = true;
             this.label85.Location = new System.Drawing.Point(184, 16);
             this.label85.Name = "label85";
-            this.label85.Size = new System.Drawing.Size(74, 26);
+            this.label85.Size = new System.Drawing.Size(73, 26);
             this.label85.TabIndex = 2;
             this.label85.Text = "Температура\r\nград.С";
             // 
@@ -2654,7 +2662,7 @@
             this.label87.AutoSize = true;
             this.label87.Location = new System.Drawing.Point(10, 28);
             this.label87.Name = "label87";
-            this.label87.Size = new System.Drawing.Size(79, 13);
+            this.label87.Size = new System.Drawing.Size(80, 13);
             this.label87.TabIndex = 0;
             this.label87.Text = "АД (мм.рт.ст.)";
             // 
@@ -2717,7 +2725,7 @@
             this.label89.AutoSize = true;
             this.label89.Location = new System.Drawing.Point(184, 16);
             this.label89.Name = "label89";
-            this.label89.Size = new System.Drawing.Size(74, 26);
+            this.label89.Size = new System.Drawing.Size(73, 26);
             this.label89.TabIndex = 2;
             this.label89.Text = "Температура\r\nград.С";
             // 
@@ -2735,7 +2743,7 @@
             this.label91.AutoSize = true;
             this.label91.Location = new System.Drawing.Point(10, 28);
             this.label91.Name = "label91";
-            this.label91.Size = new System.Drawing.Size(79, 13);
+            this.label91.Size = new System.Drawing.Size(80, 13);
             this.label91.TabIndex = 0;
             this.label91.Text = "АД (мм.рт.ст.)";
             // 
@@ -2776,7 +2784,7 @@
             this.label92.AutoSize = true;
             this.label92.Location = new System.Drawing.Point(218, 75);
             this.label92.Name = "label92";
-            this.label92.Size = new System.Drawing.Size(65, 13);
+            this.label92.Size = new System.Drawing.Size(64, 13);
             this.label92.TabIndex = 14;
             this.label92.Text = "Объем(мл):";
             // 
@@ -2845,7 +2853,7 @@
             this.label94.AutoSize = true;
             this.label94.Location = new System.Drawing.Point(6, 152);
             this.label94.Name = "label94";
-            this.label94.Size = new System.Drawing.Size(68, 13);
+            this.label94.Size = new System.Drawing.Size(71, 13);
             this.label94.TabIndex = 5;
             this.label94.Text = "Код донора:";
             // 
@@ -2854,7 +2862,7 @@
             this.label95.AutoSize = true;
             this.label95.Location = new System.Drawing.Point(6, 125);
             this.label95.Name = "label95";
-            this.label95.Size = new System.Drawing.Size(80, 13);
+            this.label95.Size = new System.Drawing.Size(81, 13);
             this.label95.TabIndex = 4;
             this.label95.Text = "N контейнера:";
             // 
@@ -2863,7 +2871,7 @@
             this.label96.AutoSize = true;
             this.label96.Location = new System.Drawing.Point(8, 102);
             this.label96.Name = "label96";
-            this.label96.Size = new System.Drawing.Size(84, 13);
+            this.label96.Size = new System.Drawing.Size(86, 13);
             this.label96.TabIndex = 3;
             this.label96.Text = "Срок годности:";
             // 
@@ -2872,7 +2880,7 @@
             this.label97.AutoSize = true;
             this.label97.Location = new System.Drawing.Point(8, 75);
             this.label97.Name = "label97";
-            this.label97.Size = new System.Drawing.Size(91, 13);
+            this.label97.Size = new System.Drawing.Size(92, 13);
             this.label97.TabIndex = 2;
             this.label97.Text = "Дата заготовки:";
             // 
@@ -2927,7 +2935,7 @@
             this.label100.AutoSize = true;
             this.label100.Location = new System.Drawing.Point(6, 39);
             this.label100.Name = "label100";
-            this.label100.Size = new System.Drawing.Size(162, 13);
+            this.label100.Size = new System.Drawing.Size(161, 13);
             this.label100.TabIndex = 1;
             this.label100.Text = "Время окончания трансфузии:";
             // 
@@ -2936,7 +2944,7 @@
             this.label101.AutoSize = true;
             this.label101.Location = new System.Drawing.Point(6, 16);
             this.label101.Name = "label101";
-            this.label101.Size = new System.Drawing.Size(144, 13);
+            this.label101.Size = new System.Drawing.Size(143, 13);
             this.label101.TabIndex = 0;
             this.label101.Text = "Время начала трансфузии:";
             // 
@@ -2959,7 +2967,7 @@
             this.label80.AutoSize = true;
             this.label80.Location = new System.Drawing.Point(351, 240);
             this.label80.Name = "label80";
-            this.label80.Size = new System.Drawing.Size(90, 13);
+            this.label80.Size = new System.Drawing.Size(88, 13);
             this.label80.TabIndex = 22;
             this.label80.Text = "Не реализовано";
             // 
@@ -3055,6 +3063,38 @@
             this.button24.TabIndex = 3;
             this.button24.Text = "Сохранить";
             this.button24.UseVisualStyleBackColor = true;
+            // 
+            // textBox66
+            // 
+            this.textBox66.Location = new System.Drawing.Point(101, 133);
+            this.textBox66.Name = "textBox66";
+            this.textBox66.Size = new System.Drawing.Size(123, 20);
+            this.textBox66.TabIndex = 17;
+            // 
+            // label81
+            // 
+            this.label81.AutoSize = true;
+            this.label81.Location = new System.Drawing.Point(6, 134);
+            this.label81.Name = "label81";
+            this.label81.Size = new System.Drawing.Size(61, 13);
+            this.label81.TabIndex = 16;
+            this.label81.Text = "Годен до: ";
+            // 
+            // textBox67
+            // 
+            this.textBox67.Location = new System.Drawing.Point(101, 109);
+            this.textBox67.Name = "textBox67";
+            this.textBox67.Size = new System.Drawing.Size(123, 20);
+            this.textBox67.TabIndex = 15;
+            // 
+            // label82
+            // 
+            this.label82.AutoSize = true;
+            this.label82.Location = new System.Drawing.Point(6, 113);
+            this.label82.Name = "label82";
+            this.label82.Size = new System.Drawing.Size(80, 13);
+            this.label82.TabIndex = 14;
+            this.label82.Text = "Анти-В Серия:";
             // 
             // Perelivanie
             // 
@@ -3429,5 +3469,9 @@
         private System.Windows.Forms.Button button29;
         private System.Windows.Forms.Button button28;
         private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.TextBox textBox66;
+        private System.Windows.Forms.Label label81;
+        private System.Windows.Forms.TextBox textBox67;
+        private System.Windows.Forms.Label label82;
     }
 }

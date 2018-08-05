@@ -236,5 +236,10 @@ namespace Cardiology
             }
             
         }
+
+        private void alcoExamItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

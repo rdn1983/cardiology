@@ -3,6 +3,7 @@ using Cardiology.Utils;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Windows.Forms;
 
 namespace Cardiology
@@ -161,7 +162,7 @@ namespace Cardiology
         {
             DataService service = new DataService();
             List<DdtIssuedMedicine> meds = issuedMedicineControl1.getIssuedMedicines();
-            if (meds.Count>0)
+            if (meds.Count > 0)
             {
                 DdtIssuedMedicineList medList = service.queryObjectById<DdtIssuedMedicineList>(DdtIssuedMedicineList.TABLE_NAME, issuedMedId);
                 if (medList == null)
@@ -201,7 +202,36 @@ namespace Cardiology
 
         private void printBtn_Click(object sender, EventArgs e)
         {
+            saveIssuedMedicine();
 
+            Dictionary<string, string> values = new Dictionary<string, string>();
+            DataService service = new DataService();
+            DdtHospital hospitalSession = service.queryObjectById<DdtHospital>(DdtHospital.TABLENAME, hospitalitySession.ObjectId);
+            DdtDoctors doc = service.queryObjectById<DdtDoctors>(DdtDoctors.TABLE_NAME, hospitalSession.DsidCuringDoctor);
+            DdtPatient patient = service.queryObjectById<DdtPatient>(DdtPatient.TABLENAME, hospitalSession.DsidPatient);
+            values.Add(@"{doctor.who.short}", doc.DssInitials);
+            values.Add(@"{patient.diagnosis}", hospitalSession.DssDiagnosis);
+            values.Add(@"{patient.age}", DateTime.Now.Year - patient.DsdtBirthdate.Year + "");
+            values.Add(@"{admission.date}", hospitalSession.DsdtAdmissionDate.ToShortDateString());
+            values.Add(@"{patient.historycard}", patient.DssMedCode);
+            values.Add(@"{patient.fullname}", patient.DssFullName);
+            values.Add(@"{room}", hospitalitySession.DssRoomCell);
+            values.Add(@"{cell}", hospitalitySession.DssRoomCell);
+            values.Add(@"{date}", DateTime.Now.ToShortDateString());
+            //todo переписать,к огда будет время. Сделать добавление в таблицу строчек автоматом
+            List<DdtIssuedMedicine> med = issuedMedicineControl1.getIssuedMedicines();
+            for (int i = 0; i < 12; i++)
+            {
+                string value = "";
+                if (i < med.Count)
+                {
+                    DdtCure cure = service.queryObjectById<DdtCure>(DdtCure.TABLE_NAME, med[i].DsidCure);
+                    value = cure.DssName;
+                }
+                values.Add(@"{issued_medicine_" + i + "}", value);
+            }
+            string templatePath = Directory.GetCurrentDirectory() + "\\Templates\\issued_medicine_template.doc";
+            TemplatesUtils.fillTemplate(templatePath, values);
         }
     }
 }

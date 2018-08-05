@@ -46,15 +46,16 @@ namespace Cardiology.Utils
                 foreach (Word.Paragraph mark in paragraphs)
                 {
                     wRange = mark.Range;
-                    foreach (KeyValuePair<string, string> entry in mappedValues)
+                    if (wRange != null)
                     {
-                        if (wRange != null)
+                        foreach (KeyValuePair<string, string> entry in mappedValues)
                         {
                             string oldValue = wRange.Text;
                             if (oldValue.Contains(entry.Key))
                             {
                                 string newParagraphVal = oldValue.Replace(entry.Key, entry.Value);
                                 wRange.Text = newParagraphVal;
+                                break;
                             }
 
                         }

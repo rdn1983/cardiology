@@ -410,6 +410,7 @@
             this.alcoExamItem.Name = "alcoExamItem";
             this.alcoExamItem.Size = new System.Drawing.Size(323, 22);
             this.alcoExamItem.Text = "Алко освидетельствование";
+            this.alcoExamItem.Click += new System.EventHandler(this.alcoExamItem_Click);
             // 
             // toolStripMenuItem1
             // 

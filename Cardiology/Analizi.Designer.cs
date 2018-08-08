@@ -201,6 +201,8 @@
             this.regularChloriumLbl = new System.Windows.Forms.Label();
             this.regularHemogloinLbl = new System.Windows.Forms.Label();
             this.firstBloodPnl = new System.Windows.Forms.GroupBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
             this.firstKreatininLbl = new System.Windows.Forms.Label();
             this.firstProteintLbl = new System.Windows.Forms.Label();
             this.firstPlatelesLbl = new System.Windows.Forms.Label();
@@ -297,8 +299,8 @@
             this.saveBtn = new System.Windows.Forms.Button();
             this.serologyToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.button3 = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
+            this.kagActionsBox = new System.Windows.Forms.GroupBox();
+            this.kagActionsTxt = new System.Windows.Forms.RichTextBox();
             this.tabs.SuspendLayout();
             this.ekgTab.SuspendLayout();
             this.ekgTemplates.SuspendLayout();
@@ -346,6 +348,7 @@
             this.neuroSurgeonBox.SuspendLayout();
             this.surgeonBox.SuspendLayout();
             this.neurologBox.SuspendLayout();
+            this.kagActionsBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabs
@@ -443,7 +446,7 @@
             this.backLbl.AutoSize = true;
             this.backLbl.Location = new System.Drawing.Point(73, 11);
             this.backLbl.Name = "backLbl";
-            this.backLbl.Size = new System.Drawing.Size(201, 13);
+            this.backLbl.Size = new System.Drawing.Size(204, 13);
             this.backLbl.TabIndex = 1;
             this.backLbl.Text = "Инфаркт миокарда задней стенки ЛЖ";
             // 
@@ -552,7 +555,7 @@
             this.frontLbl.AutoSize = true;
             this.frontLbl.Location = new System.Drawing.Point(61, 11);
             this.frontLbl.Name = "frontLbl";
-            this.frontLbl.Size = new System.Drawing.Size(214, 13);
+            this.frontLbl.Size = new System.Drawing.Size(216, 13);
             this.frontLbl.TabIndex = 0;
             this.frontLbl.Text = "Инфаркт миокарда передней стенки ЛЖ";
             // 
@@ -1003,6 +1006,7 @@
             // 
             // kagTab
             // 
+            this.kagTab.Controls.Add(this.kagActionsBox);
             this.kagTab.Controls.Add(this.manipulationBox);
             this.kagTab.Controls.Add(this.resultsBox);
             this.kagTab.Controls.Add(this.kagTimeBox);
@@ -1091,7 +1095,7 @@
             this.endTimeLbl.AutoSize = true;
             this.endTimeLbl.Location = new System.Drawing.Point(10, 41);
             this.endTimeLbl.Name = "endTimeLbl";
-            this.endTimeLbl.Size = new System.Drawing.Size(42, 13);
+            this.endTimeLbl.Size = new System.Drawing.Size(41, 13);
             this.endTimeLbl.TabIndex = 1;
             this.endTimeLbl.Text = "Конец:";
             // 
@@ -1100,7 +1104,7 @@
             this.startTimeLbl.AutoSize = true;
             this.startTimeLbl.Location = new System.Drawing.Point(7, 20);
             this.startTimeLbl.Name = "startTimeLbl";
-            this.startTimeLbl.Size = new System.Drawing.Size(48, 13);
+            this.startTimeLbl.Size = new System.Drawing.Size(47, 13);
             this.startTimeLbl.TabIndex = 0;
             this.startTimeLbl.Text = "Начало:";
             // 
@@ -1229,7 +1233,7 @@
             this.ttgLbl.AutoSize = true;
             this.ttgLbl.Location = new System.Drawing.Point(14, 111);
             this.ttgLbl.Name = "ttgLbl";
-            this.ttgLbl.Size = new System.Drawing.Size(29, 13);
+            this.ttgLbl.Size = new System.Drawing.Size(30, 13);
             this.ttgLbl.TabIndex = 2;
             this.ttgLbl.Text = "ТТГ:";
             // 
@@ -1238,7 +1242,7 @@
             this.t4Lbl.AutoSize = true;
             this.t4Lbl.Location = new System.Drawing.Point(14, 72);
             this.t4Lbl.Name = "t4Lbl";
-            this.t4Lbl.Size = new System.Drawing.Size(27, 13);
+            this.t4Lbl.Size = new System.Drawing.Size(26, 13);
             this.t4Lbl.TabIndex = 1;
             this.t4Lbl.Text = "Т-4:";
             // 
@@ -1247,7 +1251,7 @@
             this.t3Lbl.AutoSize = true;
             this.t3Lbl.Location = new System.Drawing.Point(14, 31);
             this.t3Lbl.Name = "t3Lbl";
-            this.t3Lbl.Size = new System.Drawing.Size(27, 13);
+            this.t3Lbl.Size = new System.Drawing.Size(26, 13);
             this.t3Lbl.TabIndex = 0;
             this.t3Lbl.Text = "Т-3:";
             // 
@@ -1292,7 +1296,7 @@
             this.ddimerLbl.AutoSize = true;
             this.ddimerLbl.Location = new System.Drawing.Point(9, 103);
             this.ddimerLbl.Name = "ddimerLbl";
-            this.ddimerLbl.Size = new System.Drawing.Size(48, 13);
+            this.ddimerLbl.Size = new System.Drawing.Size(46, 13);
             this.ddimerLbl.TabIndex = 2;
             this.ddimerLbl.Text = "D-dimer:";
             // 
@@ -1301,7 +1305,7 @@
             this.mchoLbl.AutoSize = true;
             this.mchoLbl.Location = new System.Drawing.Point(9, 69);
             this.mchoLbl.Name = "mchoLbl";
-            this.mchoLbl.Size = new System.Drawing.Size(34, 13);
+            this.mchoLbl.Size = new System.Drawing.Size(35, 13);
             this.mchoLbl.TabIndex = 1;
             this.mchoLbl.Text = "МНО:";
             // 
@@ -1310,7 +1314,7 @@
             this.achtvLbl.AutoSize = true;
             this.achtvLbl.Location = new System.Drawing.Point(9, 31);
             this.achtvLbl.Name = "achtvLbl";
-            this.achtvLbl.Size = new System.Drawing.Size(37, 13);
+            this.achtvLbl.Size = new System.Drawing.Size(39, 13);
             this.achtvLbl.TabIndex = 0;
             this.achtvLbl.Text = "АЧТВ:";
             // 
@@ -1374,7 +1378,7 @@
             this.releaseKreaininLbl.AutoSize = true;
             this.releaseKreaininLbl.Location = new System.Drawing.Point(6, 121);
             this.releaseKreaininLbl.Name = "releaseKreaininLbl";
-            this.releaseKreaininLbl.Size = new System.Drawing.Size(66, 13);
+            this.releaseKreaininLbl.Size = new System.Drawing.Size(64, 13);
             this.releaseKreaininLbl.TabIndex = 35;
             this.releaseKreaininLbl.Text = "Креатинин:";
             // 
@@ -1383,7 +1387,7 @@
             this.releaseProteinLbl.AutoSize = true;
             this.releaseProteinLbl.Location = new System.Drawing.Point(6, 97);
             this.releaseProteinLbl.Name = "releaseProteinLbl";
-            this.releaseProteinLbl.Size = new System.Drawing.Size(62, 13);
+            this.releaseProteinLbl.Size = new System.Drawing.Size(60, 13);
             this.releaseProteinLbl.TabIndex = 34;
             this.releaseProteinLbl.Text = "Об. белок:";
             // 
@@ -1392,7 +1396,7 @@
             this.releaseTromboLbl.AutoSize = true;
             this.releaseTromboLbl.Location = new System.Drawing.Point(6, 73);
             this.releaseTromboLbl.Name = "releaseTromboLbl";
-            this.releaseTromboLbl.Size = new System.Drawing.Size(73, 13);
+            this.releaseTromboLbl.Size = new System.Drawing.Size(74, 13);
             this.releaseTromboLbl.TabIndex = 33;
             this.releaseTromboLbl.Text = "Тромбоциты:";
             // 
@@ -1545,7 +1549,7 @@
             this.releaseBloodLeucoLbl.AutoSize = true;
             this.releaseBloodLeucoLbl.Location = new System.Drawing.Point(6, 49);
             this.releaseBloodLeucoLbl.Name = "releaseBloodLeucoLbl";
-            this.releaseBloodLeucoLbl.Size = new System.Drawing.Size(68, 13);
+            this.releaseBloodLeucoLbl.Size = new System.Drawing.Size(67, 13);
             this.releaseBloodLeucoLbl.TabIndex = 14;
             this.releaseBloodLeucoLbl.Text = "Лейкоциты:";
             // 
@@ -1563,7 +1567,7 @@
             this.releaseBilLbl.AutoSize = true;
             this.releaseBilLbl.Location = new System.Drawing.Point(6, 169);
             this.releaseBilLbl.Name = "releaseBilLbl";
-            this.releaseBilLbl.Size = new System.Drawing.Size(61, 13);
+            this.releaseBilLbl.Size = new System.Drawing.Size(59, 13);
             this.releaseBilLbl.TabIndex = 12;
             this.releaseBilLbl.Text = "Бил. общ.:";
             // 
@@ -1572,7 +1576,7 @@
             this.releaseIronLbl.AutoSize = true;
             this.releaseIronLbl.Location = new System.Drawing.Point(6, 192);
             this.releaseIronLbl.Name = "releaseIronLbl";
-            this.releaseIronLbl.Size = new System.Drawing.Size(50, 13);
+            this.releaseIronLbl.Size = new System.Drawing.Size(51, 13);
             this.releaseIronLbl.TabIndex = 11;
             this.releaseIronLbl.Text = "Железо:";
             // 
@@ -1581,7 +1585,7 @@
             this.releaseSchfLbl.AutoSize = true;
             this.releaseSchfLbl.Location = new System.Drawing.Point(6, 264);
             this.releaseSchfLbl.Name = "releaseSchfLbl";
-            this.releaseSchfLbl.Size = new System.Drawing.Size(30, 13);
+            this.releaseSchfLbl.Size = new System.Drawing.Size(31, 13);
             this.releaseSchfLbl.TabIndex = 10;
             this.releaseSchfLbl.Text = "ЩФ:";
             // 
@@ -1590,7 +1594,7 @@
             this.releaseAmilazaLbl.AutoSize = true;
             this.releaseAmilazaLbl.Location = new System.Drawing.Point(6, 288);
             this.releaseAmilazaLbl.Name = "releaseAmilazaLbl";
-            this.releaseAmilazaLbl.Size = new System.Drawing.Size(53, 13);
+            this.releaseAmilazaLbl.Size = new System.Drawing.Size(55, 13);
             this.releaseAmilazaLbl.TabIndex = 9;
             this.releaseAmilazaLbl.Text = "Амилаза:";
             // 
@@ -1599,7 +1603,7 @@
             this.releasePotassiumLbl.AutoSize = true;
             this.releasePotassiumLbl.Location = new System.Drawing.Point(6, 383);
             this.releasePotassiumLbl.Name = "releasePotassiumLbl";
-            this.releasePotassiumLbl.Size = new System.Drawing.Size(42, 13);
+            this.releasePotassiumLbl.Size = new System.Drawing.Size(41, 13);
             this.releasePotassiumLbl.TabIndex = 8;
             this.releasePotassiumLbl.Text = "Калий:";
             // 
@@ -1608,7 +1612,7 @@
             this.releaseSodiumLbl.AutoSize = true;
             this.releaseSodiumLbl.Location = new System.Drawing.Point(6, 407);
             this.releaseSodiumLbl.Name = "releaseSodiumLbl";
-            this.releaseSodiumLbl.Size = new System.Drawing.Size(48, 13);
+            this.releaseSodiumLbl.Size = new System.Drawing.Size(47, 13);
             this.releaseSodiumLbl.TabIndex = 7;
             this.releaseSodiumLbl.Text = "Натрий:";
             // 
@@ -1617,7 +1621,7 @@
             this.releaseAltLbl.AutoSize = true;
             this.releaseAltLbl.Location = new System.Drawing.Point(6, 216);
             this.releaseAltLbl.Name = "releaseAltLbl";
-            this.releaseAltLbl.Size = new System.Drawing.Size(31, 13);
+            this.releaseAltLbl.Size = new System.Drawing.Size(32, 13);
             this.releaseAltLbl.TabIndex = 6;
             this.releaseAltLbl.Text = "АЛТ:";
             // 
@@ -1635,7 +1639,7 @@
             this.releaseKfkMvLbl.AutoSize = true;
             this.releaseKfkMvLbl.Location = new System.Drawing.Point(6, 335);
             this.releaseKfkMvLbl.Name = "releaseKfkMvLbl";
-            this.releaseKfkMvLbl.Size = new System.Drawing.Size(51, 13);
+            this.releaseKfkMvLbl.Size = new System.Drawing.Size(54, 13);
             this.releaseKfkMvLbl.TabIndex = 4;
             this.releaseKfkMvLbl.Text = "КФК-МВ:";
             // 
@@ -1644,7 +1648,7 @@
             this.releaseKfkLbl.AutoSize = true;
             this.releaseKfkLbl.Location = new System.Drawing.Point(6, 311);
             this.releaseKfkLbl.Name = "releaseKfkLbl";
-            this.releaseKfkLbl.Size = new System.Drawing.Size(33, 13);
+            this.releaseKfkLbl.Size = new System.Drawing.Size(35, 13);
             this.releaseKfkLbl.TabIndex = 3;
             this.releaseKfkLbl.Text = "КФК:";
             // 
@@ -1653,7 +1657,7 @@
             this.releaseSrbLbl.AutoSize = true;
             this.releaseSrbLbl.Location = new System.Drawing.Point(6, 359);
             this.releaseSrbLbl.Name = "releaseSrbLbl";
-            this.releaseSrbLbl.Size = new System.Drawing.Size(30, 13);
+            this.releaseSrbLbl.Size = new System.Drawing.Size(31, 13);
             this.releaseSrbLbl.TabIndex = 2;
             this.releaseSrbLbl.Text = "СРБ:";
             // 
@@ -1671,7 +1675,7 @@
             this.releaseHemoglobinLbl.AutoSize = true;
             this.releaseHemoglobinLbl.Location = new System.Drawing.Point(6, 26);
             this.releaseHemoglobinLbl.Name = "releaseHemoglobinLbl";
-            this.releaseHemoglobinLbl.Size = new System.Drawing.Size(70, 13);
+            this.releaseHemoglobinLbl.Size = new System.Drawing.Size(71, 13);
             this.releaseHemoglobinLbl.TabIndex = 0;
             this.releaseHemoglobinLbl.Text = "Гемоглобин:";
             // 
@@ -1735,7 +1739,7 @@
             this.regularBloodDateLbl.AutoSize = true;
             this.regularBloodDateLbl.Location = new System.Drawing.Point(6, 26);
             this.regularBloodDateLbl.Name = "regularBloodDateLbl";
-            this.regularBloodDateLbl.Size = new System.Drawing.Size(37, 13);
+            this.regularBloodDateLbl.Size = new System.Drawing.Size(36, 13);
             this.regularBloodDateLbl.TabIndex = 36;
             this.regularBloodDateLbl.Text = "Дата:";
             // 
@@ -1744,7 +1748,7 @@
             this.regularKreatininLbl.AutoSize = true;
             this.regularKreatininLbl.Location = new System.Drawing.Point(6, 145);
             this.regularKreatininLbl.Name = "regularKreatininLbl";
-            this.regularKreatininLbl.Size = new System.Drawing.Size(66, 13);
+            this.regularKreatininLbl.Size = new System.Drawing.Size(64, 13);
             this.regularKreatininLbl.TabIndex = 35;
             this.regularKreatininLbl.Text = "Креатинин:";
             // 
@@ -1753,7 +1757,7 @@
             this.regularProteinLbl.AutoSize = true;
             this.regularProteinLbl.Location = new System.Drawing.Point(6, 121);
             this.regularProteinLbl.Name = "regularProteinLbl";
-            this.regularProteinLbl.Size = new System.Drawing.Size(62, 13);
+            this.regularProteinLbl.Size = new System.Drawing.Size(60, 13);
             this.regularProteinLbl.TabIndex = 34;
             this.regularProteinLbl.Text = "Об. белок:";
             // 
@@ -1762,7 +1766,7 @@
             this.regularTrombocytesLbl.AutoSize = true;
             this.regularTrombocytesLbl.Location = new System.Drawing.Point(6, 97);
             this.regularTrombocytesLbl.Name = "regularTrombocytesLbl";
-            this.regularTrombocytesLbl.Size = new System.Drawing.Size(73, 13);
+            this.regularTrombocytesLbl.Size = new System.Drawing.Size(74, 13);
             this.regularTrombocytesLbl.TabIndex = 33;
             this.regularTrombocytesLbl.Text = "Тромбоциты:";
             // 
@@ -1897,7 +1901,7 @@
             this.regularBloodLeucoLbl.AutoSize = true;
             this.regularBloodLeucoLbl.Location = new System.Drawing.Point(6, 73);
             this.regularBloodLeucoLbl.Name = "regularBloodLeucoLbl";
-            this.regularBloodLeucoLbl.Size = new System.Drawing.Size(68, 13);
+            this.regularBloodLeucoLbl.Size = new System.Drawing.Size(67, 13);
             this.regularBloodLeucoLbl.TabIndex = 14;
             this.regularBloodLeucoLbl.Text = "Лейкоциты:";
             // 
@@ -1915,7 +1919,7 @@
             this.regularBilLbl.AutoSize = true;
             this.regularBilLbl.Location = new System.Drawing.Point(6, 193);
             this.regularBilLbl.Name = "regularBilLbl";
-            this.regularBilLbl.Size = new System.Drawing.Size(61, 13);
+            this.regularBilLbl.Size = new System.Drawing.Size(59, 13);
             this.regularBilLbl.TabIndex = 12;
             this.regularBilLbl.Text = "Бил. общ.:";
             // 
@@ -1924,7 +1928,7 @@
             this.regularIronLbl.AutoSize = true;
             this.regularIronLbl.Location = new System.Drawing.Point(6, 216);
             this.regularIronLbl.Name = "regularIronLbl";
-            this.regularIronLbl.Size = new System.Drawing.Size(50, 13);
+            this.regularIronLbl.Size = new System.Drawing.Size(51, 13);
             this.regularIronLbl.TabIndex = 11;
             this.regularIronLbl.Text = "Железо:";
             // 
@@ -1933,7 +1937,7 @@
             this.regularSchfLbl.AutoSize = true;
             this.regularSchfLbl.Location = new System.Drawing.Point(6, 288);
             this.regularSchfLbl.Name = "regularSchfLbl";
-            this.regularSchfLbl.Size = new System.Drawing.Size(30, 13);
+            this.regularSchfLbl.Size = new System.Drawing.Size(31, 13);
             this.regularSchfLbl.TabIndex = 10;
             this.regularSchfLbl.Text = "ЩФ:";
             // 
@@ -1942,7 +1946,7 @@
             this.regularAmilazaLbl.AutoSize = true;
             this.regularAmilazaLbl.Location = new System.Drawing.Point(6, 312);
             this.regularAmilazaLbl.Name = "regularAmilazaLbl";
-            this.regularAmilazaLbl.Size = new System.Drawing.Size(53, 13);
+            this.regularAmilazaLbl.Size = new System.Drawing.Size(55, 13);
             this.regularAmilazaLbl.TabIndex = 9;
             this.regularAmilazaLbl.Text = "Амилаза:";
             // 
@@ -1951,7 +1955,7 @@
             this.regularPotassiumLbl.AutoSize = true;
             this.regularPotassiumLbl.Location = new System.Drawing.Point(6, 407);
             this.regularPotassiumLbl.Name = "regularPotassiumLbl";
-            this.regularPotassiumLbl.Size = new System.Drawing.Size(42, 13);
+            this.regularPotassiumLbl.Size = new System.Drawing.Size(41, 13);
             this.regularPotassiumLbl.TabIndex = 8;
             this.regularPotassiumLbl.Text = "Калий:";
             // 
@@ -1960,7 +1964,7 @@
             this.regularSodiumLbl.AutoSize = true;
             this.regularSodiumLbl.Location = new System.Drawing.Point(6, 431);
             this.regularSodiumLbl.Name = "regularSodiumLbl";
-            this.regularSodiumLbl.Size = new System.Drawing.Size(48, 13);
+            this.regularSodiumLbl.Size = new System.Drawing.Size(47, 13);
             this.regularSodiumLbl.TabIndex = 7;
             this.regularSodiumLbl.Text = "Натрий:";
             // 
@@ -1969,7 +1973,7 @@
             this.regularAltLbl.AutoSize = true;
             this.regularAltLbl.Location = new System.Drawing.Point(6, 240);
             this.regularAltLbl.Name = "regularAltLbl";
-            this.regularAltLbl.Size = new System.Drawing.Size(31, 13);
+            this.regularAltLbl.Size = new System.Drawing.Size(32, 13);
             this.regularAltLbl.TabIndex = 6;
             this.regularAltLbl.Text = "АЛТ:";
             // 
@@ -1987,7 +1991,7 @@
             this.regularKfkMvLbl.AutoSize = true;
             this.regularKfkMvLbl.Location = new System.Drawing.Point(6, 359);
             this.regularKfkMvLbl.Name = "regularKfkMvLbl";
-            this.regularKfkMvLbl.Size = new System.Drawing.Size(51, 13);
+            this.regularKfkMvLbl.Size = new System.Drawing.Size(54, 13);
             this.regularKfkMvLbl.TabIndex = 4;
             this.regularKfkMvLbl.Text = "КФК-МВ:";
             // 
@@ -1996,7 +2000,7 @@
             this.regularKfkLbl.AutoSize = true;
             this.regularKfkLbl.Location = new System.Drawing.Point(6, 335);
             this.regularKfkLbl.Name = "regularKfkLbl";
-            this.regularKfkLbl.Size = new System.Drawing.Size(33, 13);
+            this.regularKfkLbl.Size = new System.Drawing.Size(35, 13);
             this.regularKfkLbl.TabIndex = 3;
             this.regularKfkLbl.Text = "КФК:";
             // 
@@ -2005,7 +2009,7 @@
             this.regularSrbLbl.AutoSize = true;
             this.regularSrbLbl.Location = new System.Drawing.Point(6, 383);
             this.regularSrbLbl.Name = "regularSrbLbl";
-            this.regularSrbLbl.Size = new System.Drawing.Size(30, 13);
+            this.regularSrbLbl.Size = new System.Drawing.Size(31, 13);
             this.regularSrbLbl.TabIndex = 2;
             this.regularSrbLbl.Text = "СРБ:";
             // 
@@ -2023,7 +2027,7 @@
             this.regularHemogloinLbl.AutoSize = true;
             this.regularHemogloinLbl.Location = new System.Drawing.Point(6, 50);
             this.regularHemogloinLbl.Name = "regularHemogloinLbl";
-            this.regularHemogloinLbl.Size = new System.Drawing.Size(70, 13);
+            this.regularHemogloinLbl.Size = new System.Drawing.Size(71, 13);
             this.regularHemogloinLbl.TabIndex = 0;
             this.regularHemogloinLbl.Text = "Гемоглобин:";
             // 
@@ -2074,12 +2078,29 @@
             this.firstBloodPnl.TabStop = false;
             this.firstBloodPnl.Text = "Анализы при поступлении";
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(81, 20);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(79, 20);
+            this.dateTimePicker1.TabIndex = 39;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(36, 13);
+            this.label1.TabIndex = 38;
+            this.label1.Text = "Дата:";
+            // 
             // firstKreatininLbl
             // 
             this.firstKreatininLbl.AutoSize = true;
             this.firstKreatininLbl.Location = new System.Drawing.Point(6, 144);
             this.firstKreatininLbl.Name = "firstKreatininLbl";
-            this.firstKreatininLbl.Size = new System.Drawing.Size(66, 13);
+            this.firstKreatininLbl.Size = new System.Drawing.Size(64, 13);
             this.firstKreatininLbl.TabIndex = 35;
             this.firstKreatininLbl.Text = "Креатинин:";
             // 
@@ -2088,7 +2109,7 @@
             this.firstProteintLbl.AutoSize = true;
             this.firstProteintLbl.Location = new System.Drawing.Point(6, 120);
             this.firstProteintLbl.Name = "firstProteintLbl";
-            this.firstProteintLbl.Size = new System.Drawing.Size(62, 13);
+            this.firstProteintLbl.Size = new System.Drawing.Size(60, 13);
             this.firstProteintLbl.TabIndex = 34;
             this.firstProteintLbl.Text = "Об. белок:";
             // 
@@ -2097,7 +2118,7 @@
             this.firstPlatelesLbl.AutoSize = true;
             this.firstPlatelesLbl.Location = new System.Drawing.Point(6, 96);
             this.firstPlatelesLbl.Name = "firstPlatelesLbl";
-            this.firstPlatelesLbl.Size = new System.Drawing.Size(73, 13);
+            this.firstPlatelesLbl.Size = new System.Drawing.Size(74, 13);
             this.firstPlatelesLbl.TabIndex = 33;
             this.firstPlatelesLbl.Text = "Тромбоциты:";
             // 
@@ -2250,7 +2271,7 @@
             this.firstLeucocytesLbl.AutoSize = true;
             this.firstLeucocytesLbl.Location = new System.Drawing.Point(6, 72);
             this.firstLeucocytesLbl.Name = "firstLeucocytesLbl";
-            this.firstLeucocytesLbl.Size = new System.Drawing.Size(68, 13);
+            this.firstLeucocytesLbl.Size = new System.Drawing.Size(67, 13);
             this.firstLeucocytesLbl.TabIndex = 14;
             this.firstLeucocytesLbl.Text = "Лейкоциты:";
             // 
@@ -2268,7 +2289,7 @@
             this.firstBilLbl.AutoSize = true;
             this.firstBilLbl.Location = new System.Drawing.Point(6, 192);
             this.firstBilLbl.Name = "firstBilLbl";
-            this.firstBilLbl.Size = new System.Drawing.Size(61, 13);
+            this.firstBilLbl.Size = new System.Drawing.Size(59, 13);
             this.firstBilLbl.TabIndex = 12;
             this.firstBilLbl.Text = "Бил. общ.:";
             // 
@@ -2277,7 +2298,7 @@
             this.firstIronLbl.AutoSize = true;
             this.firstIronLbl.Location = new System.Drawing.Point(6, 215);
             this.firstIronLbl.Name = "firstIronLbl";
-            this.firstIronLbl.Size = new System.Drawing.Size(50, 13);
+            this.firstIronLbl.Size = new System.Drawing.Size(51, 13);
             this.firstIronLbl.TabIndex = 11;
             this.firstIronLbl.Text = "Железо:";
             // 
@@ -2286,7 +2307,7 @@
             this.firstSchfLbl.AutoSize = true;
             this.firstSchfLbl.Location = new System.Drawing.Point(6, 287);
             this.firstSchfLbl.Name = "firstSchfLbl";
-            this.firstSchfLbl.Size = new System.Drawing.Size(30, 13);
+            this.firstSchfLbl.Size = new System.Drawing.Size(31, 13);
             this.firstSchfLbl.TabIndex = 10;
             this.firstSchfLbl.Text = "ЩФ:";
             // 
@@ -2295,7 +2316,7 @@
             this.firstAmilazaLbl.AutoSize = true;
             this.firstAmilazaLbl.Location = new System.Drawing.Point(6, 311);
             this.firstAmilazaLbl.Name = "firstAmilazaLbl";
-            this.firstAmilazaLbl.Size = new System.Drawing.Size(53, 13);
+            this.firstAmilazaLbl.Size = new System.Drawing.Size(55, 13);
             this.firstAmilazaLbl.TabIndex = 9;
             this.firstAmilazaLbl.Text = "Амилаза:";
             // 
@@ -2304,7 +2325,7 @@
             this.firstPotassiumLbl.AutoSize = true;
             this.firstPotassiumLbl.Location = new System.Drawing.Point(6, 406);
             this.firstPotassiumLbl.Name = "firstPotassiumLbl";
-            this.firstPotassiumLbl.Size = new System.Drawing.Size(42, 13);
+            this.firstPotassiumLbl.Size = new System.Drawing.Size(41, 13);
             this.firstPotassiumLbl.TabIndex = 8;
             this.firstPotassiumLbl.Text = "Калий:";
             // 
@@ -2313,7 +2334,7 @@
             this.firstSodiumLbl.AutoSize = true;
             this.firstSodiumLbl.Location = new System.Drawing.Point(6, 430);
             this.firstSodiumLbl.Name = "firstSodiumLbl";
-            this.firstSodiumLbl.Size = new System.Drawing.Size(48, 13);
+            this.firstSodiumLbl.Size = new System.Drawing.Size(47, 13);
             this.firstSodiumLbl.TabIndex = 7;
             this.firstSodiumLbl.Text = "Натрий:";
             // 
@@ -2322,7 +2343,7 @@
             this.firstAltLbl.AutoSize = true;
             this.firstAltLbl.Location = new System.Drawing.Point(6, 239);
             this.firstAltLbl.Name = "firstAltLbl";
-            this.firstAltLbl.Size = new System.Drawing.Size(31, 13);
+            this.firstAltLbl.Size = new System.Drawing.Size(32, 13);
             this.firstAltLbl.TabIndex = 6;
             this.firstAltLbl.Text = "АЛТ:";
             // 
@@ -2340,7 +2361,7 @@
             this.firstKfkMvLbl.AutoSize = true;
             this.firstKfkMvLbl.Location = new System.Drawing.Point(6, 358);
             this.firstKfkMvLbl.Name = "firstKfkMvLbl";
-            this.firstKfkMvLbl.Size = new System.Drawing.Size(51, 13);
+            this.firstKfkMvLbl.Size = new System.Drawing.Size(54, 13);
             this.firstKfkMvLbl.TabIndex = 4;
             this.firstKfkMvLbl.Text = "КФК-МВ:";
             // 
@@ -2349,7 +2370,7 @@
             this.firstKfkLbl.AutoSize = true;
             this.firstKfkLbl.Location = new System.Drawing.Point(6, 334);
             this.firstKfkLbl.Name = "firstKfkLbl";
-            this.firstKfkLbl.Size = new System.Drawing.Size(33, 13);
+            this.firstKfkLbl.Size = new System.Drawing.Size(35, 13);
             this.firstKfkLbl.TabIndex = 3;
             this.firstKfkLbl.Text = "КФК:";
             // 
@@ -2358,7 +2379,7 @@
             this.firstSrbLbl.AutoSize = true;
             this.firstSrbLbl.Location = new System.Drawing.Point(6, 382);
             this.firstSrbLbl.Name = "firstSrbLbl";
-            this.firstSrbLbl.Size = new System.Drawing.Size(30, 13);
+            this.firstSrbLbl.Size = new System.Drawing.Size(31, 13);
             this.firstSrbLbl.TabIndex = 2;
             this.firstSrbLbl.Text = "СРБ:";
             // 
@@ -2376,7 +2397,7 @@
             this.firstHemoglobinLbl.AutoSize = true;
             this.firstHemoglobinLbl.Location = new System.Drawing.Point(6, 49);
             this.firstHemoglobinLbl.Name = "firstHemoglobinLbl";
-            this.firstHemoglobinLbl.Size = new System.Drawing.Size(70, 13);
+            this.firstHemoglobinLbl.Size = new System.Drawing.Size(71, 13);
             this.firstHemoglobinLbl.TabIndex = 0;
             this.firstHemoglobinLbl.Text = "Гемоглобин:";
             // 
@@ -2451,7 +2472,7 @@
             this.label94.AutoSize = true;
             this.label94.Location = new System.Drawing.Point(8, 126);
             this.label94.Name = "label94";
-            this.label94.Size = new System.Drawing.Size(74, 13);
+            this.label94.Size = new System.Drawing.Size(71, 13);
             this.label94.TabIndex = 4;
             this.label94.Text = "Эритроциты:";
             // 
@@ -2460,7 +2481,7 @@
             this.label95.AutoSize = true;
             this.label95.Location = new System.Drawing.Point(8, 82);
             this.label95.Name = "label95";
-            this.label95.Size = new System.Drawing.Size(68, 13);
+            this.label95.Size = new System.Drawing.Size(67, 13);
             this.label95.TabIndex = 3;
             this.label95.Text = "Лейкоциты:";
             // 
@@ -2469,7 +2490,7 @@
             this.label98.AutoSize = true;
             this.label98.Location = new System.Drawing.Point(8, 41);
             this.label98.Name = "label98";
-            this.label98.Size = new System.Drawing.Size(37, 13);
+            this.label98.Size = new System.Drawing.Size(35, 13);
             this.label98.TabIndex = 0;
             this.label98.Text = "Цвет:";
             // 
@@ -2536,7 +2557,7 @@
             this.label87.AutoSize = true;
             this.label87.Location = new System.Drawing.Point(8, 126);
             this.label87.Name = "label87";
-            this.label87.Size = new System.Drawing.Size(74, 13);
+            this.label87.Size = new System.Drawing.Size(71, 13);
             this.label87.TabIndex = 4;
             this.label87.Text = "Эритроциты:";
             // 
@@ -2545,7 +2566,7 @@
             this.label86.AutoSize = true;
             this.label86.Location = new System.Drawing.Point(8, 82);
             this.label86.Name = "label86";
-            this.label86.Size = new System.Drawing.Size(68, 13);
+            this.label86.Size = new System.Drawing.Size(67, 13);
             this.label86.TabIndex = 3;
             this.label86.Text = "Лейкоциты:";
             // 
@@ -2554,7 +2575,7 @@
             this.firstColorLbl.AutoSize = true;
             this.firstColorLbl.Location = new System.Drawing.Point(8, 41);
             this.firstColorLbl.Name = "firstColorLbl";
-            this.firstColorLbl.Size = new System.Drawing.Size(37, 13);
+            this.firstColorLbl.Size = new System.Drawing.Size(35, 13);
             this.firstColorLbl.TabIndex = 0;
             this.firstColorLbl.Text = "Цвет:";
             // 
@@ -2730,7 +2751,7 @@
             this.dateLbl.AutoSize = true;
             this.dateLbl.Location = new System.Drawing.Point(13, 10);
             this.dateLbl.Name = "dateLbl";
-            this.dateLbl.Size = new System.Drawing.Size(181, 13);
+            this.dateLbl.Size = new System.Drawing.Size(185, 13);
             this.dateLbl.TabIndex = 15;
             this.dateLbl.Text = "Дата/Время проведения анализов";
             // 
@@ -2951,22 +2972,24 @@
             this.button3.Text = "button3";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // dateTimePicker1
+            // kagActionsBox
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(81, 20);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(79, 20);
-            this.dateTimePicker1.TabIndex = 39;
+            this.kagActionsBox.Controls.Add(this.kagActionsTxt);
+            this.kagActionsBox.Location = new System.Drawing.Point(15, 351);
+            this.kagActionsBox.Name = "kagActionsBox";
+            this.kagActionsBox.Size = new System.Drawing.Size(878, 124);
+            this.kagActionsBox.TabIndex = 8;
+            this.kagActionsBox.TabStop = false;
+            this.kagActionsBox.Text = "Таким образом у больного";
             // 
-            // label1
+            // kagActionsTxt
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 27);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(37, 13);
-            this.label1.TabIndex = 38;
-            this.label1.Text = "Дата:";
+            this.kagActionsTxt.ContextMenuStrip = this.contextMenu;
+            this.kagActionsTxt.Location = new System.Drawing.Point(6, 16);
+            this.kagActionsTxt.Name = "kagActionsTxt";
+            this.kagActionsTxt.Size = new System.Drawing.Size(866, 101);
+            this.kagActionsTxt.TabIndex = 0;
+            this.kagActionsTxt.Text = "";
             // 
             // Analizi
             // 
@@ -3038,6 +3061,7 @@
             this.neuroSurgeonBox.ResumeLayout(false);
             this.surgeonBox.ResumeLayout(false);
             this.neurologBox.ResumeLayout(false);
+            this.kagActionsBox.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -3313,5 +3337,7 @@
         private System.Windows.Forms.Button frontDesc1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox kagActionsBox;
+        private System.Windows.Forms.RichTextBox kagActionsTxt;
     }
 }

@@ -20,6 +20,8 @@ namespace Cardiology.Model
         private string dssResults;
         [TableAttribute("dss_kag_manipulation")]
         private string dssKagManipulation;
+        [TableAttribute("dss_kag_action")]
+        private string dssKagAction;
         [TableAttribute("dsdt_start_time")]
         private DateTime dsdtStartTime;
         [TableAttribute("dsdt_end_time")]
@@ -42,5 +44,6 @@ namespace Cardiology.Model
         public string DssKagManipulation { get => dssKagManipulation; set => dssKagManipulation = value; }
         public DateTime DsdtStartTime { get => dsdtStartTime; set => dsdtStartTime = value; }
         public DateTime DsdtEndTime { get => dsdtEndTime; set => dsdtEndTime = value; }
+        public string DssKagAction { get => dssKagAction; set => dssKagAction = value; }
     }
 }

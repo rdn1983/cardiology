@@ -225,6 +225,7 @@ namespace Cardiology
             {
                 kagResultsTxt.Text = kag.DssResults;
                 kagManipulationTxt.Text = kag.DssKagManipulation;
+                kagActionsTxt.Text = kag.DssKagAction;
                 DateTime startTime = kag.DsdtStartTime;
                 kagDate.Value = startTime;
                 kagStartTime.Value = startTime;
@@ -492,6 +493,7 @@ namespace Cardiology
                 }
                 kag.DssKagManipulation = kagManipulationTxt.Text;
                 kag.DssResults = kagResultsTxt.Text;
+                kag.DssKagAction = kagActionsTxt.Text;
                 kag.DsdtStartTime = constructDateWIthTime(kagDate.Value, kagStartTime.Value);
                 kag.DsdtEndTime = constructDateWIthTime(kagDate.Value, kagEndTime.Value);
 

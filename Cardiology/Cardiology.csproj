@@ -67,12 +67,25 @@
     <Compile Include="AdmissionPatient.Designer.cs">
       <DependentUpon>AdmissionPatient.cs</DependentUpon>
     </Compile>
+    <Compile Include="AlcoIntoxication.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AlcoIntoxication.Designer.cs">
+      <DependentUpon>AlcoIntoxication.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AmbulanceLetters.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AmbulanceLetters.Designer.cs">
+      <DependentUpon>AmbulanceLetters.cs</DependentUpon>
+    </Compile>
     <Compile Include="Analizi.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Analizi.Designer.cs">
       <DependentUpon>Analizi.cs</DependentUpon>
     </Compile>
+    <Compile Include="DdtAlcoProtocol.cs" />
     <Compile Include="DdtAnamnesis.cs" />
     <Compile Include="DdtBloodAnalysis.cs" />
     <Compile Include="DdtCoagulogram.cs" />
@@ -212,12 +225,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TemplatesUtils.cs" />
     <Compile Include="CommonUtils.cs" />
-    <Compile Include="UserBlanks.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UserBlanks.Designer.cs">
-      <DependentUpon>UserBlanks.cs</DependentUpon>
-    </Compile>
     <Compile Include="Serology.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -290,14 +297,14 @@
     <Compile Include="ReleasePatient.Designer.cs">
       <DependentUpon>ReleasePatient.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pisma.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Pisma.Designer.cs">
-      <DependentUpon>Pisma.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="AdmissionPatient.resx">
       <DependentUpon>AdmissionPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AlcoIntoxication.resx">
+      <DependentUpon>AlcoIntoxication.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AmbulanceLetters.resx">
+      <DependentUpon>AmbulanceLetters.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Analizi.resx">
       <DependentUpon>Analizi.cs</DependentUpon>
@@ -366,9 +373,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="UserBlanks.resx">
-      <DependentUpon>UserBlanks.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Serology.resx">
       <DependentUpon>Serology.cs</DependentUpon>
     </EmbeddedResource>
@@ -401,9 +405,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReleasePatient.resx">
       <DependentUpon>ReleasePatient.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Pisma.resx">
-      <DependentUpon>Pisma.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

@@ -110,6 +110,8 @@
             this.diagnosisTxt = new System.Windows.Forms.RichTextBox();
             this.issuedMedicineTab = new System.Windows.Forms.TabPage();
             this.issuedMedicineBox = new System.Windows.Forms.GroupBox();
+            this.issuedCntr = new System.Windows.Forms.Panel();
+            this.issuedMedicineControl1 = new Cardiology.IssuedMedicineControl();
             this.addIssuedMedicineBtn = new System.Windows.Forms.Button();
             this.firstAnalysisTab = new System.Windows.Forms.TabPage();
             this.tabs = new System.Windows.Forms.TabControl();
@@ -195,8 +197,6 @@
             this.templatesLbl = new System.Windows.Forms.Label();
             this.tip = new System.Windows.Forms.ToolTip(this.components);
             this.addTip = new System.Windows.Forms.ToolTip(this.components);
-            this.issuedCntr = new System.Windows.Forms.Panel();
-            this.issuedMedicineControl1 = new Cardiology.IssuedMedicineControl();
             this.complaintsBox.SuspendLayout();
             this.anamnesisMorbiBox.SuspendLayout();
             this.anamnesisAllergyBox.SuspendLayout();
@@ -221,6 +221,7 @@
             this.diagnosisPnl.SuspendLayout();
             this.issuedMedicineTab.SuspendLayout();
             this.issuedMedicineBox.SuspendLayout();
+            this.issuedCntr.SuspendLayout();
             this.firstAnalysisTab.SuspendLayout();
             this.tabs.SuspendLayout();
             this.ekgTab.SuspendLayout();
@@ -233,7 +234,6 @@
             this.bloodAnalysisPnl.SuspendLayout();
             this.urineTab.SuspendLayout();
             this.firstAnalysisBox.SuspendLayout();
-            this.issuedCntr.SuspendLayout();
             this.SuspendLayout();
             // 
             // deathBtn
@@ -556,6 +556,8 @@
             this.alcoholProtocolBtn.TabIndex = 3;
             this.alcoholProtocolBtn.Text = "Протокол алкоосвидетельства";
             this.alcoholProtocolBtn.UseVisualStyleBackColor = true;
+            this.alcoholProtocolBtn.Visible = false;
+            this.alcoholProtocolBtn.Click += new System.EventHandler(this.alcoholProtocolBtn_Click);
             // 
             // alcoholBtn
             // 
@@ -1103,6 +1105,23 @@
             this.issuedMedicineBox.TabIndex = 0;
             this.issuedMedicineBox.TabStop = false;
             this.issuedMedicineBox.Text = "Назначения:";
+            // 
+            // issuedCntr
+            // 
+            this.issuedCntr.AutoScroll = true;
+            this.issuedCntr.Controls.Add(this.issuedMedicineControl1);
+            this.issuedCntr.Location = new System.Drawing.Point(6, 18);
+            this.issuedCntr.Name = "issuedCntr";
+            this.issuedCntr.Size = new System.Drawing.Size(653, 501);
+            this.issuedCntr.TabIndex = 18;
+            // 
+            // issuedMedicineControl1
+            // 
+            this.issuedMedicineControl1.AutoSize = true;
+            this.issuedMedicineControl1.Location = new System.Drawing.Point(3, 0);
+            this.issuedMedicineControl1.Name = "issuedMedicineControl1";
+            this.issuedMedicineControl1.Size = new System.Drawing.Size(10, 10);
+            this.issuedMedicineControl1.TabIndex = 17;
             // 
             // addIssuedMedicineBtn
             // 
@@ -1924,23 +1943,6 @@
             // 
             this.addTip.ToolTipTitle = "Добавить назначения";
             // 
-            // issuedCntr
-            // 
-            this.issuedCntr.AutoScroll = true;
-            this.issuedCntr.Controls.Add(this.issuedMedicineControl1);
-            this.issuedCntr.Location = new System.Drawing.Point(6, 18);
-            this.issuedCntr.Name = "issuedCntr";
-            this.issuedCntr.Size = new System.Drawing.Size(653, 501);
-            this.issuedCntr.TabIndex = 18;
-            // 
-            // issuedMedicineControl1
-            // 
-            this.issuedMedicineControl1.AutoSize = true;
-            this.issuedMedicineControl1.Location = new System.Drawing.Point(3, 0);
-            this.issuedMedicineControl1.Name = "issuedMedicineControl1";
-            this.issuedMedicineControl1.Size = new System.Drawing.Size(10, 10);
-            this.issuedMedicineControl1.TabIndex = 17;
-            // 
             // FirstInspection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1991,6 +1993,8 @@
             this.diagnosisPnl.ResumeLayout(false);
             this.issuedMedicineTab.ResumeLayout(false);
             this.issuedMedicineBox.ResumeLayout(false);
+            this.issuedCntr.ResumeLayout(false);
+            this.issuedCntr.PerformLayout();
             this.firstAnalysisTab.ResumeLayout(false);
             this.tabs.ResumeLayout(false);
             this.ekgTab.ResumeLayout(false);
@@ -2005,8 +2009,6 @@
             this.urineTab.ResumeLayout(false);
             this.firstAnalysisBox.ResumeLayout(false);
             this.firstAnalysisBox.PerformLayout();
-            this.issuedCntr.ResumeLayout(false);
-            this.issuedCntr.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -215,8 +215,8 @@ namespace Cardiology
             values.Add(@"{admission.date}", hospitalSession.DsdtAdmissionDate.ToShortDateString());
             values.Add(@"{patient.historycard}", patient.DssMedCode);
             values.Add(@"{patient.fullname}", patient.DssFullName);
-            values.Add(@"{room}", hospitalitySession.DssRoomCell);
-            values.Add(@"{cell}", hospitalitySession.DssRoomCell);
+            values.Add(@"{room}", "");
+            values.Add(@"{cell}", "");
             values.Add(@"{date}", DateTime.Now.ToShortDateString());
             //todo переписать,к огда будет время. Сделать добавление в таблицу строчек автоматом
             List<DdtIssuedMedicine> med = issuedMedicineControl1.getIssuedMedicines();

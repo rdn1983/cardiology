@@ -297,11 +297,13 @@ namespace Cardiology
         private void noAlcoholBtn_Click(object sender, EventArgs e)
         {
             anamnesisVitaeTxt.Text = getDefaultValueForType(anamnesisVitaeTxt.Name, NO_TYPE);
+            alcoholProtocolBtn.Visible = false;
         }
 
         private void alcoholBtn_Click(object sender, EventArgs e)
         {
             anamnesisVitaeTxt.Text = getDefaultValueForType(anamnesisVitaeTxt.Name, YES_TYPE);
+            alcoholProtocolBtn.Visible = true;
         }
 
         private void telaRadio_CheckedChanged(object sender, EventArgs e)
@@ -679,6 +681,12 @@ namespace Cardiology
         private void clearBtn_Click(object sender, EventArgs e)
         {
             regularEkgTxt.Text = "";
+        }
+
+        private void alcoholProtocolBtn_Click(object sender, EventArgs e)
+        {
+            AlcoIntoxication form = new AlcoIntoxication(hospitalSession);
+            form.ShowDialog();
         }
     }
 }

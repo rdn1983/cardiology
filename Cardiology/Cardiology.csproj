@@ -85,37 +85,80 @@
     <Compile Include="Analizi.Designer.cs">
       <DependentUpon>Analizi.cs</DependentUpon>
     </Compile>
-    <Compile Include="DdtAlcoProtocol.cs" />
-    <Compile Include="DdtAnamnesis.cs" />
-    <Compile Include="DdtBloodAnalysis.cs" />
-    <Compile Include="DdtCoagulogram.cs" />
-    <Compile Include="DdtConsilium.cs" />
-    <Compile Include="DdtConsiliumMember.cs" />
-    <Compile Include="DdtCure.cs" />
-    <Compile Include="DdtCureDictionary.cs" />
-    <Compile Include="DdtCureType.cs" />
-    <Compile Include="DdtDoctors.cs" />
-    <Compile Include="DdtEgds.cs" />
-    <Compile Include="DdtEkg.cs" />
-    <Compile Include="DdtHolter.cs" />
-    <Compile Include="DdtHormones.cs" />
-    <Compile Include="DdtHospital.cs" />
-    <Compile Include="DdtIssuedMedicine.cs" />
-    <Compile Include="DdtIssuedMedicineList.cs" />
-    <Compile Include="DdtJournal.cs" />
-    <Compile Include="DdtJournalDsiType.cs" />
-    <Compile Include="DdtKag.cs" />
-    <Compile Include="DdtPatientAnalysis.cs" />
-    <Compile Include="DdtReleasePatient.cs" />
-    <Compile Include="DdtSerology.cs" />
-    <Compile Include="DdtSpecialistConclusion.cs" />
-    <Compile Include="DdtUrineAnalysis.cs" />
-    <Compile Include="DdtUzi.cs" />
-    <Compile Include="DdtValues.cs" />
-    <Compile Include="DdtVariousSpecConcluson.cs" />
-    <Compile Include="DdtXRay.cs" />
-    <Compile Include="DdvActiveHospitalPatients.cs" />
-    <Compile Include="DdvHistory.cs" />
+    <Compile Include="AnalysisContainer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AnalysisContainer.Designer.cs">
+      <DependentUpon>AnalysisContainer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AnalysisSelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AnalysisSelector.Designer.cs">
+      <DependentUpon>AnalysisSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\BloodAnalysisControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\BloodAnalysisControl.Designer.cs">
+      <DependentUpon>BloodAnalysisControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\EgdsAnalysisControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\EgdsAnalysisControl.Designer.cs">
+      <DependentUpon>EgdsAnalysisControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\EkgAnalysisControlcs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\EkgAnalysisControlcs.Designer.cs">
+      <DependentUpon>EkgAnalysisControlcs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\HolterControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\HolterControl.Designer.cs">
+      <DependentUpon>HolterControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\KagAnalysisControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\KagAnalysisControl.Designer.cs">
+      <DependentUpon>KagAnalysisControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DdtAlcoProtocol.cs" />
+    <Compile Include="Model\DdtAnamnesis.cs" />
+    <Compile Include="Model\DdtBloodAnalysis.cs" />
+    <Compile Include="Model\DdtCoagulogram.cs" />
+    <Compile Include="Model\DdtConsilium.cs" />
+    <Compile Include="Model\DdtConsiliumMember.cs" />
+    <Compile Include="Model\DdtCure.cs" />
+    <Compile Include="Model\DdtCureDictionary.cs" />
+    <Compile Include="Model\DdtCureType.cs" />
+    <Compile Include="Model\DdtDoctors.cs" />
+    <Compile Include="Model\DdtEgds.cs" />
+    <Compile Include="Model\DdtEkg.cs" />
+    <Compile Include="Model\DdtHolter.cs" />
+    <Compile Include="Model\DdtHormones.cs" />
+    <Compile Include="Model\DdtHospital.cs" />
+    <Compile Include="Model\DdtIssuedMedicine.cs" />
+    <Compile Include="Model\DdtIssuedMedicineList.cs" />
+    <Compile Include="Model\DdtJournal.cs" />
+    <Compile Include="Model\DdtJournalDsiType.cs" />
+    <Compile Include="Model\DdtKag.cs" />
+    <Compile Include="Model\DdtPatientAnalysis.cs" />
+    <Compile Include="Model\DdtReleasePatient.cs" />
+    <Compile Include="Model\DdtSerology.cs" />
+    <Compile Include="Model\DdtSpecialistConclusion.cs" />
+    <Compile Include="Model\DdtUrineAnalysis.cs" />
+    <Compile Include="Model\DdtUzi.cs" />
+    <Compile Include="Model\DdtValues.cs" />
+    <Compile Include="Model\DdtVariousSpecConcluson.cs" />
+    <Compile Include="Model\DdtXRay.cs" />
+    <Compile Include="Model\DdvActiveHospitalPatients.cs" />
+    <Compile Include="Model\DdvHistory.cs" />
+    <Compile Include="IDocbaseControl.cs" />
     <Compile Include="PatientsHistory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +170,12 @@
     </Compile>
     <Compile Include="ProtocolsManipulation.Designer.cs">
       <DependentUpon>ProtocolsManipulation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SpecialistConclusionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SpecialistConclusionControl.Designer.cs">
+      <DependentUpon>SpecialistConclusionControl.cs</DependentUpon>
     </Compile>
     <Compile Include="TableAttribute.cs" />
     <Compile Include="ComplaintTemplates.cs">
@@ -178,7 +227,7 @@
     <Compile Include="IssuedMedicine.Designer.cs">
       <DependentUpon>IssuedMedicine.cs</DependentUpon>
     </Compile>
-    <Compile Include="DdtPatient.cs" />
+    <Compile Include="Model\DdtPatient.cs" />
     <Compile Include="Perelivanie.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -236,6 +285,12 @@
     </Compile>
     <Compile Include="IssuedMedicineControl.Designer.cs">
       <DependentUpon>IssuedMedicineControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UrineAnalysisControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UrineAnalysisControl.Designer.cs">
+      <DependentUpon>UrineAnalysisControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserFormEIT.cs">
       <SubType>Form</SubType>
@@ -297,6 +352,12 @@
     <Compile Include="ReleasePatient.Designer.cs">
       <DependentUpon>ReleasePatient.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\UziAnalysisControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UziAnalysisControl.Designer.cs">
+      <DependentUpon>UziAnalysisControl.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AdmissionPatient.resx">
       <DependentUpon>AdmissionPatient.cs</DependentUpon>
     </EmbeddedResource>
@@ -309,11 +370,29 @@
     <EmbeddedResource Include="Analizi.resx">
       <DependentUpon>Analizi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AnalysisContainer.resx">
+      <DependentUpon>AnalysisContainer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AnalysisSelector.resx">
+      <DependentUpon>AnalysisSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\BloodAnalysisControl.resx">
+      <DependentUpon>BloodAnalysisControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ComplaintTemplates.resx">
       <DependentUpon>ComplaintTemplates.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AppointmentTemplates.resx">
       <DependentUpon>AppointmentTemplates.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\EgdsAnalysisControl.resx">
+      <DependentUpon>EgdsAnalysisControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\EkgAnalysisControlcs.resx">
+      <DependentUpon>EkgAnalysisControlcs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\HolterControl.resx">
+      <DependentUpon>HolterControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IssuedMedicineControl.resx">
       <DependentUpon>IssuedMedicineControl.cs</DependentUpon>
@@ -326,6 +405,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FirstInspection.resx">
       <DependentUpon>FirstInspection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\KagAnalysisControl.resx">
+      <DependentUpon>KagAnalysisControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PatientList.resx">
       <DependentUpon>PatientList.cs</DependentUpon>
@@ -376,6 +458,12 @@
     <EmbeddedResource Include="Serology.resx">
       <DependentUpon>Serology.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SpecialistConclusionControl.resx">
+      <DependentUpon>SpecialistConclusionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UrineAnalysisControl.resx">
+      <DependentUpon>UrineAnalysisControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserFormEIT.resx">
       <DependentUpon>UserFormEIT.cs</DependentUpon>
     </EmbeddedResource>
@@ -405,6 +493,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReleasePatient.resx">
       <DependentUpon>ReleasePatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UziAnalysisControl.resx">
+      <DependentUpon>UziAnalysisControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -449,5 +540,6 @@
   <ItemGroup>
     <None Include="Resources\remove.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

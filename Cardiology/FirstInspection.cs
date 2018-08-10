@@ -3,7 +3,6 @@ using System;
 using System.Windows.Forms;
 using Cardiology.Utils;
 using System.Collections.Generic;
-using System.Collections;
 
 namespace Cardiology
 {

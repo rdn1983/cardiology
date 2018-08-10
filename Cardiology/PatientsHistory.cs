@@ -3,12 +3,7 @@ using Cardiology.Model.Dictionary;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Cardiology
@@ -37,11 +32,6 @@ namespace Cardiology
 
         }
 
-        private void analysisMenuItem_Click(object sender, EventArgs e)
-        {
-            Analizi form = new Analizi(hospitalitySession, null);
-            form.ShowDialog();
-        }
 
         private void bloodTrunsfusionMenuItem_Click(object sender, EventArgs e)
         {
@@ -136,7 +126,7 @@ namespace Cardiology
                     || DdtBloodAnalysis.TABLE_NAME.Equals(typeValue) || DdtHormones.TABLE_NAME.Equals(typeValue)
                     || DdtCoagulogram.TABLE_NAME.Equals(typeValue))
                 {
-                    form = new Analizi(hospitalitySession, idsValue);
+                    form = new AnalysisContainer(hospitalitySession, typeValue, idsValue);
                 }
                 else if (DdtConsilium.TABLE_NAME.Equals(typeValue))
                 {
@@ -148,6 +138,54 @@ namespace Cardiology
                     form.ShowDialog();
                 }
             }
+        }
+
+        private void ekgItem_Click(object sender, EventArgs e)
+        {
+            AnalysisContainer container = new AnalysisContainer(hospitalitySession, DdtEkg.TABLE_NAME, null);
+            container.ShowDialog();
+        }
+
+        private void bloodItem_Click(object sender, EventArgs e)
+        {
+            AnalysisContainer container = new AnalysisContainer(hospitalitySession, DdtBloodAnalysis.TABLE_NAME, null);
+            container.ShowDialog();
+        }
+
+        private void urineItem_Click(object sender, EventArgs e)
+        {
+            AnalysisContainer container = new AnalysisContainer(hospitalitySession, DdtUrineAnalysis.TABLE_NAME, null);
+            container.ShowDialog();
+        }
+
+        private void holterItem_Click(object sender, EventArgs e)
+        {
+            AnalysisContainer container = new AnalysisContainer(hospitalitySession, DdtHolter.TABLE_NAME, null);
+            container.ShowDialog();
+        }
+
+        private void kagItem_Click(object sender, EventArgs e)
+        {
+            AnalysisContainer container = new AnalysisContainer(hospitalitySession, DdtKag.TABLE_NAME, null);
+            container.ShowDialog();
+        }
+
+        private void egdsItem_Click(object sender, EventArgs e)
+        {
+            AnalysisContainer container = new AnalysisContainer(hospitalitySession, DdtEgds.TABLE_NAME, null);
+            container.ShowDialog();
+        }
+
+        private void specialistItem_Click(object sender, EventArgs e)
+        {
+            AnalysisContainer container = new AnalysisContainer(hospitalitySession, DdtSpecialistConclusion.TABLE_NAME, null);
+            container.ShowDialog();
+        }
+
+        private void uziItem_Click(object sender, EventArgs e)
+        {
+            AnalysisContainer container = new AnalysisContainer(hospitalitySession, DdtUzi.TABLE_NAME, null);
+            container.ShowDialog();
         }
     }
 }

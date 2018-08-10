@@ -24,11 +24,6 @@ namespace Cardiology
             return connection;
         }
 
-        internal T queryObjectById<T>(string tABLENAME, object value)
-        {
-            throw new NotImplementedException();
-        }
-
         public void update(string query)
         {
             Npgsql.NpgsqlConnection connection = null;
@@ -133,11 +128,12 @@ namespace Cardiology
         {
             List<T> result = new List<T>();
             Npgsql.NpgsqlConnection connection = null;
+            Npgsql.NpgsqlDataReader reader = null;
             try
             {
                 connection = getConnection();
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(query, connection);
-                Npgsql.NpgsqlDataReader reader = command.ExecuteReader();
+                reader = command.ExecuteReader();
                 while (reader.Read())
                 {
                     T bean = fillObject<T>(reader);
@@ -146,6 +142,10 @@ namespace Cardiology
             }
             finally
             {
+                if (reader != null && !reader.IsClosed)
+                {
+                    reader.Close();
+                }
                 if (connection != null)
                 {
                     connection.Close();
@@ -168,11 +168,12 @@ namespace Cardiology
         public T queryObject<T>(string query)
         {
             Npgsql.NpgsqlConnection connection = null;
+            Npgsql.NpgsqlDataReader reader = null;
             try
             {
                 connection = getConnection();
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(query, connection);
-                Npgsql.NpgsqlDataReader reader = command.ExecuteReader();
+                reader = command.ExecuteReader();
 
                 if (reader.Read())
                 {
@@ -181,6 +182,10 @@ namespace Cardiology
             }
             finally
             {
+                if (reader != null && !reader.IsClosed)
+                {
+                    reader.Close();
+                }
                 if (connection != null)
                 {
                     connection.Close();
@@ -279,6 +284,82 @@ namespace Cardiology
             }
 
         }
+
+        public Dictionary<string, string> queryMappedValues(string query, string attrKey, string attrValue)
+        {
+            Npgsql.NpgsqlConnection connection = null;
+            Npgsql.NpgsqlDataReader reader = null;
+            try
+            {
+                connection = getConnection();
+                Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(query, connection);
+                reader = command.ExecuteReader();
+                Dictionary<string, string> result = new Dictionary<string, string>();
+                ReadOnlyCollection<NpgsqlDbColumn> columns = reader.GetColumnSchema();
+                while (reader.Read())
+                {
+                    result.Add(getWrappedValue(reader.GetValue(0), reader.GetDataTypeName(0)), getWrappedValue(reader.GetValue(1), reader.GetDataTypeName(1)));
+                }
+                return result;
+            }
+            finally
+            {
+                if (reader != null && !reader.IsClosed)
+                {
+                    reader.Close();
+                }
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+            return null;
+        }
+
+        private string getWrappedValue(object value, string typeName)
+        {
+            if ("timestamp".Equals(typeName))
+            {
+                DateTime dt = (DateTime)value;
+                return dt.ToLongDateString();
+            }
+            else
+            {
+                return value.ToString();
+            }
+        }
+
+        public string querySingleString(string query)
+        {
+            Npgsql.NpgsqlConnection connection = null;
+            Npgsql.NpgsqlDataReader reader = null;
+            try
+            {
+                connection = getConnection();
+                Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(query, connection);
+                reader = command.ExecuteReader();
+                ReadOnlyCollection<NpgsqlDbColumn> columns = reader.GetColumnSchema();
+                if (reader.Read())
+                {
+                    return reader.GetString(0);
+                }
+            }
+            finally
+            {
+                if (reader != null && !reader.IsClosed)
+                {
+                    reader.Close();
+                }
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+            return null;
+        }
+
+
+
 
     }
 

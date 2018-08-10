@@ -388,5 +388,6 @@ namespace Cardiology
                 TemplatesUtils.fillBlankTemplate("blank_aid_template.doc", value, values);
             }
         }
+
     }
 }

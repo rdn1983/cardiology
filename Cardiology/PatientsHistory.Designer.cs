@@ -59,6 +59,14 @@
             this.journalWithoutKAGMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.konsiliumItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bloodItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.urineItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.holterItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ekgItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kagItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.egdsItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.specialistItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.uziItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.patientHistoryGrid)).BeginInit();
             this.gridContextMenu.SuspendLayout();
             this.mainMenu.SuspendLayout();
@@ -158,19 +166,19 @@
             this.editMenu,
             this.deleteMenu});
             this.gridContextMenu.Name = "gridContextMenu";
-            this.gridContextMenu.Size = new System.Drawing.Size(181, 70);
+            this.gridContextMenu.Size = new System.Drawing.Size(155, 48);
             // 
             // editMenu
             // 
             this.editMenu.Name = "editMenu";
-            this.editMenu.Size = new System.Drawing.Size(180, 22);
+            this.editMenu.Size = new System.Drawing.Size(154, 22);
             this.editMenu.Text = "Редактировать";
             this.editMenu.Click += new System.EventHandler(this.editMenu_Click);
             // 
             // deleteMenu
             // 
             this.deleteMenu.Name = "deleteMenu";
-            this.deleteMenu.Size = new System.Drawing.Size(180, 22);
+            this.deleteMenu.Size = new System.Drawing.Size(154, 22);
             this.deleteMenu.Text = "Удалить";
             // 
             // printTitlePage
@@ -238,10 +246,18 @@
             // 
             // analysisMenuItem
             // 
+            this.analysisMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bloodItem,
+            this.urineItem,
+            this.holterItem,
+            this.ekgItem,
+            this.kagItem,
+            this.egdsItem,
+            this.specialistItem,
+            this.uziItem});
             this.analysisMenuItem.Name = "analysisMenuItem";
             this.analysisMenuItem.Size = new System.Drawing.Size(261, 22);
             this.analysisMenuItem.Text = "Ввести анализы, Исследования";
-            this.analysisMenuItem.Click += new System.EventHandler(this.analysisMenuItem_Click);
             // 
             // bloodTrunsfusionMenuItem
             // 
@@ -302,6 +318,62 @@
             this.konsiliumItem.Text = "Консилиум";
             this.konsiliumItem.Click += new System.EventHandler(this.konsiliumItem_Click);
             // 
+            // bloodItem
+            // 
+            this.bloodItem.Name = "bloodItem";
+            this.bloodItem.Size = new System.Drawing.Size(223, 22);
+            this.bloodItem.Text = "Показатели крови";
+            this.bloodItem.Click += new System.EventHandler(this.bloodItem_Click);
+            // 
+            // urineItem
+            // 
+            this.urineItem.Name = "urineItem";
+            this.urineItem.Size = new System.Drawing.Size(223, 22);
+            this.urineItem.Text = "Анализ мочи";
+            this.urineItem.Click += new System.EventHandler(this.urineItem_Click);
+            // 
+            // holterItem
+            // 
+            this.holterItem.Name = "holterItem";
+            this.holterItem.Size = new System.Drawing.Size(223, 22);
+            this.holterItem.Text = "Холтер";
+            this.holterItem.Click += new System.EventHandler(this.holterItem_Click);
+            // 
+            // ekgItem
+            // 
+            this.ekgItem.Name = "ekgItem";
+            this.ekgItem.Size = new System.Drawing.Size(223, 22);
+            this.ekgItem.Text = "ЭКГ";
+            this.ekgItem.Click += new System.EventHandler(this.ekgItem_Click);
+            // 
+            // kagItem
+            // 
+            this.kagItem.Name = "kagItem";
+            this.kagItem.Size = new System.Drawing.Size(223, 22);
+            this.kagItem.Text = "КАГ";
+            this.kagItem.Click += new System.EventHandler(this.kagItem_Click);
+            // 
+            // egdsItem
+            // 
+            this.egdsItem.Name = "egdsItem";
+            this.egdsItem.Size = new System.Drawing.Size(223, 22);
+            this.egdsItem.Text = "ЭГДС";
+            this.egdsItem.Click += new System.EventHandler(this.egdsItem_Click);
+            // 
+            // specialistItem
+            // 
+            this.specialistItem.Name = "specialistItem";
+            this.specialistItem.Size = new System.Drawing.Size(223, 22);
+            this.specialistItem.Text = "Заключение специалистов";
+            this.specialistItem.Click += new System.EventHandler(this.specialistItem_Click);
+            // 
+            // uziItem
+            // 
+            this.uziItem.Name = "uziItem";
+            this.uziItem.Size = new System.Drawing.Size(223, 22);
+            this.uziItem.Text = "УЗИ";
+            this.uziItem.Click += new System.EventHandler(this.uziItem_Click);
+            // 
             // PatientsHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -356,5 +428,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn docExecutor;
         private System.Windows.Forms.DataGridViewTextBoxColumn operationDescription;
         private System.Windows.Forms.ToolStripMenuItem firstInspectationsItem;
+        private System.Windows.Forms.ToolStripMenuItem bloodItem;
+        private System.Windows.Forms.ToolStripMenuItem urineItem;
+        private System.Windows.Forms.ToolStripMenuItem holterItem;
+        private System.Windows.Forms.ToolStripMenuItem ekgItem;
+        private System.Windows.Forms.ToolStripMenuItem kagItem;
+        private System.Windows.Forms.ToolStripMenuItem egdsItem;
+        private System.Windows.Forms.ToolStripMenuItem specialistItem;
+        private System.Windows.Forms.ToolStripMenuItem uziItem;
     }
 }

@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdmissionPatient));
             this.lordOfTheCotBox = new System.Windows.Forms.GroupBox();
+            this.anesthetistBox = new System.Windows.Forms.GroupBox();
+            this.anesthetistComboBox = new System.Windows.Forms.ComboBox();
             this.directorCardioReanimPnl = new System.Windows.Forms.GroupBox();
             this.directorCardioReanimBox = new System.Windows.Forms.ComboBox();
             this.placeBox = new System.Windows.Forms.GroupBox();
@@ -82,9 +84,8 @@
             this.firstNameLbl = new System.Windows.Forms.Label();
             this.patientLastName = new System.Windows.Forms.TextBox();
             this.lastNameLbl = new System.Windows.Forms.Label();
-            this.anesthetistBox = new System.Windows.Forms.GroupBox();
-            this.anesthetistComboBox = new System.Windows.Forms.ComboBox();
             this.lordOfTheCotBox.SuspendLayout();
+            this.anesthetistBox.SuspendLayout();
             this.directorCardioReanimPnl.SuspendLayout();
             this.placeBox.SuspendLayout();
             this.kagInfoBox.SuspendLayout();
@@ -96,7 +97,6 @@
             this.patientBaseInfoBox.SuspendLayout();
             this.passportData.SuspendLayout();
             this.sexGroup.SuspendLayout();
-            this.anesthetistBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // lordOfTheCotBox
@@ -117,6 +117,27 @@
             this.lordOfTheCotBox.TabIndex = 3;
             this.lordOfTheCotBox.TabStop = false;
             this.lordOfTheCotBox.Text = "Дежурная бригада";
+            // 
+            // anesthetistBox
+            // 
+            this.anesthetistBox.Controls.Add(this.anesthetistComboBox);
+            this.anesthetistBox.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.anesthetistBox.Location = new System.Drawing.Point(8, 240);
+            this.anesthetistBox.Name = "anesthetistBox";
+            this.anesthetistBox.Size = new System.Drawing.Size(254, 48);
+            this.anesthetistBox.TabIndex = 12;
+            this.anesthetistBox.TabStop = false;
+            this.anesthetistBox.Text = "Дежурный анестезиолог";
+            // 
+            // anesthetistComboBox
+            // 
+            this.anesthetistComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.anesthetistComboBox.Font = new System.Drawing.Font("Tahoma", 8F);
+            this.anesthetistComboBox.FormattingEnabled = true;
+            this.anesthetistComboBox.Location = new System.Drawing.Point(6, 19);
+            this.anesthetistComboBox.Name = "anesthetistComboBox";
+            this.anesthetistComboBox.Size = new System.Drawing.Size(223, 21);
+            this.anesthetistComboBox.TabIndex = 0;
             // 
             // directorCardioReanimPnl
             // 
@@ -631,27 +652,6 @@
             this.lastNameLbl.TabIndex = 0;
             this.lastNameLbl.Text = "Ф.";
             // 
-            // anesthetistBox
-            // 
-            this.anesthetistBox.Controls.Add(this.anesthetistComboBox);
-            this.anesthetistBox.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
-            this.anesthetistBox.Location = new System.Drawing.Point(8, 240);
-            this.anesthetistBox.Name = "anesthetistBox";
-            this.anesthetistBox.Size = new System.Drawing.Size(254, 48);
-            this.anesthetistBox.TabIndex = 12;
-            this.anesthetistBox.TabStop = false;
-            this.anesthetistBox.Text = "Дежурный анестезиолог";
-            // 
-            // anesthetistComboBox
-            // 
-            this.anesthetistComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.anesthetistComboBox.Font = new System.Drawing.Font("Tahoma", 8F);
-            this.anesthetistComboBox.FormattingEnabled = true;
-            this.anesthetistComboBox.Location = new System.Drawing.Point(6, 19);
-            this.anesthetistComboBox.Name = "anesthetistComboBox";
-            this.anesthetistComboBox.Size = new System.Drawing.Size(223, 21);
-            this.anesthetistComboBox.TabIndex = 0;
-            // 
             // AdmissionPatient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -664,6 +664,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Поступление пациента";
             this.lordOfTheCotBox.ResumeLayout(false);
+            this.anesthetistBox.ResumeLayout(false);
             this.directorCardioReanimPnl.ResumeLayout(false);
             this.placeBox.ResumeLayout(false);
             this.placeBox.PerformLayout();
@@ -681,7 +682,6 @@
             this.passportData.PerformLayout();
             this.sexGroup.ResumeLayout(false);
             this.sexGroup.PerformLayout();
-            this.anesthetistBox.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

@@ -36,7 +36,7 @@ namespace Cardiology
 
             DdtPatient patient = new DdtPatient();
             patient.DssAddress = addressTxt.Text.Trim();
-            patient.DssInitials = patientLastName.Text.Trim() + patientFirstName.Text.Substring(0, 1) + "." + patientSecondName.Text.Substring(0, 1) + ".";
+            patient.DssInitials = patientLastName.Text.Trim() + " " + patientFirstName.Text.Substring(0, 1) + "." + " " + patientSecondName.Text.Substring(0, 1) + ".";
             patient.DssFullName = patientLastName.Text.Trim() + " " + patientFirstName.Text.Trim() + " " + patientSecondName.Text.Trim();
             patient.DssMedCode = medCodeTxt.Text.Trim();
             patient.DssPhone = phoneTxt.Text;
@@ -81,7 +81,9 @@ namespace Cardiology
         private bool getIsValid()
         {
             return CommonUtils.isNotBlank(patientLastName.Text) && CommonUtils.isNotBlank(patientFirstName.Text) &&
-                CommonUtils.isNotBlank(patientSecondName.Text) && dutyCardioBox.SelectedIndex >= 0  && cardioDocBox.SelectedIndex >= 0  && subDoctorBox.SelectedIndex >= 0;
+                CommonUtils.isNotBlank(patientSecondName.Text) && dutyCardioBox.SelectedIndex >= 0  &&
+                cardioDocBox.SelectedIndex >= 0 && subDoctorBox.SelectedIndex >= 0 &&
+                directorCardioReanimBox.SelectedIndex >= 0 && anesthetistComboBox.SelectedIndex >= 0;
         }
 
 

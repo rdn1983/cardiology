@@ -22,5 +22,10 @@ namespace Cardiology
             /*Analizi analiziForm = new Analizi();
             analiziForm.ShowDialog();*/
         }
+
+        private void Perelivanie_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -36,7 +36,7 @@ namespace Cardiology
                 return;
             }
 
-            string templatePath = Directory.GetCurrentDirectory() + "\\Templates\\veks_template.docx";
+            string templatePath = Directory.GetCurrentDirectory() + "\\Templates\\veks_template.doc";
 
             Dictionary<string, string> values = new Dictionary<string, string>();
             values.Add(@"{vein}", veinTxt.Text);

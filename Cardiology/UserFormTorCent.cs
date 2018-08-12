@@ -43,7 +43,7 @@ namespace Cardiology
                 return;
             }
 
-            string templatePath = Directory.GetCurrentDirectory() + "\\Templates\\torakacentes_template.docx";
+            string templatePath = Directory.GetCurrentDirectory() + "\\Templates\\torakacentes_template.doc";
 
             Dictionary<string, string> values = new Dictionary<string, string>();
             values.Add(@"{date}", dateCtrl.Text);

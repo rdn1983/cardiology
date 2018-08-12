@@ -38,7 +38,7 @@ namespace Cardiology
                 MessageBox.Show("Введены не все данные на форме!", "Предупреждение!", MessageBoxButtons.OK);
                 return;
             }
-            string templatePath = Directory.GetCurrentDirectory() + "\\Templates\\trombolisis_template.docx";
+            string templatePath = Directory.GetCurrentDirectory() + "\\Templates\\trombolisis_template.doc";
 
             Dictionary<string, string> values = new Dictionary<string, string>();
             if (patient!=null)

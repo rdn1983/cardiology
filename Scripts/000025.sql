@@ -22,7 +22,7 @@ CREATE OR REPLACE FUNCTION audit_ddt_consilium_creating_row () RETURNS TRIGGER A
 BEGIN
 INSERT INTO ddt_history 
 (dsid_hospitality_session, dsid_patient, dsid_doctor, dsid_operation_id, dss_operation_type)
- VALUES (NEW.dsid_hospitality_session, NEW.dsid_patient, '', NEW.r_object_id, TG_TABLE_NAME );
+ VALUES (NEW.dsid_hospitality_session, NEW.dsid_patient, '''', NEW.r_object_id, TG_TABLE_NAME );
  RETURN NEW;
 END;
 ' LANGUAGE  plpgsql;

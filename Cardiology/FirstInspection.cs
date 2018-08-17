@@ -309,27 +309,27 @@ namespace Cardiology
 
         private void chronicMA_Click(object sender, EventArgs e)
         {
-            accompanyingIllnessesTxt.Text = getDefaultValueForType(accompanyingIllnessesTxt.Name, MA_TYPE);
+            accompanyingIllnessesTxt.Text += getDefaultValueForType(accompanyingIllnessesTxt.Name, MA_TYPE) + " ";
         }
 
         private void chronicGB3_Click(object sender, EventArgs e)
         {
-            accompanyingIllnessesTxt.Text = getDefaultValueForType(accompanyingIllnessesTxt.Name, GB_TYPE);
+            accompanyingIllnessesTxt.Text += getDefaultValueForType(accompanyingIllnessesTxt.Name, GB_TYPE) + " ";
         }
 
         private void chronicDEP3_Click(object sender, EventArgs e)
         {
-            accompanyingIllnessesTxt.Text = getDefaultValueForType(accompanyingIllnessesTxt.Name, DEP_TYPE);
+            accompanyingIllnessesTxt.Text += getDefaultValueForType(accompanyingIllnessesTxt.Name, DEP_TYPE) + " ";
         }
 
         private void chronicSD_Click(object sender, EventArgs e)
         {
-            accompanyingIllnessesTxt.Text = getDefaultValueForType(accompanyingIllnessesTxt.Name, SD_TYPE);
+            accompanyingIllnessesTxt.Text += getDefaultValueForType(accompanyingIllnessesTxt.Name, SD_TYPE) + " ";
         }
 
         private void chronicHOBL_Click(object sender, EventArgs e)
         {
-            accompanyingIllnessesTxt.Text = getDefaultValueForType(accompanyingIllnessesTxt.Name, HOBL_TYPE);
+            accompanyingIllnessesTxt.Text += getDefaultValueForType(accompanyingIllnessesTxt.Name, HOBL_TYPE) + " ";
         }
 
         private void hasDrugsIntoxication_Click(object sender, EventArgs e)

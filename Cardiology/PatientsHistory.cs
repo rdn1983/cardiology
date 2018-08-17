@@ -1,8 +1,10 @@
 ﻿using Cardiology.Model;
 using Cardiology.Model.Dictionary;
+using Cardiology.Utils;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -186,6 +188,35 @@ namespace Cardiology
         {
             AnalysisContainer container = new AnalysisContainer(hospitalitySession, DdtUzi.TABLE_NAME, null);
             container.ShowDialog();
+        }
+
+
+        private void patientHistoryGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 0)
+            {
+                bool oldValue = (bool)patientHistoryGrid.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+                patientHistoryGrid.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = !oldValue;
+                patientHistoryGrid.Rows[e.RowIndex].DefaultCellStyle.BackColor = oldValue ? Color.Empty : Color.LightSteelBlue;
+            }
+        }
+
+        private void printBtn_Click(object sender, EventArgs e)
+        {
+            int rowCount = patientHistoryGrid.Rows.Count;
+            foreach (DataGridViewRow row in patientHistoryGrid.Rows)
+            {
+                bool checkd = (bool)row.Cells[0].Value;
+                if (checkd)
+                {
+                    ITemplateProcessor te = TemplateProcessorManager.getProcessorByObjectType((string)row.Cells[2].Value);
+                    if (te != null)
+                    {
+                        te.processTemplate(hospitalitySession.ObjectId, (string)row.Cells[3].Value, null);
+                    }
+                    Console.WriteLine();
+                }
+            }
         }
     }
 }

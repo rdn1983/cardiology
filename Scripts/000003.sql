@@ -17,15 +17,7 @@ INSERT INTO ddt_values (dss_name, dss_value) VALUES ('default.patient.secondname
 INSERT INTO ddt_values (dss_name, dss_value) VALUES ('default.patient.birthday', '08.01.1954');
 INSERT INTO ddt_values (dss_name, dss_value) VALUES ('default.patient.receipttime', '18.03.2018 10:00:00');
 
-INSERT INTO ddt_values (dss_name, dss_value) VALUES ('complaintsTxt.oksup', 'на общую слабость');
-INSERT INTO ddt_values (dss_name, dss_value) VALUES ('complaintsTxt.oksdown', 'на общую слабость');
-INSERT INTO ddt_values (dss_name, dss_value) VALUES ('complaintsTxt.kag', 'на общую слабость');
-INSERT INTO ddt_values (dss_name, dss_value) VALUES ('complaintsTxt.aorta', 'на общую слабость');
-INSERT INTO ddt_values (dss_name, dss_value) VALUES ('complaintsTxt.gb', 'на общую слабость');
-INSERT INTO ddt_values (dss_name, dss_value) VALUES ('complaintsTxt.piks', 'на одышку, на общую слабость');
-INSERT INTO ddt_values (dss_name, dss_value) VALUES ('complaintsTxt.pikvik', 'На момент осмотра беспокоит общая слабость, одышка при умерненной физической нагрузке, увеличение живота в объеме, отеки нижних конечностей');
-INSERT INTO ddt_values (dss_name, dss_value) VALUES ('complaintsTxt.dep', 'не предъявляет по тяжести состояния');
-INSERT INTO ddt_values (dss_name, dss_value) VALUES ('complaintsTxt.death', 'не предъявляет по тяжести состояния');
+
 
 INSERT INTO ddt_values (dss_name, dss_value) VALUES ('anamnesisMorbiTxt.oksup', 'Длительно страдает артериальной гипертензией. Регулярно артериальное давление не контролирует. Терапию не принимает.  Привычным считает АД 120/80 мм.рт.ст. Со слов больного, ранее ангинозные приступы никогда не беспокоили, толерантность к физической нагрузке была удовлетворительная.Сегодня стали беспокоить боли в области сердца давящего, жгучего характера с иррадиацией между лопаток, длительностью  15 минут. Вызвал бригаду СМП. Госпитализирован в ГКБ №67.');
 INSERT INTO ddt_values (dss_name, dss_value) VALUES ('anamnesisMorbiTxt.oksdown', 'Ранее повышения АД не отмечал , адаптирован 120/80 мм рт ст. . Перенесенный ОИМ отрицает. Препараты регулярно  не принимает.    Ухудшение состояния в течение нескольких дней, появились давящие боли за грудиной, сегодня боль в грудной клетке повторилась, обратился в СМП, доставлен в ГКБ 67, госпитализирован в  ОКР.');

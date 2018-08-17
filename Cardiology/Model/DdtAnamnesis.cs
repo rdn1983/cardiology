@@ -46,6 +46,14 @@ namespace Cardiology.Model
         private string dssNervousSystem;
         [TableAttribute("dss_diagnosis_justification")]
         private string dssDiagnosisJustifies;
+        [TableAttribute("dss_diagnosis")]
+        private string dssDiagnosis;
+        [TableAttribute("dss_operation_cause")]
+        private string dssOperationCause;
+        [TableAttribute("dss_template_name")]
+        private string dssTemplateName;
+        [TableAttribute("dsb_template")]
+        private bool dsbTemplate;
 
         public string ObjectId
         {
@@ -149,7 +157,9 @@ namespace Cardiology.Model
             set { this.dssDiagnosisJustifies = value; }
         }
 
-
-
+        public string DssTemplateName { get => dssTemplateName; set => dssTemplateName = value; }
+        public bool DsbTemplate { get => dsbTemplate; set => dsbTemplate = value; }
+        public string DssDiagnosis { get => dssDiagnosis; set => dssDiagnosis = value; }
+        public string DssOperationCause { get => dssOperationCause; set => dssOperationCause = value; }
     }
 }

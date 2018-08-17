@@ -40,6 +40,7 @@
             this.OKSDownBtn = new System.Windows.Forms.Button();
             this.OKSUpBtn = new System.Windows.Forms.Button();
             this.complaintsBox = new System.Windows.Forms.GroupBox();
+            this.operationCauseTxt = new System.Windows.Forms.RichTextBox();
             this.fixComplaintTeplaintBtn = new System.Windows.Forms.Button();
             this.complaintsTxt = new System.Windows.Forms.RichTextBox();
             this.anamnesisMorbiBox = new System.Windows.Forms.GroupBox();
@@ -197,6 +198,8 @@
             this.templatesLbl = new System.Windows.Forms.Label();
             this.tip = new System.Windows.Forms.ToolTip(this.components);
             this.addTip = new System.Windows.Forms.ToolTip(this.components);
+            this.docBox = new System.Windows.Forms.ComboBox();
+            this.docLbl = new System.Windows.Forms.Label();
             this.complaintsBox.SuspendLayout();
             this.anamnesisMorbiBox.SuspendLayout();
             this.anamnesisAllergyBox.SuspendLayout();
@@ -328,6 +331,7 @@
             // 
             // complaintsBox
             // 
+            this.complaintsBox.Controls.Add(this.operationCauseTxt);
             this.complaintsBox.Controls.Add(this.fixComplaintTeplaintBtn);
             this.complaintsBox.Controls.Add(this.complaintsTxt);
             this.complaintsBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -337,6 +341,15 @@
             this.complaintsBox.TabIndex = 10;
             this.complaintsBox.TabStop = false;
             this.complaintsBox.Text = "Жалобы";
+            // 
+            // operationCauseTxt
+            // 
+            this.operationCauseTxt.Location = new System.Drawing.Point(261, 20);
+            this.operationCauseTxt.Name = "operationCauseTxt";
+            this.operationCauseTxt.Size = new System.Drawing.Size(100, 77);
+            this.operationCauseTxt.TabIndex = 2;
+            this.operationCauseTxt.Text = "";
+            this.operationCauseTxt.Visible = false;
             // 
             // fixComplaintTeplaintBtn
             // 
@@ -652,6 +665,7 @@
             this.printBtn.TabIndex = 19;
             this.printBtn.Text = "MsWord";
             this.printBtn.UseVisualStyleBackColor = true;
+            this.printBtn.Click += new System.EventHandler(this.printBtn_Click);
             // 
             // nextBtn
             // 
@@ -1943,11 +1957,31 @@
             // 
             this.addTip.ToolTipTitle = "Добавить назначения";
             // 
+            // docBox
+            // 
+            this.docBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.docBox.FormattingEnabled = true;
+            this.docBox.Location = new System.Drawing.Point(382, 580);
+            this.docBox.Name = "docBox";
+            this.docBox.Size = new System.Drawing.Size(254, 21);
+            this.docBox.TabIndex = 24;
+            // 
+            // docLbl
+            // 
+            this.docLbl.AutoSize = true;
+            this.docLbl.Location = new System.Drawing.Point(266, 585);
+            this.docLbl.Name = "docLbl";
+            this.docLbl.Size = new System.Drawing.Size(112, 13);
+            this.docLbl.TabIndex = 25;
+            this.docLbl.Text = "Ответственный врач";
+            // 
             // FirstInspection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1165, 602);
+            this.Controls.Add(this.docLbl);
+            this.Controls.Add(this.docBox);
             this.Controls.Add(this.templatesLbl);
             this.Controls.Add(this.tabsContainer);
             this.Controls.Add(this.prevBtn);
@@ -2182,5 +2216,8 @@
         private System.Windows.Forms.ToolTip addTip;
         private System.Windows.Forms.Panel issuedCntr;
         private IssuedMedicineControl issuedMedicineControl1;
+        private System.Windows.Forms.ComboBox docBox;
+        private System.Windows.Forms.Label docLbl;
+        private System.Windows.Forms.RichTextBox operationCauseTxt;
     }
 }

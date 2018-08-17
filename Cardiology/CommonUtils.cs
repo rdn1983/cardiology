@@ -30,7 +30,7 @@ namespace Cardiology.Utils
             List<DdtDoctors> doctors = service.queryObjectsCollection<DdtDoctors>(query);
             cb.Items.AddRange(doctors.ToArray());
             cb.ValueMember = "ObjectId";
-            cb.DisplayMember = "DssFullName";
+            cb.DisplayMember = "DssInitials";
         }
 
         internal static void initCureComboboxValues(DataService service, ComboBox cb, string whereCnd)

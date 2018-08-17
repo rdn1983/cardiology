@@ -89,6 +89,7 @@
             this.toolStripMenuItem12 = new System.Windows.Forms.ToolStripMenuItem();
             this.justificationCostlyCureItem = new System.Windows.Forms.ToolStripMenuItem();
             this.skatItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.hospitalPatientsTbl)).BeginInit();
             this.main.SuspendLayout();
             this.SuspendLayout();
@@ -101,63 +102,63 @@
             // kateterItem
             // 
             this.kateterItem.Name = "kateterItem";
-            this.kateterItem.Size = new System.Drawing.Size(407, 26);
+            this.kateterItem.Size = new System.Drawing.Size(328, 22);
             this.kateterItem.Text = "Катетеризация яремной, подключичной вены";
             this.kateterItem.Click += new System.EventHandler(this.kateterItem_Click);
             // 
             // trombolisisItem
             // 
             this.trombolisisItem.Name = "trombolisisItem";
-            this.trombolisisItem.Size = new System.Drawing.Size(407, 26);
+            this.trombolisisItem.Size = new System.Drawing.Size(328, 22);
             this.trombolisisItem.Text = "Показания к тромболизису";
             this.trombolisisItem.Click += new System.EventHandler(this.trombolisisItem_Click);
             // 
             // veksItem
             // 
             this.veksItem.Name = "veksItem";
-            this.veksItem.Size = new System.Drawing.Size(407, 26);
+            this.veksItem.Size = new System.Drawing.Size(328, 22);
             this.veksItem.Text = "Протокол показаний постановки ВЭКС";
             this.veksItem.Click += new System.EventHandler(this.veksItem_Click);
             // 
             // toracatezosItem
             // 
             this.toracatezosItem.Name = "toracatezosItem";
-            this.toracatezosItem.Size = new System.Drawing.Size(407, 26);
+            this.toracatezosItem.Size = new System.Drawing.Size(328, 22);
             this.toracatezosItem.Text = "Протокол показаний торакацентоза";
             this.toracatezosItem.Click += new System.EventHandler(this.toracatezosItem_Click);
             // 
             // eitItem
             // 
             this.eitItem.Name = "eitItem";
-            this.eitItem.Size = new System.Drawing.Size(407, 26);
+            this.eitItem.Size = new System.Drawing.Size(328, 22);
             this.eitItem.Text = "Протокол показаний ЭИТ";
             this.eitItem.Click += new System.EventHandler(this.eitItem_Click);
             // 
             // intubationItem
             // 
             this.intubationItem.Name = "intubationItem";
-            this.intubationItem.Size = new System.Drawing.Size(407, 26);
+            this.intubationItem.Size = new System.Drawing.Size(328, 22);
             this.intubationItem.Text = "Интубация";
             this.intubationItem.Click += new System.EventHandler(this.intubationItem_Click);
             // 
             // ekstubationItem
             // 
             this.ekstubationItem.Name = "ekstubationItem";
-            this.ekstubationItem.Size = new System.Drawing.Size(407, 26);
+            this.ekstubationItem.Size = new System.Drawing.Size(328, 22);
             this.ekstubationItem.Text = "Экстубация";
             this.ekstubationItem.Click += new System.EventHandler(this.ekstubationItem_Click);
             // 
             // reanimItem
             // 
             this.reanimItem.Name = "reanimItem";
-            this.reanimItem.Size = new System.Drawing.Size(407, 26);
+            this.reanimItem.Size = new System.Drawing.Size(328, 22);
             this.reanimItem.Text = "Реанимационные предприятия";
             this.reanimItem.Click += new System.EventHandler(this.reanimItem_Click);
             // 
             // deadItem
             // 
             this.deadItem.Name = "deadItem";
-            this.deadItem.Size = new System.Drawing.Size(407, 26);
+            this.deadItem.Size = new System.Drawing.Size(328, 22);
             this.deadItem.Text = "Констатация смерти";
             this.deadItem.Click += new System.EventHandler(this.deadItem_Click);
             // 
@@ -192,8 +193,7 @@
             this.patient_in_date,
             this.doctor_who,
             this.patient_diagnosis});
-            this.hospitalPatientsTbl.Location = new System.Drawing.Point(16, 33);
-            this.hospitalPatientsTbl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.hospitalPatientsTbl.Location = new System.Drawing.Point(12, 27);
             this.hospitalPatientsTbl.Name = "hospitalPatientsTbl";
             this.hospitalPatientsTbl.ReadOnly = true;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -205,7 +205,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.hospitalPatientsTbl.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.hospitalPatientsTbl.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.hospitalPatientsTbl.Size = new System.Drawing.Size(1111, 490);
+            this.hospitalPatientsTbl.Size = new System.Drawing.Size(833, 348);
             this.hospitalPatientsTbl.TabIndex = 2;
             // 
             // hospitalSession
@@ -274,8 +274,7 @@
             this.reportsMenu});
             this.main.Location = new System.Drawing.Point(0, 0);
             this.main.Name = "main";
-            this.main.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.main.Size = new System.Drawing.Size(1143, 28);
+            this.main.Size = new System.Drawing.Size(857, 24);
             this.main.TabIndex = 3;
             this.main.Text = "menuStrip1";
             // 
@@ -286,27 +285,27 @@
             this.showMedHistory,
             this.releasePatient});
             this.actiosMenu.Name = "actiosMenu";
-            this.actiosMenu.Size = new System.Drawing.Size(86, 24);
+            this.actiosMenu.Size = new System.Drawing.Size(70, 20);
             this.actiosMenu.Text = "Действия";
             // 
             // admissionPatient
             // 
             this.admissionPatient.Name = "admissionPatient";
-            this.admissionPatient.Size = new System.Drawing.Size(270, 26);
+            this.admissionPatient.Size = new System.Drawing.Size(222, 22);
             this.admissionPatient.Text = "Поступление пациента";
             this.admissionPatient.Click += new System.EventHandler(this.patientAdmission_Click);
             // 
             // showMedHistory
             // 
             this.showMedHistory.Name = "showMedHistory";
-            this.showMedHistory.Size = new System.Drawing.Size(270, 26);
+            this.showMedHistory.Size = new System.Drawing.Size(222, 22);
             this.showMedHistory.Text = "Открыть историю болезни";
             this.showMedHistory.Click += new System.EventHandler(this.patientHistoryCardItem_Click);
             // 
             // releasePatient
             // 
             this.releasePatient.Name = "releasePatient";
-            this.releasePatient.Size = new System.Drawing.Size(270, 26);
+            this.releasePatient.Size = new System.Drawing.Size(222, 22);
             this.releasePatient.Text = "Выписать пациента";
             this.releasePatient.Click += new System.EventHandler(this.releasePatient_Click);
             // 
@@ -317,7 +316,7 @@
             this.ambulanceLettersItem,
             this.blanksItem});
             this.reportsMenu.Name = "reportsMenu";
-            this.reportsMenu.Size = new System.Drawing.Size(122, 24);
+            this.reportsMenu.Size = new System.Drawing.Size(99, 20);
             this.reportsMenu.Text = "Документация";
             // 
             // manipulationProtocoli
@@ -333,13 +332,13 @@
             this.reanimItem,
             this.deadItem});
             this.manipulationProtocoli.Name = "manipulationProtocoli";
-            this.manipulationProtocoli.Size = new System.Drawing.Size(263, 26);
+            this.manipulationProtocoli.Size = new System.Drawing.Size(217, 22);
             this.manipulationProtocoli.Text = "Протоколы манипуляций";
             // 
             // ambulanceLettersItem
             // 
             this.ambulanceLettersItem.Name = "ambulanceLettersItem";
-            this.ambulanceLettersItem.Size = new System.Drawing.Size(263, 26);
+            this.ambulanceLettersItem.Size = new System.Drawing.Size(217, 22);
             this.ambulanceLettersItem.Text = "Письма для скорой";
             this.ambulanceLettersItem.Click += new System.EventHandler(this.ambulanceLettersItem_Click);
             // 
@@ -355,13 +354,13 @@
             this.toolStripMenuItem9,
             this.toolStripMenuItem12});
             this.blanksItem.Name = "blanksItem";
-            this.blanksItem.Size = new System.Drawing.Size(263, 26);
+            this.blanksItem.Size = new System.Drawing.Size(217, 22);
             this.blanksItem.Text = "Бланки";
             // 
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(268, 26);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(221, 22);
             this.toolStripMenuItem5.Text = "ЭХО";
             // 
             // toolStripMenuItem6
@@ -371,26 +370,26 @@
             this.manipulationRefusalItem,
             this.toolStripMenuItem1});
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(268, 26);
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(221, 22);
             this.toolStripMenuItem6.Text = "Отказ";
             // 
             // refusalTreatmentItem
             // 
             this.refusalTreatmentItem.Name = "refusalTreatmentItem";
-            this.refusalTreatmentItem.Size = new System.Drawing.Size(259, 26);
+            this.refusalTreatmentItem.Size = new System.Drawing.Size(212, 22);
             this.refusalTreatmentItem.Text = "Отказ от стац. лечения";
             this.refusalTreatmentItem.Click += new System.EventHandler(this.refusalTreatmentItem_Click);
             // 
             // manipulationRefusalItem
             // 
             this.manipulationRefusalItem.Name = "manipulationRefusalItem";
-            this.manipulationRefusalItem.Size = new System.Drawing.Size(259, 26);
+            this.manipulationRefusalItem.Size = new System.Drawing.Size(212, 22);
             this.manipulationRefusalItem.Text = "Отказ от манипуляции";
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(259, 26);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(212, 22);
             this.toolStripMenuItem1.Text = "Отказ от госпитализации";
             // 
             // toolStripMenuItem4
@@ -405,58 +404,58 @@
             this.transferItem,
             this.toolStripMenuItem14});
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(268, 26);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(221, 22);
             this.toolStripMenuItem4.Text = "Согласие";
             // 
             // commonConsentItem
             // 
             this.commonConsentItem.Name = "commonConsentItem";
-            this.commonConsentItem.Size = new System.Drawing.Size(389, 26);
+            this.commonConsentItem.Size = new System.Drawing.Size(316, 22);
             this.commonConsentItem.Text = "Согласие общее";
             this.commonConsentItem.Click += new System.EventHandler(this.commonConsentItem_Click);
             // 
             // manipulationAggreementItem
             // 
             this.manipulationAggreementItem.Name = "manipulationAggreementItem";
-            this.manipulationAggreementItem.Size = new System.Drawing.Size(389, 26);
+            this.manipulationAggreementItem.Size = new System.Drawing.Size(316, 22);
             this.manipulationAggreementItem.Text = "Согласие на манипуляцию";
             // 
             // aidAgreementItem
             // 
             this.aidAgreementItem.Name = "aidAgreementItem";
-            this.aidAgreementItem.Size = new System.Drawing.Size(389, 26);
+            this.aidAgreementItem.Size = new System.Drawing.Size(316, 22);
             this.aidAgreementItem.Text = "Согласие на ВИЧ";
             // 
             // kagItem
             // 
             this.kagItem.Name = "kagItem";
-            this.kagItem.Size = new System.Drawing.Size(389, 26);
+            this.kagItem.Size = new System.Drawing.Size(316, 22);
             this.kagItem.Text = "Согласие на КАГ";
             // 
             // stentItem
             // 
             this.stentItem.Name = "stentItem";
-            this.stentItem.Size = new System.Drawing.Size(389, 26);
+            this.stentItem.Size = new System.Drawing.Size(316, 22);
             this.stentItem.Text = "Согласие на СТЕНТ";
             // 
             // aidItem
             // 
             this.aidItem.Name = "aidItem";
-            this.aidItem.Size = new System.Drawing.Size(389, 26);
+            this.aidItem.Size = new System.Drawing.Size(316, 22);
             this.aidItem.Text = "Мед вмешательство без согласия больного";
             this.aidItem.Click += new System.EventHandler(this.aidItem_Click);
             // 
             // transferItem
             // 
             this.transferItem.Name = "transferItem";
-            this.transferItem.Size = new System.Drawing.Size(389, 26);
+            this.transferItem.Size = new System.Drawing.Size(316, 22);
             this.transferItem.Text = "Перевод в другое отделение и операция";
             this.transferItem.Click += new System.EventHandler(this.transferItem_Click);
             // 
             // toolStripMenuItem14
             // 
             this.toolStripMenuItem14.Name = "toolStripMenuItem14";
-            this.toolStripMenuItem14.Size = new System.Drawing.Size(389, 26);
+            this.toolStripMenuItem14.Size = new System.Drawing.Size(316, 22);
             this.toolStripMenuItem14.Text = "Анестезиолог";
             // 
             // toolStripMenuItem7
@@ -465,25 +464,25 @@
             this.toolStripMenuItem2,
             this.toolStripMenuItem11});
             this.toolStripMenuItem7.Name = "toolStripMenuItem7";
-            this.toolStripMenuItem7.Size = new System.Drawing.Size(268, 26);
+            this.toolStripMenuItem7.Size = new System.Drawing.Size(221, 22);
             this.toolStripMenuItem7.Text = "Умершие";
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(226, 26);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(186, 22);
             this.toolStripMenuItem2.Text = "Отказ от вскрытия";
             // 
             // toolStripMenuItem11
             // 
             this.toolStripMenuItem11.Name = "toolStripMenuItem11";
-            this.toolStripMenuItem11.Size = new System.Drawing.Size(226, 26);
+            this.toolStripMenuItem11.Size = new System.Drawing.Size(186, 22);
             this.toolStripMenuItem11.Text = "Констатация смерти";
             // 
             // kekItem
             // 
             this.kekItem.Name = "kekItem";
-            this.kekItem.Size = new System.Drawing.Size(268, 26);
+            this.kekItem.Size = new System.Drawing.Size(221, 22);
             this.kekItem.Text = "КЭК";
             this.kekItem.Click += new System.EventHandler(this.kekItem_Click);
             // 
@@ -493,20 +492,20 @@
             this.narkoItem,
             this.alcoExamItem});
             this.toolStripMenuItem8.Name = "toolStripMenuItem8";
-            this.toolStripMenuItem8.Size = new System.Drawing.Size(268, 26);
+            this.toolStripMenuItem8.Size = new System.Drawing.Size(221, 22);
             this.toolStripMenuItem8.Text = "Алкоголь";
             // 
             // narkoItem
             // 
             this.narkoItem.Name = "narkoItem";
-            this.narkoItem.Size = new System.Drawing.Size(277, 26);
+            this.narkoItem.Size = new System.Drawing.Size(226, 22);
             this.narkoItem.Text = "Направление НАРКО кровь";
             this.narkoItem.Click += new System.EventHandler(this.narkoItem_Click);
             // 
             // alcoExamItem
             // 
             this.alcoExamItem.Name = "alcoExamItem";
-            this.alcoExamItem.Size = new System.Drawing.Size(277, 26);
+            this.alcoExamItem.Size = new System.Drawing.Size(226, 22);
             this.alcoExamItem.Text = "Алко освидетельствование";
             this.alcoExamItem.Click += new System.EventHandler(this.alcoExamItem_Click);
             // 
@@ -517,27 +516,27 @@
             this.registerTrunsfusionItem,
             this.trunsfusionClaimItem});
             this.toolStripMenuItem9.Name = "toolStripMenuItem9";
-            this.toolStripMenuItem9.Size = new System.Drawing.Size(268, 26);
+            this.toolStripMenuItem9.Size = new System.Drawing.Size(221, 22);
             this.toolStripMenuItem9.Text = "Переливание";
             // 
             // trunsfusionApprovalItem
             // 
             this.trunsfusionApprovalItem.Name = "trunsfusionApprovalItem";
-            this.trunsfusionApprovalItem.Size = new System.Drawing.Size(266, 26);
+            this.trunsfusionApprovalItem.Size = new System.Drawing.Size(217, 22);
             this.trunsfusionApprovalItem.Text = "Согласие на переливание";
             this.trunsfusionApprovalItem.Click += new System.EventHandler(this.trunsfusionApprovalItem_Click);
             // 
             // registerTrunsfusionItem
             // 
             this.registerTrunsfusionItem.Name = "registerTrunsfusionItem";
-            this.registerTrunsfusionItem.Size = new System.Drawing.Size(266, 26);
+            this.registerTrunsfusionItem.Size = new System.Drawing.Size(217, 22);
             this.registerTrunsfusionItem.Text = "Решение";
             this.registerTrunsfusionItem.Click += new System.EventHandler(this.toolStripMenuItem18_Click);
             // 
             // trunsfusionClaimItem
             // 
             this.trunsfusionClaimItem.Name = "trunsfusionClaimItem";
-            this.trunsfusionClaimItem.Size = new System.Drawing.Size(266, 26);
+            this.trunsfusionClaimItem.Size = new System.Drawing.Size(217, 22);
             this.trunsfusionClaimItem.Text = "Заявка";
             this.trunsfusionClaimItem.Click += new System.EventHandler(this.trunsfusionClaimItem_Click);
             // 
@@ -547,33 +546,43 @@
             this.justificationCostlyCureItem,
             this.skatItem});
             this.toolStripMenuItem12.Name = "toolStripMenuItem12";
-            this.toolStripMenuItem12.Size = new System.Drawing.Size(268, 26);
+            this.toolStripMenuItem12.Size = new System.Drawing.Size(221, 22);
             this.toolStripMenuItem12.Text = "Дорогостоящие лекарства";
             // 
             // justificationCostlyCureItem
             // 
             this.justificationCostlyCureItem.Name = "justificationCostlyCureItem";
-            this.justificationCostlyCureItem.Size = new System.Drawing.Size(402, 26);
+            this.justificationCostlyCureItem.Size = new System.Drawing.Size(323, 22);
             this.justificationCostlyCureItem.Text = "Обоснование назначения дорогостоящих АБ";
             // 
             // skatItem
             // 
             this.skatItem.Name = "skatItem";
-            this.skatItem.Size = new System.Drawing.Size(402, 26);
+            this.skatItem.Size = new System.Drawing.Size(323, 22);
             this.skatItem.Text = "СКАТ";
             this.skatItem.Click += new System.EventHandler(this.skatItem_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(606, 399);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // PatientList
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1143, 554);
+            this.ClientSize = new System.Drawing.Size(857, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.main);
             this.Controls.Add(this.hospitalPatientsTbl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.main;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "PatientList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Hospital";
@@ -646,5 +655,6 @@
         private System.Windows.Forms.ToolStripMenuItem registerTrunsfusionItem;
         private System.Windows.Forms.ToolStripMenuItem trunsfusionClaimItem;
         private System.Windows.Forms.ToolStripMenuItem skatItem;
+        private System.Windows.Forms.Button button1;
     }
 }

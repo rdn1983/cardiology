@@ -42,7 +42,7 @@ namespace Cardiology
             values.Add(@"{vein}", veinTxt.Text);
             values.Add(@"{body}", bodyArea.Text);
             values.Add(@"{doctor.who}", doctorsBox.Text);
-            TemplatesUtils.fillTemplate(templatePath, values);
+            TemplatesUtils.fillTemplateAndShow(templatePath, values);
         }
 
         private bool getIsNotValid()

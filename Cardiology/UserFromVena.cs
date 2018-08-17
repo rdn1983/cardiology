@@ -53,7 +53,7 @@ namespace Cardiology
             values.Add(@"{try_num}", tryNumTxt.Text);
             values.Add(@"{column}", columnTxt.Text);
             values.Add(@"{doctor.who}", doctorsBox.Text);
-            TemplatesUtils.fillTemplate(templatePath, values);
+            TemplatesUtils.fillTemplateAndShow(templatePath, values);
         }
     }
 }

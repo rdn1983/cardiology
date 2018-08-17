@@ -47,7 +47,7 @@ namespace Cardiology
             Dictionary<string, string> values = new Dictionary<string, string>();
             values.Add(@"{body}", bodyArea.Text);
             values.Add(@"{doctor.who}", doctorsBox.Text);
-            TemplatesUtils.fillTemplate(templatePath, values);
+            TemplatesUtils.fillTemplateAndShow(templatePath, values);
         }
     }
 }

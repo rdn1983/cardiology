@@ -3,6 +3,7 @@ using System;
 using System.Windows.Forms;
 using Cardiology.Utils;
 using System.Collections.Generic;
+using System.Drawing;
 
 namespace Cardiology
 {
@@ -47,10 +48,20 @@ namespace Cardiology
             InitializeComponent();
 
             DataService service = new DataService();
-            initializeAnamnesis(service);
+            anamnesis = service.queryObject<DdtAnamnesis>(@"select * from ddt_anamnesis WHERE dsid_hospitality_session='" + hospitalSession.ObjectId + "'");
+            initializeAnamnesis(anamnesis);
             initIssuedMedicine(service);
             initDiagnosis();
             initAdmissionAnalysis(service);
+            initDocBox(service);
+        }
+
+        private void initDocBox(DataService service)
+        {
+            CommonUtils.initDoctorsComboboxValues(service, docBox, null);
+
+            DdtDoctors doc = service.queryObjectById<DdtDoctors>(DdtDoctors.TABLE_NAME, anamnesis == null ? hospitalSession.DsidCuringDoctor : anamnesis.DsidDoctor);
+            docBox.SelectedIndex = docBox.FindString(doc.DssInitials);
         }
 
         private void initAdmissionAnalysis(DataService service)
@@ -82,26 +93,30 @@ namespace Cardiology
             diagnosisTxt.Text = hospitalSession.DssDiagnosis;
         }
 
-        private void initializeAnamnesis(DataService service)
+        private void initializeAnamnesis(DdtAnamnesis anamnesis)
         {
-            anamnesis = service.queryObject<DdtAnamnesis>(@"select * from ddt_anamnesis WHERE dsid_hospitality_session='" + hospitalSession.ObjectId + "'");
             if (anamnesis != null)
             {
-                digestiveSystemTxt.Text = anamnesis.DssDigestiveSystem;
-                accompanyingIllnessesTxt.Text = anamnesis.DssAccompayingIll;
-                anamnesisAllergyTxt.Text = anamnesis.DssAnamnesisAllergy;
-                anamnesisEpidTxt.Text = anamnesis.DssAnamnesisEpid;
-                anamnesisMorbiTxt.Text = anamnesis.DssAnamnesisMorbi;
-                anamnesisVitaeTxt.Text = anamnesis.DssAnamnesisVitae;
-                cardiovascularSystemTxt.Text = anamnesis.DssCardioVascular;
-                complaintsTxt.Text = anamnesis.DssComplaints;
+                if (!anamnesis.DsbTemplate)
+                {
+                    digestiveSystemTxt.Text = anamnesis.DssDigestiveSystem;
+                    accompanyingIllnessesTxt.Text = anamnesis.DssAccompayingIll;
+                    anamnesisVitaeTxt.Text = anamnesis.DssAnamnesisVitae;
+                    pastSurgeriesTxt.Text = anamnesis.DssPastSurgeries;
+                    urinarySystemTxt.Text = anamnesis.DssUrinarySystem;
+                }
                 justificationTxt.Text = anamnesis.DssDiagnosisJustifies;
+                anamnesisMorbiTxt.Text = anamnesis.DssAnamnesisMorbi;
+                complaintsTxt.Text = anamnesis.DssComplaints;
                 drugsTxt.Text = anamnesis.DssDrugs;
-                nervousSystemTxt.Text = anamnesis.DssNervousSystem;
-                pastSurgeriesTxt.Text = anamnesis.DssPastSurgeries;
-                respiratorySystemTxt.Text = anamnesis.DssRespiratorySystem;
                 stPresensTxt.Text = anamnesis.DssStPresens;
-                urinarySystemTxt.Text = anamnesis.DssUrinarySystem;
+                cardiovascularSystemTxt.Text = anamnesis.DssCardioVascular;
+                respiratorySystemTxt.Text = anamnesis.DssRespiratorySystem;
+                nervousSystemTxt.Text = anamnesis.DssNervousSystem;
+                anamnesisEpidTxt.Text = anamnesis.DssAnamnesisEpid;
+                diagnosisTxt.Text = anamnesis.DssDiagnosis;
+                anamnesisAllergyTxt.Text = anamnesis.DssAnamnesisAllergy;
+                operationCauseTxt.Text = anamnesis.DssOperationCause;
             }
         }
 
@@ -111,7 +126,7 @@ namespace Cardiology
                 hospitalSession.ObjectId + "' AND dss_parent_type='ddt_anamnesis'");
             if (medList != null)
             {
-                issuedMedicineControl1.Init(service, medList); 
+                issuedMedicineControl1.Init(service, medList);
             }
         }
 
@@ -172,70 +187,104 @@ namespace Cardiology
 
         private void OKSUpBtn_Click(object sender, EventArgs e)
         {
-            fillControlsFromTemplate(OKSUP_TYPE);
-            updatemedicineFromTemplate(OKSUP_TYPE + ".medicine");
+            clearSelection();
+            DataService service = new DataService();
+            DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + OKSUP_TYPE + "'");
+            initializeAnamnesis(template);
+            updatemedicineFromTemplate("oks.medicine");
+            OKSUpBtn.BackColor = Color.LightSkyBlue;
         }
 
         private void OKSDownBtn_Click(object sender, EventArgs e)
         {
-            fillControlsFromTemplate(OKSDOWN_TYPE);
-            updatemedicineFromTemplate(OKSDOWN_TYPE + ".medicine");
+            clearSelection();
+            DataService service = new DataService();
+            DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + OKSDOWN_TYPE + "'");
+            initializeAnamnesis(template);
+            updatemedicineFromTemplate("okslongs.medicine");
+            OKSDownBtn.BackColor = Color.LightSkyBlue;
         }
 
         private void KAGBtn_Click(object sender, EventArgs e)
         {
-            fillControlsFromTemplate(KAG_TYPE);
+            clearSelection();
+            DataService service = new DataService();
+            DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + KAG_TYPE + "'");
+            initializeAnamnesis(template);
             updatemedicineFromTemplate(KAG_TYPE + ".medicine");
+            KAGBtn.BackColor = Color.LightSkyBlue;
         }
 
         private void aorticDissectionBtn_Click(object sender, EventArgs e)
         {
-            fillControlsFromTemplate(AORTA_TYPE);
+            clearSelection();
+            DataService service = new DataService();
+            DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + AORTA_TYPE + "'");
+            initializeAnamnesis(template);
             updatemedicineFromTemplate(AORTA_TYPE + ".medicine");
+            aorticDissectionBtn.BackColor = Color.LightSkyBlue;
         }
 
         private void GBBtn_Click(object sender, EventArgs e)
         {
-            fillControlsFromTemplate(GB_TYPE);
+            clearSelection();
+            DataService service = new DataService();
+            DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + GB_TYPE + "'");
+            initializeAnamnesis(template);
             updatemedicineFromTemplate(GB_TYPE + ".medicine");
+            GBBtn.BackColor = Color.LightSkyBlue;
         }
 
         private void PIKSBtn_Click(object sender, EventArgs e)
         {
-            fillControlsFromTemplate(PIKS_TYPE);
-            updatemedicineFromTemplate(PIKS_TYPE + ".medicine");
+            clearSelection();
+            DataService service = new DataService();
+            DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + PIKS_TYPE + "'");
+            initializeAnamnesis(template);
+            updatemedicineFromTemplate("nk.medicine");
+            PIKSBtn.BackColor = Color.LightSkyBlue;
         }
 
         private void PIKVIKBtn_Click(object sender, EventArgs e)
         {
-            fillControlsFromTemplate(PIKVIK_TYPE);
-            updatemedicineFromTemplate(PIKVIK_TYPE + ".medicine");
+            clearSelection();
+            DataService service = new DataService();
+            DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + PIKVIK_TYPE + "'");
+            initializeAnamnesis(template);
+            updatemedicineFromTemplate("hobl.medicine");
+            PIKVIKBtn.BackColor = Color.LightSkyBlue;
         }
 
         private void DEPBtn_Click(object sender, EventArgs e)
         {
-            fillControlsFromTemplate(DEP_TYPE);
+            clearSelection();
+            DataService service = new DataService();
+            DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + DEP_TYPE + "'");
+            initializeAnamnesis(template);
             updatemedicineFromTemplate(DEP_TYPE + ".medicine");
+            DEPBtn.BackColor = Color.LightSkyBlue;
         }
 
         private void deathBtn_Click(object sender, EventArgs e)
         {
-            fillControlsFromTemplate(DEATH_TYPE);
-            updatemedicineFromTemplate(DEATH_TYPE + ".medicine");
+            clearSelection();
+            DataService service = new DataService();
+            DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + DEATH_TYPE + "'");
+            initializeAnamnesis(template); updatemedicineFromTemplate(DEATH_TYPE + ".medicine");
+            deathBtn.BackColor = Color.LightSkyBlue;
         }
 
-        private void fillControlsFromTemplate(string type)
+        private void clearSelection()
         {
-            diagnosisTxt.Text = getDefaultValueForType(diagnosisTxt.Name, type);
-            nervousSystemTxt.Text = getDefaultValueForType(nervousSystemTxt.Name, type);
-            cardiovascularSystemTxt.Text = getDefaultValueForType(cardiovascularSystemTxt.Name, type);
-            respiratorySystemTxt.Text = getDefaultValueForType(respiratorySystemTxt.Name, type);
-            stPresensTxt.Text = getDefaultValueForType(stPresensTxt.Name, type);
-            drugsTxt.Text = getDefaultValueForType(drugsTxt.Name, type);
-            anamnesisMorbiTxt.Text = getDefaultValueForType(anamnesisMorbiTxt.Name, type);
-            complaintsTxt.Text = getDefaultValueForType(complaintsTxt.Name, type);
-            anamnesisAllergyTxt.Text = getDefaultValueForType(anamnesisAllergyTxt.Name, type);
-            anamnesisEpidTxt.Text = getDefaultValueForType(anamnesisEpidTxt.Name, type);
+            OKSUpBtn.BackColor = Color.Empty;
+            OKSDownBtn.BackColor = Color.Empty;
+            KAGBtn.BackColor = Color.Empty;
+            deathBtn.BackColor = Color.Empty;
+            DEPBtn.BackColor = Color.Empty;
+            PIKVIKBtn.BackColor = Color.Empty;
+            PIKSBtn.BackColor = Color.Empty;
+            GBBtn.BackColor = Color.Empty;
+            aorticDissectionBtn.BackColor = Color.Empty;
         }
 
         private void updatemedicineFromTemplate(string template)
@@ -412,9 +461,10 @@ namespace Cardiology
             {
                 anamnesis = new DdtAnamnesis();
                 anamnesis.DsidHospitalitySession = hospitalSession.ObjectId;
-                anamnesis.DsidDoctor = hospitalSession.DsidCuringDoctor;
                 anamnesis.DsidPatient = hospitalSession.DsidPatient;
             }
+            DdtDoctors doc = (DdtDoctors)docBox.SelectedItem;
+            anamnesis.DsidDoctor = doc.ObjectId;
 
             anamnesis.DssAccompayingIll = accompanyingIllnessesTxt.Text;
             anamnesis.DssAnamnesisAllergy = anamnesisAllergyTxt.Text;
@@ -431,6 +481,8 @@ namespace Cardiology
             anamnesis.DssRespiratorySystem = respiratorySystemTxt.Text;
             anamnesis.DssStPresens = stPresensTxt.Text;
             anamnesis.DssUrinarySystem = urinarySystemTxt.Text;
+            anamnesis.DssDiagnosis = diagnosisTxt.Text;
+            anamnesis.DssOperationCause = operationCauseTxt.Text;
 
             string id = updateObject<DdtAnamnesis>(service, anamnesis, DdtAnamnesis.TABLE_NAME, anamnesis.ObjectId);
             anamnesis.ObjectId = id;
@@ -457,7 +509,7 @@ namespace Cardiology
                 foreach (DdtIssuedMedicine med in meds)
                 {
                     med.DsidMedList = medList.ObjectId;
-                    
+
                     service.updateOrCreateIfNeedObject<DdtIssuedMedicine>(med, DdtIssuedMedicine.TABLE_NAME, med.RObjectId);
                 }
             }
@@ -686,6 +738,17 @@ namespace Cardiology
         {
             AlcoIntoxication form = new AlcoIntoxication(hospitalSession);
             form.ShowDialog();
+        }
+
+        private void printBtn_Click(object sender, EventArgs e)
+        {
+            DataService service = new DataService();
+            saveAnamnesis(service);
+            ITemplateProcessor te = TemplateProcessorManager.getProcessorByObjectType(DdtAnamnesis.TABLE_NAME);
+            if (te != null)
+            {
+                te.processTemplate(hospitalSession.ObjectId, anamnesis.ObjectId, null);
+            }
         }
     }
 }

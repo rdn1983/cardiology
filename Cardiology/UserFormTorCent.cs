@@ -54,7 +54,7 @@ namespace Cardiology
             values.Add(@"{arg3}", arg3.Text);
             values.Add(@"{arg4}", arg4.Text);
             values.Add(@"{doctor.who}", doctorsBox.Text);
-            TemplatesUtils.fillTemplate(templatePath, values);
+            TemplatesUtils.fillTemplateAndShow(templatePath, values);
         }
     }
     

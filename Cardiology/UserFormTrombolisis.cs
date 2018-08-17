@@ -50,7 +50,7 @@ namespace Cardiology
             values.Add(@"{date}", dateCtrl.Text);
             values.Add(@"{time}", timeCtrl.Text);
             values.Add(@"{doctor.who}", doctorOkrCB.Text);
-            TemplatesUtils.fillTemplate(templatePath, values);
+            TemplatesUtils.fillTemplateAndShow(templatePath, values);
         }
     }
 }

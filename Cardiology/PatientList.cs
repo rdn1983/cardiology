@@ -387,6 +387,13 @@ namespace Cardiology
                 Dictionary<string, string> values = new Dictionary<string, string>();
                 TemplatesUtils.fillBlankTemplate("blank_aid_template.doc", value, values);
             }
-        }       
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string[] templates = new string[] { Directory.GetCurrentDirectory() + "\\Templates\\blank_aid_template.doc",
+                Directory.GetCurrentDirectory() + "\\Templates\\blank_transfer_template.doc"};
+            TemplatesUtils.mergeFiles(templates, Path.GetTempFileName(), false);
+        }
     }
 }

@@ -50,6 +50,14 @@
             this.actionsManu = new System.Windows.Forms.ToolStripMenuItem();
             this.firstInspectationsItem = new System.Windows.Forms.ToolStripMenuItem();
             this.analysisMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bloodItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.urineItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.holterItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ekgItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kagItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.egdsItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.specialistItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.uziItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bloodTrunsfusionMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.issuingMedicineMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -59,14 +67,6 @@
             this.journalWithoutKAGMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.konsiliumItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bloodItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.urineItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.holterItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ekgItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.kagItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.egdsItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.specialistItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.uziItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.patientHistoryGrid)).BeginInit();
             this.gridContextMenu.SuspendLayout();
             this.mainMenu.SuspendLayout();
@@ -104,6 +104,7 @@
             this.patientHistoryGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.patientHistoryGrid.Size = new System.Drawing.Size(776, 319);
             this.patientHistoryGrid.TabIndex = 0;
+            this.patientHistoryGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.patientHistoryGrid_CellClick);
             // 
             // checkedToPrint
             // 
@@ -199,6 +200,7 @@
             this.printBtn.TabIndex = 2;
             this.printBtn.Text = "Печать";
             this.printBtn.UseVisualStyleBackColor = true;
+            this.printBtn.Click += new System.EventHandler(this.printBtn_Click);
             // 
             // titleLbl
             // 
@@ -259,6 +261,62 @@
             this.analysisMenuItem.Size = new System.Drawing.Size(261, 22);
             this.analysisMenuItem.Text = "Ввести анализы, Исследования";
             // 
+            // bloodItem
+            // 
+            this.bloodItem.Name = "bloodItem";
+            this.bloodItem.Size = new System.Drawing.Size(223, 22);
+            this.bloodItem.Text = "Показатели крови";
+            this.bloodItem.Click += new System.EventHandler(this.bloodItem_Click);
+            // 
+            // urineItem
+            // 
+            this.urineItem.Name = "urineItem";
+            this.urineItem.Size = new System.Drawing.Size(223, 22);
+            this.urineItem.Text = "Анализ мочи";
+            this.urineItem.Click += new System.EventHandler(this.urineItem_Click);
+            // 
+            // holterItem
+            // 
+            this.holterItem.Name = "holterItem";
+            this.holterItem.Size = new System.Drawing.Size(223, 22);
+            this.holterItem.Text = "Холтер";
+            this.holterItem.Click += new System.EventHandler(this.holterItem_Click);
+            // 
+            // ekgItem
+            // 
+            this.ekgItem.Name = "ekgItem";
+            this.ekgItem.Size = new System.Drawing.Size(223, 22);
+            this.ekgItem.Text = "ЭКГ";
+            this.ekgItem.Click += new System.EventHandler(this.ekgItem_Click);
+            // 
+            // kagItem
+            // 
+            this.kagItem.Name = "kagItem";
+            this.kagItem.Size = new System.Drawing.Size(223, 22);
+            this.kagItem.Text = "КАГ";
+            this.kagItem.Click += new System.EventHandler(this.kagItem_Click);
+            // 
+            // egdsItem
+            // 
+            this.egdsItem.Name = "egdsItem";
+            this.egdsItem.Size = new System.Drawing.Size(223, 22);
+            this.egdsItem.Text = "ЭГДС";
+            this.egdsItem.Click += new System.EventHandler(this.egdsItem_Click);
+            // 
+            // specialistItem
+            // 
+            this.specialistItem.Name = "specialistItem";
+            this.specialistItem.Size = new System.Drawing.Size(223, 22);
+            this.specialistItem.Text = "Заключение специалистов";
+            this.specialistItem.Click += new System.EventHandler(this.specialistItem_Click);
+            // 
+            // uziItem
+            // 
+            this.uziItem.Name = "uziItem";
+            this.uziItem.Size = new System.Drawing.Size(223, 22);
+            this.uziItem.Text = "УЗИ";
+            this.uziItem.Click += new System.EventHandler(this.uziItem_Click);
+            // 
             // bloodTrunsfusionMenuItem
             // 
             this.bloodTrunsfusionMenuItem.Name = "bloodTrunsfusionMenuItem";
@@ -317,62 +375,6 @@
             this.konsiliumItem.Size = new System.Drawing.Size(261, 22);
             this.konsiliumItem.Text = "Консилиум";
             this.konsiliumItem.Click += new System.EventHandler(this.konsiliumItem_Click);
-            // 
-            // bloodItem
-            // 
-            this.bloodItem.Name = "bloodItem";
-            this.bloodItem.Size = new System.Drawing.Size(223, 22);
-            this.bloodItem.Text = "Показатели крови";
-            this.bloodItem.Click += new System.EventHandler(this.bloodItem_Click);
-            // 
-            // urineItem
-            // 
-            this.urineItem.Name = "urineItem";
-            this.urineItem.Size = new System.Drawing.Size(223, 22);
-            this.urineItem.Text = "Анализ мочи";
-            this.urineItem.Click += new System.EventHandler(this.urineItem_Click);
-            // 
-            // holterItem
-            // 
-            this.holterItem.Name = "holterItem";
-            this.holterItem.Size = new System.Drawing.Size(223, 22);
-            this.holterItem.Text = "Холтер";
-            this.holterItem.Click += new System.EventHandler(this.holterItem_Click);
-            // 
-            // ekgItem
-            // 
-            this.ekgItem.Name = "ekgItem";
-            this.ekgItem.Size = new System.Drawing.Size(223, 22);
-            this.ekgItem.Text = "ЭКГ";
-            this.ekgItem.Click += new System.EventHandler(this.ekgItem_Click);
-            // 
-            // kagItem
-            // 
-            this.kagItem.Name = "kagItem";
-            this.kagItem.Size = new System.Drawing.Size(223, 22);
-            this.kagItem.Text = "КАГ";
-            this.kagItem.Click += new System.EventHandler(this.kagItem_Click);
-            // 
-            // egdsItem
-            // 
-            this.egdsItem.Name = "egdsItem";
-            this.egdsItem.Size = new System.Drawing.Size(223, 22);
-            this.egdsItem.Text = "ЭГДС";
-            this.egdsItem.Click += new System.EventHandler(this.egdsItem_Click);
-            // 
-            // specialistItem
-            // 
-            this.specialistItem.Name = "specialistItem";
-            this.specialistItem.Size = new System.Drawing.Size(223, 22);
-            this.specialistItem.Text = "Заключение специалистов";
-            this.specialistItem.Click += new System.EventHandler(this.specialistItem_Click);
-            // 
-            // uziItem
-            // 
-            this.uziItem.Name = "uziItem";
-            this.uziItem.Size = new System.Drawing.Size(223, 22);
-            this.uziItem.Text = "УЗИ";
-            this.uziItem.Click += new System.EventHandler(this.uziItem_Click);
             // 
             // PatientsHistory
             // 

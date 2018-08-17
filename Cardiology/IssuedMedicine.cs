@@ -231,7 +231,7 @@ namespace Cardiology
                 values.Add(@"{issued_medicine_" + i + "}", value);
             }
             string templatePath = Directory.GetCurrentDirectory() + "\\Templates\\issued_medicine_template.doc";
-            TemplatesUtils.fillTemplate(templatePath, values);
+            TemplatesUtils.fillTemplateAndShow(templatePath, values);
         }
     }
 }

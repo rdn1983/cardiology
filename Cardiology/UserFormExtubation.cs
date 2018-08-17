@@ -49,7 +49,7 @@ namespace Cardiology
             values.Add(@"{body}", bodyArea.Text);
             values.Add(@"{header}", headerArea.Text);
             values.Add(@"{doctor.who}", doctorsBox.Text);
-            TemplatesUtils.fillTemplate(templatePath, values);
+            TemplatesUtils.fillTemplateAndShow(templatePath, values);
         }
     }
 }

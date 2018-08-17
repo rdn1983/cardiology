@@ -280,10 +280,10 @@
     <Compile Include="Serology.Designer.cs">
       <DependentUpon>Serology.cs</DependentUpon>
     </Compile>
-    <Compile Include="IssuedMedicineControl.cs">
+    <Compile Include="Controls\IssuedMedicineControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="IssuedMedicineControl.Designer.cs">
+    <Compile Include="Controls\IssuedMedicineControl.Designer.cs">
       <DependentUpon>IssuedMedicineControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\UrineAnalysisControl.cs">
@@ -358,6 +358,9 @@
     <Compile Include="Controls\UziAnalysisControl.Designer.cs">
       <DependentUpon>UziAnalysisControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utils\FirstInspectationTemplateProcessor.cs" />
+    <Compile Include="Utils\ITemplateProcessor.cs" />
+    <Compile Include="Utils\TemplateProcessorManager.cs" />
     <EmbeddedResource Include="AdmissionPatient.resx">
       <DependentUpon>AdmissionPatient.cs</DependentUpon>
     </EmbeddedResource>
@@ -394,7 +397,7 @@
     <EmbeddedResource Include="Controls\HolterControl.resx">
       <DependentUpon>HolterControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IssuedMedicineControl.resx">
+    <EmbeddedResource Include="Controls\IssuedMedicineControl.resx">
       <DependentUpon>IssuedMedicineControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="JournalBeforeKag.resx">

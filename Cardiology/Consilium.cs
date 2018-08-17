@@ -172,7 +172,7 @@ namespace Cardiology
             DdtDoctors doc = service.queryObjectById<DdtDoctors>(DdtDoctors.TABLE_NAME, hospitalitySession.DsidDutyDoctor);
             values.Add(@"{doctor.who}", doc.DssInitials);
             string templatePath = Directory.GetCurrentDirectory() + "\\Templates\\consilium_template.doc";
-            TemplatesUtils.fillTemplate(templatePath, values);
+            TemplatesUtils.fillTemplateAndShow(templatePath, values);
         }
 
         private string getMembersInString()

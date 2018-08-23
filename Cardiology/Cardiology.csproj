@@ -362,6 +362,7 @@
     <Compile Include="Utils\FirstInspectationTemplateProcessor.cs" />
     <Compile Include="Utils\ITemplateProcessor.cs" />
     <Compile Include="Utils\TemplateProcessorManager.cs" />
+    <Compile Include="Utils\JournalTemplateProcessor.cs" />
     <EmbeddedResource Include="AdmissionPatient.resx">
       <DependentUpon>AdmissionPatient.cs</DependentUpon>
     </EmbeddedResource>

@@ -21,7 +21,9 @@ CREATE TABLE ddt_journal (
   dss_cardio_exam VARCHAR(512),
   dss_ekg VARCHAR(512),
   dss_journal VARCHAR(1024),
-  dsi_journal_type int
+  dsi_journal_type int,
+  dsb_release_journal boolean,
+  dss_diagnosis VARCHAR(256)
 );
 
 CREATE TRIGGER ddt_journal BEFORE INSERT OR UPDATE

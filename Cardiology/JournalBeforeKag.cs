@@ -145,6 +145,9 @@ namespace Cardiology
             Close();
         }
 
+        private void printBtn_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }

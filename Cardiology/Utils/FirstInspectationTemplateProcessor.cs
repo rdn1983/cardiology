@@ -15,15 +15,6 @@ namespace Cardiology.Utils
             return "ddt_anamnesis".Equals(templateType);
         }
 
-        public string processTemplate(string hospitalitySession, Dictionary<string, string> aditionalValues)
-        {
-
-            string[] templates = new string[] { Directory.GetCurrentDirectory() + "\\Templates\\blank_aid_template.doc",
-                Directory.GetCurrentDirectory() + "\\Templates\\blank_transfer_template.doc"};
-            TemplatesUtils.mergeFiles(templates, Path.GetTempFileName(), false);
-            return null;
-        }
-
         public string processTemplate(string hospitalitySession, string objectId, Dictionary<string, string> aditionalValues)
         {
             Dictionary<string, string> values = null;
@@ -51,19 +42,18 @@ namespace Cardiology.Utils
             values.Add("{nervous_system}", anamnesis.DssNervousSystem);
             values.Add("{past_surgeries}", anamnesis.DssPastSurgeries);
             values.Add("{operation_cause}", anamnesis.DssOperationCause);
+            values.Add("{diagnosis}", anamnesis.DssDiagnosis);
 
             DdtDoctors doc = service.queryObjectById<DdtDoctors>(DdtDoctors.TABLE_NAME, anamnesis.DsidDoctor);
             values.Add("{cardio}", doc.DssInitials);
 
-            DdtHospital hospital = service.queryObjectById<DdtHospital>(DdtHospital.TABLENAME, hospitalitySession);
-            values.Add("{diagnosis}", hospital.DssDiagnosis);
             DdtEkg ekg = service.queryObject<DdtEkg>(@"SELECT * from ddt_ekg WHERE dsid_hospitality_session='' and dsb_admission_analysis=true");
             values.Add("{analysis.ekg}", ekg == null ? "" : ekg.DssEkg);
 
             StringBuilder builder = new StringBuilder();
 
             DdtIssuedMedicineList medList = service.queryObject<DdtIssuedMedicineList>(@"SELECT * FROM ddt_issued_medicine_list WHERE dsid_hospitality_session='" +
-                hospital.ObjectId + "' AND dss_parent_type='ddt_anamnesis'");
+                hospitalitySession + "' AND dss_parent_type='ddt_anamnesis'");
             List<DdtIssuedMedicine> med = service.queryObjectsCollectionByAttrCond<DdtIssuedMedicine>(DdtIssuedMedicine.TABLE_NAME, "dsid_med_list", medList.ObjectId, true);
             for (int i = 0; i < med.Count; i++)
             {
@@ -78,8 +68,7 @@ namespace Cardiology.Utils
 
             values.Add("{date}", DateTime.Now.ToShortDateString());
 
-            TemplatesUtils.fillTemplateAndShow(Directory.GetCurrentDirectory() + "\\Templates\\" + TEMPLATE_FILE_NAME, values);
-            return null;
+            return TemplatesUtils.fillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + TEMPLATE_FILE_NAME, values);
         }
     }
 }

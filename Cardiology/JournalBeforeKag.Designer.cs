@@ -124,6 +124,7 @@
             // 
             // journalPnl0
             // 
+            this.journalPnl0.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.journalPnl0.Controls.Add(this.complaintsTxt0);
             this.journalPnl0.Controls.Add(this.complaintsLbl0);
             this.journalPnl0.Controls.Add(this.objectId0);
@@ -398,6 +399,7 @@
             // 
             // deferredPnl0
             // 
+            this.deferredPnl0.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.deferredPnl0.Controls.Add(this.deferredStartTime0);
             this.deferredPnl0.Controls.Add(this.hideDefferedCb0);
             this.deferredPnl0.Controls.Add(this.deferredAdLbl0);
@@ -595,6 +597,7 @@
             this.printBtn.TabIndex = 3;
             this.printBtn.Text = "MsWord";
             this.printBtn.UseVisualStyleBackColor = true;
+            this.printBtn.Click += new System.EventHandler(this.printBtn_Click);
             // 
             // addJournalBtn
             // 

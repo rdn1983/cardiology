@@ -30,6 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JournalAfterKAG));
             this.afterKagDiagnosisPnl = new System.Windows.Forms.GroupBox();
+            this.journalDocLbl = new System.Windows.Forms.Label();
+            this.journalDocBox = new System.Windows.Forms.ComboBox();
+            this.admissionDateTxt = new System.Windows.Forms.DateTimePicker();
+            this.admissionTimeTxt = new System.Windows.Forms.DateTimePicker();
             this.afterKagDiagnosisTxt = new System.Windows.Forms.RichTextBox();
             this.rhytmPnl = new System.Windows.Forms.GroupBox();
             this.surgeryInspectationPnl = new System.Windows.Forms.GroupBox();
@@ -44,6 +48,10 @@
             this.surgeryInspectationTxt = new System.Windows.Forms.RichTextBox();
             this.dutyCardioInspectationPnl = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.releaseDocLbl = new System.Windows.Forms.Label();
+            this.releaseDocBox = new System.Windows.Forms.ComboBox();
+            this.releaseTime = new System.Windows.Forms.DateTimePicker();
+            this.releaseDate = new System.Windows.Forms.DateTimePicker();
             this.releaseTitleLbl = new System.Windows.Forms.Label();
             this.releasePsLbl = new System.Windows.Forms.Label();
             this.releasePsTxt = new System.Windows.Forms.ComboBox();
@@ -60,27 +68,27 @@
             this.allCardionInspectionsPnl = new System.Windows.Forms.Panel();
             this.dutyCardioContainer = new System.Windows.Forms.TableLayoutPanel();
             this.inspectionPnl0 = new System.Windows.Forms.Panel();
+            this.inspectionDate0 = new System.Windows.Forms.DateTimePicker();
+            this.hidingPnl0 = new System.Windows.Forms.Panel();
             this.badRhytmBtn0 = new System.Windows.Forms.RadioButton();
+            this.inspectionTxt0 = new System.Windows.Forms.RichTextBox();
             this.goodRhytmBtn0 = new System.Windows.Forms.RadioButton();
-            this.monitorLbl0 = new System.Windows.Forms.Label();
-            this.adLbl0 = new System.Windows.Forms.Label();
-            this.chssLbl0 = new System.Windows.Forms.Label();
-            this.chddLbl0 = new System.Windows.Forms.Label();
-            this.monitorTxt0 = new System.Windows.Forms.TextBox();
-            this.adText0 = new System.Windows.Forms.ComboBox();
-            this.chddTxt0 = new System.Windows.Forms.ComboBox();
             this.chssText0 = new System.Windows.Forms.ComboBox();
+            this.monitorLbl0 = new System.Windows.Forms.Label();
+            this.chddTxt0 = new System.Windows.Forms.ComboBox();
+            this.adLbl0 = new System.Windows.Forms.Label();
+            this.adText0 = new System.Windows.Forms.ComboBox();
+            this.chssLbl0 = new System.Windows.Forms.Label();
+            this.monitorTxt0 = new System.Windows.Forms.TextBox();
+            this.chddLbl0 = new System.Windows.Forms.Label();
             this.objectIdLbl0 = new System.Windows.Forms.Label();
             this.hideBtn0 = new System.Windows.Forms.CheckBox();
-            this.inspectionTxt0 = new System.Windows.Forms.RichTextBox();
             this.inspectionTime0 = new System.Windows.Forms.DateTimePicker();
             this.ekgTxt0 = new System.Windows.Forms.TextBox();
             this.addCardioInspetions = new System.Windows.Forms.Button();
             this.ekgLbl0 = new System.Windows.Forms.Label();
             this.printBtn = new System.Windows.Forms.Button();
             this.saveBtn = new System.Windows.Forms.Button();
-            this.hidingPnl0 = new System.Windows.Forms.Panel();
-            this.admissionDateTxt = new System.Windows.Forms.DateTimePicker();
             this.afterKagDiagnosisPnl.SuspendLayout();
             this.surgeryInspectationPnl.SuspendLayout();
             this.dutyCardioInspectationPnl.SuspendLayout();
@@ -93,7 +101,10 @@
             // 
             // afterKagDiagnosisPnl
             // 
+            this.afterKagDiagnosisPnl.Controls.Add(this.journalDocLbl);
+            this.afterKagDiagnosisPnl.Controls.Add(this.journalDocBox);
             this.afterKagDiagnosisPnl.Controls.Add(this.admissionDateTxt);
+            this.afterKagDiagnosisPnl.Controls.Add(this.admissionTimeTxt);
             this.afterKagDiagnosisPnl.Controls.Add(this.afterKagDiagnosisTxt);
             this.afterKagDiagnosisPnl.Controls.Add(this.rhytmPnl);
             this.afterKagDiagnosisPnl.Location = new System.Drawing.Point(12, 12);
@@ -102,6 +113,42 @@
             this.afterKagDiagnosisPnl.TabIndex = 0;
             this.afterKagDiagnosisPnl.TabStop = false;
             this.afterKagDiagnosisPnl.Text = "После КАГ. Выставлен диагноз:";
+            // 
+            // journalDocLbl
+            // 
+            this.journalDocLbl.AutoSize = true;
+            this.journalDocLbl.Location = new System.Drawing.Point(357, 21);
+            this.journalDocLbl.Name = "journalDocLbl";
+            this.journalDocLbl.Size = new System.Drawing.Size(115, 13);
+            this.journalDocLbl.TabIndex = 9;
+            this.journalDocLbl.Text = "Ответственный врач:";
+            // 
+            // journalDocBox
+            // 
+            this.journalDocBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.journalDocBox.FormattingEnabled = true;
+            this.journalDocBox.Location = new System.Drawing.Point(476, 14);
+            this.journalDocBox.Name = "journalDocBox";
+            this.journalDocBox.Size = new System.Drawing.Size(220, 21);
+            this.journalDocBox.TabIndex = 8;
+            // 
+            // admissionDateTxt
+            // 
+            this.admissionDateTxt.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.admissionDateTxt.Location = new System.Drawing.Point(8, 15);
+            this.admissionDateTxt.Name = "admissionDateTxt";
+            this.admissionDateTxt.Size = new System.Drawing.Size(98, 20);
+            this.admissionDateTxt.TabIndex = 7;
+            // 
+            // admissionTimeTxt
+            // 
+            this.admissionTimeTxt.CustomFormat = "HH:mm tt";
+            this.admissionTimeTxt.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.admissionTimeTxt.Location = new System.Drawing.Point(112, 15);
+            this.admissionTimeTxt.Name = "admissionTimeTxt";
+            this.admissionTimeTxt.ShowUpDown = true;
+            this.admissionTimeTxt.Size = new System.Drawing.Size(98, 20);
+            this.admissionTimeTxt.TabIndex = 6;
             // 
             // afterKagDiagnosisTxt
             // 
@@ -260,6 +307,10 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.releaseDocLbl);
+            this.panel1.Controls.Add(this.releaseDocBox);
+            this.panel1.Controls.Add(this.releaseTime);
+            this.panel1.Controls.Add(this.releaseDate);
             this.panel1.Controls.Add(this.releaseTitleLbl);
             this.panel1.Controls.Add(this.releasePsLbl);
             this.panel1.Controls.Add(this.releasePsTxt);
@@ -273,19 +324,58 @@
             this.panel1.Controls.Add(this.releaseChssTxt);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.releaseInspectionTxt);
-            this.panel1.Location = new System.Drawing.Point(7, 294);
+            this.panel1.Location = new System.Drawing.Point(8, 294);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(663, 113);
+            this.panel1.Size = new System.Drawing.Size(667, 113);
             this.panel1.TabIndex = 12;
+            // 
+            // releaseDocLbl
+            // 
+            this.releaseDocLbl.AutoSize = true;
+            this.releaseDocLbl.Location = new System.Drawing.Point(260, 9);
+            this.releaseDocLbl.Name = "releaseDocLbl";
+            this.releaseDocLbl.Size = new System.Drawing.Size(34, 13);
+            this.releaseDocLbl.TabIndex = 44;
+            this.releaseDocLbl.Text = "Врач:";
+            // 
+            // releaseDocBox
+            // 
+            this.releaseDocBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.releaseDocBox.FormattingEnabled = true;
+            this.releaseDocBox.Location = new System.Drawing.Point(298, 3);
+            this.releaseDocBox.Name = "releaseDocBox";
+            this.releaseDocBox.Size = new System.Drawing.Size(192, 21);
+            this.releaseDocBox.TabIndex = 43;
+            // 
+            // releaseTime
+            // 
+            this.releaseTime.CustomFormat = "HH:mm tt";
+            this.releaseTime.Enabled = false;
+            this.releaseTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.releaseTime.Location = new System.Drawing.Point(161, 4);
+            this.releaseTime.Name = "releaseTime";
+            this.releaseTime.ShowUpDown = true;
+            this.releaseTime.Size = new System.Drawing.Size(95, 20);
+            this.releaseTime.TabIndex = 42;
+            this.releaseTime.Value = new System.DateTime(2018, 8, 19, 8, 5, 0, 0);
+            // 
+            // releaseDate
+            // 
+            this.releaseDate.Enabled = false;
+            this.releaseDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.releaseDate.Location = new System.Drawing.Point(60, 4);
+            this.releaseDate.Name = "releaseDate";
+            this.releaseDate.Size = new System.Drawing.Size(95, 20);
+            this.releaseDate.TabIndex = 41;
             // 
             // releaseTitleLbl
             // 
             this.releaseTitleLbl.AutoSize = true;
-            this.releaseTitleLbl.Location = new System.Drawing.Point(6, 9);
+            this.releaseTitleLbl.Location = new System.Drawing.Point(8, 9);
             this.releaseTitleLbl.Name = "releaseTitleLbl";
-            this.releaseTitleLbl.Size = new System.Drawing.Size(79, 13);
+            this.releaseTitleLbl.Size = new System.Drawing.Size(46, 13);
             this.releaseTitleLbl.TabIndex = 40;
-            this.releaseTitleLbl.Text = "Осмотр в 8:05";
+            this.releaseTitleLbl.Text = "Осмотр";
             // 
             // releasePsLbl
             // 
@@ -421,7 +511,7 @@
             this.allCardionInspectionsPnl.Controls.Add(this.dutyCardioContainer);
             this.allCardionInspectionsPnl.Location = new System.Drawing.Point(6, 19);
             this.allCardionInspectionsPnl.Name = "allCardionInspectionsPnl";
-            this.allCardionInspectionsPnl.Size = new System.Drawing.Size(664, 272);
+            this.allCardionInspectionsPnl.Size = new System.Drawing.Size(668, 272);
             this.allCardionInspectionsPnl.TabIndex = 7;
             // 
             // dutyCardioContainer
@@ -437,21 +527,52 @@
             this.dutyCardioContainer.RowCount = 1;
             this.dutyCardioContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.dutyCardioContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.dutyCardioContainer.Size = new System.Drawing.Size(639, 117);
+            this.dutyCardioContainer.Size = new System.Drawing.Size(643, 121);
             this.dutyCardioContainer.TabIndex = 6;
             // 
             // inspectionPnl0
             // 
             this.inspectionPnl0.AutoSize = true;
             this.inspectionPnl0.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.inspectionPnl0.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.inspectionPnl0.Controls.Add(this.inspectionDate0);
             this.inspectionPnl0.Controls.Add(this.hidingPnl0);
             this.inspectionPnl0.Controls.Add(this.objectIdLbl0);
             this.inspectionPnl0.Controls.Add(this.hideBtn0);
             this.inspectionPnl0.Controls.Add(this.inspectionTime0);
             this.inspectionPnl0.Location = new System.Drawing.Point(3, 3);
             this.inspectionPnl0.Name = "inspectionPnl0";
-            this.inspectionPnl0.Size = new System.Drawing.Size(633, 111);
+            this.inspectionPnl0.Size = new System.Drawing.Size(637, 115);
             this.inspectionPnl0.TabIndex = 5;
+            // 
+            // inspectionDate0
+            // 
+            this.inspectionDate0.CustomFormat = "";
+            this.inspectionDate0.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.inspectionDate0.Location = new System.Drawing.Point(4, 3);
+            this.inspectionDate0.Name = "inspectionDate0";
+            this.inspectionDate0.Size = new System.Drawing.Size(97, 20);
+            this.inspectionDate0.TabIndex = 14;
+            // 
+            // hidingPnl0
+            // 
+            this.hidingPnl0.AutoSize = true;
+            this.hidingPnl0.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.hidingPnl0.Controls.Add(this.badRhytmBtn0);
+            this.hidingPnl0.Controls.Add(this.inspectionTxt0);
+            this.hidingPnl0.Controls.Add(this.goodRhytmBtn0);
+            this.hidingPnl0.Controls.Add(this.chssText0);
+            this.hidingPnl0.Controls.Add(this.monitorLbl0);
+            this.hidingPnl0.Controls.Add(this.chddTxt0);
+            this.hidingPnl0.Controls.Add(this.adLbl0);
+            this.hidingPnl0.Controls.Add(this.adText0);
+            this.hidingPnl0.Controls.Add(this.chssLbl0);
+            this.hidingPnl0.Controls.Add(this.monitorTxt0);
+            this.hidingPnl0.Controls.Add(this.chddLbl0);
+            this.hidingPnl0.Location = new System.Drawing.Point(4, 29);
+            this.hidingPnl0.Name = "hidingPnl0";
+            this.hidingPnl0.Size = new System.Drawing.Size(626, 79);
+            this.hidingPnl0.TabIndex = 13;
             // 
             // badRhytmBtn0
             // 
@@ -465,6 +586,14 @@
             this.badRhytmBtn0.UseVisualStyleBackColor = true;
             this.badRhytmBtn0.CheckedChanged += new System.EventHandler(this.goodRhytmBtn_CheckedChanged);
             // 
+            // inspectionTxt0
+            // 
+            this.inspectionTxt0.Location = new System.Drawing.Point(5, 5);
+            this.inspectionTxt0.Name = "inspectionTxt0";
+            this.inspectionTxt0.Size = new System.Drawing.Size(368, 71);
+            this.inspectionTxt0.TabIndex = 1;
+            this.inspectionTxt0.Text = resources.GetString("inspectionTxt0.Text");
+            // 
             // goodRhytmBtn0
             // 
             this.goodRhytmBtn0.AutoSize = true;
@@ -477,6 +606,16 @@
             this.goodRhytmBtn0.UseVisualStyleBackColor = true;
             this.goodRhytmBtn0.CheckedChanged += new System.EventHandler(this.goodRhytmBtn_CheckedChanged);
             // 
+            // chssText0
+            // 
+            this.chssText0.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.chssText0.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.chssText0.FormattingEnabled = true;
+            this.chssText0.Location = new System.Drawing.Point(408, 51);
+            this.chssText0.Name = "chssText0";
+            this.chssText0.Size = new System.Drawing.Size(44, 21);
+            this.chssText0.TabIndex = 33;
+            // 
             // monitorLbl0
             // 
             this.monitorLbl0.AutoSize = true;
@@ -485,6 +624,16 @@
             this.monitorLbl0.Size = new System.Drawing.Size(54, 13);
             this.monitorLbl0.TabIndex = 30;
             this.monitorLbl0.Text = "Монитор:";
+            // 
+            // chddTxt0
+            // 
+            this.chddTxt0.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.chddTxt0.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.chddTxt0.FormattingEnabled = true;
+            this.chddTxt0.Location = new System.Drawing.Point(408, 0);
+            this.chddTxt0.Name = "chddTxt0";
+            this.chddTxt0.Size = new System.Drawing.Size(44, 21);
+            this.chddTxt0.TabIndex = 32;
             // 
             // adLbl0
             // 
@@ -495,34 +644,6 @@
             this.adLbl0.Size = new System.Drawing.Size(26, 13);
             this.adLbl0.TabIndex = 37;
             this.adLbl0.Text = "АД:";
-            // 
-            // chssLbl0
-            // 
-            this.chssLbl0.AutoSize = true;
-            this.chssLbl0.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.chssLbl0.Location = new System.Drawing.Point(373, 56);
-            this.chssLbl0.Name = "chssLbl0";
-            this.chssLbl0.Size = new System.Drawing.Size(32, 13);
-            this.chssLbl0.TabIndex = 36;
-            this.chssLbl0.Text = "ЧСС:";
-            // 
-            // chddLbl0
-            // 
-            this.chddLbl0.AutoSize = true;
-            this.chddLbl0.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.chddLbl0.Location = new System.Drawing.Point(369, 5);
-            this.chddLbl0.Name = "chddLbl0";
-            this.chddLbl0.Size = new System.Drawing.Size(36, 13);
-            this.chddLbl0.TabIndex = 35;
-            this.chddLbl0.Text = "ЧДД:";
-            // 
-            // monitorTxt0
-            // 
-            this.monitorTxt0.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.monitorTxt0.Location = new System.Drawing.Point(459, 52);
-            this.monitorTxt0.Name = "monitorTxt0";
-            this.monitorTxt0.Size = new System.Drawing.Size(160, 20);
-            this.monitorTxt0.TabIndex = 31;
             // 
             // adText0
             // 
@@ -547,25 +668,33 @@
             this.adText0.Size = new System.Drawing.Size(44, 21);
             this.adText0.TabIndex = 34;
             // 
-            // chddTxt0
+            // chssLbl0
             // 
-            this.chddTxt0.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.chddTxt0.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.chddTxt0.FormattingEnabled = true;
-            this.chddTxt0.Location = new System.Drawing.Point(408, 0);
-            this.chddTxt0.Name = "chddTxt0";
-            this.chddTxt0.Size = new System.Drawing.Size(44, 21);
-            this.chddTxt0.TabIndex = 32;
+            this.chssLbl0.AutoSize = true;
+            this.chssLbl0.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.chssLbl0.Location = new System.Drawing.Point(373, 56);
+            this.chssLbl0.Name = "chssLbl0";
+            this.chssLbl0.Size = new System.Drawing.Size(32, 13);
+            this.chssLbl0.TabIndex = 36;
+            this.chssLbl0.Text = "ЧСС:";
             // 
-            // chssText0
+            // monitorTxt0
             // 
-            this.chssText0.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.chssText0.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.chssText0.FormattingEnabled = true;
-            this.chssText0.Location = new System.Drawing.Point(408, 51);
-            this.chssText0.Name = "chssText0";
-            this.chssText0.Size = new System.Drawing.Size(44, 21);
-            this.chssText0.TabIndex = 33;
+            this.monitorTxt0.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.monitorTxt0.Location = new System.Drawing.Point(459, 52);
+            this.monitorTxt0.Name = "monitorTxt0";
+            this.monitorTxt0.Size = new System.Drawing.Size(160, 20);
+            this.monitorTxt0.TabIndex = 31;
+            // 
+            // chddLbl0
+            // 
+            this.chddLbl0.AutoSize = true;
+            this.chddLbl0.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.chddLbl0.Location = new System.Drawing.Point(369, 5);
+            this.chddLbl0.Name = "chddLbl0";
+            this.chddLbl0.Size = new System.Drawing.Size(36, 13);
+            this.chddLbl0.TabIndex = 35;
+            this.chddLbl0.Text = "ЧДД:";
             // 
             // objectIdLbl0
             // 
@@ -579,7 +708,7 @@
             // hideBtn0
             // 
             this.hideBtn0.AutoSize = true;
-            this.hideBtn0.Location = new System.Drawing.Point(100, 6);
+            this.hideBtn0.Location = new System.Drawing.Point(211, 6);
             this.hideBtn0.Name = "hideBtn0";
             this.hideBtn0.Size = new System.Drawing.Size(63, 17);
             this.hideBtn0.TabIndex = 10;
@@ -587,22 +716,14 @@
             this.hideBtn0.UseVisualStyleBackColor = true;
             this.hideBtn0.CheckedChanged += new System.EventHandler(this.hideBtn0_CheckedChanged);
             // 
-            // inspectionTxt0
-            // 
-            this.inspectionTxt0.Location = new System.Drawing.Point(5, 5);
-            this.inspectionTxt0.Name = "inspectionTxt0";
-            this.inspectionTxt0.Size = new System.Drawing.Size(368, 71);
-            this.inspectionTxt0.TabIndex = 1;
-            this.inspectionTxt0.Text = resources.GetString("inspectionTxt0.Text");
-            // 
             // inspectionTime0
             // 
             this.inspectionTime0.CustomFormat = "HH:mm tt";
             this.inspectionTime0.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.inspectionTime0.Location = new System.Drawing.Point(4, 3);
+            this.inspectionTime0.Location = new System.Drawing.Point(107, 3);
             this.inspectionTime0.Name = "inspectionTime0";
             this.inspectionTime0.ShowUpDown = true;
-            this.inspectionTime0.Size = new System.Drawing.Size(90, 20);
+            this.inspectionTime0.Size = new System.Drawing.Size(98, 20);
             this.inspectionTime0.TabIndex = 0;
             // 
             // ekgTxt0
@@ -639,6 +760,7 @@
             this.printBtn.TabIndex = 3;
             this.printBtn.Text = "MsWord";
             this.printBtn.UseVisualStyleBackColor = true;
+            this.printBtn.Click += new System.EventHandler(this.printBtn_Click);
             // 
             // saveBtn
             // 
@@ -649,36 +771,6 @@
             this.saveBtn.Text = "Сохранить";
             this.saveBtn.UseVisualStyleBackColor = true;
             this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
-            // 
-            // hidingPnl0
-            // 
-            this.hidingPnl0.AutoSize = true;
-            this.hidingPnl0.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.hidingPnl0.Controls.Add(this.badRhytmBtn0);
-            this.hidingPnl0.Controls.Add(this.inspectionTxt0);
-            this.hidingPnl0.Controls.Add(this.goodRhytmBtn0);
-            this.hidingPnl0.Controls.Add(this.chssText0);
-            this.hidingPnl0.Controls.Add(this.monitorLbl0);
-            this.hidingPnl0.Controls.Add(this.chddTxt0);
-            this.hidingPnl0.Controls.Add(this.adLbl0);
-            this.hidingPnl0.Controls.Add(this.adText0);
-            this.hidingPnl0.Controls.Add(this.chssLbl0);
-            this.hidingPnl0.Controls.Add(this.monitorTxt0);
-            this.hidingPnl0.Controls.Add(this.chddLbl0);
-            this.hidingPnl0.Location = new System.Drawing.Point(4, 29);
-            this.hidingPnl0.Name = "hidingPnl0";
-            this.hidingPnl0.Size = new System.Drawing.Size(626, 79);
-            this.hidingPnl0.TabIndex = 13;
-            // 
-            // admissionDateTxt
-            // 
-            this.admissionDateTxt.CustomFormat = "HH:mm tt";
-            this.admissionDateTxt.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.admissionDateTxt.Location = new System.Drawing.Point(7, 15);
-            this.admissionDateTxt.Name = "admissionDateTxt";
-            this.admissionDateTxt.ShowUpDown = true;
-            this.admissionDateTxt.Size = new System.Drawing.Size(87, 20);
-            this.admissionDateTxt.TabIndex = 6;
             // 
             // JournalAfterKAG
             // 
@@ -696,6 +788,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Дневник после КАГ";
             this.afterKagDiagnosisPnl.ResumeLayout(false);
+            this.afterKagDiagnosisPnl.PerformLayout();
             this.surgeryInspectationPnl.ResumeLayout(false);
             this.surgeryInspectationPnl.PerformLayout();
             this.dutyCardioInspectationPnl.ResumeLayout(false);
@@ -767,6 +860,14 @@
         private System.Windows.Forms.Label surgeryPsLbl;
         private System.Windows.Forms.ComboBox surgeryPsTxt;
         private System.Windows.Forms.Panel hidingPnl0;
+        private System.Windows.Forms.DateTimePicker admissionTimeTxt;
         private System.Windows.Forms.DateTimePicker admissionDateTxt;
+        private System.Windows.Forms.DateTimePicker inspectionDate0;
+        private System.Windows.Forms.DateTimePicker releaseTime;
+        private System.Windows.Forms.DateTimePicker releaseDate;
+        private System.Windows.Forms.ComboBox journalDocBox;
+        private System.Windows.Forms.Label journalDocLbl;
+        private System.Windows.Forms.Label releaseDocLbl;
+        private System.Windows.Forms.ComboBox releaseDocBox;
     }
 }

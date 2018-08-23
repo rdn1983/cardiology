@@ -45,6 +45,10 @@ namespace Cardiology.Model
         private string dssEkg;
         [TableAttribute("dsi_journal_type")]
         private int dsiJournalType;
+        [TableAttribute("dsb_release_journal")]
+        private bool dsbReleaseJournal;
+        [TableAttribute("dss_diagnosis")]
+        private string dssDiagnosis;
 
         public string RObjectId { get => rObjectId; }
         public DateTime RCreationDate { get => rCreationDate; }
@@ -66,5 +70,7 @@ namespace Cardiology.Model
         public string DssJournal { get => dssJournal; set => dssJournal = value; }
         public int DsiJournalType { get => dsiJournalType; set => dsiJournalType = value; }
         public string DssEkg { get => dssEkg; set => dssEkg = value; }
+        public bool DsbReleaseJournal { get => dsbReleaseJournal; set => dsbReleaseJournal = value; }
+        public string DssDiagnosis { get => dssDiagnosis; set => dssDiagnosis = value; }
     }
 }

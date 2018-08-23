@@ -71,6 +71,11 @@ namespace Cardiology.Utils
             }
         }
 
+        internal static DateTime constructDateWIthTime(DateTime dateSource, DateTime timeSource)
+        {
+            return new DateTime(dateSource.Year, dateSource.Month, dateSource.Day, timeSource.Hour, timeSource.Minute, 0);
+        }
+
 
         internal static Control copyControl(Control srcContainer, int index)
         {

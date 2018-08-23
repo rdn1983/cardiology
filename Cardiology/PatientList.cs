@@ -393,7 +393,7 @@ namespace Cardiology
         {
             string[] templates = new string[] { Directory.GetCurrentDirectory() + "\\Templates\\blank_aid_template.doc",
                 Directory.GetCurrentDirectory() + "\\Templates\\blank_transfer_template.doc"};
-            TemplatesUtils.mergeFiles(templates, Path.GetTempFileName(), false);
+            TemplatesUtils.mergeFiles(templates, false);
         }
     }
 }

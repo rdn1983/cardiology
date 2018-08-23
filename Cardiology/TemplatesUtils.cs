@@ -51,7 +51,7 @@ namespace Cardiology.Utils
             TemplatesUtils.fillTemplateAndShow(Directory.GetCurrentDirectory() + "\\Templates\\" + templateFileName, values);
         }
 
-        public static void fillTemplate2(string templatePath, Dictionary<string, string> mappedValues)
+        public static string fillTemplate(string templatePath, Dictionary<string, string> mappedValues)
         {
             Word.Document doc = null;
             Word.Application app = null;
@@ -60,10 +60,8 @@ namespace Cardiology.Utils
                 app = new Word.Application();
                 doc = app.Documents.Open(templatePath);
 
-                Word.Paragraphs paragraphs = doc.Paragraphs;
                 Word.Range wRange;
-
-                foreach (Word.Paragraph mark in paragraphs)
+                foreach (Word.Paragraph mark in doc.Paragraphs)
                 {
                     wRange = mark.Range;
                     if (wRange != null)
@@ -71,11 +69,10 @@ namespace Cardiology.Utils
                         foreach (KeyValuePair<string, string> entry in mappedValues)
                         {
                             string oldValue = wRange.Text;
-                            if (oldValue.Contains(entry.Key))
+                            if (oldValue != null && oldValue.Contains(entry.Key))
                             {
                                 string newParagraphVal = oldValue.Replace(entry.Key, entry.Value);
                                 newParagraphVal = newParagraphVal.Replace("\r", "").Replace("\a", "");
-                                Console.WriteLine(newParagraphVal);
                                 wRange.Text = newParagraphVal;
                             }
 
@@ -83,13 +80,13 @@ namespace Cardiology.Utils
                     }
                 }
                 string filledDocPath = Path.GetTempFileName();
+                doc.SaveAs(filledDocPath);
                 Console.WriteLine("filled document path=" + filledDocPath);
-                doc.SaveAs(filledDocPath);
+                return filledDocPath;
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.StackTrace);
-
             }
             finally
             {
@@ -101,79 +98,30 @@ namespace Cardiology.Utils
                 if (app != null)
                 {
                     app.Quit();
+                    app = null;
                 }
             }
+            return null;
 
         }
 
-        public static void fillTemplateAndShow(string templatePath, Dictionary<string, string> mappedValues)
+        public static string fillTemplateAndShow(string templatePath, Dictionary<string, string> mappedValues)
         {
-            Word.Document doc = null;
-            Word.Application app = null;
-            try
+            string filledTemplate = fillTemplate(templatePath, mappedValues);
+            if (CommonUtils.isNotBlank(filledTemplate))
             {
-                app = new Word.Application();
-                doc = app.Documents.Open(templatePath);
-                //doc.Activate();
-
-                Word.Paragraphs paragraphs = doc.Paragraphs;
-                Word.Range wRange;
-
-                foreach (Word.Paragraph mark in paragraphs)
-                {
-                    wRange = mark.Range;
-                    if (wRange != null)
-                    {
-                        foreach (KeyValuePair<string, string> entry in mappedValues)
-                        {
-                            string oldValue = wRange.Text;
-                            if (oldValue!=null && oldValue.Contains(entry.Key))
-                            {
-                                string newParagraphVal = oldValue.Replace(entry.Key, entry.Value);
-                                newParagraphVal = newParagraphVal.Replace("\r", "").Replace("\a", "");
-                                Console.WriteLine(newParagraphVal);
-                                wRange.Text = newParagraphVal;
-                            }
-
-                        }
-                    }
-                }
-                string filledDocPath = Path.GetTempFileName();
-                Console.WriteLine(filledDocPath);
-                doc.SaveAs(filledDocPath);
-
-                app.Documents.Open(filledDocPath);
-                app.Activate();
-                app.Visible = true;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.StackTrace);
-                if (doc != null)
-                {
-                    doc.Close();
-                }
-                if (app != null)
-                {
-                    app.Quit();
-                }
-            }
-            finally
-            {
-                if (doc != null)
-                {
-                    doc = null;
-                }
+                showDocument(filledTemplate);
             }
 
+            return filledTemplate;
         }
 
 
-        public static void mergeFiles(string[] filesToMerge, string outputFilename, bool insertPageBreaks)
+        public static string mergeFiles(string[] filesToMerge, bool insertPageBreaks)
         {
             object missing = System.Type.Missing;
             object pageBreak = Word.WdBreakType.wdPageBreak;
-            object outputFile = outputFilename;
+            object outputFile = Path.GetTempFileName();
 
             Word._Application wordApplication = null;
             Word._Document wordDocument = null;
@@ -191,12 +139,20 @@ namespace Cardiology.Utils
                         selection.InsertBreak(ref pageBreak);
                     }
                 }
-                Console.WriteLine("Generated file after merge=" + outputFilename);
                 wordDocument.SaveAs(ref outputFile);
+                Console.WriteLine("Generated file after merge=" + outputFile);
+                return outputFile.ToString();
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.StackTrace);
+                if (outputFile != null)
+                {
+                    File.Delete(outputFile.ToString());
+                }
+            }
+            finally
+            {
                 if (wordDocument != null)
                 {
                     wordDocument.Close();
@@ -204,7 +160,52 @@ namespace Cardiology.Utils
                 }
                 if (wordApplication != null)
                 {
-                    wordApplication.Quit(ref missing, ref missing, ref missing);
+                    wordApplication.Quit();
+                    wordApplication = null;
+                }
+                foreach (string path in filesToMerge)
+                {
+                    File.Delete(path);
+                }
+            }
+            return null;
+        }
+
+        public static void processTemplateAndMerge(string hospitalSession, string[] types, string[] objectIds)
+        {
+            List<string> filledTemplatesPaths = new List<string>();
+            for (int i = 0; i < types.Length; i++)
+            {
+                ITemplateProcessor processor = TemplateProcessorManager.getProcessorByObjectType(types[i]);
+                if (processor != null)
+                {
+                    filledTemplatesPaths.Add(processor.processTemplate(hospitalSession, objectIds[i], null));
+                }
+            }
+
+            string resultPath = mergeFiles(filledTemplatesPaths.ToArray(), false);
+        }
+
+        public static void showDocument(string path)
+        {
+            Word._Application wordApplication = null;
+            Word._Document wordDocument = null;
+            try
+            {
+                wordApplication = new Word.Application();
+                wordDocument = wordApplication.Documents.Add(path);
+                //wordApplication.Activate();
+                wordApplication.Visible = true;
+            }
+            catch (Exception ex)
+            {
+                if (wordDocument != null)
+                {
+                    wordDocument.Close();
+                }
+                if (wordApplication != null)
+                {
+                    wordApplication.Quit();
                 }
             }
             finally
@@ -213,15 +214,13 @@ namespace Cardiology.Utils
                 {
                     wordDocument = null;
                 }
+                if (wordApplication != null)
+                {
+                    wordApplication = null;
+                }
             }
         }
 
-        public void processTemplateAndMerge()
-        {
-
-        }
-
     }
-
 }
 

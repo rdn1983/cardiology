@@ -23,6 +23,8 @@ namespace Cardiology.Model
         private string dssDecision;
         [TableAttribute("dss_duty_admin_name")]
         private string dssDutyAdminName;
+        [TableAttribute("dsdt_consilium_date")]
+        private DateTime dsdtConsiliumDate;
 
         public string RObjectId { get => rObjectId; set => rObjectId = value; }
         public DateTime RCreationDate { get => rCreationDate; set => rCreationDate = value; }
@@ -33,5 +35,6 @@ namespace Cardiology.Model
         public string DssDiagnosis { get => dssDiagnosis; set => dssDiagnosis = value; }
         public string DssDecision { get => dssDecision; set => dssDecision = value; }
         public string DssDutyAdminName { get => dssDutyAdminName; set => dssDutyAdminName = value; }
+        public DateTime DsdtConsiliumDate { get => dsdtConsiliumDate; set => dsdtConsiliumDate = value; }
     }
 }

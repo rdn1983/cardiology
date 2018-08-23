@@ -54,6 +54,8 @@ namespace Cardiology.Model
         private string dssTemplateName;
         [TableAttribute("dsb_template")]
         private bool dsbTemplate;
+        [TableAttribute("dsdt_inspection_date")]
+        private DateTime dsdtInspectionDate;
 
         public string ObjectId
         {
@@ -161,5 +163,6 @@ namespace Cardiology.Model
         public bool DsbTemplate { get => dsbTemplate; set => dsbTemplate = value; }
         public string DssDiagnosis { get => dssDiagnosis; set => dssDiagnosis = value; }
         public string DssOperationCause { get => dssOperationCause; set => dssOperationCause = value; }
+        public DateTime DsdtInspectionDate { get => dsdtInspectionDate; set => dsdtInspectionDate = value; }
     }
 }

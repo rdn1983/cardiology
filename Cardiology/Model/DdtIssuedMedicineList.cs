@@ -20,6 +20,8 @@ namespace Cardiology.Model
         private string dsidParentId;
         [TableAttribute("dss_parent_type")]
         private string dssParentType;
+        [TableAttribute("dsdt_issuing_date")]
+        private DateTime dsdtIssuingDate;
 
 
         public string ObjectId
@@ -53,5 +55,6 @@ namespace Cardiology.Model
 
         public string DsidParentId { get => dsidParentId; set => dsidParentId = value; }
         public string DssParentType { get => dssParentType; set => dssParentType = value; }
+        public DateTime DsdtIssuingDate { get => dsdtIssuingDate; set => dsdtIssuingDate = value; }
     }
 }

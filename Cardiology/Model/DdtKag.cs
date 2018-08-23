@@ -26,6 +26,8 @@ namespace Cardiology.Model
         private DateTime dsdtStartTime;
         [TableAttribute("dsdt_end_time")]
         private DateTime dsdtEndTime;
+        [TableAttribute("dsdt_analysis_date")]
+        private DateTime dsdtAnalysisDate;
 
         public string ObjectId
         {
@@ -45,5 +47,6 @@ namespace Cardiology.Model
         public DateTime DsdtStartTime { get => dsdtStartTime; set => dsdtStartTime = value; }
         public DateTime DsdtEndTime { get => dsdtEndTime; set => dsdtEndTime = value; }
         public string DssKagAction { get => dssKagAction; set => dssKagAction = value; }
+        public DateTime DsdtAnalysisDate { get => dsdtAnalysisDate; set => dsdtAnalysisDate = value; }
     }
 }

@@ -26,6 +26,8 @@ namespace Cardiology.Model
         private string dssUziObp;
         [TableAttribute("dss_pleurs_uzi")]
         private string dssPleursUzi;
+        [TableAttribute("dsdt_analysis_date")]
+        private DateTime dsdtAnalysisDate;
 
         public string ObjectId
         {
@@ -60,5 +62,6 @@ namespace Cardiology.Model
         public string DssCds { get => dssCds; set => dssCds = value; }
         public string DssUziObp { get => dssUziObp; set => dssUziObp = value; }
         public string DssPleursUzi { get => dssPleursUzi; set => dssPleursUzi = value; }
+        public DateTime DsdtAnalysisDate { get => dsdtAnalysisDate; set => dsdtAnalysisDate = value; }
     }
 }

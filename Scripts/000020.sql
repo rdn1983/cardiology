@@ -6,6 +6,7 @@ CREATE TABLE ddt_hormones (
   dsid_hospitality_session VARCHAR(16) REFERENCES ddt_hospital(r_object_id),
   dsid_patient VARCHAR(16) REFERENCES ddt_patient(r_object_id),
   dsid_doctor VARCHAR(16) REFERENCES ddt_doctors(r_object_id),
+  dsdt_analysis_date timestamp,
   dss_t3 VARCHAR(16),
   dss_t4 VARCHAR(16),
   dss_ttg VARCHAR(16)
@@ -18,8 +19,8 @@ EXECUTE PROCEDURE dmtrg_f_modify_date();
 CREATE OR REPLACE FUNCTION audit_ddt_hormones_creating_row () RETURNS TRIGGER AS '
 BEGIN
 INSERT INTO ddt_history 
-(dsid_hospitality_session, dsid_patient, dsid_doctor, dsid_operation_id, dss_operation_type)
- VALUES (NEW.dsid_hospitality_session, NEW.dsid_patient, NEW.dsid_doctor, NEW.r_object_id, TG_TABLE_NAME );
+(dsid_hospitality_session, dsid_patient, dsid_doctor, dsid_operation_id, dss_operation_type, dsdt_operation_date)
+ VALUES (NEW.dsid_hospitality_session, NEW.dsid_patient, NEW.dsid_doctor, NEW.r_object_id, TG_TABLE_NAME, new.dsdt_analysis_date);
  RETURN NEW;
 END;
 ' LANGUAGE  plpgsql;

@@ -20,6 +20,8 @@ namespace Cardiology.Model
         private string dssEgds;
         [TableAttribute("dsb_admission_analysis")]
         private bool dsbAdmissionAnalysis;
+        [TableAttribute("dsdt_analysis_date")]
+        private DateTime dsdtAnalysisDate;
 
         public string ObjectId
         {
@@ -36,6 +38,7 @@ namespace Cardiology.Model
         public string DsidDoctor { get => dsidDoctor; set => dsidDoctor = value; }
         public string DssEgds { get => dssEgds; set => dssEgds = value; }
         public bool DsbAdmissionAnalysis { get => dsbAdmissionAnalysis; set => dsbAdmissionAnalysis = value; }
+        public DateTime DsdtAnalysisDate { get => dsdtAnalysisDate; set => dsdtAnalysisDate = value; }
     }
 
     

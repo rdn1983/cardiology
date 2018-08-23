@@ -10,6 +10,8 @@ namespace Cardiology.Model
         private string rObjectId;
         [TableAttribute("r_creation_date", false)]
         private DateTime rCreationDate;
+        [TableAttribute("dsdt_analysis_date")]
+        private DateTime dsdtAnalysisDate;
         [TableAttribute("dsid_hospitality_session")]
         private string dsidHospitalitySession;
         [TableAttribute("dsid_patient")]
@@ -76,5 +78,6 @@ namespace Cardiology.Model
         public string DssKetones { get => dssKetones; set => dssKetones = value; }
         public bool DsbAdmissionAnalysis { get => dsbAdmissionAnalysis; set => dsbAdmissionAnalysis = value; }
         public bool DsbDischargeAnalysis { get => dsbDischargeAnalysis; set => dsbDischargeAnalysis = value; }
+        public DateTime DsdtAnalysisDate { get => dsdtAnalysisDate; set => dsdtAnalysisDate = value; }
     }
 }

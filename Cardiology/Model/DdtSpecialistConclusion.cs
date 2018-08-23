@@ -24,6 +24,8 @@ namespace Cardiology.Model
         private string dssNeuroSurgeon;
         [TableAttribute("dss_endocrinologist")]
         private string dssEndocrinologist;
+        [TableAttribute("dsdt_analysis_date")]
+        private DateTime dsdtAnalysisDate;
 
         public string ObjectId
         {
@@ -57,5 +59,6 @@ namespace Cardiology.Model
         public string DssSurgeon { get => dssSurgeon; set => dssSurgeon = value; }
         public string DssNeuroSurgeon { get => dssNeuroSurgeon; set => dssNeuroSurgeon = value; }
         public string DssEndocrinologist { get => dssEndocrinologist; set => dssEndocrinologist = value; }
+        public DateTime DsdtAnalysisDate { get => dsdtAnalysisDate; set => dsdtAnalysisDate = value; }
     }
 }

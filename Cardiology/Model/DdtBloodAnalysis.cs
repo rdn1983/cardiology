@@ -56,6 +56,8 @@ namespace Cardiology.Model
         private bool dsbAdmissionAnalysis;
         [TableAttribute("dsb_discharge_analysis")]
         private bool dsbDischargeAnalysis;
+        [TableAttribute("dsdt_analysis_date")]
+        private DateTime dsdtAnalysisDate;
 
         public string RObjectId { get => rObjectId; set => rObjectId = value; }
         public DateTime RCreationDate { get => rCreationDate; set => rCreationDate = value; }
@@ -82,5 +84,6 @@ namespace Cardiology.Model
         public string DsdChlorine { get => dssChlorine; set => dssChlorine = value; }
         public bool DsbAdmissionAnalysis { get => dsbAdmissionAnalysis; set => dsbAdmissionAnalysis = value; }
         public bool DsbDischargeAnalysis { get => dsbDischargeAnalysis; set => dsbDischargeAnalysis = value; }
+        public DateTime DsdtAnalysisDate { get => dsdtAnalysisDate; set => dsdtAnalysisDate = value; }
     }
 }

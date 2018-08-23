@@ -32,6 +32,8 @@ namespace Cardiology.Model
         private string dssAntiHcv;
         [TableAttribute("dss_hiv")]
         private string dssHiv;
+        [TableAttribute("dsdt_analysis_date")]
+        private DateTime dsdtAnalysisDate;
 
 
         public string ObjectId
@@ -77,5 +79,6 @@ namespace Cardiology.Model
             set{this.dssAntiHcv = value;} }
         public string DssHiv { get => dssHiv; set => dssHiv = value; }
         public string DssPhenotype { get => dssPhenotype; set => dssPhenotype = value; }
+        public DateTime DsdtAnalysisDate { get => dsdtAnalysisDate; set => dsdtAnalysisDate = value; }
     }
 }

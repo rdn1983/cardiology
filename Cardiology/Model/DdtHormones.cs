@@ -23,6 +23,8 @@ namespace Cardiology.Model
         private string dssT4;
         [TableAttribute("dss_ttg")]
         private string dssTtg;
+        [TableAttribute("dsdt_analysis_date")]
+        private DateTime dsdtAnalysisDate;
 
         public string RObjectId { get => rObjectId; set => rObjectId = value; }
         public DateTime RCreationDate { get => rCreationDate; set => rCreationDate = value; }
@@ -32,5 +34,6 @@ namespace Cardiology.Model
         public string DssT3 { get => dssT3; set => dssT3 = value; }
         public string DssT4 { get => dssT4; set => dssT4 = value; }
         public string DssTtg { get => dssTtg; set => dssTtg = value; }
+        public DateTime DsdtAnalysisDate { get => dsdtAnalysisDate; set => dsdtAnalysisDate = value; }
     }
 }

@@ -20,6 +20,8 @@ namespace Cardiology.Model
         private string dssHolter;
         [TableAttribute("dss_monitoring_ad")]
         private string dssMonitoringAd;
+        [TableAttribute("dsdt_analysis_date")]
+        private DateTime dsdtAnalysisDate;
 
         public string ObjectId
         {
@@ -51,5 +53,6 @@ namespace Cardiology.Model
 
         public string DssHolter { get => dssHolter; set => dssHolter = value; }
         public string DssMonitoringAd { get => dssMonitoringAd; set => dssMonitoringAd = value; }
+        public DateTime DsdtAnalysisDate { get => dsdtAnalysisDate; set => dsdtAnalysisDate = value; }
     }
 }

@@ -23,12 +23,14 @@ namespace Cardiology
             DdtUrineAnalysis urineAnalysis = service.queryObjectById<DdtUrineAnalysis>(DdtUrineAnalysis.TABLE_NAME, objectId);
             if (urineAnalysis != null)
             {
+                dateUrineAnalysis.Text = urineAnalysis.DsdtAnalysisDate + "";
                 colorTxt.Text = urineAnalysis.DssColor;
                 erythrocytesTxt.Text = urineAnalysis.DssErythrocytes;
                 leukocytesTxt.Text = urineAnalysis.DssLeukocytes;
                 proteinTxt.Text = urineAnalysis.DssProtein;
                 regularAnalysisBox.Text = "Анализы за " + urineAnalysis.RCreationDate.ToShortDateString();
             }
+            dateUrineAnalysis.Enabled = !isEditable;
             colorTxt.ReadOnly = !isEditable;
             erythrocytesTxt.ReadOnly = !isEditable;
             leukocytesTxt.ReadOnly = !isEditable;
@@ -48,6 +50,7 @@ namespace Cardiology
                     urine.DsidDoctor = hospitalitySession.DsidCuringDoctor;
                     urine.DsidPatient = hospitalitySession.DsidPatient;
                 }
+                urine.DsdtAnalysisDate = dateUrineAnalysis.Value;
                 urine.DssColor = colorTxt.Text;
                 urine.DssLeukocytes = leukocytesTxt.Text;
                 urine.DssErythrocytes = erythrocytesTxt.Text;

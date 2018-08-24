@@ -136,6 +136,7 @@ namespace Cardiology
         {
             if (urineAnalysis != null)
             {
+                dateUrineAnalysisLbl.Text = urineAnalysis.DsdtAnalysisDate + "";
                 colorTxt.Text = urineAnalysis.DssColor;
                 erythrocytesTxt.Text = urineAnalysis.DssErythrocytes;
                 leukocytesTxt.Text = urineAnalysis.DssLeukocytes;
@@ -145,6 +146,7 @@ namespace Cardiology
             DdtUrineAnalysis firstAnalysis = service.queryObject<DdtUrineAnalysis>(string.Format(FIRST_ANALYSIS_QRY_TEMPLATE, DdtUrineAnalysis.TABLE_NAME, hospitalitySession.ObjectId));
             if (firstAnalysis != null)
             {
+                firstDateUrineAnalysis.Text = firstAnalysis.DsdtAnalysisDate + "";
                 firstColorTxt.Text = firstAnalysis.DssColor;
                 firstErythrocytesTxt.Text = firstAnalysis.DssErythrocytes;
                 firstLeucocytesTxt.Text = firstAnalysis.DssLeukocytes;

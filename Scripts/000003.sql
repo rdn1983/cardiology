@@ -228,7 +228,6 @@ INSERT INTO ddt_values (dss_name, dss_value) VALUES ('aorta.medicine.3', 'Tab At
 INSERT INTO ddt_values (dss_name, dss_value) VALUES ('aorta.medicine.4', 'Tab. Enapi 5mg x 2 р/сутки');
 INSERT INTO ddt_values (dss_name, dss_value) VALUES ('aorta.medicine.5', 'Tab. Metoprololi 25mg х 2р/сутки');
 INSERT INTO ddt_values (dss_name, dss_value) VALUES ('aorta.medicine.6', 'Sol Acidi Aminocapronici 200,0в/в кап');
-INSERT INTO ddt_values (dss_name, dss_value) VALUES ('aorta.medicine.7', 'Tab. Metoprololi 25mg х 2р/сутки');
 INSERT INTO ddt_values (dss_name, dss_value) VALUES ('aorta.medicine.8', 'Sol. Dicinoni 2,0ml х 3 р/д в/в');
 
 INSERT INTO ddt_values (dss_name, dss_value) VALUES ('piks.medicine.0', 'Стол ОВД');

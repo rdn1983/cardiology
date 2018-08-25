@@ -99,12 +99,12 @@ namespace Cardiology
             {
                 if (!anamnesis.DsbTemplate)
                 {
-                    digestiveSystemTxt.Text = anamnesis.DssDigestiveSystem;
                     accompanyingIllnessesTxt.Text = anamnesis.DssAccompayingIll;
                     anamnesisVitaeTxt.Text = anamnesis.DssAnamnesisVitae;
                     pastSurgeriesTxt.Text = anamnesis.DssPastSurgeries;
-                    urinarySystemTxt.Text = anamnesis.DssUrinarySystem;
                 }
+                digestiveSystemTxt.Text = anamnesis.DssDigestiveSystem;
+                urinarySystemTxt.Text = anamnesis.DssUrinarySystem;
                 justificationTxt.Text = anamnesis.DssDiagnosisJustifies;
                 anamnesisMorbiTxt.Text = anamnesis.DssAnamnesisMorbi;
                 complaintsTxt.Text = anamnesis.DssComplaints;

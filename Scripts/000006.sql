@@ -45,6 +45,7 @@ INSERT INTO ddt_cure_type (dss_name, dsi_type) VALUES ('Стол', 17);
 INSERT INTO ddt_cure_type (dss_name, dsi_type) VALUES ('Обезболивающие', 18);
 INSERT INTO ddt_cure_type (dss_name, dsi_type) VALUES ('Седативная терапия', 19);
 INSERT INTO ddt_cure_type (dss_name, dsi_type) VALUES ('Лечение шока', 20);
+INSERT INTO ddt_cure_type (dss_name, dsi_type) VALUES ('Статины', 21);
 INSERT INTO ddt_cure_type (dss_name, dsi_type) VALUES ('Инфузионная терапия', 22);
 INSERT INTO ddt_cure_type (dss_name, dsi_type) VALUES ('Антиаритмическая терапия (внутривенная)', 23);
 INSERT INTO ddt_cure_type (dss_name, dsi_type) VALUES ('Лечение гипертонического криза', 24);
@@ -102,9 +103,6 @@ INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('стент Xience Xpedition 2
 INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('стент Resolute Integrity 3,5х12 мм (с лекарственным покрытием).', 3);
 INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('стент Nexgen 2,75 х 37мм ', 3);
 
-INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Tab. Atorvastatini  40mg х 1р/вечер', 4);
-INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Tab. Atorvastatini  80mg однократно', 4);
-INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Tab Atorvastatini 20 mg/вечер', 4);
 INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Tab. Aspirini 125mg х 1р/вечер', 4);
 INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Tab. Brilintae 90mg х 2р/сутки', 4);
 INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Tab. Clopidogreli 300mg/однократно', 4);
@@ -213,6 +211,12 @@ INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Sol. Dopamini 200мг + Sol. 
 INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Sol. Noradrenalini 2mg/ml + NaCl 0,9%– 50ml  V = 4-8 мл/ч', 20);
 INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Sol. Dofamini 10mg/ml – 5,0 + Sol. NaCl 0,9%– 50ml V = 2 мл/ч', 20);
 INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Sol. Adenosintriphosphate sodium 1,0 ml (макс 3,0мл) в/в стр', 20);
+
+INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Tab. Atorvastatini  40mg х 1р/вечер', 21);
+INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Tab. Atorvastatini  80mg х 1р/вечер', 21);
+INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Tab Atorvastatini 20 mg/вечер', 21);
+INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Tab. Rosuvastatin 40mg х 1р/вечер', 21);
+INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Tab. Rosuvastatin 20mg х 1р/вечер', 21);
 
 INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Sol. NaCl 0,9% - 500,0 в/в кап', 22);
 INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Sol. NaCl 0,9% - 500,0 х 3р/сут в/в кап', 22);

@@ -103,6 +103,12 @@
     <Compile Include="Controls\BloodAnalysisControl.Designer.cs">
       <DependentUpon>BloodAnalysisControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\DefferedJournalControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\DefferedJournalControl.Designer.cs">
+      <DependentUpon>DefferedJournalControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\EgdsAnalysisControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -120,6 +126,12 @@
     </Compile>
     <Compile Include="Controls\HolterControl.Designer.cs">
       <DependentUpon>HolterControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\JournalNoKAGControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\JournalNoKAGControl.Designer.cs">
+      <DependentUpon>JournalNoKAGControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\KagAnalysisControl.cs">
       <SubType>UserControl</SubType>
@@ -390,6 +402,9 @@
     <EmbeddedResource Include="AppointmentTemplates.resx">
       <DependentUpon>AppointmentTemplates.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\DefferedJournalControl.resx">
+      <DependentUpon>DefferedJournalControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\EgdsAnalysisControl.resx">
       <DependentUpon>EgdsAnalysisControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -401,6 +416,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\IssuedMedicineControl.resx">
       <DependentUpon>IssuedMedicineControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\JournalNoKAGControl.resx">
+      <DependentUpon>JournalNoKAGControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="JournalBeforeKag.resx">
       <DependentUpon>JournalBeforeKag.cs</DependentUpon>

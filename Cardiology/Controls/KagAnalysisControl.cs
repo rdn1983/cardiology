@@ -68,8 +68,13 @@ namespace Cardiology
                 kag.DsdtStartTime = constructDateWIthTime(kagDate.Value, kagStartTime.Value);
                 kag.DsdtEndTime = constructDateWIthTime(kagDate.Value, kagEndTime.Value);
 
-                service.updateOrCreateIfNeedObject<DdtKag>(kag, DdtKag.TABLE_NAME, kag.ObjectId);
+                objectId = service.updateOrCreateIfNeedObject<DdtKag>(kag, DdtKag.TABLE_NAME, kag.ObjectId);
             }
+        }
+
+        public string getObjectId()
+        {
+            return objectId;
         }
 
         private DateTime constructDateWIthTime(DateTime dateSource, DateTime timeSource)

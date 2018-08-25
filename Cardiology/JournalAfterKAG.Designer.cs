@@ -48,8 +48,6 @@
             this.surgeryInspectationTxt = new System.Windows.Forms.RichTextBox();
             this.dutyCardioInspectationPnl = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.releaseDocLbl = new System.Windows.Forms.Label();
-            this.releaseDocBox = new System.Windows.Forms.ComboBox();
             this.releaseTime = new System.Windows.Forms.DateTimePicker();
             this.releaseDate = new System.Windows.Forms.DateTimePicker();
             this.releaseTitleLbl = new System.Windows.Forms.Label();
@@ -307,8 +305,6 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.releaseDocLbl);
-            this.panel1.Controls.Add(this.releaseDocBox);
             this.panel1.Controls.Add(this.releaseTime);
             this.panel1.Controls.Add(this.releaseDate);
             this.panel1.Controls.Add(this.releaseTitleLbl);
@@ -328,24 +324,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(667, 113);
             this.panel1.TabIndex = 12;
-            // 
-            // releaseDocLbl
-            // 
-            this.releaseDocLbl.AutoSize = true;
-            this.releaseDocLbl.Location = new System.Drawing.Point(260, 9);
-            this.releaseDocLbl.Name = "releaseDocLbl";
-            this.releaseDocLbl.Size = new System.Drawing.Size(34, 13);
-            this.releaseDocLbl.TabIndex = 44;
-            this.releaseDocLbl.Text = "Врач:";
-            // 
-            // releaseDocBox
-            // 
-            this.releaseDocBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.releaseDocBox.FormattingEnabled = true;
-            this.releaseDocBox.Location = new System.Drawing.Point(298, 3);
-            this.releaseDocBox.Name = "releaseDocBox";
-            this.releaseDocBox.Size = new System.Drawing.Size(192, 21);
-            this.releaseDocBox.TabIndex = 43;
             // 
             // releaseTime
             // 
@@ -867,7 +845,5 @@
         private System.Windows.Forms.DateTimePicker releaseDate;
         private System.Windows.Forms.ComboBox journalDocBox;
         private System.Windows.Forms.Label journalDocLbl;
-        private System.Windows.Forms.Label releaseDocLbl;
-        private System.Windows.Forms.ComboBox releaseDocBox;
     }
 }

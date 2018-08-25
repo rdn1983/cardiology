@@ -89,7 +89,6 @@
             this.toolStripMenuItem12 = new System.Windows.Forms.ToolStripMenuItem();
             this.justificationCostlyCureItem = new System.Windows.Forms.ToolStripMenuItem();
             this.skatItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.hospitalPatientsTbl)).BeginInit();
             this.main.SuspendLayout();
             this.SuspendLayout();
@@ -562,22 +561,11 @@
             this.skatItem.Text = "СКАТ";
             this.skatItem.Click += new System.EventHandler(this.skatItem_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(606, 399);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // PatientList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(857, 450);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.main);
             this.Controls.Add(this.hospitalPatientsTbl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -655,6 +643,5 @@
         private System.Windows.Forms.ToolStripMenuItem registerTrunsfusionItem;
         private System.Windows.Forms.ToolStripMenuItem trunsfusionClaimItem;
         private System.Windows.Forms.ToolStripMenuItem skatItem;
-        private System.Windows.Forms.Button button1;
     }
 }

@@ -1,4 +1,5 @@
-﻿using Cardiology.Model;
+﻿using Cardiology.Controls;
+using Cardiology.Model;
 using Cardiology.Model.Dictionary;
 using Cardiology.Utils;
 using System;
@@ -16,31 +17,25 @@ namespace Cardiology
         public JournalBeforeKag(DdtHospital hospitalitySession, List<string> journalIds, int journalType)
         {
             this.hospitalitySession = hospitalitySession;
-            this.journalIds = journalIds;
+            this.journalIds = journalIds == null ? new List<string>() : journalIds;
             this.journalType = journalType;
             InitializeComponent();
-            CommonUtils.initRangedItems(chssTxt0, 40, 200);
-            CommonUtils.initRangedItems(psTxt0, 40, 200);
-            CommonUtils.initRangedItems(chddTxt0, 14, 26);
             initJournals();
             initControlVisibility();
         }
 
+
+
         private void initControlVisibility()
         {
-            bool isWithKag = (int)DdtJournalDsiType.BEFORE_KAG == journalType;
+            bool isWithKag = (int)DdtJournalDsiType.BEFORE_KAG == journalType || (int)DdtJournalDsiType.PENDING_JUSTIFICATION == journalType;
             deffedredAllPnl.Visible = isWithKag;
-            goodRhytmBtn0.Visible = isWithKag;
-            badRhytmBtn0.Visible = isWithKag;
             addDefferedBtn.Visible = isWithKag;
-            complaintsTxt0.Visible = !isWithKag;
-            complaintsLbl0.Visible = !isWithKag;
-            addDayCb0.Visible = isWithKag;
             if (!isWithKag)
             {
                 journalAllPnl.Text = "Журнал";
-                journalAllPnl.Size = new System.Drawing.Size(855, 580);
-                journalGrouppedPanel.Size = new System.Drawing.Size(855, 548);
+                journalAllPnl.Size = new System.Drawing.Size(940, 580);
+                journalGrouppedPanel.Size = new System.Drawing.Size(940, 548);
             }
         }
 
@@ -67,29 +62,14 @@ namespace Cardiology
                 if (journal != null)
                 {
                     journalType = journal.DsiJournalType;
-                    Control panelCntr = null;
-                    if (journalContainer.Controls.Count <= i)
+                    if ((int)DdtJournalDsiType.BEFORE_KAG == journalType || (int)DdtJournalDsiType.WITHOUT_KAG == journalType)
                     {
-                        panelCntr = CommonUtils.copyControl(journalPnl0, journalContainer.Controls.Count);
-                        journalContainer.Controls.Add(panelCntr);
+                        journalContainer.Controls.Add(new JournalNoKAGControl(journal.RObjectId, journalType));
                     }
-                    else
+                    else if ((int)DdtJournalDsiType.PENDING_JUSTIFICATION == journalType)
                     {
-                        panelCntr = journalContainer.Controls[i];
+                        deferredContainer.Controls.Add(new DefferedJournalControl(journal.RObjectId));
                     }
-                    CommonUtils.updateControl(panelCntr, "adTxt" + i, journal.DssAd);
-                    //updateControl(panelCntr, "adTxt0", journal.DssCardioExam);
-                    CommonUtils.updateControl(panelCntr, "chddTxt" + i, journal.DssChdd);
-                    CommonUtils.updateControl(panelCntr, "chssTxt" + i, journal.DssChss);
-                    //updateControl(panelCntr, "adTxt0", journal.DssComplaints);
-                    CommonUtils.updateControl(panelCntr, "monitorTxt" + i, journal.DssMonitor);
-                    CommonUtils.updateControl(panelCntr, "psTxt" + i, journal.DssPs);
-                    //updateControl(panelCntr, "adTxt0", journal.DssRhythm);
-                    //updateControl(panelCntr, "adTxt0", journal.DssSurgeonExam);
-                    //updateControl(panelCntr, "adTxt0", journal.DssSurgeonExam1);
-                    CommonUtils.updateControl(panelCntr, "objectId" + i, journal.RObjectId);
-                    CommonUtils.updateControl(panelCntr, "journalTxt" + i, journal.DssJournal);
-
                 }
             }
         }
@@ -98,56 +78,55 @@ namespace Cardiology
 
         private void addJournalBtn_Click(object sender, EventArgs e)
         {
-            Control c = CommonUtils.copyControl(journalPnl0, journalContainer.Controls.Count);
-            journalContainer.Controls.Add(c);
+            journalContainer.Controls.Add(new JournalNoKAGControl(null, journalType));
         }
 
         private void addDefferedBtn_Click(object sender, EventArgs e)
         {
-            Control c = CommonUtils.copyControl(deferredPnl0, deferredContainer.Controls.Count);
-            deferredContainer.Controls.Add(c);
+            deferredContainer.Controls.Add(new DefferedJournalControl(null));
         }
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
-            DataService service = new DataService();
-            DdtJournal journal = null;
-            for (int i = 0; i < journalContainer.Controls.Count; i++)
-            {
-                Control panelCntr = journalContainer.Controls[i];
-                Control idCtrl = CommonUtils.findControl(panelCntr, "objectId" + i);
-                if (idCtrl != null && CommonUtils.isNotBlank(idCtrl.Text))
-                {
-                    journal = service.queryObject<DdtJournal>(@"SELECT * FROM ddt_journal WHERE r_object_id ='" + idCtrl.Text + "'");
-                }
-                else
-                {
-                    if (CommonUtils.isBlank(CommonUtils.getStrigControlValue(panelCntr, "journalTxt" + i)))
-                    {
-                        //Пропускаем все группы для оторых не указано хотя бы заключение
-                        continue;
-                    }
-                    journal = new DdtJournal();
-                    journal.DsidDoctor = hospitalitySession.DsidDutyDoctor;
-                    journal.DsidHospitalitySession = hospitalitySession.ObjectId;
-                    journal.DsidPatient = hospitalitySession.DsidPatient;
-                    journal.DsiJournalType = journalType;
-                }
-
-                journal.DssAd = CommonUtils.getStrigControlValue(panelCntr, "adTxt" + i);
-                journal.DssChdd = CommonUtils.getStrigControlValue(panelCntr, "chddTxt" + i);
-                journal.DssChss = CommonUtils.getStrigControlValue(panelCntr, "chssTxt" + i);
-                journal.DssMonitor = CommonUtils.getStrigControlValue(panelCntr, "monitorTxt" + i);
-                journal.DssJournal = CommonUtils.getStrigControlValue(panelCntr, "journalTxt" + i);
-
-                service.updateOrCreateIfNeedObject<DdtJournal>(journal, DdtJournal.TABLE_NAME, journal.RObjectId);
-            }
+            save();
             Close();
+        }
+
+        private void save()
+        {
+            journalIds.Clear();
+            foreach (Control c in journalContainer.Controls)
+            {
+                IDocbaseControl docbaseControl = (IDocbaseControl)c;
+                docbaseControl.saveObject(hospitalitySession);
+                journalIds.Add(docbaseControl.getObjectId());
+            }
+
+            foreach (Control c in deferredContainer.Controls)
+            {
+                IDocbaseControl docbaseControl = (IDocbaseControl)c;
+                docbaseControl.saveObject(hospitalitySession);
+                journalIds.Add(docbaseControl.getObjectId());
+            }
         }
 
         private void printBtn_Click(object sender, EventArgs e)
         {
-
+            save();
+            DataService service = new DataService();
+            List<string> paths = new List<string>();
+            ITemplateProcessor processor = TemplateProcessorManager.getProcessorByObjectType(DdtJournal.TABLE_NAME);
+            foreach (string id in journalIds)
+            {
+                DdtJournal journal = service.queryObjectById<DdtJournal>(DdtJournal.TABLE_NAME, id);
+                if (journal != null)
+                {
+                    string path = processor.processTemplate(hospitalitySession.ObjectId, journal.RObjectId, null);
+                    paths.Add(path);
+                }
+            }
+            string result = TemplatesUtils.mergeFiles(paths.ToArray(), false);
+            TemplatesUtils.showDocument(result);
         }
     }
 }

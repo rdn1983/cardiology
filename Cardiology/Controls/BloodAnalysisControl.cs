@@ -96,9 +96,13 @@ namespace Cardiology
                 bloodObj.DsdSchf = regularSchfTxt.Text;
                 bloodObj.DsdSodium = regularSodiumTxt.Text;
                 bloodObj.DsdSrp = regularSrbTxt.Text;
-                service.updateOrCreateIfNeedObject<DdtBloodAnalysis>(bloodObj, DdtBloodAnalysis.TABLE_NAME, bloodObj.RObjectId);
+                objectId = service.updateOrCreateIfNeedObject<DdtBloodAnalysis>(bloodObj, DdtBloodAnalysis.TABLE_NAME, bloodObj.RObjectId);
             }
         }
 
+        public string getObjectId()
+        {
+            return objectId;
+        }
     }
 }

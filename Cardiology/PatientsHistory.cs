@@ -204,6 +204,7 @@ namespace Cardiology
         private void printBtn_Click(object sender, EventArgs e)
         {
             int rowCount = patientHistoryGrid.Rows.Count;
+            List<string> paths = new List<string>();
             foreach (DataGridViewRow row in patientHistoryGrid.Rows)
             {
                 bool checkd = (bool)row.Cells[0].Value;
@@ -212,11 +213,14 @@ namespace Cardiology
                     ITemplateProcessor te = TemplateProcessorManager.getProcessorByObjectType((string)row.Cells[2].Value);
                     if (te != null)
                     {
-                        te.processTemplate(hospitalitySession.ObjectId, (string)row.Cells[3].Value, null);
+                        string pathFile = te.processTemplate(hospitalitySession.ObjectId, (string)row.Cells[3].Value, null);
+                        paths.Add(pathFile);
                     }
                     Console.WriteLine();
                 }
             }
+            string resultPath = TemplatesUtils.mergeFiles(paths.ToArray(), false);
+            TemplatesUtils.showDocument(resultPath);
         }
     }
 }

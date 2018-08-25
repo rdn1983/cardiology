@@ -38,7 +38,6 @@ namespace Cardiology
             DataService service = new DataService();
 
             CommonUtils.initDoctorsComboboxValues(service, journalDocBox, "");
-            CommonUtils.initDoctorsComboboxValues(service, releaseDocBox, "");
 
             if (CommonUtils.isNotBlank(journalId))
             {
@@ -57,7 +56,6 @@ namespace Cardiology
 
                     DdtDoctors doctors = service.queryObjectById<DdtDoctors>(DdtDoctors.TABLE_NAME, journal.DsidDoctor);
                     journalDocBox.SelectedIndex = journalDocBox.FindStringExact(doctors.DssInitials);
-                    releaseDocBox.SelectedIndex = releaseDocBox.FindStringExact(doctors.DssInitials);
 
                     initCardioConslusions(service);
                 }
@@ -68,28 +66,6 @@ namespace Cardiology
                 DdtDoctors doctors = service.queryObjectById<DdtDoctors>(DdtDoctors.TABLE_NAME, hospitalitySession.DsidCuringDoctor);
                 journalDocBox.SelectedIndex = journalDocBox.FindStringExact(doctors.DssInitials);
             }
-
-            DdtJournal releaseJournal = service.queryObject<DdtJournal>(@"Select * from ddt_journal where dsid_hospitality_session='" +
-                        hospitalitySession.ObjectId + "' AND dsb_release_journal=true");
-            if (releaseJournal!=null)
-            {
-                releaseInspectionTxt.Text = releaseJournal.DssJournal;
-                releasePsTxt.Text = releaseJournal.DssPs;
-                releaseChddTxt.Text = releaseJournal.DssChdd;
-                releaseChssTxt.Text = releaseJournal.DssChss;
-                releaseAdTxt.Text = releaseJournal.DssAd;
-                releaseMonitorTxt.Text = releaseJournal.DssMonitor;
-                releaseDate.Value = releaseJournal.DsdtAdmissionDate;
-                releaseTime.Value = releaseJournal.DsdtAdmissionDate;
-
-                DdtDoctors doctors = service.queryObjectById<DdtDoctors>(DdtDoctors.TABLE_NAME, releaseJournal.DsidDoctor);
-                releaseDocBox.SelectedIndex = releaseDocBox.FindStringExact(doctors.DssInitials);
-            } else
-            {
-                DdtDoctors doctors = service.queryObjectById<DdtDoctors>(DdtDoctors.TABLE_NAME, hospitalitySession.DsidCuringDoctor);
-                releaseDocBox.SelectedIndex = releaseDocBox.FindStringExact(doctors.DssInitials);
-            }
-            
         }
 
         private void initCardioConslusions(DataService service)
@@ -122,6 +98,20 @@ namespace Cardiology
                 timeCtrl.Value = cardioConclusions[i].DsdtAdmissionDate;
                 CheckBox boolCtrl = (CheckBox)CommonUtils.findControl(dutyCardioContainer, "hideBtn" + i);
                 boolCtrl.Checked = cardioConclusions[i].DsbVisible;
+            }
+
+            DdtVariousSpecConcluson releaseConclusion = service.queryObject<DdtVariousSpecConcluson>("Select * from " + DdtVariousSpecConcluson.TABLE_NAME +
+                " WHERE dsid_parent='" + journalId + "' AND dsb_additional_bool=true");
+            if (releaseConclusion!=null)
+            {
+                releaseInspectionTxt.Text = releaseConclusion.DssSpecialistConclusion;
+                releasePsTxt.Text = releaseConclusion.DssAdditionalInfo0;
+                releaseChddTxt.Text = releaseConclusion.DssAdditionalInfo1;
+                releaseChssTxt.Text = releaseConclusion.DssAdditionalInfo2;
+                releaseAdTxt.Text = releaseConclusion.DssAdditionalInfo3;
+                releaseMonitorTxt.Text = releaseConclusion.DssAdditionalInfo4;
+                releaseDate.Value = releaseConclusion.DsdtAdmissionDate;
+                releaseTime.Value = releaseConclusion.DsdtAdmissionDate;
             }
         }
 
@@ -214,27 +204,28 @@ namespace Cardiology
                 service.updateOrCreateIfNeedObject<DdtVariousSpecConcluson>(conclusion, DdtVariousSpecConcluson.TABLE_NAME, conclusion.RObjectId);
             }
 
-            DdtJournal releaseJournal = service.queryObject<DdtJournal>(@"Select * from ddt_journal where dsid_hospitality_session='" + hospitalitySession.ObjectId + "' AND dsb_release_journal=true");
-            if (releaseJournal == null)
+            DdtVariousSpecConcluson releaseConclusion = service.queryObject<DdtVariousSpecConcluson>("Select * from " + DdtVariousSpecConcluson.TABLE_NAME +
+               " WHERE dsid_parent='" + journalId + "' AND dsb_additional_bool=true");
+            if (releaseConclusion == null)
             {
-                releaseJournal = new DdtJournal();
-                releaseJournal.DsbReleaseJournal = true;
-                releaseJournal.DsidPatient = hospitalitySession.DsidPatient;
-                releaseJournal.DsidHospitalitySession = hospitalitySession.ObjectId;
+                releaseConclusion = new DdtVariousSpecConcluson();
+                releaseConclusion.DssParentType = DdtJournal.TABLE_NAME;
+                releaseConclusion.DsidParent = journalId;
+                releaseConclusion.DssSpecialistType = "Дежурный кардиореаниматолог";
+
             }
 
-            DdtDoctors releaseDoc = (DdtDoctors)releaseDocBox.SelectedItem;
-            releaseJournal.DsidDoctor = releaseDoc.ObjectId;
-            releaseJournal.DssJournal = releaseInspectionTxt.Text;
-            releaseJournal.DssPs = releasePsTxt.Text;
-            releaseJournal.DssChdd = releaseChddTxt.Text;
-            releaseJournal.DssChss = releaseChssTxt.Text;
-            releaseJournal.DssAd = releaseAdTxt.Text;
-            releaseJournal.DssMonitor = releaseMonitorTxt.Text;
-            releaseJournal.DsdtAdmissionDate = CommonUtils.constructDateWIthTime(releaseDate.Value, releaseTime.Value);
+            releaseConclusion.DssSpecialistConclusion = releaseInspectionTxt.Text;
+            releaseConclusion.DssAdditionalInfo0 = releasePsTxt.Text;
+            releaseConclusion.DssAdditionalInfo1 = releaseChddTxt.Text;
+            releaseConclusion.DssAdditionalInfo2 = releaseChssTxt.Text;
+            releaseConclusion.DssAdditionalInfo3 = releaseAdTxt.Text;
+            releaseConclusion.DssAdditionalInfo4 = releaseMonitorTxt.Text;
+            releaseConclusion.DsbVisible = false;
+            releaseConclusion.DsbAdditionalBool = true;
+            releaseConclusion.DsdtAdmissionDate = CommonUtils.constructDateWIthTime(releaseDate.Value, releaseTime.Value);
 
-            service.updateOrCreateIfNeedObject<DdtJournal>(releaseJournal, DdtJournal.TABLE_NAME, releaseJournal.RObjectId);
-
+            service.updateOrCreateIfNeedObject<DdtVariousSpecConcluson>(releaseConclusion, DdtVariousSpecConcluson.TABLE_NAME, releaseConclusion.RObjectId);
         }
 
         private void goodRhytmBtn_CheckedChanged(object sender, EventArgs e)
@@ -260,22 +251,12 @@ namespace Cardiology
             save();
             DataService service = new DataService();
             DdtJournal journal = service.queryObjectById<DdtJournal>(DdtJournal.TABLE_NAME, journalId);
-            List<string> paths = new List<string>();
             if (journal != null)
             {
                 ITemplateProcessor processor = TemplateProcessorManager.getProcessorByObjectType(DdtJournal.TABLE_NAME);
-                paths.Add(processor.processTemplate(hospitalitySession.ObjectId, journal.RObjectId, null));
+                string path = processor.processTemplate(hospitalitySession.ObjectId, journal.RObjectId, null);
+                TemplatesUtils.showDocument(path);
             }
-            DdtJournal releaseJournal = service.queryObject<DdtJournal>(@"Select * from ddt_journal where dsid_hospitality_session='" +
-                        hospitalitySession.ObjectId + "' AND dsb_release_journal=true");
-            if (releaseJournal != null)
-            {
-                ITemplateProcessor processor = TemplateProcessorManager.getProcessorByObjectType(DdtJournal.TABLE_NAME);
-                paths.Add(processor.processTemplate(hospitalitySession.ObjectId, releaseJournal.RObjectId, null));
-            }
-
-            string result = TemplatesUtils.mergeFiles(paths.ToArray(), false);
-            TemplatesUtils.showDocument(result);
         }
     }
 }

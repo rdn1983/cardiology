@@ -54,8 +54,13 @@ namespace Cardiology
                 uziObj.DssCds = cdsTxt.Text;
                 uziObj.DssUziObp = uziObpTxt.Text;
                 uziObj.DssPleursUzi = pleursUziTxt.Text;
-                service.updateOrCreateIfNeedObject<DdtUzi>(uziObj, DdtUzi.TABLE_NAME, uziObj.ObjectId);
+                objectId = service.updateOrCreateIfNeedObject<DdtUzi>(uziObj, DdtUzi.TABLE_NAME, uziObj.ObjectId);
             }
+        }
+
+        public string getObjectId()
+        {
+            return objectId;
         }
     }
 }

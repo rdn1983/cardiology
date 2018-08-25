@@ -55,8 +55,13 @@ namespace Cardiology
                 urine.DssLeukocytes = leukocytesTxt.Text;
                 urine.DssErythrocytes = erythrocytesTxt.Text;
                 urine.DssProtein = proteinTxt.Text;
-                service.updateOrCreateIfNeedObject<DdtUrineAnalysis>(urine, DdtUrineAnalysis.TABLE_NAME, urine.ObjectId);
+                objectId = service.updateOrCreateIfNeedObject<DdtUrineAnalysis>(urine, DdtUrineAnalysis.TABLE_NAME, urine.ObjectId);
             }
+        }
+
+        public string getObjectId()
+        {
+            return objectId;
         }
     }
 }

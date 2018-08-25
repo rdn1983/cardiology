@@ -57,8 +57,13 @@ namespace Cardiology
                     ekg.DsidPatient = hospitalitySession.DsidPatient;
                 }
                 ekg.DssEkg = regularEkgTxt.Text;
-                service.updateOrCreateIfNeedObject<DdtEkg>(ekg, DdtEkg.TABLE_NAME, ekg.ObjectId);
+                objectId = service.updateOrCreateIfNeedObject<DdtEkg>(ekg, DdtEkg.TABLE_NAME, ekg.ObjectId);
             }
+        }
+
+        public string getObjectId()
+        {
+            return objectId;
         }
 
         private void clearBtn_Click(object sender, EventArgs e)

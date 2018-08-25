@@ -45,8 +45,13 @@ namespace Cardiology
                 }
                 holter.DssHolter = holterTxt.Text;
                 holter.DssMonitoringAd = monitoringAdTxt.Text;
-                service.updateOrCreateIfNeedObject<DdtHolter>(holter, DdtHolter.TABLE_NAME, holter.ObjectId);
+                objectId = service.updateOrCreateIfNeedObject<DdtHolter>(holter, DdtHolter.TABLE_NAME, holter.ObjectId);
             }
+        }
+
+        public string getObjectId()
+        {
+            return objectId;
         }
     }
 }

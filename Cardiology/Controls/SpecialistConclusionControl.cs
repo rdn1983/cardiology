@@ -51,8 +51,13 @@ namespace Cardiology
                 specConslusion.DssSurgeon = surgeonTxt.Text;
                 specConslusion.DssNeuroSurgeon = neuroSurgeonTxt.Text;
                 specConslusion.DssEndocrinologist = endocrinologistTx.Text;
-                service.updateOrCreateIfNeedObject<DdtSpecialistConclusion>(specConslusion, DdtSpecialistConclusion.TABLE_NAME, specConslusion.ObjectId);
+                objectId = service.updateOrCreateIfNeedObject<DdtSpecialistConclusion>(specConslusion, DdtSpecialistConclusion.TABLE_NAME, specConslusion.ObjectId);
             }
+        }
+
+        public string getObjectId()
+        {
+            return objectId;
         }
     }
 }

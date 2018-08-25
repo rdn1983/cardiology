@@ -42,8 +42,13 @@ namespace Cardiology
                     egds.DsidPatient = hospitalitySession.DsidPatient;
                 }
                 egds.DssEgds = regularEgdsTxt.Text;
-                service.updateOrCreateIfNeedObject<DdtEgds>(egds, DdtEgds.TABLE_NAME, egds.ObjectId);
+                objectId = service.updateOrCreateIfNeedObject<DdtEgds>(egds, DdtEgds.TABLE_NAME, egds.ObjectId);
             }
+        }
+
+        public string getObjectId()
+        {
+            return objectId;
         }
     }
 }

@@ -147,7 +147,6 @@ namespace Cardiology
             }
             else
             {
-                hospitalitySession.DssDiagnosis = afterKagDiagnosisTxt.Text;
                 journal = new DdtJournal();
                 journal.DsiJournalType = 1;
                 journal.DsidDoctor = hospitalitySession.DsidDutyDoctor;

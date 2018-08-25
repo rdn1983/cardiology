@@ -44,7 +44,7 @@ INSERT INTO ddt_cure_type (dss_name, dsi_type) VALUES ('Кислород', 16);
 INSERT INTO ddt_cure_type (dss_name, dsi_type) VALUES ('Стол', 17);
 INSERT INTO ddt_cure_type (dss_name, dsi_type) VALUES ('Обезболивающие', 18);
 INSERT INTO ddt_cure_type (dss_name, dsi_type) VALUES ('Седативная терапия', 19);
-INSERT INTO ddt_cure_type (dss_name, dsi_type) VALUES ('Лечение шока', 21);
+INSERT INTO ddt_cure_type (dss_name, dsi_type) VALUES ('Лечение шока', 20);
 INSERT INTO ddt_cure_type (dss_name, dsi_type) VALUES ('Инфузионная терапия', 22);
 INSERT INTO ddt_cure_type (dss_name, dsi_type) VALUES ('Антиаритмическая терапия (внутривенная)', 23);
 INSERT INTO ddt_cure_type (dss_name, dsi_type) VALUES ('Лечение гипертонического криза', 24);

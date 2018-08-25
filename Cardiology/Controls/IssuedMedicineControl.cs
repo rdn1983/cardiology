@@ -7,7 +7,7 @@ using Cardiology.Utils;
 
 namespace Cardiology
 {
-    public partial class IssuedMedicineControl : UserControl, IComponent 
+    public partial class IssuedMedicineControl : UserControl, IComponent
     {
         private List<int> indexes;
 
@@ -33,10 +33,13 @@ namespace Cardiology
 
                         ComboBox box = (ComboBox)CommonUtils.findControl(medicineContainer, "medicineTypeTxt" + indx);
                         DdtCureType type = service.queryObjectByAttrCond<DdtCureType>(DdtCureType.TABLE_NAME, "dsi_type", cure.DsiType + "", false);
-                        box.SelectedIndex = box.FindStringExact(type.DssName);
+                        if (type != null)
+                        {
+                            box.SelectedIndex = box.FindStringExact(type.DssName);
+                        }
                         box = (ComboBox)CommonUtils.findControl(medicineContainer, "issuedMedicineTxt" + indx);
                         box.SelectedIndex = box.FindStringExact(cure.DssName);
-                        
+
                         Label idLbl = (Label)CommonUtils.findControl(medicineContainer, "objectIdLbl" + indx);
                         idLbl.Text = med[i].RObjectId;
                     }
@@ -48,12 +51,15 @@ namespace Cardiology
         internal void refreshData(DataService service, List<DdtCure> cures)
         {
             clearMedicine();
-            foreach (DdtCure cure  in cures)
+            foreach (DdtCure cure in cures)
             {
                 int indx = addMedicineBox();
                 ComboBox box = (ComboBox)CommonUtils.findControl(medicineContainer, "medicineTypeTxt" + indx);
-                DdtCureType type = service.queryObjectByAttrCond<DdtCureType>(DdtCureType.TABLE_NAME, "dsi_type", cure.DsiType+"", false);
-                box.SelectedIndex = box.FindStringExact(type.DssName);
+                DdtCureType type = service.queryObjectByAttrCond<DdtCureType>(DdtCureType.TABLE_NAME, "dsi_type", cure.DsiType + "", false);
+                if (type != null)
+                {
+                    box.SelectedIndex = box.FindStringExact(type.DssName);
+                }
                 box = (ComboBox)CommonUtils.findControl(medicineContainer, "issuedMedicineTxt" + indx);
                 box.SelectedIndex = box.FindStringExact(cure.DssName);
             }
@@ -104,7 +110,7 @@ namespace Cardiology
             CommonUtils.initCureTypeComboboxValues(service, box);
             box.SelectedIndexChanged += new System.EventHandler(this.medicineTypeTxt_SelectedIndexChanged);
 
-            Button b = (Button) CommonUtils.findControl(c, "removeBtn" + indx);
+            Button b = (Button)CommonUtils.findControl(c, "removeBtn" + indx);
             b.Click += new System.EventHandler(this.removeBtn_Clicked);
             medicineContainer.Controls.Add(c);
             return indx;
@@ -112,7 +118,7 @@ namespace Cardiology
 
         private int getNextIndex()
         {
-            if (indexes.Count==0)
+            if (indexes.Count == 0)
             {
                 return 1;
             }
@@ -120,7 +126,7 @@ namespace Cardiology
             int lastIndx = indexes[indexes.Count - 1];
             return lastIndx + 1;
         }
-        
+
 
         private void medicineTypeTxt_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -129,7 +135,7 @@ namespace Cardiology
             string indexStr = String.Intern(boxName.Substring(CommonUtils.getFirstDigitIndex(boxName)));
             if (CommonUtils.isNotBlank(indexStr))
             {
-                DdtCureType selectedVal = (DdtCureType) box.SelectedItem;
+                DdtCureType selectedVal = (DdtCureType)box.SelectedItem;
                 ComboBox c = (ComboBox)CommonUtils.findControl(medicineContainer, "issuedMedicineTxt" + indexStr);
                 if (c != null)
                 {
@@ -154,6 +160,6 @@ namespace Cardiology
             medicineContainer.Controls.RemoveAt(indexOfItem);
         }
 
-        
+
     }
 }

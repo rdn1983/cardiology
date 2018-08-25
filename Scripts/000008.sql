@@ -42,3 +42,4 @@ CREATE TABLE ddt_issued_medicine (
 CREATE TRIGGER ddt_issued_medicine BEFORE INSERT OR UPDATE
   ON ddt_issued_medicine FOR EACH ROW
 EXECUTE PROCEDURE dmtrg_f_modify_date();
+

@@ -194,6 +194,7 @@ INSERT INTO ddt_values (dss_name, dss_value) VALUES ('gb.medicine.2', 'Sol. Furo
 INSERT INTO ddt_values (dss_name, dss_value) VALUES ('gb.medicine.3', 'Tab. Enalaprili 20mg х 2 р/сут');
 INSERT INTO ddt_values (dss_name, dss_value) VALUES ('gb.medicine.4', 'Tab. Amlodipini 5mg х 2р/сутки');
 INSERT INTO ddt_values (dss_name, dss_value) VALUES ('gb.medicine.5', 'Tab. Moxonidini 0,2mg х 2р/сутки');
+INSERT INTO ddt_values (dss_name, dss_value) VALUES ('gb.medicine.6', 'Tab. Metoprololi 25mg х 2р/сутки');
 
 INSERT INTO ddt_values (dss_name, dss_value) VALUES ('oksup.medicine.0', 'Sol. Nitrogliserini 1% - 20,0 ml со v 2 мл/час');
 INSERT INTO ddt_values (dss_name, dss_value) VALUES ('oksup.medicine.1', 'Tab. Clopidogreli 300mg/однократно');

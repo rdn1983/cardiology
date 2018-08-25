@@ -32,7 +32,8 @@ namespace Cardiology
                         int indx = addMedicineBox();
 
                         ComboBox box = (ComboBox)CommonUtils.findControl(medicineContainer, "medicineTypeTxt" + indx);
-                        box.SelectedIndex = cure.DsiType;
+                        DdtCureType type = service.queryObjectByAttrCond<DdtCureType>(DdtCureType.TABLE_NAME, "dsi_type", cure.DsiType + "", false);
+                        box.SelectedIndex = box.FindStringExact(type.DssName);
                         box = (ComboBox)CommonUtils.findControl(medicineContainer, "issuedMedicineTxt" + indx);
                         box.SelectedIndex = box.FindStringExact(cure.DssName);
                         
@@ -51,7 +52,8 @@ namespace Cardiology
             {
                 int indx = addMedicineBox();
                 ComboBox box = (ComboBox)CommonUtils.findControl(medicineContainer, "medicineTypeTxt" + indx);
-                box.SelectedIndex = cure.DsiType;
+                DdtCureType type = service.queryObjectByAttrCond<DdtCureType>(DdtCureType.TABLE_NAME, "dsi_type", cure.DsiType+"", false);
+                box.SelectedIndex = box.FindStringExact(type.DssName);
                 box = (ComboBox)CommonUtils.findControl(medicineContainer, "issuedMedicineTxt" + indx);
                 box.SelectedIndex = box.FindStringExact(cure.DssName);
             }

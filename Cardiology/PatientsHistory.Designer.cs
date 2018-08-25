@@ -167,20 +167,21 @@
             this.editMenu,
             this.deleteMenu});
             this.gridContextMenu.Name = "gridContextMenu";
-            this.gridContextMenu.Size = new System.Drawing.Size(155, 48);
+            this.gridContextMenu.Size = new System.Drawing.Size(181, 70);
             // 
             // editMenu
             // 
             this.editMenu.Name = "editMenu";
-            this.editMenu.Size = new System.Drawing.Size(154, 22);
+            this.editMenu.Size = new System.Drawing.Size(180, 22);
             this.editMenu.Text = "Редактировать";
             this.editMenu.Click += new System.EventHandler(this.editMenu_Click);
             // 
             // deleteMenu
             // 
             this.deleteMenu.Name = "deleteMenu";
-            this.deleteMenu.Size = new System.Drawing.Size(154, 22);
+            this.deleteMenu.Size = new System.Drawing.Size(180, 22);
             this.deleteMenu.Text = "Удалить";
+            this.deleteMenu.Click += new System.EventHandler(this.deleteMenu_Click);
             // 
             // printTitlePage
             // 

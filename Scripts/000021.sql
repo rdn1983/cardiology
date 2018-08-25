@@ -9,7 +9,9 @@ CREATE TABLE ddt_history (
   dsid_operation_id VARCHAR(16),
   dsdt_operation_date timestamp,
   dss_operation_type VARCHAR(60),
-  dss_description VARCHAR(256)
+  dss_description VARCHAR(256),
+  dsdt_delete_date timestamp,
+  dsb_deleted boolean default false
 );
 
 

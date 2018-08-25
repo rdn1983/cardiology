@@ -358,6 +358,26 @@ namespace Cardiology
             return null;
         }
 
+        public bool delete (string sql)
+        {
+            Npgsql.NpgsqlConnection connection = null;
+            try
+            {
+                connection = getConnection();
+                Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
+                command.ExecuteScalar();
+                return true;
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+            return false;
+        }
+
 
 
 

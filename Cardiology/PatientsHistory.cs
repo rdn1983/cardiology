@@ -222,5 +222,21 @@ namespace Cardiology
             string resultPath = TemplatesUtils.mergeFiles(paths.ToArray(), false);
             TemplatesUtils.showDocument(resultPath);
         }
+
+        private void deleteMenu_Click(object sender, EventArgs e)
+        {
+            IEnumerator it = patientHistoryGrid.SelectedRows.GetEnumerator();
+            if (it.MoveNext())
+            {
+                DataGridViewRow row = (DataGridViewRow)it.Current;
+                DataGridViewCell cell = row.Cells[3];
+                string idsValue = cell.Value.ToString();
+                string typeValue = row.Cells[2].Value.ToString();
+                //todo если делать полноценно, то надо еще вносить во все таблицы признак удаления и при открытии первичного осмотра и т.п.
+                    //селектить с учетом флага. пока так. Чтобы хотя бы чистить историю от хлама.
+                DataService service = new DataService();
+                service.update(@"update ddt_history set dsb_deleted=true, dsdt_delete_date=now() WHERE dsid_operation_id='" + idsValue + "'");
+            }
+        }
     }
 }

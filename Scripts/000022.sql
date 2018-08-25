@@ -24,4 +24,4 @@ SELECT history.dsid_hospitality_session as dsid_hospitality_session,
 	doc.dss_initials AS dss_doctor_name,
 	history.dss_description AS dss_description
 	
-FROM ddt_history history LEFT JOIN ddt_doctors doc ON history.dsid_doctor=doc.r_object_id order by dsdt_operation_date;
+FROM ddt_history history LEFT JOIN ddt_doctors doc ON history.dsid_doctor=doc.r_object_id WHERE history.dsb_deleted=false order by dsdt_operation_date;

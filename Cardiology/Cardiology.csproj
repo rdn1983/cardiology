@@ -103,6 +103,12 @@
     <Compile Include="Controls\BloodAnalysisControl.Designer.cs">
       <DependentUpon>BloodAnalysisControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\CoagulogrammControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CoagulogrammControl.Designer.cs">
+      <DependentUpon>CoagulogrammControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\DefferedJournalControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -126,6 +132,12 @@
     </Compile>
     <Compile Include="Controls\HolterControl.Designer.cs">
       <DependentUpon>HolterControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\HormonesControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\HormonesControl.Designer.cs">
+      <DependentUpon>HormonesControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\JournalNoKAGControl.cs">
       <SubType>UserControl</SubType>
@@ -177,6 +189,12 @@
     </Compile>
     <Compile Include="PatientsHistory.Designer.cs">
       <DependentUpon>PatientsHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PreoperativeEpicrisiscs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PreoperativeEpicrisiscs.Designer.cs">
+      <DependentUpon>PreoperativeEpicrisiscs.cs</DependentUpon>
     </Compile>
     <Compile Include="ProtocolsManipulation.cs">
       <SubType>Form</SubType>
@@ -402,6 +420,9 @@
     <EmbeddedResource Include="AppointmentTemplates.resx">
       <DependentUpon>AppointmentTemplates.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CoagulogrammControl.resx">
+      <DependentUpon>CoagulogrammControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\DefferedJournalControl.resx">
       <DependentUpon>DefferedJournalControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -413,6 +434,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\HolterControl.resx">
       <DependentUpon>HolterControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\HormonesControl.resx">
+      <DependentUpon>HormonesControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\IssuedMedicineControl.resx">
       <DependentUpon>IssuedMedicineControl.cs</DependentUpon>
@@ -446,6 +470,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Perelivanie.resx">
       <DependentUpon>Perelivanie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PreoperativeEpicrisiscs.resx">
+      <DependentUpon>PreoperativeEpicrisiscs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PresenceTemplates.resx">
       <DependentUpon>PresenceTemplates.cs</DependentUpon>

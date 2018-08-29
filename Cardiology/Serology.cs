@@ -41,6 +41,12 @@ namespace Cardiology
                 antiHcvBox.Text = serology.DssAntiHcv;
                 hivBox.Text = serology.DssHiv;
                 phenotypeTxt.Text = serology.DssPhenotype;
+            } else
+            {
+                rwBox.SelectedIndex = rwBox.FindStringExact("в работе");
+                hbsAgBox.SelectedIndex = hbsAgBox.FindStringExact("в работе");
+                antiHcvBox.SelectedIndex = antiHcvBox.FindStringExact("в работе");
+                hivBox.SelectedIndex = hivBox.FindStringExact("в работе");
             }
 
         }

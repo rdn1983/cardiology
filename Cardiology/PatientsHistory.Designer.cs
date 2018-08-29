@@ -60,6 +60,7 @@
             this.uziItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bloodTrunsfusionMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.issuingMedicineMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.beforeOperationItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.morningInspectationMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.journalBeforeKAGMeniItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -67,6 +68,9 @@
             this.journalWithoutKAGMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.konsiliumItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bloodTypeItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hormonesItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.koagulogrammItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.patientHistoryGrid)).BeginInit();
             this.gridContextMenu.SuspendLayout();
             this.mainMenu.SuspendLayout();
@@ -167,19 +171,19 @@
             this.editMenu,
             this.deleteMenu});
             this.gridContextMenu.Name = "gridContextMenu";
-            this.gridContextMenu.Size = new System.Drawing.Size(181, 70);
+            this.gridContextMenu.Size = new System.Drawing.Size(155, 48);
             // 
             // editMenu
             // 
             this.editMenu.Name = "editMenu";
-            this.editMenu.Size = new System.Drawing.Size(180, 22);
+            this.editMenu.Size = new System.Drawing.Size(154, 22);
             this.editMenu.Text = "Редактировать";
             this.editMenu.Click += new System.EventHandler(this.editMenu_Click);
             // 
             // deleteMenu
             // 
             this.deleteMenu.Name = "deleteMenu";
-            this.deleteMenu.Size = new System.Drawing.Size(180, 22);
+            this.deleteMenu.Size = new System.Drawing.Size(154, 22);
             this.deleteMenu.Text = "Удалить";
             this.deleteMenu.Click += new System.EventHandler(this.deleteMenu_Click);
             // 
@@ -229,6 +233,7 @@
             this.analysisMenuItem,
             this.bloodTrunsfusionMenuItem,
             this.issuingMedicineMenuItem,
+            this.beforeOperationItem,
             this.toolStripSeparator1,
             this.morningInspectationMenuItem,
             this.journalBeforeKAGMeniItem,
@@ -257,7 +262,10 @@
             this.kagItem,
             this.egdsItem,
             this.specialistItem,
-            this.uziItem});
+            this.uziItem,
+            this.bloodTypeItem,
+            this.hormonesItem,
+            this.koagulogrammItem});
             this.analysisMenuItem.Name = "analysisMenuItem";
             this.analysisMenuItem.Size = new System.Drawing.Size(261, 22);
             this.analysisMenuItem.Text = "Ввести анализы, Исследования";
@@ -332,6 +340,12 @@
             this.issuingMedicineMenuItem.Text = "Назначения";
             this.issuingMedicineMenuItem.Click += new System.EventHandler(this.issuingMedicineMenuItem_Click);
             // 
+            // beforeOperationItem
+            // 
+            this.beforeOperationItem.Name = "beforeOperationItem";
+            this.beforeOperationItem.Size = new System.Drawing.Size(261, 22);
+            this.beforeOperationItem.Text = "Предоперационный эпикриз";
+            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
@@ -376,6 +390,27 @@
             this.konsiliumItem.Size = new System.Drawing.Size(261, 22);
             this.konsiliumItem.Text = "Консилиум";
             this.konsiliumItem.Click += new System.EventHandler(this.konsiliumItem_Click);
+            // 
+            // bloodTypeItem
+            // 
+            this.bloodTypeItem.Name = "bloodTypeItem";
+            this.bloodTypeItem.Size = new System.Drawing.Size(223, 22);
+            this.bloodTypeItem.Text = "Группа крови, инфекции";
+            this.bloodTypeItem.Click += new System.EventHandler(this.bloodTypeItem_Click);
+            // 
+            // hormonesItem
+            // 
+            this.hormonesItem.Name = "hormonesItem";
+            this.hormonesItem.Size = new System.Drawing.Size(223, 22);
+            this.hormonesItem.Text = "Гормоны";
+            this.hormonesItem.Click += new System.EventHandler(this.hormonesItem_Click);
+            // 
+            // koagulogrammItem
+            // 
+            this.koagulogrammItem.Name = "koagulogrammItem";
+            this.koagulogrammItem.Size = new System.Drawing.Size(223, 22);
+            this.koagulogrammItem.Text = "Коагулограмма";
+            this.koagulogrammItem.Click += new System.EventHandler(this.koagulogrammItem_Click);
             // 
             // PatientsHistory
             // 
@@ -439,5 +474,9 @@
         private System.Windows.Forms.ToolStripMenuItem egdsItem;
         private System.Windows.Forms.ToolStripMenuItem specialistItem;
         private System.Windows.Forms.ToolStripMenuItem uziItem;
+        private System.Windows.Forms.ToolStripMenuItem beforeOperationItem;
+        private System.Windows.Forms.ToolStripMenuItem bloodTypeItem;
+        private System.Windows.Forms.ToolStripMenuItem hormonesItem;
+        private System.Windows.Forms.ToolStripMenuItem koagulogrammItem;
     }
 }

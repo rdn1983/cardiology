@@ -134,6 +134,10 @@ namespace Cardiology
                 {
                     form = new Consilium(hospitalitySession, idsValue);
                 }
+                else if (DdtSerology.TABLE_NAME.Equals(typeValue))
+                {
+                    form = new Serology(hospitalitySession);
+                }
 
                 if (form != null)
                 {
@@ -233,10 +237,28 @@ namespace Cardiology
                 string idsValue = cell.Value.ToString();
                 string typeValue = row.Cells[2].Value.ToString();
                 //todo если делать полноценно, то надо еще вносить во все таблицы признак удаления и при открытии первичного осмотра и т.п.
-                    //селектить с учетом флага. пока так. Чтобы хотя бы чистить историю от хлама.
+                //селектить с учетом флага. пока так. Чтобы хотя бы чистить историю от хлама.
                 DataService service = new DataService();
                 service.update(@"update ddt_history set dsb_deleted=true, dsdt_delete_date=now() WHERE dsid_operation_id='" + idsValue + "'");
             }
+        }
+
+        private void bloodTypeItem_Click(object sender, EventArgs e)
+        {
+            Serology form = new Serology(hospitalitySession);
+            form.ShowDialog();
+        }
+
+        private void hormonesItem_Click(object sender, EventArgs e)
+        {
+            AnalysisContainer container = new AnalysisContainer(hospitalitySession, DdtHormones.TABLE_NAME, null);
+            container.ShowDialog();
+        }
+
+        private void koagulogrammItem_Click(object sender, EventArgs e)
+        {
+            AnalysisContainer container = new AnalysisContainer(hospitalitySession, DdtCoagulogram.TABLE_NAME, null);
+            container.ShowDialog();
         }
     }
 }

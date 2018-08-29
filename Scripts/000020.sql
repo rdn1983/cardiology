@@ -39,6 +39,7 @@ CREATE TABLE ddt_coagulogram (
   dsid_hospitality_session VARCHAR(16) REFERENCES ddt_hospital(r_object_id),
   dsid_patient VARCHAR(16) REFERENCES ddt_patient(r_object_id),
   dsid_doctor VARCHAR(16) REFERENCES ddt_doctors(r_object_id),
+  dsdt_analysis_date timestamp,
   dss_achtv VARCHAR(16),
   dss_mcho VARCHAR(16),
   dss_ddimer VARCHAR(16)
@@ -51,8 +52,8 @@ EXECUTE PROCEDURE dmtrg_f_modify_date();
 CREATE OR REPLACE FUNCTION audit_ddt_coagulogram_creating_row () RETURNS TRIGGER AS '
 BEGIN
 INSERT INTO ddt_history 
-(dsid_hospitality_session, dsid_patient, dsid_doctor, dsid_operation_id, dss_operation_type)
- VALUES (NEW.dsid_hospitality_session, NEW.dsid_patient, NEW.dsid_doctor, NEW.r_object_id, TG_TABLE_NAME );
+(dsid_hospitality_session, dsid_patient, dsid_doctor, dsid_operation_id, dss_operation_type, dsdt_operation_date)
+ VALUES (NEW.dsid_hospitality_session, NEW.dsid_patient, NEW.dsid_doctor, NEW.r_object_id, TG_TABLE_NAME, new.dsdt_analysis_date);
  RETURN NEW;
 END;
 ' LANGUAGE  plpgsql;
@@ -90,7 +91,8 @@ CREATE TABLE ddt_blood_analysis (
   dss_sodium VARCHAR (20),
   dss_chlorine VARCHAR (20),
   dsb_admission_analysis BOOLEAN,
-  dsb_discharge_analysis BOOLEAN
+  dsb_discharge_analysis BOOLEAN,
+  dsdt_analysis_date timestamp
 );
 
 CREATE TRIGGER ddt_blood_analysis BEFORE INSERT OR UPDATE
@@ -100,8 +102,8 @@ EXECUTE PROCEDURE dmtrg_f_modify_date();
 CREATE OR REPLACE FUNCTION audit_ddt_blood_analysis_creating_row () RETURNS TRIGGER AS '
 BEGIN
 INSERT INTO ddt_history 
-(dsid_hospitality_session, dsid_patient, dsid_doctor, dsid_operation_id, dss_operation_type)
- VALUES (NEW.dsid_hospitality_session, NEW.dsid_patient, NEW.dsid_doctor, NEW.r_object_id, TG_TABLE_NAME );
+(dsid_hospitality_session, dsid_patient, dsid_doctor, dsid_operation_id, dss_operation_type, dsdt_operation_date)
+ VALUES (NEW.dsid_hospitality_session, NEW.dsid_patient, NEW.dsid_doctor, NEW.r_object_id, TG_TABLE_NAME, new.dsdt_analysis_date);
  RETURN NEW;
 END;
 ' LANGUAGE  plpgsql;

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Cardiology.Model
 {
@@ -14,6 +10,8 @@ namespace Cardiology.Model
         private string rObjectId;
         [TableAttribute("r_creation_date", false)]
         private DateTime rCreationDate;
+        [TableAttribute("dsdt_analysis_date")]
+        private DateTime dsdtAnalysisDate;
         [TableAttribute("dsid_hospitality_session")]
         private string dsidHospitalitySession;
         [TableAttribute("dsid_patient")]
@@ -35,5 +33,6 @@ namespace Cardiology.Model
         public string DssAchtv { get => dssAchtv; set => dssAchtv = value; }
         public string DssMcho { get => dssMcho; set => dssMcho = value; }
         public string DssDdimer { get => dssDdimer; set => dssDdimer = value; }
+        public DateTime DsdtAnalysisDate { get => dsdtAnalysisDate; set => dsdtAnalysisDate = value; }
     }
 }

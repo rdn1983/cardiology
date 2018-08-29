@@ -1,4 +1,5 @@
-﻿using Cardiology.Model;
+﻿using Cardiology.Controls;
+using Cardiology.Model;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -89,6 +90,14 @@ namespace Cardiology
             {
                 combainingContainer.Controls.Add(new SpecialistConclusionControl(objectId, objectId != null && !objectId.Equals(objectId)));
             }
+            else if (DdtHormones.TABLE_NAME.Equals(typeName))
+            {
+                combainingContainer.Controls.Add(new HormonesControl(objectId, objectId != null && !objectId.Equals(objectId)));
+            }
+            else if (DdtCoagulogram.TABLE_NAME.Equals(typeName))
+            {
+                combainingContainer.Controls.Add(new CoagulogrammControl(objectId, objectId != null && !objectId.Equals(objectId)));
+            }
         }
 
         private void initTitle()
@@ -129,6 +138,15 @@ namespace Cardiology
             {
                 this.Text = "Заключение специалистов";
             }
+            else if (DdtCoagulogram.TABLE_NAME.Equals(typeName))
+            {
+                this.Text = "Коагулограмма";
+            }
+            else if (DdtHormones.TABLE_NAME.Equals(typeName))
+            {
+                this.Text = "Гормоны";
+            }
+            
         }
 
         private void selectToContainer_Click(object sender, EventArgs e)

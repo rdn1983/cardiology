@@ -16,18 +16,21 @@ namespace Cardiology.Utils
         {
             DataService service = new DataService();
             DdtHospital hospitalSession = service.queryObjectById<DdtHospital>(DdtHospital.TABLENAME, hospitalSessionId);
-            DdtDoctors doc = service.queryObjectById<DdtDoctors>(DdtDoctors.TABLE_NAME, hospitalSession.DsidCuringDoctor);
-            DdtPatient patient = service.queryObjectById<DdtPatient>(DdtPatient.TABLENAME, hospitalSession.DsidPatient);
-            values.Add(@"{doctor.who.short}", doc.DssInitials);
-            values.Add(@"{patient.initials}", patient.DssInitials);
-            values.Add(@"{patient.birthdate}", patient.DsdtBirthdate.ToShortDateString());
-            values.Add(@"{patient.diagnosis}", hospitalSession.DssDiagnosis);
-            values.Add(@"{patient.age}", DateTime.Now.Year - patient.DsdtBirthdate.Year + "");
-            values.Add(@"{admission.date}", hospitalSession.DsdtAdmissionDate.ToShortDateString());
-            values.Add(@"{patient.historycard}", patient.DssMedCode);
-            values.Add(@"{doctor.who}", doc.DssFullName);
-            values.Add(@"{patient.fullname}", patient.DssFullName);
-            values.Add(@"{date}", DateTime.Now.ToShortDateString());
+            if (hospitalSession != null)
+            {
+                DdtDoctors doc = service.queryObjectById<DdtDoctors>(DdtDoctors.TABLE_NAME, hospitalSession.DsidCuringDoctor);
+                DdtPatient patient = service.queryObjectById<DdtPatient>(DdtPatient.TABLENAME, hospitalSession.DsidPatient);
+                values.Add(@"{doctor.who.short}", doc.DssInitials);
+                values.Add(@"{patient.initials}", patient.DssInitials);
+                values.Add(@"{patient.birthdate}", patient.DsdtBirthdate.ToShortDateString());
+                values.Add(@"{patient.diagnosis}", hospitalSession.DssDiagnosis);
+                values.Add(@"{patient.age}", DateTime.Now.Year - patient.DsdtBirthdate.Year + "");
+                values.Add(@"{admission.date}", hospitalSession.DsdtAdmissionDate.ToShortDateString());
+                values.Add(@"{patient.historycard}", patient.DssMedCode);
+                values.Add(@"{doctor.who}", doc.DssFullName);
+                values.Add(@"{patient.fullname}", patient.DssFullName);
+                values.Add(@"{date}", DateTime.Now.ToShortDateString());
+            }
             TemplatesUtils.fillTemplateAndShow(Directory.GetCurrentDirectory() + "\\Templates\\" + templateFileName, values);
         }
 

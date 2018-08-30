@@ -388,5 +388,86 @@ namespace Cardiology
                 TemplatesUtils.fillBlankTemplate("blank_aid_template.doc", value, values);
             }
         }
+
+        private void hospitalityRefusalItem_Click(object sender, EventArgs e)
+        {
+            IEnumerator it = hospitalPatientsTbl.SelectedRows.GetEnumerator();
+            if (it.MoveNext())
+            {
+                DataGridViewRow row = (DataGridViewRow)it.Current;
+                DataGridViewCell cell = row.Cells[0];
+                string value = cell.Value.ToString();
+                Dictionary<string, string> values = new Dictionary<string, string>();
+                TemplatesUtils.fillBlankTemplate("blank_hospitality_refusal_template.doc", value, values);
+            }
+        }
+
+        private void manipulationAggreementItem_Click(object sender, EventArgs e)
+        {
+            IEnumerator it = hospitalPatientsTbl.SelectedRows.GetEnumerator();
+            if (it.MoveNext())
+            {
+                DataGridViewRow row = (DataGridViewRow)it.Current;
+                DataGridViewCell cell = row.Cells[0];
+                string value = cell.Value.ToString();
+                Dictionary<string, string> values = new Dictionary<string, string>();
+                TemplatesUtils.fillBlankTemplate("blank_yes_manipulation_template.doc", value, values);
+            }
+        }
+
+        private void echoItem_Click(object sender, EventArgs e)
+        {
+            IEnumerator it = hospitalPatientsTbl.SelectedRows.GetEnumerator();
+            if (it.MoveNext())
+            {
+                DataGridViewRow row = (DataGridViewRow)it.Current;
+                DataGridViewCell cell = row.Cells[0];
+                string value = cell.Value.ToString();
+                Dictionary<string, string> values = new Dictionary<string, string>();
+                values.Add("{time}", DateTime.Now.ToShortTimeString());
+                TemplatesUtils.fillBlankTemplate("blank_echo_template.doc", value, values);
+            }
+        }
+
+        private void anastesiaItem_Click(object sender, EventArgs e)
+        {
+            IEnumerator it = hospitalPatientsTbl.SelectedRows.GetEnumerator();
+            if (it.MoveNext())
+            {
+                DataGridViewRow row = (DataGridViewRow)it.Current;
+                DataGridViewCell cell = row.Cells[0];
+                string value = cell.Value.ToString();
+                Dictionary<string, string> values = new Dictionary<string, string>();
+                values.Add("{time}", DateTime.Now.ToShortTimeString());
+                TemplatesUtils.fillBlankTemplate("blank_anastesia_template.doc", value, values);
+            }
+        }
+
+        private void refusalDeadInspectionItem_Click(object sender, EventArgs e)
+        {
+            Dictionary<string, string> values = new Dictionary<string, string>();
+            TemplatesUtils.fillBlankTemplate("blank_refusal_dead_inspection_template.doc", null, values);
+        }
+
+        private void deadConstatationItem_Click(object sender, EventArgs e)
+        {
+
+            IEnumerator it = hospitalPatientsTbl.SelectedRows.GetEnumerator();
+            if (it.MoveNext())
+            {
+                DataGridViewRow row = (DataGridViewRow)it.Current;
+                DataGridViewCell cell = row.Cells[0];
+                string value = cell.Value.ToString();
+                Dictionary<string, string> values = new Dictionary<string, string>();
+                values.Add("{time}", DateTime.Now.ToShortTimeString());
+                DataService service = new DataService();
+                DdtHospital hospitalSession = service.queryObjectById<DdtHospital>(DdtHospital.TABLENAME, value);
+                DdtPatient patient = service.queryObjectById<DdtPatient>(DdtPatient.TABLENAME, hospitalSession.DsidPatient);
+                string passportInfo = patient.DssPassportSerial + " " + patient.DssPassportNum + " выдан " 
+                    + patient.DssPassportDate.ToShortDateString() + " " + patient.DssPassportIssuePlace;
+                values.Add("{patient.passport}", passportInfo);
+                TemplatesUtils.fillBlankTemplate("blank_dead_constatation_template.doc", value, values);
+            }
+        }
     }
 }

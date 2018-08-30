@@ -61,12 +61,12 @@
             this.manipulationProtocoli = new System.Windows.Forms.ToolStripMenuItem();
             this.ambulanceLettersItem = new System.Windows.Forms.ToolStripMenuItem();
             this.blanksItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
+            this.echoItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.refusalsItems = new System.Windows.Forms.ToolStripMenuItem();
             this.refusalTreatmentItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manipulationRefusalItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.hospitalityRefusalItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.agreementsItems = new System.Windows.Forms.ToolStripMenuItem();
             this.commonConsentItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manipulationAggreementItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aidAgreementItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -74,19 +74,19 @@
             this.stentItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aidItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transferItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem14 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
+            this.anastesiaItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deadItems = new System.Windows.Forms.ToolStripMenuItem();
+            this.refusalDeadInspectionItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deadConstatationItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kekItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
+            this.alcoholItems = new System.Windows.Forms.ToolStripMenuItem();
             this.narkoItem = new System.Windows.Forms.ToolStripMenuItem();
             this.alcoExamItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
+            this.transfusionItems = new System.Windows.Forms.ToolStripMenuItem();
             this.trunsfusionApprovalItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registerTrunsfusionItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trunsfusionClaimItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem12 = new System.Windows.Forms.ToolStripMenuItem();
+            this.costlyMedsItems = new System.Windows.Forms.ToolStripMenuItem();
             this.justificationCostlyCureItem = new System.Windows.Forms.ToolStripMenuItem();
             this.skatItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.hospitalPatientsTbl)).BeginInit();
@@ -344,33 +344,34 @@
             // blanksItem
             // 
             this.blanksItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem5,
-            this.toolStripMenuItem6,
-            this.toolStripMenuItem4,
-            this.toolStripMenuItem7,
+            this.echoItem,
+            this.refusalsItems,
+            this.agreementsItems,
+            this.deadItems,
             this.kekItem,
-            this.toolStripMenuItem8,
-            this.toolStripMenuItem9,
-            this.toolStripMenuItem12});
+            this.alcoholItems,
+            this.transfusionItems,
+            this.costlyMedsItems});
             this.blanksItem.Name = "blanksItem";
             this.blanksItem.Size = new System.Drawing.Size(217, 22);
             this.blanksItem.Text = "Бланки";
             // 
-            // toolStripMenuItem5
+            // echoItem
             // 
-            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(221, 22);
-            this.toolStripMenuItem5.Text = "ЭХО";
+            this.echoItem.Name = "echoItem";
+            this.echoItem.Size = new System.Drawing.Size(221, 22);
+            this.echoItem.Text = "ЭХО";
+            this.echoItem.Click += new System.EventHandler(this.echoItem_Click);
             // 
-            // toolStripMenuItem6
+            // refusalsItems
             // 
-            this.toolStripMenuItem6.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.refusalsItems.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.refusalTreatmentItem,
             this.manipulationRefusalItem,
-            this.toolStripMenuItem1});
-            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(221, 22);
-            this.toolStripMenuItem6.Text = "Отказ";
+            this.hospitalityRefusalItem});
+            this.refusalsItems.Name = "refusalsItems";
+            this.refusalsItems.Size = new System.Drawing.Size(221, 22);
+            this.refusalsItems.Text = "Отказ";
             // 
             // refusalTreatmentItem
             // 
@@ -384,16 +385,18 @@
             this.manipulationRefusalItem.Name = "manipulationRefusalItem";
             this.manipulationRefusalItem.Size = new System.Drawing.Size(212, 22);
             this.manipulationRefusalItem.Text = "Отказ от манипуляции";
+            this.manipulationRefusalItem.Click += new System.EventHandler(this.manipulationRefusalItem_Click);
             // 
-            // toolStripMenuItem1
+            // hospitalityRefusalItem
             // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(212, 22);
-            this.toolStripMenuItem1.Text = "Отказ от госпитализации";
+            this.hospitalityRefusalItem.Name = "hospitalityRefusalItem";
+            this.hospitalityRefusalItem.Size = new System.Drawing.Size(212, 22);
+            this.hospitalityRefusalItem.Text = "Отказ от госпитализации";
+            this.hospitalityRefusalItem.Click += new System.EventHandler(this.hospitalityRefusalItem_Click);
             // 
-            // toolStripMenuItem4
+            // agreementsItems
             // 
-            this.toolStripMenuItem4.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.agreementsItems.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.commonConsentItem,
             this.manipulationAggreementItem,
             this.aidAgreementItem,
@@ -401,10 +404,10 @@
             this.stentItem,
             this.aidItem,
             this.transferItem,
-            this.toolStripMenuItem14});
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(221, 22);
-            this.toolStripMenuItem4.Text = "Согласие";
+            this.anastesiaItem});
+            this.agreementsItems.Name = "agreementsItems";
+            this.agreementsItems.Size = new System.Drawing.Size(221, 22);
+            this.agreementsItems.Text = "Согласие";
             // 
             // commonConsentItem
             // 
@@ -418,24 +421,28 @@
             this.manipulationAggreementItem.Name = "manipulationAggreementItem";
             this.manipulationAggreementItem.Size = new System.Drawing.Size(316, 22);
             this.manipulationAggreementItem.Text = "Согласие на манипуляцию";
+            this.manipulationAggreementItem.Click += new System.EventHandler(this.manipulationAggreementItem_Click);
             // 
             // aidAgreementItem
             // 
             this.aidAgreementItem.Name = "aidAgreementItem";
             this.aidAgreementItem.Size = new System.Drawing.Size(316, 22);
             this.aidAgreementItem.Text = "Согласие на ВИЧ";
+            this.aidAgreementItem.Click += new System.EventHandler(this.aidAgreementItem_Click);
             // 
             // kagItem
             // 
             this.kagItem.Name = "kagItem";
             this.kagItem.Size = new System.Drawing.Size(316, 22);
             this.kagItem.Text = "Согласие на КАГ";
+            this.kagItem.Click += new System.EventHandler(this.kagItem_Click);
             // 
             // stentItem
             // 
             this.stentItem.Name = "stentItem";
             this.stentItem.Size = new System.Drawing.Size(316, 22);
             this.stentItem.Text = "Согласие на СТЕНТ";
+            this.stentItem.Click += new System.EventHandler(this.stentItem_Click);
             // 
             // aidItem
             // 
@@ -451,32 +458,35 @@
             this.transferItem.Text = "Перевод в другое отделение и операция";
             this.transferItem.Click += new System.EventHandler(this.transferItem_Click);
             // 
-            // toolStripMenuItem14
+            // anastesiaItem
             // 
-            this.toolStripMenuItem14.Name = "toolStripMenuItem14";
-            this.toolStripMenuItem14.Size = new System.Drawing.Size(316, 22);
-            this.toolStripMenuItem14.Text = "Анестезиолог";
+            this.anastesiaItem.Name = "anastesiaItem";
+            this.anastesiaItem.Size = new System.Drawing.Size(316, 22);
+            this.anastesiaItem.Text = "Анестезиолог";
+            this.anastesiaItem.Click += new System.EventHandler(this.anastesiaItem_Click);
             // 
-            // toolStripMenuItem7
+            // deadItems
             // 
-            this.toolStripMenuItem7.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem2,
-            this.toolStripMenuItem11});
-            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
-            this.toolStripMenuItem7.Size = new System.Drawing.Size(221, 22);
-            this.toolStripMenuItem7.Text = "Умершие";
+            this.deadItems.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.refusalDeadInspectionItem,
+            this.deadConstatationItem});
+            this.deadItems.Name = "deadItems";
+            this.deadItems.Size = new System.Drawing.Size(221, 22);
+            this.deadItems.Text = "Умершие";
             // 
-            // toolStripMenuItem2
+            // refusalDeadInspectionItem
             // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(186, 22);
-            this.toolStripMenuItem2.Text = "Отказ от вскрытия";
+            this.refusalDeadInspectionItem.Name = "refusalDeadInspectionItem";
+            this.refusalDeadInspectionItem.Size = new System.Drawing.Size(186, 22);
+            this.refusalDeadInspectionItem.Text = "Отказ от вскрытия";
+            this.refusalDeadInspectionItem.Click += new System.EventHandler(this.refusalDeadInspectionItem_Click);
             // 
-            // toolStripMenuItem11
+            // deadConstatationItem
             // 
-            this.toolStripMenuItem11.Name = "toolStripMenuItem11";
-            this.toolStripMenuItem11.Size = new System.Drawing.Size(186, 22);
-            this.toolStripMenuItem11.Text = "Констатация смерти";
+            this.deadConstatationItem.Name = "deadConstatationItem";
+            this.deadConstatationItem.Size = new System.Drawing.Size(186, 22);
+            this.deadConstatationItem.Text = "Констатация смерти";
+            this.deadConstatationItem.Click += new System.EventHandler(this.deadConstatationItem_Click);
             // 
             // kekItem
             // 
@@ -485,14 +495,14 @@
             this.kekItem.Text = "КЭК";
             this.kekItem.Click += new System.EventHandler(this.kekItem_Click);
             // 
-            // toolStripMenuItem8
+            // alcoholItems
             // 
-            this.toolStripMenuItem8.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.alcoholItems.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.narkoItem,
             this.alcoExamItem});
-            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
-            this.toolStripMenuItem8.Size = new System.Drawing.Size(221, 22);
-            this.toolStripMenuItem8.Text = "Алкоголь";
+            this.alcoholItems.Name = "alcoholItems";
+            this.alcoholItems.Size = new System.Drawing.Size(221, 22);
+            this.alcoholItems.Text = "Алкоголь";
             // 
             // narkoItem
             // 
@@ -508,15 +518,15 @@
             this.alcoExamItem.Text = "Алко освидетельствование";
             this.alcoExamItem.Click += new System.EventHandler(this.alcoExamItem_Click);
             // 
-            // toolStripMenuItem9
+            // transfusionItems
             // 
-            this.toolStripMenuItem9.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.transfusionItems.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.trunsfusionApprovalItem,
             this.registerTrunsfusionItem,
             this.trunsfusionClaimItem});
-            this.toolStripMenuItem9.Name = "toolStripMenuItem9";
-            this.toolStripMenuItem9.Size = new System.Drawing.Size(221, 22);
-            this.toolStripMenuItem9.Text = "Переливание";
+            this.transfusionItems.Name = "transfusionItems";
+            this.transfusionItems.Size = new System.Drawing.Size(221, 22);
+            this.transfusionItems.Text = "Переливание";
             // 
             // trunsfusionApprovalItem
             // 
@@ -539,20 +549,21 @@
             this.trunsfusionClaimItem.Text = "Заявка";
             this.trunsfusionClaimItem.Click += new System.EventHandler(this.trunsfusionClaimItem_Click);
             // 
-            // toolStripMenuItem12
+            // costlyMedsItems
             // 
-            this.toolStripMenuItem12.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.costlyMedsItems.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.justificationCostlyCureItem,
             this.skatItem});
-            this.toolStripMenuItem12.Name = "toolStripMenuItem12";
-            this.toolStripMenuItem12.Size = new System.Drawing.Size(221, 22);
-            this.toolStripMenuItem12.Text = "Дорогостоящие лекарства";
+            this.costlyMedsItems.Name = "costlyMedsItems";
+            this.costlyMedsItems.Size = new System.Drawing.Size(221, 22);
+            this.costlyMedsItems.Text = "Дорогостоящие лекарства";
             // 
             // justificationCostlyCureItem
             // 
             this.justificationCostlyCureItem.Name = "justificationCostlyCureItem";
             this.justificationCostlyCureItem.Size = new System.Drawing.Size(323, 22);
             this.justificationCostlyCureItem.Text = "Обоснование назначения дорогостоящих АБ";
+            this.justificationCostlyCureItem.Click += new System.EventHandler(this.justificationCostlyCureItem_Click);
             // 
             // skatItem
             // 
@@ -616,29 +627,29 @@
         private System.Windows.Forms.ToolStripMenuItem ambulanceLettersItem;
         private System.Windows.Forms.ToolStripMenuItem blanksItem;
         private System.Windows.Forms.ToolStripMenuItem kekItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem6;
+        private System.Windows.Forms.ToolStripMenuItem agreementsItems;
+        private System.Windows.Forms.ToolStripMenuItem echoItem;
+        private System.Windows.Forms.ToolStripMenuItem refusalsItems;
         private System.Windows.Forms.ToolStripMenuItem refusalTreatmentItem;
         private System.Windows.Forms.ToolStripMenuItem manipulationRefusalItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem hospitalityRefusalItem;
         private System.Windows.Forms.ToolStripMenuItem commonConsentItem;
         private System.Windows.Forms.ToolStripMenuItem manipulationAggreementItem;
         private System.Windows.Forms.ToolStripMenuItem aidAgreementItem;
         private System.Windows.Forms.ToolStripMenuItem kagItem;
         private System.Windows.Forms.ToolStripMenuItem stentItem;
         private System.Windows.Forms.ToolStripMenuItem aidItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem7;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem11;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem8;
+        private System.Windows.Forms.ToolStripMenuItem deadItems;
+        private System.Windows.Forms.ToolStripMenuItem refusalDeadInspectionItem;
+        private System.Windows.Forms.ToolStripMenuItem deadConstatationItem;
+        private System.Windows.Forms.ToolStripMenuItem alcoholItems;
         private System.Windows.Forms.ToolStripMenuItem narkoItem;
         private System.Windows.Forms.ToolStripMenuItem alcoExamItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem9;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem12;
+        private System.Windows.Forms.ToolStripMenuItem transfusionItems;
+        private System.Windows.Forms.ToolStripMenuItem costlyMedsItems;
         private System.Windows.Forms.ToolStripMenuItem justificationCostlyCureItem;
         private System.Windows.Forms.ToolStripMenuItem transferItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem14;
+        private System.Windows.Forms.ToolStripMenuItem anastesiaItem;
         private System.Windows.Forms.ToolStripMenuItem trunsfusionApprovalItem;
         private System.Windows.Forms.ToolStripMenuItem registerTrunsfusionItem;
         private System.Windows.Forms.ToolStripMenuItem trunsfusionClaimItem;

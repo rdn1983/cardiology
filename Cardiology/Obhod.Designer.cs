@@ -34,7 +34,7 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.richTextBox3 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox4 = new System.Windows.Forms.RichTextBox();
+            this.kateterPlacementTxt = new System.Windows.Forms.RichTextBox();
             this.checkAnalyzesBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -87,13 +87,13 @@
             this.richTextBox3.TabIndex = 4;
             this.richTextBox3.Text = "";
             // 
-            // richTextBox4
+            // kateterPlacementTxt
             // 
-            this.richTextBox4.Location = new System.Drawing.Point(12, 404);
-            this.richTextBox4.Name = "richTextBox4";
-            this.richTextBox4.Size = new System.Drawing.Size(640, 49);
-            this.richTextBox4.TabIndex = 5;
-            this.richTextBox4.Text = "";
+            this.kateterPlacementTxt.Location = new System.Drawing.Point(12, 404);
+            this.kateterPlacementTxt.Name = "kateterPlacementTxt";
+            this.kateterPlacementTxt.Size = new System.Drawing.Size(640, 49);
+            this.kateterPlacementTxt.TabIndex = 5;
+            this.kateterPlacementTxt.Text = "Место установки венозного катетера - без особенностей";
             // 
             // checkAnalyzesBtn
             // 
@@ -181,7 +181,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.checkAnalyzesBtn);
-            this.Controls.Add(this.richTextBox4);
+            this.Controls.Add(this.kateterPlacementTxt);
             this.Controls.Add(this.richTextBox3);
             this.Controls.Add(this.richTextBox2);
             this.Controls.Add(this.richTextBox1);
@@ -203,7 +203,7 @@
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.RichTextBox richTextBox2;
         private System.Windows.Forms.RichTextBox richTextBox3;
-        private System.Windows.Forms.RichTextBox richTextBox4;
+        private System.Windows.Forms.RichTextBox kateterPlacementTxt;
         private System.Windows.Forms.Button checkAnalyzesBtn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;

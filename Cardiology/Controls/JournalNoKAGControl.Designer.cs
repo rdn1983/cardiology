@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JournalNoKAGControl));
             this.journalPnl = new System.Windows.Forms.Panel();
             this.visibledPanel = new System.Windows.Forms.Panel();
             this.docLbl = new System.Windows.Forms.Label();
@@ -132,9 +133,10 @@
             // complaintsLbl
             // 
             this.complaintsLbl.AutoSize = true;
+            this.complaintsLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.complaintsLbl.Location = new System.Drawing.Point(262, 4);
             this.complaintsLbl.Name = "complaintsLbl";
-            this.complaintsLbl.Size = new System.Drawing.Size(53, 13);
+            this.complaintsLbl.Size = new System.Drawing.Size(60, 13);
             this.complaintsLbl.TabIndex = 43;
             this.complaintsLbl.Text = "Жалобы:";
             // 
@@ -180,9 +182,10 @@
             // monitorLbl
             // 
             this.monitorLbl.AutoSize = true;
+            this.monitorLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.monitorLbl.Location = new System.Drawing.Point(131, 132);
             this.monitorLbl.Name = "monitorLbl";
-            this.monitorLbl.Size = new System.Drawing.Size(54, 13);
+            this.monitorLbl.Size = new System.Drawing.Size(62, 13);
             this.monitorLbl.TabIndex = 6;
             this.monitorLbl.Text = "Монитор:";
             // 
@@ -227,7 +230,7 @@
             this.journalTxt.Name = "journalTxt";
             this.journalTxt.Size = new System.Drawing.Size(428, 119);
             this.journalTxt.TabIndex = 15;
-            this.journalTxt.Text = "";
+            this.journalTxt.Text = resources.GetString("journalTxt.Text");
             // 
             // adLbl
             // 

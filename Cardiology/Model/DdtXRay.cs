@@ -30,6 +30,10 @@ namespace Cardiology.Model
         private DateTime dsdtKtDate;
         [TableAttribute("dsdt_analysis_date")]
         private DateTime dsdtAnalysisDate;
+        [TableAttribute("dsid_parent")]
+        private string dsidParent;
+        [TableAttribute("dss_parent_type")]
+        private string dssParentType;
 
         public string ObjectId
         {
@@ -66,5 +70,7 @@ namespace Cardiology.Model
         public string DssMrt { get => dssMrt; set => dssMrt = value; }
         public DateTime DsdtKtDate { get => dsdtKtDate; set => dsdtKtDate = value; }
         public DateTime DsdtAnalysisDate { get => dsdtAnalysisDate; set => dsdtAnalysisDate = value; }
+        public string DsidParent { get => dsidParent; set => dsidParent = value; }
+        public string DssParentType { get => dssParentType; set => dssParentType = value; }
     }
 }

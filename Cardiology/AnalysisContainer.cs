@@ -183,7 +183,7 @@ namespace Cardiology
             foreach (Control c in combainingContainer.Controls)
             {
                 IDocbaseControl docbaseControl = (IDocbaseControl)c;
-                docbaseControl.saveObject(hospitalitySession);
+                docbaseControl.saveObject(hospitalitySession, null, null);
             }
             Close();
         }

@@ -73,7 +73,7 @@ namespace Cardiology.Controls
             addDayCb.Visible = isWithKag;
         }
 
-        public void saveObject(DdtHospital hospitalitySession)
+        public void saveObject(DdtHospital hospitalitySession, string parentId, string parentType)
         {
             DataService service = new DataService();
 

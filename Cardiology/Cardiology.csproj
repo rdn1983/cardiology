@@ -151,6 +151,18 @@
     <Compile Include="Controls\KagAnalysisControl.Designer.cs">
       <DependentUpon>KagAnalysisControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\XRayControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\XRayControl.Designer.cs">
+      <DependentUpon>XRayControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inspection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inspection.Designer.cs">
+      <DependentUpon>Inspection.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\DdtAlcoProtocol.cs" />
     <Compile Include="Model\DdtAnamnesis.cs" />
     <Compile Include="Model\DdtBloodAnalysis.cs" />
@@ -166,6 +178,7 @@
     <Compile Include="Model\DdtHolter.cs" />
     <Compile Include="Model\DdtHormones.cs" />
     <Compile Include="Model\DdtHospital.cs" />
+    <Compile Include="Model\DdtInspection.cs" />
     <Compile Include="Model\DdtIssuedMedicine.cs" />
     <Compile Include="Model\DdtIssuedMedicineList.cs" />
     <Compile Include="Model\DdtJournal.cs" />
@@ -443,6 +456,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\JournalNoKAGControl.resx">
       <DependentUpon>JournalNoKAGControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\XRayControl.resx">
+      <DependentUpon>XRayControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inspection.resx">
+      <DependentUpon>Inspection.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="JournalBeforeKag.resx">
       <DependentUpon>JournalBeforeKag.cs</DependentUpon>

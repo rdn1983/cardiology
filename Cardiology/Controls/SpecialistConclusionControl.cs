@@ -34,7 +34,7 @@ namespace Cardiology
             endocrinologistTx.Enabled = isEditable;
         }
 
-        public void saveObject(DdtHospital hospitalitySession)
+        public void saveObject(DdtHospital hospitalitySession, string parentId, string parentType)
         {
             if (isEditable)
             {
@@ -51,6 +51,8 @@ namespace Cardiology
                 specConslusion.DssSurgeon = surgeonTxt.Text;
                 specConslusion.DssNeuroSurgeon = neuroSurgeonTxt.Text;
                 specConslusion.DssEndocrinologist = endocrinologistTx.Text;
+                specConslusion.DssParentType = parentType;
+                specConslusion.DsidParent = parentId;
                 objectId = service.updateOrCreateIfNeedObject<DdtSpecialistConclusion>(specConslusion, DdtSpecialistConclusion.TABLE_NAME, specConslusion.ObjectId);
             }
         }

@@ -49,7 +49,7 @@ namespace Cardiology
 
         private void morningInspectationMenuItem_Click(object sender, EventArgs e)
         {
-            Obhod form = new Obhod();
+            Inspection form = new Inspection(hospitalitySession, null);
             form.ShowDialog();
         }
 

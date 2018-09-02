@@ -49,7 +49,7 @@ namespace Cardiology
             kagEndTime.Enabled = isEditable;
         }
 
-        public void saveObject(DdtHospital hospitalitySession)
+        public void saveObject(DdtHospital hospitalitySession, string parentId, string parentType)
         {
             if (isEditable)
             {

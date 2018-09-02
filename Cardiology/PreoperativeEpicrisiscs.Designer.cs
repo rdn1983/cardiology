@@ -36,13 +36,13 @@
             this.chooseDiagnosisBtn = new System.Windows.Forms.Button();
             this.analysisLbl = new System.Windows.Forms.Label();
             this.analysisGrid = new System.Windows.Forms.DataGridView();
-            this.chooseAnalysisBtn = new System.Windows.Forms.Button();
-            this.print = new System.Windows.Forms.Button();
             this.r_object_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.analysisType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.analysisTypeLbl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.analysis_data = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.delete_btn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.chooseAnalysisBtn = new System.Windows.Forms.Button();
+            this.print = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.analysisGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,6 +73,7 @@
             this.chooseDiagnosisBtn.TabIndex = 2;
             this.chooseDiagnosisBtn.Text = "...";
             this.chooseDiagnosisBtn.UseVisualStyleBackColor = true;
+            this.chooseDiagnosisBtn.Click += new System.EventHandler(this.chooseDiagnosisBtn_Click);
             // 
             // analysisLbl
             // 
@@ -118,25 +119,6 @@
             this.analysisGrid.Size = new System.Drawing.Size(523, 197);
             this.analysisGrid.TabIndex = 4;
             // 
-            // chooseAnalysisBtn
-            // 
-            this.chooseAnalysisBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.chooseAnalysisBtn.Location = new System.Drawing.Point(545, 122);
-            this.chooseAnalysisBtn.Name = "chooseAnalysisBtn";
-            this.chooseAnalysisBtn.Size = new System.Drawing.Size(36, 29);
-            this.chooseAnalysisBtn.TabIndex = 5;
-            this.chooseAnalysisBtn.Text = "...";
-            this.chooseAnalysisBtn.UseVisualStyleBackColor = true;
-            // 
-            // print
-            // 
-            this.print.Location = new System.Drawing.Point(506, 327);
-            this.print.Name = "print";
-            this.print.Size = new System.Drawing.Size(75, 23);
-            this.print.TabIndex = 6;
-            this.print.Text = "MsWord";
-            this.print.UseVisualStyleBackColor = true;
-            // 
             // r_object_id
             // 
             this.r_object_id.HeaderText = "object_id";
@@ -166,6 +148,26 @@
             this.delete_btn.MinimumWidth = 30;
             this.delete_btn.Name = "delete_btn";
             this.delete_btn.Width = 30;
+            // 
+            // chooseAnalysisBtn
+            // 
+            this.chooseAnalysisBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.chooseAnalysisBtn.Location = new System.Drawing.Point(545, 122);
+            this.chooseAnalysisBtn.Name = "chooseAnalysisBtn";
+            this.chooseAnalysisBtn.Size = new System.Drawing.Size(36, 29);
+            this.chooseAnalysisBtn.TabIndex = 5;
+            this.chooseAnalysisBtn.Text = "...";
+            this.chooseAnalysisBtn.UseVisualStyleBackColor = true;
+            this.chooseAnalysisBtn.Click += new System.EventHandler(this.chooseAnalysisBtn_Click);
+            // 
+            // print
+            // 
+            this.print.Location = new System.Drawing.Point(506, 327);
+            this.print.Name = "print";
+            this.print.Size = new System.Drawing.Size(75, 23);
+            this.print.TabIndex = 6;
+            this.print.Text = "MsWord";
+            this.print.UseVisualStyleBackColor = true;
             // 
             // PreoperativeEpicrisiscs
             // 

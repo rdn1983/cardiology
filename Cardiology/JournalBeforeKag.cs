@@ -98,14 +98,14 @@ namespace Cardiology
             foreach (Control c in journalContainer.Controls)
             {
                 IDocbaseControl docbaseControl = (IDocbaseControl)c;
-                docbaseControl.saveObject(hospitalitySession);
+                docbaseControl.saveObject(hospitalitySession, null, null);
                 journalIds.Add(docbaseControl.getObjectId());
             }
 
             foreach (Control c in deferredContainer.Controls)
             {
                 IDocbaseControl docbaseControl = (IDocbaseControl)c;
-                docbaseControl.saveObject(hospitalitySession);
+                docbaseControl.saveObject(hospitalitySession, null, null);
                 journalIds.Add(docbaseControl.getObjectId());
             }
         }

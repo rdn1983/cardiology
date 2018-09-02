@@ -28,7 +28,7 @@ namespace Cardiology
             regularEgdsTxt.Enabled = isEditable;
         }
 
-        public void saveObject(DdtHospital hospitalitySession)
+        public void saveObject(DdtHospital hospitalitySession, string parentId, string parentType)
         {
             if (isEditable)
             {
@@ -42,6 +42,8 @@ namespace Cardiology
                     egds.DsidPatient = hospitalitySession.DsidPatient;
                 }
                 egds.DssEgds = regularEgdsTxt.Text;
+                egds.DssParentType = parentType;
+                egds.DsidParent = parentId;
                 objectId = service.updateOrCreateIfNeedObject<DdtEgds>(egds, DdtEgds.TABLE_NAME, egds.ObjectId);
             }
         }

@@ -43,7 +43,7 @@ namespace Cardiology
             editablePnl.Size = isEditable ? FULL_SIZE : READONLY_SIZE;
         }
 
-        public void saveObject(DdtHospital hospitalitySession)
+        public void saveObject(DdtHospital hospitalitySession, string parentId, string parentType)
         {
             if (isEditable)
             {
@@ -57,6 +57,8 @@ namespace Cardiology
                     ekg.DsidPatient = hospitalitySession.DsidPatient;
                 }
                 ekg.DssEkg = regularEkgTxt.Text;
+                ekg.DsidParent = parentId;
+                ekg.DssParentType = parentType;
                 objectId = service.updateOrCreateIfNeedObject<DdtEkg>(ekg, DdtEkg.TABLE_NAME, ekg.ObjectId);
             }
         }

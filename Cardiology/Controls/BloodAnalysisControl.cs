@@ -64,7 +64,7 @@ namespace Cardiology
             regularBloodPnl.Text = blood == null ? "Анализы текущие" : "Анализы промежуточные за " + blood.RCreationDate.ToShortDateString();
         }
 
-        public void saveObject(DdtHospital hospitalitySession)
+        public void saveObject(DdtHospital hospitalitySession, string parentId, string parentType)
         {
             if (isEditable)
             {
@@ -96,6 +96,8 @@ namespace Cardiology
                 bloodObj.DsdSchf = regularSchfTxt.Text;
                 bloodObj.DsdSodium = regularSodiumTxt.Text;
                 bloodObj.DsdSrp = regularSrbTxt.Text;
+                bloodObj.DssParentType = parentType;
+                bloodObj.DsidParent = parentId;
                 objectId = service.updateOrCreateIfNeedObject<DdtBloodAnalysis>(bloodObj, DdtBloodAnalysis.TABLE_NAME, bloodObj.RObjectId);
             }
         }

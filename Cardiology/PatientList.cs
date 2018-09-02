@@ -97,11 +97,7 @@ namespace Cardiology
             form.ShowDialog();
         }
 
-        private void morningInspectationMenuItem_Click(object sender, EventArgs e)
-        {
-            Obhod form = new Obhod();
-            form.ShowDialog();
-        }
+        
 
         private void Hospital_Activated(object sender, EventArgs e)
         {

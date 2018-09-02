@@ -30,7 +30,7 @@ namespace Cardiology
             monitoringAdTxt.Enabled = isEditable;
         }
 
-        public void saveObject(DdtHospital hospitalitySession)
+        public void saveObject(DdtHospital hospitalitySession, string parentId, string parentType)
         {
             if (isEditable)
             {
@@ -45,6 +45,8 @@ namespace Cardiology
                 }
                 holter.DssHolter = holterTxt.Text;
                 holter.DssMonitoringAd = monitoringAdTxt.Text;
+                holter.DssParentType = parentType;
+                holter.DsidParent = parentId;
                 objectId = service.updateOrCreateIfNeedObject<DdtHolter>(holter, DdtHolter.TABLE_NAME, holter.ObjectId);
             }
         }

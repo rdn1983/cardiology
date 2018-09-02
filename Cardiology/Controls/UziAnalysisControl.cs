@@ -36,7 +36,7 @@ namespace Cardiology
             pleursUziTxt.Enabled = isEditable;
         }
 
-        public void saveObject(DdtHospital hospitalitySession)
+        public void saveObject(DdtHospital hospitalitySession, string parentId, string parentType)
         {
             if (isEditable)
             {
@@ -54,6 +54,8 @@ namespace Cardiology
                 uziObj.DssCds = cdsTxt.Text;
                 uziObj.DssUziObp = uziObpTxt.Text;
                 uziObj.DssPleursUzi = pleursUziTxt.Text;
+                uziObj.DssParentType = parentType;
+                uziObj.DsidParent = parentId;
                 objectId = service.updateOrCreateIfNeedObject<DdtUzi>(uziObj, DdtUzi.TABLE_NAME, uziObj.ObjectId);
             }
         }

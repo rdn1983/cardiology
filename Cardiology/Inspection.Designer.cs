@@ -46,8 +46,10 @@
             this.inspectionLbl = new System.Windows.Forms.Label();
             this.complaintsLbl = new System.Windows.Forms.Label();
             this.analysisTab = new System.Windows.Forms.TabPage();
+            this.tabbedAnalysis = new System.Windows.Forms.TabControl();
             this.addAnalysis = new System.Windows.Forms.Button();
             this.isssuedMedsTab = new System.Windows.Forms.TabPage();
+            this.medicinesPnl = new System.Windows.Forms.Panel();
             this.addMedicineBtn = new System.Windows.Forms.Button();
             this.printBtn = new System.Windows.Forms.Button();
             this.saveBtn = new System.Windows.Forms.Button();
@@ -60,15 +62,13 @@
             this.xRayItem = new System.Windows.Forms.ToolStripMenuItem();
             this.holterItem = new System.Windows.Forms.ToolStripMenuItem();
             this.specialistItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tabbedAnalysis = new System.Windows.Forms.TabControl();
-            this.medicinesPnl = new System.Windows.Forms.Panel();
             this.issuedMedicineControl1 = new Cardiology.IssuedMedicineControl();
             this.tabbedContainer.SuspendLayout();
             this.baseTab.SuspendLayout();
             this.analysisTab.SuspendLayout();
             this.isssuedMedsTab.SuspendLayout();
-            this.analysisTypeMenu.SuspendLayout();
             this.medicinesPnl.SuspendLayout();
+            this.analysisTypeMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabbedContainer
@@ -231,6 +231,16 @@
             this.analysisTab.Text = "Анализы";
             this.analysisTab.UseVisualStyleBackColor = true;
             // 
+            // tabbedAnalysis
+            // 
+            this.tabbedAnalysis.Alignment = System.Windows.Forms.TabAlignment.Left;
+            this.tabbedAnalysis.Location = new System.Drawing.Point(6, 3);
+            this.tabbedAnalysis.Multiline = true;
+            this.tabbedAnalysis.Name = "tabbedAnalysis";
+            this.tabbedAnalysis.SelectedIndex = 0;
+            this.tabbedAnalysis.Size = new System.Drawing.Size(794, 500);
+            this.tabbedAnalysis.TabIndex = 8;
+            // 
             // addAnalysis
             // 
             this.addAnalysis.Image = global::Cardiology.Properties.Resources.addd1;
@@ -252,6 +262,14 @@
             this.isssuedMedsTab.Text = "Назначения";
             this.isssuedMedsTab.UseVisualStyleBackColor = true;
             // 
+            // medicinesPnl
+            // 
+            this.medicinesPnl.Controls.Add(this.issuedMedicineControl1);
+            this.medicinesPnl.Location = new System.Drawing.Point(3, 15);
+            this.medicinesPnl.Name = "medicinesPnl";
+            this.medicinesPnl.Size = new System.Drawing.Size(760, 489);
+            this.medicinesPnl.TabIndex = 3;
+            // 
             // addMedicineBtn
             // 
             this.addMedicineBtn.Image = global::Cardiology.Properties.Resources.addd1;
@@ -270,6 +288,7 @@
             this.printBtn.TabIndex = 18;
             this.printBtn.Text = "Вывод в MSWord";
             this.printBtn.UseVisualStyleBackColor = true;
+            this.printBtn.Click += new System.EventHandler(this.printBtn_Click);
             // 
             // saveBtn
             // 
@@ -289,6 +308,7 @@
             this.nextBtn.TabIndex = 16;
             this.nextBtn.Text = "Далее";
             this.nextBtn.UseVisualStyleBackColor = true;
+            this.nextBtn.Click += new System.EventHandler(this.nextBtn_Click);
             // 
             // previousBtn
             // 
@@ -298,6 +318,7 @@
             this.previousBtn.TabIndex = 15;
             this.previousBtn.Text = "Назад";
             this.previousBtn.UseVisualStyleBackColor = true;
+            this.previousBtn.Click += new System.EventHandler(this.previousBtn_Click);
             // 
             // analysisTypeMenu
             // 
@@ -353,24 +374,6 @@
             this.specialistItem.Text = "Заключения специалистов";
             this.specialistItem.Click += new System.EventHandler(this.specialistItem_Click);
             // 
-            // tabbedAnalysis
-            // 
-            this.tabbedAnalysis.Alignment = System.Windows.Forms.TabAlignment.Left;
-            this.tabbedAnalysis.Location = new System.Drawing.Point(6, 3);
-            this.tabbedAnalysis.Multiline = true;
-            this.tabbedAnalysis.Name = "tabbedAnalysis";
-            this.tabbedAnalysis.SelectedIndex = 0;
-            this.tabbedAnalysis.Size = new System.Drawing.Size(794, 500);
-            this.tabbedAnalysis.TabIndex = 8;
-            // 
-            // medicinesPnl
-            // 
-            this.medicinesPnl.Controls.Add(this.issuedMedicineControl1);
-            this.medicinesPnl.Location = new System.Drawing.Point(3, 15);
-            this.medicinesPnl.Name = "medicinesPnl";
-            this.medicinesPnl.Size = new System.Drawing.Size(760, 489);
-            this.medicinesPnl.TabIndex = 3;
-            // 
             // issuedMedicineControl1
             // 
             this.issuedMedicineControl1.AutoSize = true;
@@ -399,9 +402,9 @@
             this.baseTab.PerformLayout();
             this.analysisTab.ResumeLayout(false);
             this.isssuedMedsTab.ResumeLayout(false);
-            this.analysisTypeMenu.ResumeLayout(false);
             this.medicinesPnl.ResumeLayout(false);
             this.medicinesPnl.PerformLayout();
+            this.analysisTypeMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

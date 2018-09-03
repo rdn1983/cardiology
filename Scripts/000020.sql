@@ -92,7 +92,10 @@ CREATE TABLE ddt_blood_analysis (
   dss_chlorine VARCHAR (20),
   dsb_admission_analysis BOOLEAN,
   dsb_discharge_analysis BOOLEAN,
-  dsdt_analysis_date timestamp
+  dsdt_analysis_date timestamp,
+  
+  dsid_parent VARCHAR(16),
+  dss_parent_type VARCHAR(30)
 );
 
 CREATE TRIGGER ddt_blood_analysis BEFORE INSERT OR UPDATE

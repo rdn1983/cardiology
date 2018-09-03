@@ -7,11 +7,11 @@ CREATE TABLE ddt_inspection (
   dsid_patient VARCHAR(16) REFERENCES ddt_patient(r_object_id),
   dsid_doctor VARCHAR(16) REFERENCES ddt_doctors(r_object_id),
   dsdt_inspection_date timestamp,
-  dss_diagnosis VARCHAR(256),
+  dss_diagnosis VARCHAR(600),
   dss_complaints VARCHAR(256),
-  dss_inspection VARCHAR(256),
+  dss_inspection VARCHAR(600),
   dss_kateter_placement VARCHAR(128),
-  dss_inspection_result VARCHAR(256)
+  dss_inspection_result VARCHAR(600)
 
 );
 

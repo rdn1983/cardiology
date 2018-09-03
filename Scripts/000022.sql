@@ -20,6 +20,7 @@ SELECT history.dsid_hospitality_session as dsid_hospitality_session,
 		WHEN 'ddt_hormones' THEN 'Анализы:Гормоны'
 		WHEN 'ddt_coagulogram' THEN 'Анализы:Коагулограмма'
 		WHEN 'ddt_serology' THEN 'Анализы:Группа крови, инфекции'
+		WHEN 'ddt_inspection' THEN 'Ежедневный обход'
 		END AS dss_operation_name,
 	history.dsdt_operation_date AS dsdt_operation_date,
 	doc.dss_initials AS dss_doctor_name,

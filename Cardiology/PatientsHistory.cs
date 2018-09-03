@@ -138,6 +138,10 @@ namespace Cardiology
                 {
                     form = new Serology(hospitalitySession);
                 }
+                else if (DdtInspection.TABLE_NAME.Equals(typeValue))
+                {
+                    form = new Inspection(hospitalitySession, idsValue);
+                }
 
                 if (form != null)
                 {

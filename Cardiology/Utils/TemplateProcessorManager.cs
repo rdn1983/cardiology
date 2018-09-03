@@ -4,7 +4,9 @@ namespace Cardiology.Utils
 {
     class TemplateProcessorManager
     {
-        private static List<ITemplateProcessor> processors = new List<ITemplateProcessor> { new FirstInspectationTemplateProcessor(), new JournalTemplateProcessor()};
+        private static List<ITemplateProcessor> processors = new List<ITemplateProcessor> { new FirstInspectationTemplateProcessor(),
+            new JournalTemplateProcessor(),
+            new InspectionTemplateProcessor()};
 
         public static ITemplateProcessor getProcessorByObjectType(string type)
         {

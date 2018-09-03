@@ -10,7 +10,10 @@ CREATE TABLE ddt_specialist_conclusion (
   dss_neurolog VARCHAR(512),
   dss_surgeon VARCHAR(512),
   dss_neuro_surgeon VARCHAR(512),
-  dss_endocrinologist VARCHAR(512)
+  dss_endocrinologist VARCHAR(512),
+  
+  dsid_parent VARCHAR(16),
+  dss_parent_type VARCHAR(30)
 );
 
 CREATE TRIGGER ddt_specialist_conclusion BEFORE INSERT OR UPDATE

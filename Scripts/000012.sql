@@ -11,7 +11,10 @@ CREATE TABLE ddt_uzi (
   dss_uzd_bca VARCHAR(512),
   dss_cds VARCHAR(512),
   dss_uzi_obp VARCHAR(512),
-  dss_pleurs_uzi VARCHAR(512)
+  dss_pleurs_uzi VARCHAR(512),
+  
+  dsid_parent VARCHAR(16),
+  dss_parent_type VARCHAR(30)
 );
 
 CREATE TRIGGER ddt_uzi BEFORE INSERT OR UPDATE

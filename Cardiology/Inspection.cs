@@ -15,15 +15,24 @@ namespace Cardiology
         {
             this.hospitalitySession = hospitalitySession;
             InitializeComponent();
+            initControls(id);
         }
 
         private void initControls(string inspectionObjId)
         {
             DataService service = new DataService();
             inspectionObj = service.queryObjectById<DdtInspection>(DdtInspection.TABLE_NAME, inspectionObjId);
+            if (inspectionObj != null)
+            {
+                complaintsTxt.Text = inspectionObj.DssComplaints;
+                diagnosisTxt.Text = inspectionObj.DssDiagnosis;
+                inspectionTxt.Text = inspectionObj.DssInspection;
+                resultTxt.Text = inspectionObj.DssInspectionResult;
+                kateterPlacementTxt.Text = inspectionObj.DssKateterPlacement;
 
-            initIssuedCure(service);
-            initAnalysis(service);
+                initIssuedCure(service);
+                initAnalysis(service);
+            }
         }
 
         private void initAnalysis(DataService service)
@@ -79,7 +88,7 @@ namespace Cardiology
         private void initIssuedCure(DataService service)
         {
             DdtIssuedMedicineList medList = service.queryObject<DdtIssuedMedicineList>(@"SELECT * FROM " + DdtIssuedMedicineList.TABLE_NAME +
-                " WHERE dsid_parent_id='" + inspectionObj + "'");
+                " WHERE dsid_parent_id='" + inspectionObj.RObjectId + "'");
             reinitFromMedList(service, medList);
         }
 
@@ -102,6 +111,7 @@ namespace Cardiology
             saveInspectionObj(service);
             saveIssuedMedicine(service);
             saveAnalysis(service);
+            Close();
         }
 
         private bool getIsValid()
@@ -251,6 +261,39 @@ namespace Cardiology
             TableLayoutPanel container = getTabContainer("specsTab", "Заключения специалистов", true);
             SpecialistConclusionControl ekg = new SpecialistConclusionControl(null, false);
             container.Controls.Add(ekg);
+        }
+
+        private void printBtn_Click(object sender, EventArgs e)
+        {
+            DataService service = new DataService();
+            saveInspectionObj(service);
+            saveIssuedMedicine(service);
+            saveAnalysis(service);
+
+            ITemplateProcessor tp = TemplateProcessorManager.getProcessorByObjectType(DdtInspection.TABLE_NAME);
+            if (tp != null)
+            {
+                string filled = tp.processTemplate(hospitalitySession.ObjectId, inspectionObj.RObjectId, new Dictionary<string, string>());
+                TemplatesUtils.showDocument(filled);
+            }
+        }
+
+        private void previousBtn_Click(object sender, EventArgs e)
+        {
+            int currentTabIndx = tabbedContainer.SelectedIndex;
+            if (currentTabIndx > 0)
+            {
+                tabbedContainer.SelectTab(--currentTabIndx);
+            }
+        }
+
+        private void nextBtn_Click(object sender, EventArgs e)
+        {
+            int currentTabIndx = tabbedContainer.SelectedIndex;
+            if (currentTabIndx < tabbedContainer.TabCount - 1 )
+            {
+                tabbedContainer.SelectTab(++currentTabIndx);
+            }
         }
     }
 }

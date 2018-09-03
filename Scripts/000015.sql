@@ -12,7 +12,10 @@ CREATE TABLE ddt_xray (
   dss_mskt VARCHAR(512),
   dss_kt VARCHAR(512),
   dss_mrt VARCHAR(512),
-  dsdt_kt_date timestamp
+  dsdt_kt_date timestamp,
+  
+  dsid_parent VARCHAR(16),
+  dss_parent_type VARCHAR(30)
 );
 
 

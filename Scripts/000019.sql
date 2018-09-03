@@ -8,7 +8,10 @@ CREATE TABLE ddt_egds (
   dsid_doctor VARCHAR(16) REFERENCES ddt_doctors(r_object_id),
   dsdt_analysis_date timestamp,
   dss_egds VARCHAR(2048),
-  dsb_admission_analysis boolean
+  dsb_admission_analysis boolean,
+  
+  dsid_parent VARCHAR(16),
+  dss_parent_type VARCHAR(30)
 );
 
 
@@ -40,7 +43,9 @@ CREATE TABLE ddt_ekg (
   dsid_patient VARCHAR(16) REFERENCES ddt_patient(r_object_id),
   dsid_doctor VARCHAR(16) REFERENCES ddt_doctors(r_object_id),
   dss_ekg VARCHAR(2048),
-  dsb_admission_analysis boolean
+  dsb_admission_analysis boolean,
+  dsid_parent VARCHAR(16),
+  dss_parent_type VARCHAR(30)
 );
 
 

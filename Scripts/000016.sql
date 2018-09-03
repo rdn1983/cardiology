@@ -6,6 +6,9 @@ CREATE TABLE ddt_holter (
   dsid_hospitality_session VARCHAR(16) REFERENCES ddt_hospital(r_object_id),
   dsid_patient VARCHAR(16) REFERENCES ddt_patient(r_object_id),
   dsid_doctor VARCHAR(16) REFERENCES ddt_doctors(r_object_id),
+  
+  dsid_parent VARCHAR(16),
+  dss_parent_type VARCHAR(30),
   dsdt_analysis_date timestamp,
   dss_holter VARCHAR(1024),
   dss_monitoring_ad VARCHAR(1024)

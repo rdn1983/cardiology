@@ -58,6 +58,9 @@
             this.egdsItem = new System.Windows.Forms.ToolStripMenuItem();
             this.specialistItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uziItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bloodTypeItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hormonesItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.koagulogrammItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bloodTrunsfusionMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.issuingMedicineMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.beforeOperationItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -68,9 +71,6 @@
             this.journalWithoutKAGMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.konsiliumItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bloodTypeItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.hormonesItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.koagulogrammItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.patientHistoryGrid)).BeginInit();
             this.gridContextMenu.SuspendLayout();
             this.mainMenu.SuspendLayout();
@@ -326,6 +326,27 @@
             this.uziItem.Text = "УЗИ";
             this.uziItem.Click += new System.EventHandler(this.uziItem_Click);
             // 
+            // bloodTypeItem
+            // 
+            this.bloodTypeItem.Name = "bloodTypeItem";
+            this.bloodTypeItem.Size = new System.Drawing.Size(223, 22);
+            this.bloodTypeItem.Text = "Группа крови, инфекции";
+            this.bloodTypeItem.Click += new System.EventHandler(this.bloodTypeItem_Click);
+            // 
+            // hormonesItem
+            // 
+            this.hormonesItem.Name = "hormonesItem";
+            this.hormonesItem.Size = new System.Drawing.Size(223, 22);
+            this.hormonesItem.Text = "Гормоны";
+            this.hormonesItem.Click += new System.EventHandler(this.hormonesItem_Click);
+            // 
+            // koagulogrammItem
+            // 
+            this.koagulogrammItem.Name = "koagulogrammItem";
+            this.koagulogrammItem.Size = new System.Drawing.Size(223, 22);
+            this.koagulogrammItem.Text = "Коагулограмма";
+            this.koagulogrammItem.Click += new System.EventHandler(this.koagulogrammItem_Click);
+            // 
             // bloodTrunsfusionMenuItem
             // 
             this.bloodTrunsfusionMenuItem.Name = "bloodTrunsfusionMenuItem";
@@ -345,6 +366,7 @@
             this.beforeOperationItem.Name = "beforeOperationItem";
             this.beforeOperationItem.Size = new System.Drawing.Size(261, 22);
             this.beforeOperationItem.Text = "Предоперационный эпикриз";
+            this.beforeOperationItem.Click += new System.EventHandler(this.beforeOperationItem_Click);
             // 
             // toolStripSeparator1
             // 
@@ -390,27 +412,6 @@
             this.konsiliumItem.Size = new System.Drawing.Size(261, 22);
             this.konsiliumItem.Text = "Консилиум";
             this.konsiliumItem.Click += new System.EventHandler(this.konsiliumItem_Click);
-            // 
-            // bloodTypeItem
-            // 
-            this.bloodTypeItem.Name = "bloodTypeItem";
-            this.bloodTypeItem.Size = new System.Drawing.Size(223, 22);
-            this.bloodTypeItem.Text = "Группа крови, инфекции";
-            this.bloodTypeItem.Click += new System.EventHandler(this.bloodTypeItem_Click);
-            // 
-            // hormonesItem
-            // 
-            this.hormonesItem.Name = "hormonesItem";
-            this.hormonesItem.Size = new System.Drawing.Size(223, 22);
-            this.hormonesItem.Text = "Гормоны";
-            this.hormonesItem.Click += new System.EventHandler(this.hormonesItem_Click);
-            // 
-            // koagulogrammItem
-            // 
-            this.koagulogrammItem.Name = "koagulogrammItem";
-            this.koagulogrammItem.Size = new System.Drawing.Size(223, 22);
-            this.koagulogrammItem.Text = "Коагулограмма";
-            this.koagulogrammItem.Click += new System.EventHandler(this.koagulogrammItem_Click);
             // 
             // PatientsHistory
             // 

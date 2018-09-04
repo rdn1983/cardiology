@@ -264,5 +264,11 @@ namespace Cardiology
             AnalysisContainer container = new AnalysisContainer(hospitalitySession, DdtCoagulogram.TABLE_NAME, null);
             container.ShowDialog();
         }
+
+        private void beforeOperationItem_Click(object sender, EventArgs e)
+        {
+            PreoperativeEpicrisiscs container = new PreoperativeEpicrisiscs(hospitalitySession, null);
+            container.ShowDialog();
+        }
     }
 }

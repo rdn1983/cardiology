@@ -43,6 +43,8 @@
             this.delete_btn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.chooseAnalysisBtn = new System.Windows.Forms.Button();
             this.print = new System.Windows.Forms.Button();
+            this.epicrisisDateTxt = new System.Windows.Forms.DateTimePicker();
+            this.epicrisisDateLbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.analysisGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,7 +52,7 @@
             // 
             this.diagnosisLbl.AutoSize = true;
             this.diagnosisLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.diagnosisLbl.Location = new System.Drawing.Point(13, 13);
+            this.diagnosisLbl.Location = new System.Drawing.Point(13, 44);
             this.diagnosisLbl.Name = "diagnosisLbl";
             this.diagnosisLbl.Size = new System.Drawing.Size(62, 13);
             this.diagnosisLbl.TabIndex = 0;
@@ -58,7 +60,7 @@
             // 
             // diagnosisTxt
             // 
-            this.diagnosisTxt.Location = new System.Drawing.Point(81, 10);
+            this.diagnosisTxt.Location = new System.Drawing.Point(81, 41);
             this.diagnosisTxt.Name = "diagnosisTxt";
             this.diagnosisTxt.Size = new System.Drawing.Size(458, 66);
             this.diagnosisTxt.TabIndex = 1;
@@ -67,7 +69,7 @@
             // chooseDiagnosisBtn
             // 
             this.chooseDiagnosisBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.chooseDiagnosisBtn.Location = new System.Drawing.Point(545, 10);
+            this.chooseDiagnosisBtn.Location = new System.Drawing.Point(545, 41);
             this.chooseDiagnosisBtn.Name = "chooseDiagnosisBtn";
             this.chooseDiagnosisBtn.Size = new System.Drawing.Size(36, 29);
             this.chooseDiagnosisBtn.TabIndex = 2;
@@ -79,7 +81,7 @@
             // 
             this.analysisLbl.AutoSize = true;
             this.analysisLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.analysisLbl.Location = new System.Drawing.Point(13, 95);
+            this.analysisLbl.Location = new System.Drawing.Point(13, 119);
             this.analysisLbl.Name = "analysisLbl";
             this.analysisLbl.Size = new System.Drawing.Size(171, 13);
             this.analysisLbl.TabIndex = 3;
@@ -106,7 +108,7 @@
             this.analysisTypeLbl,
             this.analysis_data,
             this.delete_btn});
-            this.analysisGrid.Location = new System.Drawing.Point(16, 122);
+            this.analysisGrid.Location = new System.Drawing.Point(16, 144);
             this.analysisGrid.Name = "analysisGrid";
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
@@ -152,7 +154,7 @@
             // chooseAnalysisBtn
             // 
             this.chooseAnalysisBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.chooseAnalysisBtn.Location = new System.Drawing.Point(545, 122);
+            this.chooseAnalysisBtn.Location = new System.Drawing.Point(545, 144);
             this.chooseAnalysisBtn.Name = "chooseAnalysisBtn";
             this.chooseAnalysisBtn.Size = new System.Drawing.Size(36, 29);
             this.chooseAnalysisBtn.TabIndex = 5;
@@ -162,18 +164,38 @@
             // 
             // print
             // 
-            this.print.Location = new System.Drawing.Point(506, 327);
+            this.print.Location = new System.Drawing.Point(464, 349);
             this.print.Name = "print";
             this.print.Size = new System.Drawing.Size(75, 23);
             this.print.TabIndex = 6;
             this.print.Text = "MsWord";
             this.print.UseVisualStyleBackColor = true;
             // 
+            // epicrisisDateTxt
+            // 
+            this.epicrisisDateTxt.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.epicrisisDateTxt.Location = new System.Drawing.Point(81, 13);
+            this.epicrisisDateTxt.Name = "epicrisisDateTxt";
+            this.epicrisisDateTxt.Size = new System.Drawing.Size(118, 20);
+            this.epicrisisDateTxt.TabIndex = 7;
+            // 
+            // epicrisisDateLbl
+            // 
+            this.epicrisisDateLbl.AutoSize = true;
+            this.epicrisisDateLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.epicrisisDateLbl.Location = new System.Drawing.Point(34, 17);
+            this.epicrisisDateLbl.Name = "epicrisisDateLbl";
+            this.epicrisisDateLbl.Size = new System.Drawing.Size(41, 13);
+            this.epicrisisDateLbl.TabIndex = 8;
+            this.epicrisisDateLbl.Text = "Дата:";
+            // 
             // PreoperativeEpicrisiscs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(593, 362);
+            this.ClientSize = new System.Drawing.Size(593, 384);
+            this.Controls.Add(this.epicrisisDateLbl);
+            this.Controls.Add(this.epicrisisDateTxt);
             this.Controls.Add(this.print);
             this.Controls.Add(this.chooseAnalysisBtn);
             this.Controls.Add(this.analysisGrid);
@@ -206,5 +228,7 @@
         private System.Windows.Forms.DataGridViewButtonColumn delete_btn;
         private System.Windows.Forms.Button chooseAnalysisBtn;
         private System.Windows.Forms.Button print;
+        private System.Windows.Forms.DateTimePicker epicrisisDateTxt;
+        private System.Windows.Forms.Label epicrisisDateLbl;
     }
 }

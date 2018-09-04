@@ -32,7 +32,7 @@ namespace Cardiology
             DataService service = new DataService();
             StringBuilder dqlBuilder = new StringBuilder();
             dqlBuilder.Append("SELECT ").Append(labelAttr).Append(",").Append(valueAttr).Append(" FROM ").Append(typeName);
-            if (exceptedIds.Count > 0)
+            if (exceptedIds != null && exceptedIds.Count > 0)
             {
                 dqlBuilder.Append(" WHERE r_object_id NOT IN (");
                 foreach (string id in exceptedIds)
@@ -45,7 +45,7 @@ namespace Cardiology
 
             if (CommonUtils.isNotBlank(condition))
             {
-                dqlBuilder.Append(exceptedIds.Count > 0 ? " AND " : " WHERE ");
+                dqlBuilder.Append(exceptedIds != null && exceptedIds.Count > 0 ? " AND " : " WHERE ");
                 dqlBuilder.Append(condition);
             }
 

@@ -41,6 +41,7 @@ namespace Cardiology
         private DdtHospital hospitalSession;
         private DdtAnamnesis anamnesis;
         private List<DdtIssuedMedicine> issuedMedicine;
+        private bool acceptTemplate = false;
 
         public FirstInspection(DdtHospital hospitalitySession)
         {
@@ -97,6 +98,7 @@ namespace Cardiology
         {
             if (anamnesis != null)
             {
+                acceptTemplate = true;
                 if (!anamnesis.DsbTemplate)
                 {
                     accompanyingIllnessesTxt.Text = anamnesis.DssAccompayingIll;
@@ -187,91 +189,138 @@ namespace Cardiology
 
         private void OKSUpBtn_Click(object sender, EventArgs e)
         {
-            clearSelection();
-            DataService service = new DataService();
-            DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + OKSUP_TYPE + "'");
-            initializeAnamnesis(template);
-            updatemedicineFromTemplate("oks.medicine");
-            OKSUpBtn.BackColor = Color.LightSkyBlue;
+            if (isSureChangeTemplate())
+            {
+                acceptTemplate = true;
+                clearSelection();
+                DataService service = new DataService();
+                DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + OKSUP_TYPE + "'");
+                initializeAnamnesis(template);
+                updatemedicineFromTemplate("oks.medicine");
+                OKSUpBtn.BackColor = Color.LightSkyBlue;
+            }
         }
 
         private void OKSDownBtn_Click(object sender, EventArgs e)
         {
-            clearSelection();
-            DataService service = new DataService();
-            DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + OKSDOWN_TYPE + "'");
-            initializeAnamnesis(template);
-            updatemedicineFromTemplate("okslongs.medicine");
-            OKSDownBtn.BackColor = Color.LightSkyBlue;
+            if (isSureChangeTemplate())
+            {
+                acceptTemplate = true;
+                clearSelection();
+                DataService service = new DataService();
+                DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + OKSDOWN_TYPE + "'");
+                initializeAnamnesis(template);
+                updatemedicineFromTemplate("okslongs.medicine");
+                OKSDownBtn.BackColor = Color.LightSkyBlue;
+            }
         }
 
         private void KAGBtn_Click(object sender, EventArgs e)
         {
-            clearSelection();
-            DataService service = new DataService();
-            DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + KAG_TYPE + "'");
-            initializeAnamnesis(template);
-            updatemedicineFromTemplate(KAG_TYPE + ".medicine");
-            KAGBtn.BackColor = Color.LightSkyBlue;
+            if (isSureChangeTemplate())
+            {
+                acceptTemplate = true;
+                clearSelection();
+                DataService service = new DataService();
+                DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + KAG_TYPE + "'");
+                initializeAnamnesis(template);
+                updatemedicineFromTemplate(KAG_TYPE + ".medicine");
+                KAGBtn.BackColor = Color.LightSkyBlue;
+            }
         }
 
         private void aorticDissectionBtn_Click(object sender, EventArgs e)
         {
-            clearSelection();
-            DataService service = new DataService();
-            DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + AORTA_TYPE + "'");
-            initializeAnamnesis(template);
-            updatemedicineFromTemplate(AORTA_TYPE + ".medicine");
-            aorticDissectionBtn.BackColor = Color.LightSkyBlue;
+            if (isSureChangeTemplate())
+            {
+                acceptTemplate = true;
+                clearSelection();
+                DataService service = new DataService();
+                DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + AORTA_TYPE + "'");
+                initializeAnamnesis(template);
+                updatemedicineFromTemplate(AORTA_TYPE + ".medicine");
+                aorticDissectionBtn.BackColor = Color.LightSkyBlue;
+            }
         }
 
         private void GBBtn_Click(object sender, EventArgs e)
         {
-            clearSelection();
-            DataService service = new DataService();
-            DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + GB_TYPE + "'");
-            initializeAnamnesis(template);
-            updatemedicineFromTemplate(GB_TYPE + ".medicine");
-            GBBtn.BackColor = Color.LightSkyBlue;
+            if (isSureChangeTemplate())
+            {
+                acceptTemplate = true;
+                clearSelection();
+                DataService service = new DataService();
+                DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + GB_TYPE + "'");
+                initializeAnamnesis(template);
+                updatemedicineFromTemplate(GB_TYPE + ".medicine");
+                GBBtn.BackColor = Color.LightSkyBlue;
+            }
         }
 
         private void PIKSBtn_Click(object sender, EventArgs e)
         {
-            clearSelection();
-            DataService service = new DataService();
-            DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + PIKS_TYPE + "'");
-            initializeAnamnesis(template);
-            updatemedicineFromTemplate("nk.medicine");
-            PIKSBtn.BackColor = Color.LightSkyBlue;
+            if (isSureChangeTemplate())
+            {
+                acceptTemplate = true;
+                clearSelection();
+                DataService service = new DataService();
+                DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + PIKS_TYPE + "'");
+                initializeAnamnesis(template);
+                updatemedicineFromTemplate("nk.medicine");
+                PIKSBtn.BackColor = Color.LightSkyBlue;
+            }
         }
 
         private void PIKVIKBtn_Click(object sender, EventArgs e)
         {
-            clearSelection();
-            DataService service = new DataService();
-            DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + PIKVIK_TYPE + "'");
-            initializeAnamnesis(template);
-            updatemedicineFromTemplate("hobl.medicine");
-            PIKVIKBtn.BackColor = Color.LightSkyBlue;
+            if (isSureChangeTemplate())
+            {
+                acceptTemplate = true;
+                clearSelection();
+                DataService service = new DataService();
+                DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + PIKVIK_TYPE + "'");
+                initializeAnamnesis(template);
+                updatemedicineFromTemplate("hobl.medicine");
+                PIKVIKBtn.BackColor = Color.LightSkyBlue;
+
+            }
         }
 
         private void DEPBtn_Click(object sender, EventArgs e)
         {
-            clearSelection();
-            DataService service = new DataService();
-            DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + DEP_TYPE + "'");
-            initializeAnamnesis(template);
-            updatemedicineFromTemplate(DEP_TYPE + ".medicine");
-            DEPBtn.BackColor = Color.LightSkyBlue;
+            if (isSureChangeTemplate())
+            {
+                acceptTemplate = true;
+                clearSelection();
+                DataService service = new DataService();
+                DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + DEP_TYPE + "'");
+                initializeAnamnesis(template);
+                updatemedicineFromTemplate(DEP_TYPE + ".medicine");
+                DEPBtn.BackColor = Color.LightSkyBlue;
+            }
         }
 
         private void deathBtn_Click(object sender, EventArgs e)
         {
-            clearSelection();
-            DataService service = new DataService();
-            DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + DEATH_TYPE + "'");
-            initializeAnamnesis(template); updatemedicineFromTemplate(DEATH_TYPE + ".medicine");
-            deathBtn.BackColor = Color.LightSkyBlue;
+            if (isSureChangeTemplate())
+            {
+                acceptTemplate = true;
+                clearSelection();
+                DataService service = new DataService();
+                DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + DEATH_TYPE + "'");
+                initializeAnamnesis(template); updatemedicineFromTemplate(DEATH_TYPE + ".medicine");
+                deathBtn.BackColor = Color.LightSkyBlue;
+            }
+        }
+
+        private bool isSureChangeTemplate()
+        {
+            if (acceptTemplate)
+            {
+                DialogResult result = MessageBox.Show("Уже применен шаблон! Вы уверены, что хотите сменить шаблон?", "Предупреждение", MessageBoxButtons.OKCancel);
+                return result == DialogResult.OK;
+            }
+            return true;
         }
 
         private void clearSelection()

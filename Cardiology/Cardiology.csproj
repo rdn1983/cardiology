@@ -175,6 +175,7 @@
     <Compile Include="Model\DdtDoctors.cs" />
     <Compile Include="Model\DdtEgds.cs" />
     <Compile Include="Model\DdtEkg.cs" />
+    <Compile Include="Model\DdtEpicrisis.cs" />
     <Compile Include="Model\DdtHolter.cs" />
     <Compile Include="Model\DdtHormones.cs" />
     <Compile Include="Model\DdtHospital.cs" />

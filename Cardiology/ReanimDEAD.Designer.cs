@@ -29,42 +29,43 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReanimDEAD));
-            this.label1 = new System.Windows.Forms.Label();
-            this.timeCtrl = new System.Windows.Forms.DateTimePicker();
-            this.button1 = new System.Windows.Forms.Button();
+            this.deadDateLbl = new System.Windows.Forms.Label();
+            this.deathTimeCtrl = new System.Windows.Forms.DateTimePicker();
+            this.reanimOperationBtn = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.docLbl = new System.Windows.Forms.Label();
             this.doctorsBox = new System.Windows.Forms.ComboBox();
+            this.deathDateTxt = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
-            // label1
+            // deadDateLbl
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(241, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Время начала реанимационных мероприятий:";
+            this.deadDateLbl.AutoSize = true;
+            this.deadDateLbl.Location = new System.Drawing.Point(13, 13);
+            this.deadDateLbl.Name = "deadDateLbl";
+            this.deadDateLbl.Size = new System.Drawing.Size(112, 13);
+            this.deadDateLbl.TabIndex = 0;
+            this.deadDateLbl.Text = "Констатация смерти";
             // 
-            // timeCtrl
+            // deathTimeCtrl
             // 
-            this.timeCtrl.CustomFormat = "HH:mm tt";
-            this.timeCtrl.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.timeCtrl.Location = new System.Drawing.Point(16, 29);
-            this.timeCtrl.Name = "timeCtrl";
-            this.timeCtrl.ShowUpDown = true;
-            this.timeCtrl.Size = new System.Drawing.Size(238, 20);
-            this.timeCtrl.TabIndex = 1;
+            this.deathTimeCtrl.CustomFormat = "HH:mm tt";
+            this.deathTimeCtrl.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.deathTimeCtrl.Location = new System.Drawing.Point(141, 29);
+            this.deathTimeCtrl.Name = "deathTimeCtrl";
+            this.deathTimeCtrl.ShowUpDown = true;
+            this.deathTimeCtrl.Size = new System.Drawing.Size(113, 20);
+            this.deathTimeCtrl.TabIndex = 1;
             // 
-            // button1
+            // reanimOperationBtn
             // 
-            this.button1.Location = new System.Drawing.Point(16, 102);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(238, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Открыть МЕРОПРИЯТИЯ в Word";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.reanimOperationBtn.Location = new System.Drawing.Point(16, 102);
+            this.reanimOperationBtn.Name = "reanimOperationBtn";
+            this.reanimOperationBtn.Size = new System.Drawing.Size(238, 23);
+            this.reanimOperationBtn.TabIndex = 2;
+            this.reanimOperationBtn.Text = "Открыть МЕРОПРИЯТИЯ в Word";
+            this.reanimOperationBtn.UseVisualStyleBackColor = true;
+            this.reanimOperationBtn.Click += new System.EventHandler(this.reanimOperationBtn_Click);
             // 
             // button2
             // 
@@ -76,35 +77,43 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // label2
+            // docLbl
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 56);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(34, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Врач:";
+            this.docLbl.AutoSize = true;
+            this.docLbl.Location = new System.Drawing.Point(16, 56);
+            this.docLbl.Name = "docLbl";
+            this.docLbl.Size = new System.Drawing.Size(34, 13);
+            this.docLbl.TabIndex = 4;
+            this.docLbl.Text = "Врач:";
             // 
             // doctorsBox
             // 
             this.doctorsBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.doctorsBox.FormattingEnabled = true;
-            this.doctorsBox.Location = new System.Drawing.Point(19, 75);
+            this.doctorsBox.Location = new System.Drawing.Point(16, 75);
             this.doctorsBox.Name = "doctorsBox";
-            this.doctorsBox.Size = new System.Drawing.Size(235, 21);
+            this.doctorsBox.Size = new System.Drawing.Size(238, 21);
             this.doctorsBox.TabIndex = 5;
+            // 
+            // deathDateTxt
+            // 
+            this.deathDateTxt.Location = new System.Drawing.Point(16, 29);
+            this.deathDateTxt.Name = "deathDateTxt";
+            this.deathDateTxt.Size = new System.Drawing.Size(119, 20);
+            this.deathDateTxt.TabIndex = 6;
             // 
             // ReanimDEAD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(266, 179);
+            this.Controls.Add(this.deathDateTxt);
             this.Controls.Add(this.doctorsBox);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.docLbl);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.timeCtrl);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.reanimOperationBtn);
+            this.Controls.Add(this.deathTimeCtrl);
+            this.Controls.Add(this.deadDateLbl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ReanimDEAD";
@@ -117,11 +126,12 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker timeCtrl;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label deadDateLbl;
+        private System.Windows.Forms.DateTimePicker deathTimeCtrl;
+        private System.Windows.Forms.Button reanimOperationBtn;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label docLbl;
         private System.Windows.Forms.ComboBox doctorsBox;
+        private System.Windows.Forms.DateTimePicker deathDateTxt;
     }
 }

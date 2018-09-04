@@ -81,14 +81,35 @@ namespace Cardiology
 
         private void reanimItem_Click(object sender, EventArgs e)
         {
-            ReanimDEAD form = new ReanimDEAD(null);
-            form.ShowDialog();
+            IEnumerator it = hospitalPatientsTbl.SelectedRows.GetEnumerator();
+            if (it.MoveNext())
+            {
+                DataGridViewRow row = (DataGridViewRow)it.Current;
+                DataGridViewCell cell = row.Cells[0];
+                string value = cell.Value.ToString();
+                DataService service = new DataService();
+                DdtHospital hospitalSession = service.queryObjectById<DdtHospital>(DdtHospital.TABLENAME, value);
+                DdtPatient patient = service.queryObjectById<DdtPatient>(DdtPatient.TABLENAME, hospitalSession.DsidPatient);
+                ReanimDEAD form = new ReanimDEAD(patient);
+                form.ShowDialog();
+            }
+            
         }
 
         private void deadItem_Click(object sender, EventArgs e)
         {
-            ReanimDEAD form = new ReanimDEAD(null);
-            form.ShowDialog();
+            IEnumerator it = hospitalPatientsTbl.SelectedRows.GetEnumerator();
+            if (it.MoveNext())
+            {
+                DataGridViewRow row = (DataGridViewRow)it.Current;
+                DataGridViewCell cell = row.Cells[0];
+                string value = cell.Value.ToString();
+                DataService service = new DataService();
+                DdtHospital hospitalSession = service.queryObjectById<DdtHospital>(DdtHospital.TABLENAME, value);
+                DdtPatient patient = service.queryObjectById<DdtPatient>(DdtPatient.TABLENAME, hospitalSession.DsidPatient);
+                ReanimDEAD form = new ReanimDEAD(patient);
+                form.ShowDialog();
+            }
         }
 
         private void bloodTrunsfusionMenuItem_Click(object sender, EventArgs e)

@@ -10,11 +10,13 @@ namespace Cardiology
     public partial class AnalysisSelector : Form
     {
         private List<string> selectedIds;
+        private List<string> selectedLabels;
         private bool success;
 
         public AnalysisSelector()
         {
             selectedIds = new List<string>();
+            selectedLabels = new List<string>();
             InitializeComponent();
         }
 
@@ -22,6 +24,7 @@ namespace Cardiology
         {
             success = false;
             selectedIds.Clear();
+            selectedLabels.Clear();
             selectionContainer.Items.Clear();
             initControls(typeName, condition, labelAttr, valueAttr, exceptedIds);
             ShowDialog();
@@ -49,20 +52,31 @@ namespace Cardiology
                 dqlBuilder.Append(condition);
             }
 
-            Dictionary<string, string> values = service.queryMappedValues(dqlBuilder.ToString(), "r_object_id", "r_creation_date");
+            Dictionary<string, string> values = service.queryMappedValues(dqlBuilder.ToString(), labelAttr, valueAttr);
             foreach (KeyValuePair<string, string> entry in values)
             {
-                ListViewItem ll = new ListViewItem(entry.Value);
-                ListViewSubItem sub = new ListViewSubItem(ll, entry.Key);
+                ListViewItem ll = new ListViewItem(entry.Key);
+                ListViewSubItem sub = new ListViewSubItem(ll, entry.Value);
                 ll.SubItems.Add(sub);
                 selectionContainer.Items.Add(ll);
             }
+        }
+
+        internal List<string> returnLabels()
+        {
+            List<string> result = new List<string>(selectedLabels);
+            selectedLabels.Clear();
+            selectedIds.Clear();
+            success = false;
+            clearSelection_Click(null, null);
+            return result;
         }
 
         internal List<string> returnValues()
         {
             List<string> result = new List<string>(selectedIds);
             selectedIds.Clear();
+            selectedLabels.Clear();
             success = false;
             clearSelection_Click(null, null);
             return result;
@@ -80,6 +94,7 @@ namespace Cardiology
                 if (k.Checked)
                 {
                     selectedIds.Add(k.SubItems[1].Text);
+                    selectedLabels.Add(k.Text);
                 }
             }
             warningLbl.Visible = selectedIds.Count == 0;
@@ -105,11 +120,13 @@ namespace Cardiology
                 item.Checked = false;
             }
             selectedIds.Clear();
+            selectedLabels.Clear();
         }
 
         private void cancel_Click(object sender, EventArgs e)
         {
             selectedIds.Clear();
+            selectedLabels.Clear();
             selectionContainer.Items.Clear();
             Close();
         }

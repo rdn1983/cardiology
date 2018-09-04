@@ -291,14 +291,35 @@ namespace Cardiology
             Npgsql.NpgsqlDataReader reader = null;
             try
             {
+                Dictionary<string, string> result = new Dictionary<string, string>();
                 connection = getConnection();
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(query, connection);
                 reader = command.ExecuteReader();
-                Dictionary<string, string> result = new Dictionary<string, string>();
                 ReadOnlyCollection<NpgsqlDbColumn> columns = reader.GetColumnSchema();
+                IEnumerator<NpgsqlDbColumn> colsNumerator = columns.GetEnumerator();
                 while (reader.Read())
                 {
-                    result.Add(getWrappedValue(reader.GetValue(0), reader.GetDataTypeName(0)), getWrappedValue(reader.GetValue(1), reader.GetDataTypeName(1)));
+                    string attrKeyValue = null;
+                    string attrValValue = null;
+                    while (colsNumerator.MoveNext())
+                    {
+                        if (attrKey.Equals(colsNumerator.Current.ColumnName))
+                        {
+                            int indx = columns.IndexOf(colsNumerator.Current);
+                            attrKeyValue = getWrappedValue(reader.GetValue(indx), reader.GetDataTypeName(indx));
+                        }
+                        else if (attrValue.Equals(colsNumerator.Current.ColumnName))
+                        {
+                            int indx = columns.IndexOf(colsNumerator.Current);
+                            attrValValue = getWrappedValue(reader.GetValue(indx), reader.GetDataTypeName(indx));
+                        }
+                    }
+                    colsNumerator.Reset();
+
+                    if (attrKeyValue != null && !result.ContainsKey(attrKeyValue))
+                    {
+                        result.Add(attrKeyValue, attrValValue);
+                    }
                 }
                 return result;
             }
@@ -358,7 +379,7 @@ namespace Cardiology
             return null;
         }
 
-        public bool delete (string sql)
+        public bool delete(string sql)
         {
             Npgsql.NpgsqlConnection connection = null;
             try

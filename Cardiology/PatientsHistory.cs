@@ -142,6 +142,10 @@ namespace Cardiology
                 {
                     form = new Inspection(hospitalitySession, idsValue);
                 }
+                else if (DdtEpicrisis.TABLE_NAME.Equals(typeValue))
+                {
+                    form = new PreoperativeEpicrisiscs(hospitalitySession, idsValue);
+                }
 
                 if (form != null)
                 {

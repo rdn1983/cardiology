@@ -170,6 +170,7 @@
             this.print.TabIndex = 6;
             this.print.Text = "MsWord";
             this.print.UseVisualStyleBackColor = true;
+            this.print.Click += new System.EventHandler(this.print_Click);
             // 
             // epicrisisDateTxt
             // 

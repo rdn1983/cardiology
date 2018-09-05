@@ -22,7 +22,7 @@ namespace Cardiology
             DdtBloodAnalysis blood = service.queryObjectById<DdtBloodAnalysis>(DdtBloodAnalysis.TABLE_NAME, objectId);
             if (blood != null)
             {
-                regularBloodDateTxt.Text = blood.DsdtAnalysisDate + "";
+                regularBloodDateTxt.Value = blood.DsdtAnalysisDate;
                 regularAltTxt.Text = blood.DsdAlt + "";
                 regularAmilazaTzt.Text = blood.DsdAmylase + "";
                 regularAstTxt.Text = blood.DsdAst + "";

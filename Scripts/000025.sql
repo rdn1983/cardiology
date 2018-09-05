@@ -6,6 +6,7 @@ CREATE TABLE ddt_consilium (
 
   dsid_hospitality_session VARCHAR(16) REFERENCES ddt_hospital(r_object_id),
   dsid_patient VARCHAR(16) REFERENCES ddt_patient(r_object_id),
+  dsid_doctor VARCHAR(16) REFERENCES ddt_doctors(r_object_id),
   dsdt_consilium_date timestamp,
   
   dss_goal VARCHAR(2048),
@@ -23,7 +24,7 @@ CREATE OR REPLACE FUNCTION audit_ddt_consilium_creating_row () RETURNS TRIGGER A
 BEGIN
 INSERT INTO ddt_history 
 (dsid_hospitality_session, dsid_patient, dsid_doctor, dsid_operation_id, dss_operation_type, dsdt_operation_date)
- VALUES (NEW.dsid_hospitality_session, NEW.dsid_patient, '''', NEW.r_object_id, TG_TABLE_NAME, new.dsdt_consilium_date);
+ VALUES (NEW.dsid_hospitality_session, NEW.dsid_patient, NEW.dsid_doctor, NEW.r_object_id, TG_TABLE_NAME, new.dsdt_consilium_date);
  RETURN NEW;
 END;
 ' LANGUAGE  plpgsql;
@@ -42,10 +43,16 @@ CREATE TABLE ddt_consilium_member (
 
   dsid_consilium VARCHAR(16) REFERENCES ddt_consilium(r_object_id),
   
-  dss_appointment_name VARCHAR(512),
-  dss_doctor_name VARCHAR(512)
+  dss_group_name VARCHAR(512),
+  dss_doctor_name VARCHAR(512),
+  dsb_template BOOLEAN,
+  dss_template_name VARCHAR(64)
 );
 
 CREATE TRIGGER ddt_consilium_member BEFORE INSERT OR UPDATE
   ON ddt_consilium_member FOR EACH ROW
 EXECUTE PROCEDURE dmtrg_f_modify_date();
+
+INSERT INTO ddt_consilium_member (dss_group_name, dss_doctor_name, dsb_template, dss_template_name) VALUES ('io_cardio_reanim', 'Кошкина Е.В.', true,'default_consilium');
+INSERT INTO ddt_consilium_member (dss_group_name, dss_doctor_name, dsb_template, dss_template_name) VALUES ('io_therapy', 'Арефьев А.А.', true,'default_consilium');
+INSERT INTO ddt_consilium_member (dss_group_name, dss_doctor_name, dsb_template, dss_template_name) VALUES ('duty_cardioreanim', 'Генералова О.А.', true,'default_consilium');

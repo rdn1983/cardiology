@@ -11,6 +11,8 @@ namespace Cardiology.Model
         private DateTime rCreationDate;
         [TableAttribute("dsid_hospitality_session")]
         private string dsidHospitalitySession;
+        [TableAttribute("dsid_doctor")]
+        private string dsidDoctor;
         [TableAttribute("dsid_patient")]
         private string dsidPatient;
         [TableAttribute("dss_goal")]
@@ -36,5 +38,6 @@ namespace Cardiology.Model
         public string DssDecision { get => dssDecision; set => dssDecision = value; }
         public string DssDutyAdminName { get => dssDutyAdminName; set => dssDutyAdminName = value; }
         public DateTime DsdtConsiliumDate { get => dsdtConsiliumDate; set => dsdtConsiliumDate = value; }
+        public string DsidDoctor { get => dsidDoctor; set => dsidDoctor = value; }
     }
 }

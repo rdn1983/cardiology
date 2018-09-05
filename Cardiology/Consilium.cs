@@ -25,8 +25,9 @@ namespace Cardiology
         {
             DataService service = new DataService();
             CommonUtils.initDoctorsComboboxValues(service, adminTxt, " dsi_appointment_type=3");
-            CommonUtils.initDoctorsComboboxValues(service, doctorWho0, null);
-
+            CommonUtils.initGroupsComboboxValues(service, appointmentTxt0);
+            CommonUtils.initDoctorsByGroupComboboxValues(service, doctorWho0, null);
+            diagnosisTxt0.Text = hospitalitySession.DssDiagnosis;
             if (CommonUtils.isNotBlank(consiliumId))
             {
                 DdtConsilium consilium = service.queryObjectById<DdtConsilium>(DdtConsilium.TABLE_NAME, consiliumId);
@@ -37,25 +38,50 @@ namespace Cardiology
                     adminTxt.SelectedIndex = adminTxt.FindStringExact(consilium.DssDutyAdminName);
                     diagnosisTxt0.Text = consilium.DssDiagnosis;
                     decisionTxt.Text = consilium.DssDecision;
-                    List<DdtConsiliumMember> cardioConclusions = service.queryObjectsCollectionByAttrCond<DdtConsiliumMember>
+                    List<DdtConsiliumMember> members = service.queryObjectsCollectionByAttrCond<DdtConsiliumMember>
                         (DdtConsiliumMember.TABLE_NAME, "dsid_consilium", consilium.RObjectId, true);
-                    for (int i = 0; i < cardioConclusions.Count; i++)
-                    {
-                        if (doctorsContainer.Controls.Count <= i)
-                        {
-                            doctorsContainer.Controls.Add(CommonUtils.copyControl(dotorInfoPnl0, doctorsContainer.Controls.Count));
-                        }
-
-                        Control c = CommonUtils.findControl(doctorsContainer, "appointmentTxt" + i);
-                        c.Text = cardioConclusions[i].DssAppointmentName;
-                        ComboBox cb = (ComboBox) CommonUtils.findControl(doctorsContainer, "doctorWho" + i);
-                        cb.SelectedIndex = cb.FindStringExact(cardioConclusions[i].DssDoctorName);
-                        c = CommonUtils.findControl(doctorsContainer, "objectIdLbl" + i);
-                        c.Text = cardioConclusions[i].RObjectId;
-                    }
+                    initMembers(service, members);
                 }
             }
+            else
+            {
+                DdtAnamnesis anamnesis = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsid_hospitality_session='" + hospitalitySession.ObjectId + "'");
+                if (anamnesis != null)
+                {
+                    diagnosisTxt0.Text = anamnesis.DssDiagnosis;
+                }
 
+                List<DdtConsiliumMember> members = service.queryObjectsCollectionByAttrCond<DdtConsiliumMember>
+                   (DdtConsiliumMember.TABLE_NAME, "dss_template_name", "default_consilium", true);
+                initMembers(service, members);
+            }
+
+        }
+
+        private void initMembers(DataService service, List<DdtConsiliumMember> members)
+        {
+            for (int i = 0; i < members.Count; i++)
+            {
+                if (doctorsContainer.Controls.Count <= i)
+                {
+                    doctorsContainer.Controls.Add(CommonUtils.copyControl(dotorInfoPnl0, doctorsContainer.Controls.Count));
+                }
+
+                ComboBox cbApp = (ComboBox)CommonUtils.findControl(doctorsContainer, "appointmentTxt" + i);
+                cbApp.SelectedIndexChanged += new System.EventHandler(this.appointmentTxt0_SelectedIndexChanged);
+                DmGroup gr = service.queryObjectByAttrCond<DmGroup>(DmGroup.TABLE_NAME, "dss_name", members[i].DssGroupName, true);
+                if (gr != null)
+                {
+                    cbApp.SelectedIndex = cbApp.FindStringExact(gr.DssDescription);
+                    ComboBox cb = (ComboBox)CommonUtils.findControl(doctorsContainer, "doctorWho" + i);
+                    cb.SelectedIndex = cb.FindStringExact(members[i].DssDoctorName);
+                }
+                if (!members[i].DsbTemplate)
+                {
+                    Control c = CommonUtils.findControl(doctorsContainer, "objectIdLbl" + i);
+                    c.Text = members[i].RObjectId;
+                }
+            }
         }
 
         private void kagBtn_CheckedChanged(object sender, EventArgs e)
@@ -81,17 +107,20 @@ namespace Cardiology
 
         private void evaluationGoal_CheckedChanged(object sender, EventArgs e)
         {
-            diagnosisTxt0.Text = "Оценка коронарного кровотока с последующим решением о необходимости эндоваскулярного вмешательства.";
+            goalTxt.Text = "Оценка коронарного кровотока с последующим решением о необходимости эндоваскулярного вмешательства.";
         }
 
         private void revaskularizationGoal_CheckedChanged(object sender, EventArgs e)
         {
-            diagnosisTxt0.Text = "Реваскуляризация миокарда.";
+            goalTxt.Text = "Реваскуляризация миокарда.";
         }
 
         private void addDoctor_Click(object sender, EventArgs e)
         {
-            doctorsContainer.Controls.Add(CommonUtils.copyControl(dotorInfoPnl0, doctorsContainer.Controls.Count));
+            int indx = doctorsContainer.Controls.Count;
+            doctorsContainer.Controls.Add(CommonUtils.copyControl(dotorInfoPnl0, indx));
+            ComboBox cbApp = (ComboBox)CommonUtils.findControl(doctorsContainer, "appointmentTxt" + indx);
+            cbApp.SelectedIndexChanged += new System.EventHandler(this.appointmentTxt0_SelectedIndexChanged);
         }
 
         private void saveBtn_Click(object sender, EventArgs e)
@@ -110,6 +139,7 @@ namespace Cardiology
                 consilium = new DdtConsilium();
                 consilium.DsidHospitalitySession = hospitalitySession.ObjectId;
                 consilium.DsidPatient = hospitalitySession.DsidPatient;
+                consilium.DsidDoctor = hospitalitySession.DsidCuringDoctor;
             }
             consilium.DssDecision = decisionTxt.Text;
             consilium.DssDiagnosis = diagnosisTxt0.Text;
@@ -122,7 +152,7 @@ namespace Cardiology
             {
                 DdtConsiliumMember member = null;
                 Control c = CommonUtils.findControl(doctorsContainer, "objectIdLbl" + i);
-                Control appointment = CommonUtils.findControl(doctorsContainer, "appointmentTxt" + i);
+                ComboBox appointment = (ComboBox)CommonUtils.findControl(doctorsContainer, "appointmentTxt" + i);
                 if (CommonUtils.isNotBlank(c.Text))
                 {
                     member = service.queryObjectById<DdtConsiliumMember>(DdtConsiliumMember.TABLE_NAME, c.Text);
@@ -137,7 +167,8 @@ namespace Cardiology
                     member = new DdtConsiliumMember();
                     member.DsidConsilium = consiliumId;
                 }
-                member.DssAppointmentName = appointment.Text;
+                DmGroup group = (DmGroup)appointment.SelectedItem;
+                member.DssGroupName = group.DssName;
                 c = CommonUtils.findControl(doctorsContainer, "doctorWho" + i);
                 member.DssDoctorName = c.Text;
                 service.updateOrCreateIfNeedObject<DdtConsiliumMember>(member, DdtConsiliumMember.TABLE_NAME, member.RObjectId);
@@ -190,12 +221,16 @@ namespace Cardiology
 
         private void appointmentTxt0_SelectedIndexChanged(object sender, EventArgs e)
         {
-            /*string ctrlName = ((ComboBox)sender).Name;
-            int indxPlace = CommonUtils.getFirstDigitIndex(ctrlName);
-            int index = Convert.ToInt32(String.Intern(ctrlName.Substring(indxPlace)));
-            ComboBox c = (ComboBox)CommonUtils.findControl(doctorsContainer, "doctorWho" + index);
-            CommonUtils.initDoctorsComboboxValues(new DataService(), c, "dsi_appointment_type=0");*/
-
+            ComboBox cb = (ComboBox)sender;
+            DmGroup group = (DmGroup)cb.SelectedItem;
+            if (group != null)
+            {
+                string ctrlName = cb.Name;
+                int indxPlace = CommonUtils.getFirstDigitIndex(ctrlName);
+                int index = Convert.ToInt32(String.Intern(ctrlName.Substring(indxPlace)));
+                ComboBox c = (ComboBox)CommonUtils.findControl(doctorsContainer, "doctorWho" + index);
+                CommonUtils.initDoctorsByGroupComboboxValues(new DataService(), c, group.DssName);
+            }
         }
 
 

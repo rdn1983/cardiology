@@ -197,6 +197,7 @@
     <Compile Include="Model\DdvActiveHospitalPatients.cs" />
     <Compile Include="Model\DdvHistory.cs" />
     <Compile Include="IDocbaseControl.cs" />
+    <Compile Include="Model\DmGroup.cs" />
     <Compile Include="Morpher.cs" />
     <Compile Include="PatientsHistory.cs">
       <SubType>Form</SubType>

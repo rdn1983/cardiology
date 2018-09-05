@@ -23,10 +23,30 @@ namespace Cardiology.Utils
             return isNotBlank(str) ? String.Intern("'" + str + "'") : "";
         }
 
+        internal static void initGroupsComboboxValues(DataService service, ComboBox cb)
+        {
+            cb.Items.Clear();
+            string query = @"SELECT * FROM " + DmGroup.TABLE_NAME;
+            List<DmGroup> groups = service.queryObjectsCollection<DmGroup>(query);
+            cb.Items.AddRange(groups.ToArray());
+            cb.ValueMember = "DssName";
+            cb.DisplayMember = "DssDescription";
+        }
+
         internal static void initDoctorsComboboxValues(DataService service, ComboBox cb, string whereCnd)
         {
             cb.Items.Clear();
             string query = @"SELECT * FROM ddt_doctors " + (isBlank(whereCnd) ? "" : (" WHERE " + whereCnd));
+            List<DdtDoctors> doctors = service.queryObjectsCollection<DdtDoctors>(query);
+            cb.Items.AddRange(doctors.ToArray());
+            cb.ValueMember = "ObjectId";
+            cb.DisplayMember = "DssInitials";
+        }
+
+        internal static void initDoctorsByGroupComboboxValues(DataService service, ComboBox cb, string groupName)
+        {
+            cb.Items.Clear();
+            string query = @"SELECT * FROM ddt_doctors doc , dm_group_users gr WHERE gr.dss_group_name='" + groupName + "' AND gr.dss_user_name=doc.dss_login";
             List<DdtDoctors> doctors = service.queryObjectsCollection<DdtDoctors>(query);
             cb.Items.AddRange(doctors.ToArray());
             cb.ValueMember = "ObjectId";
@@ -89,7 +109,8 @@ namespace Cardiology.Utils
                     if (sourceCtrl.Controls.Count > 0)
                     {
                         child = copyControl(sourceCtrl, index);
-                    } else
+                    }
+                    else
                     {
                         child = createControl(sourceCtrl, index);
                     }

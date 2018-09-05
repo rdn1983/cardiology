@@ -82,15 +82,6 @@
             // 
             this.appointmentTxt0.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.appointmentTxt0.FormattingEnabled = true;
-            this.appointmentTxt0.Items.AddRange(new object[] {
-            "Заведующей отделения кардиореанимации",
-            "Зам. главного врача по терапии",
-            "Зав. отделения РХМДиЛ",
-            "Дежурного кардиореаниматолога",
-            "Дежурного кардиореаниматолога",
-            "Дежурного кардиореаниматолога",
-            "Зав. отделения РХМДиЛ",
-            "Дежурный врач отделения РХМДиЛ"});
             this.appointmentTxt0.Location = new System.Drawing.Point(3, 3);
             this.appointmentTxt0.Name = "appointmentTxt0";
             this.appointmentTxt0.Size = new System.Drawing.Size(249, 21);
@@ -102,7 +93,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 213);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 13);
+            this.label1.Size = new System.Drawing.Size(97, 13);
             this.label1.TabIndex = 24;
             this.label1.Text = "Цель консилиума";
             // 

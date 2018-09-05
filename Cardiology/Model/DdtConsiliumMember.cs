@@ -11,15 +11,22 @@ namespace Cardiology.Model
         private DateTime rCreationDate;
         [TableAttribute("dsid_consilium")]
         private string dsidConsilium;
-        [TableAttribute("dss_appointment_name")]
-        private string dssAppointmentName;
+        [TableAttribute("dss_group_name")]
+        private string dssGroupName;
         [TableAttribute("dss_doctor_name")]
         private string dssDoctorName;
+        [TableAttribute("dsb_template")]
+        private bool dsbTemplate;
+        [TableAttribute("dss_template_name")]
+        private string dssTemplateName;
+
 
         public string RObjectId { get => rObjectId; set => rObjectId = value; }
         public DateTime RCreationDate { get => rCreationDate; set => rCreationDate = value; }
         public string DsidConsilium { get => dsidConsilium; set => dsidConsilium = value; }
-        public string DssAppointmentName { get => dssAppointmentName; set => dssAppointmentName = value; }
         public string DssDoctorName { get => dssDoctorName; set => dssDoctorName = value; }
+        public string DssGroupName { get => dssGroupName; set => dssGroupName = value; }
+        public bool DsbTemplate { get => dsbTemplate; set => dsbTemplate = value; }
+        public string DssTemplateName { get => dssTemplateName; set => dssTemplateName = value; }
     }
 }

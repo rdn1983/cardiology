@@ -12,7 +12,8 @@ CREATE TABLE ddt_hospital (
   dsb_reject_cure boolean,
   dsb_death boolean,
   dss_room_cell VARCHAR(16),
-  dss_diagnosis VARCHAR(512)
+  dss_diagnosis VARCHAR(512),
+  dsi_release_type int
 );
 
 CREATE TRIGGER ddt_hospital BEFORE INSERT OR UPDATE
@@ -22,8 +23,8 @@ EXECUTE PROCEDURE dmtrg_f_modify_date();
 CREATE OR REPLACE FUNCTION audit_hospital_creating_row () RETURNS TRIGGER AS '
 BEGIN
 INSERT INTO ddt_history 
-(dsid_hospitality_session, dsid_patient, dsid_doctor, dsid_operation_id, dss_operation_type)
- VALUES (NEW.r_object_id, NEW.dsid_patient, NEW.dsid_duty_doctor, NEW.r_object_id, TG_TABLE_NAME );
+(dsid_hospitality_session, dsid_patient, dsid_doctor, dsid_operation_id, dss_operation_type, dsdt_operation_date)
+ VALUES (NEW.r_object_id, NEW.dsid_patient, NEW.dsid_duty_doctor, NEW.r_object_id, TG_TABLE_NAME , NEW.dsdt_admission_date);
  RETURN NEW;
 END;
 ' LANGUAGE  plpgsql;

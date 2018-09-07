@@ -65,7 +65,7 @@ namespace Cardiology
             DdtHospital hospital = new DdtHospital();
             hospital.DsbActive = true;
             hospital.DsidPatient = patientId;
-            hospital.DsdtAdmissionDate = DateTime.Now;
+            hospital.DsdtAdmissionDate = CommonUtils.constructDateWIthTime(patientReceiptDate.Value, patientReceiptTime.Value);
             DdtDoctors docDuty = (DdtDoctors)dutyCardioBox.SelectedItem;
             hospital.DsidDutyDoctor = docDuty.ObjectId;
             DdtDoctors docCuring = (DdtDoctors)cardioDocBox.SelectedItem;

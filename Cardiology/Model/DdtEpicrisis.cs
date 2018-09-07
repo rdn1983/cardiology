@@ -20,6 +20,8 @@ namespace Cardiology.Model
         private string dsidDoctor;
         [TableAttribute("dss_diagnosis")]
         private string dssDiagnosis;
+        [TableAttribute("dsi_epicrisis_type")]
+        private int dsiEpicrisisType;
 
         public string RObjectId { get => rObjectId; set => rObjectId = value; }
         public DateTime RCreationDate { get => rCreationDate; set => rCreationDate = value; }
@@ -28,5 +30,6 @@ namespace Cardiology.Model
         public string DsidDoctor { get => dsidDoctor; set => dsidDoctor = value; }
         public string DssDiagnosis { get => dssDiagnosis; set => dssDiagnosis = value; }
         public DateTime DsdtEpicrisisDate { get => dsdtEpicrisisDate; set => dsdtEpicrisisDate = value; }
+        public int DsiEpicrisisType { get => dsiEpicrisisType; set => dsiEpicrisisType = value; }
     }
 }

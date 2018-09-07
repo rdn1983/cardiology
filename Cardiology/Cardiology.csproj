@@ -176,6 +176,7 @@
     <Compile Include="Model\DdtEgds.cs" />
     <Compile Include="Model\DdtEkg.cs" />
     <Compile Include="Model\DdtEpicrisis.cs" />
+    <Compile Include="Model\DdtEpicrisisDsiType.cs" />
     <Compile Include="Model\DdtHolter.cs" />
     <Compile Include="Model\DdtHormones.cs" />
     <Compile Include="Model\DdtHospital.cs" />
@@ -189,6 +190,7 @@
     <Compile Include="Model\DdtReleasePatient.cs" />
     <Compile Include="Model\DdtSerology.cs" />
     <Compile Include="Model\DdtSpecialistConclusion.cs" />
+    <Compile Include="Model\DdtTransfer.cs" />
     <Compile Include="Model\DdtUrineAnalysis.cs" />
     <Compile Include="Model\DdtUzi.cs" />
     <Compile Include="Model\DdtValues.cs" />

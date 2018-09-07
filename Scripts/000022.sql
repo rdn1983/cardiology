@@ -21,10 +21,12 @@ SELECT history.dsid_hospitality_session as dsid_hospitality_session,
 		WHEN 'ddt_coagulogram' THEN 'Анализы:Коагулограмма'
 		WHEN 'ddt_serology' THEN 'Анализы:Группа крови, инфекции'
 		WHEN 'ddt_inspection' THEN 'Ежедневный обход'
-		WHEN 'ddt_epicrisis' THEN 'Предоперационный эпикриз'
+		WHEN 'ddt_epicrisis' THEN 'Эпикриз'
 		END AS dss_operation_name,
 	history.dsdt_operation_date AS dsdt_operation_date,
 	doc.dss_initials AS dss_doctor_name,
 	history.dss_description AS dss_description
 	
-FROM ddt_history history LEFT JOIN ddt_doctors doc ON history.dsid_doctor=doc.r_object_id WHERE history.dsb_deleted=false order by dsdt_operation_date;
+FROM ddt_history history LEFT JOIN ddt_doctors doc ON history.dsid_doctor=doc.r_object_id
+
+WHERE history.dsb_deleted=false order by dsdt_operation_date;

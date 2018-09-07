@@ -31,43 +31,45 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReleasePatient));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.releaseData = new System.Windows.Forms.TabPage();
+            this.releaseVariants = new System.Windows.Forms.GroupBox();
+            this.releaseBtn = new System.Windows.Forms.RadioButton();
+            this.movedToCardioBtn = new System.Windows.Forms.RadioButton();
+            this.refusedBtn = new System.Windows.Forms.RadioButton();
             this.releasePatientBtn = new System.Windows.Forms.Button();
             this.sickListBox = new System.Windows.Forms.GroupBox();
-            this.longEndDateTxt = new System.Windows.Forms.DateTimePicker();
-            this.longEndDateLbl = new System.Windows.Forms.Label();
-            this.longStartDateTxt = new System.Windows.Forms.DateTimePicker();
-            this.longStartDateLnl = new System.Windows.Forms.Label();
-            this.longSicklistNumTxt = new System.Windows.Forms.TextBox();
-            this.longSicklistNumLbl = new System.Windows.Forms.Label();
-            this.sickListEndDateTxt = new System.Windows.Forms.DateTimePicker();
-            this.sickListStartDateTxt = new System.Windows.Forms.DateTimePicker();
-            this.sickListEndDateLbl = new System.Windows.Forms.Label();
-            this.sickListStartDateLbl = new System.Windows.Forms.Label();
+            this.sickListDataPnl = new System.Windows.Forms.GroupBox();
             this.sickListNumTxt = new System.Windows.Forms.TextBox();
             this.sickListNumLbl = new System.Windows.Forms.Label();
+            this.longEndDateTxt = new System.Windows.Forms.DateTimePicker();
+            this.sickListStartDateLbl = new System.Windows.Forms.Label();
+            this.longEndDateLbl = new System.Windows.Forms.Label();
+            this.sickListEndDateLbl = new System.Windows.Forms.Label();
+            this.longStartDateTxt = new System.Windows.Forms.DateTimePicker();
+            this.sickListStartDateTxt = new System.Windows.Forms.DateTimePicker();
+            this.longStartDateLnl = new System.Windows.Forms.Label();
+            this.sickListEndDateTxt = new System.Windows.Forms.DateTimePicker();
+            this.longSicklistNumTxt = new System.Windows.Forms.TextBox();
+            this.longSicklistNumLbl = new System.Windows.Forms.Label();
+            this.sickListNotNeedBtn = new System.Windows.Forms.RadioButton();
+            this.sickListNeedBtn = new System.Windows.Forms.RadioButton();
             this.getWorkInfoBtn = new System.Windows.Forms.Button();
             this.releaseDateBox = new System.Windows.Forms.GroupBox();
             this.releaseDateTxt = new System.Windows.Forms.DateTimePicker();
             this.releaseOkrDateBox = new System.Windows.Forms.GroupBox();
             this.releaseOkrDateTxt = new System.Windows.Forms.DateTimePicker();
-            this.sickListDataPnl = new System.Windows.Forms.GroupBox();
-            this.sickListNeedBtn = new System.Windows.Forms.RadioButton();
-            this.sickListNotNeedBtn = new System.Windows.Forms.RadioButton();
-            this.releaseVariants = new System.Windows.Forms.GroupBox();
-            this.refusedBtn = new System.Windows.Forms.RadioButton();
-            this.movedToCardioBtn = new System.Windows.Forms.RadioButton();
-            this.releaseBtn = new System.Windows.Forms.RadioButton();
-            this.addIssuedMedicineBtn = new System.Windows.Forms.Button();
-            this.issuedMedicine0 = new System.Windows.Forms.TextBox();
             this.issuedMedicineTab = new System.Windows.Forms.TabPage();
             this.issuedMedicineBox = new System.Windows.Forms.TableLayoutPanel();
+            this.issuedMedicine0 = new System.Windows.Forms.TextBox();
+            this.addIssuedMedicineBtn = new System.Windows.Forms.Button();
+            this.deathBtn = new System.Windows.Forms.RadioButton();
+            this.transferBtn = new System.Windows.Forms.RadioButton();
             this.tabControl1.SuspendLayout();
             this.releaseData.SuspendLayout();
+            this.releaseVariants.SuspendLayout();
             this.sickListBox.SuspendLayout();
+            this.sickListDataPnl.SuspendLayout();
             this.releaseDateBox.SuspendLayout();
             this.releaseOkrDateBox.SuspendLayout();
-            this.sickListDataPnl.SuspendLayout();
-            this.releaseVariants.SuspendLayout();
             this.issuedMedicineTab.SuspendLayout();
             this.issuedMedicineBox.SuspendLayout();
             this.SuspendLayout();
@@ -97,11 +99,57 @@
             this.releaseData.Text = "Данные";
             this.releaseData.UseVisualStyleBackColor = true;
             // 
+            // releaseVariants
+            // 
+            this.releaseVariants.Controls.Add(this.transferBtn);
+            this.releaseVariants.Controls.Add(this.deathBtn);
+            this.releaseVariants.Controls.Add(this.releaseBtn);
+            this.releaseVariants.Controls.Add(this.movedToCardioBtn);
+            this.releaseVariants.Controls.Add(this.refusedBtn);
+            this.releaseVariants.Location = new System.Drawing.Point(6, 287);
+            this.releaseVariants.Name = "releaseVariants";
+            this.releaseVariants.Size = new System.Drawing.Size(351, 120);
+            this.releaseVariants.TabIndex = 4;
+            this.releaseVariants.TabStop = false;
+            this.releaseVariants.Text = "Варианты выписки";
+            // 
+            // releaseBtn
+            // 
+            this.releaseBtn.AutoSize = true;
+            this.releaseBtn.Checked = true;
+            this.releaseBtn.Location = new System.Drawing.Point(8, 59);
+            this.releaseBtn.Name = "releaseBtn";
+            this.releaseBtn.Size = new System.Drawing.Size(176, 17);
+            this.releaseBtn.TabIndex = 2;
+            this.releaseBtn.TabStop = true;
+            this.releaseBtn.Text = "Выписан из отд. кардиологии";
+            this.releaseBtn.UseVisualStyleBackColor = true;
+            // 
+            // movedToCardioBtn
+            // 
+            this.movedToCardioBtn.AutoSize = true;
+            this.movedToCardioBtn.Location = new System.Drawing.Point(8, 40);
+            this.movedToCardioBtn.Name = "movedToCardioBtn";
+            this.movedToCardioBtn.Size = new System.Drawing.Size(243, 17);
+            this.movedToCardioBtn.TabIndex = 1;
+            this.movedToCardioBtn.Text = "Переведен в кардиологическое отделение";
+            this.movedToCardioBtn.UseVisualStyleBackColor = true;
+            // 
+            // refusedBtn
+            // 
+            this.refusedBtn.AutoSize = true;
+            this.refusedBtn.Location = new System.Drawing.Point(8, 20);
+            this.refusedBtn.Name = "refusedBtn";
+            this.refusedBtn.Size = new System.Drawing.Size(210, 17);
+            this.refusedBtn.TabIndex = 0;
+            this.refusedBtn.Text = "Выписан под отказ от стац. лечения";
+            this.refusedBtn.UseVisualStyleBackColor = true;
+            // 
             // releasePatientBtn
             // 
-            this.releasePatientBtn.Location = new System.Drawing.Point(226, 393);
+            this.releasePatientBtn.Location = new System.Drawing.Point(257, 409);
             this.releasePatientBtn.Name = "releasePatientBtn";
-            this.releasePatientBtn.Size = new System.Drawing.Size(131, 34);
+            this.releasePatientBtn.Size = new System.Drawing.Size(100, 26);
             this.releasePatientBtn.TabIndex = 3;
             this.releasePatientBtn.Text = "Сохранить";
             this.releasePatientBtn.UseVisualStyleBackColor = true;
@@ -120,6 +168,42 @@
             this.sickListBox.TabStop = false;
             this.sickListBox.Text = "Лист нетрудоспособности";
             // 
+            // sickListDataPnl
+            // 
+            this.sickListDataPnl.Controls.Add(this.sickListNumTxt);
+            this.sickListDataPnl.Controls.Add(this.sickListNumLbl);
+            this.sickListDataPnl.Controls.Add(this.longEndDateTxt);
+            this.sickListDataPnl.Controls.Add(this.sickListStartDateLbl);
+            this.sickListDataPnl.Controls.Add(this.longEndDateLbl);
+            this.sickListDataPnl.Controls.Add(this.sickListEndDateLbl);
+            this.sickListDataPnl.Controls.Add(this.longStartDateTxt);
+            this.sickListDataPnl.Controls.Add(this.sickListStartDateTxt);
+            this.sickListDataPnl.Controls.Add(this.longStartDateLnl);
+            this.sickListDataPnl.Controls.Add(this.sickListEndDateTxt);
+            this.sickListDataPnl.Controls.Add(this.longSicklistNumTxt);
+            this.sickListDataPnl.Controls.Add(this.longSicklistNumLbl);
+            this.sickListDataPnl.Location = new System.Drawing.Point(8, 71);
+            this.sickListDataPnl.Name = "sickListDataPnl";
+            this.sickListDataPnl.Size = new System.Drawing.Size(337, 122);
+            this.sickListDataPnl.TabIndex = 4;
+            this.sickListDataPnl.TabStop = false;
+            // 
+            // sickListNumTxt
+            // 
+            this.sickListNumTxt.Location = new System.Drawing.Point(30, 14);
+            this.sickListNumTxt.Name = "sickListNumTxt";
+            this.sickListNumTxt.Size = new System.Drawing.Size(297, 20);
+            this.sickListNumTxt.TabIndex = 4;
+            // 
+            // sickListNumLbl
+            // 
+            this.sickListNumLbl.AutoSize = true;
+            this.sickListNumLbl.Location = new System.Drawing.Point(6, 17);
+            this.sickListNumLbl.Name = "sickListNumLbl";
+            this.sickListNumLbl.Size = new System.Drawing.Size(18, 13);
+            this.sickListNumLbl.TabIndex = 3;
+            this.sickListNumLbl.Text = "№";
+            // 
             // longEndDateTxt
             // 
             this.longEndDateTxt.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -127,6 +211,15 @@
             this.longEndDateTxt.Name = "longEndDateTxt";
             this.longEndDateTxt.Size = new System.Drawing.Size(130, 20);
             this.longEndDateTxt.TabIndex = 15;
+            // 
+            // sickListStartDateLbl
+            // 
+            this.sickListStartDateLbl.AutoSize = true;
+            this.sickListStartDateLbl.Location = new System.Drawing.Point(12, 37);
+            this.sickListStartDateLbl.Name = "sickListStartDateLbl";
+            this.sickListStartDateLbl.Size = new System.Drawing.Size(13, 13);
+            this.sickListStartDateLbl.TabIndex = 5;
+            this.sickListStartDateLbl.Text = "с";
             // 
             // longEndDateLbl
             // 
@@ -137,6 +230,15 @@
             this.longEndDateLbl.TabIndex = 14;
             this.longEndDateLbl.Text = "по";
             // 
+            // sickListEndDateLbl
+            // 
+            this.sickListEndDateLbl.AutoSize = true;
+            this.sickListEndDateLbl.Location = new System.Drawing.Point(171, 37);
+            this.sickListEndDateLbl.Name = "sickListEndDateLbl";
+            this.sickListEndDateLbl.Size = new System.Drawing.Size(19, 13);
+            this.sickListEndDateLbl.TabIndex = 7;
+            this.sickListEndDateLbl.Text = "по";
+            // 
             // longStartDateTxt
             // 
             this.longStartDateTxt.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -144,6 +246,14 @@
             this.longStartDateTxt.Name = "longStartDateTxt";
             this.longStartDateTxt.Size = new System.Drawing.Size(134, 20);
             this.longStartDateTxt.TabIndex = 13;
+            // 
+            // sickListStartDateTxt
+            // 
+            this.sickListStartDateTxt.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.sickListStartDateTxt.Location = new System.Drawing.Point(31, 37);
+            this.sickListStartDateTxt.Name = "sickListStartDateTxt";
+            this.sickListStartDateTxt.Size = new System.Drawing.Size(134, 20);
+            this.sickListStartDateTxt.TabIndex = 8;
             // 
             // longStartDateLnl
             // 
@@ -153,6 +263,14 @@
             this.longStartDateLnl.Size = new System.Drawing.Size(13, 13);
             this.longStartDateLnl.TabIndex = 12;
             this.longStartDateLnl.Text = "с";
+            // 
+            // sickListEndDateTxt
+            // 
+            this.sickListEndDateTxt.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.sickListEndDateTxt.Location = new System.Drawing.Point(197, 37);
+            this.sickListEndDateTxt.Name = "sickListEndDateTxt";
+            this.sickListEndDateTxt.Size = new System.Drawing.Size(130, 20);
+            this.sickListEndDateTxt.TabIndex = 9;
             // 
             // longSicklistNumTxt
             // 
@@ -170,55 +288,27 @@
             this.longSicklistNumLbl.TabIndex = 10;
             this.longSicklistNumLbl.Text = "№";
             // 
-            // sickListEndDateTxt
+            // sickListNotNeedBtn
             // 
-            this.sickListEndDateTxt.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.sickListEndDateTxt.Location = new System.Drawing.Point(197, 37);
-            this.sickListEndDateTxt.Name = "sickListEndDateTxt";
-            this.sickListEndDateTxt.Size = new System.Drawing.Size(130, 20);
-            this.sickListEndDateTxt.TabIndex = 9;
+            this.sickListNotNeedBtn.AutoSize = true;
+            this.sickListNotNeedBtn.Location = new System.Drawing.Point(175, 48);
+            this.sickListNotNeedBtn.Name = "sickListNotNeedBtn";
+            this.sickListNotNeedBtn.Size = new System.Drawing.Size(90, 17);
+            this.sickListNotNeedBtn.TabIndex = 17;
+            this.sickListNotNeedBtn.Text = "ЛН не нужен";
+            this.sickListNotNeedBtn.UseVisualStyleBackColor = true;
             // 
-            // sickListStartDateTxt
+            // sickListNeedBtn
             // 
-            this.sickListStartDateTxt.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.sickListStartDateTxt.Location = new System.Drawing.Point(31, 37);
-            this.sickListStartDateTxt.Name = "sickListStartDateTxt";
-            this.sickListStartDateTxt.Size = new System.Drawing.Size(134, 20);
-            this.sickListStartDateTxt.TabIndex = 8;
-            // 
-            // sickListEndDateLbl
-            // 
-            this.sickListEndDateLbl.AutoSize = true;
-            this.sickListEndDateLbl.Location = new System.Drawing.Point(171, 37);
-            this.sickListEndDateLbl.Name = "sickListEndDateLbl";
-            this.sickListEndDateLbl.Size = new System.Drawing.Size(19, 13);
-            this.sickListEndDateLbl.TabIndex = 7;
-            this.sickListEndDateLbl.Text = "по";
-            // 
-            // sickListStartDateLbl
-            // 
-            this.sickListStartDateLbl.AutoSize = true;
-            this.sickListStartDateLbl.Location = new System.Drawing.Point(12, 37);
-            this.sickListStartDateLbl.Name = "sickListStartDateLbl";
-            this.sickListStartDateLbl.Size = new System.Drawing.Size(13, 13);
-            this.sickListStartDateLbl.TabIndex = 5;
-            this.sickListStartDateLbl.Text = "с";
-            // 
-            // sickListNumTxt
-            // 
-            this.sickListNumTxt.Location = new System.Drawing.Point(30, 14);
-            this.sickListNumTxt.Name = "sickListNumTxt";
-            this.sickListNumTxt.Size = new System.Drawing.Size(297, 20);
-            this.sickListNumTxt.TabIndex = 4;
-            // 
-            // sickListNumLbl
-            // 
-            this.sickListNumLbl.AutoSize = true;
-            this.sickListNumLbl.Location = new System.Drawing.Point(6, 17);
-            this.sickListNumLbl.Name = "sickListNumLbl";
-            this.sickListNumLbl.Size = new System.Drawing.Size(18, 13);
-            this.sickListNumLbl.TabIndex = 3;
-            this.sickListNumLbl.Text = "№";
+            this.sickListNeedBtn.AutoSize = true;
+            this.sickListNeedBtn.Checked = true;
+            this.sickListNeedBtn.Location = new System.Drawing.Point(72, 48);
+            this.sickListNeedBtn.Name = "sickListNeedBtn";
+            this.sickListNeedBtn.Size = new System.Drawing.Size(75, 17);
+            this.sickListNeedBtn.TabIndex = 16;
+            this.sickListNeedBtn.TabStop = true;
+            this.sickListNeedBtn.Text = "ЛН нужен";
+            this.sickListNeedBtn.UseVisualStyleBackColor = true;
             // 
             // getWorkInfoBtn
             // 
@@ -266,109 +356,6 @@
             this.releaseOkrDateTxt.Size = new System.Drawing.Size(141, 20);
             this.releaseOkrDateTxt.TabIndex = 0;
             // 
-            // sickListDataPnl
-            // 
-            this.sickListDataPnl.Controls.Add(this.sickListNumTxt);
-            this.sickListDataPnl.Controls.Add(this.sickListNumLbl);
-            this.sickListDataPnl.Controls.Add(this.longEndDateTxt);
-            this.sickListDataPnl.Controls.Add(this.sickListStartDateLbl);
-            this.sickListDataPnl.Controls.Add(this.longEndDateLbl);
-            this.sickListDataPnl.Controls.Add(this.sickListEndDateLbl);
-            this.sickListDataPnl.Controls.Add(this.longStartDateTxt);
-            this.sickListDataPnl.Controls.Add(this.sickListStartDateTxt);
-            this.sickListDataPnl.Controls.Add(this.longStartDateLnl);
-            this.sickListDataPnl.Controls.Add(this.sickListEndDateTxt);
-            this.sickListDataPnl.Controls.Add(this.longSicklistNumTxt);
-            this.sickListDataPnl.Controls.Add(this.longSicklistNumLbl);
-            this.sickListDataPnl.Location = new System.Drawing.Point(8, 71);
-            this.sickListDataPnl.Name = "sickListDataPnl";
-            this.sickListDataPnl.Size = new System.Drawing.Size(337, 122);
-            this.sickListDataPnl.TabIndex = 4;
-            this.sickListDataPnl.TabStop = false;
-            // 
-            // sickListNeedBtn
-            // 
-            this.sickListNeedBtn.AutoSize = true;
-            this.sickListNeedBtn.Checked = true;
-            this.sickListNeedBtn.Location = new System.Drawing.Point(72, 48);
-            this.sickListNeedBtn.Name = "sickListNeedBtn";
-            this.sickListNeedBtn.Size = new System.Drawing.Size(75, 17);
-            this.sickListNeedBtn.TabIndex = 16;
-            this.sickListNeedBtn.TabStop = true;
-            this.sickListNeedBtn.Text = "ЛН нужен";
-            this.sickListNeedBtn.UseVisualStyleBackColor = true;
-            // 
-            // sickListNotNeedBtn
-            // 
-            this.sickListNotNeedBtn.AutoSize = true;
-            this.sickListNotNeedBtn.Location = new System.Drawing.Point(175, 48);
-            this.sickListNotNeedBtn.Name = "sickListNotNeedBtn";
-            this.sickListNotNeedBtn.Size = new System.Drawing.Size(90, 17);
-            this.sickListNotNeedBtn.TabIndex = 17;
-            this.sickListNotNeedBtn.Text = "ЛН не нужен";
-            this.sickListNotNeedBtn.UseVisualStyleBackColor = true;
-            // 
-            // releaseVariants
-            // 
-            this.releaseVariants.Controls.Add(this.releaseBtn);
-            this.releaseVariants.Controls.Add(this.movedToCardioBtn);
-            this.releaseVariants.Controls.Add(this.refusedBtn);
-            this.releaseVariants.Location = new System.Drawing.Point(6, 287);
-            this.releaseVariants.Name = "releaseVariants";
-            this.releaseVariants.Size = new System.Drawing.Size(351, 100);
-            this.releaseVariants.TabIndex = 4;
-            this.releaseVariants.TabStop = false;
-            this.releaseVariants.Text = "Варианты выписки";
-            // 
-            // refusedBtn
-            // 
-            this.refusedBtn.AutoSize = true;
-            this.refusedBtn.Location = new System.Drawing.Point(8, 20);
-            this.refusedBtn.Name = "refusedBtn";
-            this.refusedBtn.Size = new System.Drawing.Size(210, 17);
-            this.refusedBtn.TabIndex = 0;
-            this.refusedBtn.Text = "Выписан под отказ от стац. лечения";
-            this.refusedBtn.UseVisualStyleBackColor = true;
-            // 
-            // movedToCardioBtn
-            // 
-            this.movedToCardioBtn.AutoSize = true;
-            this.movedToCardioBtn.Location = new System.Drawing.Point(8, 44);
-            this.movedToCardioBtn.Name = "movedToCardioBtn";
-            this.movedToCardioBtn.Size = new System.Drawing.Size(243, 17);
-            this.movedToCardioBtn.TabIndex = 1;
-            this.movedToCardioBtn.Text = "Переведен в кардиологическое отделение";
-            this.movedToCardioBtn.UseVisualStyleBackColor = true;
-            // 
-            // releaseBtn
-            // 
-            this.releaseBtn.AutoSize = true;
-            this.releaseBtn.Checked = true;
-            this.releaseBtn.Location = new System.Drawing.Point(8, 68);
-            this.releaseBtn.Name = "releaseBtn";
-            this.releaseBtn.Size = new System.Drawing.Size(176, 17);
-            this.releaseBtn.TabIndex = 2;
-            this.releaseBtn.TabStop = true;
-            this.releaseBtn.Text = "Выписан из отд. кардиологии";
-            this.releaseBtn.UseVisualStyleBackColor = true;
-            // 
-            // addIssuedMedicineBtn
-            // 
-            this.addIssuedMedicineBtn.Location = new System.Drawing.Point(203, 6);
-            this.addIssuedMedicineBtn.Name = "addIssuedMedicineBtn";
-            this.addIssuedMedicineBtn.Size = new System.Drawing.Size(160, 33);
-            this.addIssuedMedicineBtn.TabIndex = 6;
-            this.addIssuedMedicineBtn.Text = "Добавить рекомендации";
-            this.addIssuedMedicineBtn.UseVisualStyleBackColor = true;
-            this.addIssuedMedicineBtn.Click += new System.EventHandler(this.addIssuedMedicineBtn_Click);
-            // 
-            // issuedMedicine0
-            // 
-            this.issuedMedicine0.Location = new System.Drawing.Point(3, 3);
-            this.issuedMedicine0.Name = "issuedMedicine0";
-            this.issuedMedicine0.Size = new System.Drawing.Size(354, 20);
-            this.issuedMedicine0.TabIndex = 7;
-            // 
             // issuedMedicineTab
             // 
             this.issuedMedicineTab.Controls.Add(this.issuedMedicineBox);
@@ -395,6 +382,45 @@
             this.issuedMedicineBox.Size = new System.Drawing.Size(360, 26);
             this.issuedMedicineBox.TabIndex = 0;
             // 
+            // issuedMedicine0
+            // 
+            this.issuedMedicine0.Location = new System.Drawing.Point(3, 3);
+            this.issuedMedicine0.Name = "issuedMedicine0";
+            this.issuedMedicine0.Size = new System.Drawing.Size(354, 20);
+            this.issuedMedicine0.TabIndex = 7;
+            // 
+            // addIssuedMedicineBtn
+            // 
+            this.addIssuedMedicineBtn.Location = new System.Drawing.Point(203, 6);
+            this.addIssuedMedicineBtn.Name = "addIssuedMedicineBtn";
+            this.addIssuedMedicineBtn.Size = new System.Drawing.Size(160, 33);
+            this.addIssuedMedicineBtn.TabIndex = 6;
+            this.addIssuedMedicineBtn.Text = "Добавить рекомендации";
+            this.addIssuedMedicineBtn.UseVisualStyleBackColor = true;
+            this.addIssuedMedicineBtn.Click += new System.EventHandler(this.addIssuedMedicineBtn_Click);
+            // 
+            // deathBtn
+            // 
+            this.deathBtn.AutoSize = true;
+            this.deathBtn.Location = new System.Drawing.Point(8, 78);
+            this.deathBtn.Name = "deathBtn";
+            this.deathBtn.Size = new System.Drawing.Size(53, 17);
+            this.deathBtn.TabIndex = 3;
+            this.deathBtn.TabStop = true;
+            this.deathBtn.Text = "Умер";
+            this.deathBtn.UseVisualStyleBackColor = true;
+            // 
+            // transferBtn
+            // 
+            this.transferBtn.AutoSize = true;
+            this.transferBtn.Location = new System.Drawing.Point(8, 99);
+            this.transferBtn.Name = "transferBtn";
+            this.transferBtn.Size = new System.Drawing.Size(181, 17);
+            this.transferBtn.TabIndex = 4;
+            this.transferBtn.TabStop = true;
+            this.transferBtn.Text = "Переведен  в другую больницу";
+            this.transferBtn.UseVisualStyleBackColor = true;
+            // 
             // ReleasePatient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -408,14 +434,14 @@
             this.Text = "Выписка";
             this.tabControl1.ResumeLayout(false);
             this.releaseData.ResumeLayout(false);
-            this.sickListBox.ResumeLayout(false);
-            this.sickListBox.PerformLayout();
-            this.releaseDateBox.ResumeLayout(false);
-            this.releaseOkrDateBox.ResumeLayout(false);
-            this.sickListDataPnl.ResumeLayout(false);
-            this.sickListDataPnl.PerformLayout();
             this.releaseVariants.ResumeLayout(false);
             this.releaseVariants.PerformLayout();
+            this.sickListBox.ResumeLayout(false);
+            this.sickListBox.PerformLayout();
+            this.sickListDataPnl.ResumeLayout(false);
+            this.sickListDataPnl.PerformLayout();
+            this.releaseDateBox.ResumeLayout(false);
+            this.releaseOkrDateBox.ResumeLayout(false);
             this.issuedMedicineTab.ResumeLayout(false);
             this.issuedMedicineTab.PerformLayout();
             this.issuedMedicineBox.ResumeLayout(false);
@@ -458,5 +484,7 @@
         private System.Windows.Forms.Button addIssuedMedicineBtn;
         private System.Windows.Forms.TabPage issuedMedicineTab;
         private System.Windows.Forms.TableLayoutPanel issuedMedicineBox;
+        private System.Windows.Forms.RadioButton transferBtn;
+        private System.Windows.Forms.RadioButton deathBtn;
     }
 }

@@ -89,6 +89,7 @@
             this.costlyMedsItems = new System.Windows.Forms.ToolStripMenuItem();
             this.justificationCostlyCureItem = new System.Windows.Forms.ToolStripMenuItem();
             this.skatItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showReleasedPatients = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.hospitalPatientsTbl)).BeginInit();
             this.main.SuspendLayout();
             this.SuspendLayout();
@@ -572,11 +573,23 @@
             this.skatItem.Text = "СКАТ";
             this.skatItem.Click += new System.EventHandler(this.skatItem_Click);
             // 
+            // showReleasedPatients
+            // 
+            this.showReleasedPatients.AutoSize = true;
+            this.showReleasedPatients.Location = new System.Drawing.Point(636, 381);
+            this.showReleasedPatients.Name = "showReleasedPatients";
+            this.showReleasedPatients.Size = new System.Drawing.Size(208, 17);
+            this.showReleasedPatients.TabIndex = 4;
+            this.showReleasedPatients.Text = "Отобразить выписанных пациентов";
+            this.showReleasedPatients.UseVisualStyleBackColor = true;
+            this.showReleasedPatients.CheckedChanged += new System.EventHandler(this.showReleasedPatients_CheckedChanged);
+            // 
             // PatientList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(857, 450);
+            this.Controls.Add(this.showReleasedPatients);
             this.Controls.Add(this.main);
             this.Controls.Add(this.hospitalPatientsTbl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -654,5 +667,6 @@
         private System.Windows.Forms.ToolStripMenuItem registerTrunsfusionItem;
         private System.Windows.Forms.ToolStripMenuItem trunsfusionClaimItem;
         private System.Windows.Forms.ToolStripMenuItem skatItem;
+        private System.Windows.Forms.CheckBox showReleasedPatients;
     }
 }

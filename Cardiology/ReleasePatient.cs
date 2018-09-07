@@ -8,9 +8,11 @@ namespace Cardiology
     {
         private DdtReleasePatient releasePatientInfo;
         private DdtHospital hospitalitySession;
+        private string epicrisisId;
 
-        public ReleasePatient(DdtHospital hospitalitySession)
+        public ReleasePatient(DdtHospital hospitalitySession, string epicrisisId)
         {
+            this.epicrisisId = epicrisisId;
             this.hospitalitySession = hospitalitySession;
             releasePatientInfo = new DdtReleasePatient();
             releasePatientInfo.DsidHospitalitySession = hospitalitySession.ObjectId;
@@ -33,13 +35,36 @@ namespace Cardiology
         private void releasePatientBtn_Click(object sender, EventArgs e)
         {
             DataService service = new DataService();
+
             service.insertObject<DdtReleasePatient>(releasePatientInfo, DdtReleasePatient.TABLE_NAME);
 
-            hospitalitySession.DsbActive = movedToCardioBtn.Checked;
+            hospitalitySession.DsbActive = false;
             hospitalitySession.DsbRejectCure = refusedBtn.Checked;
             service.updateObject<DdtHospital>(hospitalitySession, DdtHospital.TABLENAME, "r_object_id", hospitalitySession.ObjectId);
+
+            DdtEpicrisis epicrisis = service.queryObjectById<DdtEpicrisis>(DdtEpicrisis.TABLE_NAME, epicrisisId);
+            if (epicrisis == null)
+            {
+                epicrisis = new DdtEpicrisis();
+                epicrisis.DsidDoctor = hospitalitySession.DsidCuringDoctor;
+                epicrisis.DsidHospitalitySession = hospitalitySession.ObjectId;
+                epicrisis.DsidPatient = hospitalitySession.DsidPatient;
+            }
+            epicrisis.DssDiagnosis = hospitalitySession.DssDiagnosis;
+            epicrisis.DsdtEpicrisisDate = DateTime.Now;
+            epicrisis.DsiEpicrisisType = deathBtn.Checked ? (int)DdtEpicrisisDsiType.DEATH : transferBtn.Checked ? (int)DdtEpicrisisDsiType.TRANSFER : (int)DdtEpicrisisDsiType.RELEASE;
+            service.updateOrCreateIfNeedObject<DdtEpicrisis>(epicrisis, DdtEpicrisis.TABLE_NAME, epicrisisId);
+
+            if (transferBtn.Checked)
+            {
+                MessageBox.Show("Необходимо создать письмо в скорую помощь!", "Предупреждение!", MessageBoxButtons.OK);
+            } else if (deathBtn.Checked)
+            {
+                MessageBox.Show("Необходимо констатировать смерть!", "Предупреждение!", MessageBoxButtons.OK);
+            }
             Close();
         }
+
 
         private void addIssuedMedicineBtn_Click(object sender, EventArgs e)
         {

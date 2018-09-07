@@ -9,6 +9,8 @@ namespace Cardiology.Utils
     class EpicrisisTemplateProcessor : ITemplateProcessor
     {
         private const string TEMPLATE_FILE_NAME = "epicrisis_template.doc";
+        private const string TEMPLATE_FILE_NAME_DEATH = "death_epicrisis_template.doc";
+        private const string TEMPLATE_FILE_NAME_TRANSFER = "transfer_epicrisis_template.doc";
 
         public bool accept(string templateType)
         {
@@ -72,11 +74,42 @@ namespace Cardiology.Utils
             }
             values.Add("{analysis.uzi}", uzi == null ? "" : uziStr.ToString());
 
+            if (obj.DsiEpicrisisType == (int)DdtEpicrisisDsiType.TRANSFER)
+            {
+                DdtTransfer transfer = service.queryObject<DdtTransfer>(@"Select * from " + DdtTransfer.TABLE_NAME +
+                    " WHERE dsid_hospitality_session='" + hospitalitySession + "'");
+                if (transfer!=null)
+                {
+                    values.Add("{destination}", transfer.DssDestination);
+                    values.Add("{contact}", transfer.DssContacts);
+                    values.Add("{transport_justification}", transfer.DssTransferJustification);
+                    values.Add("{patient.release_date}", transfer.DsdtStartDate.ToShortDateString());
+                }
+            }
+            else if (obj.DsiEpicrisisType == (int)DdtEpicrisisDsiType.DEATH)
+            {
+                values.Add("{conclusion}", "");
+            }
 
             DdtDoctors doc = service.queryObjectById<DdtDoctors>(DdtDoctors.TABLE_NAME, obj.DsidDoctor);
             values.Add("{doctor.who.short}", doc.DssInitials);
 
-            return TemplatesUtils.fillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + TEMPLATE_FILE_NAME, values);
+            return TemplatesUtils.fillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + getTemplateName(obj), values);
+        }
+
+        private string getTemplateName(DdtEpicrisis obj)
+        {
+            if (obj.DsiEpicrisisType == (int)DdtEpicrisisDsiType.TRANSFER)
+            {
+                return TEMPLATE_FILE_NAME_TRANSFER;
+            }
+            else if (obj.DsiEpicrisisType == (int)DdtEpicrisisDsiType.DEATH)
+            {
+                return TEMPLATE_FILE_NAME_DEATH;
+            } else
+            {
+                return TEMPLATE_FILE_NAME;
+            }
         }
     }
 }

@@ -511,6 +511,7 @@ namespace Cardiology
                 anamnesis = new DdtAnamnesis();
                 anamnesis.DsidHospitalitySession = hospitalSession.ObjectId;
                 anamnesis.DsidPatient = hospitalSession.DsidPatient;
+                anamnesis.DsdtInspectionDate = DateTime.Now;
             }
             DdtDoctors doc = (DdtDoctors)docBox.SelectedItem;
             anamnesis.DsidDoctor = doc.ObjectId;
@@ -552,6 +553,7 @@ namespace Cardiology
                     medList.DsidPatient = hospitalSession.DsidPatient;
                     medList.DssParentType = "ddt_anamnesis";
                     medList.DsidParentId = anamnesis.ObjectId;
+                    medList.DsdtIssuingDate = DateTime.Now;
                     string id = service.insertObject<DdtIssuedMedicineList>(medList, DdtIssuedMedicineList.TABLE_NAME);
                     medList.ObjectId = id;
                 }
@@ -577,6 +579,7 @@ namespace Cardiology
                     urineAnalysis.DsidDoctor = hospitalSession.DsidCuringDoctor;
                     urineAnalysis.DsidPatient = hospitalSession.DsidPatient;
                     urineAnalysis.DsbAdmissionAnalysis = true;
+                    urineAnalysis.DsdtAnalysisDate = DateTime.Now;
                 }
                 urineAnalysis.DssColor = firstColorTxt.Text;
                 urineAnalysis.DssErythrocytes = firstErythrocytesTxt.Text;
@@ -599,6 +602,7 @@ namespace Cardiology
                     egds.DsidDoctor = hospitalSession.DsidCuringDoctor;
                     egds.DsidPatient = hospitalSession.DsidPatient;
                     egds.DsbAdmissionAnalysis = true;
+                    egds.DsdtAnalysisDate = DateTime.Now;
                 }
                 egds.DssEgds = firstEgdsTxt.Text;
                 updateObject<DdtEgds>(service, egds, DdtEgds.TABLE_NAME, egds.ObjectId);
@@ -617,6 +621,7 @@ namespace Cardiology
                     ekg.DsidDoctor = hospitalSession.DsidCuringDoctor;
                     ekg.DsidPatient = hospitalSession.DsidPatient;
                     ekg.DsbAdmissionAnalysis = true;
+                    ekg.DsdtAnalysisDate = DateTime.Now;
                 }
                 ekg.DssEkg = regularEkgTxt.Text;
                 updateObject<DdtEkg>(service, ekg, DdtEkg.TABLE_NAME, ekg.ObjectId);

@@ -30,6 +30,8 @@ namespace Cardiology.Model
         private string dssRoomCell;
         [TableAttribute("dss_diagnosis")]
         private string dssDiagnosis;
+        [TableAttribute("dsi_release_type")]
+        private int dsiReleaseType;
 
         public string ObjectId {
             get { return rObjectId;}
@@ -100,5 +102,6 @@ namespace Cardiology.Model
             set { this.dsbDeath = value; }
         }
 
+        public int DsiReleaseType { get => dsiReleaseType; set => dsiReleaseType = value; }
     }
 }

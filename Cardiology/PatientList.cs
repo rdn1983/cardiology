@@ -3,7 +3,6 @@ using Cardiology.Utils;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -17,11 +16,11 @@ namespace Cardiology
             this.hospitalPatientsTbl.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
         }
 
-        private void loadPatientsGrid()
+        private void loadPatientsGrid(bool idOnlyActive)
         {
             hospitalPatientsTbl.Rows.Clear();
             DataService service = new DataService();
-            string query = @"Select * from ddv_active_hospital_patients ";
+            string query = @"Select * from ddv_active_hospital_patients " + (idOnlyActive ? " WHERE dsb_active=true":"") ;
             List<DdvActiveHospitalPatients> allHspitalPatients = service.queryObjectsCollection<DdvActiveHospitalPatients>(query);
             for (int i = 0; i < allHspitalPatients.Count(); i++)
             {
@@ -122,7 +121,7 @@ namespace Cardiology
 
         private void Hospital_Activated(object sender, EventArgs e)
         {
-            loadPatientsGrid();
+            loadPatientsGrid(!showReleasedPatients.Checked);
         }
 
         private void patientHistoryCardItem_Click(object sender, EventArgs e)
@@ -150,7 +149,7 @@ namespace Cardiology
                 string value = cell.Value.ToString();
                 DataService service = new DataService();
                 DdtHospital hospitalSession = service.queryObjectById<DdtHospital>(DdtHospital.TABLENAME, value);
-                ReleasePatient dialog = new ReleasePatient(hospitalSession);
+                ReleasePatient dialog = new ReleasePatient(hospitalSession, null);
                 dialog.ShowDialog();
             }
         }
@@ -485,6 +484,12 @@ namespace Cardiology
                 values.Add("{patient.passport}", passportInfo);
                 TemplatesUtils.fillBlankTemplate("blank_dead_constatation_template.doc", value, values);
             }
+        }
+
+        private void showReleasedPatients_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox box = (CheckBox) sender;
+            loadPatientsGrid(!box.Checked);
         }
     }
 }

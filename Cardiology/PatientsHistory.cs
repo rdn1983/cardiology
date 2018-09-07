@@ -24,12 +24,12 @@ namespace Cardiology
         {
             patientHistoryGrid.Rows.Clear();
             DataService service = new DataService();
-            string query = @"SELECT * FROM ddv_history WHERE dsid_hospitality_session='" + hospitalitySession.ObjectId + "' ";
+            string query = @"SELECT * FROM ddv_history WHERE dsid_hospitality_session='" + hospitalitySession.ObjectId + "' order by dsdt_operation_date";
             List<DdvHistory> allHspitalPatients = service.queryObjectsCollection<DdvHistory>(query);
             for (int i = 0; i < allHspitalPatients.Count(); i++)
             {
                 DdvHistory h = allHspitalPatients[i];
-                patientHistoryGrid.Rows.Add(false, h.DsidHospitalitySession, h.DssOperationType, h.DsidOperationId, h.DssOperationName, h.RCreationDate, h.DssDoctorName, h.DssDescription);
+                patientHistoryGrid.Rows.Add(false, h.DsidHospitalitySession, h.DssOperationType, h.DsidOperationId, h.DssOperationName, h.DsdtOperationDate, h.DssDoctorName, h.DssDescription);
             }
 
         }

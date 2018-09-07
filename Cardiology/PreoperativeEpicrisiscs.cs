@@ -116,7 +116,7 @@ namespace Cardiology
             }
             obj.DsdtEpicrisisDate = epicrisisDateTxt.Value;
             obj.DssDiagnosis = diagnosisTxt.Text;
-
+            obj.DsiEpicrisisType = (int)DdtEpicrisisDsiType.BEFORE_OPERATION;
             objectId = service.updateOrCreateIfNeedObject<DdtEpicrisis>(obj, DdtEpicrisis.TABLE_NAME, objectId);
             obj.RObjectId = objectId;
 

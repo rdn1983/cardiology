@@ -7,7 +7,8 @@ CREATE TABLE ddt_epicrisis (
   dsid_patient VARCHAR(16) REFERENCES ddt_patient(r_object_id),
   dsid_doctor VARCHAR(16) REFERENCES ddt_doctors(r_object_id),
   dsdt_epicrisis_date timestamp,
-  dss_diagnosis VARCHAR(600)
+  dss_diagnosis VARCHAR(600),
+  dsi_epicrisis_type int
 
 );
 

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.regularBloodPnl = new System.Windows.Forms.GroupBox();
+            this.hide = new System.Windows.Forms.Button();
             this.regularBloodDateTxt = new System.Windows.Forms.DateTimePicker();
             this.regularBloodDateLbl = new System.Windows.Forms.Label();
             this.regularKreatininLbl = new System.Windows.Forms.Label();
@@ -67,7 +68,6 @@
             this.regularSrbLbl = new System.Windows.Forms.Label();
             this.regularChloriumLbl = new System.Windows.Forms.Label();
             this.regularHemogloinLbl = new System.Windows.Forms.Label();
-            this.hide = new System.Windows.Forms.Button();
             this.regularBloodPnl.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -117,6 +117,15 @@
             this.regularBloodPnl.Size = new System.Drawing.Size(172, 496);
             this.regularBloodPnl.TabIndex = 2;
             this.regularBloodPnl.TabStop = false;
+            // 
+            // hide
+            // 
+            this.hide.Image = global::Cardiology.Properties.Resources.remove;
+            this.hide.Location = new System.Drawing.Point(134, 473);
+            this.hide.Name = "hide";
+            this.hide.Size = new System.Drawing.Size(26, 23);
+            this.hide.TabIndex = 38;
+            this.hide.UseVisualStyleBackColor = true;
             // 
             // regularBloodDateTxt
             // 
@@ -168,6 +177,7 @@
             this.regularChloriumTxt.Name = "regularChloriumTxt";
             this.regularChloriumTxt.Size = new System.Drawing.Size(79, 20);
             this.regularChloriumTxt.TabIndex = 32;
+            this.regularChloriumTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyDigits_KeyPress);
             // 
             // regularSrbTxt
             // 
@@ -175,6 +185,7 @@
             this.regularSrbTxt.Name = "regularSrbTxt";
             this.regularSrbTxt.Size = new System.Drawing.Size(79, 20);
             this.regularSrbTxt.TabIndex = 31;
+            this.regularSrbTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyDigits_KeyPress);
             // 
             // regularSodiumTxt
             // 
@@ -182,6 +193,7 @@
             this.regularSodiumTxt.Name = "regularSodiumTxt";
             this.regularSodiumTxt.Size = new System.Drawing.Size(79, 20);
             this.regularSodiumTxt.TabIndex = 30;
+            this.regularSodiumTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyDigits_KeyPress);
             // 
             // regularPotassiumTxt
             // 
@@ -189,6 +201,7 @@
             this.regularPotassiumTxt.Name = "regularPotassiumTxt";
             this.regularPotassiumTxt.Size = new System.Drawing.Size(79, 20);
             this.regularPotassiumTxt.TabIndex = 29;
+            this.regularPotassiumTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyDigits_KeyPress);
             // 
             // regularKfkMvTxt
             // 
@@ -196,6 +209,7 @@
             this.regularKfkMvTxt.Name = "regularKfkMvTxt";
             this.regularKfkMvTxt.Size = new System.Drawing.Size(79, 20);
             this.regularKfkMvTxt.TabIndex = 28;
+            this.regularKfkMvTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyDigits_KeyPress);
             // 
             // regularKfkTxt
             // 
@@ -203,6 +217,7 @@
             this.regularKfkTxt.Name = "regularKfkTxt";
             this.regularKfkTxt.Size = new System.Drawing.Size(79, 20);
             this.regularKfkTxt.TabIndex = 27;
+            this.regularKfkTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyDigits_KeyPress);
             // 
             // regularAmilazaTzt
             // 
@@ -210,6 +225,7 @@
             this.regularAmilazaTzt.Name = "regularAmilazaTzt";
             this.regularAmilazaTzt.Size = new System.Drawing.Size(79, 20);
             this.regularAmilazaTzt.TabIndex = 26;
+            this.regularAmilazaTzt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyDigits_KeyPress);
             // 
             // regularSchfTxt
             // 
@@ -217,6 +233,7 @@
             this.regularSchfTxt.Name = "regularSchfTxt";
             this.regularSchfTxt.Size = new System.Drawing.Size(79, 20);
             this.regularSchfTxt.TabIndex = 25;
+            this.regularSchfTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyDigits_KeyPress);
             // 
             // regularAstTxt
             // 
@@ -224,6 +241,7 @@
             this.regularAstTxt.Name = "regularAstTxt";
             this.regularAstTxt.Size = new System.Drawing.Size(79, 20);
             this.regularAstTxt.TabIndex = 24;
+            this.regularAstTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyDigits_KeyPress);
             // 
             // regularAltTxt
             // 
@@ -231,6 +249,7 @@
             this.regularAltTxt.Name = "regularAltTxt";
             this.regularAltTxt.Size = new System.Drawing.Size(79, 20);
             this.regularAltTxt.TabIndex = 23;
+            this.regularAltTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyDigits_KeyPress);
             // 
             // regularIronTxt
             // 
@@ -238,6 +257,7 @@
             this.regularIronTxt.Name = "regularIronTxt";
             this.regularIronTxt.Size = new System.Drawing.Size(79, 20);
             this.regularIronTxt.TabIndex = 22;
+            this.regularIronTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyDigits_KeyPress);
             // 
             // regularBilTxt
             // 
@@ -245,6 +265,7 @@
             this.regularBilTxt.Name = "regularBilTxt";
             this.regularBilTxt.Size = new System.Drawing.Size(79, 20);
             this.regularBilTxt.TabIndex = 21;
+            this.regularBilTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyDigits_KeyPress);
             // 
             // regularCholesterolTxt
             // 
@@ -252,6 +273,7 @@
             this.regularCholesterolTxt.Name = "regularCholesterolTxt";
             this.regularCholesterolTxt.Size = new System.Drawing.Size(79, 20);
             this.regularCholesterolTxt.TabIndex = 20;
+            this.regularCholesterolTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyDigits_KeyPress);
             // 
             // regularKreatininTxt
             // 
@@ -259,6 +281,7 @@
             this.regularKreatininTxt.Name = "regularKreatininTxt";
             this.regularKreatininTxt.Size = new System.Drawing.Size(79, 20);
             this.regularKreatininTxt.TabIndex = 19;
+            this.regularKreatininTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyDigits_KeyPress);
             // 
             // regularProreinTxt
             // 
@@ -266,6 +289,7 @@
             this.regularProreinTxt.Name = "regularProreinTxt";
             this.regularProreinTxt.Size = new System.Drawing.Size(79, 20);
             this.regularProreinTxt.TabIndex = 18;
+            this.regularProreinTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyDigits_KeyPress);
             // 
             // regularTrombocytesTxt
             // 
@@ -273,6 +297,7 @@
             this.regularTrombocytesTxt.Name = "regularTrombocytesTxt";
             this.regularTrombocytesTxt.Size = new System.Drawing.Size(79, 20);
             this.regularTrombocytesTxt.TabIndex = 17;
+            this.regularTrombocytesTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyDigits_KeyPress);
             // 
             // regularBloodLeucoTxt
             // 
@@ -280,6 +305,7 @@
             this.regularBloodLeucoTxt.Name = "regularBloodLeucoTxt";
             this.regularBloodLeucoTxt.Size = new System.Drawing.Size(79, 20);
             this.regularBloodLeucoTxt.TabIndex = 16;
+            this.regularBloodLeucoTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyDigits_KeyPress);
             // 
             // regularHemoglobinTxt
             // 
@@ -287,6 +313,7 @@
             this.regularHemoglobinTxt.Name = "regularHemoglobinTxt";
             this.regularHemoglobinTxt.Size = new System.Drawing.Size(79, 20);
             this.regularHemoglobinTxt.TabIndex = 15;
+            this.regularHemoglobinTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyDigits_KeyPress);
             // 
             // regularBloodLeucoLbl
             // 
@@ -422,15 +449,6 @@
             this.regularHemogloinLbl.Size = new System.Drawing.Size(71, 13);
             this.regularHemogloinLbl.TabIndex = 0;
             this.regularHemogloinLbl.Text = "Гемоглобин:";
-            // 
-            // hide
-            // 
-            this.hide.Image = global::Cardiology.Properties.Resources.remove;
-            this.hide.Location = new System.Drawing.Point(134, 473);
-            this.hide.Name = "hide";
-            this.hide.Size = new System.Drawing.Size(26, 23);
-            this.hide.TabIndex = 38;
-            this.hide.UseVisualStyleBackColor = true;
             // 
             // BloodAnalysisControl
             // 

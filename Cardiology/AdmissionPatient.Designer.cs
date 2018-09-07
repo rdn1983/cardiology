@@ -42,7 +42,7 @@
             this.hasNoKagBtn = new System.Windows.Forms.RadioButton();
             this.admisPatient = new System.Windows.Forms.Button();
             this.admissionDateBox = new System.Windows.Forms.GroupBox();
-            this.patientReceiptDateTime = new System.Windows.Forms.DateTimePicker();
+            this.patientReceiptDate = new System.Windows.Forms.DateTimePicker();
             this.medCodeBox = new System.Windows.Forms.GroupBox();
             this.medCodeTxt = new System.Windows.Forms.TextBox();
             this.directorDepartmentBox = new System.Windows.Forms.GroupBox();
@@ -84,6 +84,7 @@
             this.firstNameLbl = new System.Windows.Forms.Label();
             this.patientLastName = new System.Windows.Forms.TextBox();
             this.lastNameLbl = new System.Windows.Forms.Label();
+            this.patientReceiptTime = new System.Windows.Forms.DateTimePicker();
             this.lordOfTheCotBox.SuspendLayout();
             this.anesthetistBox.SuspendLayout();
             this.directorCardioReanimPnl.SuspendLayout();
@@ -202,7 +203,7 @@
             this.hasKagBtn.AutoSize = true;
             this.hasKagBtn.Location = new System.Drawing.Point(98, 17);
             this.hasKagBtn.Name = "hasKagBtn";
-            this.hasKagBtn.Size = new System.Drawing.Size(74, 17);
+            this.hasKagBtn.Size = new System.Drawing.Size(75, 17);
             this.hasKagBtn.TabIndex = 1;
             this.hasKagBtn.Text = "Было КАГ";
             this.hasKagBtn.UseVisualStyleBackColor = true;
@@ -213,7 +214,7 @@
             this.hasNoKagBtn.Checked = true;
             this.hasNoKagBtn.Location = new System.Drawing.Point(7, 17);
             this.hasNoKagBtn.Name = "hasNoKagBtn";
-            this.hasNoKagBtn.Size = new System.Drawing.Size(90, 17);
+            this.hasNoKagBtn.Size = new System.Drawing.Size(91, 17);
             this.hasNoKagBtn.TabIndex = 0;
             this.hasNoKagBtn.TabStop = true;
             this.hasNoKagBtn.Text = "Не было КАГ";
@@ -232,7 +233,8 @@
             // 
             // admissionDateBox
             // 
-            this.admissionDateBox.Controls.Add(this.patientReceiptDateTime);
+            this.admissionDateBox.Controls.Add(this.patientReceiptTime);
+            this.admissionDateBox.Controls.Add(this.patientReceiptDate);
             this.admissionDateBox.Location = new System.Drawing.Point(6, 344);
             this.admissionDateBox.Name = "admissionDateBox";
             this.admissionDateBox.Size = new System.Drawing.Size(254, 46);
@@ -240,14 +242,14 @@
             this.admissionDateBox.TabStop = false;
             this.admissionDateBox.Text = "Дата и время поступления";
             // 
-            // patientReceiptDateTime
+            // patientReceiptDate
             // 
-            this.patientReceiptDateTime.CustomFormat = "dd.MM.yyyy HH:mm:ss";
-            this.patientReceiptDateTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.patientReceiptDateTime.Location = new System.Drawing.Point(7, 20);
-            this.patientReceiptDateTime.Name = "patientReceiptDateTime";
-            this.patientReceiptDateTime.Size = new System.Drawing.Size(130, 20);
-            this.patientReceiptDateTime.TabIndex = 0;
+            this.patientReceiptDate.CustomFormat = "dd.MM.yyyy";
+            this.patientReceiptDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.patientReceiptDate.Location = new System.Drawing.Point(7, 20);
+            this.patientReceiptDate.Name = "patientReceiptDate";
+            this.patientReceiptDate.Size = new System.Drawing.Size(125, 20);
+            this.patientReceiptDate.TabIndex = 0;
             // 
             // medCodeBox
             // 
@@ -384,7 +386,7 @@
             this.passportIsuePlaceLbl.AutoSize = true;
             this.passportIsuePlaceLbl.Location = new System.Drawing.Point(8, 54);
             this.passportIsuePlaceLbl.Name = "passportIsuePlaceLbl";
-            this.passportIsuePlaceLbl.Size = new System.Drawing.Size(62, 13);
+            this.passportIsuePlaceLbl.Size = new System.Drawing.Size(63, 13);
             this.passportIsuePlaceLbl.TabIndex = 7;
             this.passportIsuePlaceLbl.Text = "Кем выдан";
             // 
@@ -393,7 +395,7 @@
             this.passIssueDateLbl.AutoSize = true;
             this.passIssueDateLbl.Location = new System.Drawing.Point(163, 15);
             this.passIssueDateLbl.Name = "passIssueDateLbl";
-            this.passIssueDateLbl.Size = new System.Drawing.Size(75, 13);
+            this.passIssueDateLbl.Size = new System.Drawing.Size(73, 13);
             this.passIssueDateLbl.TabIndex = 6;
             this.passIssueDateLbl.Text = "Дата выдачи";
             // 
@@ -402,7 +404,7 @@
             this.passportNumLbl.AutoSize = true;
             this.passportNumLbl.Location = new System.Drawing.Point(70, 15);
             this.passportNumLbl.Name = "passportNumLbl";
-            this.passportNumLbl.Size = new System.Drawing.Size(38, 13);
+            this.passportNumLbl.Size = new System.Drawing.Size(41, 13);
             this.passportNumLbl.TabIndex = 5;
             this.passportNumLbl.Text = "Номер";
             // 
@@ -457,7 +459,7 @@
             this.omsLbl.AutoSize = true;
             this.omsLbl.Location = new System.Drawing.Point(8, 411);
             this.omsLbl.Name = "omsLbl";
-            this.omsLbl.Size = new System.Drawing.Size(63, 13);
+            this.omsLbl.Size = new System.Drawing.Size(66, 13);
             this.omsLbl.TabIndex = 18;
             this.omsLbl.Text = "Полис ОМС";
             // 
@@ -473,7 +475,7 @@
             this.snilsLbl.AutoSize = true;
             this.snilsLbl.Location = new System.Drawing.Point(8, 371);
             this.snilsLbl.Name = "snilsLbl";
-            this.snilsLbl.Size = new System.Drawing.Size(42, 13);
+            this.snilsLbl.Size = new System.Drawing.Size(45, 13);
             this.snilsLbl.TabIndex = 16;
             this.snilsLbl.Text = "СНИЛС";
             // 
@@ -513,7 +515,7 @@
             this.birthDateLbl.AutoSize = true;
             this.birthDateLbl.Location = new System.Drawing.Point(7, 450);
             this.birthDateLbl.Name = "birthDateLbl";
-            this.birthDateLbl.Size = new System.Drawing.Size(87, 13);
+            this.birthDateLbl.Size = new System.Drawing.Size(86, 13);
             this.birthDateLbl.TabIndex = 11;
             this.birthDateLbl.Text = "Дата рождения";
             // 
@@ -542,7 +544,7 @@
             this.phoneLbl.AutoSize = true;
             this.phoneLbl.Location = new System.Drawing.Point(12, 209);
             this.phoneLbl.Name = "phoneLbl";
-            this.phoneLbl.Size = new System.Drawing.Size(51, 13);
+            this.phoneLbl.Size = new System.Drawing.Size(52, 13);
             this.phoneLbl.TabIndex = 8;
             this.phoneLbl.Text = "Телефон";
             // 
@@ -580,7 +582,7 @@
             this.femaleChb.AutoSize = true;
             this.femaleChb.Location = new System.Drawing.Point(91, 16);
             this.femaleChb.Name = "femaleChb";
-            this.femaleChb.Size = new System.Drawing.Size(68, 17);
+            this.femaleChb.Size = new System.Drawing.Size(69, 17);
             this.femaleChb.TabIndex = 1;
             this.femaleChb.Text = "женский";
             this.femaleChb.UseVisualStyleBackColor = true;
@@ -591,7 +593,7 @@
             this.maleChb.Checked = true;
             this.maleChb.Location = new System.Drawing.Point(15, 16);
             this.maleChb.Name = "maleChb";
-            this.maleChb.Size = new System.Drawing.Size(68, 17);
+            this.maleChb.Size = new System.Drawing.Size(70, 17);
             this.maleChb.TabIndex = 0;
             this.maleChb.TabStop = true;
             this.maleChb.Text = "мужской";
@@ -652,6 +654,16 @@
             this.lastNameLbl.TabIndex = 0;
             this.lastNameLbl.Text = "Ф.";
             // 
+            // patientReceiptTime
+            // 
+            this.patientReceiptTime.CustomFormat = "HH:mm";
+            this.patientReceiptTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.patientReceiptTime.Location = new System.Drawing.Point(138, 20);
+            this.patientReceiptTime.Name = "patientReceiptTime";
+            this.patientReceiptTime.ShowUpDown = true;
+            this.patientReceiptTime.Size = new System.Drawing.Size(110, 20);
+            this.patientReceiptTime.TabIndex = 1;
+            // 
             // AdmissionPatient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -699,7 +711,7 @@
         private System.Windows.Forms.GroupBox medCodeBox;
         private System.Windows.Forms.TextBox medCodeTxt;
         private System.Windows.Forms.GroupBox admissionDateBox;
-        private System.Windows.Forms.DateTimePicker patientReceiptDateTime;
+        private System.Windows.Forms.DateTimePicker patientReceiptDate;
         private System.Windows.Forms.GroupBox sexGroup;
         private System.Windows.Forms.Button admisPatient;
         private System.Windows.Forms.DateTimePicker patientBirthDate;
@@ -743,5 +755,6 @@
         private System.Windows.Forms.TextBox passportSerialTxt;
         private System.Windows.Forms.GroupBox anesthetistBox;
         private System.Windows.Forms.ComboBox anesthetistComboBox;
+        private System.Windows.Forms.DateTimePicker patientReceiptTime;
     }
 }

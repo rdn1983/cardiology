@@ -81,5 +81,7 @@ namespace Cardiology
             data.Add("{doctor.selected}", doc == null ? "" : doc.DssInitials);
             TemplatesUtils.fillAmbulanceLetterTemplate("gkb52_letter_template.doc", hospitalitySession.ObjectId, data);
         }
+
+
     }
 }

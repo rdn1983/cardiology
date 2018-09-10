@@ -801,7 +801,8 @@ namespace Cardiology
             ITemplateProcessor te = TemplateProcessorManager.getProcessorByObjectType(DdtAnamnesis.TABLE_NAME);
             if (te != null)
             {
-                te.processTemplate(hospitalSession.ObjectId, anamnesis.ObjectId, null);
+                string path = te.processTemplate(hospitalSession.ObjectId, anamnesis.ObjectId, null);
+                TemplatesUtils.showDocument(path);
             }
         }
     }

@@ -79,12 +79,6 @@
     <Compile Include="AmbulanceLetters.Designer.cs">
       <DependentUpon>AmbulanceLetters.cs</DependentUpon>
     </Compile>
-    <Compile Include="Analizi.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Analizi.Designer.cs">
-      <DependentUpon>Analizi.cs</DependentUpon>
-    </Compile>
     <Compile Include="AnalysisContainer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -420,9 +414,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AmbulanceLetters.resx">
       <DependentUpon>AmbulanceLetters.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Analizi.resx">
-      <DependentUpon>Analizi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AnalysisContainer.resx">
       <DependentUpon>AnalysisContainer.cs</DependentUpon>

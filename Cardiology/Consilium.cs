@@ -2,8 +2,6 @@
 using Cardiology.Utils;
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Text;
 using System.Windows.Forms;
 
 namespace Cardiology
@@ -126,6 +124,12 @@ namespace Cardiology
         private void saveBtn_Click(object sender, EventArgs e)
         {
             DataService service = new DataService();
+            save(service);
+            Close();
+        }
+
+        private void save(DataService service)
+        {
             hospitalitySession.DssDiagnosis = diagnosisTxt1.Text;
             service.updateObject<DdtHospital>(hospitalitySession, DdtHospital.TABLENAME, "r_object_id", hospitalitySession.ObjectId);
 
@@ -173,50 +177,18 @@ namespace Cardiology
                 member.DssDoctorName = c.Text;
                 service.updateOrCreateIfNeedObject<DdtConsiliumMember>(member, DdtConsiliumMember.TABLE_NAME, member.RObjectId);
             }
-            Close();
         }
 
         private void printBtn_Click(object sender, EventArgs e)
         {
             DataService service = new DataService();
-            Dictionary<string, string> values = new Dictionary<string, string>();
-            values.Add(@"{consilium.date}", DateTime.Now.ToString("dd.MM.yyyy"));
-            values.Add(@"{consilium.time}", DateTime.Now.ToString("HH:mm"));
-            values.Add(@"{consilium.members}", getMembersInString());
-            values.Add(@"{consilium.goal}", goalTxt.Text);
-            DdtPatient patient = service.queryObjectById<DdtPatient>(DdtPatient.TABLENAME, hospitalitySession.DsidPatient);
-            values.Add(@"{patient.initials}", patient.DssInitials);
-            double age = Math.Floor((DateTime.Now - patient.DsdtBirthdate).TotalDays / 365);
-            values.Add(@"{patient.age}", age + "");
-            values.Add(@"{patient.diagnosis}", diagnosisTxt0.Text);
-            values.Add(@"{consilium.decision}", decisionTxt.Text);
-            values.Add(@"{journal}", "");
-
-            DdtXRay xray = service.queryObject<DdtXRay>("Select * from " + DdtXRay.TABLE_NAME +
-                " WHERE dsid_hospitality_session='" + hospitalitySession.ObjectId + "' order by  r_creation_date desc");
-            values.Add(@"{analysis.xray}", xray == null ? "" : xray.DssControlRadiography);
-            values.Add(@"{analysis.blood}", " ");
-            DdtEkg ekg = service.queryObject<DdtEkg>("Select * from " + DdtEkg.TABLE_NAME +
-                " WHERE dsid_hospitality_session='" + hospitalitySession.ObjectId + "' order by r_creation_date desc");
-            values.Add(@"{analysis.ekg}", ekg == null ? "" : ekg.DssEkg);
-
-            DdtDoctors doc = service.queryObjectById<DdtDoctors>(DdtDoctors.TABLE_NAME, hospitalitySession.DsidDutyDoctor);
-            values.Add(@"{doctor.who}", doc.DssInitials);
-            string templatePath = Directory.GetCurrentDirectory() + "\\Templates\\consilium_template.doc";
-            TemplatesUtils.fillTemplateAndShow(templatePath, values);
-        }
-
-        private string getMembersInString()
-        {
-            StringBuilder str = new StringBuilder();
-            for (int i = 0; i < doctorsContainer.Controls.Count; i++)
+            save(service);
+            ITemplateProcessor processor = TemplateProcessorManager.getProcessorByObjectType(DdtConsilium.TABLE_NAME);
+            if (processor!=null)
             {
-                Control c = CommonUtils.findControl(doctorsContainer, "appointmentTxt" + i);
-                str.Append(c.Text).Append(" ");
-                c = CommonUtils.findControl(doctorsContainer, "doctorWho" + i);
-                str.Append(c.Text).Append('\n');
+                string path = processor.processTemplate(hospitalitySession.ObjectId, consiliumId, new Dictionary<string, string>());
+                TemplatesUtils.showDocument(path);
             }
-            return str.ToString();
         }
 
         private void appointmentTxt0_SelectedIndexChanged(object sender, EventArgs e)

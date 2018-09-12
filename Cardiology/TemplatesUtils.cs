@@ -75,7 +75,10 @@ namespace Cardiology.Utils
                             if (oldValue != null && oldValue.Contains(entry.Key))
                             {
                                 wRange.Find.ClearFormatting();
-                                wRange.Find.Execute2007(FindText:entry.Key, ReplaceWith:entry.Value, Replace: Word.WdReplace.wdReplaceAll);
+                                wRange.Find.Execute2007(FindText:entry.Key);
+                                wRange.Select();
+                                app.Selection.TypeText(entry.Value);
+                                wRange = mark.Range;
                             }
 
                         }

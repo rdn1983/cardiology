@@ -64,7 +64,7 @@
             this.evaluationGoal = new System.Windows.Forms.RadioButton();
             this.saveBtn = new System.Windows.Forms.Button();
             this.printBtn = new System.Windows.Forms.Button();
-            this.printOperationBtn = new System.Windows.Forms.Button();
+            this.oksWithStBtn = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             this.allDoctorsPnl.SuspendLayout();
             this.doctorsContainer.SuspendLayout();
@@ -228,7 +228,7 @@
             this.goalTxt.Name = "goalTxt";
             this.goalTxt.Size = new System.Drawing.Size(855, 58);
             this.goalTxt.TabIndex = 1;
-            this.goalTxt.Text = "определить необходимость проведения эндоваскулярного вмешательства";
+            this.goalTxt.Text = "определить показания к оперативному пособию";
             // 
             // goalLbl
             // 
@@ -256,7 +256,7 @@
             this.dynamicsTxt.Name = "dynamicsTxt";
             this.dynamicsTxt.Size = new System.Drawing.Size(855, 58);
             this.dynamicsTxt.TabIndex = 1;
-            this.dynamicsTxt.Text = "";
+            this.dynamicsTxt.Text = resources.GetString("dynamicsTxt.Text");
             // 
             // dynamicsLbl
             // 
@@ -318,13 +318,14 @@
             // 
             // decisionVariantsPnl
             // 
+            this.decisionVariantsPnl.Controls.Add(this.oksWithStBtn);
             this.decisionVariantsPnl.Controls.Add(this.oksDeclineBtn);
             this.decisionVariantsPnl.Controls.Add(this.oksAcceptBtn);
             this.decisionVariantsPnl.Controls.Add(this.kagBtn);
             this.decisionVariantsPnl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.decisionVariantsPnl.Location = new System.Drawing.Point(653, 16);
+            this.decisionVariantsPnl.Location = new System.Drawing.Point(653, 6);
             this.decisionVariantsPnl.Name = "decisionVariantsPnl";
-            this.decisionVariantsPnl.Size = new System.Drawing.Size(211, 73);
+            this.decisionVariantsPnl.Size = new System.Drawing.Size(211, 89);
             this.decisionVariantsPnl.TabIndex = 2;
             this.decisionVariantsPnl.TabStop = false;
             this.decisionVariantsPnl.Text = "Варианты решения консилиума";
@@ -427,7 +428,7 @@
             // 
             // saveBtn
             // 
-            this.saveBtn.Location = new System.Drawing.Point(679, 600);
+            this.saveBtn.Location = new System.Drawing.Point(679, 631);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(164, 23);
             this.saveBtn.TabIndex = 35;
@@ -437,7 +438,7 @@
             // 
             // printBtn
             // 
-            this.printBtn.Location = new System.Drawing.Point(679, 629);
+            this.printBtn.Location = new System.Drawing.Point(679, 660);
             this.printBtn.Name = "printBtn";
             this.printBtn.Size = new System.Drawing.Size(164, 23);
             this.printBtn.TabIndex = 36;
@@ -445,21 +446,24 @@
             this.printBtn.UseVisualStyleBackColor = true;
             this.printBtn.Click += new System.EventHandler(this.printBtn_Click);
             // 
-            // printOperationBtn
+            // oksWithStBtn
             // 
-            this.printOperationBtn.Location = new System.Drawing.Point(679, 660);
-            this.printOperationBtn.Name = "printOperationBtn";
-            this.printOperationBtn.Size = new System.Drawing.Size(164, 23);
-            this.printOperationBtn.TabIndex = 37;
-            this.printOperationBtn.Text = "Открыть ворд преопер";
-            this.printOperationBtn.UseVisualStyleBackColor = true;
+            this.oksWithStBtn.AutoSize = true;
+            this.oksWithStBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.oksWithStBtn.Location = new System.Drawing.Point(14, 69);
+            this.oksWithStBtn.Name = "oksWithStBtn";
+            this.oksWithStBtn.Size = new System.Drawing.Size(129, 17);
+            this.oksWithStBtn.TabIndex = 3;
+            this.oksWithStBtn.TabStop = true;
+            this.oksWithStBtn.Text = "ОКС с подъемом ST";
+            this.oksWithStBtn.UseVisualStyleBackColor = true;
+            this.oksWithStBtn.CheckedChanged += new System.EventHandler(this.oksWithStBtn_CheckedChanged);
             // 
             // Consilium
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(876, 692);
-            this.Controls.Add(this.printOperationBtn);
             this.Controls.Add(this.printBtn);
             this.Controls.Add(this.saveBtn);
             this.Controls.Add(this.operationGoalPnl);
@@ -531,12 +535,12 @@
         private System.Windows.Forms.RadioButton evaluationGoal;
         private System.Windows.Forms.Button saveBtn;
         private System.Windows.Forms.Button printBtn;
-        private System.Windows.Forms.Button printOperationBtn;
         private System.Windows.Forms.Panel dotorInfoPnl0;
         private System.Windows.Forms.TableLayoutPanel doctorsContainer;
         private System.Windows.Forms.Button addDoctor;
         private System.Windows.Forms.Panel allDoctorsPnl;
         private System.Windows.Forms.Label objectIdLbl0;
         private System.Windows.Forms.ComboBox doctorWho0;
+        private System.Windows.Forms.RadioButton oksWithStBtn;
     }
 }

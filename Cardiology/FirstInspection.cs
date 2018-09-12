@@ -308,7 +308,8 @@ namespace Cardiology
                 clearSelection();
                 DataService service = new DataService();
                 DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + DEATH_TYPE + "'");
-                initializeAnamnesis(template); updatemedicineFromTemplate(DEATH_TYPE + ".medicine");
+                initializeAnamnesis(template);
+                updatemedicineFromTemplate(DEATH_TYPE + ".medicine");
                 deathBtn.BackColor = Color.LightSkyBlue;
             }
         }

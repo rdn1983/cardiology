@@ -400,6 +400,7 @@
     <Compile Include="Controls\UziAnalysisControl.Designer.cs">
       <DependentUpon>UziAnalysisControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utils\ConsiliumTemplateProcessor.cs" />
     <Compile Include="Utils\EpicrisisTemplateProcessor.cs" />
     <Compile Include="Utils\FirstInspectationTemplateProcessor.cs" />
     <Compile Include="Utils\InspectionTemplateProcessor.cs" />

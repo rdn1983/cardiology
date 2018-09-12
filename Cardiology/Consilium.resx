@@ -130,6 +130,9 @@
         OGwU+9yzuFFEO06rKWYsOlMeV+5bId8s974AtGniGINa5pgAAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="dynamicsTxt.Text" xml:space="preserve">
+    <value>Объективно: Состояние средней степени тяжести. По органам без отрицательной динамики. Дахание жесткое, проводится во все отделы, хрипов нет. ЧД 19 уд в мин. Тоны сердца приглушены, ритм неправильный. ЧСС 61 в мин. Ад 115/70 мм рт ст. Живот обычной формы; безболезненный. Область пункции без особенностей. Признаков гематомы нет. Пульсация на конечности адекватная.</value>
+  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAkAAAAAAAEAIACIDQAAlgAAAICAAAABACAAKAgBAB4OAABgYAAAAQAgAKiUAABGFgEASEgAAAEA

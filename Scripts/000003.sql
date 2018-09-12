@@ -251,8 +251,7 @@ INSERT INTO ddt_values (dss_name, dss_value) VALUES ('dep.medicine.6', 'Tab. Pan
 INSERT INTO ddt_values (dss_name, dss_value) VALUES ('dep.medicine.7', 'Tab. Verospironi 100mg х 1р/утро');
 INSERT INTO ddt_values (dss_name, dss_value) VALUES ('dep.medicine.8', 'Tab. Aspirini 125mg х 1р/вечер');
 
-INSERT INTO ddt_values (dss_name, dss_value) VALUES ('death.medicine.0', 'Sol. Furosemidi 40 mg в/в стр');
-INSERT INTO ddt_values (dss_name, dss_value) VALUES ('death.medicine.2', 'Sol. Leflobacti (Levofloxacini) 5mg/ml – 100,0 х 2р/сутки 11:00 и 23:00');
-INSERT INTO ddt_values (dss_name, dss_value) VALUES ('death.medicine.3', 'Tab. Verospironi 100mg х 1р/утро');
-INSERT INTO ddt_values (dss_name, dss_value) VALUES ('death.medicine.4', 'Tab. Sorbiferi 1таб х 3р/сутки');
-INSERT INTO ddt_values (dss_name, dss_value) VALUES ('death.medicine.5', 'Sol. Dofamini 10mg/ml – 5,0 + Sol. NaCl 0,9%– 50ml V = 2 мл/ч');
+INSERT INTO ddt_values (dss_name, dss_value) VALUES ('death.medicine.0', 'Sol. Dopamini 200мг + Sol. NaCl 0,9%– 500ml  V = 60 мл/ч');
+INSERT INTO ddt_values (dss_name, dss_value) VALUES ('death.medicine.2', 'Sol. Noradrenalini 2mg/ml + NaCl 0,9%– 50ml  V = 4-8 мл/ч');
+INSERT INTO ddt_values (dss_name, dss_value) VALUES ('death.medicine.3', 'Sol. Dofamini 10mg/ml – 5,0 + Sol. NaCl 0,9%– 50ml V = 2 мл/ч');
+INSERT INTO ddt_values (dss_name, dss_value) VALUES ('death.medicine.4', 'Sol. Sterofundini 400,0 х 2раз в/в кап, медленно');

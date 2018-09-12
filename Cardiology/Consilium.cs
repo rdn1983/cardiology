@@ -233,6 +233,9 @@ namespace Cardiology
             }
         }
 
-
+        private void oksWithStBtn_CheckedChanged(object sender, EventArgs e)
+        {
+            decisionTxt.Text = "У больного с ОКС с подъемом ST";
+        }
     }
 }

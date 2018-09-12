@@ -211,6 +211,7 @@ INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Sol. Dopamini 200мг + Sol. 
 INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Sol. Noradrenalini 2mg/ml + NaCl 0,9%– 50ml  V = 4-8 мл/ч', 20);
 INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Sol. Dofamini 10mg/ml – 5,0 + Sol. NaCl 0,9%– 50ml V = 2 мл/ч', 20);
 INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Sol. Adenosintriphosphate sodium 1,0 ml (макс 3,0мл) в/в стр', 20);
+INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Sol. Sterofundini 400,0 х 2раз в/в кап, медленно', 20);
 
 INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Tab. Atorvastatini  40mg х 1р/вечер', 21);
 INSERT INTO ddt_cure (dss_name, dsi_type) VALUES ('Tab. Atorvastatini  80mg х 1р/вечер', 21);

@@ -532,21 +532,21 @@
             // trunsfusionApprovalItem
             // 
             this.trunsfusionApprovalItem.Name = "trunsfusionApprovalItem";
-            this.trunsfusionApprovalItem.Size = new System.Drawing.Size(217, 22);
+            this.trunsfusionApprovalItem.Size = new System.Drawing.Size(299, 22);
             this.trunsfusionApprovalItem.Text = "Согласие на переливание";
             this.trunsfusionApprovalItem.Click += new System.EventHandler(this.trunsfusionApprovalItem_Click);
             // 
             // registerTrunsfusionItem
             // 
             this.registerTrunsfusionItem.Name = "registerTrunsfusionItem";
-            this.registerTrunsfusionItem.Size = new System.Drawing.Size(217, 22);
-            this.registerTrunsfusionItem.Text = "Решение";
+            this.registerTrunsfusionItem.Size = new System.Drawing.Size(299, 22);
+            this.registerTrunsfusionItem.Text = "Лист переливания трансфузионных сред";
             this.registerTrunsfusionItem.Click += new System.EventHandler(this.toolStripMenuItem18_Click);
             // 
             // trunsfusionClaimItem
             // 
             this.trunsfusionClaimItem.Name = "trunsfusionClaimItem";
-            this.trunsfusionClaimItem.Size = new System.Drawing.Size(217, 22);
+            this.trunsfusionClaimItem.Size = new System.Drawing.Size(299, 22);
             this.trunsfusionClaimItem.Text = "Заявка";
             this.trunsfusionClaimItem.Click += new System.EventHandler(this.trunsfusionClaimItem_Click);
             // 

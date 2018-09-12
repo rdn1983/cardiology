@@ -30,6 +30,13 @@ namespace Cardiology.Utils
                 values.Add(@"{doctor.who}", doc.DssFullName);
                 values.Add(@"{patient.fullname}", patient.DssFullName);
                 values.Add(@"{date}", DateTime.Now.ToShortDateString());
+
+                doc = service.queryObject<DdtDoctors>(@"SELECT * FROM " + DdtDoctors.TABLE_NAME +" where dss_login IN " +
+                    "(select dss_user_name FROM dm_group_users WHERE dss_group_name ='io_cardio_reanim')");
+                values.Add(@"{doctor.io.department}", doc.DssInitials);
+                doc = service.queryObject<DdtDoctors>(@"SELECT * FROM " + DdtDoctors.TABLE_NAME + " where dss_login IN " +
+                    "(select dss_user_name FROM dm_group_users WHERE dss_group_name ='io_therapy')");
+                values.Add(@"{doctor.io.hospital}", doc.DssInitials);
             }
             TemplatesUtils.fillTemplateAndShow(Directory.GetCurrentDirectory() + "\\Templates\\" + templateFileName, values);
         }

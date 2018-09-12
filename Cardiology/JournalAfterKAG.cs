@@ -9,6 +9,7 @@ namespace Cardiology
 {
     public partial class JournalAfterKAG : Form
     {
+        private const string JOURNAL_TEMPLATE = "Объективно: Состояние средней степени тяжести. По органам без отрицательной динамики. Дахвние жесткое, проводится во все отделы, хрипов нет. ЧД 19 уд в мин. Тоны сердца приглушены, ритм неправильный. ЧСС 61 в мин. Ад 115/70 мм рт ст. Живот обычной формы; безболезненный. Область пункции без особенностей. Признаков гематомы нет. Пульсация на конечности адекватная.";
         private DdtHospital hospitalitySession;
         private string journalId;
 
@@ -127,6 +128,8 @@ namespace Cardiology
             bad.CheckedChanged += new System.EventHandler(this.goodRhytmBtn_CheckedChanged);
             DateTimePicker dtPick = (DateTimePicker)CommonUtils.findControl(dutyCardioContainer, ("inspectionTime" + currentIndex));
             dtPick.Value = (inspectionTime0.Value.AddHours(currentIndex));
+            RichTextBox journalCtrl = (RichTextBox)CommonUtils.findControl(dutyCardioContainer, ("inspectionTxt" + currentIndex));
+            journalCtrl.Text = JOURNAL_TEMPLATE;
         }
 
         private void saveBtn_Click(object sender, EventArgs e)

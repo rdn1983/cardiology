@@ -74,9 +74,8 @@ namespace Cardiology.Utils
                             string oldValue = wRange.Text;
                             if (oldValue != null && oldValue.Contains(entry.Key))
                             {
-                                string newParagraphVal = oldValue.Replace(entry.Key, entry.Value);
-                                newParagraphVal = newParagraphVal.Replace("\r", "").Replace("\a", "");
-                                wRange.Text = newParagraphVal;
+                                wRange.Find.ClearFormatting();
+                                wRange.Find.Execute2007(FindText:entry.Key, ReplaceWith:entry.Value, Replace: Word.WdReplace.wdReplaceAll);
                             }
 
                         }

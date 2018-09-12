@@ -82,7 +82,7 @@ namespace Cardiology.Utils
                 specBld.Append('\n');
             }
             values.Add("{on_spec}", lspecobj.Count > 0 ? "Заключения специалистов:" : "");
-            values.Add("{spec}", specBld.ToString());
+            values.Add("{spec}", specBld.ToString() + (lspecobj.Count > 0 ? "\n" : ""));
         }
 
         private void putHolterData(Dictionary<string, string> values, DataService service, string objId)
@@ -94,7 +94,7 @@ namespace Cardiology.Utils
                 holterBld.Append(obj.DsdtAnalysisDate.ToShortDateString()).Append(" ").Append(obj.DssHolter).Append('\n');
             }
             values.Add("{on_holter}", lholterobj.Count > 0 ? "Холтер:" : "");
-            values.Add("{holter}", holterBld.ToString());
+            values.Add("{holter}", holterBld.ToString() + (lholterobj.Count > 0 ? "\n" : ""));
         }
 
         private void putEkgData(Dictionary<string, string> values, DataService service, string objId)
@@ -106,7 +106,7 @@ namespace Cardiology.Utils
                 ekgBld.Append(ekk.DsdtAnalysisDate.ToShortDateString()).Append(" ").Append(ekk.DssEkg).Append('\n');
             }
             values.Add("{on_ekg}", ekg.Count > 0 ? "ЭКГ:" : "");
-            values.Add("{ekg}", ekgBld.ToString());
+            values.Add("{ekg}", ekgBld.ToString() + (ekg.Count > 0 ? "\n" : ""));
         }
 
         private void putUziData(Dictionary<string, string> values, DataService service, string objId)
@@ -138,7 +138,7 @@ namespace Cardiology.Utils
                 }
             }
             values.Add("{on_uzi}", uzies.Count > 0 ? "На УЗИ:" : "");
-            values.Add("{uzi}", uziBld.ToString());
+            values.Add("{uzi}", uziBld.ToString() + (uzies.Count > 0 ? "\n" : ""));
         }
 
         private void putBloodData(Dictionary<string, string> values, DataService service, string objId)
@@ -159,7 +159,7 @@ namespace Cardiology.Utils
                 bloodBld.Append('\n');
             }
             values.Add("{on_blood}", bloods.Count > 0 ? "В анализах крови:" : "");
-            values.Add("{blood}", bloodBld.ToString());
+            values.Add("{blood}", bloodBld.ToString() + (bloods.Count > 0 ? "\n" : ""));
         }
 
     }

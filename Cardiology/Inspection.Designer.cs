@@ -50,6 +50,7 @@
             this.addAnalysis = new System.Windows.Forms.Button();
             this.isssuedMedsTab = new System.Windows.Forms.TabPage();
             this.medicinesPnl = new System.Windows.Forms.Panel();
+            this.issuedMedicineControl1 = new Cardiology.IssuedMedicineControl();
             this.addMedicineBtn = new System.Windows.Forms.Button();
             this.printBtn = new System.Windows.Forms.Button();
             this.saveBtn = new System.Windows.Forms.Button();
@@ -62,7 +63,6 @@
             this.xRayItem = new System.Windows.Forms.ToolStripMenuItem();
             this.holterItem = new System.Windows.Forms.ToolStripMenuItem();
             this.specialistItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.issuedMedicineControl1 = new Cardiology.IssuedMedicineControl();
             this.tabbedContainer.SuspendLayout();
             this.baseTab.SuspendLayout();
             this.analysisTab.SuspendLayout();
@@ -111,7 +111,7 @@
             this.resultTxt.Name = "resultTxt";
             this.resultTxt.Size = new System.Drawing.Size(640, 68);
             this.resultTxt.TabIndex = 12;
-            this.resultTxt.Text = "";
+            this.resultTxt.Text = "необходимо продолжить лечение в отделение кардиореанимации";
             // 
             // resultLbl
             // 
@@ -165,7 +165,7 @@
             this.complaintsTxt.Name = "complaintsTxt";
             this.complaintsTxt.Size = new System.Drawing.Size(640, 51);
             this.complaintsTxt.TabIndex = 3;
-            this.complaintsTxt.Text = "";
+            this.complaintsTxt.Text = "жалобы на слабость";
             // 
             // inspectionTxt
             // 
@@ -173,7 +173,7 @@
             this.inspectionTxt.Name = "inspectionTxt";
             this.inspectionTxt.Size = new System.Drawing.Size(640, 74);
             this.inspectionTxt.TabIndex = 4;
-            this.inspectionTxt.Text = "";
+            this.inspectionTxt.Text = resources.GetString("inspectionTxt.Text");
             // 
             // checkAnalyzesBtn
             // 
@@ -269,6 +269,14 @@
             this.medicinesPnl.Name = "medicinesPnl";
             this.medicinesPnl.Size = new System.Drawing.Size(760, 489);
             this.medicinesPnl.TabIndex = 3;
+            // 
+            // issuedMedicineControl1
+            // 
+            this.issuedMedicineControl1.AutoSize = true;
+            this.issuedMedicineControl1.Location = new System.Drawing.Point(3, 3);
+            this.issuedMedicineControl1.Name = "issuedMedicineControl1";
+            this.issuedMedicineControl1.Size = new System.Drawing.Size(10, 11);
+            this.issuedMedicineControl1.TabIndex = 0;
             // 
             // addMedicineBtn
             // 
@@ -373,14 +381,6 @@
             this.specialistItem.Size = new System.Drawing.Size(223, 22);
             this.specialistItem.Text = "Заключения специалистов";
             this.specialistItem.Click += new System.EventHandler(this.specialistItem_Click);
-            // 
-            // issuedMedicineControl1
-            // 
-            this.issuedMedicineControl1.AutoSize = true;
-            this.issuedMedicineControl1.Location = new System.Drawing.Point(3, 3);
-            this.issuedMedicineControl1.Name = "issuedMedicineControl1";
-            this.issuedMedicineControl1.Size = new System.Drawing.Size(10, 11);
-            this.issuedMedicineControl1.TabIndex = 0;
             // 
             // Inspection
             // 

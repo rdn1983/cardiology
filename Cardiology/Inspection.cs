@@ -32,6 +32,9 @@ namespace Cardiology
 
                 initIssuedCure(service);
                 initAnalysis(service);
+            } else
+            {
+                diagnosisTxt.Text = hospitalitySession.DssDiagnosis;
             }
         }
 

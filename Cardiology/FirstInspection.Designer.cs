@@ -112,7 +112,6 @@
             this.issuedMedicineTab = new System.Windows.Forms.TabPage();
             this.issuedMedicineBox = new System.Windows.Forms.GroupBox();
             this.issuedCntr = new System.Windows.Forms.Panel();
-            this.issuedMedicineControl1 = new Cardiology.IssuedMedicineControl();
             this.addIssuedMedicineBtn = new System.Windows.Forms.Button();
             this.firstAnalysisTab = new System.Windows.Forms.TabPage();
             this.tabs = new System.Windows.Forms.TabControl();
@@ -200,6 +199,8 @@
             this.addTip = new System.Windows.Forms.ToolTip(this.components);
             this.docBox = new System.Windows.Forms.ComboBox();
             this.docLbl = new System.Windows.Forms.Label();
+            this.issuedMedicineControl1 = new Cardiology.IssuedMedicineControl();
+            this.templateChanger = new Cardiology.Controls.TemplateChanger();
             this.complaintsBox.SuspendLayout();
             this.anamnesisMorbiBox.SuspendLayout();
             this.anamnesisAllergyBox.SuspendLayout();
@@ -856,6 +857,7 @@
             this.stPresensTemplates.TabIndex = 2;
             this.stPresensTemplates.Text = "Исправить по шаблону";
             this.stPresensTemplates.UseVisualStyleBackColor = true;
+            this.stPresensTemplates.Click += new System.EventHandler(this.stPresensTemplates_Click);
             // 
             // stPresensTxt
             // 
@@ -1087,6 +1089,7 @@
             this.diagnosisTemplateBtn.TabIndex = 3;
             this.diagnosisTemplateBtn.Text = "Исправить по шаблону";
             this.diagnosisTemplateBtn.UseVisualStyleBackColor = true;
+            this.diagnosisTemplateBtn.Click += new System.EventHandler(this.diagnosisTemplateBtn_Click);
             // 
             // diagnosisTxt
             // 
@@ -1128,14 +1131,6 @@
             this.issuedCntr.Name = "issuedCntr";
             this.issuedCntr.Size = new System.Drawing.Size(653, 501);
             this.issuedCntr.TabIndex = 18;
-            // 
-            // issuedMedicineControl1
-            // 
-            this.issuedMedicineControl1.AutoSize = true;
-            this.issuedMedicineControl1.Location = new System.Drawing.Point(3, 0);
-            this.issuedMedicineControl1.Name = "issuedMedicineControl1";
-            this.issuedMedicineControl1.Size = new System.Drawing.Size(10, 10);
-            this.issuedMedicineControl1.TabIndex = 17;
             // 
             // addIssuedMedicineBtn
             // 
@@ -1975,6 +1970,19 @@
             this.docLbl.TabIndex = 25;
             this.docLbl.Text = "Ответственный врач";
             // 
+            // issuedMedicineControl1
+            // 
+            this.issuedMedicineControl1.AutoSize = true;
+            this.issuedMedicineControl1.Location = new System.Drawing.Point(3, 0);
+            this.issuedMedicineControl1.Name = "issuedMedicineControl1";
+            this.issuedMedicineControl1.Size = new System.Drawing.Size(10, 10);
+            this.issuedMedicineControl1.TabIndex = 17;
+            // 
+            // templateChanger
+            // 
+            this.templateChanger.Name = "templateChanger";
+            this.templateChanger.Size = new System.Drawing.Size(189, 202);
+            // 
             // FirstInspection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2219,5 +2227,6 @@
         private System.Windows.Forms.ComboBox docBox;
         private System.Windows.Forms.Label docLbl;
         private System.Windows.Forms.RichTextBox operationCauseTxt;
+        private Controls.TemplateChanger templateChanger;
     }
 }

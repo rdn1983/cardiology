@@ -145,6 +145,12 @@
     <Compile Include="Controls\KagAnalysisControl.Designer.cs">
       <DependentUpon>KagAnalysisControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\TemplateChanger.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\TemplateChanger.Designer.cs">
+      <DependentUpon>TemplateChanger.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\XRayControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -220,18 +226,6 @@
       <DependentUpon>SpecialistConclusionControl.cs</DependentUpon>
     </Compile>
     <Compile Include="TableAttribute.cs" />
-    <Compile Include="ComplaintTemplates.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ComplaintTemplates.Designer.cs">
-      <DependentUpon>ComplaintTemplates.cs</DependentUpon>
-    </Compile>
-    <Compile Include="AppointmentTemplates.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AppointmentTemplates.Designer.cs">
-      <DependentUpon>AppointmentTemplates.cs</DependentUpon>
-    </Compile>
     <Compile Include="DataService.cs" />
     <Compile Include="JournalBeforeKag.cs">
       <SubType>Form</SubType>
@@ -244,12 +238,6 @@
     </Compile>
     <Compile Include="FirstInspection.Designer.cs">
       <DependentUpon>FirstInspection.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DB3.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DB3.Designer.cs">
-      <DependentUpon>DB3.cs</DependentUpon>
     </Compile>
     <Compile Include="PatientList.cs">
       <SubType>Form</SubType>
@@ -275,24 +263,6 @@
     </Compile>
     <Compile Include="Perelivanie.Designer.cs">
       <DependentUpon>Perelivanie.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PresenceTemplates.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PresenceTemplates.Designer.cs">
-      <DependentUpon>PresenceTemplates.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MorbiTemplates.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MorbiTemplates.Designer.cs">
-      <DependentUpon>MorbiTemplates.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DiagnosisTemplates.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DiagnosisTemplates.Designer.cs">
-      <DependentUpon>DiagnosisTemplates.cs</DependentUpon>
     </Compile>
     <Compile Include="Consilium.cs">
       <SubType>Form</SubType>
@@ -425,12 +395,6 @@
     <EmbeddedResource Include="Controls\BloodAnalysisControl.resx">
       <DependentUpon>BloodAnalysisControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ComplaintTemplates.resx">
-      <DependentUpon>ComplaintTemplates.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AppointmentTemplates.resx">
-      <DependentUpon>AppointmentTemplates.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Controls\CoagulogrammControl.resx">
       <DependentUpon>CoagulogrammControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -455,6 +419,9 @@
     <EmbeddedResource Include="Controls\JournalNoKAGControl.resx">
       <DependentUpon>JournalNoKAGControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\TemplateChanger.resx">
+      <DependentUpon>TemplateChanger.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\XRayControl.resx">
       <DependentUpon>XRayControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -463,9 +430,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="JournalBeforeKag.resx">
       <DependentUpon>JournalBeforeKag.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DB3.resx">
-      <DependentUpon>DB3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FirstInspection.resx">
       <DependentUpon>FirstInspection.cs</DependentUpon>
@@ -490,15 +454,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PreoperativeEpicrisiscs.resx">
       <DependentUpon>PreoperativeEpicrisiscs.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PresenceTemplates.resx">
-      <DependentUpon>PresenceTemplates.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MorbiTemplates.resx">
-      <DependentUpon>MorbiTemplates.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DiagnosisTemplates.resx">
-      <DependentUpon>DiagnosisTemplates.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Consilium.resx">
       <DependentUpon>Consilium.cs</DependentUpon>

@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using Cardiology.Utils;
 using System.Collections.Generic;
 using System.Drawing;
+using Cardiology.Controls;
 
 namespace Cardiology
 {
@@ -134,14 +135,22 @@ namespace Cardiology
 
         private void fixComplaintTeplaintBtn_Click(object sender, EventArgs e)
         {
-            ComplaintTemplates templateForm = new ComplaintTemplates();
-            templateForm.ShowDialog();
+            Button btn = (Button)sender;
+            MouseEventArgs mouseArgs = e as MouseEventArgs;
+            if (isSureChangeTemplate())
+            {
+                templateChanger.Show(mouseArgs.X, mouseArgs.Y, btn, complaintsTxt, "dss_complaints");
+            }
         }
 
         private void fixMorbiTemplateBtn_Click(object sender, EventArgs e)
         {
-            MorbiTemplates templateForm = new MorbiTemplates();
-            templateForm.ShowDialog();
+            Button btn = (Button)sender;
+            MouseEventArgs mouseArgs = e as MouseEventArgs;
+            if (isSureChangeTemplate())
+            {
+                templateChanger.Show(mouseArgs.X, mouseArgs.Y, btn, anamnesisMorbiTxt, "dss_anamnesis_morbi");
+            }
         }
 
         private void prevBtn_Click(object sender, EventArgs e)
@@ -804,6 +813,26 @@ namespace Cardiology
             {
                 string path = te.processTemplate(hospitalSession.ObjectId, anamnesis.ObjectId, null);
                 TemplatesUtils.showDocument(path);
+            }
+        }
+
+        private void stPresensTemplates_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            MouseEventArgs mouseArgs = e as MouseEventArgs;
+            if (isSureChangeTemplate())
+            {
+                templateChanger.Show(mouseArgs.X, mouseArgs.Y, btn, stPresensTxt, "dss_st_presens");
+            }
+        }
+
+        private void diagnosisTemplateBtn_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            MouseEventArgs mouseArgs = e as MouseEventArgs;
+            if (isSureChangeTemplate())
+            {
+                templateChanger.Show(mouseArgs.X, mouseArgs.Y, btn, diagnosisTxt, "dss_diagnosis");
             }
         }
     }

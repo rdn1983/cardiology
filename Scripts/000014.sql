@@ -28,7 +28,7 @@ CREATE OR REPLACE FUNCTION audit_ddt_urine_analysis_creating_row () RETURNS TRIG
 BEGIN
 INSERT INTO ddt_history 
 (dsid_hospitality_session, dsid_patient, dsid_doctor, dsid_operation_id, dss_operation_type, dsdt_operation_date)
- VALUES (NEW.dsid_hospitality_session, NEW.dsid_patient, NEW.dsid_doctor, NEW.r_object_id, TG_TABLE_NAME, dsdt_analysis_date);
+ VALUES (NEW.dsid_hospitality_session, NEW.dsid_patient, NEW.dsid_doctor, NEW.r_object_id, TG_TABLE_NAME, NEW.dsdt_analysis_date);
  RETURN NEW;
 END;
 ' LANGUAGE  plpgsql;

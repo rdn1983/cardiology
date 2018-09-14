@@ -41,44 +41,75 @@ namespace Cardiology.Utils
             values.Add("{patient.admission_date}", hospital.DsdtAdmissionDate.ToShortDateString());
 
             DdtAnamnesis anamnesis = service.queryObjectByAttrCond<DdtAnamnesis>(DdtAnamnesis.TABLE_NAME, "dsid_hospitality_session", hospital.ObjectId, true);
-            values.Add("{complaints}", anamnesis == null ? "" : anamnesis.DssComplaints);
-            values.Add("{anamnesis}", anamnesis == null ? "" : anamnesis.DssAnamnesisVitae);
-            values.Add("{inspection}", anamnesis == null ? "" : anamnesis.DssAnamnesisMorbi);
+            values.Add("{complaints}", anamnesis == null ? " " : anamnesis.DssComplaints);
+            values.Add("{anamnesis}", anamnesis == null ? " " : anamnesis.DssAnamnesisMorbi);
+
+            StringBuilder inspectonBld = new StringBuilder();
+            inspectonBld.Append(compileValue("St.Presens", anamnesis.DssStPresens));
+            inspectonBld.Append(compileValue("Органы дыхания", anamnesis.DssRespiratorySystem));
+            inspectonBld.Append(compileValue("Сердечно-сосудистая система", anamnesis.DssCardioVascular));
+            inspectonBld.Append(compileValue("Органы пищеварения", anamnesis.DssDigestiveSystem));
+            values.Add("{inspection}", anamnesis == null ? " " : inspectonBld.ToString());
 
             DdtSerology serology = service.queryObjectByAttrCond<DdtSerology>(DdtSerology.TABLE_NAME, "dsid_hospitality_session", hospital.ObjectId, true);
-            values.Add("{serology}", serology == null ? "" : serology.DssBloodType);
+            StringBuilder serologyBld = new StringBuilder();
+            serologyBld.Append(compileValue("Группа крови", serology.DssBloodType));
+            serologyBld.Append(compileValue("Резус-фактор", serology.DssRhesusFactor));
+            serologyBld.Append(compileValue("KELL-ag", serology.DssKellAg));
+            serologyBld.Append(compileValue("RW", serology.DssRw));
+            serologyBld.Append(compileValue("HBs ag", serology.DssHbsAg));
+            serologyBld.Append(compileValue("Anti HCV крови", serology.DssAntiHcv));
+            serologyBld.Append(compileValue("HIV", serology.DssHiv));
+            values.Add("{serology}", serology == null ? " " : serologyBld.ToString());
 
             DdtEkg ekg = service.queryObject<DdtEkg>(@"SELECT * FROM ddt_ekg where dsid_parent='" + obj.RObjectId + "'");
-            values.Add("{analysis.ekg}", ekg == null ? "" : "ЭКГ:" + ekg.DssEkg);
+            values.Add("{analysis.ekg}", ekg == null ? " " : "ЭКГ:" + ekg.DssEkg);
             DdtXRay xray = service.queryObject<DdtXRay>(@"SELECT * FROM ddt_xray where dsid_parent='" + obj.RObjectId + "'");
-            values.Add("{analysis.xray}", xray == null ? "" : "Рентген:" + xray.DssChestXray);
+            values.Add("{analysis.xray}", xray == null ? " " : "Рентген:" + xray.DssChestXray);
             DdtEgds egds = service.queryObject<DdtEgds>(@"SELECT * FROM ddt_egds where dsid_parent='" + obj.RObjectId + "'");
-            values.Add("{analysis.egds}", egds == null ? "" : "ЭГДС:" + egds.DssEgds);
+            values.Add("{analysis.egds}", egds == null ? " " : "ЭГДС:" + egds.DssEgds);
             DdtBloodAnalysis blood = service.queryObject<DdtBloodAnalysis>(@"SELECT * FROM ddt_blood_analysis where dsid_parent='" + obj.RObjectId + "'");
             StringBuilder bloodStr = new StringBuilder();
             if (blood != null)
             {
-                bloodStr.Append("АЛТ ").Append(blood.DsdAlt).Append("Креатинин ").Append(blood.DsdCreatinine);
-                bloodStr.Append("АСТ ").Append(blood.DsdAst).Append("Холестерин ").Append(blood.DsdCholesterolr);
-                bloodStr.Append("Гемоглобин ").Append(blood.DsdHemoglobin).Append("Лейкоциты ").Append(blood.DsdLeucocytes);
-
+                bloodStr.Append(compileValue("АЛТ", blood.DsdAlt));
+                bloodStr.Append(compileValue("Креатинин", blood.DsdCreatinine));
+                bloodStr.Append(compileValue("АСТ", blood.DsdAst));
+                bloodStr.Append(compileValue("Холестерин", blood.DsdCholesterolr));
+                bloodStr.Append(compileValue("Гемоглобин", blood.DsdHemoglobin));
+                bloodStr.Append(compileValue("Лейкоциты", blood.DsdLeucocytes));
+                bloodStr.Append(compileValue("Амилаза", blood.DsdAmylase));
+                bloodStr.Append(compileValue("Бил. Общ.", blood.DsdBil));
+                bloodStr.Append(compileValue("Хлор", blood.DsdChlorine));
+                bloodStr.Append(compileValue("Железо", blood.DsdIron));
+                bloodStr.Append(compileValue("КФК", blood.DsdKfk));
+                bloodStr.Append(compileValue("КФК-МВ", blood.DsdKfkMv));
+                bloodStr.Append(compileValue("Тромбоциты", blood.DsdPlatelets));
+                bloodStr.Append(compileValue("Калий", blood.DsdPotassium));
+                bloodStr.Append(compileValue("Белок", blood.DsdProtein));
+                bloodStr.Append(compileValue("ЩФ", blood.DsdSchf));
+                bloodStr.Append(compileValue("Натрий", blood.DsdSodium));
+                bloodStr.Append(compileValue("СРБ", blood.DsdSrp));
             }
-            values.Add("{analysis.blood}", blood == null ? "" : "Анализы крови:" + bloodStr);
-            values.Add("{analysis.urine}", "");
+            values.Add("{analysis.blood}", blood == null ? " " : "Анализы крови:" + bloodStr);
+            values.Add("{analysis.urine}", " ");
             DdtUzi uzi = service.queryObject<DdtUzi>(@"SELECT * FROM ddt_uzi where dsid_parent='" + obj.RObjectId + "'");
             StringBuilder uziStr = new StringBuilder();
             if (uzi != null)
             {
-                uziStr.Append("ЦДС ").Append(uzi.DssCds).Append("ЭХО КГ ").Append(uzi.DssEhoKg).Append("УЗИ Плевр ");
-                uziStr.Append(uzi.DssPleursUzi).Append("УЗД БЦА").Append(uzi.DssUzdBca).Append("УЗи ОБП").Append(uzi.DssUziObp);
+                uziStr.Append(compileValue("ЦДС", uzi.DssCds));
+                uziStr.Append(compileValue(" ЭХО КГ", uzi.DssEhoKg));
+                uziStr.Append(compileValue(" УЗИ Плевр", uzi.DssPleursUzi));
+                uziStr.Append(compileValue(" УЗД БЦА", uzi.DssUzdBca));
+                uziStr.Append(compileValue(" УЗи ОБП", uzi.DssUziObp));
             }
-            values.Add("{analysis.uzi}", uzi == null ? "" : uziStr.ToString());
+            values.Add("{analysis.uzi}", uzi == null ? " " : uziStr.ToString());
 
             if (obj.DsiEpicrisisType == (int)DdtEpicrisisDsiType.TRANSFER)
             {
                 DdtTransfer transfer = service.queryObject<DdtTransfer>(@"Select * from " + DdtTransfer.TABLE_NAME +
                     " WHERE dsid_hospitality_session='" + hospitalitySession + "'");
-                if (transfer!=null)
+                if (transfer != null)
                 {
                     values.Add("{destination}", transfer.DssDestination);
                     values.Add("{contact}", transfer.DssContacts);
@@ -88,13 +119,22 @@ namespace Cardiology.Utils
             }
             else if (obj.DsiEpicrisisType == (int)DdtEpicrisisDsiType.DEATH)
             {
-                values.Add("{conclusion}", "");
+                values.Add("{conclusion}", " ");
             }
 
             DdtDoctors doc = service.queryObjectById<DdtDoctors>(DdtDoctors.TABLE_NAME, obj.DsidDoctor);
             values.Add("{doctor.who.short}", doc.DssInitials);
 
             return TemplatesUtils.fillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + getTemplateName(obj), values);
+        }
+
+        private string compileValue(string title, string value)
+        {
+            if (CommonUtils.isNotBlank(value))
+            {
+                return String.Intern(" " + title + ":" + value);
+            }
+            return "";
         }
 
         private string getTemplateName(DdtEpicrisis obj)
@@ -106,7 +146,8 @@ namespace Cardiology.Utils
             else if (obj.DsiEpicrisisType == (int)DdtEpicrisisDsiType.DEATH)
             {
                 return TEMPLATE_FILE_NAME_DEATH;
-            } else
+            }
+            else
             {
                 return TEMPLATE_FILE_NAME;
             }

@@ -8,13 +8,13 @@ CREATE TABLE ddt_serology (
   dsid_doctor VARCHAR(16) REFERENCES ddt_doctors(r_object_id),
   dsdt_analysis_date timestamp,
   dss_blood_type VARCHAR(6),
-  dss_rhesus_factor VARCHAR(30),
-  dss_phenotype VARCHAR(512),
-  dss_kell_ag VARCHAR(30),
-  dss_rw VARCHAR(30),
-  dss_hbs_ag VARCHAR(30),
-  dss_anti_hcv VARCHAR(30),
-  dss_hiv VARCHAR(30)
+  dss_rhesus_factor VARCHAR(30) DEFAULT 'в работе',
+  dss_phenotype VARCHAR(512) DEFAULT 'в работе',
+  dss_kell_ag VARCHAR(30) DEFAULT 'в работе',
+  dss_rw VARCHAR(30) DEFAULT 'в работе',
+  dss_hbs_ag VARCHAR(30) DEFAULT 'в работе',
+  dss_anti_hcv VARCHAR(30) DEFAULT 'в работе',
+  dss_hiv VARCHAR(30) DEFAULT 'в работе'
 );
 
 

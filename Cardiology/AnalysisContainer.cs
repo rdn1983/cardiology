@@ -146,7 +146,7 @@ namespace Cardiology
             {
                 this.Text = "Гормоны";
             }
-            
+
         }
 
         private void selectToContainer_Click(object sender, EventArgs e)
@@ -155,7 +155,7 @@ namespace Cardiology
             {
                 selector = new AnalysisSelector();
             }
-            selector.ShowDialog(typeName, "dsid_hospitality_session='" + hospitalitySession.ObjectId + "'", "r_object_id", "r_creation_date", selectedIds);
+            selector.ShowDialog(typeName, "dsid_hospitality_session='" + hospitalitySession.ObjectId + "'", "r_creation_date", "r_object_id", selectedIds);
             if (selector.isSuccess())
             {
                 List<string> result = selector.returnValues();

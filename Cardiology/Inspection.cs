@@ -1,4 +1,5 @@
 ﻿using Cardiology.Model;
+using Cardiology.Model.Dictionary;
 using Cardiology.Utils;
 using System;
 using System.Collections.Generic;
@@ -34,7 +35,16 @@ namespace Cardiology
                 initAnalysis(service);
             } else
             {
-                diagnosisTxt.Text = hospitalitySession.DssDiagnosis;
+                DdtJournal kagJournal = service.queryObject<DdtJournal>(@"SELECT * FROM " + DdtJournal.TABLE_NAME +
+                    " WHERE dsid_hospitality_session='"+hospitalitySession.ObjectId+"' AND dsi_journal_type=" + (int) DdtJournalDsiType.AFTER_KAG +
+                    " ORDER BY dsdt_admission_date desc");
+                if (kagJournal!=null)
+                {
+                    diagnosisTxt.Text = kagJournal.DssDiagnosis;
+                } else
+                {
+                    diagnosisTxt.Text = hospitalitySession.DssDiagnosis;
+                }
             }
         }
 

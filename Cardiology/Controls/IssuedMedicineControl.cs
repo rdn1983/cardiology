@@ -157,6 +157,12 @@ namespace Cardiology
         {
             int indexOfItem = indexes.IndexOf(index);
             indexes.RemoveAt(indexOfItem);
+            Control container = medicineContainer.Controls[index];
+            Label idLbl = (Label)CommonUtils.findControl(container, "objectIdLbl" + indexes[index]);
+            if (CommonUtils.isNotBlank(idLbl.Text))
+            {
+
+            }
             medicineContainer.Controls.RemoveAt(indexOfItem);
         }
 

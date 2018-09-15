@@ -84,7 +84,12 @@ namespace Cardiology.Utils
                                 wRange.Find.ClearFormatting();
                                 wRange.Find.Execute2007(FindText:entry.Key);
                                 wRange.Select();
-                                app.Selection.TypeText(entry.Value);
+                                string newVal = entry.Value;
+                                if (CommonUtils.isBlank(newVal))
+                                {
+                                    newVal = " ";
+                                }
+                                app.Selection.TypeText(newVal);
                                 wRange = mark.Range;
                             }
 

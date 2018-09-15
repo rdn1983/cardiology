@@ -58,6 +58,11 @@ namespace Cardiology
                     DdtDoctors doctors = service.queryObjectById<DdtDoctors>(DdtDoctors.TABLE_NAME, journal.DsidDoctor);
                     journalDocBox.SelectedIndex = journalDocBox.FindStringExact(doctors.DssInitials);
 
+                    DdtKag kag = service.queryObjectByAttrCond<DdtKag>(DdtKag.TABLE_NAME, "dsid_parent", journal.RObjectId, true);
+                    if (kag != null)
+                    {
+                        kagDiagnosisTxt.Text = kag.DssResults;
+                    }
                     initCardioConslusions(service);
                 }
             }
@@ -103,7 +108,7 @@ namespace Cardiology
 
             DdtVariousSpecConcluson releaseConclusion = service.queryObject<DdtVariousSpecConcluson>("Select * from " + DdtVariousSpecConcluson.TABLE_NAME +
                 " WHERE dsid_parent='" + journalId + "' AND dsb_additional_bool=true");
-            if (releaseConclusion!=null)
+            if (releaseConclusion != null)
             {
                 releaseInspectionTxt.Text = releaseConclusion.DssSpecialistConclusion;
                 releasePsTxt.Text = releaseConclusion.DssAdditionalInfo0;
@@ -152,10 +157,11 @@ namespace Cardiology
             {
                 journal = new DdtJournal();
                 journal.DsiJournalType = 1;
-                journal.DsidDoctor = hospitalitySession.DsidDutyDoctor;
+                journal.DsidDoctor = hospitalitySession.DsidCuringDoctor;
                 journal.DsidHospitalitySession = hospitalitySession.ObjectId;
                 journal.DsidPatient = hospitalitySession.DsidPatient;
                 journal.DsiJournalType = (int)DdtJournalDsiType.AFTER_KAG;
+                journal.DssComplaints = "Жалоб на момент осмотра не предъявляет.";
             }
             journal.DssDiagnosis = afterKagDiagnosisTxt.Text;
             journal.DssJournal = surgeryInspectationTxt.Text;
@@ -167,6 +173,22 @@ namespace Cardiology
             journal.DssEkg = ekgTxt0.Text;
             journal.DsdtAdmissionDate = CommonUtils.constructDateWIthTime(admissionDateTxt.Value, admissionTimeTxt.Value);
             journalId = service.updateOrCreateIfNeedObject<DdtJournal>(journal, DdtJournal.TABLE_NAME, journal.RObjectId);
+
+            if (CommonUtils.isNotBlank(kagDiagnosisTxt.Text))
+            {
+                DdtKag kag = service.queryObjectByAttrCond<DdtKag>(DdtKag.TABLE_NAME, "dsid_parent", journal.RObjectId, true);
+                if (kag == null)
+                {
+                    kag = new DdtKag();
+                    kag.DsidDoctor = hospitalitySession.DsidCuringDoctor;
+                    kag.DsidHospitalitySession = hospitalitySession.ObjectId;
+                    kag.DsidPatient = hospitalitySession.DsidPatient;
+                    kag.DsdtAnalysisDate = CommonUtils.constructDateWIthTime(admissionDateTxt.Value, admissionTimeTxt.Value);
+                    kag.DsidParent = journalId;
+                }
+                kag.DssResults = kagDiagnosisTxt.Text;
+                service.updateOrCreateIfNeedObject<DdtKag>(kag, DdtKag.TABLE_NAME, kag.ObjectId);
+            }
 
             for (int i = 0; i < dutyCardioContainer.Controls.Count; i++)
             {

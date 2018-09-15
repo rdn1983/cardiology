@@ -11,7 +11,10 @@ CREATE TABLE ddt_kag (
   dsdt_start_time timestamp,
   dsdt_end_time timestamp,
   dss_kag_manipulation VARCHAR(2048),
-  dss_kag_action VARCHAR(1024)
+  dss_kag_action VARCHAR(1024),
+
+  dsid_parent VARCHAR(16),
+  dss_parent_type VARCHAR(30)
 );
 
 

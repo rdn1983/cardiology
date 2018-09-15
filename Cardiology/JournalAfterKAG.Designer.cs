@@ -87,6 +87,8 @@
             this.ekgLbl0 = new System.Windows.Forms.Label();
             this.printBtn = new System.Windows.Forms.Button();
             this.saveBtn = new System.Windows.Forms.Button();
+            this.kagDiagnosisTxt = new System.Windows.Forms.RichTextBox();
+            this.kagDianosisLbl = new System.Windows.Forms.Label();
             this.afterKagDiagnosisPnl.SuspendLayout();
             this.surgeryInspectationPnl.SuspendLayout();
             this.dutyCardioInspectationPnl.SuspendLayout();
@@ -99,15 +101,15 @@
             // 
             // afterKagDiagnosisPnl
             // 
-            this.afterKagDiagnosisPnl.Controls.Add(this.journalDocLbl);
-            this.afterKagDiagnosisPnl.Controls.Add(this.journalDocBox);
+            this.afterKagDiagnosisPnl.Controls.Add(this.kagDianosisLbl);
+            this.afterKagDiagnosisPnl.Controls.Add(this.kagDiagnosisTxt);
             this.afterKagDiagnosisPnl.Controls.Add(this.admissionDateTxt);
             this.afterKagDiagnosisPnl.Controls.Add(this.admissionTimeTxt);
             this.afterKagDiagnosisPnl.Controls.Add(this.afterKagDiagnosisTxt);
             this.afterKagDiagnosisPnl.Controls.Add(this.rhytmPnl);
-            this.afterKagDiagnosisPnl.Location = new System.Drawing.Point(12, 12);
+            this.afterKagDiagnosisPnl.Location = new System.Drawing.Point(12, 5);
             this.afterKagDiagnosisPnl.Name = "afterKagDiagnosisPnl";
-            this.afterKagDiagnosisPnl.Size = new System.Drawing.Size(710, 100);
+            this.afterKagDiagnosisPnl.Size = new System.Drawing.Size(710, 107);
             this.afterKagDiagnosisPnl.TabIndex = 0;
             this.afterKagDiagnosisPnl.TabStop = false;
             this.afterKagDiagnosisPnl.Text = "После КАГ. Выставлен диагноз:";
@@ -115,7 +117,7 @@
             // journalDocLbl
             // 
             this.journalDocLbl.AutoSize = true;
-            this.journalDocLbl.Location = new System.Drawing.Point(357, 21);
+            this.journalDocLbl.Location = new System.Drawing.Point(384, 670);
             this.journalDocLbl.Name = "journalDocLbl";
             this.journalDocLbl.Size = new System.Drawing.Size(115, 13);
             this.journalDocLbl.TabIndex = 9;
@@ -125,7 +127,7 @@
             // 
             this.journalDocBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.journalDocBox.FormattingEnabled = true;
-            this.journalDocBox.Location = new System.Drawing.Point(476, 14);
+            this.journalDocBox.Location = new System.Drawing.Point(502, 665);
             this.journalDocBox.Name = "journalDocBox";
             this.journalDocBox.Size = new System.Drawing.Size(220, 21);
             this.journalDocBox.TabIndex = 8;
@@ -152,7 +154,7 @@
             // 
             this.afterKagDiagnosisTxt.Location = new System.Drawing.Point(6, 39);
             this.afterKagDiagnosisTxt.Name = "afterKagDiagnosisTxt";
-            this.afterKagDiagnosisTxt.Size = new System.Drawing.Size(690, 55);
+            this.afterKagDiagnosisTxt.Size = new System.Drawing.Size(352, 62);
             this.afterKagDiagnosisTxt.TabIndex = 0;
             this.afterKagDiagnosisTxt.Text = "ИБС: Острый нижний инфаркт миокарда от 07.08.2016. Атеросклероз коронарных артери" +
     "й. Состояние после ТЛАП и стентирования пр/3 ПКА(стентом xience V 3,0 x18мм с ле" +
@@ -750,12 +752,31 @@
             this.saveBtn.UseVisualStyleBackColor = true;
             this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
             // 
+            // kagDiagnosisTxt
+            // 
+            this.kagDiagnosisTxt.Location = new System.Drawing.Point(360, 39);
+            this.kagDiagnosisTxt.Name = "kagDiagnosisTxt";
+            this.kagDiagnosisTxt.Size = new System.Drawing.Size(336, 62);
+            this.kagDiagnosisTxt.TabIndex = 10;
+            this.kagDiagnosisTxt.Text = "";
+            // 
+            // kagDianosisLbl
+            // 
+            this.kagDianosisLbl.AutoSize = true;
+            this.kagDianosisLbl.Location = new System.Drawing.Point(360, 20);
+            this.kagDianosisLbl.Name = "kagDianosisLbl";
+            this.kagDianosisLbl.Size = new System.Drawing.Size(82, 13);
+            this.kagDianosisLbl.TabIndex = 11;
+            this.kagDianosisLbl.Text = "Результат КАГ";
+            // 
             // JournalAfterKAG
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(731, 689);
             this.Controls.Add(this.saveBtn);
+            this.Controls.Add(this.journalDocLbl);
+            this.Controls.Add(this.journalDocBox);
             this.Controls.Add(this.printBtn);
             this.Controls.Add(this.dutyCardioInspectationPnl);
             this.Controls.Add(this.surgeryInspectationPnl);
@@ -782,6 +803,7 @@
             this.hidingPnl0.ResumeLayout(false);
             this.hidingPnl0.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -845,5 +867,7 @@
         private System.Windows.Forms.DateTimePicker releaseDate;
         private System.Windows.Forms.ComboBox journalDocBox;
         private System.Windows.Forms.Label journalDocLbl;
+        private System.Windows.Forms.RichTextBox kagDiagnosisTxt;
+        private System.Windows.Forms.Label kagDianosisLbl;
     }
 }

@@ -82,7 +82,7 @@ namespace Cardiology.Utils
                             if (oldValue != null && oldValue.Contains(entry.Key))
                             {
                                 wRange.Find.ClearFormatting();
-                                wRange.Find.Execute2007(FindText:entry.Key);
+                                wRange.Find.Execute(FindText:entry.Key);
                                 wRange.Select();
                                 string newVal = entry.Value;
                                 if (CommonUtils.isBlank(newVal))

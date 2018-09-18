@@ -176,7 +176,7 @@ namespace Cardiology
 
             if (CommonUtils.isNotBlank(kagDiagnosisTxt.Text))
             {
-                DdtKag kag = service.queryObjectByAttrCond<DdtKag>(DdtKag.TABLE_NAME, "dsid_parent", journal.RObjectId, true);
+                DdtKag kag = service.queryObjectByAttrCond<DdtKag>(DdtKag.TABLE_NAME, "dsid_parent", journalId, true);
                 if (kag == null)
                 {
                     kag = new DdtKag();

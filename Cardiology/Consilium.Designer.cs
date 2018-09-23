@@ -37,6 +37,7 @@
             this.allDoctorsPnl = new System.Windows.Forms.Panel();
             this.doctorsContainer = new System.Windows.Forms.TableLayoutPanel();
             this.dotorInfoPnl0 = new System.Windows.Forms.Panel();
+            this.removeBtn0 = new System.Windows.Forms.Button();
             this.doctorWho0 = new System.Windows.Forms.ComboBox();
             this.objectIdLbl0 = new System.Windows.Forms.Label();
             this.consiliumMembersLbl = new System.Windows.Forms.Label();
@@ -54,6 +55,7 @@
             this.diagnosisLbl = new System.Windows.Forms.Label();
             this.decisionContainer = new System.Windows.Forms.Panel();
             this.decisionVariantsPnl = new System.Windows.Forms.GroupBox();
+            this.oksWithStBtn = new System.Windows.Forms.RadioButton();
             this.oksDeclineBtn = new System.Windows.Forms.RadioButton();
             this.oksAcceptBtn = new System.Windows.Forms.RadioButton();
             this.kagBtn = new System.Windows.Forms.RadioButton();
@@ -64,7 +66,6 @@
             this.evaluationGoal = new System.Windows.Forms.RadioButton();
             this.saveBtn = new System.Windows.Forms.Button();
             this.printBtn = new System.Windows.Forms.Button();
-            this.oksWithStBtn = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             this.allDoctorsPnl.SuspendLayout();
             this.doctorsContainer.SuspendLayout();
@@ -93,7 +94,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 213);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(97, 13);
+            this.label1.Size = new System.Drawing.Size(95, 13);
             this.label1.TabIndex = 24;
             this.label1.Text = "Цель консилиума";
             // 
@@ -154,6 +155,7 @@
             // 
             // dotorInfoPnl0
             // 
+            this.dotorInfoPnl0.Controls.Add(this.removeBtn0);
             this.dotorInfoPnl0.Controls.Add(this.doctorWho0);
             this.dotorInfoPnl0.Controls.Add(this.objectIdLbl0);
             this.dotorInfoPnl0.Controls.Add(this.appointmentTxt0);
@@ -161,6 +163,19 @@
             this.dotorInfoPnl0.Name = "dotorInfoPnl0";
             this.dotorInfoPnl0.Size = new System.Drawing.Size(529, 27);
             this.dotorInfoPnl0.TabIndex = 25;
+            // 
+            // removeBtn0
+            // 
+            this.removeBtn0.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.removeBtn0.Image = global::Cardiology.Properties.Resources.remove;
+            this.removeBtn0.Location = new System.Drawing.Point(502, 2);
+            this.removeBtn0.Margin = new System.Windows.Forms.Padding(0);
+            this.removeBtn0.Name = "removeBtn0";
+            this.removeBtn0.Size = new System.Drawing.Size(24, 23);
+            this.removeBtn0.TabIndex = 37;
+            this.removeBtn0.UseVisualStyleBackColor = true;
+            this.removeBtn0.Visible = false;
+            this.removeBtn0.Click += new System.EventHandler(this.removeBtn0_Click);
             // 
             // doctorWho0
             // 
@@ -174,7 +189,7 @@
             // objectIdLbl0
             // 
             this.objectIdLbl0.AutoSize = true;
-            this.objectIdLbl0.Location = new System.Drawing.Point(304, 6);
+            this.objectIdLbl0.Location = new System.Drawing.Point(498, 8);
             this.objectIdLbl0.Name = "objectIdLbl0";
             this.objectIdLbl0.Size = new System.Drawing.Size(0, 13);
             this.objectIdLbl0.TabIndex = 3;
@@ -330,6 +345,19 @@
             this.decisionVariantsPnl.TabStop = false;
             this.decisionVariantsPnl.Text = "Варианты решения консилиума";
             // 
+            // oksWithStBtn
+            // 
+            this.oksWithStBtn.AutoSize = true;
+            this.oksWithStBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.oksWithStBtn.Location = new System.Drawing.Point(14, 69);
+            this.oksWithStBtn.Name = "oksWithStBtn";
+            this.oksWithStBtn.Size = new System.Drawing.Size(129, 17);
+            this.oksWithStBtn.TabIndex = 3;
+            this.oksWithStBtn.TabStop = true;
+            this.oksWithStBtn.Text = "ОКС с подъемом ST";
+            this.oksWithStBtn.UseVisualStyleBackColor = true;
+            this.oksWithStBtn.CheckedChanged += new System.EventHandler(this.oksWithStBtn_CheckedChanged);
+            // 
             // oksDeclineBtn
             // 
             this.oksDeclineBtn.AutoSize = true;
@@ -446,19 +474,6 @@
             this.printBtn.UseVisualStyleBackColor = true;
             this.printBtn.Click += new System.EventHandler(this.printBtn_Click);
             // 
-            // oksWithStBtn
-            // 
-            this.oksWithStBtn.AutoSize = true;
-            this.oksWithStBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.oksWithStBtn.Location = new System.Drawing.Point(14, 69);
-            this.oksWithStBtn.Name = "oksWithStBtn";
-            this.oksWithStBtn.Size = new System.Drawing.Size(129, 17);
-            this.oksWithStBtn.TabIndex = 3;
-            this.oksWithStBtn.TabStop = true;
-            this.oksWithStBtn.Text = "ОКС с подъемом ST";
-            this.oksWithStBtn.UseVisualStyleBackColor = true;
-            this.oksWithStBtn.CheckedChanged += new System.EventHandler(this.oksWithStBtn_CheckedChanged);
-            // 
             // Consilium
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -542,5 +557,6 @@
         private System.Windows.Forms.Label objectIdLbl0;
         private System.Windows.Forms.ComboBox doctorWho0;
         private System.Windows.Forms.RadioButton oksWithStBtn;
+        private System.Windows.Forms.Button removeBtn0;
     }
 }

@@ -379,6 +379,12 @@ namespace Cardiology
             return null;
         }
 
+        public bool queryDelete(string tableName, string AttrName, string attrValue, bool isQuoted)
+        {
+            return delete(@"DELETE FROM " + tableName + " WHERE " + AttrName + "=" + (isQuoted ? CommonUtils.toQuotedStr(attrValue) : attrValue));
+        }
+
+
         public bool delete(string sql)
         {
             Npgsql.NpgsqlConnection connection = null;
@@ -396,7 +402,6 @@ namespace Cardiology
                     connection.Close();
                 }
             }
-            return false;
         }
 
 

@@ -184,6 +184,8 @@ namespace Cardiology.Utils
             {
                 result = new Button();
                 result.Text = sourceCtrl.Text;
+                result.Visible = sourceCtrl.Visible;
+                ((Button)result).UseVisualStyleBackColor = ((Button)sourceCtrl).UseVisualStyleBackColor;
                 ((Button)result).Image = ((Button)sourceCtrl).Image;
             }
             if (result != null)

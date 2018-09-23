@@ -78,6 +78,9 @@ namespace Cardiology
                 {
                     Control c = CommonUtils.findControl(doctorsContainer, "objectIdLbl" + i);
                     c.Text = members[i].RObjectId;
+                    Button b = (Button)CommonUtils.findControl(doctorsContainer, "removeBtn" + i);
+                    b.Visible = true;
+                    b.Click += new System.EventHandler(this.removeBtn0_Click);
                 }
             }
         }
@@ -119,6 +122,9 @@ namespace Cardiology
             doctorsContainer.Controls.Add(CommonUtils.copyControl(dotorInfoPnl0, indx));
             ComboBox cbApp = (ComboBox)CommonUtils.findControl(doctorsContainer, "appointmentTxt" + indx);
             cbApp.SelectedIndexChanged += new System.EventHandler(this.appointmentTxt0_SelectedIndexChanged);
+            Button b = (Button)CommonUtils.findControl(doctorsContainer, "removeBtn" + indx);
+            b.Visible = true;
+            b.Click += new System.EventHandler(this.removeBtn0_Click);
         }
 
         private void saveBtn_Click(object sender, EventArgs e)
@@ -141,6 +147,7 @@ namespace Cardiology
             else
             {
                 consilium = new DdtConsilium();
+                consilium.DsdtConsiliumDate = DateTime.Now;
                 consilium.DsidHospitalitySession = hospitalitySession.ObjectId;
                 consilium.DsidPatient = hospitalitySession.DsidPatient;
                 consilium.DsidDoctor = hospitalitySession.DsidCuringDoctor;
@@ -152,11 +159,15 @@ namespace Cardiology
             consilium.DssGoal = goalTxt.Text;
             consiliumId = service.updateOrCreateIfNeedObject<DdtConsilium>(consilium, DdtConsilium.TABLE_NAME, consilium.RObjectId);
 
-            for (int i = 0; i < doctorsContainer.Controls.Count; i++)
+            foreach(Control doctorInfoPnl in doctorsContainer.Controls)
             {
                 DdtConsiliumMember member = null;
-                Control c = CommonUtils.findControl(doctorsContainer, "objectIdLbl" + i);
-                ComboBox appointment = (ComboBox)CommonUtils.findControl(doctorsContainer, "appointmentTxt" + i);
+                String doctorInfoPnlName = doctorInfoPnl.Name;
+                string indexstr = string.Intern(doctorInfoPnlName.Substring(CommonUtils.getFirstDigitIndex(doctorInfoPnlName)));
+                int indx = Int32.Parse(indexstr);
+
+                Control c = CommonUtils.findControl(doctorsContainer, "objectIdLbl" + indx);
+                ComboBox appointment = (ComboBox)CommonUtils.findControl(doctorsContainer, "appointmentTxt" + indx);
                 if (CommonUtils.isNotBlank(c.Text))
                 {
                     member = service.queryObjectById<DdtConsiliumMember>(DdtConsiliumMember.TABLE_NAME, c.Text);
@@ -173,7 +184,7 @@ namespace Cardiology
                 }
                 DmGroup group = (DmGroup)appointment.SelectedItem;
                 member.DssGroupName = group.DssName;
-                c = CommonUtils.findControl(doctorsContainer, "doctorWho" + i);
+                c = CommonUtils.findControl(doctorsContainer, "doctorWho" + indx);
                 member.DssDoctorName = c.Text;
                 service.updateOrCreateIfNeedObject<DdtConsiliumMember>(member, DdtConsiliumMember.TABLE_NAME, member.RObjectId);
             }
@@ -193,7 +204,7 @@ namespace Cardiology
 
         private void appointmentTxt0_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ComboBox cb = (ComboBox)sender;
+            ComboBox cb = (ComboBox)sender;            
             DmGroup group = (DmGroup)cb.SelectedItem;
             if (group != null)
             {
@@ -208,6 +219,26 @@ namespace Cardiology
         private void oksWithStBtn_CheckedChanged(object sender, EventArgs e)
         {
             decisionTxt.Text = "У больного с ОКС с подъемом ST";
+        }
+
+        private void removeBtn0_Click(object sender, EventArgs e)
+        {
+            Button button = (Button)sender;
+            Panel doctorInfoPnl = (Panel)button.Parent;
+            string doctorInfoPnlName = doctorInfoPnl.Name;
+            string indexstr = string.Intern(doctorInfoPnlName.Substring(CommonUtils.getFirstDigitIndex(doctorInfoPnlName)));
+            int indx = Int32.Parse(indexstr);
+
+            Control objectIdLbl = CommonUtils.findControl(doctorInfoPnl, "objectIdLbl" + indx);
+            String objectId = objectIdLbl.Text;
+
+            if (CommonUtils.isNotBlank(objectId))
+            {
+                DataService service = new DataService();
+                service.queryDelete(DdtConsiliumMember.TABLE_NAME, "r_object_id", objectId, true);
+            }
+            doctorsContainer.Controls.Remove(doctorInfoPnl);
+            doctorsContainer.Refresh();
         }
     }
 }

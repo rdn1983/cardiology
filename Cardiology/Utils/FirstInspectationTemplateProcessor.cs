@@ -54,15 +54,18 @@ namespace Cardiology.Utils
 
             DdtIssuedMedicineList medList = service.queryObject<DdtIssuedMedicineList>(@"SELECT * FROM ddt_issued_medicine_list WHERE dsid_hospitality_session='" +
                 hospitalitySession + "' AND dss_parent_type='ddt_anamnesis'");
-            List<DdtIssuedMedicine> med = service.queryObjectsCollectionByAttrCond<DdtIssuedMedicine>(DdtIssuedMedicine.TABLE_NAME, "dsid_med_list", medList.ObjectId, true);
-            for (int i = 0; i < med.Count; i++)
+            if (medList != null)
             {
-                DdtCure cure = service.queryObjectById<DdtCure>(DdtCure.TABLE_NAME, med[i].DsidCure);
-                if (cure != null)
+                List<DdtIssuedMedicine> med = service.queryObjectsCollectionByAttrCond<DdtIssuedMedicine>(DdtIssuedMedicine.TABLE_NAME, "dsid_med_list", medList.ObjectId, true);
+                for (int i = 0; i < med.Count; i++)
                 {
-                    builder.Append(cure.DssName).Append('\n');
-                }
+                    DdtCure cure = service.queryObjectById<DdtCure>(DdtCure.TABLE_NAME, med[i].DsidCure);
+                    if (cure != null)
+                    {
+                        builder.Append(cure.DssName).Append('\n');
+                    }
 
+                }
             }
             values.Add("{issued_medicine}", builder.ToString());
 

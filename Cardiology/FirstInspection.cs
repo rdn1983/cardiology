@@ -351,7 +351,15 @@ namespace Cardiology
             DataService service = new DataService();
             List<DdtCure> medicineTemplates = service.queryObjectsCollection<DdtCure>(@"Select cure.* from ddt_values vv, ddt_cure cure 
                             where vv.dss_name like '" + template + "%' AND vv.dss_value=cure.dss_name");
+            clearOldMedList(service);
             issuedMedicineControl1.refreshData(service, medicineTemplates);
+        }
+
+        private void clearOldMedList(DataService service)
+        {
+            DdtIssuedMedicineList medList = service.queryObject<DdtIssuedMedicineList>(@"SELECT * FROM ddt_issued_medicine_list WHERE dsid_hospitality_session='" +
+                hospitalSession.ObjectId + "' AND dss_parent_type='ddt_anamnesis'");
+            service.update(@"DELETE FROM " + DdtIssuedMedicine.TABLE_NAME + " WHERE dsid_med_list='" + medList.ObjectId + "'");
         }
 
         private string getDefaultValueForType(string controlName, string baseType)
@@ -808,6 +816,7 @@ namespace Cardiology
         {
             DataService service = new DataService();
             saveAnamnesis(service);
+            saveIssuedMedicine(service);
             ITemplateProcessor te = TemplateProcessorManager.getProcessorByObjectType(DdtAnamnesis.TABLE_NAME);
             if (te != null)
             {

@@ -60,7 +60,7 @@ namespace Cardiology.Model
         public string ObjectId
         {
             get { return rObjectId; }
-            set {; }
+            set { this.rObjectId = value; }
         }
         public DateTime CreationDate
         {

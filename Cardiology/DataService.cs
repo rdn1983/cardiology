@@ -334,7 +334,6 @@ namespace Cardiology
                     connection.Close();
                 }
             }
-            return null;
         }
 
         private string getWrappedValue(object value, string typeName)

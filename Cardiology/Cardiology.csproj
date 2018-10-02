@@ -169,6 +169,7 @@
     <Compile Include="Model\DdtCoagulogram.cs" />
     <Compile Include="Model\DdtConsilium.cs" />
     <Compile Include="Model\DdtConsiliumMember.cs" />
+    <Compile Include="Model\DdtConsiliumMemberLevel.cs" />
     <Compile Include="Model\DdtCure.cs" />
     <Compile Include="Model\DdtCureDictionary.cs" />
     <Compile Include="Model\DdtCureType.cs" />

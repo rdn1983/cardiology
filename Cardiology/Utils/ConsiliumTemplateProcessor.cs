@@ -30,6 +30,8 @@ namespace Cardiology.Utils
             values.Add(@"{consilium.date}", DateTime.Now.ToString("dd.MM.yyyy"));
             values.Add(@"{consilium.time}", DateTime.Now.ToString("HH:mm"));
             values.Add(@"{consilium.members}", getMembersInString(service, objectId));
+            values.Add(@"{admin}", obj.DssDutyAdminName);
+            values.Add(@"{doctor.who}", getDoctorInString(service, obj.DsidDoctor));
             values.Add(@"{consilium.goal}", obj.DssGoal);
             DdtPatient patient = service.queryObjectById<DdtPatient>(DdtPatient.TABLENAME, obj.DsidPatient);
             values.Add(@"{patient.initials}", patient.DssInitials);
@@ -41,23 +43,41 @@ namespace Cardiology.Utils
             putEkgData(values, service, hospitalitySession);
             putBloodData(values, service, hospitalitySession);
 
-            DdtDoctors doc = service.queryObjectById<DdtDoctors>(DdtDoctors.TABLE_NAME, obj.DsidDoctor);
-            values.Add(@"{doctor.who}", doc.DssInitials);
-
             return TemplatesUtils.fillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + TEMPLATE_FILE_NAME, values);
+        }
+
+        private string getDoctorInString(DataService service, String doctorId)
+        {
+            DdtDoctors doc = service.queryObjectById<DdtDoctors>(DdtDoctors.TABLE_NAME, doctorId);
+            return doc.DssInitials;
         }
 
         private string getMembersInString(DataService service, string consiliumId)
         {
             List<DdtConsiliumMember> members = service.queryObjectsCollection<DdtConsiliumMember>(@"SELECT * FROM " + DdtConsiliumMember.TABLE_NAME +
                 " WHERE dsid_consilium ='" + consiliumId + "'");
-            StringBuilder str = new StringBuilder();
+
+            Dictionary<int, String> memberToOrder = new Dictionary<int, String>();
+            SortedDictionary<String, String> sortedMembers = new SortedDictionary<String, String>();
+
             foreach (DdtConsiliumMember mm in members)
             {
+                DdtConsiliumMemberLevel groupLevel = service.queryObjectByAttrCond<DdtConsiliumMemberLevel>(DdtConsiliumMemberLevel.TABLE_NAME, "dss_group_name", mm.DssGroupName, true);
                 DmGroup group = service.queryObjectByAttrCond<DmGroup>(DmGroup.TABLE_NAME, "dss_name", mm.DssGroupName, true);
-                str.Append(group.DssDescription).Append(" ");
-                str.Append(mm.DssDoctorName).Append('\n');
+                if (!sortedMembers.ContainsKey(groupLevel.DsiLevel + " " + group.DssDescription + " " + mm.DssDoctorName)) {
+                    sortedMembers.Add(groupLevel.DsiLevel + " " + group.DssDescription + " " + mm.DssDoctorName, group.DssDescription + " " + mm.DssDoctorName);
+                }
             }
+
+            StringBuilder str = new StringBuilder();
+            foreach (KeyValuePair<String, String> kvp in sortedMembers) {
+                if (str.Length > 0)
+                {
+                    str.Append('\n');
+                }
+                str.Append(kvp.Value);
+            }
+
             return str.ToString();
         }
 

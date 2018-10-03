@@ -89,13 +89,28 @@ namespace Cardiology.Utils
             if (bloods != null)
             {
                 bloodBld.Append(bloods.DsdtAnalysisDate.ToShortDateString()).Append(" ");
-                bloodBld.Append("креатинин").Append(" ").Append(bloods.DsdCreatinine).Append(" ");
-                bloodBld.Append("АЛТ").Append(" ").Append(bloods.DsdAlt).Append(" ");
-                bloodBld.Append("АСТ").Append(" ").Append(bloods.DsdAst).Append(" ");
-                bloodBld.Append("КФК").Append(" ").Append(bloods.DsdKfk).Append(" ");
-                bloodBld.Append("КФК МВ").Append(" ").Append(bloods.DsdKfkMv).Append(" ");
-                bloodBld.Append("гемоглобин").Append(" ").Append(bloods.DsdProtein).Append(" ");
-                bloodBld.Append("лейкоциты").Append(" ").Append(bloods.DsdLeucocytes).Append(" ");
+
+                if (String.IsNullOrEmpty(bloods.DsdCreatinine + bloods.DsdAlt + bloods.DsdAst + bloods.DsdKfk + bloods.DsdKfkMv + bloods.DsdProtein + bloods.DsdLeucocytes))
+                {
+                    bloodBld.Append("Анализы в работе");
+                }
+                else
+                {
+                    if (!String.IsNullOrEmpty(bloods.DsdCreatinine))
+                        bloodBld.Append("креатинин").Append(" ").Append(bloods.DsdCreatinine).Append(" ");
+                    if (!String.IsNullOrEmpty(bloods.DsdAlt))
+                        bloodBld.Append("АЛТ").Append(" ").Append(bloods.DsdAlt).Append(" ");
+                    if (!String.IsNullOrEmpty(bloods.DsdAst))
+                        bloodBld.Append("АСТ").Append(" ").Append(bloods.DsdAst).Append(" ");
+                    if (!String.IsNullOrEmpty(bloods.DsdKfk))
+                        bloodBld.Append("КФК").Append(" ").Append(bloods.DsdKfk).Append(" ");
+                    if (!String.IsNullOrEmpty(bloods.DsdKfkMv))
+                        bloodBld.Append("КФК МВ").Append(" ").Append(bloods.DsdKfkMv).Append(" ");
+                    if (!String.IsNullOrEmpty(bloods.DsdProtein))
+                        bloodBld.Append("гемоглобин").Append(" ").Append(bloods.DsdProtein).Append(" ");
+                    if (!String.IsNullOrEmpty(bloods.DsdLeucocytes))
+                        bloodBld.Append("лейкоциты").Append(" ").Append(bloods.DsdLeucocytes).Append(" ");
+                }
             }
             values.Add("{analysis.blood}", bloodBld.ToString());
         }

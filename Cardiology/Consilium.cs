@@ -218,7 +218,7 @@ namespace Cardiology
 
         private void oksWithStBtn_CheckedChanged(object sender, EventArgs e)
         {
-            decisionTxt.Text = "У больного с ОКС с подъемом ST";
+            decisionTxt.Text = "У больного с ОКС с подъемом ST. Необходимо выполнить реваскуляризацию в экстренном порядке по жизненным показаниям.";
         }
 
         private void removeBtn0_Click(object sender, EventArgs e)

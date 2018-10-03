@@ -10,6 +10,7 @@ namespace Cardiology
     {
         private DdtHospital hospitalitySession;
         private string consiliumId;
+        IList<String> membersToRemove = new List<String>();
 
         public Consilium(DdtHospital hospitalitySession, string consiliumId)
         {
@@ -188,6 +189,11 @@ namespace Cardiology
                 member.DssDoctorName = c.Text;
                 service.updateOrCreateIfNeedObject<DdtConsiliumMember>(member, DdtConsiliumMember.TABLE_NAME, member.RObjectId);
             }
+
+            foreach (String memberId in membersToRemove)
+            {
+            service.queryDelete(DdtConsiliumMember.TABLE_NAME, "r_object_id", memberId, true);
+            }
         }
 
         private void printBtn_Click(object sender, EventArgs e)
@@ -234,8 +240,7 @@ namespace Cardiology
 
             if (CommonUtils.isNotBlank(objectId))
             {
-                DataService service = new DataService();
-                service.queryDelete(DdtConsiliumMember.TABLE_NAME, "r_object_id", objectId, true);
+                membersToRemove.Add(objectId);
             }
             doctorsContainer.Controls.Remove(doctorInfoPnl);
             doctorsContainer.Refresh();

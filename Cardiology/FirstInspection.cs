@@ -56,6 +56,16 @@ namespace Cardiology
             initDiagnosis();
             initAdmissionAnalysis(service);
             initDocBox(service);
+            initPatientInfo(service);
+        }
+
+        private void initPatientInfo(DataService service)
+        {
+            DdtPatient patient = service.queryObjectById<DdtPatient>(DdtPatient.TABLENAME, hospitalSession.DsidPatient);
+            if(patient!=null)
+            {
+                patientInitialsLbl.Text = patient.DssInitials;
+            }
         }
 
         private void initDocBox(DataService service)

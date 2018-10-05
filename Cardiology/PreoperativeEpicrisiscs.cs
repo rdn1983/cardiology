@@ -59,6 +59,9 @@ namespace Cardiology
                         analysisGrid.Rows.Add(e.RObjectId, DdtBloodAnalysis.TABLE_NAME, "Анализы: Кровь", "", "");
                     }
                 }
+            } else
+            {
+                diagnosisTxt.Text = hospitalitySession.DssDiagnosis;
             }
         }
 

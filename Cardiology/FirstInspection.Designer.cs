@@ -199,6 +199,7 @@
             this.addTip = new System.Windows.Forms.ToolTip(this.components);
             this.docBox = new System.Windows.Forms.ComboBox();
             this.docLbl = new System.Windows.Forms.Label();
+            this.patientInitialsLbl = new System.Windows.Forms.Label();
             this.issuedMedicineControl1 = new Cardiology.IssuedMedicineControl();
             this.templateChanger = new Cardiology.Controls.TemplateChanger();
             this.complaintsBox.SuspendLayout();
@@ -649,7 +650,7 @@
             // saveBtn
             // 
             this.saveBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.saveBtn.Location = new System.Drawing.Point(902, 578);
+            this.saveBtn.Location = new System.Drawing.Point(903, 606);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(124, 23);
             this.saveBtn.TabIndex = 18;
@@ -660,7 +661,7 @@
             // printBtn
             // 
             this.printBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.printBtn.Location = new System.Drawing.Point(1032, 578);
+            this.printBtn.Location = new System.Drawing.Point(1033, 606);
             this.printBtn.Name = "printBtn";
             this.printBtn.Size = new System.Drawing.Size(125, 23);
             this.printBtn.TabIndex = 19;
@@ -671,7 +672,7 @@
             // nextBtn
             // 
             this.nextBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.nextBtn.Location = new System.Drawing.Point(772, 578);
+            this.nextBtn.Location = new System.Drawing.Point(773, 606);
             this.nextBtn.Name = "nextBtn";
             this.nextBtn.Size = new System.Drawing.Size(124, 23);
             this.nextBtn.TabIndex = 20;
@@ -682,7 +683,7 @@
             // prevBtn
             // 
             this.prevBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.prevBtn.Location = new System.Drawing.Point(642, 578);
+            this.prevBtn.Location = new System.Drawing.Point(643, 606);
             this.prevBtn.Name = "prevBtn";
             this.prevBtn.Size = new System.Drawing.Size(124, 23);
             this.prevBtn.TabIndex = 21;
@@ -697,7 +698,7 @@
             this.tabsContainer.Controls.Add(this.diagnosisTab);
             this.tabsContainer.Controls.Add(this.issuedMedicineTab);
             this.tabsContainer.Controls.Add(this.firstAnalysisTab);
-            this.tabsContainer.Location = new System.Drawing.Point(111, 1);
+            this.tabsContainer.Location = new System.Drawing.Point(111, 30);
             this.tabsContainer.Name = "tabsContainer";
             this.tabsContainer.SelectedIndex = 0;
             this.tabsContainer.Size = new System.Drawing.Size(1051, 571);
@@ -1956,7 +1957,7 @@
             // 
             this.docBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.docBox.FormattingEnabled = true;
-            this.docBox.Location = new System.Drawing.Point(382, 580);
+            this.docBox.Location = new System.Drawing.Point(376, 608);
             this.docBox.Name = "docBox";
             this.docBox.Size = new System.Drawing.Size(254, 21);
             this.docBox.TabIndex = 24;
@@ -1964,11 +1965,20 @@
             // docLbl
             // 
             this.docLbl.AutoSize = true;
-            this.docLbl.Location = new System.Drawing.Point(266, 585);
+            this.docLbl.Location = new System.Drawing.Point(260, 613);
             this.docLbl.Name = "docLbl";
             this.docLbl.Size = new System.Drawing.Size(112, 13);
             this.docLbl.TabIndex = 25;
             this.docLbl.Text = "Ответственный врач";
+            // 
+            // patientInitialsLbl
+            // 
+            this.patientInitialsLbl.AutoSize = true;
+            this.patientInitialsLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.patientInitialsLbl.Location = new System.Drawing.Point(882, 9);
+            this.patientInitialsLbl.Name = "patientInitialsLbl";
+            this.patientInitialsLbl.Size = new System.Drawing.Size(0, 13);
+            this.patientInitialsLbl.TabIndex = 17;
             // 
             // issuedMedicineControl1
             // 
@@ -1987,7 +1997,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1165, 602);
+            this.ClientSize = new System.Drawing.Size(1165, 634);
+            this.Controls.Add(this.patientInitialsLbl);
             this.Controls.Add(this.docLbl);
             this.Controls.Add(this.docBox);
             this.Controls.Add(this.templatesLbl);
@@ -2228,5 +2239,6 @@
         private System.Windows.Forms.Label docLbl;
         private System.Windows.Forms.RichTextBox operationCauseTxt;
         private Controls.TemplateChanger templateChanger;
+        private System.Windows.Forms.Label patientInitialsLbl;
     }
 }

@@ -55,11 +55,7 @@ namespace Cardiology.Utils
             StringBuilder serologyBld = new StringBuilder();
             serologyBld.Append(compileValue("Группа крови", serology.DssBloodType));
             serologyBld.Append(compileValue("Резус-фактор", serology.DssRhesusFactor));
-            serologyBld.Append(compileValue("KELL-ag", serology.DssKellAg));
             serologyBld.Append(compileValue("RW", serology.DssRw));
-            serologyBld.Append(compileValue("HBs ag", serology.DssHbsAg));
-            serologyBld.Append(compileValue("Anti HCV крови", serology.DssAntiHcv));
-            serologyBld.Append(compileValue("HIV", serology.DssHiv));
             values.Add("{serology}", serology == null ? " " : serologyBld.ToString());
 
             DdtEkg ekg = service.queryObject<DdtEkg>(@"SELECT * FROM ddt_ekg where dsid_parent='" + obj.RObjectId + "'");
@@ -91,7 +87,14 @@ namespace Cardiology.Utils
                 bloodStr.Append(compileValue("Натрий", blood.DsdSodium));
                 bloodStr.Append(compileValue("СРБ", blood.DsdSrp));
             }
-            values.Add("{analysis.blood}", blood == null ? " " : "Анализы крови:" + bloodStr);
+            if (serology != null)
+            {
+                bloodStr.Append(compileValue("KELL-ag", serology.DssKellAg));
+                bloodStr.Append(compileValue("HBs ag", serology.DssHbsAg));
+                bloodStr.Append(compileValue("Anti HCV крови", serology.DssAntiHcv));
+                bloodStr.Append(compileValue("HIV", serology.DssHiv));
+            }
+                values.Add("{analysis.blood}", blood == null ? " " : "Анализы крови:" + bloodStr);
             values.Add("{analysis.urine}", " ");
             DdtUzi uzi = service.queryObject<DdtUzi>(@"SELECT * FROM ddt_uzi where dsid_parent='" + obj.RObjectId + "'");
             StringBuilder uziStr = new StringBuilder();

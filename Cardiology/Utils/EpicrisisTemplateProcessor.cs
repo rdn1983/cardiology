@@ -53,9 +53,12 @@ namespace Cardiology.Utils
 
             DdtSerology serology = service.queryObjectByAttrCond<DdtSerology>(DdtSerology.TABLE_NAME, "dsid_hospitality_session", hospital.ObjectId, true);
             StringBuilder serologyBld = new StringBuilder();
-            serologyBld.Append(compileValue("Группа крови", serology.DssBloodType));
-            serologyBld.Append(compileValue("Резус-фактор", serology.DssRhesusFactor));
-            serologyBld.Append(compileValue("RW", serology.DssRw));
+            if (serology != null)
+            {
+                serologyBld.Append(compileValue("Группа крови", serology.DssBloodType));
+                serologyBld.Append(compileValue("Резус-фактор", serology.DssRhesusFactor));
+                serologyBld.Append(compileValue("RW", serology.DssRw));
+            }
             values.Add("{serology}", serology == null ? " " : serologyBld.ToString());
 
             DdtEkg ekg = service.queryObject<DdtEkg>(@"SELECT * FROM ddt_ekg where dsid_parent='" + obj.RObjectId + "'");

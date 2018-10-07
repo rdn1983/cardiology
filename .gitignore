@@ -3,3 +3,4 @@ obj
 .vs
 *.exe
 *.pdb
+*/logs/*.*

@@ -449,7 +449,7 @@
             // 
             this.aidItem.Name = "aidItem";
             this.aidItem.Size = new System.Drawing.Size(316, 22);
-            this.aidItem.Text = "Мед вмешательство без согласия больного";
+            this.aidItem.Text = "Мед вмешательство без согласия пациента";
             this.aidItem.Click += new System.EventHandler(this.aidItem_Click);
             // 
             // transferItem

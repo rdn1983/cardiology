@@ -84,7 +84,7 @@ namespace Cardiology.Utils
                 conclusionValues.Add("{monitor}", releaseConclusion.DssAdditionalInfo4);
                 conclusionValues.Add("{doctor.initials}", doc == null ? "" : doc.DssInitials);
                 DdtKag kag = service.queryObjectByAttrCond<DdtKag>(DdtKag.TABLE_NAME, "dsid_parent", journal.RObjectId, true);
-                conclusionValues.Add("{kag_diagnosis}", kag == null ? " " : "У больного  по данным КАГ выявлено:" + kag.DssResults + "\n");
+                conclusionValues.Add("{kag_diagnosis}", kag == null ? " " : "У пациента по данным КАГ выявлено:" + kag.DssResults + "\n");
                 conclusionValues.Add("{diagnosis}", "Таким образом, у пациента:" + journal.DssDiagnosis);
                 partsPaths.Add(TemplatesUtils.fillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + TEMPLATE_FILE_NAME, conclusionValues));
             }

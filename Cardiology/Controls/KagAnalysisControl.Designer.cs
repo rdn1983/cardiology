@@ -59,7 +59,7 @@
             this.kagActionsBox.Size = new System.Drawing.Size(468, 124);
             this.kagActionsBox.TabIndex = 13;
             this.kagActionsBox.TabStop = false;
-            this.kagActionsBox.Text = "Таким образом у больного";
+            this.kagActionsBox.Text = "Таким образом у пациента";
             // 
             // kagActionsTxt
             // 
@@ -77,7 +77,7 @@
             this.manipulationBox.Size = new System.Drawing.Size(468, 124);
             this.manipulationBox.TabIndex = 12;
             this.manipulationBox.TabStop = false;
-            this.manipulationBox.Text = "Больному выполнено";
+            this.manipulationBox.Text = "Пациенту выполнено";
             // 
             // kagManipulationTxt
             // 

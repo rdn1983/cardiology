@@ -134,6 +134,7 @@
             this.Controls.Add(this.kateterBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(294, 451);
             this.Name = "UserFormProtocolManipulation";
             this.Text = "Протоколы манипуляций";
             this.ResumeLayout(false);

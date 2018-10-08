@@ -82,6 +82,7 @@
             this.Controls.Add(this.bodyArea);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(577, 189);
             this.Name = "UserFormEIT";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Протокол ЭИТ";

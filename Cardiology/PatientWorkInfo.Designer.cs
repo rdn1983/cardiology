@@ -92,6 +92,9 @@
             // 
             // workHistoryBox
             // 
+            this.workHistoryBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.workHistoryBox.Controls.Add(this.panel4);
             this.workHistoryBox.Controls.Add(this.panel3);
             this.workHistoryBox.Controls.Add(this.panel2);
@@ -116,6 +119,7 @@
             this.workHistoryBox.TabIndex = 0;
             this.workHistoryBox.TabStop = false;
             this.workHistoryBox.Text = "Трудовой анамнез";
+            this.workHistoryBox.Resize += new System.EventHandler(this.workHistoryBox_Resize);
             // 
             // panel4
             // 
@@ -292,6 +296,8 @@
             // 
             // yearDisabilitiesTxt
             // 
+            this.yearDisabilitiesTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.yearDisabilitiesTxt.FormattingEnabled = true;
             this.yearDisabilitiesTxt.Location = new System.Drawing.Point(10, 274);
             this.yearDisabilitiesTxt.Name = "yearDisabilitiesTxt";
@@ -309,6 +315,8 @@
             // 
             // disabilityTxt
             // 
+            this.disabilityTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.disabilityTxt.FormattingEnabled = true;
             this.disabilityTxt.Location = new System.Drawing.Point(10, 234);
             this.disabilityTxt.Name = "disabilityTxt";
@@ -335,6 +343,8 @@
             // 
             // occupationalHazardBox
             // 
+            this.occupationalHazardBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.occupationalHazardBox.FormattingEnabled = true;
             this.occupationalHazardBox.Location = new System.Drawing.Point(10, 158);
             this.occupationalHazardBox.Name = "occupationalHazardBox";
@@ -352,6 +362,8 @@
             // 
             // professionTxt
             // 
+            this.professionTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.professionTxt.Location = new System.Drawing.Point(10, 118);
             this.professionTxt.Name = "professionTxt";
             this.professionTxt.Size = new System.Drawing.Size(291, 20);
@@ -386,6 +398,9 @@
             // 
             // openedSickListDataLbl
             // 
+            this.openedSickListDataLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.openedSickListDataLbl.Controls.Add(this.ourSickListBox);
             this.openedSickListDataLbl.Controls.Add(this.oldSickListBox);
             this.openedSickListDataLbl.Location = new System.Drawing.Point(325, 12);
@@ -397,6 +412,8 @@
             // 
             // ourSickListBox
             // 
+            this.ourSickListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ourSickListBox.Controls.Add(this.ourSickListNumTxt);
             this.ourSickListBox.Controls.Add(this.label19);
             this.ourSickListBox.Controls.Add(this.ourSickListNumLbl);
@@ -417,6 +434,8 @@
             // 
             // ourSickListNumTxt
             // 
+            this.ourSickListNumTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ourSickListNumTxt.Location = new System.Drawing.Point(36, 26);
             this.ourSickListNumTxt.Name = "ourSickListNumTxt";
             this.ourSickListNumTxt.Size = new System.Drawing.Size(235, 20);
@@ -492,6 +511,8 @@
             // 
             // comboBox4
             // 
+            this.comboBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox4.FormattingEnabled = true;
             this.comboBox4.Location = new System.Drawing.Point(36, 102);
             this.comboBox4.Name = "comboBox4";
@@ -509,6 +530,8 @@
             // 
             // oldSickListBox
             // 
+            this.oldSickListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.oldSickListBox.Controls.Add(this.oldSickListNumTxt);
             this.oldSickListBox.Controls.Add(this.oldSickLIstNumLbl);
             this.oldSickListBox.Controls.Add(this.oldSickListStartDateLbl);
@@ -524,6 +547,8 @@
             // 
             // oldSickListNumTxt
             // 
+            this.oldSickListNumTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.oldSickListNumTxt.Location = new System.Drawing.Point(32, 28);
             this.oldSickListNumTxt.Name = "oldSickListNumTxt";
             this.oldSickListNumTxt.Size = new System.Drawing.Size(235, 20);
@@ -574,6 +599,7 @@
             // 
             // returnWorkInfo
             // 
+            this.returnWorkInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.returnWorkInfo.Location = new System.Drawing.Point(325, 338);
             this.returnWorkInfo.Name = "returnWorkInfo";
             this.returnWorkInfo.Size = new System.Drawing.Size(298, 23);

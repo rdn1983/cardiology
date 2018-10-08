@@ -116,6 +116,7 @@
             this.Controls.Add(this.deadDateLbl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(286, 222);
             this.Name = "ReanimDEAD";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Реанимационные мероприятия";

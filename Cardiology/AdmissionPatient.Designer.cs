@@ -1,4 +1,6 @@
-﻿namespace Cardiology
+﻿using System.Windows.Forms;
+
+namespace Cardiology
 {
     partial class AdmissionPatient
     {
@@ -42,6 +44,7 @@
             this.hasNoKagBtn = new System.Windows.Forms.RadioButton();
             this.admisPatient = new System.Windows.Forms.Button();
             this.admissionDateBox = new System.Windows.Forms.GroupBox();
+            this.patientReceiptTime = new System.Windows.Forms.DateTimePicker();
             this.patientReceiptDate = new System.Windows.Forms.DateTimePicker();
             this.medCodeBox = new System.Windows.Forms.GroupBox();
             this.medCodeTxt = new System.Windows.Forms.TextBox();
@@ -84,7 +87,6 @@
             this.firstNameLbl = new System.Windows.Forms.Label();
             this.patientLastName = new System.Windows.Forms.TextBox();
             this.lastNameLbl = new System.Windows.Forms.Label();
-            this.patientReceiptTime = new System.Windows.Forms.DateTimePicker();
             this.lordOfTheCotBox.SuspendLayout();
             this.anesthetistBox.SuspendLayout();
             this.directorCardioReanimPnl.SuspendLayout();
@@ -102,6 +104,9 @@
             // 
             // lordOfTheCotBox
             // 
+            this.lordOfTheCotBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lordOfTheCotBox.Controls.Add(this.anesthetistBox);
             this.lordOfTheCotBox.Controls.Add(this.directorCardioReanimPnl);
             this.lordOfTheCotBox.Controls.Add(this.placeBox);
@@ -121,6 +126,8 @@
             // 
             // anesthetistBox
             // 
+            this.anesthetistBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.anesthetistBox.Controls.Add(this.anesthetistComboBox);
             this.anesthetistBox.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
             this.anesthetistBox.Location = new System.Drawing.Point(8, 240);
@@ -132,6 +139,8 @@
             // 
             // anesthetistComboBox
             // 
+            this.anesthetistComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.anesthetistComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.anesthetistComboBox.Font = new System.Drawing.Font("Tahoma", 8F);
             this.anesthetistComboBox.FormattingEnabled = true;
@@ -142,6 +151,8 @@
             // 
             // directorCardioReanimPnl
             // 
+            this.directorCardioReanimPnl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.directorCardioReanimPnl.Controls.Add(this.directorCardioReanimBox);
             this.directorCardioReanimPnl.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
             this.directorCardioReanimPnl.Location = new System.Drawing.Point(6, 73);
@@ -153,6 +164,8 @@
             // 
             // directorCardioReanimBox
             // 
+            this.directorCardioReanimBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.directorCardioReanimBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.directorCardioReanimBox.Font = new System.Drawing.Font("Tahoma", 8F);
             this.directorCardioReanimBox.FormattingEnabled = true;
@@ -163,6 +176,8 @@
             // 
             // placeBox
             // 
+            this.placeBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.placeBox.Controls.Add(this.bedTxt);
             this.placeBox.Controls.Add(this.roomTxt);
             this.placeBox.Location = new System.Drawing.Point(6, 440);
@@ -190,6 +205,8 @@
             // 
             // kagInfoBox
             // 
+            this.kagInfoBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.kagInfoBox.Controls.Add(this.hasKagBtn);
             this.kagInfoBox.Controls.Add(this.hasNoKagBtn);
             this.kagInfoBox.Location = new System.Drawing.Point(6, 394);
@@ -222,6 +239,7 @@
             // 
             // admisPatient
             // 
+            this.admisPatient.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.admisPatient.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.admisPatient.Location = new System.Drawing.Point(127, 500);
             this.admisPatient.Name = "admisPatient";
@@ -233,6 +251,8 @@
             // 
             // admissionDateBox
             // 
+            this.admissionDateBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.admissionDateBox.Controls.Add(this.patientReceiptTime);
             this.admissionDateBox.Controls.Add(this.patientReceiptDate);
             this.admissionDateBox.Location = new System.Drawing.Point(6, 344);
@@ -241,6 +261,16 @@
             this.admissionDateBox.TabIndex = 7;
             this.admissionDateBox.TabStop = false;
             this.admissionDateBox.Text = "Дата и время поступления";
+            // 
+            // patientReceiptTime
+            // 
+            this.patientReceiptTime.CustomFormat = "HH:mm";
+            this.patientReceiptTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.patientReceiptTime.Location = new System.Drawing.Point(138, 20);
+            this.patientReceiptTime.Name = "patientReceiptTime";
+            this.patientReceiptTime.ShowUpDown = true;
+            this.patientReceiptTime.Size = new System.Drawing.Size(110, 20);
+            this.patientReceiptTime.TabIndex = 1;
             // 
             // patientReceiptDate
             // 
@@ -253,6 +283,8 @@
             // 
             // medCodeBox
             // 
+            this.medCodeBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.medCodeBox.Controls.Add(this.medCodeTxt);
             this.medCodeBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.medCodeBox.Location = new System.Drawing.Point(6, 290);
@@ -272,6 +304,8 @@
             // 
             // directorDepartmentBox
             // 
+            this.directorDepartmentBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.directorDepartmentBox.Controls.Add(this.subDoctorBox);
             this.directorDepartmentBox.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
             this.directorDepartmentBox.Location = new System.Drawing.Point(6, 186);
@@ -283,6 +317,8 @@
             // 
             // subDoctorBox
             // 
+            this.subDoctorBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.subDoctorBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.subDoctorBox.Font = new System.Drawing.Font("Tahoma", 8F);
             this.subDoctorBox.FormattingEnabled = true;
@@ -293,6 +329,8 @@
             // 
             // cardioSurgeryBox
             // 
+            this.cardioSurgeryBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cardioSurgeryBox.Controls.Add(this.cardioDocBox);
             this.cardioSurgeryBox.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
             this.cardioSurgeryBox.Location = new System.Drawing.Point(6, 131);
@@ -304,6 +342,8 @@
             // 
             // cardioDocBox
             // 
+            this.cardioDocBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cardioDocBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cardioDocBox.Font = new System.Drawing.Font("Tahoma", 8F);
             this.cardioDocBox.FormattingEnabled = true;
@@ -314,6 +354,8 @@
             // 
             // cardioReanimBox
             // 
+            this.cardioReanimBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cardioReanimBox.Controls.Add(this.dutyCardioBox);
             this.cardioReanimBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.cardioReanimBox.Location = new System.Drawing.Point(6, 16);
@@ -325,6 +367,8 @@
             // 
             // dutyCardioBox
             // 
+            this.dutyCardioBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dutyCardioBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.dutyCardioBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.dutyCardioBox.FormattingEnabled = true;
@@ -335,6 +379,9 @@
             // 
             // patientBaseInfoBox
             // 
+            this.patientBaseInfoBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.patientBaseInfoBox.Controls.Add(this.passportData);
             this.patientBaseInfoBox.Controls.Add(this.omsTxt);
             this.patientBaseInfoBox.Controls.Add(this.omsLbl);
@@ -366,6 +413,8 @@
             // 
             // passportData
             // 
+            this.passportData.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.passportData.Controls.Add(this.passportIsuePlaceLbl);
             this.passportData.Controls.Add(this.passIssueDateLbl);
             this.passportData.Controls.Add(this.passportNumLbl);
@@ -419,6 +468,7 @@
             // 
             // passportIssuePlaceTxt
             // 
+            this.passportIssuePlaceTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.passportIssuePlaceTxt.Location = new System.Drawing.Point(8, 73);
             this.passportIssuePlaceTxt.Name = "passportIssuePlaceTxt";
             this.passportIssuePlaceTxt.Size = new System.Drawing.Size(245, 39);
@@ -449,6 +499,8 @@
             // 
             // omsTxt
             // 
+            this.omsTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.omsTxt.Location = new System.Drawing.Point(8, 427);
             this.omsTxt.Name = "omsTxt";
             this.omsTxt.Size = new System.Drawing.Size(262, 20);
@@ -465,6 +517,8 @@
             // 
             // snilsTxt
             // 
+            this.snilsTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.snilsTxt.Location = new System.Drawing.Point(8, 388);
             this.snilsTxt.Name = "snilsTxt";
             this.snilsTxt.Size = new System.Drawing.Size(262, 20);
@@ -497,6 +551,8 @@
             // 
             // phoneTxt
             // 
+            this.phoneTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.phoneTxt.Location = new System.Drawing.Point(12, 224);
             this.phoneTxt.Name = "phoneTxt";
             this.phoneTxt.Size = new System.Drawing.Size(258, 20);
@@ -504,6 +560,8 @@
             // 
             // addressTxt
             // 
+            this.addressTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.addressTxt.Location = new System.Drawing.Point(12, 154);
             this.addressTxt.Name = "addressTxt";
             this.addressTxt.Size = new System.Drawing.Size(258, 50);
@@ -568,6 +626,8 @@
             // 
             // sexGroup
             // 
+            this.sexGroup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.sexGroup.Controls.Add(this.femaleChb);
             this.sexGroup.Controls.Add(this.maleChb);
             this.sexGroup.Location = new System.Drawing.Point(12, 93);
@@ -601,6 +661,8 @@
             // 
             // patientSecondName
             // 
+            this.patientSecondName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.patientSecondName.Location = new System.Drawing.Point(27, 70);
             this.patientSecondName.Multiline = true;
             this.patientSecondName.Name = "patientSecondName";
@@ -620,6 +682,8 @@
             // 
             // patientFirstName
             // 
+            this.patientFirstName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.patientFirstName.Location = new System.Drawing.Point(27, 44);
             this.patientFirstName.Name = "patientFirstName";
             this.patientFirstName.Size = new System.Drawing.Size(244, 20);
@@ -638,6 +702,8 @@
             // 
             // patientLastName
             // 
+            this.patientLastName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.patientLastName.Location = new System.Drawing.Point(27, 19);
             this.patientLastName.Name = "patientLastName";
             this.patientLastName.Size = new System.Drawing.Size(244, 20);
@@ -654,16 +720,6 @@
             this.lastNameLbl.TabIndex = 0;
             this.lastNameLbl.Text = "Ф.";
             // 
-            // patientReceiptTime
-            // 
-            this.patientReceiptTime.CustomFormat = "HH:mm";
-            this.patientReceiptTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.patientReceiptTime.Location = new System.Drawing.Point(138, 20);
-            this.patientReceiptTime.Name = "patientReceiptTime";
-            this.patientReceiptTime.ShowUpDown = true;
-            this.patientReceiptTime.Size = new System.Drawing.Size(110, 20);
-            this.patientReceiptTime.TabIndex = 1;
-            // 
             // AdmissionPatient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -675,6 +731,7 @@
             this.Name = "AdmissionPatient";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Поступление пациента";
+            this.Resize += new System.EventHandler(this.AdmissionPatient_Resize);
             this.lordOfTheCotBox.ResumeLayout(false);
             this.anesthetistBox.ResumeLayout(false);
             this.directorCardioReanimPnl.ResumeLayout(false);

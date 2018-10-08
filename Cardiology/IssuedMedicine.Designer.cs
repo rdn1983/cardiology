@@ -88,6 +88,8 @@
             // 
             // shortlyDiagnosisPnl
             // 
+            this.shortlyDiagnosisPnl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.shortlyDiagnosisPnl.Controls.Add(this.sdBtn);
             this.shortlyDiagnosisPnl.Controls.Add(this.anemiaBtn);
             this.shortlyDiagnosisPnl.Controls.Add(this.telaBtn);
@@ -109,6 +111,8 @@
             // 
             // sdBtn
             // 
+            this.sdBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.sdBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.sdBtn.Location = new System.Drawing.Point(200, 121);
             this.sdBtn.Name = "sdBtn";
@@ -120,6 +124,8 @@
             // 
             // anemiaBtn
             // 
+            this.anemiaBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.anemiaBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.anemiaBtn.Location = new System.Drawing.Point(136, 121);
             this.anemiaBtn.Name = "anemiaBtn";
@@ -131,6 +137,8 @@
             // 
             // telaBtn
             // 
+            this.telaBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.telaBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.telaBtn.Location = new System.Drawing.Point(92, 121);
             this.telaBtn.Name = "telaBtn";
@@ -142,6 +150,8 @@
             // 
             // pmaBtn
             // 
+            this.pmaBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pmaBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.pmaBtn.Location = new System.Drawing.Point(48, 121);
             this.pmaBtn.Name = "pmaBtn";
@@ -153,6 +163,8 @@
             // 
             // depBtn
             // 
+            this.depBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.depBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.depBtn.Location = new System.Drawing.Point(4, 121);
             this.depBtn.Name = "depBtn";
@@ -164,6 +176,8 @@
             // 
             // edemaPulmonaryBtn
             // 
+            this.edemaPulmonaryBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.edemaPulmonaryBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.edemaPulmonaryBtn.Location = new System.Drawing.Point(180, 99);
             this.edemaPulmonaryBtn.Name = "edemaPulmonaryBtn";
@@ -175,6 +189,8 @@
             // 
             // nkBtn
             // 
+            this.nkBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.nkBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.nkBtn.Location = new System.Drawing.Point(136, 99);
             this.nkBtn.Name = "nkBtn";
@@ -186,6 +202,8 @@
             // 
             // gbBtn
             // 
+            this.gbBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gbBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.gbBtn.Location = new System.Drawing.Point(92, 99);
             this.gbBtn.Name = "gbBtn";
@@ -197,6 +215,8 @@
             // 
             // piksBtn
             // 
+            this.piksBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.piksBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.piksBtn.Location = new System.Drawing.Point(48, 99);
             this.piksBtn.Name = "piksBtn";
@@ -208,6 +228,8 @@
             // 
             // oksBtn
             // 
+            this.oksBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.oksBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.oksBtn.Location = new System.Drawing.Point(4, 99);
             this.oksBtn.Name = "oksBtn";
@@ -219,6 +241,9 @@
             // 
             // diagnosisTxt
             // 
+            this.diagnosisTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.diagnosisTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.diagnosisTxt.Location = new System.Drawing.Point(4, 31);
             this.diagnosisTxt.Name = "diagnosisTxt";
@@ -228,6 +253,7 @@
             // 
             // shortlyOperationPnl
             // 
+            this.shortlyOperationPnl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.shortlyOperationPnl.Controls.Add(this.noKagBtn);
             this.shortlyOperationPnl.Controls.Add(this.kagBtn);
             this.shortlyOperationPnl.Controls.Add(this.shortlyOperationTxt);
@@ -275,6 +301,7 @@
             // 
             // insertIssuedMedPnl
             // 
+            this.insertIssuedMedPnl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.insertIssuedMedPnl.Controls.Add(this.clearMedBtn);
             this.insertIssuedMedPnl.Controls.Add(this.copyYesterdayMedBtn);
             this.insertIssuedMedPnl.Controls.Add(this.copyJournalMedBtn);
@@ -333,6 +360,7 @@
             // 
             // medTemplatesPnl
             // 
+            this.medTemplatesPnl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.medTemplatesPnl.Controls.Add(this.gbMedBtn);
             this.medTemplatesPnl.Controls.Add(this.nkMedBtn);
             this.medTemplatesPnl.Controls.Add(this.hoblMedBtn);
@@ -440,6 +468,9 @@
             // 
             // issuedMedicinePnl
             // 
+            this.issuedMedicinePnl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.issuedMedicinePnl.Controls.Add(this.issuedCntr);
             this.issuedMedicinePnl.Controls.Add(this.medicineContainer);
             this.issuedMedicinePnl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -485,6 +516,7 @@
             // 
             // addCureBtn
             // 
+            this.addCureBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.addCureBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.addCureBtn.Image = global::Cardiology.Properties.Resources.addd1;
             this.addCureBtn.Location = new System.Drawing.Point(842, 117);
@@ -496,6 +528,7 @@
             // 
             // saveBtn
             // 
+            this.saveBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.saveBtn.Location = new System.Drawing.Point(750, 496);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(121, 23);
@@ -506,6 +539,7 @@
             // 
             // printBtn
             // 
+            this.printBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.printBtn.Location = new System.Drawing.Point(623, 496);
             this.printBtn.Name = "printBtn";
             this.printBtn.Size = new System.Drawing.Size(121, 23);

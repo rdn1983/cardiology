@@ -39,6 +39,9 @@
             // 
             // scrolledContainer
             // 
+            this.scrolledContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.scrolledContainer.AutoScroll = true;
             this.scrolledContainer.Controls.Add(this.combainingContainer);
             this.scrolledContainer.Location = new System.Drawing.Point(3, 5);
@@ -65,6 +68,7 @@
             // 
             // selectToContainer
             // 
+            this.selectToContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.selectToContainer.Image = global::Cardiology.Properties.Resources.addd1;
             this.selectToContainer.Location = new System.Drawing.Point(841, 5);
             this.selectToContainer.Name = "selectToContainer";
@@ -75,6 +79,7 @@
             // 
             // cancelBtn
             // 
+            this.cancelBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cancelBtn.Location = new System.Drawing.Point(680, 541);
             this.cancelBtn.Name = "cancelBtn";
             this.cancelBtn.Size = new System.Drawing.Size(75, 23);
@@ -85,6 +90,7 @@
             // 
             // saveBtn
             // 
+            this.saveBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.saveBtn.Location = new System.Drawing.Point(760, 541);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(75, 23);

@@ -47,6 +47,9 @@
             // 
             // journalAllPnl
             // 
+            this.journalAllPnl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.journalAllPnl.Controls.Add(this.journalGrouppedPanel);
             this.journalAllPnl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.journalAllPnl.Location = new System.Drawing.Point(12, 12);
@@ -58,6 +61,8 @@
             // 
             // journalGrouppedPanel
             // 
+            this.journalGrouppedPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.journalGrouppedPanel.AutoScroll = true;
             this.journalGrouppedPanel.Controls.Add(this.journalContainer);
             this.journalGrouppedPanel.Location = new System.Drawing.Point(4, 16);
@@ -82,6 +87,8 @@
             // 
             // deffedredAllPnl
             // 
+            this.deffedredAllPnl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.deffedredAllPnl.Controls.Add(this.defferedGrouppedPanel);
             this.deffedredAllPnl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.deffedredAllPnl.Location = new System.Drawing.Point(12, 303);
@@ -93,6 +100,8 @@
             // 
             // defferedGrouppedPanel
             // 
+            this.defferedGrouppedPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.defferedGrouppedPanel.AutoScroll = true;
             this.defferedGrouppedPanel.Controls.Add(this.deferredContainer);
             this.defferedGrouppedPanel.Location = new System.Drawing.Point(6, 21);
@@ -117,7 +126,8 @@
             // 
             // saveBtn
             // 
-            this.saveBtn.Location = new System.Drawing.Point(792, 598);
+            this.saveBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.saveBtn.Location = new System.Drawing.Point(910, 598);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(75, 23);
             this.saveBtn.TabIndex = 2;
@@ -127,7 +137,8 @@
             // 
             // printBtn
             // 
-            this.printBtn.Location = new System.Drawing.Point(711, 598);
+            this.printBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.printBtn.Location = new System.Drawing.Point(829, 598);
             this.printBtn.Name = "printBtn";
             this.printBtn.Size = new System.Drawing.Size(75, 23);
             this.printBtn.TabIndex = 3;
@@ -137,6 +148,7 @@
             // 
             // addDefferedBtn
             // 
+            this.addDefferedBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.addDefferedBtn.Image = global::Cardiology.Properties.Resources.addd1;
             this.addDefferedBtn.Location = new System.Drawing.Point(991, 305);
             this.addDefferedBtn.Name = "addDefferedBtn";
@@ -147,6 +159,7 @@
             // 
             // addJournalBtn
             // 
+            this.addJournalBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.addJournalBtn.Image = global::Cardiology.Properties.Resources.addd1;
             this.addJournalBtn.Location = new System.Drawing.Point(991, 28);
             this.addJournalBtn.Name = "addJournalBtn";

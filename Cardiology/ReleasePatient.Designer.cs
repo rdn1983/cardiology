@@ -32,6 +32,8 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.releaseData = new System.Windows.Forms.TabPage();
             this.releaseVariants = new System.Windows.Forms.GroupBox();
+            this.transferBtn = new System.Windows.Forms.RadioButton();
+            this.deathBtn = new System.Windows.Forms.RadioButton();
             this.releaseBtn = new System.Windows.Forms.RadioButton();
             this.movedToCardioBtn = new System.Windows.Forms.RadioButton();
             this.refusedBtn = new System.Windows.Forms.RadioButton();
@@ -61,8 +63,6 @@
             this.issuedMedicineBox = new System.Windows.Forms.TableLayoutPanel();
             this.issuedMedicine0 = new System.Windows.Forms.TextBox();
             this.addIssuedMedicineBtn = new System.Windows.Forms.Button();
-            this.deathBtn = new System.Windows.Forms.RadioButton();
-            this.transferBtn = new System.Windows.Forms.RadioButton();
             this.tabControl1.SuspendLayout();
             this.releaseData.SuspendLayout();
             this.releaseVariants.SuspendLayout();
@@ -112,6 +112,28 @@
             this.releaseVariants.TabIndex = 4;
             this.releaseVariants.TabStop = false;
             this.releaseVariants.Text = "Варианты выписки";
+            // 
+            // transferBtn
+            // 
+            this.transferBtn.AutoSize = true;
+            this.transferBtn.Location = new System.Drawing.Point(8, 99);
+            this.transferBtn.Name = "transferBtn";
+            this.transferBtn.Size = new System.Drawing.Size(181, 17);
+            this.transferBtn.TabIndex = 4;
+            this.transferBtn.TabStop = true;
+            this.transferBtn.Text = "Переведен  в другую больницу";
+            this.transferBtn.UseVisualStyleBackColor = true;
+            // 
+            // deathBtn
+            // 
+            this.deathBtn.AutoSize = true;
+            this.deathBtn.Location = new System.Drawing.Point(8, 78);
+            this.deathBtn.Name = "deathBtn";
+            this.deathBtn.Size = new System.Drawing.Size(53, 17);
+            this.deathBtn.TabIndex = 3;
+            this.deathBtn.TabStop = true;
+            this.deathBtn.Text = "Умер";
+            this.deathBtn.UseVisualStyleBackColor = true;
             // 
             // releaseBtn
             // 
@@ -399,28 +421,6 @@
             this.addIssuedMedicineBtn.UseVisualStyleBackColor = true;
             this.addIssuedMedicineBtn.Click += new System.EventHandler(this.addIssuedMedicineBtn_Click);
             // 
-            // deathBtn
-            // 
-            this.deathBtn.AutoSize = true;
-            this.deathBtn.Location = new System.Drawing.Point(8, 78);
-            this.deathBtn.Name = "deathBtn";
-            this.deathBtn.Size = new System.Drawing.Size(53, 17);
-            this.deathBtn.TabIndex = 3;
-            this.deathBtn.TabStop = true;
-            this.deathBtn.Text = "Умер";
-            this.deathBtn.UseVisualStyleBackColor = true;
-            // 
-            // transferBtn
-            // 
-            this.transferBtn.AutoSize = true;
-            this.transferBtn.Location = new System.Drawing.Point(8, 99);
-            this.transferBtn.Name = "transferBtn";
-            this.transferBtn.Size = new System.Drawing.Size(181, 17);
-            this.transferBtn.TabIndex = 4;
-            this.transferBtn.TabStop = true;
-            this.transferBtn.Text = "Переведен  в другую больницу";
-            this.transferBtn.UseVisualStyleBackColor = true;
-            // 
             // ReleasePatient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -429,6 +429,7 @@
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(405, 515);
             this.Name = "ReleasePatient";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Выписка";

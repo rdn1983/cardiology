@@ -13,6 +13,12 @@ namespace Cardiology
         public AdmissionPatient()
         {
             InitializeComponent();
+            System.Drawing.Size halfScreenSize = new System.Drawing.Size(SystemInformation.PrimaryMonitorSize.Width / 2,
+                SystemInformation.PrimaryMonitorSize.Height);
+            this.patientBaseInfoBox.MaximumSize = halfScreenSize;
+            this.lordOfTheCotBox.MaximumSize = halfScreenSize;
+
+
             initDutyDoctors();
         }
 
@@ -110,6 +116,14 @@ namespace Cardiology
             }
         }
 
-       
+        private void AdmissionPatient_Resize(object sender, EventArgs e)
+        {
+            System.Drawing.Size halfScreenSize = new System.Drawing.Size(this.Size.Width / 2,
+               this.Size.Height);
+            this.patientBaseInfoBox.Size = halfScreenSize;
+            this.lordOfTheCotBox.Size = halfScreenSize;
+            System.Drawing.Point startLocation = patientBaseInfoBox.Location;
+            lordOfTheCotBox.Location = new System.Drawing.Point(startLocation.X + patientBaseInfoBox.Width, startLocation.Y);
+        }
     }
 }

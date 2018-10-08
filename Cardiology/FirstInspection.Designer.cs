@@ -112,6 +112,7 @@
             this.issuedMedicineTab = new System.Windows.Forms.TabPage();
             this.issuedMedicineBox = new System.Windows.Forms.GroupBox();
             this.issuedCntr = new System.Windows.Forms.Panel();
+            this.issuedMedicineControl1 = new Cardiology.IssuedMedicineControl();
             this.addIssuedMedicineBtn = new System.Windows.Forms.Button();
             this.firstAnalysisTab = new System.Windows.Forms.TabPage();
             this.tabs = new System.Windows.Forms.TabControl();
@@ -200,7 +201,6 @@
             this.docBox = new System.Windows.Forms.ComboBox();
             this.docLbl = new System.Windows.Forms.Label();
             this.patientInitialsLbl = new System.Windows.Forms.Label();
-            this.issuedMedicineControl1 = new Cardiology.IssuedMedicineControl();
             this.templateChanger = new Cardiology.Controls.TemplateChanger();
             this.complaintsBox.SuspendLayout();
             this.anamnesisMorbiBox.SuspendLayout();
@@ -445,6 +445,8 @@
             // 
             // anamnesisVitaeBox
             // 
+            this.anamnesisVitaeBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.anamnesisVitaeBox.Controls.Add(this.accompanyingIllnessesBox);
             this.anamnesisVitaeBox.Controls.Add(this.pastSurgeriesBox);
             this.anamnesisVitaeBox.Controls.Add(this.alcoholProtocolBtn);
@@ -461,6 +463,8 @@
             // 
             // accompanyingIllnessesBox
             // 
+            this.accompanyingIllnessesBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.accompanyingIllnessesBox.Controls.Add(this.chronicBox);
             this.accompanyingIllnessesBox.Controls.Add(this.accompanyingIllnessesTxt);
             this.accompanyingIllnessesBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -473,6 +477,7 @@
             // 
             // chronicBox
             // 
+            this.chronicBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.chronicBox.Controls.Add(this.chronicHOBL);
             this.chronicBox.Controls.Add(this.chronicSD);
             this.chronicBox.Controls.Add(this.chronicDEP3);
@@ -537,6 +542,8 @@
             // 
             // accompanyingIllnessesTxt
             // 
+            this.accompanyingIllnessesTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.accompanyingIllnessesTxt.Location = new System.Drawing.Point(6, 17);
             this.accompanyingIllnessesTxt.Name = "accompanyingIllnessesTxt";
             this.accompanyingIllnessesTxt.Size = new System.Drawing.Size(298, 144);
@@ -545,6 +552,8 @@
             // 
             // pastSurgeriesBox
             // 
+            this.pastSurgeriesBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pastSurgeriesBox.Controls.Add(this.pastSurgeriesTxt);
             this.pastSurgeriesBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.pastSurgeriesBox.Location = new System.Drawing.Point(6, 112);
@@ -556,6 +565,8 @@
             // 
             // pastSurgeriesTxt
             // 
+            this.pastSurgeriesTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pastSurgeriesTxt.Location = new System.Drawing.Point(6, 17);
             this.pastSurgeriesTxt.Name = "pastSurgeriesTxt";
             this.pastSurgeriesTxt.Size = new System.Drawing.Size(482, 82);
@@ -598,6 +609,8 @@
             // 
             // anamnesisVitaeTxt
             // 
+            this.anamnesisVitaeTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.anamnesisVitaeTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.anamnesisVitaeTxt.Location = new System.Drawing.Point(6, 17);
             this.anamnesisVitaeTxt.Name = "anamnesisVitaeTxt";
@@ -607,6 +620,8 @@
             // 
             // drugsBox
             // 
+            this.drugsBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.drugsBox.Controls.Add(this.hasNoDrugsIntoxication);
             this.drugsBox.Controls.Add(this.hasDrugsIntoxication);
             this.drugsBox.Controls.Add(this.drugsTxt);
@@ -620,6 +635,7 @@
             // 
             // hasNoDrugsIntoxication
             // 
+            this.hasNoDrugsIntoxication.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.hasNoDrugsIntoxication.Location = new System.Drawing.Point(259, 87);
             this.hasNoDrugsIntoxication.Name = "hasNoDrugsIntoxication";
             this.hasNoDrugsIntoxication.Size = new System.Drawing.Size(244, 23);
@@ -640,6 +656,8 @@
             // 
             // drugsTxt
             // 
+            this.drugsTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.drugsTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.drugsTxt.Location = new System.Drawing.Point(6, 17);
             this.drugsTxt.Name = "drugsTxt";
@@ -649,6 +667,7 @@
             // 
             // saveBtn
             // 
+            this.saveBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.saveBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.saveBtn.Location = new System.Drawing.Point(903, 606);
             this.saveBtn.Name = "saveBtn";
@@ -660,6 +679,7 @@
             // 
             // printBtn
             // 
+            this.printBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.printBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.printBtn.Location = new System.Drawing.Point(1033, 606);
             this.printBtn.Name = "printBtn";
@@ -671,6 +691,7 @@
             // 
             // nextBtn
             // 
+            this.nextBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.nextBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.nextBtn.Location = new System.Drawing.Point(773, 606);
             this.nextBtn.Name = "nextBtn";
@@ -682,6 +703,7 @@
             // 
             // prevBtn
             // 
+            this.prevBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.prevBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.prevBtn.Location = new System.Drawing.Point(643, 606);
             this.prevBtn.Name = "prevBtn";
@@ -693,6 +715,9 @@
             // 
             // tabsContainer
             // 
+            this.tabsContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabsContainer.Controls.Add(this.anamnesisTab);
             this.tabsContainer.Controls.Add(this.presensTab);
             this.tabsContainer.Controls.Add(this.diagnosisTab);
@@ -733,6 +758,8 @@
             // 
             // stPresentsBox
             // 
+            this.stPresentsBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.stPresentsBox.BackColor = System.Drawing.SystemColors.Control;
             this.stPresentsBox.Controls.Add(this.nervousSystemBox);
             this.stPresentsBox.Controls.Add(this.urinarySystemBox);
@@ -751,6 +778,8 @@
             // 
             // nervousSystemBox
             // 
+            this.nervousSystemBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.nervousSystemBox.Controls.Add(this.nervousSystemTxt);
             this.nervousSystemBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.nervousSystemBox.Location = new System.Drawing.Point(537, 297);
@@ -762,6 +791,8 @@
             // 
             // nervousSystemTxt
             // 
+            this.nervousSystemTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.nervousSystemTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.nervousSystemTxt.Location = new System.Drawing.Point(6, 19);
             this.nervousSystemTxt.Name = "nervousSystemTxt";
@@ -771,6 +802,8 @@
             // 
             // urinarySystemBox
             // 
+            this.urinarySystemBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.urinarySystemBox.Controls.Add(this.urinarySystemTxt);
             this.urinarySystemBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.urinarySystemBox.Location = new System.Drawing.Point(537, 175);
@@ -782,6 +815,8 @@
             // 
             // urinarySystemTxt
             // 
+            this.urinarySystemTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.urinarySystemTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.urinarySystemTxt.Location = new System.Drawing.Point(6, 19);
             this.urinarySystemTxt.Name = "urinarySystemTxt";
@@ -791,6 +826,8 @@
             // 
             // digestiveSystemBox
             // 
+            this.digestiveSystemBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.digestiveSystemBox.Controls.Add(this.digestiveSystemTxt);
             this.digestiveSystemBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.digestiveSystemBox.Location = new System.Drawing.Point(537, 19);
@@ -802,6 +839,8 @@
             // 
             // digestiveSystemTxt
             // 
+            this.digestiveSystemTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.digestiveSystemTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.digestiveSystemTxt.Location = new System.Drawing.Point(6, 19);
             this.digestiveSystemTxt.Name = "digestiveSystemTxt";
@@ -1132,6 +1171,14 @@
             this.issuedCntr.Name = "issuedCntr";
             this.issuedCntr.Size = new System.Drawing.Size(653, 501);
             this.issuedCntr.TabIndex = 18;
+            // 
+            // issuedMedicineControl1
+            // 
+            this.issuedMedicineControl1.AutoSize = true;
+            this.issuedMedicineControl1.Location = new System.Drawing.Point(3, 0);
+            this.issuedMedicineControl1.Name = "issuedMedicineControl1";
+            this.issuedMedicineControl1.Size = new System.Drawing.Size(10, 10);
+            this.issuedMedicineControl1.TabIndex = 17;
             // 
             // addIssuedMedicineBtn
             // 
@@ -1955,6 +2002,7 @@
             // 
             // docBox
             // 
+            this.docBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.docBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.docBox.FormattingEnabled = true;
             this.docBox.Location = new System.Drawing.Point(376, 608);
@@ -1964,6 +2012,7 @@
             // 
             // docLbl
             // 
+            this.docLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.docLbl.AutoSize = true;
             this.docLbl.Location = new System.Drawing.Point(260, 613);
             this.docLbl.Name = "docLbl";
@@ -1973,20 +2022,13 @@
             // 
             // patientInitialsLbl
             // 
+            this.patientInitialsLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.patientInitialsLbl.AutoSize = true;
             this.patientInitialsLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.patientInitialsLbl.Location = new System.Drawing.Point(882, 9);
             this.patientInitialsLbl.Name = "patientInitialsLbl";
             this.patientInitialsLbl.Size = new System.Drawing.Size(0, 13);
             this.patientInitialsLbl.TabIndex = 17;
-            // 
-            // issuedMedicineControl1
-            // 
-            this.issuedMedicineControl1.AutoSize = true;
-            this.issuedMedicineControl1.Location = new System.Drawing.Point(3, 0);
-            this.issuedMedicineControl1.Name = "issuedMedicineControl1";
-            this.issuedMedicineControl1.Size = new System.Drawing.Size(10, 10);
-            this.issuedMedicineControl1.TabIndex = 17;
             // 
             // templateChanger
             // 

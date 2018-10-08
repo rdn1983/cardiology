@@ -279,12 +279,6 @@
     <Compile Include="Consilium.Designer.cs">
       <DependentUpon>Consilium.cs</DependentUpon>
     </Compile>
-    <Compile Include="Obhod.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Obhod.Designer.cs">
-      <DependentUpon>Obhod.cs</DependentUpon>
-    </Compile>
     <Compile Include="ReanimDEAD.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -466,9 +460,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Consilium.resx">
       <DependentUpon>Consilium.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Obhod.resx">
-      <DependentUpon>Obhod.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProtocolsManipulation.resx">
       <DependentUpon>ProtocolsManipulation.cs</DependentUpon>

@@ -42,6 +42,9 @@
             // 
             // selectionContainer
             // 
+            this.selectionContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.selectionContainer.CausesValidation = false;
             this.selectionContainer.CheckBoxes = true;
             this.selectionContainer.FullRowSelect = true;
@@ -66,6 +69,7 @@
             // 
             // select
             // 
+            this.select.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.select.Location = new System.Drawing.Point(3, 341);
             this.select.Name = "select";
             this.select.Size = new System.Drawing.Size(75, 23);
@@ -76,6 +80,7 @@
             // 
             // checkAll
             // 
+            this.checkAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.checkAll.Location = new System.Drawing.Point(84, 341);
             this.checkAll.Name = "checkAll";
             this.checkAll.Size = new System.Drawing.Size(112, 23);
@@ -86,6 +91,7 @@
             // 
             // clearSelection
             // 
+            this.clearSelection.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.clearSelection.Location = new System.Drawing.Point(202, 341);
             this.clearSelection.Name = "clearSelection";
             this.clearSelection.Size = new System.Drawing.Size(117, 23);
@@ -96,6 +102,7 @@
             // 
             // cancel
             // 
+            this.cancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cancel.Location = new System.Drawing.Point(409, 341);
             this.cancel.Name = "cancel";
             this.cancel.Size = new System.Drawing.Size(75, 23);

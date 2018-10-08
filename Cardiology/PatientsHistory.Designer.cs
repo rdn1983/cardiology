@@ -82,6 +82,9 @@
             this.patientHistoryGrid.AllowUserToDeleteRows = false;
             this.patientHistoryGrid.AllowUserToResizeColumns = false;
             this.patientHistoryGrid.AllowUserToResizeRows = false;
+            this.patientHistoryGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.patientHistoryGrid.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -189,6 +192,7 @@
             // 
             // printTitlePage
             // 
+            this.printTitlePage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.printTitlePage.AutoSize = true;
             this.printTitlePage.Location = new System.Drawing.Point(515, 421);
             this.printTitlePage.Name = "printTitlePage";
@@ -199,6 +203,7 @@
             // 
             // printBtn
             // 
+            this.printBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.printBtn.Location = new System.Drawing.Point(693, 410);
             this.printBtn.Name = "printBtn";
             this.printBtn.Size = new System.Drawing.Size(95, 28);

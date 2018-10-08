@@ -40,7 +40,6 @@
             this.inspectionTime = new System.Windows.Forms.DateTimePicker();
             this.complaintsTxt = new System.Windows.Forms.RichTextBox();
             this.inspectionTxt = new System.Windows.Forms.RichTextBox();
-            this.checkAnalyzesBtn = new System.Windows.Forms.Button();
             this.kateterPlacementLbl = new System.Windows.Forms.Label();
             this.kateterPlacementTxt = new System.Windows.Forms.RichTextBox();
             this.inspectionLbl = new System.Windows.Forms.Label();
@@ -73,6 +72,9 @@
             // 
             // tabbedContainer
             // 
+            this.tabbedContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabbedContainer.Controls.Add(this.baseTab);
             this.tabbedContainer.Controls.Add(this.analysisTab);
             this.tabbedContainer.Controls.Add(this.isssuedMedsTab);
@@ -92,7 +94,6 @@
             this.baseTab.Controls.Add(this.inspectionTime);
             this.baseTab.Controls.Add(this.complaintsTxt);
             this.baseTab.Controls.Add(this.inspectionTxt);
-            this.baseTab.Controls.Add(this.checkAnalyzesBtn);
             this.baseTab.Controls.Add(this.kateterPlacementLbl);
             this.baseTab.Controls.Add(this.kateterPlacementTxt);
             this.baseTab.Controls.Add(this.inspectionLbl);
@@ -107,9 +108,11 @@
             // 
             // resultTxt
             // 
+            this.resultTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.resultTxt.Location = new System.Drawing.Point(15, 384);
             this.resultTxt.Name = "resultTxt";
-            this.resultTxt.Size = new System.Drawing.Size(640, 68);
+            this.resultTxt.Size = new System.Drawing.Size(805, 68);
             this.resultTxt.TabIndex = 12;
             this.resultTxt.Text = "необходимо продолжить лечение в отделение кардиореанимации";
             // 
@@ -135,9 +138,11 @@
             // 
             // diagnosisTxt
             // 
+            this.diagnosisTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.diagnosisTxt.Location = new System.Drawing.Point(15, 57);
             this.diagnosisTxt.Name = "diagnosisTxt";
-            this.diagnosisTxt.Size = new System.Drawing.Size(640, 56);
+            this.diagnosisTxt.Size = new System.Drawing.Size(805, 56);
             this.diagnosisTxt.TabIndex = 2;
             this.diagnosisTxt.Text = "";
             // 
@@ -161,28 +166,23 @@
             // 
             // complaintsTxt
             // 
+            this.complaintsTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.complaintsTxt.Location = new System.Drawing.Point(15, 135);
             this.complaintsTxt.Name = "complaintsTxt";
-            this.complaintsTxt.Size = new System.Drawing.Size(640, 51);
+            this.complaintsTxt.Size = new System.Drawing.Size(805, 51);
             this.complaintsTxt.TabIndex = 3;
             this.complaintsTxt.Text = "жалобы на слабость";
             // 
             // inspectionTxt
             // 
+            this.inspectionTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.inspectionTxt.Location = new System.Drawing.Point(15, 205);
             this.inspectionTxt.Name = "inspectionTxt";
-            this.inspectionTxt.Size = new System.Drawing.Size(640, 74);
+            this.inspectionTxt.Size = new System.Drawing.Size(805, 74);
             this.inspectionTxt.TabIndex = 4;
             this.inspectionTxt.Text = resources.GetString("inspectionTxt.Text");
-            // 
-            // checkAnalyzesBtn
-            // 
-            this.checkAnalyzesBtn.Location = new System.Drawing.Point(661, 57);
-            this.checkAnalyzesBtn.Name = "checkAnalyzesBtn";
-            this.checkAnalyzesBtn.Size = new System.Drawing.Size(130, 96);
-            this.checkAnalyzesBtn.TabIndex = 6;
-            this.checkAnalyzesBtn.Text = "Проверить анализы и обследования";
-            this.checkAnalyzesBtn.UseVisualStyleBackColor = true;
             // 
             // kateterPlacementLbl
             // 
@@ -195,9 +195,11 @@
             // 
             // kateterPlacementTxt
             // 
+            this.kateterPlacementTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.kateterPlacementTxt.Location = new System.Drawing.Point(15, 300);
             this.kateterPlacementTxt.Name = "kateterPlacementTxt";
-            this.kateterPlacementTxt.Size = new System.Drawing.Size(640, 49);
+            this.kateterPlacementTxt.Size = new System.Drawing.Size(805, 49);
             this.kateterPlacementTxt.TabIndex = 5;
             this.kateterPlacementTxt.Text = "Место установки венозного катетера - без особенностей";
             // 
@@ -234,6 +236,9 @@
             // tabbedAnalysis
             // 
             this.tabbedAnalysis.Alignment = System.Windows.Forms.TabAlignment.Left;
+            this.tabbedAnalysis.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabbedAnalysis.Location = new System.Drawing.Point(6, 3);
             this.tabbedAnalysis.Multiline = true;
             this.tabbedAnalysis.Name = "tabbedAnalysis";
@@ -243,6 +248,7 @@
             // 
             // addAnalysis
             // 
+            this.addAnalysis.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.addAnalysis.Image = global::Cardiology.Properties.Resources.addd1;
             this.addAnalysis.Location = new System.Drawing.Point(806, 6);
             this.addAnalysis.Name = "addAnalysis";
@@ -264,6 +270,9 @@
             // 
             // medicinesPnl
             // 
+            this.medicinesPnl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.medicinesPnl.Controls.Add(this.issuedMedicineControl1);
             this.medicinesPnl.Location = new System.Drawing.Point(3, 15);
             this.medicinesPnl.Name = "medicinesPnl";
@@ -272,6 +281,9 @@
             // 
             // issuedMedicineControl1
             // 
+            this.issuedMedicineControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.issuedMedicineControl1.AutoSize = true;
             this.issuedMedicineControl1.Location = new System.Drawing.Point(3, 3);
             this.issuedMedicineControl1.Name = "issuedMedicineControl1";
@@ -280,6 +292,7 @@
             // 
             // addMedicineBtn
             // 
+            this.addMedicineBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.addMedicineBtn.Image = global::Cardiology.Properties.Resources.addd1;
             this.addMedicineBtn.Location = new System.Drawing.Point(806, 15);
             this.addMedicineBtn.Name = "addMedicineBtn";
@@ -290,6 +303,7 @@
             // 
             // printBtn
             // 
+            this.printBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.printBtn.Location = new System.Drawing.Point(613, 561);
             this.printBtn.Name = "printBtn";
             this.printBtn.Size = new System.Drawing.Size(237, 23);
@@ -300,6 +314,7 @@
             // 
             // saveBtn
             // 
+            this.saveBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.saveBtn.Location = new System.Drawing.Point(775, 537);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(75, 23);
@@ -310,6 +325,7 @@
             // 
             // nextBtn
             // 
+            this.nextBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.nextBtn.Location = new System.Drawing.Point(694, 537);
             this.nextBtn.Name = "nextBtn";
             this.nextBtn.Size = new System.Drawing.Size(75, 23);
@@ -320,6 +336,7 @@
             // 
             // previousBtn
             // 
+            this.previousBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.previousBtn.Location = new System.Drawing.Point(613, 537);
             this.previousBtn.Name = "previousBtn";
             this.previousBtn.Size = new System.Drawing.Size(75, 23);
@@ -421,7 +438,6 @@
         private System.Windows.Forms.DateTimePicker inspectionTime;
         private System.Windows.Forms.RichTextBox complaintsTxt;
         private System.Windows.Forms.RichTextBox inspectionTxt;
-        private System.Windows.Forms.Button checkAnalyzesBtn;
         private System.Windows.Forms.Label kateterPlacementLbl;
         private System.Windows.Forms.RichTextBox kateterPlacementTxt;
         private System.Windows.Forms.Label inspectionLbl;

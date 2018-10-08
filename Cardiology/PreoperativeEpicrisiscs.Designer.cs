@@ -60,6 +60,8 @@
             // 
             // diagnosisTxt
             // 
+            this.diagnosisTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.diagnosisTxt.Location = new System.Drawing.Point(81, 41);
             this.diagnosisTxt.Name = "diagnosisTxt";
             this.diagnosisTxt.Size = new System.Drawing.Size(458, 66);
@@ -68,6 +70,7 @@
             // 
             // chooseDiagnosisBtn
             // 
+            this.chooseDiagnosisBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.chooseDiagnosisBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.chooseDiagnosisBtn.Location = new System.Drawing.Point(545, 41);
             this.chooseDiagnosisBtn.Name = "chooseDiagnosisBtn";
@@ -93,6 +96,9 @@
             this.analysisGrid.AllowUserToDeleteRows = false;
             this.analysisGrid.AllowUserToResizeColumns = false;
             this.analysisGrid.AllowUserToResizeRows = false;
+            this.analysisGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -153,6 +159,7 @@
             // 
             // chooseAnalysisBtn
             // 
+            this.chooseAnalysisBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.chooseAnalysisBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.chooseAnalysisBtn.Location = new System.Drawing.Point(545, 144);
             this.chooseAnalysisBtn.Name = "chooseAnalysisBtn";
@@ -164,6 +171,7 @@
             // 
             // print
             // 
+            this.print.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.print.Location = new System.Drawing.Point(464, 349);
             this.print.Name = "print";
             this.print.Size = new System.Drawing.Size(75, 23);
@@ -204,7 +212,7 @@
             this.Controls.Add(this.chooseDiagnosisBtn);
             this.Controls.Add(this.diagnosisTxt);
             this.Controls.Add(this.diagnosisLbl);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PreoperativeEpicrisiscs";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

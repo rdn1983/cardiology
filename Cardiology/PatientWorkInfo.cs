@@ -12,6 +12,10 @@ namespace Cardiology
         {
             this.releasePatientInfo = releasePatientInfo;
             InitializeComponent();
+            System.Drawing.Size halfScreenSize = new System.Drawing.Size(SystemInformation.PrimaryMonitorSize.Width / 2,
+                SystemInformation.PrimaryMonitorSize.Height);
+            this.workHistoryBox.MaximumSize = halfScreenSize;
+            this.openedSickListDataLbl.MaximumSize = halfScreenSize;
         }
 
         public DdtReleasePatient ReleasePatientInfo { get => releasePatientInfo; }
@@ -39,6 +43,16 @@ namespace Cardiology
                 releasePatientInfo.DsdtOurStartDate = ourSickListStartDateTxt.Value;
                 Close();
             }
+        }
+
+        private void workHistoryBox_Resize(object sender, EventArgs e)
+        {
+            System.Drawing.Size halfScreenSize = new System.Drawing.Size(this.Size.Width / 2,
+               this.Size.Height);
+            this.workHistoryBox.Size = halfScreenSize;
+            this.openedSickListDataLbl.Size = halfScreenSize;
+            System.Drawing.Point startLocation = workHistoryBox.Location;
+            openedSickListDataLbl.Location = new System.Drawing.Point(startLocation.X + workHistoryBox.Width, startLocation.Y);
         }
     }
 }

@@ -54,7 +54,7 @@
             this.protocolLbl22 = new System.Windows.Forms.Label();
             this.protocolLbl23 = new System.Windows.Forms.Label();
             this.protocolLbl24 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.baseCntr = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.conclusionTxt = new System.Windows.Forms.RichTextBox();
             this.docsTxt = new System.Windows.Forms.RichTextBox();
@@ -82,7 +82,7 @@
             this.lookTxt = new System.Windows.Forms.RichTextBox();
             this.causeTxt = new System.Windows.Forms.RichTextBox();
             this.saveBtn = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
+            this.baseCntr.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -91,7 +91,7 @@
             this.protocolLbl0.AutoSize = true;
             this.protocolLbl0.Location = new System.Drawing.Point(3, 0);
             this.protocolLbl0.Name = "protocolLbl0";
-            this.protocolLbl0.Size = new System.Drawing.Size(468, 39);
+            this.protocolLbl0.Size = new System.Drawing.Size(477, 39);
             this.protocolLbl0.TabIndex = 0;
             this.protocolLbl0.Text = "Причины освидетельствования: подозрения в управлении транспортом в состоянии опья" +
     "нения, пребывание на работе в нетрезвом состоянии, освидетельствование в связи с" +
@@ -100,7 +100,7 @@
             // protocolLbl1
             // 
             this.protocolLbl1.AutoSize = true;
-            this.protocolLbl1.Location = new System.Drawing.Point(3, 49);
+            this.protocolLbl1.Location = new System.Drawing.Point(3, 48);
             this.protocolLbl1.Name = "protocolLbl1";
             this.protocolLbl1.Size = new System.Drawing.Size(452, 26);
             this.protocolLbl1.TabIndex = 1;
@@ -110,9 +110,9 @@
             // protocolLbl2
             // 
             this.protocolLbl2.AutoSize = true;
-            this.protocolLbl2.Location = new System.Drawing.Point(3, 98);
+            this.protocolLbl2.Location = new System.Drawing.Point(3, 95);
             this.protocolLbl2.Name = "protocolLbl2";
-            this.protocolLbl2.Size = new System.Drawing.Size(469, 39);
+            this.protocolLbl2.Size = new System.Drawing.Size(481, 39);
             this.protocolLbl2.TabIndex = 2;
             this.protocolLbl2.Text = "Поведение: напряжен, замкнут, раздражен, возбужден, агрессивен, эйфоричен, болтли" +
     "в, суетлив, настроение неустойчиво, сонлив, заторможен, жалуется на свое состоян" +
@@ -121,7 +121,7 @@
             // protocolLbl3
             // 
             this.protocolLbl3.AutoSize = true;
-            this.protocolLbl3.Location = new System.Drawing.Point(3, 147);
+            this.protocolLbl3.Location = new System.Drawing.Point(3, 142);
             this.protocolLbl3.Name = "protocolLbl3";
             this.protocolLbl3.Size = new System.Drawing.Size(460, 13);
             this.protocolLbl3.TabIndex = 3;
@@ -131,9 +131,9 @@
             // protocolLbl4
             // 
             this.protocolLbl4.AutoSize = true;
-            this.protocolLbl4.Location = new System.Drawing.Point(3, 176);
+            this.protocolLbl4.Location = new System.Drawing.Point(3, 170);
             this.protocolLbl4.Name = "protocolLbl4";
-            this.protocolLbl4.Size = new System.Drawing.Size(471, 26);
+            this.protocolLbl4.Size = new System.Drawing.Size(480, 26);
             this.protocolLbl4.TabIndex = 4;
             this.protocolLbl4.Text = "Речевая способность: связаность изложения, нарушения артикуляции, смазанность реч" +
     "и и др. ";
@@ -141,7 +141,7 @@
             // protocolLbl5
             // 
             this.protocolLbl5.AutoSize = true;
-            this.protocolLbl5.Location = new System.Drawing.Point(3, 207);
+            this.protocolLbl5.Location = new System.Drawing.Point(3, 199);
             this.protocolLbl5.Name = "protocolLbl5";
             this.protocolLbl5.Size = new System.Drawing.Size(461, 26);
             this.protocolLbl5.TabIndex = 5;
@@ -151,7 +151,7 @@
             // protocolLbl6
             // 
             this.protocolLbl6.AutoSize = true;
-            this.protocolLbl6.Location = new System.Drawing.Point(3, 236);
+            this.protocolLbl6.Location = new System.Drawing.Point(3, 227);
             this.protocolLbl6.Name = "protocolLbl6";
             this.protocolLbl6.Size = new System.Drawing.Size(188, 13);
             this.protocolLbl6.TabIndex = 6;
@@ -160,7 +160,7 @@
             // protocolLbl7
             // 
             this.protocolLbl7.AutoSize = true;
-            this.protocolLbl7.Location = new System.Drawing.Point(3, 266);
+            this.protocolLbl7.Location = new System.Drawing.Point(3, 255);
             this.protocolLbl7.Name = "protocolLbl7";
             this.protocolLbl7.Size = new System.Drawing.Size(38, 13);
             this.protocolLbl7.TabIndex = 7;
@@ -169,7 +169,7 @@
             // protocolLbl8
             // 
             this.protocolLbl8.AutoSize = true;
-            this.protocolLbl8.Location = new System.Drawing.Point(3, 295);
+            this.protocolLbl8.Location = new System.Drawing.Point(3, 283);
             this.protocolLbl8.Name = "protocolLbl8";
             this.protocolLbl8.Size = new System.Drawing.Size(130, 13);
             this.protocolLbl8.TabIndex = 8;
@@ -178,7 +178,7 @@
             // protocolLbl9
             // 
             this.protocolLbl9.AutoSize = true;
-            this.protocolLbl9.Location = new System.Drawing.Point(3, 326);
+            this.protocolLbl9.Location = new System.Drawing.Point(3, 311);
             this.protocolLbl9.Name = "protocolLbl9";
             this.protocolLbl9.Size = new System.Drawing.Size(238, 13);
             this.protocolLbl9.TabIndex = 9;
@@ -187,7 +187,7 @@
             // protocolLbl10
             // 
             this.protocolLbl10.AutoSize = true;
-            this.protocolLbl10.Location = new System.Drawing.Point(3, 354);
+            this.protocolLbl10.Location = new System.Drawing.Point(3, 339);
             this.protocolLbl10.Name = "protocolLbl10";
             this.protocolLbl10.Size = new System.Drawing.Size(168, 13);
             this.protocolLbl10.TabIndex = 10;
@@ -196,7 +196,7 @@
             // protocolLbl11
             // 
             this.protocolLbl11.AutoSize = true;
-            this.protocolLbl11.Location = new System.Drawing.Point(3, 383);
+            this.protocolLbl11.Location = new System.Drawing.Point(3, 367);
             this.protocolLbl11.Name = "protocolLbl11";
             this.protocolLbl11.Size = new System.Drawing.Size(115, 13);
             this.protocolLbl11.TabIndex = 11;
@@ -205,7 +205,7 @@
             // protocolLbl12
             // 
             this.protocolLbl12.AutoSize = true;
-            this.protocolLbl12.Location = new System.Drawing.Point(3, 411);
+            this.protocolLbl12.Location = new System.Drawing.Point(3, 395);
             this.protocolLbl12.Name = "protocolLbl12";
             this.protocolLbl12.Size = new System.Drawing.Size(149, 13);
             this.protocolLbl12.TabIndex = 12;
@@ -214,7 +214,7 @@
             // protocolLbl13
             // 
             this.protocolLbl13.AutoSize = true;
-            this.protocolLbl13.Location = new System.Drawing.Point(3, 441);
+            this.protocolLbl13.Location = new System.Drawing.Point(3, 423);
             this.protocolLbl13.Name = "protocolLbl13";
             this.protocolLbl13.Size = new System.Drawing.Size(463, 26);
             this.protocolLbl13.TabIndex = 13;
@@ -224,7 +224,7 @@
             // protocolLbl14
             // 
             this.protocolLbl14.AutoSize = true;
-            this.protocolLbl14.Location = new System.Drawing.Point(3, 470);
+            this.protocolLbl14.Location = new System.Drawing.Point(3, 451);
             this.protocolLbl14.Name = "protocolLbl14";
             this.protocolLbl14.Size = new System.Drawing.Size(138, 13);
             this.protocolLbl14.TabIndex = 14;
@@ -233,7 +233,7 @@
             // protocolLbl15
             // 
             this.protocolLbl15.AutoSize = true;
-            this.protocolLbl15.Location = new System.Drawing.Point(3, 500);
+            this.protocolLbl15.Location = new System.Drawing.Point(3, 479);
             this.protocolLbl15.Name = "protocolLbl15";
             this.protocolLbl15.Size = new System.Drawing.Size(346, 13);
             this.protocolLbl15.TabIndex = 15;
@@ -242,7 +242,7 @@
             // protocolLbl16
             // 
             this.protocolLbl16.AutoSize = true;
-            this.protocolLbl16.Location = new System.Drawing.Point(3, 528);
+            this.protocolLbl16.Location = new System.Drawing.Point(3, 507);
             this.protocolLbl16.Name = "protocolLbl16";
             this.protocolLbl16.Size = new System.Drawing.Size(187, 13);
             this.protocolLbl16.TabIndex = 16;
@@ -251,9 +251,9 @@
             // protocolLbl17
             // 
             this.protocolLbl17.AutoSize = true;
-            this.protocolLbl17.Location = new System.Drawing.Point(3, 555);
+            this.protocolLbl17.Location = new System.Drawing.Point(3, 534);
             this.protocolLbl17.Name = "protocolLbl17";
-            this.protocolLbl17.Size = new System.Drawing.Size(465, 29);
+            this.protocolLbl17.Size = new System.Drawing.Size(465, 52);
             this.protocolLbl17.TabIndex = 17;
             this.protocolLbl17.Text = "Имеются ли признаки нервно - психических заболеваний, органического поражения цен" +
     "тральной нервной\tсистемы, физического истощения. Перенесенные травмы (со слов ис" +
@@ -262,7 +262,7 @@
             // protocolLbl18
             // 
             this.protocolLbl18.AutoSize = true;
-            this.protocolLbl18.Location = new System.Drawing.Point(3, 584);
+            this.protocolLbl18.Location = new System.Drawing.Point(3, 586);
             this.protocolLbl18.Name = "protocolLbl18";
             this.protocolLbl18.Size = new System.Drawing.Size(466, 26);
             this.protocolLbl18.TabIndex = 18;
@@ -272,7 +272,7 @@
             // protocolLbl19
             // 
             this.protocolLbl19.AutoSize = true;
-            this.protocolLbl19.Location = new System.Drawing.Point(3, 612);
+            this.protocolLbl19.Location = new System.Drawing.Point(3, 614);
             this.protocolLbl19.Name = "protocolLbl19";
             this.protocolLbl19.Size = new System.Drawing.Size(247, 13);
             this.protocolLbl19.TabIndex = 19;
@@ -281,7 +281,7 @@
             // protocolLbl20
             // 
             this.protocolLbl20.AutoSize = true;
-            this.protocolLbl20.Location = new System.Drawing.Point(3, 641);
+            this.protocolLbl20.Location = new System.Drawing.Point(3, 642);
             this.protocolLbl20.Name = "protocolLbl20";
             this.protocolLbl20.Size = new System.Drawing.Size(466, 39);
             this.protocolLbl20.TabIndex = 20;
@@ -300,7 +300,7 @@
             // protocolLbl22
             // 
             this.protocolLbl22.AutoSize = true;
-            this.protocolLbl22.Location = new System.Drawing.Point(3, 715);
+            this.protocolLbl22.Location = new System.Drawing.Point(3, 714);
             this.protocolLbl22.Name = "protocolLbl22";
             this.protocolLbl22.Size = new System.Drawing.Size(446, 26);
             this.protocolLbl22.TabIndex = 22;
@@ -310,7 +310,7 @@
             // protocolLbl23
             // 
             this.protocolLbl23.AutoSize = true;
-            this.protocolLbl23.Location = new System.Drawing.Point(3, 744);
+            this.protocolLbl23.Location = new System.Drawing.Point(3, 742);
             this.protocolLbl23.Name = "protocolLbl23";
             this.protocolLbl23.Size = new System.Drawing.Size(381, 13);
             this.protocolLbl23.TabIndex = 23;
@@ -319,26 +319,33 @@
             // protocolLbl24
             // 
             this.protocolLbl24.AutoSize = true;
-            this.protocolLbl24.Location = new System.Drawing.Point(3, 773);
+            this.protocolLbl24.Location = new System.Drawing.Point(3, 770);
             this.protocolLbl24.Name = "protocolLbl24";
-            this.protocolLbl24.Size = new System.Drawing.Size(408, 39);
+            this.protocolLbl24.Size = new System.Drawing.Size(482, 39);
             this.protocolLbl24.TabIndex = 24;
             this.protocolLbl24.Text = "ЗАКЛЮЧЕНИЕ (состояние обследуемого квалифицируется в формулировках, предусмотренн" +
     "ых п. 13 действующей инструкции Минздрава СССР о порядке медицинского освидетель" +
     "ствования):";
             // 
-            // panel1
+            // baseCntr
             // 
-            this.panel1.AutoScroll = true;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.tableLayoutPanel1);
-            this.panel1.Location = new System.Drawing.Point(12, 9);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(703, 604);
-            this.panel1.TabIndex = 25;
+            this.baseCntr.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.baseCntr.AutoScroll = true;
+            this.baseCntr.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.baseCntr.Controls.Add(this.tableLayoutPanel1);
+            this.baseCntr.Location = new System.Drawing.Point(12, 9);
+            this.baseCntr.Name = "baseCntr";
+            this.baseCntr.Size = new System.Drawing.Size(703, 604);
+            this.baseCntr.TabIndex = 25;
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.AutoScroll = true;
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71.30045F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.69955F));
@@ -392,40 +399,40 @@
             this.tableLayoutPanel1.Controls.Add(this.protocolLbl11, 0, 11);
             this.tableLayoutPanel1.Controls.Add(this.protocolLbl12, 0, 12);
             this.tableLayoutPanel1.Controls.Add(this.protocolLbl3, 0, 3);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 6);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 25;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 135F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(669, 909);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(686, 598);
             this.tableLayoutPanel1.TabIndex = 36;
             // 
             // conclusionTxt
             // 
-            this.conclusionTxt.Location = new System.Drawing.Point(480, 776);
+            this.conclusionTxt.Location = new System.Drawing.Point(492, 773);
             this.conclusionTxt.Name = "conclusionTxt";
             this.conclusionTxt.Size = new System.Drawing.Size(186, 130);
             this.conclusionTxt.TabIndex = 27;
@@ -433,7 +440,7 @@
             // 
             // docsTxt
             // 
-            this.docsTxt.Location = new System.Drawing.Point(480, 747);
+            this.docsTxt.Location = new System.Drawing.Point(492, 745);
             this.docsTxt.Name = "docsTxt";
             this.docsTxt.Size = new System.Drawing.Size(186, 22);
             this.docsTxt.TabIndex = 27;
@@ -441,7 +448,7 @@
             // 
             // bioTxt
             // 
-            this.bioTxt.Location = new System.Drawing.Point(480, 718);
+            this.bioTxt.Location = new System.Drawing.Point(492, 717);
             this.bioTxt.Name = "bioTxt";
             this.bioTxt.Size = new System.Drawing.Size(186, 22);
             this.bioTxt.TabIndex = 27;
@@ -449,7 +456,7 @@
             // 
             // trubTxt
             // 
-            this.trubTxt.Location = new System.Drawing.Point(480, 689);
+            this.trubTxt.Location = new System.Drawing.Point(492, 689);
             this.trubTxt.Name = "trubTxt";
             this.trubTxt.Size = new System.Drawing.Size(186, 22);
             this.trubTxt.TabIndex = 27;
@@ -457,7 +464,7 @@
             // 
             // priborTxt
             // 
-            this.priborTxt.Location = new System.Drawing.Point(480, 644);
+            this.priborTxt.Location = new System.Drawing.Point(492, 645);
             this.priborTxt.Name = "priborTxt";
             this.priborTxt.Size = new System.Drawing.Size(186, 38);
             this.priborTxt.TabIndex = 27;
@@ -465,7 +472,7 @@
             // 
             // smellTxt
             // 
-            this.smellTxt.Location = new System.Drawing.Point(480, 615);
+            this.smellTxt.Location = new System.Drawing.Point(492, 617);
             this.smellTxt.Name = "smellTxt";
             this.smellTxt.Size = new System.Drawing.Size(186, 22);
             this.smellTxt.TabIndex = 27;
@@ -473,7 +480,7 @@
             // 
             // drunkTxt
             // 
-            this.drunkTxt.Location = new System.Drawing.Point(480, 587);
+            this.drunkTxt.Location = new System.Drawing.Point(492, 589);
             this.drunkTxt.Name = "drunkTxt";
             this.drunkTxt.Size = new System.Drawing.Size(186, 22);
             this.drunkTxt.TabIndex = 27;
@@ -481,7 +488,7 @@
             // 
             // illnessTxt
             // 
-            this.illnessTxt.Location = new System.Drawing.Point(480, 558);
+            this.illnessTxt.Location = new System.Drawing.Point(492, 537);
             this.illnessTxt.Name = "illnessTxt";
             this.illnessTxt.Size = new System.Drawing.Size(186, 22);
             this.illnessTxt.TabIndex = 27;
@@ -489,7 +496,7 @@
             // 
             // trembleTxt
             // 
-            this.trembleTxt.Location = new System.Drawing.Point(480, 531);
+            this.trembleTxt.Location = new System.Drawing.Point(492, 510);
             this.trembleTxt.Name = "trembleTxt";
             this.trembleTxt.Size = new System.Drawing.Size(186, 21);
             this.trembleTxt.TabIndex = 27;
@@ -497,7 +504,7 @@
             // 
             // touchNoseTxt
             // 
-            this.touchNoseTxt.Location = new System.Drawing.Point(480, 503);
+            this.touchNoseTxt.Location = new System.Drawing.Point(492, 482);
             this.touchNoseTxt.Name = "touchNoseTxt";
             this.touchNoseTxt.Size = new System.Drawing.Size(186, 22);
             this.touchNoseTxt.TabIndex = 27;
@@ -505,7 +512,7 @@
             // 
             // protocolValue14
             // 
-            this.protocolValue14.Location = new System.Drawing.Point(480, 473);
+            this.protocolValue14.Location = new System.Drawing.Point(492, 454);
             this.protocolValue14.Name = "protocolValue14";
             this.protocolValue14.Size = new System.Drawing.Size(186, 22);
             this.protocolValue14.TabIndex = 27;
@@ -513,7 +520,7 @@
             // 
             // walkTxt
             // 
-            this.walkTxt.Location = new System.Drawing.Point(480, 444);
+            this.walkTxt.Location = new System.Drawing.Point(492, 426);
             this.walkTxt.Name = "walkTxt";
             this.walkTxt.Size = new System.Drawing.Size(186, 22);
             this.walkTxt.TabIndex = 27;
@@ -521,7 +528,7 @@
             // 
             // mimicsTxt
             // 
-            this.mimicsTxt.Location = new System.Drawing.Point(480, 414);
+            this.mimicsTxt.Location = new System.Drawing.Point(492, 398);
             this.mimicsTxt.Name = "mimicsTxt";
             this.mimicsTxt.Size = new System.Drawing.Size(186, 22);
             this.mimicsTxt.TabIndex = 27;
@@ -529,7 +536,7 @@
             // 
             // motionTxt
             // 
-            this.motionTxt.Location = new System.Drawing.Point(480, 386);
+            this.motionTxt.Location = new System.Drawing.Point(492, 370);
             this.motionTxt.Name = "motionTxt";
             this.motionTxt.Size = new System.Drawing.Size(186, 22);
             this.motionTxt.TabIndex = 27;
@@ -537,7 +544,7 @@
             // 
             // nistagmTxt
             // 
-            this.nistagmTxt.Location = new System.Drawing.Point(480, 357);
+            this.nistagmTxt.Location = new System.Drawing.Point(492, 342);
             this.nistagmTxt.Name = "nistagmTxt";
             this.nistagmTxt.Size = new System.Drawing.Size(186, 22);
             this.nistagmTxt.TabIndex = 27;
@@ -545,7 +552,7 @@
             // 
             // eyesTxt
             // 
-            this.eyesTxt.Location = new System.Drawing.Point(480, 329);
+            this.eyesTxt.Location = new System.Drawing.Point(492, 314);
             this.eyesTxt.Name = "eyesTxt";
             this.eyesTxt.Size = new System.Drawing.Size(186, 22);
             this.eyesTxt.TabIndex = 27;
@@ -553,7 +560,7 @@
             // 
             // pressureTxt
             // 
-            this.pressureTxt.Location = new System.Drawing.Point(480, 298);
+            this.pressureTxt.Location = new System.Drawing.Point(492, 286);
             this.pressureTxt.Name = "pressureTxt";
             this.pressureTxt.Size = new System.Drawing.Size(186, 22);
             this.pressureTxt.TabIndex = 27;
@@ -561,7 +568,7 @@
             // 
             // pulseTxt
             // 
-            this.pulseTxt.Location = new System.Drawing.Point(480, 269);
+            this.pulseTxt.Location = new System.Drawing.Point(492, 258);
             this.pulseTxt.Name = "pulseTxt";
             this.pulseTxt.Size = new System.Drawing.Size(186, 22);
             this.pulseTxt.TabIndex = 27;
@@ -569,7 +576,7 @@
             // 
             // breatheTxt
             // 
-            this.breatheTxt.Location = new System.Drawing.Point(480, 239);
+            this.breatheTxt.Location = new System.Drawing.Point(492, 230);
             this.breatheTxt.Name = "breatheTxt";
             this.breatheTxt.Size = new System.Drawing.Size(186, 22);
             this.breatheTxt.TabIndex = 27;
@@ -577,7 +584,7 @@
             // 
             // skinTxt
             // 
-            this.skinTxt.Location = new System.Drawing.Point(480, 210);
+            this.skinTxt.Location = new System.Drawing.Point(492, 202);
             this.skinTxt.Name = "skinTxt";
             this.skinTxt.Size = new System.Drawing.Size(186, 22);
             this.skinTxt.TabIndex = 27;
@@ -585,7 +592,7 @@
             // 
             // speechTxt
             // 
-            this.speechTxt.Location = new System.Drawing.Point(480, 179);
+            this.speechTxt.Location = new System.Drawing.Point(492, 173);
             this.speechTxt.Name = "speechTxt";
             this.speechTxt.Size = new System.Drawing.Size(186, 23);
             this.speechTxt.TabIndex = 27;
@@ -593,7 +600,7 @@
             // 
             // orientationTxt
             // 
-            this.orientationTxt.Location = new System.Drawing.Point(480, 150);
+            this.orientationTxt.Location = new System.Drawing.Point(492, 145);
             this.orientationTxt.Name = "orientationTxt";
             this.orientationTxt.Size = new System.Drawing.Size(186, 22);
             this.orientationTxt.TabIndex = 27;
@@ -601,7 +608,7 @@
             // 
             // behaviorTxt
             // 
-            this.behaviorTxt.Location = new System.Drawing.Point(480, 101);
+            this.behaviorTxt.Location = new System.Drawing.Point(492, 98);
             this.behaviorTxt.Name = "behaviorTxt";
             this.behaviorTxt.Size = new System.Drawing.Size(186, 41);
             this.behaviorTxt.TabIndex = 26;
@@ -609,7 +616,7 @@
             // 
             // lookTxt
             // 
-            this.lookTxt.Location = new System.Drawing.Point(480, 52);
+            this.lookTxt.Location = new System.Drawing.Point(492, 51);
             this.lookTxt.Name = "lookTxt";
             this.lookTxt.Size = new System.Drawing.Size(186, 41);
             this.lookTxt.TabIndex = 26;
@@ -617,7 +624,7 @@
             // 
             // causeTxt
             // 
-            this.causeTxt.Location = new System.Drawing.Point(480, 3);
+            this.causeTxt.Location = new System.Drawing.Point(492, 3);
             this.causeTxt.Name = "causeTxt";
             this.causeTxt.Size = new System.Drawing.Size(186, 42);
             this.causeTxt.TabIndex = 25;
@@ -625,6 +632,7 @@
             // 
             // saveBtn
             // 
+            this.saveBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.saveBtn.Location = new System.Drawing.Point(597, 619);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(118, 23);
@@ -639,13 +647,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(721, 654);
             this.Controls.Add(this.saveBtn);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.baseCntr);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AlcoIntoxication";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Протокол алкосвидетельства";
-            this.panel1.ResumeLayout(false);
+            this.baseCntr.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
@@ -679,7 +687,7 @@
         private System.Windows.Forms.Label protocolLbl22;
         private System.Windows.Forms.Label protocolLbl23;
         private System.Windows.Forms.Label protocolLbl24;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel baseCntr;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.RichTextBox conclusionTxt;
         private System.Windows.Forms.RichTextBox docsTxt;

@@ -30,12 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JournalAfterKAG));
             this.afterKagDiagnosisPnl = new System.Windows.Forms.GroupBox();
-            this.journalDocLbl = new System.Windows.Forms.Label();
-            this.journalDocBox = new System.Windows.Forms.ComboBox();
+            this.kagDianosisLbl = new System.Windows.Forms.Label();
+            this.kagDiagnosisTxt = new System.Windows.Forms.RichTextBox();
             this.admissionDateTxt = new System.Windows.Forms.DateTimePicker();
             this.admissionTimeTxt = new System.Windows.Forms.DateTimePicker();
             this.afterKagDiagnosisTxt = new System.Windows.Forms.RichTextBox();
-            this.rhytmPnl = new System.Windows.Forms.GroupBox();
+            this.journalDocLbl = new System.Windows.Forms.Label();
+            this.journalDocBox = new System.Windows.Forms.ComboBox();
             this.surgeryInspectationPnl = new System.Windows.Forms.GroupBox();
             this.surgeryPsLbl = new System.Windows.Forms.Label();
             this.surgeryPsTxt = new System.Windows.Forms.ComboBox();
@@ -47,7 +48,7 @@
             this.chssSurgeryTxt = new System.Windows.Forms.ComboBox();
             this.surgeryInspectationTxt = new System.Windows.Forms.RichTextBox();
             this.dutyCardioInspectationPnl = new System.Windows.Forms.GroupBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.finalDiaryBox = new System.Windows.Forms.Panel();
             this.releaseTime = new System.Windows.Forms.DateTimePicker();
             this.releaseDate = new System.Windows.Forms.DateTimePicker();
             this.releaseTitleLbl = new System.Windows.Forms.Label();
@@ -87,12 +88,10 @@
             this.ekgLbl0 = new System.Windows.Forms.Label();
             this.printBtn = new System.Windows.Forms.Button();
             this.saveBtn = new System.Windows.Forms.Button();
-            this.kagDiagnosisTxt = new System.Windows.Forms.RichTextBox();
-            this.kagDianosisLbl = new System.Windows.Forms.Label();
             this.afterKagDiagnosisPnl.SuspendLayout();
             this.surgeryInspectationPnl.SuspendLayout();
             this.dutyCardioInspectationPnl.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.finalDiaryBox.SuspendLayout();
             this.allCardionInspectionsPnl.SuspendLayout();
             this.dutyCardioContainer.SuspendLayout();
             this.inspectionPnl0.SuspendLayout();
@@ -101,12 +100,13 @@
             // 
             // afterKagDiagnosisPnl
             // 
+            this.afterKagDiagnosisPnl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.afterKagDiagnosisPnl.Controls.Add(this.kagDianosisLbl);
             this.afterKagDiagnosisPnl.Controls.Add(this.kagDiagnosisTxt);
             this.afterKagDiagnosisPnl.Controls.Add(this.admissionDateTxt);
             this.afterKagDiagnosisPnl.Controls.Add(this.admissionTimeTxt);
             this.afterKagDiagnosisPnl.Controls.Add(this.afterKagDiagnosisTxt);
-            this.afterKagDiagnosisPnl.Controls.Add(this.rhytmPnl);
             this.afterKagDiagnosisPnl.Location = new System.Drawing.Point(12, 5);
             this.afterKagDiagnosisPnl.Name = "afterKagDiagnosisPnl";
             this.afterKagDiagnosisPnl.Size = new System.Drawing.Size(710, 107);
@@ -114,23 +114,24 @@
             this.afterKagDiagnosisPnl.TabStop = false;
             this.afterKagDiagnosisPnl.Text = "После КАГ. Выставлен диагноз:";
             // 
-            // journalDocLbl
+            // kagDianosisLbl
             // 
-            this.journalDocLbl.AutoSize = true;
-            this.journalDocLbl.Location = new System.Drawing.Point(384, 670);
-            this.journalDocLbl.Name = "journalDocLbl";
-            this.journalDocLbl.Size = new System.Drawing.Size(115, 13);
-            this.journalDocLbl.TabIndex = 9;
-            this.journalDocLbl.Text = "Ответственный врач:";
+            this.kagDianosisLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.kagDianosisLbl.AutoSize = true;
+            this.kagDianosisLbl.Location = new System.Drawing.Point(360, 20);
+            this.kagDianosisLbl.Name = "kagDianosisLbl";
+            this.kagDianosisLbl.Size = new System.Drawing.Size(82, 13);
+            this.kagDianosisLbl.TabIndex = 11;
+            this.kagDianosisLbl.Text = "Результат КАГ";
             // 
-            // journalDocBox
+            // kagDiagnosisTxt
             // 
-            this.journalDocBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.journalDocBox.FormattingEnabled = true;
-            this.journalDocBox.Location = new System.Drawing.Point(502, 665);
-            this.journalDocBox.Name = "journalDocBox";
-            this.journalDocBox.Size = new System.Drawing.Size(220, 21);
-            this.journalDocBox.TabIndex = 8;
+            this.kagDiagnosisTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.kagDiagnosisTxt.Location = new System.Drawing.Point(360, 39);
+            this.kagDiagnosisTxt.Name = "kagDiagnosisTxt";
+            this.kagDiagnosisTxt.Size = new System.Drawing.Size(336, 62);
+            this.kagDiagnosisTxt.TabIndex = 10;
+            this.kagDiagnosisTxt.Text = "";
             // 
             // admissionDateTxt
             // 
@@ -152,6 +153,8 @@
             // 
             // afterKagDiagnosisTxt
             // 
+            this.afterKagDiagnosisTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.afterKagDiagnosisTxt.Location = new System.Drawing.Point(6, 39);
             this.afterKagDiagnosisTxt.Name = "afterKagDiagnosisTxt";
             this.afterKagDiagnosisTxt.Size = new System.Drawing.Size(352, 62);
@@ -160,17 +163,30 @@
     "й. Состояние после ТЛАП и стентирования пр/3 ПКА(стентом xience V 3,0 x18мм с ле" +
     "карственным покрытием) от 07.08.2016";
             // 
-            // rhytmPnl
+            // journalDocLbl
             // 
-            this.rhytmPnl.Location = new System.Drawing.Point(702, 0);
-            this.rhytmPnl.Name = "rhytmPnl";
-            this.rhytmPnl.Size = new System.Drawing.Size(100, 100);
-            this.rhytmPnl.TabIndex = 5;
-            this.rhytmPnl.TabStop = false;
-            this.rhytmPnl.Text = "Ритм";
+            this.journalDocLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.journalDocLbl.AutoSize = true;
+            this.journalDocLbl.Location = new System.Drawing.Point(384, 670);
+            this.journalDocLbl.Name = "journalDocLbl";
+            this.journalDocLbl.Size = new System.Drawing.Size(115, 13);
+            this.journalDocLbl.TabIndex = 9;
+            this.journalDocLbl.Text = "Ответственный врач:";
+            // 
+            // journalDocBox
+            // 
+            this.journalDocBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.journalDocBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.journalDocBox.FormattingEnabled = true;
+            this.journalDocBox.Location = new System.Drawing.Point(502, 665);
+            this.journalDocBox.Name = "journalDocBox";
+            this.journalDocBox.Size = new System.Drawing.Size(220, 21);
+            this.journalDocBox.TabIndex = 8;
             // 
             // surgeryInspectationPnl
             // 
+            this.surgeryInspectationPnl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.surgeryInspectationPnl.Controls.Add(this.surgeryPsLbl);
             this.surgeryInspectationPnl.Controls.Add(this.surgeryPsTxt);
             this.surgeryInspectationPnl.Controls.Add(this.adSurgeryLbl);
@@ -189,6 +205,7 @@
             // 
             // surgeryPsLbl
             // 
+            this.surgeryPsLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.surgeryPsLbl.AutoSize = true;
             this.surgeryPsLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.surgeryPsLbl.Location = new System.Drawing.Point(628, 49);
@@ -199,6 +216,7 @@
             // 
             // surgeryPsTxt
             // 
+            this.surgeryPsTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.surgeryPsTxt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.surgeryPsTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.surgeryPsTxt.FormattingEnabled = true;
@@ -209,6 +227,7 @@
             // 
             // adSurgeryLbl
             // 
+            this.adSurgeryLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.adSurgeryLbl.AutoSize = true;
             this.adSurgeryLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.adSurgeryLbl.Location = new System.Drawing.Point(630, 24);
@@ -219,6 +238,7 @@
             // 
             // chssSurgeryLbl
             // 
+            this.chssSurgeryLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.chssSurgeryLbl.AutoSize = true;
             this.chssSurgeryLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.chssSurgeryLbl.Location = new System.Drawing.Point(544, 49);
@@ -229,6 +249,7 @@
             // 
             // chddSurgeryLbl
             // 
+            this.chddSurgeryLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.chddSurgeryLbl.AutoSize = true;
             this.chddSurgeryLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.chddSurgeryLbl.Location = new System.Drawing.Point(540, 25);
@@ -239,6 +260,7 @@
             // 
             // adSurgeryTxt
             // 
+            this.adSurgeryTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.adSurgeryTxt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.adSurgeryTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.adSurgeryTxt.FormattingEnabled = true;
@@ -262,6 +284,7 @@
             // 
             // chddSurgeryTxt
             // 
+            this.chddSurgeryTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.chddSurgeryTxt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.chddSurgeryTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.chddSurgeryTxt.FormattingEnabled = true;
@@ -272,6 +295,7 @@
             // 
             // chssSurgeryTxt
             // 
+            this.chssSurgeryTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.chssSurgeryTxt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.chssSurgeryTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.chssSurgeryTxt.FormattingEnabled = true;
@@ -282,6 +306,8 @@
             // 
             // surgeryInspectationTxt
             // 
+            this.surgeryInspectationTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.surgeryInspectationTxt.Location = new System.Drawing.Point(6, 19);
             this.surgeryInspectationTxt.Name = "surgeryInspectationTxt";
             this.surgeryInspectationTxt.Size = new System.Drawing.Size(528, 75);
@@ -292,7 +318,10 @@
             // 
             // dutyCardioInspectationPnl
             // 
-            this.dutyCardioInspectationPnl.Controls.Add(this.panel1);
+            this.dutyCardioInspectationPnl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dutyCardioInspectationPnl.Controls.Add(this.finalDiaryBox);
             this.dutyCardioInspectationPnl.Controls.Add(this.allCardionInspectionsPnl);
             this.dutyCardioInspectationPnl.Controls.Add(this.ekgTxt0);
             this.dutyCardioInspectationPnl.Controls.Add(this.addCardioInspetions);
@@ -304,28 +333,30 @@
             this.dutyCardioInspectationPnl.TabStop = false;
             this.dutyCardioInspectationPnl.Text = "Осмотр дежурного кардиореаниматолога:";
             // 
-            // panel1
+            // finalDiaryBox
             // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.releaseTime);
-            this.panel1.Controls.Add(this.releaseDate);
-            this.panel1.Controls.Add(this.releaseTitleLbl);
-            this.panel1.Controls.Add(this.releasePsLbl);
-            this.panel1.Controls.Add(this.releasePsTxt);
-            this.panel1.Controls.Add(this.releaseMonitorLbl);
-            this.panel1.Controls.Add(this.releaseAdLbl);
-            this.panel1.Controls.Add(this.releaseChssLbl);
-            this.panel1.Controls.Add(this.releaseChddLbl);
-            this.panel1.Controls.Add(this.releaseMonitorTxt);
-            this.panel1.Controls.Add(this.releaseAdTxt);
-            this.panel1.Controls.Add(this.releaseChddTxt);
-            this.panel1.Controls.Add(this.releaseChssTxt);
-            this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.releaseInspectionTxt);
-            this.panel1.Location = new System.Drawing.Point(8, 294);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(667, 113);
-            this.panel1.TabIndex = 12;
+            this.finalDiaryBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.finalDiaryBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.finalDiaryBox.Controls.Add(this.releaseTime);
+            this.finalDiaryBox.Controls.Add(this.releaseDate);
+            this.finalDiaryBox.Controls.Add(this.releaseTitleLbl);
+            this.finalDiaryBox.Controls.Add(this.releasePsLbl);
+            this.finalDiaryBox.Controls.Add(this.releasePsTxt);
+            this.finalDiaryBox.Controls.Add(this.releaseMonitorLbl);
+            this.finalDiaryBox.Controls.Add(this.releaseAdLbl);
+            this.finalDiaryBox.Controls.Add(this.releaseChssLbl);
+            this.finalDiaryBox.Controls.Add(this.releaseChddLbl);
+            this.finalDiaryBox.Controls.Add(this.releaseMonitorTxt);
+            this.finalDiaryBox.Controls.Add(this.releaseAdTxt);
+            this.finalDiaryBox.Controls.Add(this.releaseChddTxt);
+            this.finalDiaryBox.Controls.Add(this.releaseChssTxt);
+            this.finalDiaryBox.Controls.Add(this.label9);
+            this.finalDiaryBox.Controls.Add(this.releaseInspectionTxt);
+            this.finalDiaryBox.Location = new System.Drawing.Point(8, 294);
+            this.finalDiaryBox.Name = "finalDiaryBox";
+            this.finalDiaryBox.Size = new System.Drawing.Size(667, 113);
+            this.finalDiaryBox.TabIndex = 12;
             // 
             // releaseTime
             // 
@@ -359,6 +390,7 @@
             // 
             // releasePsLbl
             // 
+            this.releasePsLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.releasePsLbl.AutoSize = true;
             this.releasePsLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.releasePsLbl.Location = new System.Drawing.Point(584, 45);
@@ -369,6 +401,7 @@
             // 
             // releasePsTxt
             // 
+            this.releasePsTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.releasePsTxt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.releasePsTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.releasePsTxt.FormattingEnabled = true;
@@ -379,6 +412,7 @@
             // 
             // releaseMonitorLbl
             // 
+            this.releaseMonitorLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.releaseMonitorLbl.AutoSize = true;
             this.releaseMonitorLbl.Location = new System.Drawing.Point(497, 63);
             this.releaseMonitorLbl.Name = "releaseMonitorLbl";
@@ -388,6 +422,7 @@
             // 
             // releaseAdLbl
             // 
+            this.releaseAdLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.releaseAdLbl.AutoSize = true;
             this.releaseAdLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.releaseAdLbl.Location = new System.Drawing.Point(499, 43);
@@ -398,6 +433,7 @@
             // 
             // releaseChssLbl
             // 
+            this.releaseChssLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.releaseChssLbl.AutoSize = true;
             this.releaseChssLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.releaseChssLbl.Location = new System.Drawing.Point(577, 18);
@@ -408,6 +444,7 @@
             // 
             // releaseChddLbl
             // 
+            this.releaseChddLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.releaseChddLbl.AutoSize = true;
             this.releaseChddLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.releaseChddLbl.Location = new System.Drawing.Point(489, 17);
@@ -418,6 +455,7 @@
             // 
             // releaseMonitorTxt
             // 
+            this.releaseMonitorTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.releaseMonitorTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.releaseMonitorTxt.Location = new System.Drawing.Point(497, 79);
             this.releaseMonitorTxt.Name = "releaseMonitorTxt";
@@ -426,6 +464,7 @@
             // 
             // releaseAdTxt
             // 
+            this.releaseAdTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.releaseAdTxt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.releaseAdTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.releaseAdTxt.FormattingEnabled = true;
@@ -449,6 +488,7 @@
             // 
             // releaseChddTxt
             // 
+            this.releaseChddTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.releaseChddTxt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.releaseChddTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.releaseChddTxt.FormattingEnabled = true;
@@ -459,6 +499,7 @@
             // 
             // releaseChssTxt
             // 
+            this.releaseChssTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.releaseChssTxt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.releaseChssTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.releaseChssTxt.FormattingEnabled = true;
@@ -478,6 +519,8 @@
             // 
             // releaseInspectionTxt
             // 
+            this.releaseInspectionTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.releaseInspectionTxt.Location = new System.Drawing.Point(5, 27);
             this.releaseInspectionTxt.Name = "releaseInspectionTxt";
             this.releaseInspectionTxt.Size = new System.Drawing.Size(486, 75);
@@ -486,6 +529,9 @@
             // 
             // allCardionInspectionsPnl
             // 
+            this.allCardionInspectionsPnl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.allCardionInspectionsPnl.AutoScroll = true;
             this.allCardionInspectionsPnl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.allCardionInspectionsPnl.Controls.Add(this.dutyCardioContainer);
@@ -496,6 +542,8 @@
             // 
             // dutyCardioContainer
             // 
+            this.dutyCardioContainer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dutyCardioContainer.AutoSize = true;
             this.dutyCardioContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.dutyCardioContainer.ColumnCount = 1;
@@ -568,6 +616,8 @@
             // 
             // inspectionTxt0
             // 
+            this.inspectionTxt0.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.inspectionTxt0.Location = new System.Drawing.Point(5, 5);
             this.inspectionTxt0.Name = "inspectionTxt0";
             this.inspectionTxt0.Size = new System.Drawing.Size(368, 71);
@@ -708,6 +758,8 @@
             // 
             // ekgTxt0
             // 
+            this.ekgTxt0.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ekgTxt0.Location = new System.Drawing.Point(39, 412);
             this.ekgTxt0.Name = "ekgTxt0";
             this.ekgTxt0.Size = new System.Drawing.Size(537, 20);
@@ -715,6 +767,7 @@
             // 
             // addCardioInspetions
             // 
+            this.addCardioInspetions.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.addCardioInspetions.Image = global::Cardiology.Properties.Resources.addd1;
             this.addCardioInspetions.Location = new System.Drawing.Point(676, 22);
             this.addCardioInspetions.Name = "addCardioInspetions";
@@ -734,6 +787,7 @@
             // 
             // printBtn
             // 
+            this.printBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.printBtn.Location = new System.Drawing.Point(12, 663);
             this.printBtn.Name = "printBtn";
             this.printBtn.Size = new System.Drawing.Size(115, 23);
@@ -744,6 +798,7 @@
             // 
             // saveBtn
             // 
+            this.saveBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.saveBtn.Location = new System.Drawing.Point(133, 663);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(75, 23);
@@ -751,23 +806,6 @@
             this.saveBtn.Text = "Сохранить";
             this.saveBtn.UseVisualStyleBackColor = true;
             this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
-            // 
-            // kagDiagnosisTxt
-            // 
-            this.kagDiagnosisTxt.Location = new System.Drawing.Point(360, 39);
-            this.kagDiagnosisTxt.Name = "kagDiagnosisTxt";
-            this.kagDiagnosisTxt.Size = new System.Drawing.Size(336, 62);
-            this.kagDiagnosisTxt.TabIndex = 10;
-            this.kagDiagnosisTxt.Text = "";
-            // 
-            // kagDianosisLbl
-            // 
-            this.kagDianosisLbl.AutoSize = true;
-            this.kagDianosisLbl.Location = new System.Drawing.Point(360, 20);
-            this.kagDianosisLbl.Name = "kagDianosisLbl";
-            this.kagDianosisLbl.Size = new System.Drawing.Size(82, 13);
-            this.kagDianosisLbl.TabIndex = 11;
-            this.kagDianosisLbl.Text = "Результат КАГ";
             // 
             // JournalAfterKAG
             // 
@@ -792,8 +830,8 @@
             this.surgeryInspectationPnl.PerformLayout();
             this.dutyCardioInspectationPnl.ResumeLayout(false);
             this.dutyCardioInspectationPnl.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.finalDiaryBox.ResumeLayout(false);
+            this.finalDiaryBox.PerformLayout();
             this.allCardionInspectionsPnl.ResumeLayout(false);
             this.allCardionInspectionsPnl.PerformLayout();
             this.dutyCardioContainer.ResumeLayout(false);
@@ -826,7 +864,6 @@
         private System.Windows.Forms.DateTimePicker inspectionTime0;
         private System.Windows.Forms.Button addCardioInspetions;
         private System.Windows.Forms.Label objectIdLbl0;
-        private System.Windows.Forms.GroupBox rhytmPnl;
         private System.Windows.Forms.RadioButton badRhytmBtn0;
         private System.Windows.Forms.RadioButton goodRhytmBtn0;
         private System.Windows.Forms.Label adSurgeryLbl;
@@ -843,7 +880,7 @@
         private System.Windows.Forms.ComboBox adText0;
         private System.Windows.Forms.ComboBox chddTxt0;
         private System.Windows.Forms.ComboBox chssText0;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel finalDiaryBox;
         private System.Windows.Forms.Label releaseMonitorLbl;
         private System.Windows.Forms.Label releaseAdLbl;
         private System.Windows.Forms.Label releaseChssLbl;

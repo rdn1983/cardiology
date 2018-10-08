@@ -173,6 +173,9 @@
             this.hospitalPatientsTbl.AllowUserToAddRows = false;
             this.hospitalPatientsTbl.AllowUserToDeleteRows = false;
             this.hospitalPatientsTbl.AllowUserToResizeColumns = false;
+            this.hospitalPatientsTbl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.hospitalPatientsTbl.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
             this.hospitalPatientsTbl.BackgroundColor = System.Drawing.SystemColors.Window;
             this.hospitalPatientsTbl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -413,56 +416,56 @@
             // commonConsentItem
             // 
             this.commonConsentItem.Name = "commonConsentItem";
-            this.commonConsentItem.Size = new System.Drawing.Size(316, 22);
+            this.commonConsentItem.Size = new System.Drawing.Size(314, 22);
             this.commonConsentItem.Text = "Согласие общее";
             this.commonConsentItem.Click += new System.EventHandler(this.commonConsentItem_Click);
             // 
             // manipulationAggreementItem
             // 
             this.manipulationAggreementItem.Name = "manipulationAggreementItem";
-            this.manipulationAggreementItem.Size = new System.Drawing.Size(316, 22);
+            this.manipulationAggreementItem.Size = new System.Drawing.Size(314, 22);
             this.manipulationAggreementItem.Text = "Согласие на манипуляцию";
             this.manipulationAggreementItem.Click += new System.EventHandler(this.manipulationAggreementItem_Click);
             // 
             // aidAgreementItem
             // 
             this.aidAgreementItem.Name = "aidAgreementItem";
-            this.aidAgreementItem.Size = new System.Drawing.Size(316, 22);
+            this.aidAgreementItem.Size = new System.Drawing.Size(314, 22);
             this.aidAgreementItem.Text = "Согласие на ВИЧ";
             this.aidAgreementItem.Click += new System.EventHandler(this.aidAgreementItem_Click);
             // 
             // kagItem
             // 
             this.kagItem.Name = "kagItem";
-            this.kagItem.Size = new System.Drawing.Size(316, 22);
+            this.kagItem.Size = new System.Drawing.Size(314, 22);
             this.kagItem.Text = "Согласие на КАГ";
             this.kagItem.Click += new System.EventHandler(this.kagItem_Click);
             // 
             // stentItem
             // 
             this.stentItem.Name = "stentItem";
-            this.stentItem.Size = new System.Drawing.Size(316, 22);
+            this.stentItem.Size = new System.Drawing.Size(314, 22);
             this.stentItem.Text = "Согласие на СТЕНТ";
             this.stentItem.Click += new System.EventHandler(this.stentItem_Click);
             // 
             // aidItem
             // 
             this.aidItem.Name = "aidItem";
-            this.aidItem.Size = new System.Drawing.Size(316, 22);
+            this.aidItem.Size = new System.Drawing.Size(314, 22);
             this.aidItem.Text = "Мед вмешательство без согласия пациента";
             this.aidItem.Click += new System.EventHandler(this.aidItem_Click);
             // 
             // transferItem
             // 
             this.transferItem.Name = "transferItem";
-            this.transferItem.Size = new System.Drawing.Size(316, 22);
+            this.transferItem.Size = new System.Drawing.Size(314, 22);
             this.transferItem.Text = "Перевод в другое отделение и операция";
             this.transferItem.Click += new System.EventHandler(this.transferItem_Click);
             // 
             // anastesiaItem
             // 
             this.anastesiaItem.Name = "anastesiaItem";
-            this.anastesiaItem.Size = new System.Drawing.Size(316, 22);
+            this.anastesiaItem.Size = new System.Drawing.Size(314, 22);
             this.anastesiaItem.Text = "Анестезиолог";
             this.anastesiaItem.Click += new System.EventHandler(this.anastesiaItem_Click);
             // 
@@ -575,6 +578,7 @@
             // 
             // showReleasedPatients
             // 
+            this.showReleasedPatients.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.showReleasedPatients.AutoSize = true;
             this.showReleasedPatients.Location = new System.Drawing.Point(636, 381);
             this.showReleasedPatients.Name = "showReleasedPatients";

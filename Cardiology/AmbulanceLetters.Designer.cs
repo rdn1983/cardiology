@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AmbulanceLetters));
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.smpInfo = new System.Windows.Forms.GroupBox();
             this.doctorsBox = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.toTime = new System.Windows.Forms.DateTimePicker();
@@ -60,7 +60,7 @@
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.gkb52Btn = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
-            this.groupBox1.SuspendLayout();
+            this.smpInfo.SuspendLayout();
             this.gkbBtn.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -70,21 +70,22 @@
             this.tabPage6.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // smpInfo
             // 
-            this.groupBox1.Controls.Add(this.doctorsBox);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.toTime);
-            this.groupBox1.Controls.Add(this.fromTime);
-            this.groupBox1.Controls.Add(this.fromDate);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Location = new System.Drawing.Point(419, 25);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(220, 172);
-            this.groupBox1.TabIndex = 3;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "СМП прибудет:";
+            this.smpInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.smpInfo.Controls.Add(this.doctorsBox);
+            this.smpInfo.Controls.Add(this.label5);
+            this.smpInfo.Controls.Add(this.toTime);
+            this.smpInfo.Controls.Add(this.fromTime);
+            this.smpInfo.Controls.Add(this.fromDate);
+            this.smpInfo.Controls.Add(this.label4);
+            this.smpInfo.Controls.Add(this.label3);
+            this.smpInfo.Location = new System.Drawing.Point(419, 25);
+            this.smpInfo.Name = "smpInfo";
+            this.smpInfo.Size = new System.Drawing.Size(220, 172);
+            this.smpInfo.TabIndex = 3;
+            this.smpInfo.TabStop = false;
+            this.smpInfo.Text = "СМП прибудет:";
             // 
             // doctorsBox
             // 
@@ -152,6 +153,9 @@
             // 
             // gkbBtn
             // 
+            this.gkbBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gkbBtn.Controls.Add(this.tabPage1);
             this.gkbBtn.Controls.Add(this.tabPage2);
             this.gkbBtn.Controls.Add(this.tabPage3);
@@ -179,6 +183,7 @@
             // 
             // gbUdinaBtn
             // 
+            this.gbUdinaBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.gbUdinaBtn.Location = new System.Drawing.Point(250, 143);
             this.gbUdinaBtn.Name = "gbUdinaBtn";
             this.gbUdinaBtn.Size = new System.Drawing.Size(128, 23);
@@ -222,6 +227,7 @@
             // 
             // gkbBuyanovaBtn
             // 
+            this.gkbBuyanovaBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.gkbBuyanovaBtn.Location = new System.Drawing.Point(247, 142);
             this.gkbBuyanovaBtn.Name = "gkbBuyanovaBtn";
             this.gkbBuyanovaBtn.Size = new System.Drawing.Size(128, 23);
@@ -264,6 +270,7 @@
             // 
             // lrcBtn
             // 
+            this.lrcBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lrcBtn.Location = new System.Drawing.Point(244, 142);
             this.lrcBtn.Name = "lrcBtn";
             this.lrcBtn.Size = new System.Drawing.Size(128, 23);
@@ -306,6 +313,7 @@
             // 
             // button4
             // 
+            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button4.Location = new System.Drawing.Point(245, 142);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(128, 23);
@@ -348,6 +356,7 @@
             // 
             // mschBtn
             // 
+            this.mschBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.mschBtn.Location = new System.Drawing.Point(243, 142);
             this.mschBtn.Name = "mschBtn";
             this.mschBtn.Size = new System.Drawing.Size(128, 23);
@@ -380,6 +389,7 @@
             // 
             // gkb52Btn
             // 
+            this.gkb52Btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.gkb52Btn.Location = new System.Drawing.Point(245, 142);
             this.gkb52Btn.Name = "gkb52Btn";
             this.gkb52Btn.Size = new System.Drawing.Size(128, 23);
@@ -402,7 +412,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(648, 211);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.smpInfo);
             this.Controls.Add(this.gkbBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -410,8 +420,8 @@
             this.Name = "AmbulanceLetters";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Письма для скорой";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.smpInfo.ResumeLayout(false);
+            this.smpInfo.PerformLayout();
             this.gkbBtn.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -431,7 +441,7 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox smpInfo;
         private System.Windows.Forms.ComboBox doctorsBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker toTime;

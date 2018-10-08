@@ -30,9 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Consilium));
             this.appointmentTxt0 = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.adminTxt = new System.Windows.Forms.ComboBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.ConsiliumMembersPnl = new System.Windows.Forms.Panel();
             this.addDoctor = new System.Windows.Forms.Button();
             this.allDoctorsPnl = new System.Windows.Forms.Panel();
             this.doctorsContainer = new System.Windows.Forms.TableLayoutPanel();
@@ -66,7 +65,7 @@
             this.evaluationGoal = new System.Windows.Forms.RadioButton();
             this.saveBtn = new System.Windows.Forms.Button();
             this.printBtn = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
+            this.ConsiliumMembersPnl.SuspendLayout();
             this.allDoctorsPnl.SuspendLayout();
             this.doctorsContainer.SuspendLayout();
             this.dotorInfoPnl0.SuspendLayout();
@@ -89,15 +88,6 @@
             this.appointmentTxt0.TabIndex = 1;
             this.appointmentTxt0.SelectedIndexChanged += new System.EventHandler(this.appointmentTxt0_SelectedIndexChanged);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 213);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 13);
-            this.label1.TabIndex = 24;
-            this.label1.Text = "Цель консилиума";
-            // 
             // adminTxt
             // 
             this.adminTxt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -107,19 +97,22 @@
             this.adminTxt.Size = new System.Drawing.Size(302, 21);
             this.adminTxt.TabIndex = 26;
             // 
-            // panel1
+            // ConsiliumMembersPnl
             // 
-            this.panel1.BackColor = System.Drawing.Color.Cornsilk;
-            this.panel1.Controls.Add(this.addDoctor);
-            this.panel1.Controls.Add(this.allDoctorsPnl);
-            this.panel1.Controls.Add(this.consiliumMembersLbl);
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(543, 242);
-            this.panel1.TabIndex = 27;
+            this.ConsiliumMembersPnl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ConsiliumMembersPnl.BackColor = System.Drawing.Color.Cornsilk;
+            this.ConsiliumMembersPnl.Controls.Add(this.addDoctor);
+            this.ConsiliumMembersPnl.Controls.Add(this.allDoctorsPnl);
+            this.ConsiliumMembersPnl.Controls.Add(this.consiliumMembersLbl);
+            this.ConsiliumMembersPnl.Location = new System.Drawing.Point(0, 0);
+            this.ConsiliumMembersPnl.Name = "ConsiliumMembersPnl";
+            this.ConsiliumMembersPnl.Size = new System.Drawing.Size(543, 242);
+            this.ConsiliumMembersPnl.TabIndex = 27;
             // 
             // addDoctor
             // 
+            this.addDoctor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.addDoctor.Image = ((System.Drawing.Image)(resources.GetObject("addDoctor.Image")));
             this.addDoctor.Location = new System.Drawing.Point(510, 12);
             this.addDoctor.Name = "addDoctor";
@@ -130,6 +123,8 @@
             // 
             // allDoctorsPnl
             // 
+            this.allDoctorsPnl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.allDoctorsPnl.AutoScroll = true;
             this.allDoctorsPnl.Controls.Add(this.doctorsContainer);
             this.allDoctorsPnl.Location = new System.Drawing.Point(3, 42);
@@ -139,6 +134,8 @@
             // 
             // doctorsContainer
             // 
+            this.doctorsContainer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.doctorsContainer.AutoSize = true;
             this.doctorsContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.doctorsContainer.ColumnCount = 1;
@@ -155,6 +152,8 @@
             // 
             // dotorInfoPnl0
             // 
+            this.dotorInfoPnl0.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dotorInfoPnl0.Controls.Add(this.removeBtn0);
             this.dotorInfoPnl0.Controls.Add(this.doctorWho0);
             this.dotorInfoPnl0.Controls.Add(this.objectIdLbl0);
@@ -166,7 +165,6 @@
             // 
             // removeBtn0
             // 
-            this.removeBtn0.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.removeBtn0.Image = global::Cardiology.Properties.Resources.remove;
             this.removeBtn0.Location = new System.Drawing.Point(502, 2);
             this.removeBtn0.Margin = new System.Windows.Forms.Padding(0);
@@ -207,6 +205,7 @@
             // 
             // dutyAdminTodayPnl
             // 
+            this.dutyAdminTodayPnl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dutyAdminTodayPnl.BackColor = System.Drawing.Color.DodgerBlue;
             this.dutyAdminTodayPnl.Controls.Add(this.dutyAdminLbl);
             this.dutyAdminTodayPnl.Controls.Add(this.adminTxt);
@@ -229,6 +228,9 @@
             // 
             // goalContainer
             // 
+            this.goalContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.goalContainer.BackColor = System.Drawing.Color.PeachPuff;
             this.goalContainer.Controls.Add(this.goalTxt);
             this.goalContainer.Controls.Add(this.goalLbl);
@@ -239,6 +241,8 @@
             // 
             // goalTxt
             // 
+            this.goalTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.goalTxt.Location = new System.Drawing.Point(9, 16);
             this.goalTxt.Name = "goalTxt";
             this.goalTxt.Size = new System.Drawing.Size(855, 58);
@@ -257,6 +261,8 @@
             // 
             // dynamicsContainer
             // 
+            this.dynamicsContainer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dynamicsContainer.BackColor = System.Drawing.Color.LightSalmon;
             this.dynamicsContainer.Controls.Add(this.dynamicsTxt);
             this.dynamicsContainer.Controls.Add(this.dynamicsLbl);
@@ -267,6 +273,8 @@
             // 
             // dynamicsTxt
             // 
+            this.dynamicsTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dynamicsTxt.Location = new System.Drawing.Point(9, 16);
             this.dynamicsTxt.Name = "dynamicsTxt";
             this.dynamicsTxt.Size = new System.Drawing.Size(855, 58);
@@ -285,6 +293,8 @@
             // 
             // diagnosisContainer
             // 
+            this.diagnosisContainer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.diagnosisContainer.BackColor = System.Drawing.Color.Salmon;
             this.diagnosisContainer.Controls.Add(this.diagnosisTxt1);
             this.diagnosisContainer.Controls.Add(this.diagnosisTxt0);
@@ -304,6 +314,8 @@
             // 
             // diagnosisTxt0
             // 
+            this.diagnosisTxt0.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.diagnosisTxt0.Location = new System.Drawing.Point(9, 16);
             this.diagnosisTxt0.Name = "diagnosisTxt0";
             this.diagnosisTxt0.Size = new System.Drawing.Size(425, 58);
@@ -322,6 +334,8 @@
             // 
             // decisionContainer
             // 
+            this.decisionContainer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.decisionContainer.BackColor = System.Drawing.Color.PaleGreen;
             this.decisionContainer.Controls.Add(this.decisionVariantsPnl);
             this.decisionContainer.Controls.Add(this.decisionTxt);
@@ -333,6 +347,7 @@
             // 
             // decisionVariantsPnl
             // 
+            this.decisionVariantsPnl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.decisionVariantsPnl.Controls.Add(this.oksWithStBtn);
             this.decisionVariantsPnl.Controls.Add(this.oksDeclineBtn);
             this.decisionVariantsPnl.Controls.Add(this.oksAcceptBtn);
@@ -399,6 +414,8 @@
             // 
             // decisionTxt
             // 
+            this.decisionTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.decisionTxt.Location = new System.Drawing.Point(9, 16);
             this.decisionTxt.Name = "decisionTxt";
             this.decisionTxt.Size = new System.Drawing.Size(638, 73);
@@ -417,6 +434,8 @@
             // 
             // operationGoalPnl
             // 
+            this.operationGoalPnl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.operationGoalPnl.Controls.Add(this.revaskularizationGoal);
             this.operationGoalPnl.Controls.Add(this.evaluationGoal);
             this.operationGoalPnl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -456,6 +475,7 @@
             // 
             // saveBtn
             // 
+            this.saveBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.saveBtn.Location = new System.Drawing.Point(679, 631);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(164, 23);
@@ -466,6 +486,7 @@
             // 
             // printBtn
             // 
+            this.printBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.printBtn.Location = new System.Drawing.Point(679, 660);
             this.printBtn.Name = "printBtn";
             this.printBtn.Size = new System.Drawing.Size(164, 23);
@@ -487,15 +508,14 @@
             this.Controls.Add(this.dynamicsContainer);
             this.Controls.Add(this.goalContainer);
             this.Controls.Add(this.dutyAdminTodayPnl);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.ConsiliumMembersPnl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Consilium";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Консилиум";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.ConsiliumMembersPnl.ResumeLayout(false);
+            this.ConsiliumMembersPnl.PerformLayout();
             this.allDoctorsPnl.ResumeLayout(false);
             this.allDoctorsPnl.PerformLayout();
             this.doctorsContainer.ResumeLayout(false);
@@ -516,15 +536,13 @@
             this.operationGoalPnl.ResumeLayout(false);
             this.operationGoalPnl.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
         private System.Windows.Forms.ComboBox appointmentTxt0;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox adminTxt;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel ConsiliumMembersPnl;
         private System.Windows.Forms.Label consiliumMembersLbl;
         private System.Windows.Forms.Panel dutyAdminTodayPnl;
         private System.Windows.Forms.Label dutyAdminLbl;

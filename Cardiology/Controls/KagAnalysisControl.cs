@@ -29,9 +29,9 @@ namespace Cardiology
                 kagManipulationTxt.Text = kag.DssKagManipulation;
                 kagActionsTxt.Text = kag.DssKagAction;
                 DateTime startTime = kag.DsdtStartTime;
-                kagDate.Value = startTime;
-                kagStartTime.Value = startTime;
-                kagEndTime.Value = kag.DsdtEndTime;
+                kagDate.Value = startTime == null || startTime.CompareTo(DateTime.MinValue) <= 0 ? DateTime.Now : startTime;
+                kagStartTime.Value = startTime == null || startTime.CompareTo(DateTime.MinValue) <= 0 ? DateTime.Now : startTime;
+                kagEndTime.Value = kag.DsdtEndTime == null || kag.DsdtEndTime.CompareTo(DateTime.MinValue) <= 0 ? DateTime.Now : kag.DsdtEndTime;
                 title.Text = "Анализы за " + kag.RCreationDate.ToShortDateString();
             }
             else
@@ -66,6 +66,7 @@ namespace Cardiology
                 kag.DssResults = kagResultsTxt.Text;
                 kag.DssKagAction = kagActionsTxt.Text;
                 kag.DsdtStartTime = constructDateWIthTime(kagDate.Value, kagStartTime.Value);
+                kag.DsdtAnalysisDate = constructDateWIthTime(kagDate.Value, kagStartTime.Value);
                 kag.DsdtEndTime = constructDateWIthTime(kagDate.Value, kagEndTime.Value);
 
                 objectId = service.updateOrCreateIfNeedObject<DdtKag>(kag, DdtKag.TABLE_NAME, kag.ObjectId);

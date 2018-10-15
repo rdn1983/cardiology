@@ -11,6 +11,7 @@ namespace Cardiology
     {
         private DdtHospital hospitalitySession;
         private DdtInspection inspectionObj;
+        private string kagId;
 
         public Inspection(DdtHospital hospitalitySession, string id)
         {
@@ -21,8 +22,12 @@ namespace Cardiology
 
         private void initControls(string inspectionObjId)
         {
+            kagContainer.Visible = false;
             DataService service = new DataService();
             inspectionObj = service.queryObjectById<DdtInspection>(DdtInspection.TABLE_NAME, inspectionObjId);
+            DateTime startDate = inspectionObj == null ? DateTime.Now : inspectionObj.DsdtInspectionDate;
+            DdtJournal kagJournal = CommonUtils.resolveKagJournal(service, startDate, hospitalitySession.ObjectId);
+
             if (inspectionObj != null)
             {
                 complaintsTxt.Text = inspectionObj.DssComplaints;
@@ -33,20 +38,24 @@ namespace Cardiology
 
                 initIssuedCure(service);
                 initAnalysis(service);
-            } else
+            }
+            else
             {
-                DdtJournal kagJournal = service.queryObject<DdtJournal>(@"SELECT * FROM " + DdtJournal.TABLE_NAME +
-                    " WHERE dsid_hospitality_session='"+hospitalitySession.ObjectId+"' AND dsi_journal_type=" + (int) DdtJournalDsiType.AFTER_KAG +
-                    " ORDER BY dsdt_admission_date desc");
-                if (kagJournal!=null)
+                if (kagJournal != null)
                 {
                     diagnosisTxt.Text = kagJournal.DssDiagnosis;
-                } else
+                }
+                else
                 {
                     diagnosisTxt.Text = hospitalitySession.DssDiagnosis;
                 }
+
+
             }
+
+            initKag(service, kagJournal);
         }
+
 
         private void initAnalysis(DataService service)
         {
@@ -96,6 +105,36 @@ namespace Cardiology
                     container.Controls.Add(control);
                 }
             }
+        }
+
+        private void initKag(DataService service, DdtJournal kagJournal)
+        {
+            bool hasKag = false;
+            if (kagJournal != null)
+            {
+                DdtKag kag = service.queryObjectByAttrCond<DdtKag>(DdtKag.TABLE_NAME, "dsid_parent", kagJournal.RObjectId, true);
+                if (kag != null)
+                {
+                    kagId = kag.ObjectId;
+                    TableLayoutPanel container = getTabContainer("kagTab", "КАГ", true);
+                    KagAnalysisControl specControl = new KagAnalysisControl(kag.ObjectId, true, hospitalitySession.ObjectId);
+                    container.Controls.Clear();
+                    container.Controls.Add(specControl);
+                    kagContainer.Visible = true;
+                    hasKag = true;
+                }
+            }
+            if (!hasKag)
+            {
+                kagId = null;
+                kagContainer.Visible = false;
+                int index = tabbedAnalysis.TabPages.IndexOfKey("kagTab");
+                if (index >= 0)
+                {
+                    tabbedAnalysis.TabPages.RemoveAt(index);
+                }
+            }
+
         }
 
         private void initIssuedCure(DataService service)
@@ -303,10 +342,19 @@ namespace Cardiology
         private void nextBtn_Click(object sender, EventArgs e)
         {
             int currentTabIndx = tabbedContainer.SelectedIndex;
-            if (currentTabIndx < tabbedContainer.TabCount - 1 )
+            if (currentTabIndx < tabbedContainer.TabCount - 1)
             {
                 tabbedContainer.SelectTab(++currentTabIndx);
             }
+        }
+
+        private void inspectionDate_ValueChanged(object sender, EventArgs e)
+        {
+            DataService service = new DataService();
+            DateTime startDate = CommonUtils.constructDateWIthTime(inspectionDate.Value, inspectionTime.Value);
+
+            DdtJournal kagJournal = CommonUtils.resolveKagJournal(service, startDate, hospitalitySession.ObjectId);
+            initKag(service, kagJournal);
         }
     }
 }

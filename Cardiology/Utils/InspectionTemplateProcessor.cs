@@ -1,4 +1,5 @@
 ﻿using Cardiology.Model;
+using Cardiology.Model.Dictionary;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -49,6 +50,7 @@ namespace Cardiology.Utils
             putHolterData(values, service, obj.RObjectId);
             putSpecialistData(values, service, obj.RObjectId);
             putUziData(values, service, obj.RObjectId);
+            putKagData(values, service, obj.DsidHospitalitySession);
 
             return TemplatesUtils.fillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + TEMPLATE_FILE_NAME, values);
         }
@@ -83,6 +85,26 @@ namespace Cardiology.Utils
             }
             values.Add("{on_spec}", lspecobj.Count > 0 ? "Заключения специалистов:" : "");
             values.Add("{spec}", specBld.ToString() + (lspecobj.Count > 0 ? "\n" : ""));
+        }
+
+        private void putKagData(Dictionary<string, string> values, DataService service, string sessionId)
+        {
+            StringBuilder bld = new StringBuilder();
+            DdtJournal kagJournal = service.queryObject<DdtJournal>(@"SELECT * FROM " + DdtJournal.TABLE_NAME +
+                   " WHERE dsid_hospitality_session='" + sessionId + "' AND dsi_journal_type=" + (int)DdtJournalDsiType.AFTER_KAG +
+                   " ORDER BY dsdt_admission_date desc");
+            if (kagJournal != null)
+            {
+                DdtKag kag = service.queryObjectByAttrCond<DdtKag>(DdtKag.TABLE_NAME, "dsid_parent", kagJournal.RObjectId, true);
+                if (kag != null)
+                {
+                    bld.Append("Пациент в экстренном порядке проведена КАГ. Коронарография от ")
+                        .Append(kag.DsdtAnalysisDate.ToShortDateString())
+                        .Append(":")
+                        .Append(kag.DssResults);
+                }
+            }
+            values.Add("{kag}", bld.ToString());
         }
 
         private void putHolterData(Dictionary<string, string> values, DataService service, string objId)

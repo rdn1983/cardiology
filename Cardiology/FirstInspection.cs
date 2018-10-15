@@ -62,7 +62,7 @@ namespace Cardiology
         private void initPatientInfo(DataService service)
         {
             DdtPatient patient = service.queryObjectById<DdtPatient>(DdtPatient.TABLENAME, hospitalSession.DsidPatient);
-            if(patient!=null)
+            if (patient != null)
             {
                 patientInitialsLbl.Text = patient.DssInitials;
             }
@@ -369,7 +369,10 @@ namespace Cardiology
         {
             DdtIssuedMedicineList medList = service.queryObject<DdtIssuedMedicineList>(@"SELECT * FROM ddt_issued_medicine_list WHERE dsid_hospitality_session='" +
                 hospitalSession.ObjectId + "' AND dss_parent_type='ddt_anamnesis'");
-            service.update(@"DELETE FROM " + DdtIssuedMedicine.TABLE_NAME + " WHERE dsid_med_list='" + medList.ObjectId + "'");
+            if (medList != null)
+            {
+                service.update(@"DELETE FROM " + DdtIssuedMedicine.TABLE_NAME + " WHERE dsid_med_list='" + medList.ObjectId + "'");
+            }
         }
 
         private string getDefaultValueForType(string controlName, string baseType)

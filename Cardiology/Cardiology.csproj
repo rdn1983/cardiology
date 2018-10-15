@@ -141,6 +141,12 @@
     <Compile Include="Controls\HormonesControl.Designer.cs">
       <DependentUpon>HormonesControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\JournalKAGControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\JournalKAGControl.Designer.cs">
+      <DependentUpon>JournalKAGControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\JournalNoKAGControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -380,6 +386,7 @@
     <Compile Include="Utils\ITemplateProcessor.cs" />
     <Compile Include="Utils\TemplateProcessorManager.cs" />
     <Compile Include="Utils\JournalTemplateProcessor.cs" />
+    <None Include="Resources\link20.png" />
     <EmbeddedResource Include="AdmissionPatient.resx">
       <DependentUpon>AdmissionPatient.cs</DependentUpon>
     </EmbeddedResource>
@@ -418,6 +425,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\IssuedMedicineControl.resx">
       <DependentUpon>IssuedMedicineControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\JournalKAGControl.resx">
+      <DependentUpon>JournalKAGControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\JournalNoKAGControl.resx">
       <DependentUpon>JournalNoKAGControl.cs</DependentUpon>

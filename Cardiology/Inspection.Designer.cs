@@ -32,6 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inspection));
             this.tabbedContainer = new System.Windows.Forms.TabControl();
             this.baseTab = new System.Windows.Forms.TabPage();
+            this.kagContainer = new System.Windows.Forms.Panel();
+            this.kagInfo = new System.Windows.Forms.Label();
             this.resultTxt = new System.Windows.Forms.RichTextBox();
             this.resultLbl = new System.Windows.Forms.Label();
             this.diagnosisLbl = new System.Windows.Forms.Label();
@@ -64,6 +66,7 @@
             this.specialistItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabbedContainer.SuspendLayout();
             this.baseTab.SuspendLayout();
+            this.kagContainer.SuspendLayout();
             this.analysisTab.SuspendLayout();
             this.isssuedMedsTab.SuspendLayout();
             this.medicinesPnl.SuspendLayout();
@@ -81,11 +84,13 @@
             this.tabbedContainer.Location = new System.Drawing.Point(2, 1);
             this.tabbedContainer.Name = "tabbedContainer";
             this.tabbedContainer.SelectedIndex = 0;
-            this.tabbedContainer.Size = new System.Drawing.Size(848, 533);
+            this.tabbedContainer.ShowToolTips = true;
+            this.tabbedContainer.Size = new System.Drawing.Size(835, 533);
             this.tabbedContainer.TabIndex = 19;
             // 
             // baseTab
             // 
+            this.baseTab.Controls.Add(this.kagContainer);
             this.baseTab.Controls.Add(this.resultTxt);
             this.baseTab.Controls.Add(this.resultLbl);
             this.baseTab.Controls.Add(this.diagnosisLbl);
@@ -101,18 +106,38 @@
             this.baseTab.Location = new System.Drawing.Point(4, 22);
             this.baseTab.Name = "baseTab";
             this.baseTab.Padding = new System.Windows.Forms.Padding(3);
-            this.baseTab.Size = new System.Drawing.Size(840, 507);
+            this.baseTab.Size = new System.Drawing.Size(827, 507);
             this.baseTab.TabIndex = 0;
             this.baseTab.Text = "Общее";
+            this.baseTab.ToolTipText = "14452";
             this.baseTab.UseVisualStyleBackColor = true;
+            // 
+            // kagContainer
+            // 
+            this.kagContainer.Controls.Add(this.kagInfo);
+            this.kagContainer.Location = new System.Drawing.Point(15, 360);
+            this.kagContainer.Name = "kagContainer";
+            this.kagContainer.Size = new System.Drawing.Size(792, 27);
+            this.kagContainer.TabIndex = 15;
+            // 
+            // kagInfo
+            // 
+            this.kagInfo.AutoSize = true;
+            this.kagInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.kagInfo.Location = new System.Drawing.Point(3, 5);
+            this.kagInfo.Name = "kagInfo";
+            this.kagInfo.Size = new System.Drawing.Size(700, 13);
+            this.kagInfo.TabIndex = 13;
+            this.kagInfo.Text = "Пациенту в экстренном порядке была проведена КАГ. Данные КАГ можно просмотреть на" +
+    " вкладке  Анализы/КАГ.";
             // 
             // resultTxt
             // 
             this.resultTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.resultTxt.Location = new System.Drawing.Point(15, 384);
+            this.resultTxt.Location = new System.Drawing.Point(15, 433);
             this.resultTxt.Name = "resultTxt";
-            this.resultTxt.Size = new System.Drawing.Size(805, 68);
+            this.resultTxt.Size = new System.Drawing.Size(792, 68);
             this.resultTxt.TabIndex = 12;
             this.resultTxt.Text = "необходимо продолжить лечение в отделение кардиореанимации";
             // 
@@ -120,7 +145,7 @@
             // 
             this.resultLbl.AutoSize = true;
             this.resultLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.resultLbl.Location = new System.Drawing.Point(15, 368);
+            this.resultLbl.Location = new System.Drawing.Point(15, 417);
             this.resultLbl.Name = "resultLbl";
             this.resultLbl.Size = new System.Drawing.Size(128, 13);
             this.resultLbl.TabIndex = 11;
@@ -142,7 +167,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.diagnosisTxt.Location = new System.Drawing.Point(15, 57);
             this.diagnosisTxt.Name = "diagnosisTxt";
-            this.diagnosisTxt.Size = new System.Drawing.Size(805, 56);
+            this.diagnosisTxt.Size = new System.Drawing.Size(792, 56);
             this.diagnosisTxt.TabIndex = 2;
             this.diagnosisTxt.Text = "";
             // 
@@ -153,6 +178,7 @@
             this.inspectionDate.Name = "inspectionDate";
             this.inspectionDate.Size = new System.Drawing.Size(123, 20);
             this.inspectionDate.TabIndex = 0;
+            this.inspectionDate.ValueChanged += new System.EventHandler(this.inspectionDate_ValueChanged);
             // 
             // inspectionTime
             // 
@@ -170,7 +196,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.complaintsTxt.Location = new System.Drawing.Point(15, 135);
             this.complaintsTxt.Name = "complaintsTxt";
-            this.complaintsTxt.Size = new System.Drawing.Size(805, 51);
+            this.complaintsTxt.Size = new System.Drawing.Size(792, 51);
             this.complaintsTxt.TabIndex = 3;
             this.complaintsTxt.Text = "жалобы на слабость";
             // 
@@ -180,14 +206,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.inspectionTxt.Location = new System.Drawing.Point(15, 205);
             this.inspectionTxt.Name = "inspectionTxt";
-            this.inspectionTxt.Size = new System.Drawing.Size(805, 74);
+            this.inspectionTxt.Size = new System.Drawing.Size(792, 74);
             this.inspectionTxt.TabIndex = 4;
             this.inspectionTxt.Text = resources.GetString("inspectionTxt.Text");
             // 
             // kateterPlacementLbl
             // 
             this.kateterPlacementLbl.AutoSize = true;
-            this.kateterPlacementLbl.Location = new System.Drawing.Point(15, 284);
+            this.kateterPlacementLbl.Location = new System.Drawing.Point(15, 289);
             this.kateterPlacementLbl.Name = "kateterPlacementLbl";
             this.kateterPlacementLbl.Size = new System.Drawing.Size(146, 13);
             this.kateterPlacementLbl.TabIndex = 9;
@@ -197,9 +223,9 @@
             // 
             this.kateterPlacementTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.kateterPlacementTxt.Location = new System.Drawing.Point(15, 300);
+            this.kateterPlacementTxt.Location = new System.Drawing.Point(15, 305);
             this.kateterPlacementTxt.Name = "kateterPlacementTxt";
-            this.kateterPlacementTxt.Size = new System.Drawing.Size(805, 49);
+            this.kateterPlacementTxt.Size = new System.Drawing.Size(792, 49);
             this.kateterPlacementTxt.TabIndex = 5;
             this.kateterPlacementTxt.Text = "Место установки венозного катетера - без особенностей";
             // 
@@ -228,7 +254,7 @@
             this.analysisTab.Location = new System.Drawing.Point(4, 22);
             this.analysisTab.Name = "analysisTab";
             this.analysisTab.Padding = new System.Windows.Forms.Padding(3);
-            this.analysisTab.Size = new System.Drawing.Size(840, 507);
+            this.analysisTab.Size = new System.Drawing.Size(827, 507);
             this.analysisTab.TabIndex = 1;
             this.analysisTab.Text = "Анализы";
             this.analysisTab.UseVisualStyleBackColor = true;
@@ -243,14 +269,14 @@
             this.tabbedAnalysis.Multiline = true;
             this.tabbedAnalysis.Name = "tabbedAnalysis";
             this.tabbedAnalysis.SelectedIndex = 0;
-            this.tabbedAnalysis.Size = new System.Drawing.Size(794, 500);
+            this.tabbedAnalysis.Size = new System.Drawing.Size(781, 500);
             this.tabbedAnalysis.TabIndex = 8;
             // 
             // addAnalysis
             // 
             this.addAnalysis.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.addAnalysis.Image = global::Cardiology.Properties.Resources.addd1;
-            this.addAnalysis.Location = new System.Drawing.Point(806, 6);
+            this.addAnalysis.Location = new System.Drawing.Point(793, 6);
             this.addAnalysis.Name = "addAnalysis";
             this.addAnalysis.Size = new System.Drawing.Size(28, 28);
             this.addAnalysis.TabIndex = 1;
@@ -263,7 +289,7 @@
             this.isssuedMedsTab.Controls.Add(this.addMedicineBtn);
             this.isssuedMedsTab.Location = new System.Drawing.Point(4, 22);
             this.isssuedMedsTab.Name = "isssuedMedsTab";
-            this.isssuedMedsTab.Size = new System.Drawing.Size(840, 507);
+            this.isssuedMedsTab.Size = new System.Drawing.Size(827, 507);
             this.isssuedMedsTab.TabIndex = 2;
             this.isssuedMedsTab.Text = "Назначения";
             this.isssuedMedsTab.UseVisualStyleBackColor = true;
@@ -276,7 +302,7 @@
             this.medicinesPnl.Controls.Add(this.issuedMedicineControl1);
             this.medicinesPnl.Location = new System.Drawing.Point(3, 15);
             this.medicinesPnl.Name = "medicinesPnl";
-            this.medicinesPnl.Size = new System.Drawing.Size(760, 489);
+            this.medicinesPnl.Size = new System.Drawing.Size(747, 489);
             this.medicinesPnl.TabIndex = 3;
             // 
             // issuedMedicineControl1
@@ -287,14 +313,14 @@
             this.issuedMedicineControl1.AutoSize = true;
             this.issuedMedicineControl1.Location = new System.Drawing.Point(3, 3);
             this.issuedMedicineControl1.Name = "issuedMedicineControl1";
-            this.issuedMedicineControl1.Size = new System.Drawing.Size(10, 11);
+            this.issuedMedicineControl1.Size = new System.Drawing.Size(6, 11);
             this.issuedMedicineControl1.TabIndex = 0;
             // 
             // addMedicineBtn
             // 
             this.addMedicineBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.addMedicineBtn.Image = global::Cardiology.Properties.Resources.addd1;
-            this.addMedicineBtn.Location = new System.Drawing.Point(806, 15);
+            this.addMedicineBtn.Location = new System.Drawing.Point(793, 15);
             this.addMedicineBtn.Name = "addMedicineBtn";
             this.addMedicineBtn.Size = new System.Drawing.Size(28, 28);
             this.addMedicineBtn.TabIndex = 2;
@@ -304,7 +330,7 @@
             // printBtn
             // 
             this.printBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.printBtn.Location = new System.Drawing.Point(613, 561);
+            this.printBtn.Location = new System.Drawing.Point(600, 561);
             this.printBtn.Name = "printBtn";
             this.printBtn.Size = new System.Drawing.Size(237, 23);
             this.printBtn.TabIndex = 18;
@@ -315,7 +341,7 @@
             // saveBtn
             // 
             this.saveBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.saveBtn.Location = new System.Drawing.Point(775, 537);
+            this.saveBtn.Location = new System.Drawing.Point(762, 537);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(75, 23);
             this.saveBtn.TabIndex = 17;
@@ -326,7 +352,7 @@
             // nextBtn
             // 
             this.nextBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.nextBtn.Location = new System.Drawing.Point(694, 537);
+            this.nextBtn.Location = new System.Drawing.Point(681, 537);
             this.nextBtn.Name = "nextBtn";
             this.nextBtn.Size = new System.Drawing.Size(75, 23);
             this.nextBtn.TabIndex = 16;
@@ -337,7 +363,7 @@
             // previousBtn
             // 
             this.previousBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.previousBtn.Location = new System.Drawing.Point(613, 537);
+            this.previousBtn.Location = new System.Drawing.Point(600, 537);
             this.previousBtn.Name = "previousBtn";
             this.previousBtn.Size = new System.Drawing.Size(75, 23);
             this.previousBtn.TabIndex = 15;
@@ -403,7 +429,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(852, 585);
+            this.ClientSize = new System.Drawing.Size(839, 585);
             this.Controls.Add(this.tabbedContainer);
             this.Controls.Add(this.printBtn);
             this.Controls.Add(this.saveBtn);
@@ -417,6 +443,8 @@
             this.tabbedContainer.ResumeLayout(false);
             this.baseTab.ResumeLayout(false);
             this.baseTab.PerformLayout();
+            this.kagContainer.ResumeLayout(false);
+            this.kagContainer.PerformLayout();
             this.analysisTab.ResumeLayout(false);
             this.isssuedMedsTab.ResumeLayout(false);
             this.medicinesPnl.ResumeLayout(false);
@@ -460,5 +488,7 @@
         private System.Windows.Forms.TabControl tabbedAnalysis;
         private System.Windows.Forms.Panel medicinesPnl;
         private IssuedMedicineControl issuedMedicineControl1;
+        private System.Windows.Forms.Label kagInfo;
+        private System.Windows.Forms.Panel kagContainer;
     }
 }

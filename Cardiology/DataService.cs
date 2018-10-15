@@ -5,11 +5,13 @@ using Npgsql.Schema;
 using System.Collections.ObjectModel;
 using System.Text;
 using Cardiology.Utils;
+using NLog;
 
 namespace Cardiology
 {
     internal class DataService
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         public DataService()
         {
 
@@ -48,6 +50,7 @@ namespace Cardiology
             try
             {
                 connection = getConnection();
+                logger.Debug(query);
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(query, connection);
                 return (string)command.ExecuteScalar();
             }
@@ -67,6 +70,7 @@ namespace Cardiology
             {
                 connection = getConnection();
                 string query = convertObjectFieldsInQuery(obj, tableName);
+                logger.Debug(query);
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(query, connection);
                 return (string)command.ExecuteScalar();
             }
@@ -105,7 +109,7 @@ namespace Cardiology
                     }
                 }
                 builder.Append(" WHERE ").Append(conditionAttrName).Append("='").Append(conditionAttrValue).Append("'");
-                Console.WriteLine(builder.ToString());
+                logger.Debug(builder.ToString());
 
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(builder.ToString(), connection);
                 command.ExecuteScalar();
@@ -132,6 +136,7 @@ namespace Cardiology
             try
             {
                 connection = getConnection();
+                logger.Debug(query);
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(query, connection);
                 reader = command.ExecuteReader();
                 while (reader.Read())
@@ -172,6 +177,7 @@ namespace Cardiology
             try
             {
                 connection = getConnection();
+                logger.Debug(query);
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(query, connection);
                 reader = command.ExecuteReader();
 
@@ -356,6 +362,7 @@ namespace Cardiology
             try
             {
                 connection = getConnection();
+                logger.Debug(query);
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(query, connection);
                 reader = command.ExecuteReader();
                 ReadOnlyCollection<NpgsqlDbColumn> columns = reader.GetColumnSchema();
@@ -378,6 +385,36 @@ namespace Cardiology
             return null;
         }
 
+        public DateTime querySingleDateTime(string query)
+        {
+            Npgsql.NpgsqlConnection connection = null;
+            Npgsql.NpgsqlDataReader reader = null;
+            try
+            {
+                connection = getConnection();
+                logger.Debug(query);
+                Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(query, connection);
+                reader = command.ExecuteReader();
+                ReadOnlyCollection<NpgsqlDbColumn> columns = reader.GetColumnSchema();
+                if (reader.Read())
+                {
+                    return reader.GetDateTime(0);
+                }
+            }
+            finally
+            {
+                if (reader != null && !reader.IsClosed)
+                {
+                    reader.Close();
+                }
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+            return default(DateTime);
+        }
+
         public bool queryDelete(string tableName, string AttrName, string attrValue, bool isQuoted)
         {
             return delete(@"DELETE FROM " + tableName + " WHERE " + AttrName + "=" + (isQuoted ? CommonUtils.toQuotedStr(attrValue) : attrValue));
@@ -390,6 +427,7 @@ namespace Cardiology
             try
             {
                 connection = getConnection();
+                logger.Warn(sql);
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 command.ExecuteScalar();
                 return true;

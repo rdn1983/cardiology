@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using Cardiology.Model;
+using Cardiology.Utils;
 
 namespace Cardiology
 {
@@ -48,6 +50,7 @@ namespace Cardiology
             kagDate.Enabled = isEditable;
             kagStartTime.Enabled = isEditable;
             kagEndTime.Enabled = isEditable;
+            showBlanksBtn.Visible = isEditable;
         }
 
         public void saveObject(DdtHospital hospitalitySession, string parentId, string parentType)
@@ -90,6 +93,31 @@ namespace Cardiology
             {
                 kagEndTime.Value = kagStartTime.Value.AddHours(1);
             }
+        }
+
+        private void showBlanksBtn_Click(object sender, EventArgs e)
+        {
+            MouseEventArgs mouseArgs = e as MouseEventArgs;
+            blanksMenu.Show(showBlanksBtn, mouseArgs.Location);
+        }
+
+        private void procedureConsentBlank_Click(object sender, EventArgs e)
+        {
+            Dictionary<string, string> values = new Dictionary<string, string>();
+            TemplatesUtils.fillBlankTemplate("blank_kag_template.doc", hospitalSessionId, values);
+        }
+
+        private void dataProcessingBlank_Click(object sender, EventArgs e)
+        {
+            Dictionary<string, string> values = new Dictionary<string, string>();
+            TemplatesUtils.fillBlankTemplate("blank_common_consent_template.doc", hospitalSessionId, values);
+        }
+
+        private void anesthesiaBlank_Click(object sender, EventArgs e)
+        {
+            Dictionary<string, string> values = new Dictionary<string, string>();
+            values.Add("{time}", DateTime.Now.ToShortTimeString());
+            TemplatesUtils.fillBlankTemplate("blank_anastesia_template.doc", hospitalSessionId, values);
         }
     }
 }

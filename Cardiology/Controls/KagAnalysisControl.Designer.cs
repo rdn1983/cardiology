@@ -127,6 +127,7 @@
             this.kagStartTime.ShowUpDown = true;
             this.kagStartTime.Size = new System.Drawing.Size(171, 20);
             this.kagStartTime.TabIndex = 2;
+            this.kagStartTime.ValueChanged += new System.EventHandler(this.kagStartTime_ValueChanged);
             // 
             // kagEndTime
             // 

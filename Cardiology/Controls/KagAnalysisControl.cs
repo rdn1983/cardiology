@@ -28,10 +28,10 @@ namespace Cardiology
                 kagResultsTxt.Text = kag.DssResults;
                 kagManipulationTxt.Text = kag.DssKagManipulation;
                 kagActionsTxt.Text = kag.DssKagAction;
-                DateTime startTime = kag.DsdtStartTime;
-                kagDate.Value = startTime == null || startTime.CompareTo(DateTime.MinValue) <= 0 ? DateTime.Now : startTime;
-                kagStartTime.Value = startTime == null || startTime.CompareTo(DateTime.MinValue) <= 0 ? DateTime.Now : startTime;
-                kagEndTime.Value = kag.DsdtEndTime == null || kag.DsdtEndTime.CompareTo(DateTime.MinValue) <= 0 ? DateTime.Now : kag.DsdtEndTime;
+                DateTime startTime = kag.DsdtStartTime == default(DateTime) ? DateTime.Now : kag.DsdtStartTime;
+                kagDate.Value = startTime;
+                kagStartTime.Value = startTime;
+                kagEndTime.Value = kag.DsdtEndTime == default(DateTime) ? startTime.AddHours(1) : kag.DsdtEndTime;
                 title.Text = "Анализы за " + kag.RCreationDate.ToShortDateString();
             }
             else
@@ -40,6 +40,7 @@ namespace Cardiology
                 DateTime admissionDate = hospitalitySession.DsdtAdmissionDate;
                 kagDate.Value = admissionDate;
                 kagStartTime.Value = admissionDate.AddMinutes(30);
+                kagEndTime.Value = kagStartTime.Value.AddHours(1);
             }
             kagResultsTxt.Enabled = isEditable;
             kagManipulationTxt.Enabled = isEditable;
@@ -81,6 +82,14 @@ namespace Cardiology
         private DateTime constructDateWIthTime(DateTime dateSource, DateTime timeSource)
         {
             return new DateTime(dateSource.Year, dateSource.Month, dateSource.Day, timeSource.Hour, timeSource.Minute, 0);
+        }
+
+        private void kagStartTime_ValueChanged(object sender, EventArgs e)
+        {
+            if (kagStartTime.Value != default(DateTime))
+            {
+                kagEndTime.Value = kagStartTime.Value.AddHours(1);
+            }
         }
     }
 }

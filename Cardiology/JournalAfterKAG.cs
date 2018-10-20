@@ -53,14 +53,22 @@ namespace Cardiology
                     journalDocBox.SelectedIndex = journalDocBox.FindStringExact(doctors.DssInitials);
 
                     DdtKag kag = service.queryObjectByAttrCond<DdtKag>(DdtKag.TABLE_NAME, "dsid_parent", journal.RObjectId, true);
-                    initKag(kag);
+                    if (kag != null)
+                    {
+                        kagDiagnosisTxt.Text = kag.DssKagAction;
+                    }
 
                     initCardioConslusions(service);
                 }
             }
             else
             {
+                //Для нового дневника ставим время через 1 час после приема. если есть КАГ, то через 15 мин после КАГ
+                admissionDateTxt.Value = hospitalitySession.DsdtAdmissionDate.AddHours(1);
                 admissionTimeTxt.Value = hospitalitySession.DsdtAdmissionDate.AddHours(1);
+                DdtKag kag = service.queryObject<DdtKag>(@"SELECT * FROM ddt_kag WHERE dsid_hospitality_session='" + hospitalitySession.ObjectId + "' ORDER BY dsdt_analysis_date DESC");
+                initKag(kag);
+
                 DdtDoctors doctors = service.queryObjectById<DdtDoctors>(DdtDoctors.TABLE_NAME, hospitalitySession.DsidCuringDoctor);
                 journalDocBox.SelectedIndex = journalDocBox.FindStringExact(doctors.DssInitials);
             }
@@ -70,7 +78,10 @@ namespace Cardiology
         {
             if (kag != null)
             {
-                kagDiagnosisTxt.Text = kag.DssResults;
+                kagDiagnosisTxt.Text = kag.DssKagAction;
+                DateTime kagEndTime = kag.DsdtEndTime == default(DateTime) ? DateTime.Now : kag.DsdtEndTime;
+                admissionDateTxt.Value = kagEndTime.AddMinutes(15);
+                admissionTimeTxt.Value = kagEndTime.AddMinutes(15);
                 kagId = kag.ObjectId;
             }
         }
@@ -159,12 +170,13 @@ namespace Cardiology
                     kag.DsidDoctor = hospitalitySession.DsidCuringDoctor;
                     kag.DsidHospitalitySession = hospitalitySession.ObjectId;
                     kag.DsidPatient = hospitalitySession.DsidPatient;
-                    kag.DsdtAnalysisDate = CommonUtils.constructDateWIthTime(admissionDateTxt.Value, admissionTimeTxt.Value);
-                    kag.DsdtStartTime = CommonUtils.constructDateWIthTime(admissionDateTxt.Value, admissionTimeTxt.Value);
-                    kag.DsdtEndTime = CommonUtils.constructDateWIthTime(admissionDateTxt.Value, admissionTimeTxt.Value);
+                    DateTime admissionDateTime = CommonUtils.constructDateWIthTime(admissionDateTxt.Value, admissionTimeTxt.Value);
+                    kag.DsdtAnalysisDate = admissionDateTime.AddMinutes(-75);
+                    kag.DsdtStartTime = admissionDateTime.AddMinutes(-75); ;
+                    kag.DsdtEndTime = admissionDateTime.AddMinutes(-15); ;
                 }
                 kag.DsidParent = journalId;
-                kag.DssResults = kagDiagnosisTxt.Text;
+                kag.DssKagAction = kagDiagnosisTxt.Text;
                 service.updateOrCreateIfNeedObject<DdtKag>(kag, DdtKag.TABLE_NAME, kag.ObjectId);
             }
 

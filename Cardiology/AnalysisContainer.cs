@@ -88,15 +88,15 @@ namespace Cardiology
             }
             else if (DdtSpecialistConclusion.TABLE_NAME.Equals(typeName))
             {
-                combainingContainer.Controls.Add(new SpecialistConclusionControl(objectId, objectId != null && !objectId.Equals(objectId)));
+                combainingContainer.Controls.Add(new SpecialistConclusionControl(objectId, objectId != null && !objectId.Equals(currentId)));
             }
             else if (DdtHormones.TABLE_NAME.Equals(typeName))
             {
-                combainingContainer.Controls.Add(new HormonesControl(objectId, objectId != null && !objectId.Equals(objectId)));
+                combainingContainer.Controls.Add(new HormonesControl(objectId, objectId != null && !objectId.Equals(currentId)));
             }
             else if (DdtCoagulogram.TABLE_NAME.Equals(typeName))
             {
-                combainingContainer.Controls.Add(new CoagulogrammControl(objectId, objectId != null && !objectId.Equals(objectId)));
+                combainingContainer.Controls.Add(new CoagulogrammControl(objectId, objectId != null && !objectId.Equals(currentId)));
             }
         }
 
@@ -155,7 +155,7 @@ namespace Cardiology
             {
                 selector = new AnalysisSelector();
             }
-            selector.ShowDialog(typeName, "dsid_hospitality_session='" + hospitalitySession.ObjectId + "'", "r_creation_date", "r_object_id", selectedIds);
+            selector.ShowDialog(typeName, "dsid_hospitality_session='" + hospitalitySession.ObjectId + "'", "dsdt_analysis_date", "r_object_id", selectedIds);
             if (selector.isSuccess())
             {
                 List<string> result = selector.returnValues();

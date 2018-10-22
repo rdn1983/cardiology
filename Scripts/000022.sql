@@ -11,6 +11,7 @@ SELECT history.dsid_hospitality_session as dsid_hospitality_session,
 		WHEN 'ddt_kag' THEN 'Анализы: КАГ'
 		WHEN 'ddt_egds' THEN 'Анализы: ЭГДС'
 		WHEN 'ddt_xray' THEN 'Анализы: Рентген'
+		WHEN 'ddt_uzi' THEN 'Анализы: УЗИ'
 		WHEN 'ddt_specialist_conclusion' THEN 'Анализы: Заключение специалистов'
 		WHEN 'ddt_holter' THEN 'Анализы: Холтер'
 		WHEN 'ddt_issued_medicine_list' THEN 'Назначение лекарственных препаратов'

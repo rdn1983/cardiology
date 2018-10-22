@@ -50,14 +50,17 @@
             this.hormonesPnl.Controls.Add(this.ttgLbl);
             this.hormonesPnl.Controls.Add(this.t4Lbl);
             this.hormonesPnl.Controls.Add(this.t3Lbl);
+            this.hormonesPnl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.hormonesPnl.Location = new System.Drawing.Point(3, 3);
             this.hormonesPnl.Name = "hormonesPnl";
             this.hormonesPnl.Size = new System.Drawing.Size(166, 137);
             this.hormonesPnl.TabIndex = 41;
             this.hormonesPnl.TabStop = false;
+            this.hormonesPnl.Text = "Гормоны текущие";
             // 
             // admissionDateTxt
             // 
+            this.admissionDateTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.admissionDateTxt.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.admissionDateTxt.Location = new System.Drawing.Point(69, 26);
             this.admissionDateTxt.Name = "admissionDateTxt";
@@ -69,12 +72,13 @@
             this.admissionDateLbl.AutoSize = true;
             this.admissionDateLbl.Location = new System.Drawing.Point(14, 32);
             this.admissionDateLbl.Name = "admissionDateLbl";
-            this.admissionDateLbl.Size = new System.Drawing.Size(36, 13);
+            this.admissionDateLbl.Size = new System.Drawing.Size(41, 13);
             this.admissionDateLbl.TabIndex = 6;
             this.admissionDateLbl.Text = "Дата:";
             // 
             // ttgTxt
             // 
+            this.ttgTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ttgTxt.Location = new System.Drawing.Point(69, 104);
             this.ttgTxt.Name = "ttgTxt";
             this.ttgTxt.Size = new System.Drawing.Size(85, 20);
@@ -82,6 +86,7 @@
             // 
             // t4Txt
             // 
+            this.t4Txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.t4Txt.Location = new System.Drawing.Point(69, 78);
             this.t4Txt.Name = "t4Txt";
             this.t4Txt.Size = new System.Drawing.Size(85, 20);
@@ -89,6 +94,7 @@
             // 
             // t3Txt
             // 
+            this.t3Txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.t3Txt.Location = new System.Drawing.Point(69, 52);
             this.t3Txt.Name = "t3Txt";
             this.t3Txt.Size = new System.Drawing.Size(85, 20);
@@ -99,7 +105,7 @@
             this.ttgLbl.AutoSize = true;
             this.ttgLbl.Location = new System.Drawing.Point(14, 111);
             this.ttgLbl.Name = "ttgLbl";
-            this.ttgLbl.Size = new System.Drawing.Size(30, 13);
+            this.ttgLbl.Size = new System.Drawing.Size(34, 13);
             this.ttgLbl.TabIndex = 2;
             this.ttgLbl.Text = "ТТГ:";
             // 
@@ -108,7 +114,7 @@
             this.t4Lbl.AutoSize = true;
             this.t4Lbl.Location = new System.Drawing.Point(14, 85);
             this.t4Lbl.Name = "t4Lbl";
-            this.t4Lbl.Size = new System.Drawing.Size(26, 13);
+            this.t4Lbl.Size = new System.Drawing.Size(30, 13);
             this.t4Lbl.TabIndex = 1;
             this.t4Lbl.Text = "Т-4:";
             // 
@@ -117,7 +123,7 @@
             this.t3Lbl.AutoSize = true;
             this.t3Lbl.Location = new System.Drawing.Point(14, 59);
             this.t3Lbl.Name = "t3Lbl";
-            this.t3Lbl.Size = new System.Drawing.Size(26, 13);
+            this.t3Lbl.Size = new System.Drawing.Size(30, 13);
             this.t3Lbl.TabIndex = 0;
             this.t3Lbl.Text = "Т-3:";
             // 

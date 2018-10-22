@@ -32,10 +32,12 @@ namespace Cardiology
             {
                 readonlyEkgTxt.Text = ekg.DssEkg;
                 regularEkgTxt.Text = ekg.DssEkg;
-                readonlyEkgBox.Text = "ЭКГ за " + ekg.RCreationDate.ToShortDateString();
+                analysisDate.Value = ekg.DsdtAnalysisDate;
+                readonlyEkgBox.Text = "ЭКГ за " + ekg.DsdtAnalysisDate.ToShortDateString();
             }
             regularEkgTxt.Enabled = isEditable;
             readonlyEkgTxt.Enabled = isEditable;
+            analysisDate.Enabled = isEditable;
 
             editablePnl.Visible = isEditable;
             readonlyEkgBox.Visible = !isEditable;
@@ -56,6 +58,7 @@ namespace Cardiology
                     ekg.DsidDoctor = hospitalitySession.DsidCuringDoctor;
                     ekg.DsidPatient = hospitalitySession.DsidPatient;
                 }
+                ekg.DsdtAnalysisDate = analysisDate.Value;
                 ekg.DssEkg = regularEkgTxt.Text;
                 ekg.DsidParent = parentId;
                 ekg.DssParentType = parentType;

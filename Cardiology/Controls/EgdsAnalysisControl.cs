@@ -23,9 +23,11 @@ namespace Cardiology
             if (egds != null)
             {
                 regularEgdsTxt.Text = egds.DssEgds;
-                regularEgdsBox.Text = "Контрольное исследование" + egds.RCreationDate.ToShortDateString();
+                analysisTitleLbl.Text = "ЭГДС за " + egds.DsdtAnalysisDate.ToShortDateString();
+                analysisDate.Value = egds.DsdtAnalysisDate;
             }
             regularEgdsTxt.Enabled = isEditable;
+            analysisDate.Enabled = isEditable;
         }
 
         public void saveObject(DdtHospital hospitalitySession, string parentId, string parentType)
@@ -41,6 +43,7 @@ namespace Cardiology
                     egds.DsidDoctor = hospitalitySession.DsidCuringDoctor;
                     egds.DsidPatient = hospitalitySession.DsidPatient;
                 }
+                egds.DsdtAnalysisDate = analysisDate.Value;
                 egds.DssEgds = regularEgdsTxt.Text;
                 egds.DssParentType = parentType;
                 egds.DsidParent = parentId;

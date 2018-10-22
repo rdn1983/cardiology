@@ -26,12 +26,14 @@ namespace Cardiology
                 surgeonTxt.Text = specConclusion.DssSurgeon;
                 neuroSurgeonTxt.Text = specConclusion.DssNeuroSurgeon;
                 endocrinologistTx.Text = specConclusion.DssEndocrinologist;
-                title.Text = "Анализы за " + specConclusion.RCreationDate.ToShortDateString();
+                title.Text = "Заключения специалистов за " + specConclusion.DsdtAnalysisDate.ToShortDateString();
+                analysisDate.Value = specConclusion.DsdtAnalysisDate;
             }
-            neurologTxt.Enabled = isEditable;
-            surgeonTxt.Enabled = isEditable;
-            neuroSurgeonTxt.Enabled = isEditable;
-            endocrinologistTx.Enabled = isEditable;
+            neurologTxt.ReadOnly = !isEditable;
+            surgeonTxt.ReadOnly = !isEditable;
+            neuroSurgeonTxt.ReadOnly = !isEditable;
+            endocrinologistTx.ReadOnly = !isEditable;
+            analysisDate.Enabled = isEditable;
         }
 
         public void saveObject(DdtHospital hospitalitySession, string parentId, string parentType)
@@ -53,6 +55,7 @@ namespace Cardiology
                 specConslusion.DssEndocrinologist = endocrinologistTx.Text;
                 specConslusion.DssParentType = parentType;
                 specConslusion.DsidParent = parentId;
+                specConslusion.DsdtAnalysisDate = analysisDate.Value;
                 objectId = service.updateOrCreateIfNeedObject<DdtSpecialistConclusion>(specConslusion, DdtSpecialistConclusion.TABLE_NAME, specConslusion.ObjectId);
             }
         }

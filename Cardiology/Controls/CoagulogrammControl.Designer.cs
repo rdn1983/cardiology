@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.coagulogramPnl = new System.Windows.Forms.GroupBox();
+            this.admissionDateTxt = new System.Windows.Forms.DateTimePicker();
+            this.admissionDateLbl = new System.Windows.Forms.Label();
             this.ddimerTxt = new System.Windows.Forms.TextBox();
             this.mchoTxt = new System.Windows.Forms.TextBox();
             this.achtvTxt = new System.Windows.Forms.TextBox();
             this.ddimerLbl = new System.Windows.Forms.Label();
             this.mchoLbl = new System.Windows.Forms.Label();
             this.achtvLbl = new System.Windows.Forms.Label();
-            this.admissionDateLbl = new System.Windows.Forms.Label();
-            this.admissionDateTxt = new System.Windows.Forms.DateTimePicker();
             this.coagulogramPnl.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,31 +50,54 @@
             this.coagulogramPnl.Controls.Add(this.ddimerLbl);
             this.coagulogramPnl.Controls.Add(this.mchoLbl);
             this.coagulogramPnl.Controls.Add(this.achtvLbl);
+            this.coagulogramPnl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.coagulogramPnl.Location = new System.Drawing.Point(3, -1);
             this.coagulogramPnl.Name = "coagulogramPnl";
-            this.coagulogramPnl.Size = new System.Drawing.Size(166, 154);
+            this.coagulogramPnl.Size = new System.Drawing.Size(201, 154);
             this.coagulogramPnl.TabIndex = 40;
             this.coagulogramPnl.TabStop = false;
+            this.coagulogramPnl.Text = "Коагулограмма текущая";
+            // 
+            // admissionDateTxt
+            // 
+            this.admissionDateTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.admissionDateTxt.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.admissionDateTxt.Location = new System.Drawing.Point(69, 26);
+            this.admissionDateTxt.Name = "admissionDateTxt";
+            this.admissionDateTxt.Size = new System.Drawing.Size(113, 20);
+            this.admissionDateTxt.TabIndex = 7;
+            // 
+            // admissionDateLbl
+            // 
+            this.admissionDateLbl.AutoSize = true;
+            this.admissionDateLbl.Location = new System.Drawing.Point(12, 27);
+            this.admissionDateLbl.Name = "admissionDateLbl";
+            this.admissionDateLbl.Size = new System.Drawing.Size(41, 13);
+            this.admissionDateLbl.TabIndex = 6;
+            this.admissionDateLbl.Text = "Дата:";
             // 
             // ddimerTxt
             // 
+            this.ddimerTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ddimerTxt.Location = new System.Drawing.Point(69, 118);
             this.ddimerTxt.Name = "ddimerTxt";
-            this.ddimerTxt.Size = new System.Drawing.Size(85, 20);
+            this.ddimerTxt.Size = new System.Drawing.Size(113, 20);
             this.ddimerTxt.TabIndex = 5;
             // 
             // mchoTxt
             // 
+            this.mchoTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.mchoTxt.Location = new System.Drawing.Point(69, 88);
             this.mchoTxt.Name = "mchoTxt";
-            this.mchoTxt.Size = new System.Drawing.Size(85, 20);
+            this.mchoTxt.Size = new System.Drawing.Size(113, 20);
             this.mchoTxt.TabIndex = 4;
             // 
             // achtvTxt
             // 
+            this.achtvTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.achtvTxt.Location = new System.Drawing.Point(69, 56);
             this.achtvTxt.Name = "achtvTxt";
-            this.achtvTxt.Size = new System.Drawing.Size(85, 20);
+            this.achtvTxt.Size = new System.Drawing.Size(113, 20);
             this.achtvTxt.TabIndex = 3;
             // 
             // ddimerLbl
@@ -82,7 +105,7 @@
             this.ddimerLbl.AutoSize = true;
             this.ddimerLbl.Location = new System.Drawing.Point(9, 125);
             this.ddimerLbl.Name = "ddimerLbl";
-            this.ddimerLbl.Size = new System.Drawing.Size(46, 13);
+            this.ddimerLbl.Size = new System.Drawing.Size(54, 13);
             this.ddimerLbl.TabIndex = 2;
             this.ddimerLbl.Text = "D-dimer:";
             // 
@@ -91,7 +114,7 @@
             this.mchoLbl.AutoSize = true;
             this.mchoLbl.Location = new System.Drawing.Point(9, 95);
             this.mchoLbl.Name = "mchoLbl";
-            this.mchoLbl.Size = new System.Drawing.Size(35, 13);
+            this.mchoLbl.Size = new System.Drawing.Size(39, 13);
             this.mchoLbl.TabIndex = 1;
             this.mchoLbl.Text = "МНО:";
             // 
@@ -100,34 +123,17 @@
             this.achtvLbl.AutoSize = true;
             this.achtvLbl.Location = new System.Drawing.Point(9, 59);
             this.achtvLbl.Name = "achtvLbl";
-            this.achtvLbl.Size = new System.Drawing.Size(39, 13);
+            this.achtvLbl.Size = new System.Drawing.Size(44, 13);
             this.achtvLbl.TabIndex = 0;
             this.achtvLbl.Text = "АЧТВ:";
             // 
-            // admissionDateLbl
-            // 
-            this.admissionDateLbl.AutoSize = true;
-            this.admissionDateLbl.Location = new System.Drawing.Point(12, 27);
-            this.admissionDateLbl.Name = "admissionDateLbl";
-            this.admissionDateLbl.Size = new System.Drawing.Size(36, 13);
-            this.admissionDateLbl.TabIndex = 6;
-            this.admissionDateLbl.Text = "Дата:";
-            // 
-            // admissionDateTxt
-            // 
-            this.admissionDateTxt.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.admissionDateTxt.Location = new System.Drawing.Point(69, 26);
-            this.admissionDateTxt.Name = "admissionDateTxt";
-            this.admissionDateTxt.Size = new System.Drawing.Size(85, 20);
-            this.admissionDateTxt.TabIndex = 7;
-            // 
-            // Coagulogramm
+            // CoagulogrammControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.coagulogramPnl);
-            this.Name = "Coagulogramm";
-            this.Size = new System.Drawing.Size(173, 158);
+            this.Name = "CoagulogrammControl";
+            this.Size = new System.Drawing.Size(209, 158);
             this.coagulogramPnl.ResumeLayout(false);
             this.coagulogramPnl.PerformLayout();
             this.ResumeLayout(false);

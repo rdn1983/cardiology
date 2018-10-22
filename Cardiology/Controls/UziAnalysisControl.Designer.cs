@@ -40,6 +40,7 @@
             this.ehoKgTxt = new System.Windows.Forms.RichTextBox();
             this.container = new System.Windows.Forms.Panel();
             this.title = new System.Windows.Forms.Label();
+            this.analysisDate = new System.Windows.Forms.DateTimePicker();
             this.pleursUziBox.SuspendLayout();
             this.uziObpBox.SuspendLayout();
             this.cdsBox.SuspendLayout();
@@ -51,9 +52,9 @@
             // pleursUziBox
             // 
             this.pleursUziBox.Controls.Add(this.pleursUziTxt);
-            this.pleursUziBox.Location = new System.Drawing.Point(3, 507);
+            this.pleursUziBox.Location = new System.Drawing.Point(4, 456);
             this.pleursUziBox.Name = "pleursUziBox";
-            this.pleursUziBox.Size = new System.Drawing.Size(489, 109);
+            this.pleursUziBox.Size = new System.Drawing.Size(489, 93);
             this.pleursUziBox.TabIndex = 9;
             this.pleursUziBox.TabStop = false;
             this.pleursUziBox.Text = "УЗИ плевр:";
@@ -62,16 +63,16 @@
             // 
             this.pleursUziTxt.Location = new System.Drawing.Point(9, 17);
             this.pleursUziTxt.Name = "pleursUziTxt";
-            this.pleursUziTxt.Size = new System.Drawing.Size(471, 84);
+            this.pleursUziTxt.Size = new System.Drawing.Size(471, 73);
             this.pleursUziTxt.TabIndex = 1;
             this.pleursUziTxt.Text = "";
             // 
             // uziObpBox
             // 
             this.uziObpBox.Controls.Add(this.uziObpTxt);
-            this.uziObpBox.Location = new System.Drawing.Point(3, 385);
+            this.uziObpBox.Location = new System.Drawing.Point(4, 357);
             this.uziObpBox.Name = "uziObpBox";
-            this.uziObpBox.Size = new System.Drawing.Size(489, 109);
+            this.uziObpBox.Size = new System.Drawing.Size(489, 93);
             this.uziObpBox.TabIndex = 8;
             this.uziObpBox.TabStop = false;
             this.uziObpBox.Text = "УЗИ ОБП:";
@@ -80,16 +81,16 @@
             // 
             this.uziObpTxt.Location = new System.Drawing.Point(9, 16);
             this.uziObpTxt.Name = "uziObpTxt";
-            this.uziObpTxt.Size = new System.Drawing.Size(471, 84);
+            this.uziObpTxt.Size = new System.Drawing.Size(471, 73);
             this.uziObpTxt.TabIndex = 1;
             this.uziObpTxt.Text = "";
             // 
             // cdsBox
             // 
             this.cdsBox.Controls.Add(this.cdsTxt);
-            this.cdsBox.Location = new System.Drawing.Point(3, 266);
+            this.cdsBox.Location = new System.Drawing.Point(4, 258);
             this.cdsBox.Name = "cdsBox";
-            this.cdsBox.Size = new System.Drawing.Size(489, 109);
+            this.cdsBox.Size = new System.Drawing.Size(489, 93);
             this.cdsBox.TabIndex = 7;
             this.cdsBox.TabStop = false;
             this.cdsBox.Text = "ЦДС:";
@@ -98,16 +99,16 @@
             // 
             this.cdsTxt.Location = new System.Drawing.Point(9, 16);
             this.cdsTxt.Name = "cdsTxt";
-            this.cdsTxt.Size = new System.Drawing.Size(471, 84);
+            this.cdsTxt.Size = new System.Drawing.Size(471, 73);
             this.cdsTxt.TabIndex = 1;
             this.cdsTxt.Text = "";
             // 
             // uzdBox
             // 
             this.uzdBox.Controls.Add(this.uzdTxt);
-            this.uzdBox.Location = new System.Drawing.Point(3, 149);
+            this.uzdBox.Location = new System.Drawing.Point(4, 159);
             this.uzdBox.Name = "uzdBox";
-            this.uzdBox.Size = new System.Drawing.Size(489, 109);
+            this.uzdBox.Size = new System.Drawing.Size(489, 93);
             this.uzdBox.TabIndex = 6;
             this.uzdBox.TabStop = false;
             this.uzdBox.Text = "УЗД БЦА:";
@@ -116,16 +117,16 @@
             // 
             this.uzdTxt.Location = new System.Drawing.Point(9, 16);
             this.uzdTxt.Name = "uzdTxt";
-            this.uzdTxt.Size = new System.Drawing.Size(471, 84);
+            this.uzdTxt.Size = new System.Drawing.Size(471, 73);
             this.uzdTxt.TabIndex = 1;
             this.uzdTxt.Text = "";
             // 
             // ehoKgBox
             // 
             this.ehoKgBox.Controls.Add(this.ehoKgTxt);
-            this.ehoKgBox.Location = new System.Drawing.Point(3, 34);
+            this.ehoKgBox.Location = new System.Drawing.Point(4, 60);
             this.ehoKgBox.Name = "ehoKgBox";
-            this.ehoKgBox.Size = new System.Drawing.Size(489, 109);
+            this.ehoKgBox.Size = new System.Drawing.Size(489, 93);
             this.ehoKgBox.TabIndex = 5;
             this.ehoKgBox.TabStop = false;
             this.ehoKgBox.Text = "Эхо КГ:";
@@ -134,13 +135,14 @@
             // 
             this.ehoKgTxt.Location = new System.Drawing.Point(12, 17);
             this.ehoKgTxt.Name = "ehoKgTxt";
-            this.ehoKgTxt.Size = new System.Drawing.Size(465, 84);
+            this.ehoKgTxt.Size = new System.Drawing.Size(465, 73);
             this.ehoKgTxt.TabIndex = 0;
             this.ehoKgTxt.Text = "";
             // 
             // container
             // 
             this.container.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.container.Controls.Add(this.analysisDate);
             this.container.Controls.Add(this.title);
             this.container.Controls.Add(this.ehoKgBox);
             this.container.Controls.Add(this.pleursUziBox);
@@ -149,7 +151,7 @@
             this.container.Controls.Add(this.cdsBox);
             this.container.Location = new System.Drawing.Point(3, 3);
             this.container.Name = "container";
-            this.container.Size = new System.Drawing.Size(500, 620);
+            this.container.Size = new System.Drawing.Size(500, 559);
             this.container.TabIndex = 10;
             // 
             // title
@@ -158,9 +160,17 @@
             this.title.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.title.Location = new System.Drawing.Point(3, 9);
             this.title.Name = "title";
-            this.title.Size = new System.Drawing.Size(113, 13);
+            this.title.Size = new System.Drawing.Size(87, 13);
             this.title.TabIndex = 10;
-            this.title.Text = "Анализы текущие";
+            this.title.Text = "УЗИ текущие";
+            // 
+            // analysisDate
+            // 
+            this.analysisDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.analysisDate.Location = new System.Drawing.Point(4, 34);
+            this.analysisDate.Name = "analysisDate";
+            this.analysisDate.Size = new System.Drawing.Size(112, 20);
+            this.analysisDate.TabIndex = 11;
             // 
             // UziAnalysisControl
             // 
@@ -168,7 +178,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.container);
             this.Name = "UziAnalysisControl";
-            this.Size = new System.Drawing.Size(826, 628);
+            this.Size = new System.Drawing.Size(510, 566);
             this.pleursUziBox.ResumeLayout(false);
             this.uziObpBox.ResumeLayout(false);
             this.cdsBox.ResumeLayout(false);
@@ -194,5 +204,6 @@
         private System.Windows.Forms.RichTextBox ehoKgTxt;
         private System.Windows.Forms.Panel container;
         private System.Windows.Forms.Label title;
+        private System.Windows.Forms.DateTimePicker analysisDate;
     }
 }

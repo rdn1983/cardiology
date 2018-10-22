@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Forms;
+using static Cardiology.DataService;
 using static System.Windows.Forms.ListViewItem;
 
 namespace Cardiology
@@ -52,14 +53,12 @@ namespace Cardiology
                 dqlBuilder.Append(condition);
             }
 
-            Dictionary<string, string> values = service.queryMappedValues(dqlBuilder.ToString(), labelAttr, valueAttr);
-            foreach (KeyValuePair<string, string> entry in values)
-            {
-                ListViewItem ll = new ListViewItem(entry.Key);
-                ListViewSubItem sub = new ListViewSubItem(ll, entry.Value);
+            service.queryMappedValues(dqlBuilder.ToString(), labelAttr, valueAttr, (key,value) =>{
+                ListViewItem ll = new ListViewItem(key);
+                ListViewSubItem sub = new ListViewSubItem(ll, value);
                 ll.SubItems.Add(sub);
                 selectionContainer.Items.Add(ll);
-            }
+            });
         }
 
         internal List<string> returnLabels()

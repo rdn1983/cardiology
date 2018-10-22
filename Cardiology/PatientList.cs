@@ -32,7 +32,7 @@ namespace Cardiology
 
         private void patientAdmission_Click(object sender, EventArgs e)
         {
-            AdmissionPatient st = new AdmissionPatient();
+            AdmissionPatient st = new AdmissionPatient(null, null);
             st.ShowDialog();
         }
 
@@ -494,6 +494,23 @@ namespace Cardiology
         {
             CheckBox box = (CheckBox) sender;
             loadPatientsGrid(!box.Checked);
+        }
+
+        private void hospitalPatientsTbl_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            IEnumerator it = hospitalPatientsTbl.SelectedRows.GetEnumerator();
+            if (it.MoveNext())
+            {
+                DataGridViewRow row = (DataGridViewRow)it.Current;
+                DataGridViewCell cell = row.Cells[0];
+                DataService service = new DataService();
+                DdtHospital hospitalSession = service.queryObjectById<DdtHospital>(DdtHospital.TABLENAME, cell.Value.ToString());
+                DdtPatient patient = service.queryObjectById<DdtPatient>(DdtPatient.TABLENAME, hospitalSession.DsidPatient);
+                AdmissionPatient admissionPatient = new AdmissionPatient(hospitalSession, patient);
+                admissionPatient.ShowDialog();
+
+            }
+
         }
     }
 }

@@ -210,6 +210,8 @@
             this.hospitalPatientsTbl.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.hospitalPatientsTbl.Size = new System.Drawing.Size(833, 348);
             this.hospitalPatientsTbl.TabIndex = 2;
+            this.hospitalPatientsTbl.TabStop = false;
+            this.hospitalPatientsTbl.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.hospitalPatientsTbl_CellDoubleClick);
             // 
             // hospitalSession
             // 

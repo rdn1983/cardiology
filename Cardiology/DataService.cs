@@ -291,7 +291,7 @@ namespace Cardiology
 
         }
 
-        public Dictionary<string, string> queryMappedValues(string query, string attrKey, string attrValue)
+        public void queryMappedValues(string query, string attrKey, string attrValue, IMappedValueProcessor processor)
         {
             Npgsql.NpgsqlConnection connection = null;
             Npgsql.NpgsqlDataReader reader = null;
@@ -322,12 +322,11 @@ namespace Cardiology
                     }
                     colsNumerator.Reset();
 
-                    if (attrKeyValue != null && !result.ContainsKey(attrKeyValue))
+                    if (attrKeyValue != null)
                     {
-                        result.Add(attrKeyValue, attrValValue);
+                        processor(attrKeyValue, attrValValue);
                     }
                 }
-                return result;
             }
             finally
             {
@@ -341,6 +340,8 @@ namespace Cardiology
                 }
             }
         }
+
+        public delegate void IMappedValueProcessor(string key, string value);
 
         private string getWrappedValue(object value, string typeName)
         {

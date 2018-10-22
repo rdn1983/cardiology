@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using Cardiology.Model;
+using Cardiology.Utils;
 
 namespace Cardiology
 {
@@ -28,10 +30,10 @@ namespace Cardiology
                 kagResultsTxt.Text = kag.DssResults;
                 kagManipulationTxt.Text = kag.DssKagManipulation;
                 kagActionsTxt.Text = kag.DssKagAction;
-                DateTime startTime = kag.DsdtStartTime;
-                kagDate.Value = startTime == null || startTime.CompareTo(DateTime.MinValue) <= 0 ? DateTime.Now : startTime;
-                kagStartTime.Value = startTime == null || startTime.CompareTo(DateTime.MinValue) <= 0 ? DateTime.Now : startTime;
-                kagEndTime.Value = kag.DsdtEndTime == null || kag.DsdtEndTime.CompareTo(DateTime.MinValue) <= 0 ? DateTime.Now : kag.DsdtEndTime;
+                DateTime startTime = kag.DsdtStartTime == default(DateTime) ? DateTime.Now : kag.DsdtStartTime;
+                kagDate.Value = startTime;
+                kagStartTime.Value = startTime;
+                kagEndTime.Value = kag.DsdtEndTime == default(DateTime) ? startTime.AddHours(1) : kag.DsdtEndTime;
                 title.Text = "Анализы за " + kag.RCreationDate.ToShortDateString();
             }
             else
@@ -40,6 +42,7 @@ namespace Cardiology
                 DateTime admissionDate = hospitalitySession.DsdtAdmissionDate;
                 kagDate.Value = admissionDate;
                 kagStartTime.Value = admissionDate.AddMinutes(30);
+                kagEndTime.Value = kagStartTime.Value.AddHours(1);
             }
             kagResultsTxt.Enabled = isEditable;
             kagManipulationTxt.Enabled = isEditable;
@@ -47,6 +50,7 @@ namespace Cardiology
             kagDate.Enabled = isEditable;
             kagStartTime.Enabled = isEditable;
             kagEndTime.Enabled = isEditable;
+            showBlanksBtn.Visible = isEditable;
         }
 
         public void saveObject(DdtHospital hospitalitySession, string parentId, string parentType)
@@ -81,6 +85,39 @@ namespace Cardiology
         private DateTime constructDateWIthTime(DateTime dateSource, DateTime timeSource)
         {
             return new DateTime(dateSource.Year, dateSource.Month, dateSource.Day, timeSource.Hour, timeSource.Minute, 0);
+        }
+
+        private void kagStartTime_ValueChanged(object sender, EventArgs e)
+        {
+            if (kagStartTime.Value != default(DateTime))
+            {
+                kagEndTime.Value = kagStartTime.Value.AddHours(1);
+            }
+        }
+
+        private void showBlanksBtn_Click(object sender, EventArgs e)
+        {
+            MouseEventArgs mouseArgs = e as MouseEventArgs;
+            blanksMenu.Show(showBlanksBtn, mouseArgs.Location);
+        }
+
+        private void procedureConsentBlank_Click(object sender, EventArgs e)
+        {
+            Dictionary<string, string> values = new Dictionary<string, string>();
+            TemplatesUtils.fillBlankTemplate("blank_kag_template.doc", hospitalSessionId, values);
+        }
+
+        private void dataProcessingBlank_Click(object sender, EventArgs e)
+        {
+            Dictionary<string, string> values = new Dictionary<string, string>();
+            TemplatesUtils.fillBlankTemplate("blank_common_consent_template.doc", hospitalSessionId, values);
+        }
+
+        private void anesthesiaBlank_Click(object sender, EventArgs e)
+        {
+            Dictionary<string, string> values = new Dictionary<string, string>();
+            values.Add("{time}", DateTime.Now.ToShortTimeString());
+            TemplatesUtils.fillBlankTemplate("blank_anastesia_template.doc", hospitalSessionId, values);
         }
     }
 }

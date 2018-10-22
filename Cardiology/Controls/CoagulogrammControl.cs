@@ -31,6 +31,7 @@ namespace Cardiology.Controls
                 achtvTxt.Text = coagulogramm.DssAchtv;
                 ddimerTxt.Text = coagulogramm.DssDdimer;
                 mchoTxt.Text = coagulogramm.DssMcho;
+                coagulogramPnl.Text = "Коагулограмма за " +  coagulogramm.DsdtAnalysisDate.ToShortDateString();
             }
             admissionDateTxt.Enabled = isEditable;
             achtvTxt.Enabled = isEditable;

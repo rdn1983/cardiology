@@ -45,6 +45,7 @@ CREATE TABLE ddt_ekg (
   dss_ekg VARCHAR(2048),
   dsb_admission_analysis boolean,
   dsid_parent VARCHAR(16),
+  dsdt_analysis_date timestamp,
   dss_parent_type VARCHAR(30)
 );
 
@@ -57,8 +58,8 @@ EXECUTE PROCEDURE dmtrg_f_modify_date();
 CREATE OR REPLACE FUNCTION audit_ddt_ekg_creating_row () RETURNS TRIGGER AS '
 BEGIN
 INSERT INTO ddt_history 
-(dsid_hospitality_session, dsid_patient, dsid_doctor, dsid_operation_id, dss_operation_type)
- VALUES (NEW.dsid_hospitality_session, NEW.dsid_patient, NEW.dsid_doctor, NEW.r_object_id, TG_TABLE_NAME );
+(dsid_hospitality_session, dsid_patient, dsid_doctor, dsid_operation_id, dss_operation_type, dsdt_operation_date)
+ VALUES (NEW.dsid_hospitality_session, NEW.dsid_patient, NEW.dsid_doctor, NEW.r_object_id, TG_TABLE_NAME, NEW.dsdt_analysis_date);
  RETURN NEW;
 END;
 ' LANGUAGE  plpgsql;

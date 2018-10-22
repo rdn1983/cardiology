@@ -47,6 +47,7 @@
             this.hbsAgLbl = new System.Windows.Forms.Label();
             this.rwBox = new System.Windows.Forms.ComboBox();
             this.rwLbl = new System.Windows.Forms.Label();
+            this.analysisDate = new System.Windows.Forms.DateTimePicker();
             this.serologyBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,7 +55,7 @@
             // 
             this.bloodTypeLbl.AutoSize = true;
             this.bloodTypeLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bloodTypeLbl.Location = new System.Drawing.Point(13, 11);
+            this.bloodTypeLbl.Location = new System.Drawing.Point(15, 38);
             this.bloodTypeLbl.Name = "bloodTypeLbl";
             this.bloodTypeLbl.Size = new System.Drawing.Size(114, 17);
             this.bloodTypeLbl.TabIndex = 0;
@@ -63,7 +64,7 @@
             // bloodTypeBox
             // 
             this.bloodTypeBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.bloodTypeBox.Location = new System.Drawing.Point(15, 28);
+            this.bloodTypeBox.Location = new System.Drawing.Point(15, 56);
             this.bloodTypeBox.Name = "bloodTypeBox";
             this.bloodTypeBox.Size = new System.Drawing.Size(164, 21);
             this.bloodTypeBox.TabIndex = 1;
@@ -72,7 +73,7 @@
             // 
             this.rhesusFactorBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.rhesusFactorBox.FormattingEnabled = true;
-            this.rhesusFactorBox.Location = new System.Drawing.Point(15, 75);
+            this.rhesusFactorBox.Location = new System.Drawing.Point(15, 99);
             this.rhesusFactorBox.Name = "rhesusFactorBox";
             this.rhesusFactorBox.Size = new System.Drawing.Size(164, 21);
             this.rhesusFactorBox.TabIndex = 3;
@@ -81,7 +82,7 @@
             // 
             this.rhesusFactorLbl.AutoSize = true;
             this.rhesusFactorLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.rhesusFactorLbl.Location = new System.Drawing.Point(13, 55);
+            this.rhesusFactorLbl.Location = new System.Drawing.Point(14, 82);
             this.rhesusFactorLbl.Name = "rhesusFactorLbl";
             this.rhesusFactorLbl.Size = new System.Drawing.Size(116, 17);
             this.rhesusFactorLbl.TabIndex = 2;
@@ -91,7 +92,7 @@
             // 
             this.kellAgBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.kellAgBox.FormattingEnabled = true;
-            this.kellAgBox.Location = new System.Drawing.Point(15, 126);
+            this.kellAgBox.Location = new System.Drawing.Point(15, 141);
             this.kellAgBox.Name = "kellAgBox";
             this.kellAgBox.Size = new System.Drawing.Size(164, 21);
             this.kellAgBox.TabIndex = 5;
@@ -100,7 +101,7 @@
             // 
             this.kellAgLbl.AutoSize = true;
             this.kellAgLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.kellAgLbl.Location = new System.Drawing.Point(13, 106);
+            this.kellAgLbl.Location = new System.Drawing.Point(14, 123);
             this.kellAgLbl.Name = "kellAgLbl";
             this.kellAgLbl.Size = new System.Drawing.Size(75, 17);
             this.kellAgLbl.TabIndex = 4;
@@ -110,7 +111,7 @@
             // 
             this.phenotypeLbl.AutoSize = true;
             this.phenotypeLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.phenotypeLbl.Location = new System.Drawing.Point(191, 11);
+            this.phenotypeLbl.Location = new System.Drawing.Point(194, 4);
             this.phenotypeLbl.Name = "phenotypeLbl";
             this.phenotypeLbl.Size = new System.Drawing.Size(80, 17);
             this.phenotypeLbl.TabIndex = 6;
@@ -118,9 +119,9 @@
             // 
             // phenotypeTxt
             // 
-            this.phenotypeTxt.Location = new System.Drawing.Point(194, 31);
+            this.phenotypeTxt.Location = new System.Drawing.Point(194, 24);
             this.phenotypeTxt.Name = "phenotypeTxt";
-            this.phenotypeTxt.Size = new System.Drawing.Size(163, 116);
+            this.phenotypeTxt.Size = new System.Drawing.Size(163, 140);
             this.phenotypeTxt.TabIndex = 7;
             this.phenotypeTxt.Text = "";
             // 
@@ -145,7 +146,7 @@
             this.serologyBox.Controls.Add(this.rwBox);
             this.serologyBox.Controls.Add(this.rwLbl);
             this.serologyBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.serologyBox.Location = new System.Drawing.Point(15, 163);
+            this.serologyBox.Location = new System.Drawing.Point(15, 165);
             this.serologyBox.Name = "serologyBox";
             this.serologyBox.Size = new System.Drawing.Size(342, 155);
             this.serologyBox.TabIndex = 10;
@@ -232,11 +233,20 @@
             this.rwLbl.TabIndex = 0;
             this.rwLbl.Text = "RW";
             // 
+            // analysisDate
+            // 
+            this.analysisDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.analysisDate.Location = new System.Drawing.Point(13, 13);
+            this.analysisDate.Name = "analysisDate";
+            this.analysisDate.Size = new System.Drawing.Size(166, 20);
+            this.analysisDate.TabIndex = 11;
+            // 
             // Serology
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(368, 361);
+            this.Controls.Add(this.analysisDate);
             this.Controls.Add(this.serologyBox);
             this.Controls.Add(this.saveBtn);
             this.Controls.Add(this.phenotypeTxt);
@@ -280,5 +290,6 @@
         private System.Windows.Forms.Label hbsAgLbl;
         private System.Windows.Forms.ComboBox rwBox;
         private System.Windows.Forms.Label rwLbl;
+        private System.Windows.Forms.DateTimePicker analysisDate;
     }
 }

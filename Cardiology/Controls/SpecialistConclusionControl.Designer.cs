@@ -38,6 +38,7 @@
             this.neurologTxt = new System.Windows.Forms.RichTextBox();
             this.container = new System.Windows.Forms.Panel();
             this.title = new System.Windows.Forms.Label();
+            this.analysisDate = new System.Windows.Forms.DateTimePicker();
             this.endicrinologistBox.SuspendLayout();
             this.neuroSurgeonBox.SuspendLayout();
             this.surgeonBox.SuspendLayout();
@@ -48,9 +49,9 @@
             // endicrinologistBox
             // 
             this.endicrinologistBox.Controls.Add(this.endocrinologistTx);
-            this.endicrinologistBox.Location = new System.Drawing.Point(3, 379);
+            this.endicrinologistBox.Location = new System.Drawing.Point(3, 360);
             this.endicrinologistBox.Name = "endicrinologistBox";
-            this.endicrinologistBox.Size = new System.Drawing.Size(426, 109);
+            this.endicrinologistBox.Size = new System.Drawing.Size(426, 89);
             this.endicrinologistBox.TabIndex = 12;
             this.endicrinologistBox.TabStop = false;
             this.endicrinologistBox.Text = "Эндокринолог:";
@@ -59,16 +60,16 @@
             // 
             this.endocrinologistTx.Location = new System.Drawing.Point(9, 16);
             this.endocrinologistTx.Name = "endocrinologistTx";
-            this.endocrinologistTx.Size = new System.Drawing.Size(408, 84);
+            this.endocrinologistTx.Size = new System.Drawing.Size(408, 65);
             this.endocrinologistTx.TabIndex = 1;
             this.endocrinologistTx.Text = "";
             // 
             // neuroSurgeonBox
             // 
             this.neuroSurgeonBox.Controls.Add(this.neuroSurgeonTxt);
-            this.neuroSurgeonBox.Location = new System.Drawing.Point(3, 260);
+            this.neuroSurgeonBox.Location = new System.Drawing.Point(3, 259);
             this.neuroSurgeonBox.Name = "neuroSurgeonBox";
-            this.neuroSurgeonBox.Size = new System.Drawing.Size(426, 109);
+            this.neuroSurgeonBox.Size = new System.Drawing.Size(426, 95);
             this.neuroSurgeonBox.TabIndex = 11;
             this.neuroSurgeonBox.TabStop = false;
             this.neuroSurgeonBox.Text = "Нейрохирург:";
@@ -77,16 +78,16 @@
             // 
             this.neuroSurgeonTxt.Location = new System.Drawing.Point(9, 16);
             this.neuroSurgeonTxt.Name = "neuroSurgeonTxt";
-            this.neuroSurgeonTxt.Size = new System.Drawing.Size(408, 84);
+            this.neuroSurgeonTxt.Size = new System.Drawing.Size(408, 69);
             this.neuroSurgeonTxt.TabIndex = 1;
             this.neuroSurgeonTxt.Text = "";
             // 
             // surgeonBox
             // 
             this.surgeonBox.Controls.Add(this.surgeonTxt);
-            this.surgeonBox.Location = new System.Drawing.Point(3, 143);
+            this.surgeonBox.Location = new System.Drawing.Point(3, 164);
             this.surgeonBox.Name = "surgeonBox";
-            this.surgeonBox.Size = new System.Drawing.Size(426, 109);
+            this.surgeonBox.Size = new System.Drawing.Size(426, 89);
             this.surgeonBox.TabIndex = 10;
             this.surgeonBox.TabStop = false;
             this.surgeonBox.Text = "Хирург:";
@@ -95,16 +96,16 @@
             // 
             this.surgeonTxt.Location = new System.Drawing.Point(9, 16);
             this.surgeonTxt.Name = "surgeonTxt";
-            this.surgeonTxt.Size = new System.Drawing.Size(408, 84);
+            this.surgeonTxt.Size = new System.Drawing.Size(408, 63);
             this.surgeonTxt.TabIndex = 1;
             this.surgeonTxt.Text = "";
             // 
             // neurologBox
             // 
             this.neurologBox.Controls.Add(this.neurologTxt);
-            this.neurologBox.Location = new System.Drawing.Point(3, 28);
+            this.neurologBox.Location = new System.Drawing.Point(3, 69);
             this.neurologBox.Name = "neurologBox";
-            this.neurologBox.Size = new System.Drawing.Size(426, 109);
+            this.neurologBox.Size = new System.Drawing.Size(426, 89);
             this.neurologBox.TabIndex = 9;
             this.neurologBox.TabStop = false;
             this.neurologBox.Text = "Невролог:";
@@ -113,13 +114,14 @@
             // 
             this.neurologTxt.Location = new System.Drawing.Point(12, 17);
             this.neurologTxt.Name = "neurologTxt";
-            this.neurologTxt.Size = new System.Drawing.Size(402, 84);
+            this.neurologTxt.Size = new System.Drawing.Size(402, 62);
             this.neurologTxt.TabIndex = 0;
             this.neurologTxt.Text = "";
             // 
             // container
             // 
             this.container.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.container.Controls.Add(this.analysisDate);
             this.container.Controls.Add(this.title);
             this.container.Controls.Add(this.neurologBox);
             this.container.Controls.Add(this.endicrinologistBox);
@@ -127,7 +129,7 @@
             this.container.Controls.Add(this.neuroSurgeonBox);
             this.container.Location = new System.Drawing.Point(3, 3);
             this.container.Name = "container";
-            this.container.Size = new System.Drawing.Size(436, 490);
+            this.container.Size = new System.Drawing.Size(436, 456);
             this.container.TabIndex = 13;
             // 
             // title
@@ -136,9 +138,17 @@
             this.title.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.title.Location = new System.Drawing.Point(4, 9);
             this.title.Name = "title";
-            this.title.Size = new System.Drawing.Size(113, 13);
+            this.title.Size = new System.Drawing.Size(220, 13);
             this.title.TabIndex = 13;
-            this.title.Text = "Анализы текущие";
+            this.title.Text = "Заключения специалистов текущие";
+            // 
+            // analysisDate
+            // 
+            this.analysisDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.analysisDate.Location = new System.Drawing.Point(3, 43);
+            this.analysisDate.Name = "analysisDate";
+            this.analysisDate.Size = new System.Drawing.Size(114, 20);
+            this.analysisDate.TabIndex = 14;
             // 
             // SpecialistConclusionControl
             // 
@@ -146,7 +156,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.container);
             this.Name = "SpecialistConclusionControl";
-            this.Size = new System.Drawing.Size(444, 497);
+            this.Size = new System.Drawing.Size(444, 462);
             this.endicrinologistBox.ResumeLayout(false);
             this.neuroSurgeonBox.ResumeLayout(false);
             this.surgeonBox.ResumeLayout(false);
@@ -169,5 +179,6 @@
         private System.Windows.Forms.RichTextBox neurologTxt;
         private System.Windows.Forms.Panel container;
         private System.Windows.Forms.Label title;
+        private System.Windows.Forms.DateTimePicker analysisDate;
     }
 }

@@ -41,6 +41,7 @@ namespace Cardiology
                 antiHcvBox.Text = serology.DssAntiHcv;
                 hivBox.Text = serology.DssHiv;
                 phenotypeTxt.Text = serology.DssPhenotype;
+                analysisDate.Value = serology.DsdtAnalysisDate;
             } else
             {
                 rwBox.SelectedIndex = rwBox.FindStringExact("в работе");
@@ -84,6 +85,7 @@ namespace Cardiology
             serology.DssPhenotype = phenotypeTxt.Text;
             serology.DssRhesusFactor = rhesusFactorBox.Text;
             serology.DssRw = rwBox.Text;
+            serology.DsdtAnalysisDate = analysisDate.Value;
 
             if (CommonUtils.isBlank(serology.ObjectId))
             {

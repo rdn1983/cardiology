@@ -27,13 +27,15 @@ namespace Cardiology
                 cdsTxt.Text = uzi.DssCds;
                 uziObpTxt.Text = uzi.DssUziObp;
                 pleursUziTxt.Text = uzi.DssPleursUzi;
-                title.Text = "Анализы за " + uzi.RCreationDate.ToShortDateString();
+                title.Text = "УЗИ за " + uzi.DsdtAnalysisDate.ToShortDateString();
+                analysisDate.Value = uzi.DsdtAnalysisDate;
             }
             ehoKgTxt.Enabled = isEditable;
             uzdTxt.Enabled = isEditable;
             cdsTxt.Enabled = isEditable;
             uziObpTxt.Enabled = isEditable;
             pleursUziTxt.Enabled = isEditable;
+            analysisDate.Enabled = isEditable;
         }
 
         public void saveObject(DdtHospital hospitalitySession, string parentId, string parentType)
@@ -49,6 +51,7 @@ namespace Cardiology
                     uziObj.DsidDoctor = hospitalitySession.DsidCuringDoctor;
                     uziObj.DsidPatient = hospitalitySession.DsidPatient;
                 }
+                uziObj.DsdtAnalysisDate = analysisDate.Value;
                 uziObj.DssEhoKg = ehoKgTxt.Text;
                 uziObj.DssUzdBca = uzdTxt.Text;
                 uziObj.DssCds = cdsTxt.Text;

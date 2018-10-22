@@ -26,6 +26,7 @@ namespace Cardiology.Controls
                 t4Txt.Text = hormones.DssT4;
                 ttgTxt.Text = hormones.DssTtg;
                 t3Txt.Text = hormones.DssT3;
+                hormonesPnl.Text = "Гормоны за " + hormones.DsdtAnalysisDate.ToShortDateString();
             }
             admissionDateTxt.Enabled = isEditable;
             t4Txt.Enabled = isEditable;

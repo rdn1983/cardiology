@@ -23,14 +23,14 @@ namespace Cardiology
             DdtUrineAnalysis urineAnalysis = service.queryObjectById<DdtUrineAnalysis>(DdtUrineAnalysis.TABLE_NAME, objectId);
             if (urineAnalysis != null)
             {
-                dateUrineAnalysis.Text = urineAnalysis.DsdtAnalysisDate + "";
+                dateUrineAnalysis.Value = urineAnalysis.DsdtAnalysisDate;
                 colorTxt.Text = urineAnalysis.DssColor;
                 erythrocytesTxt.Text = urineAnalysis.DssErythrocytes;
                 leukocytesTxt.Text = urineAnalysis.DssLeukocytes;
                 proteinTxt.Text = urineAnalysis.DssProtein;
-                regularAnalysisBox.Text = "Анализы за " + urineAnalysis.RCreationDate.ToShortDateString();
+                regularAnalysisBox.Text = "Анализы за " + urineAnalysis.DsdtAnalysisDate.ToShortDateString();
             }
-            dateUrineAnalysis.Enabled = !isEditable;
+            dateUrineAnalysis.Enabled = isEditable;
             colorTxt.ReadOnly = !isEditable;
             erythrocytesTxt.ReadOnly = !isEditable;
             leukocytesTxt.ReadOnly = !isEditable;

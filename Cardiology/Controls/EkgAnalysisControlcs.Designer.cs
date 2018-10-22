@@ -84,6 +84,7 @@
             this.readonlyEkgBox = new System.Windows.Forms.GroupBox();
             this.readonlyEkgTxt = new System.Windows.Forms.RichTextBox();
             this.editablePnl = new System.Windows.Forms.Panel();
+            this.analysisDate = new System.Windows.Forms.DateTimePicker();
             this.ekgTemplates.SuspendLayout();
             this.backPnl.SuspendLayout();
             this.frontPnl.SuspendLayout();
@@ -395,16 +396,16 @@
             this.rhytmGroupBox.Controls.Add(this.flutterBtn);
             this.rhytmGroupBox.Controls.Add(this.fibrillationBtn);
             this.rhytmGroupBox.Controls.Add(this.rhytmSinusBtn);
-            this.rhytmGroupBox.Location = new System.Drawing.Point(3, 3);
+            this.rhytmGroupBox.Location = new System.Drawing.Point(3, 36);
             this.rhytmGroupBox.Name = "rhytmGroupBox";
-            this.rhytmGroupBox.Size = new System.Drawing.Size(287, 69);
+            this.rhytmGroupBox.Size = new System.Drawing.Size(287, 56);
             this.rhytmGroupBox.TabIndex = 21;
             this.rhytmGroupBox.TabStop = false;
             this.rhytmGroupBox.Text = "Ритм";
             // 
             // flutterBtn
             // 
-            this.flutterBtn.Location = new System.Drawing.Point(192, 18);
+            this.flutterBtn.Location = new System.Drawing.Point(192, 12);
             this.flutterBtn.Name = "flutterBtn";
             this.flutterBtn.Size = new System.Drawing.Size(87, 39);
             this.flutterBtn.TabIndex = 2;
@@ -414,7 +415,7 @@
             // 
             // fibrillationBtn
             // 
-            this.fibrillationBtn.Location = new System.Drawing.Point(99, 19);
+            this.fibrillationBtn.Location = new System.Drawing.Point(99, 13);
             this.fibrillationBtn.Name = "fibrillationBtn";
             this.fibrillationBtn.Size = new System.Drawing.Size(87, 38);
             this.fibrillationBtn.TabIndex = 1;
@@ -424,7 +425,7 @@
             // 
             // rhytmSinusBtn
             // 
-            this.rhytmSinusBtn.Location = new System.Drawing.Point(6, 19);
+            this.rhytmSinusBtn.Location = new System.Drawing.Point(6, 13);
             this.rhytmSinusBtn.Name = "rhytmSinusBtn";
             this.rhytmSinusBtn.Size = new System.Drawing.Size(87, 38);
             this.rhytmSinusBtn.TabIndex = 0;
@@ -447,16 +448,16 @@
             this.deviationBox.Controls.Add(this.negativeTBtn);
             this.deviationBox.Controls.Add(this.depressionBtn);
             this.deviationBox.Controls.Add(this.elevation);
-            this.deviationBox.Location = new System.Drawing.Point(3, 78);
+            this.deviationBox.Location = new System.Drawing.Point(3, 96);
             this.deviationBox.Name = "deviationBox";
-            this.deviationBox.Size = new System.Drawing.Size(287, 56);
+            this.deviationBox.Size = new System.Drawing.Size(287, 42);
             this.deviationBox.TabIndex = 22;
             this.deviationBox.TabStop = false;
             this.deviationBox.Text = "Девиация ST";
             // 
             // negativeTBtn
             // 
-            this.negativeTBtn.Location = new System.Drawing.Point(168, 20);
+            this.negativeTBtn.Location = new System.Drawing.Point(168, 14);
             this.negativeTBtn.Name = "negativeTBtn";
             this.negativeTBtn.Size = new System.Drawing.Size(111, 23);
             this.negativeTBtn.TabIndex = 2;
@@ -466,7 +467,7 @@
             // 
             // depressionBtn
             // 
-            this.depressionBtn.Location = new System.Drawing.Point(87, 19);
+            this.depressionBtn.Location = new System.Drawing.Point(87, 13);
             this.depressionBtn.Name = "depressionBtn";
             this.depressionBtn.Size = new System.Drawing.Size(75, 23);
             this.depressionBtn.TabIndex = 1;
@@ -476,7 +477,7 @@
             // 
             // elevation
             // 
-            this.elevation.Location = new System.Drawing.Point(6, 20);
+            this.elevation.Location = new System.Drawing.Point(6, 14);
             this.elevation.Name = "elevation";
             this.elevation.Size = new System.Drawing.Size(75, 23);
             this.elevation.TabIndex = 0;
@@ -680,6 +681,7 @@
             // 
             // editablePnl
             // 
+            this.editablePnl.Controls.Add(this.analysisDate);
             this.editablePnl.Controls.Add(this.rhytmGroupBox);
             this.editablePnl.Controls.Add(this.commaBtn);
             this.editablePnl.Controls.Add(this.ekgTemplates);
@@ -690,10 +692,18 @@
             this.editablePnl.Controls.Add(this.dotBtn);
             this.editablePnl.Controls.Add(this.deviationBox);
             this.editablePnl.Controls.Add(this.spaceBtn);
-            this.editablePnl.Location = new System.Drawing.Point(0, 0);
+            this.editablePnl.Location = new System.Drawing.Point(5, 0);
             this.editablePnl.Name = "editablePnl";
-            this.editablePnl.Size = new System.Drawing.Size(721, 82);
+            this.editablePnl.Size = new System.Drawing.Size(721, 90);
             this.editablePnl.TabIndex = 32;
+            // 
+            // analysisDate
+            // 
+            this.analysisDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.analysisDate.Location = new System.Drawing.Point(8, 9);
+            this.analysisDate.Name = "analysisDate";
+            this.analysisDate.Size = new System.Drawing.Size(107, 20);
+            this.analysisDate.TabIndex = 31;
             // 
             // EkgAnalysisControlcs
             // 
@@ -775,5 +785,6 @@
         private System.Windows.Forms.GroupBox readonlyEkgBox;
         private System.Windows.Forms.RichTextBox readonlyEkgTxt;
         private System.Windows.Forms.Panel editablePnl;
+        private System.Windows.Forms.DateTimePicker analysisDate;
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.kagActionsBox = new System.Windows.Forms.GroupBox();
             this.kagActionsTxt = new System.Windows.Forms.RichTextBox();
             this.manipulationBox = new System.Windows.Forms.GroupBox();
@@ -43,38 +44,44 @@
             this.kagDate = new System.Windows.Forms.DateTimePicker();
             this.container = new System.Windows.Forms.Panel();
             this.title = new System.Windows.Forms.Label();
+            this.showBlanksBtn = new System.Windows.Forms.Button();
+            this.blanksMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.procedureConsentBlank = new System.Windows.Forms.ToolStripMenuItem();
+            this.dataProcessingBlank = new System.Windows.Forms.ToolStripMenuItem();
+            this.anesthesiaBlank = new System.Windows.Forms.ToolStripMenuItem();
             this.kagActionsBox.SuspendLayout();
             this.manipulationBox.SuspendLayout();
             this.resultsBox.SuspendLayout();
             this.kagTimeBox.SuspendLayout();
             this.kagDateBox.SuspendLayout();
             this.container.SuspendLayout();
+            this.blanksMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // kagActionsBox
             // 
             this.kagActionsBox.Controls.Add(this.kagActionsTxt);
-            this.kagActionsBox.Location = new System.Drawing.Point(3, 364);
+            this.kagActionsBox.Location = new System.Drawing.Point(3, 329);
             this.kagActionsBox.Name = "kagActionsBox";
-            this.kagActionsBox.Size = new System.Drawing.Size(468, 124);
+            this.kagActionsBox.Size = new System.Drawing.Size(468, 110);
             this.kagActionsBox.TabIndex = 13;
             this.kagActionsBox.TabStop = false;
             this.kagActionsBox.Text = "Таким образом у пациента";
             // 
             // kagActionsTxt
             // 
-            this.kagActionsTxt.Location = new System.Drawing.Point(6, 16);
+            this.kagActionsTxt.Location = new System.Drawing.Point(5, 17);
             this.kagActionsTxt.Name = "kagActionsTxt";
-            this.kagActionsTxt.Size = new System.Drawing.Size(456, 101);
+            this.kagActionsTxt.Size = new System.Drawing.Size(456, 86);
             this.kagActionsTxt.TabIndex = 0;
             this.kagActionsTxt.Text = "";
             // 
             // manipulationBox
             // 
             this.manipulationBox.Controls.Add(this.kagManipulationTxt);
-            this.manipulationBox.Location = new System.Drawing.Point(3, 234);
+            this.manipulationBox.Location = new System.Drawing.Point(3, 219);
             this.manipulationBox.Name = "manipulationBox";
-            this.manipulationBox.Size = new System.Drawing.Size(468, 124);
+            this.manipulationBox.Size = new System.Drawing.Size(468, 104);
             this.manipulationBox.TabIndex = 12;
             this.manipulationBox.TabStop = false;
             this.manipulationBox.Text = "Пациенту выполнено";
@@ -83,7 +90,7 @@
             // 
             this.kagManipulationTxt.Location = new System.Drawing.Point(6, 16);
             this.kagManipulationTxt.Name = "kagManipulationTxt";
-            this.kagManipulationTxt.Size = new System.Drawing.Size(456, 101);
+            this.kagManipulationTxt.Size = new System.Drawing.Size(456, 81);
             this.kagManipulationTxt.TabIndex = 0;
             this.kagManipulationTxt.Text = "";
             // 
@@ -92,7 +99,7 @@
             this.resultsBox.Controls.Add(this.kagResultsTxt);
             this.resultsBox.Location = new System.Drawing.Point(1, 108);
             this.resultsBox.Name = "resultsBox";
-            this.resultsBox.Size = new System.Drawing.Size(470, 120);
+            this.resultsBox.Size = new System.Drawing.Size(470, 105);
             this.resultsBox.TabIndex = 11;
             this.resultsBox.TabStop = false;
             this.resultsBox.Text = "По данным КГ выявлено";
@@ -101,7 +108,7 @@
             // 
             this.kagResultsTxt.Location = new System.Drawing.Point(7, 19);
             this.kagResultsTxt.Name = "kagResultsTxt";
-            this.kagResultsTxt.Size = new System.Drawing.Size(457, 96);
+            this.kagResultsTxt.Size = new System.Drawing.Size(457, 78);
             this.kagResultsTxt.TabIndex = 0;
             this.kagResultsTxt.Text = "";
             // 
@@ -127,6 +134,7 @@
             this.kagStartTime.ShowUpDown = true;
             this.kagStartTime.Size = new System.Drawing.Size(171, 20);
             this.kagStartTime.TabIndex = 2;
+            this.kagStartTime.ValueChanged += new System.EventHandler(this.kagStartTime_ValueChanged);
             // 
             // kagEndTime
             // 
@@ -177,6 +185,7 @@
             // container
             // 
             this.container.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.container.Controls.Add(this.showBlanksBtn);
             this.container.Controls.Add(this.title);
             this.container.Controls.Add(this.kagDateBox);
             this.container.Controls.Add(this.kagActionsBox);
@@ -198,6 +207,46 @@
             this.title.TabIndex = 14;
             this.title.Text = "Анализы текущие";
             // 
+            // showBlanksBtn
+            // 
+            this.showBlanksBtn.Location = new System.Drawing.Point(8, 455);
+            this.showBlanksBtn.Name = "showBlanksBtn";
+            this.showBlanksBtn.Size = new System.Drawing.Size(75, 23);
+            this.showBlanksBtn.TabIndex = 15;
+            this.showBlanksBtn.Text = "Бланки";
+            this.showBlanksBtn.UseVisualStyleBackColor = true;
+            this.showBlanksBtn.Click += new System.EventHandler(this.showBlanksBtn_Click);
+            // 
+            // blanksMenu
+            // 
+            this.blanksMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.procedureConsentBlank,
+            this.dataProcessingBlank,
+            this.anesthesiaBlank});
+            this.blanksMenu.Name = "blanksMenu";
+            this.blanksMenu.Size = new System.Drawing.Size(247, 92);
+            // 
+            // procedureConsentBlank
+            // 
+            this.procedureConsentBlank.Name = "procedureConsentBlank";
+            this.procedureConsentBlank.Size = new System.Drawing.Size(246, 22);
+            this.procedureConsentBlank.Text = "Согласие на процедуру";
+            this.procedureConsentBlank.Click += new System.EventHandler(this.procedureConsentBlank_Click);
+            // 
+            // dataProcessingBlank
+            // 
+            this.dataProcessingBlank.Name = "dataProcessingBlank";
+            this.dataProcessingBlank.Size = new System.Drawing.Size(246, 22);
+            this.dataProcessingBlank.Text = "Согласие на обработку данных";
+            this.dataProcessingBlank.Click += new System.EventHandler(this.dataProcessingBlank_Click);
+            // 
+            // anesthesiaBlank
+            // 
+            this.anesthesiaBlank.Name = "anesthesiaBlank";
+            this.anesthesiaBlank.Size = new System.Drawing.Size(246, 22);
+            this.anesthesiaBlank.Text = "Согласие на анастезию";
+            this.anesthesiaBlank.Click += new System.EventHandler(this.anesthesiaBlank_Click);
+            // 
             // KagAnalysisControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -213,6 +262,7 @@
             this.kagDateBox.ResumeLayout(false);
             this.container.ResumeLayout(false);
             this.container.PerformLayout();
+            this.blanksMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -234,5 +284,10 @@
         private System.Windows.Forms.DateTimePicker kagDate;
         private System.Windows.Forms.Panel container;
         private System.Windows.Forms.Label title;
+        private System.Windows.Forms.Button showBlanksBtn;
+        private System.Windows.Forms.ContextMenuStrip blanksMenu;
+        private System.Windows.Forms.ToolStripMenuItem procedureConsentBlank;
+        private System.Windows.Forms.ToolStripMenuItem dataProcessingBlank;
+        private System.Windows.Forms.ToolStripMenuItem anesthesiaBlank;
     }
 }

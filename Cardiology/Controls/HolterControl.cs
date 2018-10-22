@@ -24,10 +24,12 @@ namespace Cardiology
             {
                 holterTxt.Text = holter.DssHolter + "";
                 monitoringAdTxt.Text = holter.DssMonitoringAd + "";
-                title.Text = "Анализы за " + holter.RCreationDate.ToShortDateString();
+                title.Text = "Анализы за " + holter.DsdtAnalysisDate.ToShortDateString();
+                analysisDate.Value = holter.DsdtAnalysisDate;
             }
             holterTxt.Enabled = isEditable;
             monitoringAdTxt.Enabled = isEditable;
+            analysisDate.Enabled = isEditable;
         }
 
         public void saveObject(DdtHospital hospitalitySession, string parentId, string parentType)
@@ -43,6 +45,7 @@ namespace Cardiology
                     holter.DsidDoctor = hospitalitySession.DsidCuringDoctor;
                     holter.DsidPatient = hospitalitySession.DsidPatient;
                 }
+                holter.DsdtAnalysisDate = analysisDate.Value;
                 holter.DssHolter = holterTxt.Text;
                 holter.DssMonitoringAd = monitoringAdTxt.Text;
                 holter.DssParentType = parentType;

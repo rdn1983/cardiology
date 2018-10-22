@@ -101,7 +101,7 @@ namespace Cardiology.Utils
                     bld.Append("Пациент в экстренном порядке проведена КАГ. Коронарография от ")
                         .Append(kag.DsdtAnalysisDate.ToShortDateString())
                         .Append(":")
-                        .Append(kag.DssResults);
+                        .Append(kag.DssKagAction);
                 }
             }
             values.Add("{kag}", bld.ToString());

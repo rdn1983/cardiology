@@ -60,6 +60,12 @@ namespace Cardiology.Controls
 
                 DdtDoctors doc = service.queryObjectById<DdtDoctors>(DdtDoctors.TABLE_NAME, journal.DsidDoctor);
                 docBox.SelectedIndex = docBox.FindStringExact(doc.DssInitials);
+            } else
+            {
+                journalTxt.Text = JournalShuffleUtils.shuffleJournalText();
+                adTxt.SelectedIndex = JournalShuffleUtils.shuffleNextIndex(adTxt.Items.Count-1);
+                chddTxt.SelectedIndex = JournalShuffleUtils.shuffleNextIndex(chddTxt.Items.Count-1);
+                chssTxt.SelectedIndex = JournalShuffleUtils.shuffleNextIndex(chssTxt.Items.Count-1);
             }
         }
 

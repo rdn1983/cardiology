@@ -384,6 +384,7 @@
     <Compile Include="Utils\FirstInspectationTemplateProcessor.cs" />
     <Compile Include="Utils\InspectionTemplateProcessor.cs" />
     <Compile Include="Utils\ITemplateProcessor.cs" />
+    <Compile Include="Utils\JournalShuffleUtils.cs" />
     <Compile Include="Utils\TemplateProcessorManager.cs" />
     <Compile Include="Utils\JournalTemplateProcessor.cs" />
     <None Include="Resources\link20.png" />

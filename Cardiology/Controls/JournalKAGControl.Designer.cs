@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JournalKAGControl));
             this.inspectionDate0 = new System.Windows.Forms.DateTimePicker();
             this.hidingPnl0 = new System.Windows.Forms.Panel();
             this.badRhytmBtn0 = new System.Windows.Forms.RadioButton();
@@ -95,7 +94,7 @@
             this.inspectionTxt0.Name = "inspectionTxt0";
             this.inspectionTxt0.Size = new System.Drawing.Size(462, 71);
             this.inspectionTxt0.TabIndex = 1;
-            this.inspectionTxt0.Text = resources.GetString("inspectionTxt0.Text");
+            this.inspectionTxt0.Text = "";
             // 
             // goodRhytmBtn0
             // 

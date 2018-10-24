@@ -22,6 +22,10 @@ namespace Cardiology.Controls
         {
             CommonUtils.initRangedItems(chssText0, 40, 200);
             CommonUtils.initRangedItems(chddTxt0, 14, 26);
+            inspectionTxt0.Text = JournalShuffleUtils.shuffleJournalText();
+            chddTxt0.SelectedIndex = JournalShuffleUtils.shuffleNextIndex(chddTxt0.Items.Count - 1);
+            adText0.SelectedIndex = JournalShuffleUtils.shuffleNextIndex(adText0.Items.Count - 1);
+            chssText0.SelectedIndex = JournalShuffleUtils.shuffleNextIndex(chssText0.Items.Count - 1);
         }
 
         public void initObject(DdtVariousSpecConcluson obj) {
@@ -36,7 +40,7 @@ namespace Cardiology.Controls
                 goodRhytmBtn0.Checked = "синусовый ритм".Equals(obj.DssAdditionalInfo4);
                 badRhytmBtn0.Checked = !"синусовый ритм".Equals(obj.DssAdditionalInfo4);
                 monitorTxt0.Text = obj.DssAdditionalInfo4;
-            }
+            } 
         }
 
         public DdtVariousSpecConcluson getObject()

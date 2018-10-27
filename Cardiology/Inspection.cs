@@ -44,6 +44,12 @@ namespace Cardiology
                 if (kagJournal != null)
                 {
                     diagnosisTxt.Text = kagJournal.DssDiagnosis;
+                    DdtVariousSpecConcluson releaseConclusion = service.queryObject<DdtVariousSpecConcluson>("SELECt * FROM " + DdtVariousSpecConcluson.TABLE_NAME +
+                       " WHERE dsid_parent='" + kagJournal.RObjectId + "' AND dsb_additional_bool=true");
+                    if (releaseConclusion != null)
+                    {
+                        inspectionTxt.Text = releaseConclusion.DssSpecialistConclusion;
+                    }
                 }
                 else
                 {

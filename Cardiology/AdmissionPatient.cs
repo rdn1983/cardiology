@@ -9,13 +9,11 @@ namespace Cardiology
 {
     public partial class AdmissionPatient : Form
     {
-        private DdtPatient patient;
         private DdtHospital hospital;
 
-        public AdmissionPatient(DdtHospital hospital, DdtPatient patient)
+        public AdmissionPatient(DdtHospital hospital)
         {
             this.hospital = hospital;
-            this.patient = patient;
             InitializeComponent();
             System.Drawing.Size halfScreenSize = new System.Drawing.Size(SystemInformation.PrimaryMonitorSize.Width / 2,
                 SystemInformation.PrimaryMonitorSize.Height);
@@ -37,11 +35,12 @@ namespace Cardiology
 
         private void initControls()
         {
-            if (hospital == null || patient == null)
+            if (hospital == null)
             {
                 return;
             }
             DataService service = new DataService();
+            DdtPatient patient = service.queryObjectById<DdtPatient>(DdtPatient.TABLENAME, hospital.DsidPatient);    
             addressTxt.Text = patient.DssAddress;
             string[] fio = patient.DssFullName.Split(' ');
             patientLastName.Text = fio[0];
@@ -90,6 +89,8 @@ namespace Cardiology
                 return;
             }
 
+            DataService service = new DataService();
+            DdtPatient patient = service.queryObjectById<DdtPatient>(DdtPatient.TABLENAME, hospital.DsidPatient);
             if (patient == null)
             {
                 patient = new DdtPatient();
@@ -118,7 +119,6 @@ namespace Cardiology
             }
             patient.DsdtBirthdate = DateTime.ParseExact(patientBirthDate.Text.Trim(), "dd.MM.yyyy", CultureInfo.InvariantCulture);
 
-            DataService service = new DataService();
             String patientId = service.updateOrCreateIfNeedObject(patient, DdtPatient.TABLENAME, patient.ObjectId);
 
             if (hospital == null)

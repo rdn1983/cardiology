@@ -64,10 +64,18 @@ namespace Cardiology
 
             DdtDoctors docDuty = service.queryObjectById<DdtDoctors>(DdtDoctors.TABLE_NAME, hospital.DsidDutyDoctor);
             dutyCardioBox.SelectedIndex = dutyCardioBox.FindStringExact(docDuty.DssInitials);
+
             DdtDoctors docCuring = service.queryObjectById<DdtDoctors>(DdtDoctors.TABLE_NAME, hospital.DsidCuringDoctor);
             cardioDocBox.SelectedIndex = cardioDocBox.FindStringExact(docCuring.DssInitials);
+
             DdtDoctors docSubstitution = service.queryObjectById<DdtDoctors>(DdtDoctors.TABLE_NAME, hospital.DsidSubstitutionDoctor);
             subDoctorBox.SelectedIndex = subDoctorBox.FindStringExact(docSubstitution.DssInitials);
+
+            DdtDoctors directorCardioReanim = service.queryObjectById<DdtDoctors>(DdtDoctors.TABLE_NAME, hospital.DsidDirCardioReanimDoctor);
+            directorCardioReanimBox.SelectedIndex = directorCardioReanimBox.FindStringExact(directorCardioReanim.DssInitials);
+
+            DdtDoctors anesthetistDoctor = service.queryObjectById<DdtDoctors>(DdtDoctors.TABLE_NAME, hospital.DsidAnesthetistDoctor);
+            anesthetistComboBox.SelectedIndex = anesthetistComboBox.FindStringExact(anesthetistDoctor.DssInitials);
 
             string[] roomCell = hospital.DssRoomCell.Split('/');
             roomTxt.Text = roomCell[0];
@@ -126,6 +134,11 @@ namespace Cardiology
             hospital.DsidCuringDoctor = docCuring.ObjectId;
             DdtDoctors docSubstitution = (DdtDoctors)subDoctorBox.SelectedItem;
             hospital.DsidSubstitutionDoctor = docSubstitution.ObjectId;
+            DdtDoctors directorCardioReanim = (DdtDoctors)directorCardioReanimBox.SelectedItem;
+            hospital.DsidDirCardioReanimDoctor = directorCardioReanim.ObjectId;
+            DdtDoctors anesthetistDoctor = (DdtDoctors)anesthetistComboBox.SelectedItem;
+            hospital.DsidAnesthetistDoctor = anesthetistDoctor.ObjectId;
+
             hospital.DssRoomCell = roomTxt.Text + "/" + bedTxt.Text;
             service.updateOrCreateIfNeedObject(hospital, DdtHospital.TABLENAME, hospital.ObjectId);
             //todo перенести в статусную строку

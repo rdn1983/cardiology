@@ -78,7 +78,15 @@ namespace Cardiology
 
         private void addJournalBtn_Click(object sender, EventArgs e)
         {
-            journalContainer.Controls.Add(new JournalNoKAGControl(null, journalType));
+            DateTime lastDateTime = DateTime.Now;
+            if (journalContainer.Controls.Count>0)
+            {
+                JournalNoKAGControl lastJournal = (JournalNoKAGControl) journalContainer.Controls[journalContainer.Controls.Count-1];
+                lastDateTime = lastJournal.getJournalDateTime();
+            }
+            JournalNoKAGControl nextJournal = new JournalNoKAGControl(null, journalType);
+            nextJournal.initTime(lastDateTime.AddHours(4));
+            journalContainer.Controls.Add(nextJournal);
         }
 
         private void addDefferedBtn_Click(object sender, EventArgs e)

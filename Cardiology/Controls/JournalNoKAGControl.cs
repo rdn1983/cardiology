@@ -30,6 +30,11 @@ namespace Cardiology.Controls
             startTimeTxt.Value = time;
         }
 
+        internal DateTime getJournalDateTime()
+        {
+            return CommonUtils.constructDateWIthTime(startDateTxt.Value, startTimeTxt.Value);
+        }
+
         private void initControls()
         {
             CommonUtils.initRangedItems(chssTxt, 40, 200);

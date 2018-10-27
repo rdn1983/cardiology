@@ -20,6 +20,10 @@ namespace Cardiology.Model
         private string dsidCuringDoctor;
         [TableAttribute("dsid_substitution_doctor")]
         private string dsidSubstitutionDoctor;
+        [TableAttribute("dsid_dir_cardio_reanim_doctor")]
+        private string dsidDirCardioReanimDoctor;
+        [TableAttribute("dsid_anesthetist_doctor")]
+        private string dsidAnesthetistDoctor;
         [TableAttribute("dsb_active")]
         private bool dsbActive;
         [TableAttribute("dsb_reject_cure")]
@@ -82,6 +86,18 @@ namespace Cardiology.Model
         {
             get { return dsidSubstitutionDoctor; }
             set { this.dsidSubstitutionDoctor = value; }
+        }
+
+        public string DsidDirCardioReanimDoctor
+        {
+            get { return dsidDirCardioReanimDoctor; }
+            set { this.dsidDirCardioReanimDoctor = value; }
+        }
+
+        public string DsidAnesthetistDoctor
+        {
+            get { return dsidAnesthetistDoctor; }
+            set { this.dsidAnesthetistDoctor = value; }
         }
 
         public bool DsbActive

@@ -67,6 +67,18 @@ namespace Cardiology.Controls
             return CommonUtils.constructDateWIthTime(inspectionDate0.Value, inspectionTime0.Value);
         }
 
+        public Boolean isGoodRhytm()
+        {
+            return goodRhytmBtn0.Checked;
+        }
+
+        public void initRhytm(Boolean goodRhytm)
+        {
+            goodRhytmBtn0.Checked = goodRhytm;
+            badRhytmBtn0.Checked = !goodRhytm;
+            monitorTxt0.Text = goodRhytmBtn0.Checked ? "синусовый ритм" : "трепетание предсердий";
+        }
+
         private void hideBtn0_CheckedChanged(object sender, EventArgs e)
         {
             int width = this.Width;

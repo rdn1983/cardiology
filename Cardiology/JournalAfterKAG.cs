@@ -112,14 +112,15 @@ namespace Cardiology
 
         private void addCardioInspetions_Click(object sender, EventArgs e)
         {
+            JournalKAGControl control = new JournalKAGControl();
             int indx = dutyCardioContainer.Controls.Count - 1;
             DateTime lastDate = DateTime.Now;
             if (indx >= 0)
             {
                 JournalKAGControl last = (JournalKAGControl)dutyCardioContainer.Controls[indx];
                 lastDate = last.getDateTime();
+                control.initRhytm(last.isGoodRhytm());
             }
-            JournalKAGControl control = new JournalKAGControl();
             control.Anchor = AnchorStyles.Right;
             control.initDateTime(lastDate.AddHours(1));
             dutyCardioContainer.Controls.Add(control);

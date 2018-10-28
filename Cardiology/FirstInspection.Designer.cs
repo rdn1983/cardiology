@@ -112,38 +112,10 @@
             this.issuedMedicineTab = new System.Windows.Forms.TabPage();
             this.issuedMedicineBox = new System.Windows.Forms.GroupBox();
             this.issuedCntr = new System.Windows.Forms.Panel();
-            this.issuedMedicineControl1 = new Cardiology.IssuedMedicineControl();
             this.addIssuedMedicineBtn = new System.Windows.Forms.Button();
             this.firstAnalysisTab = new System.Windows.Forms.TabPage();
             this.tabs = new System.Windows.Forms.TabControl();
             this.ekgTab = new System.Windows.Forms.TabPage();
-            this.regularEkgTxt = new System.Windows.Forms.RichTextBox();
-            this.clearBtn = new System.Windows.Forms.Button();
-            this.rhytmGroupBox = new System.Windows.Forms.GroupBox();
-            this.flutterBtn = new System.Windows.Forms.Button();
-            this.fibrillationBtn = new System.Windows.Forms.Button();
-            this.rhytmSinusBtn = new System.Windows.Forms.Button();
-            this.spaceBtn = new System.Windows.Forms.Button();
-            this.deviationBox = new System.Windows.Forms.GroupBox();
-            this.negativeTBtn = new System.Windows.Forms.Button();
-            this.depressionBtn = new System.Windows.Forms.Button();
-            this.elevation = new System.Windows.Forms.Button();
-            this.dotBtn = new System.Windows.Forms.Button();
-            this.whereBox = new System.Windows.Forms.GroupBox();
-            this.V6Btn = new System.Windows.Forms.Button();
-            this.V5Btn = new System.Windows.Forms.Button();
-            this.V4Btn = new System.Windows.Forms.Button();
-            this.V3Btn = new System.Windows.Forms.Button();
-            this.V2Btn = new System.Windows.Forms.Button();
-            this.V1Btn = new System.Windows.Forms.Button();
-            this.AvfBtn = new System.Windows.Forms.Button();
-            this.AvrBtn = new System.Windows.Forms.Button();
-            this.AvlBtn = new System.Windows.Forms.Button();
-            this.IIIBtn = new System.Windows.Forms.Button();
-            this.IIBtn = new System.Windows.Forms.Button();
-            this.IBtn = new System.Windows.Forms.Button();
-            this.dashBtn = new System.Windows.Forms.Button();
-            this.commaBtn = new System.Windows.Forms.Button();
             this.egdsTab = new System.Windows.Forms.TabPage();
             this.firstEgdsBox = new System.Windows.Forms.GroupBox();
             this.firstEgdsTxt = new System.Windows.Forms.RichTextBox();
@@ -201,6 +173,7 @@
             this.docBox = new System.Windows.Forms.ComboBox();
             this.docLbl = new System.Windows.Forms.Label();
             this.patientInitialsLbl = new System.Windows.Forms.Label();
+            this.issuedMedicineControl1 = new Cardiology.IssuedMedicineControl();
             this.templateChanger = new Cardiology.Controls.TemplateChanger();
             this.complaintsBox.SuspendLayout();
             this.anamnesisMorbiBox.SuspendLayout();
@@ -229,10 +202,6 @@
             this.issuedCntr.SuspendLayout();
             this.firstAnalysisTab.SuspendLayout();
             this.tabs.SuspendLayout();
-            this.ekgTab.SuspendLayout();
-            this.rhytmGroupBox.SuspendLayout();
-            this.deviationBox.SuspendLayout();
-            this.whereBox.SuspendLayout();
             this.egdsTab.SuspendLayout();
             this.firstEgdsBox.SuspendLayout();
             this.bloodTab.SuspendLayout();
@@ -1172,14 +1141,6 @@
             this.issuedCntr.Size = new System.Drawing.Size(653, 501);
             this.issuedCntr.TabIndex = 18;
             // 
-            // issuedMedicineControl1
-            // 
-            this.issuedMedicineControl1.AutoSize = true;
-            this.issuedMedicineControl1.Location = new System.Drawing.Point(3, 0);
-            this.issuedMedicineControl1.Name = "issuedMedicineControl1";
-            this.issuedMedicineControl1.Size = new System.Drawing.Size(10, 10);
-            this.issuedMedicineControl1.TabIndex = 17;
-            // 
             // addIssuedMedicineBtn
             // 
             this.addIssuedMedicineBtn.Image = global::Cardiology.Properties.Resources.addd1;
@@ -1215,15 +1176,6 @@
             // 
             // ekgTab
             // 
-            this.ekgTab.Controls.Add(this.regularEkgTxt);
-            this.ekgTab.Controls.Add(this.clearBtn);
-            this.ekgTab.Controls.Add(this.rhytmGroupBox);
-            this.ekgTab.Controls.Add(this.spaceBtn);
-            this.ekgTab.Controls.Add(this.deviationBox);
-            this.ekgTab.Controls.Add(this.dotBtn);
-            this.ekgTab.Controls.Add(this.whereBox);
-            this.ekgTab.Controls.Add(this.dashBtn);
-            this.ekgTab.Controls.Add(this.commaBtn);
             this.ekgTab.Location = new System.Drawing.Point(4, 22);
             this.ekgTab.Name = "ekgTab";
             this.ekgTab.Padding = new System.Windows.Forms.Padding(3);
@@ -1231,291 +1183,6 @@
             this.ekgTab.TabIndex = 0;
             this.ekgTab.Text = "ЭКГ";
             this.ekgTab.UseVisualStyleBackColor = true;
-            // 
-            // regularEkgTxt
-            // 
-            this.regularEkgTxt.Location = new System.Drawing.Point(335, 7);
-            this.regularEkgTxt.Name = "regularEkgTxt";
-            this.regularEkgTxt.Size = new System.Drawing.Size(369, 174);
-            this.regularEkgTxt.TabIndex = 18;
-            this.regularEkgTxt.Text = "";
-            // 
-            // clearBtn
-            // 
-            this.clearBtn.Location = new System.Drawing.Point(335, 187);
-            this.clearBtn.Name = "clearBtn";
-            this.clearBtn.Size = new System.Drawing.Size(75, 32);
-            this.clearBtn.TabIndex = 17;
-            this.clearBtn.Text = "Очистить";
-            this.clearBtn.UseVisualStyleBackColor = true;
-            this.clearBtn.Click += new System.EventHandler(this.clearBtn_Click);
-            // 
-            // rhytmGroupBox
-            // 
-            this.rhytmGroupBox.Controls.Add(this.flutterBtn);
-            this.rhytmGroupBox.Controls.Add(this.fibrillationBtn);
-            this.rhytmGroupBox.Controls.Add(this.rhytmSinusBtn);
-            this.rhytmGroupBox.Location = new System.Drawing.Point(6, 7);
-            this.rhytmGroupBox.Name = "rhytmGroupBox";
-            this.rhytmGroupBox.Size = new System.Drawing.Size(287, 69);
-            this.rhytmGroupBox.TabIndex = 10;
-            this.rhytmGroupBox.TabStop = false;
-            this.rhytmGroupBox.Text = "Ритм";
-            // 
-            // flutterBtn
-            // 
-            this.flutterBtn.Location = new System.Drawing.Point(192, 18);
-            this.flutterBtn.Name = "flutterBtn";
-            this.flutterBtn.Size = new System.Drawing.Size(87, 39);
-            this.flutterBtn.TabIndex = 2;
-            this.flutterBtn.Text = "Трепетание предсердий";
-            this.flutterBtn.UseVisualStyleBackColor = true;
-            this.flutterBtn.Click += new System.EventHandler(this.flutterBtn_Click);
-            // 
-            // fibrillationBtn
-            // 
-            this.fibrillationBtn.Location = new System.Drawing.Point(99, 19);
-            this.fibrillationBtn.Name = "fibrillationBtn";
-            this.fibrillationBtn.Size = new System.Drawing.Size(87, 38);
-            this.fibrillationBtn.TabIndex = 1;
-            this.fibrillationBtn.Text = "Фибриляция предсердий";
-            this.fibrillationBtn.UseVisualStyleBackColor = true;
-            this.fibrillationBtn.Click += new System.EventHandler(this.fibrillationBtn_Click);
-            // 
-            // rhytmSinusBtn
-            // 
-            this.rhytmSinusBtn.Location = new System.Drawing.Point(6, 19);
-            this.rhytmSinusBtn.Name = "rhytmSinusBtn";
-            this.rhytmSinusBtn.Size = new System.Drawing.Size(87, 38);
-            this.rhytmSinusBtn.TabIndex = 0;
-            this.rhytmSinusBtn.Text = "Ритм синусовый";
-            this.rhytmSinusBtn.UseVisualStyleBackColor = true;
-            this.rhytmSinusBtn.Click += new System.EventHandler(this.rhytmSinusBtn_Click);
-            // 
-            // spaceBtn
-            // 
-            this.spaceBtn.Location = new System.Drawing.Point(263, 187);
-            this.spaceBtn.Name = "spaceBtn";
-            this.spaceBtn.Size = new System.Drawing.Size(66, 32);
-            this.spaceBtn.TabIndex = 16;
-            this.spaceBtn.Text = "Пробел";
-            this.spaceBtn.UseVisualStyleBackColor = true;
-            this.spaceBtn.Click += new System.EventHandler(this.spaceBtn_Click);
-            // 
-            // deviationBox
-            // 
-            this.deviationBox.Controls.Add(this.negativeTBtn);
-            this.deviationBox.Controls.Add(this.depressionBtn);
-            this.deviationBox.Controls.Add(this.elevation);
-            this.deviationBox.Location = new System.Drawing.Point(6, 82);
-            this.deviationBox.Name = "deviationBox";
-            this.deviationBox.Size = new System.Drawing.Size(287, 56);
-            this.deviationBox.TabIndex = 11;
-            this.deviationBox.TabStop = false;
-            this.deviationBox.Text = "Девиация ST";
-            // 
-            // negativeTBtn
-            // 
-            this.negativeTBtn.Location = new System.Drawing.Point(168, 20);
-            this.negativeTBtn.Name = "negativeTBtn";
-            this.negativeTBtn.Size = new System.Drawing.Size(111, 23);
-            this.negativeTBtn.TabIndex = 2;
-            this.negativeTBtn.Text = "Отрицательный Т";
-            this.negativeTBtn.UseVisualStyleBackColor = true;
-            this.negativeTBtn.Click += new System.EventHandler(this.negativeTBtn_Click);
-            // 
-            // depressionBtn
-            // 
-            this.depressionBtn.Location = new System.Drawing.Point(87, 19);
-            this.depressionBtn.Name = "depressionBtn";
-            this.depressionBtn.Size = new System.Drawing.Size(75, 23);
-            this.depressionBtn.TabIndex = 1;
-            this.depressionBtn.Text = "Депрессия";
-            this.depressionBtn.UseVisualStyleBackColor = true;
-            this.depressionBtn.Click += new System.EventHandler(this.depressionBtn_Click);
-            // 
-            // elevation
-            // 
-            this.elevation.Location = new System.Drawing.Point(6, 20);
-            this.elevation.Name = "elevation";
-            this.elevation.Size = new System.Drawing.Size(75, 23);
-            this.elevation.TabIndex = 0;
-            this.elevation.Text = "Элевация";
-            this.elevation.UseVisualStyleBackColor = true;
-            this.elevation.Click += new System.EventHandler(this.elevation_Click);
-            // 
-            // dotBtn
-            // 
-            this.dotBtn.Location = new System.Drawing.Point(300, 153);
-            this.dotBtn.Name = "dotBtn";
-            this.dotBtn.Size = new System.Drawing.Size(29, 28);
-            this.dotBtn.TabIndex = 15;
-            this.dotBtn.Text = ".";
-            this.dotBtn.UseVisualStyleBackColor = true;
-            this.dotBtn.Click += new System.EventHandler(this.dotBtn_Click);
-            // 
-            // whereBox
-            // 
-            this.whereBox.Controls.Add(this.V6Btn);
-            this.whereBox.Controls.Add(this.V5Btn);
-            this.whereBox.Controls.Add(this.V4Btn);
-            this.whereBox.Controls.Add(this.V3Btn);
-            this.whereBox.Controls.Add(this.V2Btn);
-            this.whereBox.Controls.Add(this.V1Btn);
-            this.whereBox.Controls.Add(this.AvfBtn);
-            this.whereBox.Controls.Add(this.AvrBtn);
-            this.whereBox.Controls.Add(this.AvlBtn);
-            this.whereBox.Controls.Add(this.IIIBtn);
-            this.whereBox.Controls.Add(this.IIBtn);
-            this.whereBox.Controls.Add(this.IBtn);
-            this.whereBox.Location = new System.Drawing.Point(6, 144);
-            this.whereBox.Name = "whereBox";
-            this.whereBox.Size = new System.Drawing.Size(252, 75);
-            this.whereBox.TabIndex = 12;
-            this.whereBox.TabStop = false;
-            this.whereBox.Text = "Где";
-            // 
-            // V6Btn
-            // 
-            this.V6Btn.Location = new System.Drawing.Point(206, 43);
-            this.V6Btn.Name = "V6Btn";
-            this.V6Btn.Size = new System.Drawing.Size(40, 23);
-            this.V6Btn.TabIndex = 11;
-            this.V6Btn.Text = "V6";
-            this.V6Btn.UseVisualStyleBackColor = true;
-            this.V6Btn.Click += new System.EventHandler(this.V6Btn_Click);
-            // 
-            // V5Btn
-            // 
-            this.V5Btn.Location = new System.Drawing.Point(166, 43);
-            this.V5Btn.Name = "V5Btn";
-            this.V5Btn.Size = new System.Drawing.Size(40, 23);
-            this.V5Btn.TabIndex = 10;
-            this.V5Btn.Text = "V5";
-            this.V5Btn.UseVisualStyleBackColor = true;
-            this.V5Btn.Click += new System.EventHandler(this.V5Btn_Click);
-            // 
-            // V4Btn
-            // 
-            this.V4Btn.Location = new System.Drawing.Point(126, 43);
-            this.V4Btn.Name = "V4Btn";
-            this.V4Btn.Size = new System.Drawing.Size(40, 23);
-            this.V4Btn.TabIndex = 9;
-            this.V4Btn.Text = "V4";
-            this.V4Btn.UseVisualStyleBackColor = true;
-            this.V4Btn.Click += new System.EventHandler(this.V4Btn_Click);
-            // 
-            // V3Btn
-            // 
-            this.V3Btn.Location = new System.Drawing.Point(86, 43);
-            this.V3Btn.Name = "V3Btn";
-            this.V3Btn.Size = new System.Drawing.Size(40, 23);
-            this.V3Btn.TabIndex = 8;
-            this.V3Btn.Text = "V3";
-            this.V3Btn.UseVisualStyleBackColor = true;
-            this.V3Btn.Click += new System.EventHandler(this.V3Btn_Click);
-            // 
-            // V2Btn
-            // 
-            this.V2Btn.Location = new System.Drawing.Point(46, 43);
-            this.V2Btn.Name = "V2Btn";
-            this.V2Btn.Size = new System.Drawing.Size(40, 23);
-            this.V2Btn.TabIndex = 7;
-            this.V2Btn.Text = "V2";
-            this.V2Btn.UseVisualStyleBackColor = true;
-            this.V2Btn.Click += new System.EventHandler(this.V2Btn_Click);
-            // 
-            // V1Btn
-            // 
-            this.V1Btn.Location = new System.Drawing.Point(5, 43);
-            this.V1Btn.Name = "V1Btn";
-            this.V1Btn.Size = new System.Drawing.Size(40, 23);
-            this.V1Btn.TabIndex = 6;
-            this.V1Btn.Text = "V1";
-            this.V1Btn.UseVisualStyleBackColor = true;
-            this.V1Btn.Click += new System.EventHandler(this.V1Btn_Click);
-            // 
-            // AvfBtn
-            // 
-            this.AvfBtn.Location = new System.Drawing.Point(206, 20);
-            this.AvfBtn.Name = "AvfBtn";
-            this.AvfBtn.Size = new System.Drawing.Size(40, 23);
-            this.AvfBtn.TabIndex = 5;
-            this.AvfBtn.Text = "AVF";
-            this.AvfBtn.UseVisualStyleBackColor = true;
-            this.AvfBtn.Click += new System.EventHandler(this.AvfBtn_Click);
-            // 
-            // AvrBtn
-            // 
-            this.AvrBtn.Location = new System.Drawing.Point(166, 20);
-            this.AvrBtn.Name = "AvrBtn";
-            this.AvrBtn.Size = new System.Drawing.Size(40, 23);
-            this.AvrBtn.TabIndex = 4;
-            this.AvrBtn.Text = "AVR";
-            this.AvrBtn.UseVisualStyleBackColor = true;
-            this.AvrBtn.Click += new System.EventHandler(this.AvrBtn_Click);
-            // 
-            // AvlBtn
-            // 
-            this.AvlBtn.Location = new System.Drawing.Point(126, 20);
-            this.AvlBtn.Name = "AvlBtn";
-            this.AvlBtn.Size = new System.Drawing.Size(40, 23);
-            this.AvlBtn.TabIndex = 3;
-            this.AvlBtn.Text = "AVL";
-            this.AvlBtn.UseVisualStyleBackColor = true;
-            this.AvlBtn.Click += new System.EventHandler(this.AvlBtn_Click);
-            // 
-            // IIIBtn
-            // 
-            this.IIIBtn.Location = new System.Drawing.Point(86, 20);
-            this.IIIBtn.Name = "IIIBtn";
-            this.IIIBtn.Size = new System.Drawing.Size(40, 23);
-            this.IIIBtn.TabIndex = 2;
-            this.IIIBtn.Text = "III";
-            this.IIIBtn.UseVisualStyleBackColor = true;
-            this.IIIBtn.Click += new System.EventHandler(this.IIIBtn_Click);
-            // 
-            // IIBtn
-            // 
-            this.IIBtn.Location = new System.Drawing.Point(46, 20);
-            this.IIBtn.Name = "IIBtn";
-            this.IIBtn.Size = new System.Drawing.Size(40, 23);
-            this.IIBtn.TabIndex = 1;
-            this.IIBtn.Text = "II";
-            this.IIBtn.UseVisualStyleBackColor = true;
-            this.IIBtn.Click += new System.EventHandler(this.IIBtn_Click);
-            // 
-            // IBtn
-            // 
-            this.IBtn.Location = new System.Drawing.Point(5, 20);
-            this.IBtn.Name = "IBtn";
-            this.IBtn.Size = new System.Drawing.Size(40, 23);
-            this.IBtn.TabIndex = 0;
-            this.IBtn.Text = "I";
-            this.IBtn.UseVisualStyleBackColor = true;
-            this.IBtn.Click += new System.EventHandler(this.IBtn_Click);
-            // 
-            // dashBtn
-            // 
-            this.dashBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dashBtn.Location = new System.Drawing.Point(263, 153);
-            this.dashBtn.Name = "dashBtn";
-            this.dashBtn.Size = new System.Drawing.Size(30, 28);
-            this.dashBtn.TabIndex = 14;
-            this.dashBtn.Text = "-";
-            this.dashBtn.UseVisualStyleBackColor = true;
-            this.dashBtn.Click += new System.EventHandler(this.dashBtn_Click);
-            // 
-            // commaBtn
-            // 
-            this.commaBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.commaBtn.Location = new System.Drawing.Point(300, 7);
-            this.commaBtn.Name = "commaBtn";
-            this.commaBtn.Size = new System.Drawing.Size(29, 68);
-            this.commaBtn.TabIndex = 13;
-            this.commaBtn.Text = ",";
-            this.commaBtn.UseVisualStyleBackColor = true;
-            this.commaBtn.Click += new System.EventHandler(this.commaBtn_Click);
             // 
             // egdsTab
             // 
@@ -2030,6 +1697,14 @@
             this.patientInitialsLbl.Size = new System.Drawing.Size(0, 13);
             this.patientInitialsLbl.TabIndex = 17;
             // 
+            // issuedMedicineControl1
+            // 
+            this.issuedMedicineControl1.AutoSize = true;
+            this.issuedMedicineControl1.Location = new System.Drawing.Point(3, 0);
+            this.issuedMedicineControl1.Name = "issuedMedicineControl1";
+            this.issuedMedicineControl1.Size = new System.Drawing.Size(10, 10);
+            this.issuedMedicineControl1.TabIndex = 17;
+            // 
             // templateChanger
             // 
             this.templateChanger.Name = "templateChanger";
@@ -2092,10 +1767,6 @@
             this.issuedCntr.PerformLayout();
             this.firstAnalysisTab.ResumeLayout(false);
             this.tabs.ResumeLayout(false);
-            this.ekgTab.ResumeLayout(false);
-            this.rhytmGroupBox.ResumeLayout(false);
-            this.deviationBox.ResumeLayout(false);
-            this.whereBox.ResumeLayout(false);
             this.egdsTab.ResumeLayout(false);
             this.firstEgdsBox.ResumeLayout(false);
             this.bloodTab.ResumeLayout(false);
@@ -2195,33 +1866,6 @@
         private System.Windows.Forms.TabPage firstAnalysisTab;
         private System.Windows.Forms.TabControl tabs;
         private System.Windows.Forms.TabPage ekgTab;
-        private System.Windows.Forms.RichTextBox regularEkgTxt;
-        private System.Windows.Forms.Button clearBtn;
-        private System.Windows.Forms.GroupBox rhytmGroupBox;
-        private System.Windows.Forms.Button flutterBtn;
-        private System.Windows.Forms.Button fibrillationBtn;
-        private System.Windows.Forms.Button rhytmSinusBtn;
-        private System.Windows.Forms.Button spaceBtn;
-        private System.Windows.Forms.GroupBox deviationBox;
-        private System.Windows.Forms.Button negativeTBtn;
-        private System.Windows.Forms.Button depressionBtn;
-        private System.Windows.Forms.Button elevation;
-        private System.Windows.Forms.Button dotBtn;
-        private System.Windows.Forms.GroupBox whereBox;
-        private System.Windows.Forms.Button V6Btn;
-        private System.Windows.Forms.Button V5Btn;
-        private System.Windows.Forms.Button V4Btn;
-        private System.Windows.Forms.Button V3Btn;
-        private System.Windows.Forms.Button V2Btn;
-        private System.Windows.Forms.Button V1Btn;
-        private System.Windows.Forms.Button AvfBtn;
-        private System.Windows.Forms.Button AvrBtn;
-        private System.Windows.Forms.Button AvlBtn;
-        private System.Windows.Forms.Button IIIBtn;
-        private System.Windows.Forms.Button IIBtn;
-        private System.Windows.Forms.Button IBtn;
-        private System.Windows.Forms.Button dashBtn;
-        private System.Windows.Forms.Button commaBtn;
         private System.Windows.Forms.TabPage egdsTab;
         private System.Windows.Forms.GroupBox firstEgdsBox;
         private System.Windows.Forms.RichTextBox firstEgdsTxt;

@@ -93,11 +93,8 @@ namespace Cardiology
                 firstEgdsTxt.Text = firstEgdsAnalysis.DssEgds;
             }
 
-            DdtEkg firstEkgAnalysis = service.queryObject<DdtEkg>(string.Format(FIRST_ANALYSIS_QRY_TEMPLATE, DdtEkg.TABLE_NAME, hospitalSession.ObjectId));
-            if (firstEkgAnalysis != null)
-            {
-                regularEkgTxt.Text = firstEkgAnalysis.DssEkg;
-            }
+            string firstEkgId = service.querySingleString(string.Format("SELECT r_object_id FROM {0} WHERE dsb_admission_analysis=true and dsid_hospitality_session='{1}'", DdtEkg.TABLE_NAME, hospitalSession.ObjectId));
+            ekgTab.Controls.Add(new EkgAnalysisControlcs(firstEkgId, false));
         }
 
         private void initDiagnosis()
@@ -642,19 +639,18 @@ namespace Cardiology
 
         private void saveEkgAnalysisTab(DataService service)
         {
-            if (isNeedSaveTab(EKG_TAB_INDX))
+            EkgAnalysisControlcs ekgControl = (EkgAnalysisControlcs) ekgTab.Controls[0];
+            DdtEkg ekg = ekgControl.getObject();
+            if (CommonUtils.isNotBlank(ekg.DssEkg))
             {
-                DdtEkg ekg = service.queryObject<DdtEkg>(string.Format(FIRST_ANALYSIS_QRY_TEMPLATE, DdtEkg.TABLE_NAME, hospitalSession.ObjectId));
-                if (ekg == null)
+                if (CommonUtils.isBlank(ekg.ObjectId))
                 {
-                    ekg = new DdtEkg();
                     ekg.DsidHospitalitySession = hospitalSession.ObjectId;
                     ekg.DsidDoctor = hospitalSession.DsidCuringDoctor;
                     ekg.DsidPatient = hospitalSession.DsidPatient;
                     ekg.DsbAdmissionAnalysis = true;
                     ekg.DsdtAnalysisDate = DateTime.Now;
                 }
-                ekg.DssEkg = regularEkgTxt.Text;
                 updateObject<DdtEkg>(service, ekg, DdtEkg.TABLE_NAME, ekg.ObjectId);
             }
         }
@@ -668,8 +664,6 @@ namespace Cardiology
                         CommonUtils.isNotBlank(firstLeucocytesTxt.Text) || CommonUtils.isNotBlank(firstProteinTxt.Text);
                 case EGDS_TAB_INDX:
                     return CommonUtils.isNotBlank(firstEgdsTxt.Text);
-                case EKG_TAB_INDX:
-                    return CommonUtils.isNotBlank(regularEkgTxt.Text);
                 case BLOOD_TAB_INDX:
                     return CommonUtils.isNotBlank(plateletsTxt.Text) || CommonUtils.isNotBlank(srbTxt.Text)
                         || CommonUtils.isNotBlank(sodiumTxt.Text) || CommonUtils.isNotBlank(schfTxt.Text)
@@ -704,120 +698,6 @@ namespace Cardiology
             issuedMedicineControl1.addMedicineBox();
         }
 
-        private void rhytmSinusBtn_Click(object sender, EventArgs e)
-        {
-            regularEkgTxt.Text = regularEkgTxt.Text + "ритм синусовый";
-        }
-
-        private void fibrillationBtn_Click(object sender, EventArgs e)
-        {
-            regularEkgTxt.Text = regularEkgTxt.Text + "фибрилляция предсердий";
-        }
-
-        private void flutterBtn_Click(object sender, EventArgs e)
-        {
-            regularEkgTxt.Text = regularEkgTxt.Text + "трепетание предсердий";
-        }
-
-        private void elevation_Click(object sender, EventArgs e)
-        {
-            regularEkgTxt.Text = regularEkgTxt.Text + "элевация ST в ";
-        }
-
-        private void depressionBtn_Click(object sender, EventArgs e)
-        {
-            regularEkgTxt.Text = regularEkgTxt.Text + "депрессия ST в ";
-        }
-
-        private void negativeTBtn_Click(object sender, EventArgs e)
-        {
-            regularEkgTxt.Text = regularEkgTxt.Text + "отрицательный T";
-        }
-
-        private void commaBtn_Click(object sender, EventArgs e)
-        {
-            regularEkgTxt.Text = regularEkgTxt.Text + ", ";
-        }
-
-        private void IBtn_Click(object sender, EventArgs e)
-        {
-            regularEkgTxt.Text = regularEkgTxt.Text + "I";
-        }
-
-        private void IIBtn_Click(object sender, EventArgs e)
-        {
-            regularEkgTxt.Text = regularEkgTxt.Text + "II";
-        }
-
-        private void IIIBtn_Click(object sender, EventArgs e)
-        {
-            regularEkgTxt.Text = regularEkgTxt.Text + "III";
-        }
-
-        private void AvlBtn_Click(object sender, EventArgs e)
-        {
-            regularEkgTxt.Text = regularEkgTxt.Text + "AVL";
-        }
-
-        private void AvrBtn_Click(object sender, EventArgs e)
-        {
-            regularEkgTxt.Text = regularEkgTxt.Text + "AVR";
-        }
-
-        private void AvfBtn_Click(object sender, EventArgs e)
-        {
-            regularEkgTxt.Text = regularEkgTxt.Text + "AVF";
-        }
-
-        private void V1Btn_Click(object sender, EventArgs e)
-        {
-            regularEkgTxt.Text = regularEkgTxt.Text + "V1";
-        }
-
-        private void V2Btn_Click(object sender, EventArgs e)
-        {
-            regularEkgTxt.Text = regularEkgTxt.Text + "V2";
-        }
-
-        private void V3Btn_Click(object sender, EventArgs e)
-        {
-            regularEkgTxt.Text = regularEkgTxt.Text + "V3";
-        }
-
-        private void V4Btn_Click(object sender, EventArgs e)
-        {
-            regularEkgTxt.Text = regularEkgTxt.Text + "V4";
-        }
-
-        private void V5Btn_Click(object sender, EventArgs e)
-        {
-            regularEkgTxt.Text = regularEkgTxt.Text + "V5";
-        }
-
-        private void V6Btn_Click(object sender, EventArgs e)
-        {
-            regularEkgTxt.Text = regularEkgTxt.Text + "V6";
-        }
-
-        private void dashBtn_Click(object sender, EventArgs e)
-        {
-            regularEkgTxt.Text = regularEkgTxt.Text + "-";
-        }
-
-        private void dotBtn_Click(object sender, EventArgs e)
-        {
-            regularEkgTxt.Text = regularEkgTxt.Text + ".";
-        }
-
-        private void spaceBtn_Click(object sender, EventArgs e)
-        {
-            regularEkgTxt.Text = regularEkgTxt.Text + " ";
-        }
-
-        private void clearBtn_Click(object sender, EventArgs e)
-        {
-            regularEkgTxt.Text = "";
-        }
 
         private void alcoholProtocolBtn_Click(object sender, EventArgs e)
         {

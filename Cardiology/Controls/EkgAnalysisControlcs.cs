@@ -41,13 +41,26 @@ namespace Cardiology
 
             editablePnl.Visible = isEditable;
             readonlyEkgBox.Visible = !isEditable;
-            
+
             editablePnl.Size = isEditable ? FULL_SIZE : READONLY_SIZE;
+        }
+
+        public DdtEkg getObject()
+        {
+            DataService service = new DataService();
+            DdtEkg ekg = service.queryObjectById<DdtEkg>(DdtEkg.TABLE_NAME, objectId);
+            if (ekg == null)
+            {
+                ekg = new DdtEkg();
+            }
+            ekg.DsdtAnalysisDate = analysisDate.Value;
+            ekg.DssEkg = regularEkgTxt.Text;
+            return ekg;
         }
 
         public void saveObject(DdtHospital hospitalitySession, string parentId, string parentType)
         {
-            if (isEditable)
+            if (isEditable && CommonUtils.isNotBlank(regularEkgTxt.Text))
             {
                 DataService service = new DataService();
                 DdtEkg ekg = service.queryObjectById<DdtEkg>(DdtEkg.TABLE_NAME, objectId);

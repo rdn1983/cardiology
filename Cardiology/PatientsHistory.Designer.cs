@@ -231,7 +231,6 @@
             this.mainMenu.Name = "mainMenu";
             this.mainMenu.Size = new System.Drawing.Size(800, 24);
             this.mainMenu.TabIndex = 4;
-            this.mainMenu.Text = "menuStrip1";
             // 
             // actionsManu
             // 

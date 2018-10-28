@@ -90,6 +90,7 @@
             this.justificationCostlyCureItem = new System.Windows.Forms.ToolStripMenuItem();
             this.skatItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showReleasedPatients = new System.Windows.Forms.CheckBox();
+            this.lastIssuedMedList = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.hospitalPatientsTbl)).BeginInit();
             this.main.SuspendLayout();
             this.SuspendLayout();
@@ -276,7 +277,8 @@
             this.main.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.main.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.actiosMenu,
-            this.reportsMenu});
+            this.reportsMenu,
+            this.lastIssuedMedList});
             this.main.Location = new System.Drawing.Point(0, 0);
             this.main.Name = "main";
             this.main.Size = new System.Drawing.Size(857, 24);
@@ -590,6 +592,13 @@
             this.showReleasedPatients.UseVisualStyleBackColor = true;
             this.showReleasedPatients.CheckedChanged += new System.EventHandler(this.showReleasedPatients_CheckedChanged);
             // 
+            // lastIssuedMedList
+            // 
+            this.lastIssuedMedList.Name = "lastIssuedMedList";
+            this.lastIssuedMedList.Size = new System.Drawing.Size(165, 20);
+            this.lastIssuedMedList.Text = "Текущий лист назначений";
+            this.lastIssuedMedList.Click += new System.EventHandler(this.lastIssuedMedList_Click);
+            // 
             // PatientList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -674,5 +683,6 @@
         private System.Windows.Forms.ToolStripMenuItem trunsfusionClaimItem;
         private System.Windows.Forms.ToolStripMenuItem skatItem;
         private System.Windows.Forms.CheckBox showReleasedPatients;
+        private System.Windows.Forms.ToolStripMenuItem lastIssuedMedList;
     }
 }

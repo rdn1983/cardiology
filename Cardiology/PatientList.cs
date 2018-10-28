@@ -20,7 +20,7 @@ namespace Cardiology
         {
             hospitalPatientsTbl.Rows.Clear();
             DataService service = new DataService();
-            string query = @"Select * from ddv_active_hospital_patients " + (idOnlyActive ? " WHERE dsb_active=true":"") ;
+            string query = @"Select * from ddv_active_hospital_patients " + (idOnlyActive ? " WHERE dsb_active=true" : "");
             List<DdvActiveHospitalPatients> allHspitalPatients = service.queryObjectsCollection<DdvActiveHospitalPatients>(query);
             for (int i = 0; i < allHspitalPatients.Count(); i++)
             {
@@ -92,7 +92,7 @@ namespace Cardiology
                 ReanimDEAD form = new ReanimDEAD(patient);
                 form.ShowDialog();
             }
-            
+
         }
 
         private void deadItem_Click(object sender, EventArgs e)
@@ -117,7 +117,7 @@ namespace Cardiology
             form.ShowDialog();
         }
 
-        
+
 
         private void Hospital_Activated(object sender, EventArgs e)
         {
@@ -483,7 +483,7 @@ namespace Cardiology
                 DataService service = new DataService();
                 DdtHospital hospitalSession = service.queryObjectById<DdtHospital>(DdtHospital.TABLENAME, value);
                 DdtPatient patient = service.queryObjectById<DdtPatient>(DdtPatient.TABLENAME, hospitalSession.DsidPatient);
-                string passportInfo = patient.DssPassportSerial + " " + patient.DssPassportNum + " выдан " 
+                string passportInfo = patient.DssPassportSerial + " " + patient.DssPassportNum + " выдан "
                     + patient.DssPassportDate.ToShortDateString() + " " + patient.DssPassportIssuePlace;
                 values.Add("{patient.passport}", passportInfo);
                 TemplatesUtils.fillBlankTemplate("blank_dead_constatation_template.doc", value, values);
@@ -492,7 +492,7 @@ namespace Cardiology
 
         private void showReleasedPatients_CheckedChanged(object sender, EventArgs e)
         {
-            CheckBox box = (CheckBox) sender;
+            CheckBox box = (CheckBox)sender;
             loadPatientsGrid(!box.Checked);
         }
 
@@ -510,6 +510,29 @@ namespace Cardiology
 
             }
 
+        }
+
+        private void lastIssuedMedList_Click(object sender, EventArgs e)
+        {
+            IEnumerator it = hospitalPatientsTbl.SelectedRows.GetEnumerator();
+            if (it.MoveNext())
+            {
+                DataGridViewRow row = (DataGridViewRow)it.Current;
+                DataGridViewCell cell = row.Cells[0];
+                DataService service = new DataService();
+                String lastListId = service.querySingleString("SELECT r_object_id FROM " + DdtIssuedMedicineList.TABLE_NAME +
+                    " WHERE dsid_hospitality_session='" + cell.Value + "' ORDER BY dsdt_issuing_date DESC");
+                if (CommonUtils.isBlank(lastListId))
+                {
+                    MessageBox.Show("Для пациента еще не создано ни одного листа назначений", "Предупреждение", MessageBoxButtons.OK);
+                }
+                else
+                {
+                    DdtHospital hospitalSession = service.queryObjectById<DdtHospital>(DdtHospital.TABLENAME, cell.Value.ToString());
+                    IssuedMedicine form = new IssuedMedicine(hospitalSession, lastListId);
+                    form.ShowDialog();
+                }
+            }
         }
     }
 }

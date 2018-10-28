@@ -278,5 +278,11 @@ namespace Cardiology
             PreoperativeEpicrisiscs container = new PreoperativeEpicrisiscs(hospitalitySession, null);
             container.ShowDialog();
         }
+
+        private void xrayMenuItem_Click(object sender, EventArgs e)
+        {
+            AnalysisContainer container = new AnalysisContainer(hospitalitySession, DdtXRay.TABLE_NAME, null);
+            container.ShowDialog();
+        }
     }
 }

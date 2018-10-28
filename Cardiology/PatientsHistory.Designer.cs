@@ -49,18 +49,13 @@
             this.mainMenu = new System.Windows.Forms.MenuStrip();
             this.actionsManu = new System.Windows.Forms.ToolStripMenuItem();
             this.firstInspectationsItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.analysisMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bloodItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.urineItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.inspectionsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.holterItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ekgItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kagItem = new System.Windows.Forms.ToolStripMenuItem();
             this.egdsItem = new System.Windows.Forms.ToolStripMenuItem();
             this.specialistItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uziItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bloodTypeItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.hormonesItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.koagulogrammItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bloodTrunsfusionMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.issuingMedicineMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.beforeOperationItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -71,6 +66,13 @@
             this.journalWithoutKAGMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.konsiliumItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.analysisItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bloodItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.koagulogrammItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bloodTypeItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hormonesItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.urineItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.xrayMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.patientHistoryGrid)).BeginInit();
             this.gridContextMenu.SuspendLayout();
             this.mainMenu.SuspendLayout();
@@ -235,7 +237,8 @@
             // 
             this.actionsManu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.firstInspectationsItem,
-            this.analysisMenuItem,
+            this.inspectionsMenuItem,
+            this.analysisItem,
             this.bloodTrunsfusionMenuItem,
             this.issuingMedicineMenuItem,
             this.beforeOperationItem,
@@ -257,43 +260,25 @@
             this.firstInspectationsItem.Text = "Первичный обход";
             this.firstInspectationsItem.Click += new System.EventHandler(this.firstInspectationsItem_Click);
             // 
-            // analysisMenuItem
+            // inspectionsMenuItem
             // 
-            this.analysisMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bloodItem,
-            this.urineItem,
-            this.holterItem,
+            this.inspectionsMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.xrayMenuItem,
+            this.uziItem,
             this.ekgItem,
             this.kagItem,
             this.egdsItem,
             this.specialistItem,
-            this.uziItem,
-            this.bloodTypeItem,
-            this.hormonesItem,
-            this.koagulogrammItem});
-            this.analysisMenuItem.Name = "analysisMenuItem";
-            this.analysisMenuItem.Size = new System.Drawing.Size(261, 22);
-            this.analysisMenuItem.Text = "Ввести анализы, Исследования";
-            // 
-            // bloodItem
-            // 
-            this.bloodItem.Name = "bloodItem";
-            this.bloodItem.Size = new System.Drawing.Size(223, 22);
-            this.bloodItem.Text = "Показатели крови";
-            this.bloodItem.Click += new System.EventHandler(this.bloodItem_Click);
-            // 
-            // urineItem
-            // 
-            this.urineItem.Name = "urineItem";
-            this.urineItem.Size = new System.Drawing.Size(223, 22);
-            this.urineItem.Text = "Анализ мочи";
-            this.urineItem.Click += new System.EventHandler(this.urineItem_Click);
+            this.holterItem});
+            this.inspectionsMenuItem.Name = "inspectionsMenuItem";
+            this.inspectionsMenuItem.Size = new System.Drawing.Size(261, 22);
+            this.inspectionsMenuItem.Text = "Результаты обследований";
             // 
             // holterItem
             // 
             this.holterItem.Name = "holterItem";
             this.holterItem.Size = new System.Drawing.Size(223, 22);
-            this.holterItem.Text = "Холтер";
+            this.holterItem.Text = "Холтер/СМАД";
             this.holterItem.Click += new System.EventHandler(this.holterItem_Click);
             // 
             // ekgItem
@@ -328,29 +313,8 @@
             // 
             this.uziItem.Name = "uziItem";
             this.uziItem.Size = new System.Drawing.Size(223, 22);
-            this.uziItem.Text = "УЗИ";
+            this.uziItem.Text = "УЗИ/ЭХО";
             this.uziItem.Click += new System.EventHandler(this.uziItem_Click);
-            // 
-            // bloodTypeItem
-            // 
-            this.bloodTypeItem.Name = "bloodTypeItem";
-            this.bloodTypeItem.Size = new System.Drawing.Size(223, 22);
-            this.bloodTypeItem.Text = "Группа крови, инфекции";
-            this.bloodTypeItem.Click += new System.EventHandler(this.bloodTypeItem_Click);
-            // 
-            // hormonesItem
-            // 
-            this.hormonesItem.Name = "hormonesItem";
-            this.hormonesItem.Size = new System.Drawing.Size(223, 22);
-            this.hormonesItem.Text = "Гормоны";
-            this.hormonesItem.Click += new System.EventHandler(this.hormonesItem_Click);
-            // 
-            // koagulogrammItem
-            // 
-            this.koagulogrammItem.Name = "koagulogrammItem";
-            this.koagulogrammItem.Size = new System.Drawing.Size(223, 22);
-            this.koagulogrammItem.Text = "Коагулограмма";
-            this.koagulogrammItem.Click += new System.EventHandler(this.koagulogrammItem_Click);
             // 
             // bloodTrunsfusionMenuItem
             // 
@@ -418,6 +382,55 @@
             this.konsiliumItem.Text = "Консилиум";
             this.konsiliumItem.Click += new System.EventHandler(this.konsiliumItem_Click);
             // 
+            // analysisItem
+            // 
+            this.analysisItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bloodItem,
+            this.urineItem,
+            this.koagulogrammItem,
+            this.bloodTypeItem,
+            this.hormonesItem});
+            this.analysisItem.Name = "analysisItem";
+            this.analysisItem.Size = new System.Drawing.Size(261, 22);
+            this.analysisItem.Text = "Анализы";
+            // 
+            // bloodItem
+            // 
+            this.bloodItem.Name = "bloodItem";
+            this.bloodItem.Size = new System.Drawing.Size(225, 22);
+            this.bloodItem.Text = "Клинический анализ крови";
+            // 
+            // koagulogrammItem
+            // 
+            this.koagulogrammItem.Name = "koagulogrammItem";
+            this.koagulogrammItem.Size = new System.Drawing.Size(225, 22);
+            this.koagulogrammItem.Text = "Коагулограмма";
+            // 
+            // bloodTypeItem
+            // 
+            this.bloodTypeItem.Name = "bloodTypeItem";
+            this.bloodTypeItem.Size = new System.Drawing.Size(225, 22);
+            this.bloodTypeItem.Text = "Группа крови, инфекции";
+            // 
+            // hormonesItem
+            // 
+            this.hormonesItem.Name = "hormonesItem";
+            this.hormonesItem.Size = new System.Drawing.Size(225, 22);
+            this.hormonesItem.Text = "Гормоны";
+            // 
+            // urineItem
+            // 
+            this.urineItem.Name = "urineItem";
+            this.urineItem.Size = new System.Drawing.Size(225, 22);
+            this.urineItem.Text = "Анализ мочи";
+            // 
+            // xrayMenuItem
+            // 
+            this.xrayMenuItem.Name = "xrayMenuItem";
+            this.xrayMenuItem.Size = new System.Drawing.Size(223, 22);
+            this.xrayMenuItem.Text = "Рентген/КТ";
+            this.xrayMenuItem.Click += new System.EventHandler(this.xrayMenuItem_Click);
+            // 
             // PatientsHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -453,7 +466,7 @@
         private System.Windows.Forms.ToolStripMenuItem deleteMenu;
         private System.Windows.Forms.MenuStrip mainMenu;
         private System.Windows.Forms.ToolStripMenuItem actionsManu;
-        private System.Windows.Forms.ToolStripMenuItem analysisMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem inspectionsMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bloodTrunsfusionMenuItem;
         private System.Windows.Forms.ToolStripMenuItem issuingMedicineMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
@@ -472,8 +485,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn docExecutor;
         private System.Windows.Forms.DataGridViewTextBoxColumn operationDescription;
         private System.Windows.Forms.ToolStripMenuItem firstInspectationsItem;
-        private System.Windows.Forms.ToolStripMenuItem bloodItem;
-        private System.Windows.Forms.ToolStripMenuItem urineItem;
         private System.Windows.Forms.ToolStripMenuItem holterItem;
         private System.Windows.Forms.ToolStripMenuItem ekgItem;
         private System.Windows.Forms.ToolStripMenuItem kagItem;
@@ -481,8 +492,12 @@
         private System.Windows.Forms.ToolStripMenuItem specialistItem;
         private System.Windows.Forms.ToolStripMenuItem uziItem;
         private System.Windows.Forms.ToolStripMenuItem beforeOperationItem;
+        private System.Windows.Forms.ToolStripMenuItem analysisItem;
+        private System.Windows.Forms.ToolStripMenuItem bloodItem;
+        private System.Windows.Forms.ToolStripMenuItem urineItem;
+        private System.Windows.Forms.ToolStripMenuItem koagulogrammItem;
         private System.Windows.Forms.ToolStripMenuItem bloodTypeItem;
         private System.Windows.Forms.ToolStripMenuItem hormonesItem;
-        private System.Windows.Forms.ToolStripMenuItem koagulogrammItem;
+        private System.Windows.Forms.ToolStripMenuItem xrayMenuItem;
     }
 }

@@ -76,7 +76,7 @@ namespace Cardiology
             }
             else if (DdtXRay.TABLE_NAME.Equals(typeName))
             {
-                //combainingContainer.Controls.Add(new UrineAnalysisControl(objectId, objectId != null &&!objectId.Equals(currentId)));
+                combainingContainer.Controls.Add(new XRayControl(objectId, objectId != null &&!objectId.Equals(currentId)));
             }
             else if (DdtHolter.TABLE_NAME.Equals(typeName))
             {
@@ -128,7 +128,7 @@ namespace Cardiology
             }
             else if (DdtXRay.TABLE_NAME.Equals(typeName))
             {
-                this.Text = "Рентген";
+                this.Text = "Рентген/КТ";
             }
             else if (DdtHolter.TABLE_NAME.Equals(typeName))
             {

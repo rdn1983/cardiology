@@ -26,6 +26,11 @@ namespace Cardiology
             CommonUtils.initDoctorsComboboxValues(service, adminTxt, " dsi_appointment_type=3");
             CommonUtils.initGroupsComboboxValues(service, appointmentTxt0);
             CommonUtils.initDoctorsByGroupComboboxValues(service, doctorWho0, null);
+            DdtPatient patient = service.queryObjectById<DdtPatient>(DdtPatient.TABLENAME, hospitalitySession.DsidPatient);
+            if (patient != null)
+            {
+                Text += " " + patient.DssInitials;
+            }
             diagnosisTxt0.Text = hospitalitySession.DssDiagnosis;
             if (CommonUtils.isNotBlank(consiliumId))
             {

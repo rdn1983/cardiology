@@ -19,6 +19,11 @@ namespace Cardiology
         private void initProtocol()
         {
             DataService service = new DataService();
+            DdtPatient patient = service.queryObjectById<DdtPatient>(DdtPatient.TABLENAME, hospitalitySession.DsidPatient);
+            if (patient != null)
+            {
+                Text += " " + patient.DssInitials;
+            }
             DdtAlcoProtocol protocol = service.queryObject<DdtAlcoProtocol>(@"SELECT * FROM ddt_alco_protocol where dsid_hospitality_session='" + hospitalitySession.ObjectId + "'");
             if (protocol != null)
             {

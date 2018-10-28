@@ -24,6 +24,11 @@ namespace Cardiology
             CommonUtils.initDoctorsComboboxValues(service, cardioReanimBox, null);
             CommonUtils.initDoctorsComboboxValues(service, directorBox, null);
             initIssuedCure(service);
+            DdtPatient patient = service.queryObjectById<DdtPatient>(DdtPatient.TABLENAME, hospitalitySession.DsidPatient);
+            if (patient != null)
+            {
+                Text += " " + patient.DssInitials;
+            }
         }
 
         private void initIssuedCure(DataService service)

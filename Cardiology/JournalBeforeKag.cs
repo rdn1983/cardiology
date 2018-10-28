@@ -55,6 +55,11 @@ namespace Cardiology
             }
 
             DataService service = new DataService();
+            DdtPatient patient = service.queryObjectById<DdtPatient>(DdtPatient.TABLENAME, hospitalitySession.DsidPatient);
+            if (patient != null)
+            {
+                Text += " " + patient.DssInitials;
+            }
             DdtJournal journal = null;
             for (int i = 0; i < journalIds.Count; i++)
             {

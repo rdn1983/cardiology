@@ -19,6 +19,12 @@ namespace Cardiology
             releasePatientInfo.DsidDoctor = hospitalitySession.DsidDutyDoctor;
             releasePatientInfo.DsidPatient = hospitalitySession.DsidPatient;
             InitializeComponent();
+            DataService service = new DataService();
+            DdtPatient patient = service.queryObjectById<DdtPatient>(DdtPatient.TABLENAME, hospitalitySession.DsidPatient);
+            if (patient != null)
+            {
+                Text += " " + patient.DssInitials;
+            }
         }
 
 

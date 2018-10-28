@@ -30,6 +30,7 @@ namespace Cardiology
             combainingContainer.RowStyles.Clear();
             combainingContainer.RowStyles.Add(new RowStyle(SizeType.AutoSize));
             initControls();
+            initTitle();
         }
 
         private void initControls()
@@ -104,7 +105,7 @@ namespace Cardiology
         {
             if (DdtBloodAnalysis.TABLE_NAME.Equals(typeName))
             {
-                this.Text = "Показатели крови";
+                this.Text = "Клинический анализ крови";
             }
             else if (DdtUrineAnalysis.TABLE_NAME.Equals(typeName))
             {
@@ -112,7 +113,7 @@ namespace Cardiology
             }
             else if (DdtKag.TABLE_NAME.Equals(typeName))
             {
-                this.Text = "Показатели крови";
+                this.Text = "КАГ";
             }
             else if (DdtEkg.TABLE_NAME.Equals(typeName))
             {
@@ -132,7 +133,7 @@ namespace Cardiology
             }
             else if (DdtHolter.TABLE_NAME.Equals(typeName))
             {
-                this.Text = "Холтер";
+                this.Text = "Холтер/СМАД";
             }
             else if (DdtSpecialistConclusion.TABLE_NAME.Equals(typeName))
             {
@@ -146,7 +147,12 @@ namespace Cardiology
             {
                 this.Text = "Гормоны";
             }
-
+            DataService service = new DataService();
+            DdtPatient patient = service.queryObjectById<DdtPatient>(DdtPatient.TABLENAME, hospitalitySession.DsidPatient);
+            if (patient != null)
+            {
+                this.Text += " " + patient.DssInitials;
+            }
         }
 
         private void selectToContainer_Click(object sender, EventArgs e)

@@ -27,6 +27,11 @@ namespace Cardiology
             if (CommonUtils.isNotBlank(objectId))
             {
                 DataService service = new DataService();
+                DdtPatient patient = service.queryObjectById<DdtPatient>(DdtPatient.TABLENAME, hospitalitySession.DsidPatient);
+                if (patient != null)
+                {
+                    Text += " " + patient.DssInitials;
+                }
                 DdtEpicrisis epicrisis = service.queryObjectById<DdtEpicrisis>(DdtEpicrisis.TABLE_NAME, objectId);
                 if (epicrisis != null)
                 {

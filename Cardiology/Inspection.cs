@@ -24,6 +24,11 @@ namespace Cardiology
         {
             kagContainer.Visible = false;
             DataService service = new DataService();
+            DdtPatient patient = service.queryObjectById<DdtPatient>(DdtPatient.TABLENAME, hospitalitySession.DsidPatient);
+            if (patient != null)
+            {
+                Text += " " + patient.DssInitials;
+            }
             inspectionObj = service.queryObjectById<DdtInspection>(DdtInspection.TABLE_NAME, inspectionObjId);
             DateTime startDate = inspectionObj == null ? DateTime.Now : inspectionObj.DsdtInspectionDate;
             DdtJournal kagJournal = CommonUtils.resolveKagJournal(service, startDate, hospitalitySession.ObjectId);

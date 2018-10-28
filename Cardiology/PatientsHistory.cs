@@ -18,6 +18,12 @@ namespace Cardiology
             this.hospitalitySession = hospitalitySession;
             InitializeComponent();
             this.patientHistoryGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            DataService service = new DataService();
+            DdtPatient patient = service.queryObjectById<DdtPatient>(DdtPatient.TABLENAME, hospitalitySession.DsidPatient);
+            if (patient != null)
+            {
+                Text += " " + patient.DssInitials;
+            }
         }
 
         private void loadPatientsHistoryGrid()

@@ -33,6 +33,11 @@ namespace Cardiology
             DataService service = new DataService();
 
             CommonUtils.initDoctorsComboboxValues(service, journalDocBox, "");
+            DdtPatient patient = service.queryObjectById<DdtPatient>(DdtPatient.TABLENAME, hospitalitySession.DsidPatient);
+            if (patient != null)
+            {
+                Text += " " + patient.DssInitials;
+            }
 
             if (CommonUtils.isNotBlank(journalId))
             {

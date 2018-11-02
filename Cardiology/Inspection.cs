@@ -159,7 +159,7 @@ namespace Cardiology
         {
             if (medList != null)
             {
-                issuedMedicineControl1.Init(service, medList);
+                issuedMedicineContainer.Init(service, medList);
             }
         }
 
@@ -204,7 +204,7 @@ namespace Cardiology
 
         private void saveIssuedMedicine(DataService service)
         {
-            List<DdtIssuedMedicine> meds = issuedMedicineControl1.getIssuedMedicines();
+            List<DdtIssuedMedicine> meds = issuedMedicineContainer.getIssuedMedicines();
             if (meds.Count > 0)
             {
                 DdtIssuedMedicineList medList = service.queryObject<DdtIssuedMedicineList>(@"SELECT * FROM " + DdtIssuedMedicineList.TABLE_NAME +
@@ -250,7 +250,7 @@ namespace Cardiology
 
         private void addMedicineBtn_Click(object sender, EventArgs e)
         {
-            issuedMedicineControl1.addMedicineBox();
+            issuedMedicineContainer.addMedicineBox();
         }
 
         private void addAnalysisBtn_Click(object sender, EventArgs e)

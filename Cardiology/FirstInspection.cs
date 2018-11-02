@@ -136,7 +136,7 @@ namespace Cardiology
                 hospitalSession.ObjectId + "' AND dss_parent_type='ddt_anamnesis'");
             if (medList != null)
             {
-                issuedMedicineControl1.Init(service, medList);
+                issuedMedicineContainer.Init(service, medList);
             }
         }
 
@@ -359,7 +359,7 @@ namespace Cardiology
             List<DdtCure> medicineTemplates = service.queryObjectsCollection<DdtCure>(@"Select cure.* from ddt_values vv, ddt_cure cure 
                             where vv.dss_name like '" + template + "%' AND vv.dss_value=cure.dss_name");
             clearOldMedList(service);
-            issuedMedicineControl1.refreshData(service, medicineTemplates);
+            issuedMedicineContainer.refreshData(service, medicineTemplates);
         }
 
         private void clearOldMedList(DataService service)
@@ -568,7 +568,7 @@ namespace Cardiology
 
         private void saveIssuedMedicine(DataService service)
         {
-            List<DdtIssuedMedicine> meds = issuedMedicineControl1.getIssuedMedicines();
+            List<DdtIssuedMedicine> meds = issuedMedicineContainer.getIssuedMedicines();
             if (meds.Count > 0)
             {
                 DdtIssuedMedicineList medList = service.queryObject<DdtIssuedMedicineList>(@"SELECT * FROM ddt_issued_medicine_list WHERE dsid_hospitality_session='" +
@@ -695,7 +695,7 @@ namespace Cardiology
 
         private void AddIssuedMedicine_Click(object sender, EventArgs e)
         {
-            issuedMedicineControl1.addMedicineBox();
+            issuedMedicineContainer.addMedicineBox();
         }
 
 

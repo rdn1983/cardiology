@@ -51,7 +51,6 @@
             this.addAnalysis = new System.Windows.Forms.Button();
             this.isssuedMedsTab = new System.Windows.Forms.TabPage();
             this.medicinesPnl = new System.Windows.Forms.Panel();
-            this.issuedMedicineControl1 = new Cardiology.IssuedMedicineControl();
             this.addMedicineBtn = new System.Windows.Forms.Button();
             this.printBtn = new System.Windows.Forms.Button();
             this.saveBtn = new System.Windows.Forms.Button();
@@ -64,6 +63,7 @@
             this.xRayItem = new System.Windows.Forms.ToolStripMenuItem();
             this.holterItem = new System.Windows.Forms.ToolStripMenuItem();
             this.specialistItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.issuedMedicineContainer = new Cardiology.Controls.IssuedMedicineContainer();
             this.tabbedContainer.SuspendLayout();
             this.baseTab.SuspendLayout();
             this.kagContainer.SuspendLayout();
@@ -299,22 +299,11 @@
             this.medicinesPnl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.medicinesPnl.Controls.Add(this.issuedMedicineControl1);
+            this.medicinesPnl.Controls.Add(this.issuedMedicineContainer);
             this.medicinesPnl.Location = new System.Drawing.Point(3, 15);
             this.medicinesPnl.Name = "medicinesPnl";
             this.medicinesPnl.Size = new System.Drawing.Size(747, 489);
             this.medicinesPnl.TabIndex = 3;
-            // 
-            // issuedMedicineControl1
-            // 
-            this.issuedMedicineControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.issuedMedicineControl1.AutoSize = true;
-            this.issuedMedicineControl1.Location = new System.Drawing.Point(3, 3);
-            this.issuedMedicineControl1.Name = "issuedMedicineControl1";
-            this.issuedMedicineControl1.Size = new System.Drawing.Size(6, 11);
-            this.issuedMedicineControl1.TabIndex = 0;
             // 
             // addMedicineBtn
             // 
@@ -425,6 +414,15 @@
             this.specialistItem.Text = "Заключения специалистов";
             this.specialistItem.Click += new System.EventHandler(this.specialistItem_Click);
             // 
+            // issuedMedicineContainer
+            // 
+            this.issuedMedicineContainer.AutoSize = true;
+            this.issuedMedicineContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.issuedMedicineContainer.Location = new System.Drawing.Point(13, 12);
+            this.issuedMedicineContainer.Name = "issuedMedicineContainer";
+            this.issuedMedicineContainer.Size = new System.Drawing.Size(6, 6);
+            this.issuedMedicineContainer.TabIndex = 0;
+            // 
             // Inspection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -487,8 +485,8 @@
         private System.Windows.Forms.ToolStripMenuItem specialistItem;
         private System.Windows.Forms.TabControl tabbedAnalysis;
         private System.Windows.Forms.Panel medicinesPnl;
-        private IssuedMedicineControl issuedMedicineControl1;
         private System.Windows.Forms.Label kagInfo;
         private System.Windows.Forms.Panel kagContainer;
+        private Controls.IssuedMedicineContainer issuedMedicineContainer;
     }
 }

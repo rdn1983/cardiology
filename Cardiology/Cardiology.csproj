@@ -141,6 +141,12 @@
     <Compile Include="Controls\HormonesControl.Designer.cs">
       <DependentUpon>HormonesControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\IssuedMedicineContainer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\IssuedMedicineContainer.Designer.cs">
+      <DependentUpon>IssuedMedicineContainer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\JournalKAGControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -423,6 +429,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\HormonesControl.resx">
       <DependentUpon>HormonesControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\IssuedMedicineContainer.resx">
+      <DependentUpon>IssuedMedicineContainer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\IssuedMedicineControl.resx">
       <DependentUpon>IssuedMedicineControl.cs</DependentUpon>

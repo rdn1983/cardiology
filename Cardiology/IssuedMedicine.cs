@@ -1,7 +1,6 @@
 ﻿using Cardiology.Model;
 using Cardiology.Utils;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
@@ -41,7 +40,7 @@ namespace Cardiology
         {
             if (medList != null)
             {
-                issuedMedicineControl1.Init(service, medList);
+                issuedMedicineContainer.Init(service, medList);
             }
         }
 
@@ -107,7 +106,7 @@ namespace Cardiology
 
         private void addCureBtn_Click(object sender, EventArgs e)
         {
-            issuedMedicineControl1.addMedicineBox();
+            issuedMedicineContainer.addMedicineBox();
         }
 
         private void oksTemplateMed_Click(object sender, EventArgs e)
@@ -120,7 +119,7 @@ namespace Cardiology
             DataService service = new DataService();
             List<DdtCure> medicineTemplates = service.queryObjectsCollection<DdtCure>(@"Select cure.* from ddt_values vv, ddt_cure cure 
                             where vv.dss_name like '" + template + "%' AND vv.dss_value=cure.dss_name");
-            issuedMedicineControl1.refreshData(service, medicineTemplates);
+            issuedMedicineContainer.refreshData(service, medicineTemplates);
         }
 
         private void clearMedicine()
@@ -154,7 +153,7 @@ namespace Cardiology
 
         private void clearMedBtn_Click(object sender, EventArgs e)
         {
-            issuedMedicineControl1.clearMedicine();
+            issuedMedicineContainer.clearMedicine();
         }
 
         private void saveBtn_Click(object sender, EventArgs e)
@@ -166,7 +165,7 @@ namespace Cardiology
         private void saveIssuedMedicine()
         {
             DataService service = new DataService();
-            List<DdtIssuedMedicine> meds = issuedMedicineControl1.getIssuedMedicines();
+            List<DdtIssuedMedicine> meds = issuedMedicineContainer.getIssuedMedicines();
             if (meds.Count > 0)
             {
                 DdtIssuedMedicineList medList = service.queryObjectById<DdtIssuedMedicineList>(DdtIssuedMedicineList.TABLE_NAME, issuedMedId);
@@ -192,7 +191,7 @@ namespace Cardiology
             DataService service = new DataService();
             DdtIssuedMedicineList medList = service.queryObject<DdtIssuedMedicineList>(@"SELECT * FROM ddt_issued_medicine_list WHERE dsid_hospitality_session='" +
                    hospitalitySession.ObjectId + "' AND dss_parent_type='ddt_anamnesis'");
-            issuedMedicineControl1.Init(service, medList);
+            issuedMedicineContainer.Init(service, medList);
         }
 
         private void copyJournalMedBtn_Click(object sender, EventArgs e)
@@ -224,7 +223,7 @@ namespace Cardiology
             values.Add(@"{cell}", "");
             values.Add(@"{date}", DateTime.Now.ToShortDateString());
             //todo переписать,к огда будет время. Сделать добавление в таблицу строчек автоматом
-            List<DdtIssuedMedicine> med = issuedMedicineControl1.getIssuedMedicines();
+            List<DdtIssuedMedicine> med = issuedMedicineContainer.getIssuedMedicines();
             for (int i = 0; i < 12; i++)
             {
                 string value = "";

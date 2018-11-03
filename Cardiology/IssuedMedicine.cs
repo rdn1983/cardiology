@@ -2,6 +2,7 @@
 using Cardiology.Utils;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
@@ -11,6 +12,7 @@ namespace Cardiology
     {
         private DdtHospital hospitalitySession;
         private string issuedMedId;
+        private bool isAcceptTemplate = false;
 
         public IssuedMedicine(DdtHospital hospitalitySession, string issuedMedId)
         {
@@ -43,7 +45,8 @@ namespace Cardiology
                 diagnosisTxt.Text = medList.DssDiagnosis;
                 shortlyOperationTxt.Text = medList.DssHasKag;
                 issuedMedicineContainer.Init(service, medList);
-            } else
+            }
+            else
             {
                 copyFirstMedicineBtn_Click(null, null);
             }
@@ -116,7 +119,13 @@ namespace Cardiology
 
         private void oksTemplateMed_Click(object sender, EventArgs e)
         {
-            updatemedicineFromTemplate("oks.medicine.");
+            if (isSureChangeTemplate())
+            {
+                isAcceptTemplate = true;
+                clearSelection();
+                updatemedicineFromTemplate("oks.medicine.");
+                oksTemplateMed.BackColor = Color.LightSkyBlue;
+            }
         }
 
         private void updatemedicineFromTemplate(string template)
@@ -138,22 +147,46 @@ namespace Cardiology
 
         private void oksLongsMedBtn_Click(object sender, EventArgs e)
         {
-            updatemedicineFromTemplate("okslongs.medicine.");
+            if (isSureChangeTemplate())
+            {
+                isAcceptTemplate = true;
+                clearSelection();
+                updatemedicineFromTemplate("okslongs.medicine.");
+                oksLongsMedBtn.BackColor = Color.LightSkyBlue;
+            }
         }
 
         private void hoblMedBtn_Click(object sender, EventArgs e)
         {
-            updatemedicineFromTemplate("hobl.medicine.");
+            if (isSureChangeTemplate())
+            {
+                isAcceptTemplate = true;
+                clearSelection();
+                updatemedicineFromTemplate("hobl.medicine.");
+                hoblMedBtn.BackColor = Color.LightSkyBlue;
+            }
         }
 
         private void nkMedBtn_Click(object sender, EventArgs e)
         {
-            updatemedicineFromTemplate("nk.medicine.");
+            if (isSureChangeTemplate())
+            {
+                isAcceptTemplate = true;
+                clearSelection();
+                updatemedicineFromTemplate("nk.medicine.");
+                nkMedBtn.BackColor = Color.LightSkyBlue;
+            }
         }
 
         private void gbMedBtn_Click(object sender, EventArgs e)
         {
-            updatemedicineFromTemplate("gb.medicine.");
+            if (isSureChangeTemplate())
+            {
+                isAcceptTemplate = true;
+                clearSelection();
+                updatemedicineFromTemplate("gb.medicine.");
+                gbMedBtn.BackColor = Color.LightSkyBlue;
+            }
         }
 
         private void clearMedBtn_Click(object sender, EventArgs e)
@@ -268,22 +301,69 @@ namespace Cardiology
 
         private void kagMedBtn_Click(object sender, EventArgs e)
         {
-            updatemedicineFromTemplate("kag.medicine.");
+            if (isSureChangeTemplate())
+            {
+                isAcceptTemplate = true;
+                clearSelection();
+                updatemedicineFromTemplate("kag.medicine.");
+                kagMedBtn.BackColor = Color.LightSkyBlue;
+            }
         }
 
         private void aortaMedBtn_Click(object sender, EventArgs e)
         {
-            updatemedicineFromTemplate("aorta.medicine.");
+            if (isSureChangeTemplate())
+            {
+                isAcceptTemplate = true;
+                clearSelection();
+                updatemedicineFromTemplate("aorta.medicine.");
+                aortaMedBtn.BackColor = Color.LightSkyBlue;
+            }
         }
 
         private void depMedBtn_Click(object sender, EventArgs e)
         {
-            updatemedicineFromTemplate("dep.medicine.");
+            if (isSureChangeTemplate())
+            {
+                isAcceptTemplate = true;
+                clearSelection();
+                updatemedicineFromTemplate("dep.medicine.");
+                depMedBtn.BackColor = Color.LightSkyBlue;
+            }
         }
 
         private void deathMedBtn_Click(object sender, EventArgs e)
         {
-            updatemedicineFromTemplate("death.medicine.");
+            if (isSureChangeTemplate())
+            {
+                isAcceptTemplate = true;
+                clearSelection();
+                updatemedicineFromTemplate("death.medicine.");
+                deathMedBtn.BackColor = Color.LightSkyBlue;
+            }
+        }
+
+        private void clearSelection()
+        {
+            oksTemplateMed.BackColor = Color.Empty;
+            oksLongsMedBtn.BackColor = Color.Empty;
+            kagMedBtn.BackColor = Color.Empty;
+            deathMedBtn.BackColor = Color.Empty;
+            depMedBtn.BackColor = Color.Empty;
+            hoblMedBtn.BackColor = Color.Empty;
+            nkMedBtn.BackColor = Color.Empty;
+            gbMedBtn.BackColor = Color.Empty;
+            aortaMedBtn.BackColor = Color.Empty;
+        }
+
+        private bool isSureChangeTemplate()
+        {
+            if (isAcceptTemplate)
+            {
+                DialogResult result = MessageBox.Show("Уже применен шаблон! Вы уверены, что хотите сменить шаблон?", "Предупреждение", MessageBoxButtons.OKCancel);
+                return result == DialogResult.OK;
+            }
+            return true;
         }
     }
 }

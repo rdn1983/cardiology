@@ -40,7 +40,12 @@ namespace Cardiology
         {
             if (medList != null)
             {
+                diagnosisTxt.Text = medList.DssDiagnosis;
+                shortlyOperationTxt.Text = medList.DssHasKag;
                 issuedMedicineContainer.Init(service, medList);
+            } else
+            {
+                copyFirstMedicineBtn_Click(null, null);
             }
         }
 
@@ -175,9 +180,11 @@ namespace Cardiology
                     medList.DsidDoctor = hospitalitySession.DsidDutyDoctor;
                     medList.DsidHospitalitySession = hospitalitySession.ObjectId;
                     medList.DsidPatient = hospitalitySession.DsidPatient;
-                    string id = service.insertObject<DdtIssuedMedicineList>(medList, DdtIssuedMedicineList.TABLE_NAME);
-                    medList.ObjectId = id;
                 }
+                medList.DssDiagnosis = diagnosisTxt.Text;
+                medList.DssHasKag = shortlyOperationTxt.Text;
+                string id = service.updateOrCreateIfNeedObject<DdtIssuedMedicineList>(medList, DdtIssuedMedicineList.TABLE_NAME, medList.ObjectId);
+                medList.ObjectId = id;
                 foreach (DdtIssuedMedicine med in meds)
                 {
                     med.DsidMedList = medList.ObjectId;
@@ -189,19 +196,40 @@ namespace Cardiology
         private void copyFirstMedicineBtn_Click(object sender, EventArgs e)
         {
             DataService service = new DataService();
-            DdtIssuedMedicineList medList = service.queryObject<DdtIssuedMedicineList>(@"SELECT * FROM ddt_issued_medicine_list WHERE dsid_hospitality_session='" +
+            String meListId = service.querySingleString(@"SELECT * FROM ddt_issued_medicine_list WHERE dsid_hospitality_session='" +
                    hospitalitySession.ObjectId + "' AND dss_parent_type='ddt_anamnesis'");
-            issuedMedicineContainer.Init(service, medList);
+            if (CommonUtils.isNotBlank(meListId))
+            {
+                List<DdtCure> cures = service.queryObjectsCollection<DdtCure>(@"SELECT cures.* FROM " + DdtCure.TABLE_NAME + " cures, " + DdtIssuedMedicine.TABLE_NAME +
+                    " meds WHERE meds.dsid_med_list='" + meListId + "' AND meds.dsid_cure=cures.r_object_id");
+                issuedMedicineContainer.refreshData(service, cures);
+            }
         }
 
         private void copyJournalMedBtn_Click(object sender, EventArgs e)
         {
-
+            DataService service = new DataService();
+            String meListId = service.querySingleString(@"SELECT medlist.* FROM ddt_issued_medicine_list medlist, ddt_inspection ins WHERE ins.dsid_hospitality_session='" +
+                   hospitalitySession.ObjectId + "' AND medlist.dsid_parent_id=ins.r_object_id ORDER BY dsdt_inspection_date DESC");
+            if (CommonUtils.isNotBlank(meListId))
+            {
+                List<DdtCure> cures = service.queryObjectsCollection<DdtCure>(@"SELECT cures.* FROM " + DdtCure.TABLE_NAME + " cures, " + DdtIssuedMedicine.TABLE_NAME +
+                    " meds WHERE meds.dsid_med_list='" + meListId + "' AND meds.dsid_cure=cures.r_object_id");
+                issuedMedicineContainer.refreshData(service, cures);
+            }
         }
 
         private void copyYesterdayMedBtn_Click(object sender, EventArgs e)
         {
-
+            DataService service = new DataService();
+            String meListId = service.querySingleString(@"SELECT * FROM ddt_issued_medicine_list  WHERE dsid_hospitality_session='" +
+                   hospitalitySession.ObjectId + "'   ORDER BY dsdt_issuing_date DESC");
+            if (CommonUtils.isNotBlank(meListId))
+            {
+                List<DdtCure> cures = service.queryObjectsCollection<DdtCure>(@"SELECT cures.* FROM " + DdtCure.TABLE_NAME + " cures, " + DdtIssuedMedicine.TABLE_NAME +
+                    " meds WHERE meds.dsid_med_list='" + meListId + "' AND meds.dsid_cure=cures.r_object_id");
+                issuedMedicineContainer.refreshData(service, cures);
+            }
         }
 
         private void printBtn_Click(object sender, EventArgs e)
@@ -236,6 +264,26 @@ namespace Cardiology
             }
             string templatePath = Directory.GetCurrentDirectory() + "\\Templates\\issued_medicine_template.doc";
             TemplatesUtils.fillTemplateAndShow(templatePath, values);
+        }
+
+        private void kagMedBtn_Click(object sender, EventArgs e)
+        {
+            updatemedicineFromTemplate("kag.medicine.");
+        }
+
+        private void aortaMedBtn_Click(object sender, EventArgs e)
+        {
+            updatemedicineFromTemplate("aorta.medicine.");
+        }
+
+        private void depMedBtn_Click(object sender, EventArgs e)
+        {
+            updatemedicineFromTemplate("dep.medicine.");
+        }
+
+        private void deathMedBtn_Click(object sender, EventArgs e)
+        {
+            updatemedicineFromTemplate("death.medicine.");
         }
     }
 }

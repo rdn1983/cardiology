@@ -22,7 +22,10 @@ namespace Cardiology.Model
         private string dssParentType;
         [TableAttribute("dsdt_issuing_date")]
         private DateTime dsdtIssuingDate;
-
+        [TableAttribute("dss_diagnosis")]
+        private string dssDiagnosis;
+        [TableAttribute("dss_has_kag")]
+        private string dssHasKag;
 
         public string ObjectId
         {
@@ -56,5 +59,7 @@ namespace Cardiology.Model
         public string DsidParentId { get => dsidParentId; set => dsidParentId = value; }
         public string DssParentType { get => dssParentType; set => dssParentType = value; }
         public DateTime DsdtIssuingDate { get => dsdtIssuingDate; set => dsdtIssuingDate = value; }
+        public string DssDiagnosis { get => dssDiagnosis; set => dssDiagnosis = value; }
+        public string DssHasKag { get => dssHasKag; set => dssHasKag = value; }
     }
 }

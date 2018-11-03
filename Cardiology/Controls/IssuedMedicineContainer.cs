@@ -33,12 +33,16 @@ namespace Cardiology.Controls
 
         internal void refreshData(DataService service, List<DdtCure> cures)
         {
-            clearMedicine();
-            foreach (DdtCure cure in cures)
+            if (cures != null)
             {
-                IssuedMedicineControl ctrl = new IssuedMedicineControl(getNextIndex(), this);
-                ctrl.refreshData(service, cure);
-                sizedContainer.Controls.Add(ctrl);
+
+                clearMedicine();
+                foreach (DdtCure cure in cures)
+                {
+                    IssuedMedicineControl ctrl = new IssuedMedicineControl(getNextIndex(), this);
+                    ctrl.refreshData(service, cure);
+                    sizedContainer.Controls.Add(ctrl);
+                }
             }
 
         }

@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IssuedMedicine));
             this.shortlyDiagnosisPnl = new System.Windows.Forms.GroupBox();
             this.sdBtn = new System.Windows.Forms.Button();
+            this.diagnosisTxt = new System.Windows.Forms.RichTextBox();
             this.anemiaBtn = new System.Windows.Forms.Button();
             this.telaBtn = new System.Windows.Forms.Button();
             this.pmaBtn = new System.Windows.Forms.Button();
@@ -40,7 +41,6 @@
             this.gbBtn = new System.Windows.Forms.Button();
             this.piksBtn = new System.Windows.Forms.Button();
             this.oksBtn = new System.Windows.Forms.Button();
-            this.diagnosisTxt = new System.Windows.Forms.RichTextBox();
             this.shortlyOperationPnl = new System.Windows.Forms.GroupBox();
             this.noKagBtn = new System.Windows.Forms.RadioButton();
             this.kagBtn = new System.Windows.Forms.RadioButton();
@@ -51,6 +51,10 @@
             this.copyJournalMedBtn = new System.Windows.Forms.Button();
             this.copyFirstMedicineBtn = new System.Windows.Forms.Button();
             this.medTemplatesPnl = new System.Windows.Forms.GroupBox();
+            this.deathMedBtn = new System.Windows.Forms.Button();
+            this.depMedBtn = new System.Windows.Forms.Button();
+            this.aortaMedBtn = new System.Windows.Forms.Button();
+            this.kagMedBtn = new System.Windows.Forms.Button();
             this.gbMedBtn = new System.Windows.Forms.Button();
             this.nkMedBtn = new System.Windows.Forms.Button();
             this.hoblMedBtn = new System.Windows.Forms.Button();
@@ -61,6 +65,8 @@
             this.clinicalPharmacologistPnl = new System.Windows.Forms.GroupBox();
             this.clinicalPharmacologistBox = new System.Windows.Forms.ComboBox();
             this.issuedMedicinePnl = new System.Windows.Forms.GroupBox();
+            this.medContainer = new System.Windows.Forms.Panel();
+            this.issuedMedicineContainer = new Cardiology.Controls.IssuedMedicineContainer();
             this.medicineContainer = new System.Windows.Forms.TableLayoutPanel();
             this.addCureBtn = new System.Windows.Forms.Button();
             this.saveBtn = new System.Windows.Forms.Button();
@@ -71,8 +77,6 @@
             this.directorBox = new System.Windows.Forms.ComboBox();
             this.cardioReanimPnl = new System.Windows.Forms.GroupBox();
             this.cardioReanimBox = new System.Windows.Forms.ComboBox();
-            this.medContainer = new System.Windows.Forms.Panel();
-            this.issuedMedicineContainer = new Cardiology.Controls.IssuedMedicineContainer();
             this.shortlyDiagnosisPnl.SuspendLayout();
             this.shortlyOperationPnl.SuspendLayout();
             this.insertIssuedMedPnl.SuspendLayout();
@@ -80,17 +84,16 @@
             this.createDatePnl.SuspendLayout();
             this.clinicalPharmacologistPnl.SuspendLayout();
             this.issuedMedicinePnl.SuspendLayout();
+            this.medContainer.SuspendLayout();
             this.nursePnl.SuspendLayout();
             this.directorPnl.SuspendLayout();
             this.cardioReanimPnl.SuspendLayout();
-            this.medContainer.SuspendLayout();
             this.SuspendLayout();
             // 
             // shortlyDiagnosisPnl
             // 
-            this.shortlyDiagnosisPnl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
             this.shortlyDiagnosisPnl.Controls.Add(this.sdBtn);
+            this.shortlyDiagnosisPnl.Controls.Add(this.diagnosisTxt);
             this.shortlyDiagnosisPnl.Controls.Add(this.anemiaBtn);
             this.shortlyDiagnosisPnl.Controls.Add(this.telaBtn);
             this.shortlyDiagnosisPnl.Controls.Add(this.pmaBtn);
@@ -100,11 +103,10 @@
             this.shortlyDiagnosisPnl.Controls.Add(this.gbBtn);
             this.shortlyDiagnosisPnl.Controls.Add(this.piksBtn);
             this.shortlyDiagnosisPnl.Controls.Add(this.oksBtn);
-            this.shortlyDiagnosisPnl.Controls.Add(this.diagnosisTxt);
             this.shortlyDiagnosisPnl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.shortlyDiagnosisPnl.Location = new System.Drawing.Point(12, 12);
             this.shortlyDiagnosisPnl.Name = "shortlyDiagnosisPnl";
-            this.shortlyDiagnosisPnl.Size = new System.Drawing.Size(261, 154);
+            this.shortlyDiagnosisPnl.Size = new System.Drawing.Size(261, 128);
             this.shortlyDiagnosisPnl.TabIndex = 0;
             this.shortlyDiagnosisPnl.TabStop = false;
             this.shortlyDiagnosisPnl.Text = "Сокращенный диагноз для листа назначений";
@@ -114,7 +116,7 @@
             this.sdBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.sdBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.sdBtn.Location = new System.Drawing.Point(200, 121);
+            this.sdBtn.Location = new System.Drawing.Point(198, 99);
             this.sdBtn.Name = "sdBtn";
             this.sdBtn.Size = new System.Drawing.Size(57, 23);
             this.sdBtn.TabIndex = 10;
@@ -122,12 +124,24 @@
             this.sdBtn.UseVisualStyleBackColor = true;
             this.sdBtn.Click += new System.EventHandler(this.sdBtn_Click);
             // 
+            // diagnosisTxt
+            // 
+            this.diagnosisTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.diagnosisTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.diagnosisTxt.Location = new System.Drawing.Point(5, 37);
+            this.diagnosisTxt.Name = "diagnosisTxt";
+            this.diagnosisTxt.Size = new System.Drawing.Size(249, 34);
+            this.diagnosisTxt.TabIndex = 0;
+            this.diagnosisTxt.Text = "";
+            // 
             // anemiaBtn
             // 
             this.anemiaBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.anemiaBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.anemiaBtn.Location = new System.Drawing.Point(136, 121);
+            this.anemiaBtn.Location = new System.Drawing.Point(134, 99);
             this.anemiaBtn.Name = "anemiaBtn";
             this.anemiaBtn.Size = new System.Drawing.Size(65, 23);
             this.anemiaBtn.TabIndex = 9;
@@ -140,7 +154,7 @@
             this.telaBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.telaBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.telaBtn.Location = new System.Drawing.Point(92, 121);
+            this.telaBtn.Location = new System.Drawing.Point(90, 99);
             this.telaBtn.Name = "telaBtn";
             this.telaBtn.Size = new System.Drawing.Size(45, 23);
             this.telaBtn.TabIndex = 8;
@@ -153,7 +167,7 @@
             this.pmaBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pmaBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.pmaBtn.Location = new System.Drawing.Point(48, 121);
+            this.pmaBtn.Location = new System.Drawing.Point(46, 99);
             this.pmaBtn.Name = "pmaBtn";
             this.pmaBtn.Size = new System.Drawing.Size(45, 23);
             this.pmaBtn.TabIndex = 7;
@@ -166,7 +180,7 @@
             this.depBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.depBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.depBtn.Location = new System.Drawing.Point(4, 121);
+            this.depBtn.Location = new System.Drawing.Point(2, 99);
             this.depBtn.Name = "depBtn";
             this.depBtn.Size = new System.Drawing.Size(45, 23);
             this.depBtn.TabIndex = 6;
@@ -179,7 +193,7 @@
             this.edemaPulmonaryBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.edemaPulmonaryBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.edemaPulmonaryBtn.Location = new System.Drawing.Point(180, 99);
+            this.edemaPulmonaryBtn.Location = new System.Drawing.Point(178, 77);
             this.edemaPulmonaryBtn.Name = "edemaPulmonaryBtn";
             this.edemaPulmonaryBtn.Size = new System.Drawing.Size(77, 23);
             this.edemaPulmonaryBtn.TabIndex = 5;
@@ -192,7 +206,7 @@
             this.nkBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.nkBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.nkBtn.Location = new System.Drawing.Point(136, 99);
+            this.nkBtn.Location = new System.Drawing.Point(134, 77);
             this.nkBtn.Name = "nkBtn";
             this.nkBtn.Size = new System.Drawing.Size(45, 23);
             this.nkBtn.TabIndex = 4;
@@ -205,7 +219,7 @@
             this.gbBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gbBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.gbBtn.Location = new System.Drawing.Point(92, 99);
+            this.gbBtn.Location = new System.Drawing.Point(90, 77);
             this.gbBtn.Name = "gbBtn";
             this.gbBtn.Size = new System.Drawing.Size(45, 23);
             this.gbBtn.TabIndex = 3;
@@ -218,7 +232,7 @@
             this.piksBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.piksBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.piksBtn.Location = new System.Drawing.Point(48, 99);
+            this.piksBtn.Location = new System.Drawing.Point(46, 77);
             this.piksBtn.Name = "piksBtn";
             this.piksBtn.Size = new System.Drawing.Size(45, 23);
             this.piksBtn.TabIndex = 2;
@@ -231,25 +245,13 @@
             this.oksBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.oksBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.oksBtn.Location = new System.Drawing.Point(4, 99);
+            this.oksBtn.Location = new System.Drawing.Point(2, 77);
             this.oksBtn.Name = "oksBtn";
             this.oksBtn.Size = new System.Drawing.Size(45, 23);
             this.oksBtn.TabIndex = 1;
             this.oksBtn.Text = "ОКС";
             this.oksBtn.UseVisualStyleBackColor = true;
             this.oksBtn.Click += new System.EventHandler(this.oksBtn_Click);
-            // 
-            // diagnosisTxt
-            // 
-            this.diagnosisTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.diagnosisTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.diagnosisTxt.Location = new System.Drawing.Point(4, 31);
-            this.diagnosisTxt.Name = "diagnosisTxt";
-            this.diagnosisTxt.Size = new System.Drawing.Size(249, 62);
-            this.diagnosisTxt.TabIndex = 0;
-            this.diagnosisTxt.Text = "";
             // 
             // shortlyOperationPnl
             // 
@@ -258,9 +260,9 @@
             this.shortlyOperationPnl.Controls.Add(this.kagBtn);
             this.shortlyOperationPnl.Controls.Add(this.shortlyOperationTxt);
             this.shortlyOperationPnl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.shortlyOperationPnl.Location = new System.Drawing.Point(11, 173);
+            this.shortlyOperationPnl.Location = new System.Drawing.Point(12, 146);
             this.shortlyOperationPnl.Name = "shortlyOperationPnl";
-            this.shortlyOperationPnl.Size = new System.Drawing.Size(262, 122);
+            this.shortlyOperationPnl.Size = new System.Drawing.Size(262, 94);
             this.shortlyOperationPnl.TabIndex = 1;
             this.shortlyOperationPnl.TabStop = false;
             this.shortlyOperationPnl.Text = "Операция сокращенно для листа назначений";
@@ -269,7 +271,7 @@
             // 
             this.noKagBtn.AutoSize = true;
             this.noKagBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.noKagBtn.Location = new System.Drawing.Point(163, 81);
+            this.noKagBtn.Location = new System.Drawing.Point(163, 71);
             this.noKagBtn.Name = "noKagBtn";
             this.noKagBtn.Size = new System.Drawing.Size(60, 17);
             this.noKagBtn.TabIndex = 2;
@@ -293,9 +295,9 @@
             // 
             // shortlyOperationTxt
             // 
-            this.shortlyOperationTxt.Location = new System.Drawing.Point(6, 35);
+            this.shortlyOperationTxt.Location = new System.Drawing.Point(6, 41);
             this.shortlyOperationTxt.Name = "shortlyOperationTxt";
-            this.shortlyOperationTxt.Size = new System.Drawing.Size(151, 75);
+            this.shortlyOperationTxt.Size = new System.Drawing.Size(151, 47);
             this.shortlyOperationTxt.TabIndex = 0;
             this.shortlyOperationTxt.Text = "";
             // 
@@ -307,9 +309,9 @@
             this.insertIssuedMedPnl.Controls.Add(this.copyJournalMedBtn);
             this.insertIssuedMedPnl.Controls.Add(this.copyFirstMedicineBtn);
             this.insertIssuedMedPnl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.insertIssuedMedPnl.Location = new System.Drawing.Point(11, 407);
+            this.insertIssuedMedPnl.Location = new System.Drawing.Point(11, 415);
             this.insertIssuedMedPnl.Name = "insertIssuedMedPnl";
-            this.insertIssuedMedPnl.Size = new System.Drawing.Size(262, 112);
+            this.insertIssuedMedPnl.Size = new System.Drawing.Size(262, 105);
             this.insertIssuedMedPnl.TabIndex = 2;
             this.insertIssuedMedPnl.TabStop = false;
             this.insertIssuedMedPnl.Text = "Вставить назначения";
@@ -361,18 +363,66 @@
             // medTemplatesPnl
             // 
             this.medTemplatesPnl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.medTemplatesPnl.Controls.Add(this.deathMedBtn);
+            this.medTemplatesPnl.Controls.Add(this.depMedBtn);
+            this.medTemplatesPnl.Controls.Add(this.aortaMedBtn);
+            this.medTemplatesPnl.Controls.Add(this.kagMedBtn);
             this.medTemplatesPnl.Controls.Add(this.gbMedBtn);
             this.medTemplatesPnl.Controls.Add(this.nkMedBtn);
             this.medTemplatesPnl.Controls.Add(this.hoblMedBtn);
             this.medTemplatesPnl.Controls.Add(this.oksLongsMedBtn);
             this.medTemplatesPnl.Controls.Add(this.oksTemplateMed);
             this.medTemplatesPnl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.medTemplatesPnl.Location = new System.Drawing.Point(11, 301);
+            this.medTemplatesPnl.Location = new System.Drawing.Point(11, 246);
             this.medTemplatesPnl.Name = "medTemplatesPnl";
-            this.medTemplatesPnl.Size = new System.Drawing.Size(262, 100);
+            this.medTemplatesPnl.Size = new System.Drawing.Size(262, 166);
             this.medTemplatesPnl.TabIndex = 3;
             this.medTemplatesPnl.TabStop = false;
             this.medTemplatesPnl.Text = "Шаблоны";
+            // 
+            // deathMedBtn
+            // 
+            this.deathMedBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.deathMedBtn.Location = new System.Drawing.Point(6, 126);
+            this.deathMedBtn.Name = "deathMedBtn";
+            this.deathMedBtn.Size = new System.Drawing.Size(242, 34);
+            this.deathMedBtn.TabIndex = 8;
+            this.deathMedBtn.Text = "Клиническая смерть";
+            this.deathMedBtn.UseVisualStyleBackColor = true;
+            this.deathMedBtn.Click += new System.EventHandler(this.deathMedBtn_Click);
+            // 
+            // depMedBtn
+            // 
+            this.depMedBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.depMedBtn.Location = new System.Drawing.Point(199, 93);
+            this.depMedBtn.Name = "depMedBtn";
+            this.depMedBtn.Size = new System.Drawing.Size(49, 33);
+            this.depMedBtn.TabIndex = 7;
+            this.depMedBtn.Text = "ДЭП";
+            this.depMedBtn.UseVisualStyleBackColor = true;
+            this.depMedBtn.Click += new System.EventHandler(this.depMedBtn_Click);
+            // 
+            // aortaMedBtn
+            // 
+            this.aortaMedBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.aortaMedBtn.Location = new System.Drawing.Point(83, 93);
+            this.aortaMedBtn.Name = "aortaMedBtn";
+            this.aortaMedBtn.Size = new System.Drawing.Size(117, 33);
+            this.aortaMedBtn.TabIndex = 6;
+            this.aortaMedBtn.Text = "Расслоение аорты";
+            this.aortaMedBtn.UseVisualStyleBackColor = true;
+            this.aortaMedBtn.Click += new System.EventHandler(this.aortaMedBtn_Click);
+            // 
+            // kagMedBtn
+            // 
+            this.kagMedBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.kagMedBtn.Location = new System.Drawing.Point(6, 93);
+            this.kagMedBtn.Name = "kagMedBtn";
+            this.kagMedBtn.Size = new System.Drawing.Size(77, 34);
+            this.kagMedBtn.TabIndex = 5;
+            this.kagMedBtn.Text = "КАГ квота";
+            this.kagMedBtn.UseVisualStyleBackColor = true;
+            this.kagMedBtn.Click += new System.EventHandler(this.kagMedBtn_Click);
             // 
             // gbMedBtn
             // 
@@ -481,6 +531,26 @@
             this.issuedMedicinePnl.TabStop = false;
             this.issuedMedicinePnl.Text = "Лекарства";
             // 
+            // medContainer
+            // 
+            this.medContainer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.medContainer.AutoScroll = true;
+            this.medContainer.Controls.Add(this.issuedMedicineContainer);
+            this.medContainer.Location = new System.Drawing.Point(6, 19);
+            this.medContainer.Name = "medContainer";
+            this.medContainer.Size = new System.Drawing.Size(614, 321);
+            this.medContainer.TabIndex = 2;
+            // 
+            // issuedMedicineContainer
+            // 
+            this.issuedMedicineContainer.AutoSize = true;
+            this.issuedMedicineContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.issuedMedicineContainer.Location = new System.Drawing.Point(13, 11);
+            this.issuedMedicineContainer.Name = "issuedMedicineContainer";
+            this.issuedMedicineContainer.Size = new System.Drawing.Size(6, 6);
+            this.issuedMedicineContainer.TabIndex = 0;
+            // 
             // medicineContainer
             // 
             this.medicineContainer.AutoSize = true;
@@ -587,26 +657,6 @@
             this.cardioReanimBox.Size = new System.Drawing.Size(279, 21);
             this.cardioReanimBox.TabIndex = 0;
             // 
-            // medContainer
-            // 
-            this.medContainer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.medContainer.AutoScroll = true;
-            this.medContainer.Controls.Add(this.issuedMedicineContainer);
-            this.medContainer.Location = new System.Drawing.Point(6, 19);
-            this.medContainer.Name = "medContainer";
-            this.medContainer.Size = new System.Drawing.Size(614, 321);
-            this.medContainer.TabIndex = 2;
-            // 
-            // issuedMedicineContainer
-            // 
-            this.issuedMedicineContainer.AutoSize = true;
-            this.issuedMedicineContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.issuedMedicineContainer.Location = new System.Drawing.Point(13, 11);
-            this.issuedMedicineContainer.Name = "issuedMedicineContainer";
-            this.issuedMedicineContainer.Size = new System.Drawing.Size(6, 6);
-            this.issuedMedicineContainer.TabIndex = 0;
-            // 
             // IssuedMedicine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -639,11 +689,11 @@
             this.clinicalPharmacologistPnl.ResumeLayout(false);
             this.issuedMedicinePnl.ResumeLayout(false);
             this.issuedMedicinePnl.PerformLayout();
+            this.medContainer.ResumeLayout(false);
+            this.medContainer.PerformLayout();
             this.nursePnl.ResumeLayout(false);
             this.directorPnl.ResumeLayout(false);
             this.cardioReanimPnl.ResumeLayout(false);
-            this.medContainer.ResumeLayout(false);
-            this.medContainer.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -694,5 +744,9 @@
         private System.Windows.Forms.TableLayoutPanel medicineContainer;
         private System.Windows.Forms.Panel medContainer;
         private Controls.IssuedMedicineContainer issuedMedicineContainer;
+        private System.Windows.Forms.Button kagMedBtn;
+        private System.Windows.Forms.Button aortaMedBtn;
+        private System.Windows.Forms.Button deathMedBtn;
+        private System.Windows.Forms.Button depMedBtn;
     }
 }

@@ -8,7 +8,9 @@ CREATE TABLE ddt_issued_medicine_list (
   dsid_hospitality_session VARCHAR(16) REFERENCES ddt_hospital(r_object_id),
   dsdt_issuing_date timestamp,
   dsid_parent_id VARCHAR(16),
-  dss_parent_type VARCHAR(30)
+  dss_parent_type VARCHAR(30),
+  dss_diagnosis VARCHAR(30),
+  dss_has_kag VARCHAR(30)
 );
 
 CREATE TRIGGER ddt_issued_medicine_list BEFORE INSERT OR UPDATE

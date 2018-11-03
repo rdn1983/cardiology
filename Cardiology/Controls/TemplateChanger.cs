@@ -6,17 +6,19 @@ namespace Cardiology.Controls
     public partial class TemplateChanger : ContextMenuStrip
     {
         private string attrName;
-        private Control source;
+        private OnCompleteListener listener;
+
+        public delegate void OnCompleteListener(object returnValue);
 
         public TemplateChanger()
         {
             InitializeComponent();
         }
 
-        public void Show(int x, int y, Control parent, Control source, string attrName)
+        public void Show(int x, int y, Control parent, string attrName, OnCompleteListener listener)
         {
-            this.source = source;
             this.attrName = attrName;
+            this.listener = listener;
             Show(parent, x, y);
         }
 
@@ -25,9 +27,10 @@ namespace Cardiology.Controls
             DataService service = new DataService();
             string value = service.querySingleString(@"SELECT " + attrName + " FROM ddt_anamnesis WHERE " +
                 "dsb_template=true AND dss_template_name='pikvik'");
-            source.Text = value;
+            listener?.Invoke(value);
             attrName = null;
-            source = null;
+            listener = null;
+            Close();
         }
 
         private void aorticItem_Click(object sender, EventArgs e)
@@ -35,9 +38,10 @@ namespace Cardiology.Controls
             DataService service = new DataService();
             string value = service.querySingleString(@"SELECT " + attrName + " FROM ddt_anamnesis WHERE " +
                 "dsb_template=true AND dss_template_name='aorta'");
-            source.Text = value;
+            listener?.Invoke(value);
             attrName = null;
-            source = null;
+            listener = null;
+            Close();
         }
 
         private void deathItem_Click(object sender, EventArgs e)
@@ -45,9 +49,10 @@ namespace Cardiology.Controls
             DataService service = new DataService();
             string value = service.querySingleString(@"SELECT " + attrName + " FROM ddt_anamnesis WHERE " +
                 "dsb_template=true AND dss_template_name='death'");
-            source.Text = value;
+            listener?.Invoke(value);
             attrName = null;
-            source = null;
+            listener = null;
+            Close();
         }
 
         private void depItem_Click(object sender, EventArgs e)
@@ -55,9 +60,10 @@ namespace Cardiology.Controls
             DataService service = new DataService();
             string value = service.querySingleString(@"SELECT " + attrName + " FROM ddt_anamnesis WHERE " +
                 "dsb_template=true AND dss_template_name='dep'");
-            source.Text = value;
+            listener?.Invoke(value);
             attrName = null;
-            source = null;
+            listener = null;
+            Close();
         }
 
         private void gbItem_Click(object sender, EventArgs e)
@@ -65,9 +71,10 @@ namespace Cardiology.Controls
             DataService service = new DataService();
             string value = service.querySingleString(@"SELECT " + attrName + " FROM ddt_anamnesis WHERE " +
                 "dsb_template=true AND dss_template_name='gb'");
-            source.Text = value;
+            listener?.Invoke(value);
             attrName = null;
-            source = null;
+            listener = null;
+            Close();
         }
 
         private void kagItem_Click(object sender, EventArgs e)
@@ -75,9 +82,10 @@ namespace Cardiology.Controls
             DataService service = new DataService();
             string value = service.querySingleString(@"SELECT " + attrName + " FROM ddt_anamnesis WHERE " +
                 "dsb_template=true AND dss_template_name='kag'");
-            source.Text = value;
+            listener?.Invoke(value);
             attrName = null;
-            source = null;
+            listener = null;
+            Close();
         }
 
         private void oksDownItem_Click(object sender, EventArgs e)
@@ -85,9 +93,10 @@ namespace Cardiology.Controls
             DataService service = new DataService();
             string value = service.querySingleString(@"SELECT " + attrName + " FROM ddt_anamnesis WHERE " +
                 "dsb_template=true AND dss_template_name='oksdown'");
-            source.Text = value;
+            listener?.Invoke(value);
             attrName = null;
-            source = null;
+            listener = null;
+            Close();
         }
 
         private void oksUpItem_Click(object sender, EventArgs e)
@@ -95,9 +104,10 @@ namespace Cardiology.Controls
             DataService service = new DataService();
             string value = service.querySingleString(@"SELECT " + attrName + " FROM ddt_anamnesis WHERE " +
                 "dsb_template=true AND dss_template_name='oksup'");
-            source.Text = value;
+            listener?.Invoke(value);
             attrName = null;
-            source = null;
+            listener = null;
+            Close();
         }
 
         private void piksItem_Click(object sender, EventArgs e)
@@ -105,9 +115,10 @@ namespace Cardiology.Controls
             DataService service = new DataService();
             string value = service.querySingleString(@"SELECT " + attrName + " FROM ddt_anamnesis WHERE " +
                 "dsb_template=true AND dss_template_name='piks'");
-            source.Text = value;
+            listener?.Invoke(value);
             attrName = null;
-            source = null;
+            listener = null;
+            Close();
         }
     }
 }

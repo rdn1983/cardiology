@@ -146,7 +146,7 @@ namespace Cardiology
             MouseEventArgs mouseArgs = e as MouseEventArgs;
             if (isSureChangeTemplate())
             {
-                templateChanger.Show(mouseArgs.X, mouseArgs.Y, btn, complaintsTxt, "dss_complaints");
+                templateChanger.Show(mouseArgs.X, mouseArgs.Y, btn, "dss_complaints", (value) => complaintsTxt.Text = (string)value);
             }
         }
 
@@ -156,7 +156,7 @@ namespace Cardiology
             MouseEventArgs mouseArgs = e as MouseEventArgs;
             if (isSureChangeTemplate())
             {
-                templateChanger.Show(mouseArgs.X, mouseArgs.Y, btn, anamnesisMorbiTxt, "dss_anamnesis_morbi");
+                templateChanger.Show(mouseArgs.X, mouseArgs.Y, btn, "dss_anamnesis_morbi", (value) => anamnesisMorbiTxt.Text = (string)value);
             }
         }
 
@@ -639,7 +639,7 @@ namespace Cardiology
 
         private void saveEkgAnalysisTab(DataService service)
         {
-            EkgAnalysisControlcs ekgControl = (EkgAnalysisControlcs) ekgTab.Controls[0];
+            EkgAnalysisControlcs ekgControl = (EkgAnalysisControlcs)ekgTab.Controls[0];
             DdtEkg ekg = ekgControl.getObject();
             if (CommonUtils.isNotBlank(ekg.DssEkg))
             {
@@ -724,7 +724,7 @@ namespace Cardiology
             MouseEventArgs mouseArgs = e as MouseEventArgs;
             if (isSureChangeTemplate())
             {
-                templateChanger.Show(mouseArgs.X, mouseArgs.Y, btn, stPresensTxt, "dss_st_presens");
+                templateChanger.Show(mouseArgs.X, mouseArgs.Y, btn, "dss_st_presens", (value) => stPresensTxt.Text = (string)value);
             }
         }
 
@@ -734,7 +734,24 @@ namespace Cardiology
             MouseEventArgs mouseArgs = e as MouseEventArgs;
             if (isSureChangeTemplate())
             {
-                templateChanger.Show(mouseArgs.X, mouseArgs.Y, btn, diagnosisTxt, "dss_diagnosis");
+                templateChanger.Show(mouseArgs.X, mouseArgs.Y, btn, "dss_diagnosis", (value) => diagnosisTxt.Text = (string)value);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            MouseEventArgs mouseArgs = e as MouseEventArgs;
+            if (isSureChangeTemplate())
+            {
+                templateChanger.Show(mouseArgs.X, mouseArgs.Y, btn, "dss_template_name", (value) =>
+                {
+                    if (value != null)
+                    {
+                        updatemedicineFromTemplate((string)value);
+                    }
+                });
+
             }
         }
     }

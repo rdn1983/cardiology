@@ -173,8 +173,10 @@
             this.docBox = new System.Windows.Forms.ComboBox();
             this.docLbl = new System.Windows.Forms.Label();
             this.patientInitialsLbl = new System.Windows.Forms.Label();
-            this.templateChanger = new Cardiology.Controls.TemplateChanger();
+            this.button1 = new System.Windows.Forms.Button();
+            this.changerHook = new System.Windows.Forms.Label();
             this.issuedMedicineContainer = new Cardiology.Controls.IssuedMedicineContainer();
+            this.templateChanger = new Cardiology.Controls.TemplateChanger();
             this.complaintsBox.SuspendLayout();
             this.anamnesisMorbiBox.SuspendLayout();
             this.anamnesisAllergyBox.SuspendLayout();
@@ -1112,6 +1114,8 @@
             // issuedMedicineTab
             // 
             this.issuedMedicineTab.BackColor = System.Drawing.SystemColors.Control;
+            this.issuedMedicineTab.Controls.Add(this.changerHook);
+            this.issuedMedicineTab.Controls.Add(this.button1);
             this.issuedMedicineTab.Controls.Add(this.issuedMedicineBox);
             this.issuedMedicineTab.Location = new System.Drawing.Point(4, 22);
             this.issuedMedicineTab.Name = "issuedMedicineTab";
@@ -1697,10 +1701,25 @@
             this.patientInitialsLbl.Size = new System.Drawing.Size(0, 13);
             this.patientInitialsLbl.TabIndex = 17;
             // 
-            // templateChanger
+            // button1
             // 
-            this.templateChanger.Name = "templateChanger";
-            this.templateChanger.Size = new System.Drawing.Size(189, 202);
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button1.Location = new System.Drawing.Point(727, 32);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(160, 28);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Исправить по шаблону";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // changerHook
+            // 
+            this.changerHook.AutoSize = true;
+            this.changerHook.Location = new System.Drawing.Point(728, 67);
+            this.changerHook.Name = "changerHook";
+            this.changerHook.Size = new System.Drawing.Size(0, 13);
+            this.changerHook.TabIndex = 3;
+            this.changerHook.Visible = false;
             // 
             // issuedMedicineContainer
             // 
@@ -1710,6 +1729,11 @@
             this.issuedMedicineContainer.Name = "issuedMedicineContainer";
             this.issuedMedicineContainer.Size = new System.Drawing.Size(6, 6);
             this.issuedMedicineContainer.TabIndex = 0;
+            // 
+            // templateChanger
+            // 
+            this.templateChanger.Name = "templateChanger";
+            this.templateChanger.Size = new System.Drawing.Size(189, 202);
             // 
             // FirstInspection
             // 
@@ -1763,6 +1787,7 @@
             this.justificationPnl.PerformLayout();
             this.diagnosisPnl.ResumeLayout(false);
             this.issuedMedicineTab.ResumeLayout(false);
+            this.issuedMedicineTab.PerformLayout();
             this.issuedMedicineBox.ResumeLayout(false);
             this.issuedCntr.ResumeLayout(false);
             this.issuedCntr.PerformLayout();
@@ -1927,5 +1952,7 @@
         private Controls.TemplateChanger templateChanger;
         private System.Windows.Forms.Label patientInitialsLbl;
         private Controls.IssuedMedicineContainer issuedMedicineContainer;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label changerHook;
     }
 }

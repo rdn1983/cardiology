@@ -117,9 +117,9 @@
             // kagDiagnosisTxt
             // 
             this.kagDiagnosisTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.kagDiagnosisTxt.Location = new System.Drawing.Point(609, 39);
+            this.kagDiagnosisTxt.Location = new System.Drawing.Point(484, 39);
             this.kagDiagnosisTxt.Name = "kagDiagnosisTxt";
-            this.kagDiagnosisTxt.Size = new System.Drawing.Size(306, 62);
+            this.kagDiagnosisTxt.Size = new System.Drawing.Size(431, 62);
             this.kagDiagnosisTxt.TabIndex = 10;
             this.kagDiagnosisTxt.Text = "";
             // 
@@ -147,7 +147,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.afterKagDiagnosisTxt.Location = new System.Drawing.Point(6, 39);
             this.afterKagDiagnosisTxt.Name = "afterKagDiagnosisTxt";
-            this.afterKagDiagnosisTxt.Size = new System.Drawing.Size(601, 62);
+            this.afterKagDiagnosisTxt.Size = new System.Drawing.Size(472, 62);
             this.afterKagDiagnosisTxt.TabIndex = 0;
             this.afterKagDiagnosisTxt.Text = "ИБС: Острый нижний инфаркт миокарда от 07.08.2016. Атеросклероз коронарных артери" +
     "й. Состояние после ТЛАП и стентирования пр/3 ПКА(стентом xience V 3,0 x18мм с ле" +
@@ -369,6 +369,7 @@
             this.ekgTxt0.Name = "ekgTxt0";
             this.ekgTxt0.Size = new System.Drawing.Size(786, 20);
             this.ekgTxt0.TabIndex = 11;
+            this.ekgTxt0.Text = "Динамика инфаркта миокарда";
             // 
             // addCardioInspetions
             // 

@@ -2,6 +2,7 @@
 using Cardiology.Model.Dictionary;
 using System;
 using System.Collections.Generic;
+using System.Text;
 using System.Windows.Forms;
 using static System.Windows.Forms.ComboBox;
 
@@ -246,7 +247,7 @@ namespace Cardiology.Utils
         internal static DdtJournal resolveKagJournal(DataService service, DateTime incpectionDate, string sessionId)
         {
             string startDateQuery = @"SELECT dsdt_inspection_date FROM " + DdtInspection.TABLE_NAME + " WHERE dsid_hospitality_session='" + sessionId + "'" +
-                " AND dsdt_inspection_date<to_timestamp('" + incpectionDate.ToShortDateString() +" " + incpectionDate.ToLongTimeString()+ "', 'DD.MM.YYYY HH24:MI:SS') ORDER BY dsdt_inspection_date DESC";
+                " AND dsdt_inspection_date<to_timestamp('" + incpectionDate.ToShortDateString() + " " + incpectionDate.ToLongTimeString() + "', 'DD.MM.YYYY HH24:MI:SS') ORDER BY dsdt_inspection_date DESC";
             DateTime startDate = service.querySingleDateTime(startDateQuery);
 
             return service.queryObject<DdtJournal>(@"SELECT * FROM " + DdtJournal.TABLE_NAME +
@@ -255,6 +256,69 @@ namespace Cardiology.Utils
                     (startDate != default(DateTime) ? (" AND dsdt_admission_date>=to_timestamp('" + startDate.ToShortDateString() + " " + startDate.ToLongTimeString() + "', 'dd.mm.yyyy HH24:mi:ss')") : "") +
                     " AND dsdt_admission_date<=to_timestamp('" + incpectionDate.ToShortDateString() + " " + incpectionDate.ToLongTimeString() + "', 'dd.mm.yyyy HH24:mi:ss')");
 
+        }
+
+        internal static string replaceJournalIntParameter(string journal, string mask, string newValue)
+        {
+            if (isNotBlank(journal))
+            {
+
+                int index = -1;
+                StringBuilder resultBuilder = new StringBuilder();
+                if ((index = journal.IndexOf(mask)) >= 0)
+                {
+                    int startIndex = index + mask.Length - 1;
+                    int counter = 0;
+                    int replaceStartIndex = -1;
+                    int replaceEndIndex = -1;
+                    while (replaceStartIndex < 0 && counter < 5)
+                    {
+                        char c = journal[startIndex + counter];
+                        if (Char.IsDigit(c))
+                        {
+                            replaceStartIndex = startIndex + counter;
+                        }
+                        counter++;
+                    }
+                    while (replaceEndIndex < 0)
+                    {
+                        char c = journal[startIndex + counter];
+                        bool isLastChar = startIndex + counter == journal.Length - 1;
+                        if ((!Char.IsDigit(c) && '/' != c )|| isLastChar)
+                        {
+                            replaceEndIndex = startIndex + counter;
+                        }
+                        counter++;
+                    }
+
+                    if (replaceStartIndex >= 0 && replaceEndIndex >= 0)
+                    {
+                        bool inserted = false;
+                        for (int i = 0; i < journal.Length; i++)
+                        {
+                            if (i < replaceStartIndex || i >= replaceEndIndex)
+                            {
+                                resultBuilder.Append(journal[i]);
+                            }
+                            else
+                            {
+                                if (!inserted)
+                                {
+                                    inserted = true;
+                                    resultBuilder.Append(newValue);
+                                }
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    resultBuilder.Append(journal).Append(mask).Append(" ").Append(newValue);
+
+                }
+                return resultBuilder.ToString();
+            }
+            return journal;
         }
 
 

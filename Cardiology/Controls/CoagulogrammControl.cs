@@ -59,5 +59,10 @@ namespace Cardiology.Controls
                 objectId = service.updateOrCreateIfNeedObject<DdtCoagulogram>(coagulgramm, DdtCoagulogram.TABLE_NAME, coagulgramm.RObjectId);
             }
         }
+
+        public bool getIsValid()
+        {
+            return true;
+        }
     }
 }

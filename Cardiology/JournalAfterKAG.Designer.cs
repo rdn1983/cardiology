@@ -302,9 +302,9 @@
             this.surgeryInspectationTxt.Name = "surgeryInspectationTxt";
             this.surgeryInspectationTxt.Size = new System.Drawing.Size(777, 75);
             this.surgeryInspectationTxt.TabIndex = 0;
-            this.surgeryInspectationTxt.Text = "Объективно: Над легкими аускультативно: дыхание жесткое, ЧД 19 уд в мин. Тоны сер" +
-    "дца приглушены, ритм неправильный. ЧСС 60 в мин. PS 60 в мин. АД 120/70 мм рт ст" +
-    ". Живот обычной формы; безболезненный.";
+            this.surgeryInspectationTxt.Text = "Над легкими аускультативно: дыхание жесткое, ЧД 19 уд в мин. Тоны сердца приглуше" +
+    "ны, ритм неправильный. ЧСС 60 в мин. PS 60 в мин. АД 120/70 мм рт ст. Живот обыч" +
+    "ной формы; безболезненный.";
             // 
             // dutyCardioInspectationPnl
             // 

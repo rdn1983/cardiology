@@ -38,8 +38,8 @@ namespace Cardiology.Controls
         private void initControls()
         {
             CommonUtils.initRangedItems(chssTxt, 40, 200);
-            CommonUtils.initRangedItems(psTxt, 40, 200);
             CommonUtils.initRangedItems(chddTxt, 14, 26);
+            warningLbl.Visible = false;
 
             initControlVisibility();
 
@@ -51,7 +51,6 @@ namespace Cardiology.Controls
             {
                 complaintsTxt.Text = journal.DssComplaints;
                 adTxt.Text = journal.DssAd;
-                psTxt.Text = journal.DssPs;
                 chddTxt.Text = journal.DssChdd;
                 chssTxt.Text = journal.DssChss;
                 monitorTxt.Text = journal.DssMonitor;
@@ -65,12 +64,13 @@ namespace Cardiology.Controls
 
                 DdtDoctors doc = service.queryObjectById<DdtDoctors>(DdtDoctors.TABLE_NAME, journal.DsidDoctor);
                 docBox.SelectedIndex = docBox.FindStringExact(doc.DssInitials);
-            } else
+            }
+            else
             {
                 journalTxt.Text = JournalShuffleUtils.shuffleJournalText();
-                adTxt.SelectedIndex = JournalShuffleUtils.shuffleNextIndex(adTxt.Items.Count-1);
-                chddTxt.SelectedIndex = JournalShuffleUtils.shuffleNextIndex(chddTxt.Items.Count-1);
-                chssTxt.SelectedIndex = JournalShuffleUtils.shuffleNextIndex(chssTxt.Items.Count-1);
+                adTxt.SelectedIndex = JournalShuffleUtils.shuffleNextIndex(adTxt.Items.Count - 1);
+                chddTxt.SelectedIndex = JournalShuffleUtils.shuffleNextIndex(chddTxt.Items.Count - 1);
+                chssTxt.SelectedIndex = JournalShuffleUtils.shuffleNextIndex(chssTxt.Items.Count - 1);
             }
         }
 
@@ -109,7 +109,6 @@ namespace Cardiology.Controls
             journal.DssComplaints = complaintsTxt.Text;
             journal.DssJournal = journalTxt.Text;
             journal.DssMonitor = monitorTxt.Text;
-            journal.DssPs = psTxt.Text;
             journal.DsbGoodRhytm = goodRhytmBtn.Checked;
             journal.DsdtAdmissionDate = CommonUtils.constructDateWIthTime(startDateTxt.Value, startTimeTxt.Value);
 
@@ -126,14 +125,77 @@ namespace Cardiology.Controls
         {
             CheckBox cb = (CheckBox)sender;
             visibledPanel.Visible = !cb.Checked;
-            //this.OnResize(null);
-            journalPnl.Size = cb.Checked ? new System.Drawing.Size(900, 40) : new System.Drawing.Size(900, 180);
-            cb.Location = cb.Checked ? new System.Drawing.Point(332, 19) : new System.Drawing.Point(332, 158);
+            Size = cb.Checked ? new System.Drawing.Size(900, 40) : new System.Drawing.Size(900, 181);
+            cb.Location = cb.Checked ? new System.Drawing.Point(300, 19) : new System.Drawing.Point(300, 158);
         }
 
         public string getObjectId()
         {
             return objectId;
+        }
+
+        private void goodRhytmBtn_CheckedChanged(object sender, EventArgs e)
+        {
+            monitorTxt.Text = goodRhytmBtn.Checked ? "синусовый ритм" : "трепетание предсердий";
+        }
+
+        public bool isGoodRhytm()
+        {
+            return goodRhytmBtn.Checked;
+        }
+
+        public void initRhytm(bool goodRhytm)
+        {
+            goodRhytmBtn.Checked = goodRhytm;
+            badRhytmBtn.Checked = !goodRhytm;
+            goodRhytmBtn_CheckedChanged(null, null);
+        }
+
+        public string getDocName()
+        {
+            return docBox.Text;
+        }
+
+        public void initDocName(string docName)
+        {
+            docBox.SelectedIndex = docBox.FindStringExact(docName);
+        }
+
+        private void chddTxt_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string newValue = chddTxt.Text;
+            if (CommonUtils.isNotBlank(newValue))
+            {
+                string oldJournal = journalTxt.Text;
+                journalTxt.Text = CommonUtils.replaceJournalIntParameter(oldJournal, "ЧД", newValue);
+            }
+        }
+
+        private void chssTxt_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string newValue = chssTxt.Text;
+            if (CommonUtils.isNotBlank(newValue))
+            {
+                string oldJournal = journalTxt.Text;
+                journalTxt.Text = CommonUtils.replaceJournalIntParameter(oldJournal, "ЧСС", newValue);
+            }
+        }
+
+        private void adTxt_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string newValue = adTxt.Text;
+            if (CommonUtils.isNotBlank(newValue))
+            {
+                string oldJournal = journalTxt.Text;
+                journalTxt.Text = CommonUtils.replaceJournalIntParameter(oldJournal, "АД", newValue);
+            }
+        }
+
+        public bool getIsValid()
+        {
+            bool result = chddTxt.SelectedIndex >= 0 && chssTxt.SelectedIndex >= 0 && adTxt.SelectedIndex >= 0;
+            warningLbl.Visible = !result;
+            return result;
         }
     }
 }

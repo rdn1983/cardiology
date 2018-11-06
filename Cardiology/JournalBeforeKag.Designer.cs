@@ -31,14 +31,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JournalBeforeKag));
             this.journalAllPnl = new System.Windows.Forms.GroupBox();
             this.journalGrouppedPanel = new System.Windows.Forms.Panel();
-            this.journalContainer = new System.Windows.Forms.TableLayoutPanel();
             this.deffedredAllPnl = new System.Windows.Forms.GroupBox();
             this.defferedGrouppedPanel = new System.Windows.Forms.Panel();
-            this.deferredContainer = new System.Windows.Forms.TableLayoutPanel();
+            this.deferredContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.saveBtn = new System.Windows.Forms.Button();
             this.printBtn = new System.Windows.Forms.Button();
             this.addDefferedBtn = new System.Windows.Forms.Button();
             this.addJournalBtn = new System.Windows.Forms.Button();
+            this.journalContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.journalAllPnl.SuspendLayout();
             this.journalGrouppedPanel.SuspendLayout();
             this.deffedredAllPnl.SuspendLayout();
@@ -70,21 +70,6 @@
             this.journalGrouppedPanel.Size = new System.Drawing.Size(940, 264);
             this.journalGrouppedPanel.TabIndex = 38;
             // 
-            // journalContainer
-            // 
-            this.journalContainer.AutoSize = true;
-            this.journalContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.journalContainer.ColumnCount = 1;
-            this.journalContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.journalContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.journalContainer.Location = new System.Drawing.Point(6, 6);
-            this.journalContainer.Name = "journalContainer";
-            this.journalContainer.RowCount = 1;
-            this.journalContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.journalContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.journalContainer.Size = new System.Drawing.Size(0, 0);
-            this.journalContainer.TabIndex = 37;
-            // 
             // deffedredAllPnl
             // 
             this.deffedredAllPnl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -112,17 +97,11 @@
             // deferredContainer
             // 
             this.deferredContainer.AutoSize = true;
-            this.deferredContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.deferredContainer.ColumnCount = 1;
-            this.deferredContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.deferredContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.deferredContainer.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.deferredContainer.Location = new System.Drawing.Point(4, 3);
             this.deferredContainer.Name = "deferredContainer";
-            this.deferredContainer.RowCount = 1;
-            this.deferredContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.deferredContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.deferredContainer.Size = new System.Drawing.Size(0, 0);
-            this.deferredContainer.TabIndex = 41;
+            this.deferredContainer.Size = new System.Drawing.Size(907, 254);
+            this.deferredContainer.TabIndex = 0;
             // 
             // saveBtn
             // 
@@ -168,6 +147,17 @@
             this.addJournalBtn.UseVisualStyleBackColor = true;
             this.addJournalBtn.Click += new System.EventHandler(this.addJournalBtn_Click);
             // 
+            // journalContainer
+            // 
+            this.journalContainer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.journalContainer.AutoSize = true;
+            this.journalContainer.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.journalContainer.Location = new System.Drawing.Point(6, 3);
+            this.journalContainer.Name = "journalContainer";
+            this.journalContainer.Size = new System.Drawing.Size(907, 258);
+            this.journalContainer.TabIndex = 0;
+            // 
             // JournalBeforeKag
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -200,11 +190,11 @@
         private System.Windows.Forms.GroupBox deffedredAllPnl;
         private System.Windows.Forms.Button saveBtn;
         private System.Windows.Forms.Button printBtn;
-        private System.Windows.Forms.TableLayoutPanel journalContainer;
-        private System.Windows.Forms.TableLayoutPanel deferredContainer;
         private System.Windows.Forms.Button addJournalBtn;
         private System.Windows.Forms.Button addDefferedBtn;
         private System.Windows.Forms.Panel journalGrouppedPanel;
         private System.Windows.Forms.Panel defferedGrouppedPanel;
+        private System.Windows.Forms.FlowLayoutPanel deferredContainer;
+        private System.Windows.Forms.FlowLayoutPanel journalContainer;
     }
 }

@@ -62,5 +62,10 @@ namespace Cardiology.Controls
                 objectId = service.updateOrCreateIfNeedObject<DdtXRay>(xRay, DdtXRay.TABLE_NAME, xRay.ObjectId);
             }
         }
+
+        public bool getIsValid()
+        {
+            return true;
+        }
     }
 }

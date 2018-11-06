@@ -58,5 +58,10 @@ namespace Cardiology
         {
             return objectId;
         }
+
+        public bool getIsValid()
+        {
+            return true;
+        }
     }
 }

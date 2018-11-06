@@ -60,5 +60,10 @@ namespace Cardiology.Controls
             }
         }
 
+        public bool getIsValid()
+        {
+            return true;
+        }
+
     }
 }

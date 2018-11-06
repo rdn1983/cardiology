@@ -119,5 +119,10 @@ namespace Cardiology
             values.Add("{time}", DateTime.Now.ToShortTimeString());
             TemplatesUtils.fillBlankTemplate("blank_anastesia_template.doc", hospitalSessionId, values);
         }
+
+        public bool getIsValid()
+        {
+            return true;
+        }
     }
 }

@@ -6,5 +6,6 @@ namespace Cardiology
     {
         void saveObject(DdtHospital hospitalitySession, string parentId, string parentType);
         string getObjectId();
+        bool getIsValid();
     }
 }

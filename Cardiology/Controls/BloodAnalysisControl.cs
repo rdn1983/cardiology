@@ -114,5 +114,10 @@ namespace Cardiology
                 e.Handled = true;
             }
         }
+
+        public bool getIsValid()
+        {
+            return true;
+        }
     }
 }

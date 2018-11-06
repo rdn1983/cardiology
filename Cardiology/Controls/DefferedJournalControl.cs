@@ -31,8 +31,8 @@ namespace Cardiology.Controls
         private void initControls()
         {
             CommonUtils.initRangedItems(deferredChssTxt, 40, 200);
-            CommonUtils.initRangedItems(deferredPsTxt, 40, 200);
             CommonUtils.initRangedItems(defferedChddTxt, 14, 26);
+            warningLbl.Visible = false;
 
             DataService service = new DataService();
             CommonUtils.initDoctorsComboboxValues(service, docBox, null);
@@ -42,7 +42,6 @@ namespace Cardiology.Controls
             {
                 deferredJournalTxt.Text = journal.DssJournal;
                 deferredAdTxt.Text = journal.DssAd;
-                deferredPsTxt.Text = journal.DssPs;
                 defferedChddTxt.Text = journal.DssChdd;
                 deferredChssTxt.Text = journal.DssChss;
                 deferredMonitorTxt.Text = journal.DssMonitor;
@@ -52,12 +51,13 @@ namespace Cardiology.Controls
 
                 DdtDoctors doc = service.queryObjectById<DdtDoctors>(DdtDoctors.TABLE_NAME, journal.DsidDoctor);
                 docBox.SelectedIndex = docBox.FindStringExact(doc.DssInitials);
-            } else
+            }
+            else
             {
                 deferredJournalTxt.Text = JournalShuffleUtils.shuffleJournalText();
-                deferredChssTxt.SelectedIndex = JournalShuffleUtils.shuffleNextIndex(deferredChssTxt.Items.Count-1);
-                deferredAdTxt.SelectedIndex = JournalShuffleUtils.shuffleNextIndex(deferredAdTxt.Items.Count-1);
-                defferedChddTxt.SelectedIndex = JournalShuffleUtils.shuffleNextIndex(defferedChddTxt.Items.Count-1);
+                deferredChssTxt.SelectedIndex = JournalShuffleUtils.shuffleNextIndex(deferredChssTxt.Items.Count - 1);
+                deferredAdTxt.SelectedIndex = JournalShuffleUtils.shuffleNextIndex(deferredAdTxt.Items.Count - 1);
+                defferedChddTxt.SelectedIndex = JournalShuffleUtils.shuffleNextIndex(defferedChddTxt.Items.Count - 1);
             }
         }
 
@@ -85,10 +85,9 @@ namespace Cardiology.Controls
             journal.DssChss = deferredChssTxt.Text;
             journal.DssJournal = deferredJournalTxt.Text;
             journal.DssMonitor = deferredMonitorTxt.Text;
-            journal.DssPs = deferredPsTxt.Text;
             journal.DsdtAdmissionDate = CommonUtils.constructDateWIthTime(deferredStartDate.Value, deferredStartTime.Value);
 
-            DdtDoctors selectedDoc = (DdtDoctors) docBox.SelectedItem;
+            DdtDoctors selectedDoc = (DdtDoctors)docBox.SelectedItem;
             if (selectedDoc != null)
             {
                 journal.DsidDoctor = selectedDoc.ObjectId;
@@ -97,18 +96,86 @@ namespace Cardiology.Controls
             objectId = service.updateOrCreateIfNeedObject<DdtJournal>(journal, DdtJournal.TABLE_NAME, journal.RObjectId);
         }
 
-        private void hideJournalBtn_CheckedChanged(object sender, EventArgs e)
-        {
-            CheckBox cb = (CheckBox)sender;
-            visibledPnl.Visible = !cb.Checked;
-            //this.OnResize(null);
-            defferedPnl.Size = cb.Checked ? new System.Drawing.Size(900, 40) : new System.Drawing.Size(900, 180);
-            cb.Location = cb.Checked ? new System.Drawing.Point(332, 19) : new System.Drawing.Point(332, 158);
-        }
-
         public string getObjectId()
         {
             return objectId;
+        }
+
+        public DateTime getTime()
+        {
+            return CommonUtils.constructDateWIthTime(deferredStartDate.Value, deferredStartTime.Value);
+        }
+
+        private void badRhytmBtn_CheckedChanged(object sender, EventArgs e)
+        {
+            deferredMonitorTxt.Text = badRhytmBtn.Checked ? "синусовый ритм" : "трепетание предсердий";
+        }
+
+        public bool isGoodRhytm()
+        {
+            return badRhytmBtn.Checked;
+        }
+
+        public void initRhytm(bool goodRhytm)
+        {
+            badRhytmBtn.Checked = goodRhytm;
+            goodRhytmBtn.Checked = !goodRhytm;
+            badRhytmBtn_CheckedChanged(null, null);
+        }
+
+        public string getDoctorName()
+        {
+            return docBox.Text;
+        }
+
+        public void initDoc(string docName)
+        {
+            docBox.SelectedIndex = docBox.FindStringExact(docName);
+        }
+
+        private void defferedChddTxt_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string newValue = defferedChddTxt.Text;
+            if (CommonUtils.isNotBlank(newValue))
+            {
+                string oldJournal = deferredJournalTxt.Text;
+                deferredJournalTxt.Text = CommonUtils.replaceJournalIntParameter(oldJournal, "ЧД", newValue);
+            }
+        }
+
+        private void deferredChssTxt_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string newValue = deferredChssTxt.Text;
+            if (CommonUtils.isNotBlank(newValue))
+            {
+                string oldJournal = deferredJournalTxt.Text;
+                deferredJournalTxt.Text = CommonUtils.replaceJournalIntParameter(oldJournal, "ЧСС", newValue);
+            }
+        }
+
+        private void deferredAdTxt_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string newValue = deferredAdTxt.Text;
+            if (CommonUtils.isNotBlank(newValue))
+            {
+                string oldJournal = deferredJournalTxt.Text;
+                deferredJournalTxt.Text = CommonUtils.replaceJournalIntParameter(oldJournal, "АД", newValue);
+            }
+        }
+
+        private void hideDefferedCb_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox cb = (CheckBox)sender;
+            visibledPnl.Visible = !cb.Checked;
+            Size = cb.Checked ? new System.Drawing.Size(800, 40) : new System.Drawing.Size(800, 176);
+            cb.Location = cb.Checked ? new System.Drawing.Point(285, 20) : new System.Drawing.Point(285, 156);
+        }
+
+        public bool getIsValid()
+        {
+            bool result = deferredChssTxt.SelectedIndex >= 0 && defferedChddTxt.SelectedIndex >= 0 && deferredAdTxt.SelectedIndex >= 0;
+            warningLbl.Visible = !result;
+            return result;
         }
     }
 }

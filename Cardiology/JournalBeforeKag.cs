@@ -83,26 +83,54 @@ namespace Cardiology
 
         private void addJournalBtn_Click(object sender, EventArgs e)
         {
-            DateTime lastDateTime = DateTime.Now;
-            if (journalContainer.Controls.Count>0)
-            {
-                JournalNoKAGControl lastJournal = (JournalNoKAGControl) journalContainer.Controls[journalContainer.Controls.Count-1];
-                lastDateTime = lastJournal.getJournalDateTime();
-            }
             JournalNoKAGControl nextJournal = new JournalNoKAGControl(null, journalType);
-            nextJournal.initTime(lastDateTime.AddHours(4));
+            if (journalContainer.Controls.Count > 0)
+            {
+                JournalNoKAGControl lastJournal = (JournalNoKAGControl)journalContainer.Controls[journalContainer.Controls.Count - 1];
+                nextJournal.initTime(lastJournal.getJournalDateTime().AddHours(4));
+                nextJournal.initDocName(lastJournal.getDocName());
+                nextJournal.initRhytm(lastJournal.isGoodRhytm());
+            }
             journalContainer.Controls.Add(nextJournal);
         }
 
         private void addDefferedBtn_Click(object sender, EventArgs e)
         {
-            deferredContainer.Controls.Add(new DefferedJournalControl(null));
+            DefferedJournalControl newCtrl = new DefferedJournalControl(null);
+            if (deferredContainer.Controls.Count > 0)
+            {
+                DefferedJournalControl oldCtrl = (DefferedJournalControl)deferredContainer.Controls[deferredContainer.Controls.Count - 1];
+                newCtrl.initDoc(oldCtrl.getDoctorName());
+                newCtrl.initRhytm(oldCtrl.isGoodRhytm());
+                newCtrl.initTime(oldCtrl.getTime().AddHours(4));
+            }
+            deferredContainer.Controls.Add(newCtrl);
         }
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
-            save();
-            Close();
+            if (validate())
+            {
+                save();
+                Close();
+            }
+        }
+
+        private bool validate()
+        {
+            bool isValid = true;
+            foreach (Control c in journalContainer.Controls)
+            {
+                IDocbaseControl docbaseControl = (IDocbaseControl)c;
+                isValid |= !docbaseControl.getIsValid();
+            }
+
+            foreach (Control c in deferredContainer.Controls)
+            {
+                IDocbaseControl docbaseControl = (IDocbaseControl)c;
+                isValid |= !docbaseControl.getIsValid();
+            }
+            return isValid;
         }
 
         private void save()
@@ -125,21 +153,24 @@ namespace Cardiology
 
         private void printBtn_Click(object sender, EventArgs e)
         {
-            save();
-            DataService service = new DataService();
-            List<string> paths = new List<string>();
-            ITemplateProcessor processor = TemplateProcessorManager.getProcessorByObjectType(DdtJournal.TABLE_NAME);
-            foreach (string id in journalIds)
+            if (validate())
             {
-                DdtJournal journal = service.queryObjectById<DdtJournal>(DdtJournal.TABLE_NAME, id);
-                if (journal != null)
+                save();
+                DataService service = new DataService();
+                List<string> paths = new List<string>();
+                ITemplateProcessor processor = TemplateProcessorManager.getProcessorByObjectType(DdtJournal.TABLE_NAME);
+                foreach (string id in journalIds)
                 {
-                    string path = processor.processTemplate(hospitalitySession.ObjectId, journal.RObjectId, null);
-                    paths.Add(path);
+                    DdtJournal journal = service.queryObjectById<DdtJournal>(DdtJournal.TABLE_NAME, id);
+                    if (journal != null)
+                    {
+                        string path = processor.processTemplate(hospitalitySession.ObjectId, journal.RObjectId, null);
+                        paths.Add(path);
+                    }
                 }
+                string result = TemplatesUtils.mergeFiles(paths.ToArray(), false);
+                TemplatesUtils.showDocument(result);
             }
-            string result = TemplatesUtils.mergeFiles(paths.ToArray(), false);
-            TemplatesUtils.showDocument(result);
         }
     }
 }

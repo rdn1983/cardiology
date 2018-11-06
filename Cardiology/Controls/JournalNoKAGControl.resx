@@ -117,8 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="journalTxt.Text" xml:space="preserve">
-    <value>Состояние средней тяжести, ангиозные боли не беспокоят, беспокоит общая слабость. 
-Объективно: Над легкими аускультативно: жесткое, ослабленное в нижних отделах, ЧД 18 в мин. Тоны сердца приглушены, аритмичные. ЧСС 70 в мин, Ps в мин. АД 130/80 мм рт ст. Живот обычной формы, безболезненный. По монитору - синусовый ритм.</value>
-  </data>
 </root>

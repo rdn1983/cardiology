@@ -229,5 +229,10 @@ namespace Cardiology
 
         }
 
+        public bool getIsValid()
+        {
+            return true;
+        }
+
     }
 }

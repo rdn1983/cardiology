@@ -313,7 +313,7 @@ namespace Cardiology.Utils
                 }
                 else
                 {
-                    resultBuilder.Append(journal).Append(mask).Append(" ").Append(newValue);
+                    resultBuilder.Append(journal).Append(mask).Append(" ").Append(newValue).Append(" ");
 
                 }
                 return resultBuilder.ToString();

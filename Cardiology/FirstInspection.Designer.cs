@@ -110,8 +110,10 @@
             this.diagnosisTemplateBtn = new System.Windows.Forms.Button();
             this.diagnosisTxt = new System.Windows.Forms.RichTextBox();
             this.issuedMedicineTab = new System.Windows.Forms.TabPage();
+            this.fixIssuedMedTemplate = new System.Windows.Forms.Button();
             this.issuedMedicineBox = new System.Windows.Forms.GroupBox();
             this.issuedCntr = new System.Windows.Forms.Panel();
+            this.issuedMedicineContainer = new Cardiology.Controls.IssuedMedicineContainer();
             this.addIssuedMedicineBtn = new System.Windows.Forms.Button();
             this.firstAnalysisTab = new System.Windows.Forms.TabPage();
             this.tabs = new System.Windows.Forms.TabControl();
@@ -173,8 +175,6 @@
             this.docBox = new System.Windows.Forms.ComboBox();
             this.docLbl = new System.Windows.Forms.Label();
             this.patientInitialsLbl = new System.Windows.Forms.Label();
-            this.fixIssuedMedTemplate = new System.Windows.Forms.Button();
-            this.issuedMedicineContainer = new Cardiology.Controls.IssuedMedicineContainer();
             this.templateChanger = new Cardiology.Controls.TemplateChanger();
             this.complaintsBox.SuspendLayout();
             this.anamnesisMorbiBox.SuspendLayout();
@@ -519,6 +519,7 @@
             this.accompanyingIllnessesTxt.Size = new System.Drawing.Size(298, 144);
             this.accompanyingIllnessesTxt.TabIndex = 0;
             this.accompanyingIllnessesTxt.Text = "";
+            this.accompanyingIllnessesTxt.TextChanged += new System.EventHandler(this.accompanyingIllnessesTxt_TextChanged);
             // 
             // pastSurgeriesBox
             // 
@@ -1122,6 +1123,17 @@
             this.issuedMedicineTab.TabIndex = 3;
             this.issuedMedicineTab.Text = "Назначения";
             // 
+            // fixIssuedMedTemplate
+            // 
+            this.fixIssuedMedTemplate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.fixIssuedMedTemplate.Location = new System.Drawing.Point(727, 32);
+            this.fixIssuedMedTemplate.Name = "fixIssuedMedTemplate";
+            this.fixIssuedMedTemplate.Size = new System.Drawing.Size(160, 28);
+            this.fixIssuedMedTemplate.TabIndex = 2;
+            this.fixIssuedMedTemplate.Text = "Исправить по шаблону";
+            this.fixIssuedMedTemplate.UseVisualStyleBackColor = true;
+            this.fixIssuedMedTemplate.Click += new System.EventHandler(this.button1_Click);
+            // 
             // issuedMedicineBox
             // 
             this.issuedMedicineBox.Controls.Add(this.issuedCntr);
@@ -1142,6 +1154,15 @@
             this.issuedCntr.Name = "issuedCntr";
             this.issuedCntr.Size = new System.Drawing.Size(653, 501);
             this.issuedCntr.TabIndex = 18;
+            // 
+            // issuedMedicineContainer
+            // 
+            this.issuedMedicineContainer.AutoSize = true;
+            this.issuedMedicineContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.issuedMedicineContainer.Location = new System.Drawing.Point(4, 4);
+            this.issuedMedicineContainer.Name = "issuedMedicineContainer";
+            this.issuedMedicineContainer.Size = new System.Drawing.Size(6, 6);
+            this.issuedMedicineContainer.TabIndex = 0;
             // 
             // addIssuedMedicineBtn
             // 
@@ -1698,26 +1719,6 @@
             this.patientInitialsLbl.Name = "patientInitialsLbl";
             this.patientInitialsLbl.Size = new System.Drawing.Size(0, 13);
             this.patientInitialsLbl.TabIndex = 17;
-            // 
-            // fixIssuedMedTemplate
-            // 
-            this.fixIssuedMedTemplate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.fixIssuedMedTemplate.Location = new System.Drawing.Point(727, 32);
-            this.fixIssuedMedTemplate.Name = "fixIssuedMedTemplate";
-            this.fixIssuedMedTemplate.Size = new System.Drawing.Size(160, 28);
-            this.fixIssuedMedTemplate.TabIndex = 2;
-            this.fixIssuedMedTemplate.Text = "Исправить по шаблону";
-            this.fixIssuedMedTemplate.UseVisualStyleBackColor = true;
-            this.fixIssuedMedTemplate.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // issuedMedicineContainer
-            // 
-            this.issuedMedicineContainer.AutoSize = true;
-            this.issuedMedicineContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.issuedMedicineContainer.Location = new System.Drawing.Point(4, 4);
-            this.issuedMedicineContainer.Name = "issuedMedicineContainer";
-            this.issuedMedicineContainer.Size = new System.Drawing.Size(6, 6);
-            this.issuedMedicineContainer.TabIndex = 0;
             // 
             // templateChanger
             // 

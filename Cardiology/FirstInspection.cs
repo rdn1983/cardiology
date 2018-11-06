@@ -5,6 +5,7 @@ using Cardiology.Utils;
 using System.Collections.Generic;
 using System.Drawing;
 using Cardiology.Controls;
+using System.Text;
 
 namespace Cardiology
 {
@@ -752,6 +753,30 @@ namespace Cardiology
                     }
                 });
 
+            }
+        }
+
+        private void accompanyingIllnessesTxt_TextChanged(object sender, EventArgs e)
+        {
+            string illness = string.Intern(accompanyingIllnessesTxt.Text);
+            string diagnosis = String.Intern(diagnosisTxt.Text);
+            int i = 0;
+            StringBuilder str = new StringBuilder();
+            while (illness.Length > 0 && i <= illness.Length - 1)
+            {
+                char c = illness[i];
+                str.Append(c);
+                if (c == ',' || c == '.' || c == '/' || i == illness.Length - 1)
+                {
+                    if (diagnosis.IndexOf(str.ToString()) < 0)
+                    {
+                        diagnosisTxt.Text += str.ToString();
+                    }
+                    illness = illness.Replace(str.ToString(), "");
+                    str.Clear();
+                    i = 0;
+                }
+                i++;
             }
         }
     }

@@ -36,8 +36,8 @@ CREATE TABLE ddt_issued_medicine (
   r_creation_date TIMESTAMP DEFAULT NOW() NOT NULL,
   r_modify_date TIMESTAMP NOT NULL,
 
-  dsid_med_list VARCHAR(16) REFERENCES ddt_issued_medicine_list(r_object_id),
-  dsid_cure VARCHAR(16) REFERENCES ddt_cure(r_object_id)
+  dsid_med_list VARCHAR(16) REFERENCES ddt_issued_medicine_list(r_object_id) ON DELETE CASCADE,
+  dsid_cure VARCHAR(16) REFERENCES ddt_cure(r_object_id) ON DELETE CASCADE
 );
 
 

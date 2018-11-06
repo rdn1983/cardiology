@@ -254,10 +254,13 @@ namespace Cardiology
                 DataGridViewCell cell = row.Cells[3];
                 string idsValue = cell.Value.ToString();
                 string typeValue = row.Cells[2].Value.ToString();
-                //todo если делать полноценно, то надо еще вносить во все таблицы признак удаления и при открытии первичного осмотра и т.п.
-                //селектить с учетом флага. пока так. Чтобы хотя бы чистить историю от хлама.
-                DataService service = new DataService();
-                service.update(@"update ddt_history set dsb_deleted=true, dsdt_delete_date=now() WHERE dsid_operation_id='" + idsValue + "'");
+                if (!DdtHospital.TABLENAME.Equals(typeValue))
+                {
+                    DataService service = new DataService();
+                    service.delete(@"delete from " + typeValue + " WHERE r_object_id='" + idsValue + "'");
+                    service.delete(@"delete from ddt_history  WHERE dsid_operation_id='" + idsValue + "'");
+                    loadPatientsHistoryGrid();
+                }
             }
         }
 

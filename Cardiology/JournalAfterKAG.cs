@@ -33,6 +33,8 @@ namespace Cardiology
             DataService service = new DataService();
 
             CommonUtils.initDoctorsComboboxValues(service, journalDocBox, "");
+            releaseJournalCtrl.initDateTime(CommonUtils.constructDateWIthTime(admissionDateTxt.Value, DateTime.Parse("8:05:00")));
+
             DdtPatient patient = service.queryObjectById<DdtPatient>(DdtPatient.TABLENAME, hospitalitySession.DsidPatient);
             if (patient != null)
             {
@@ -112,7 +114,7 @@ namespace Cardiology
             if (releaseConclusion != null)
             {
                 releaseJournalCtrl.initObject(releaseConclusion);
-            }
+            } 
         }
 
         private void addCardioInspetions_Click(object sender, EventArgs e)

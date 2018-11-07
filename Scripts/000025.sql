@@ -4,8 +4,8 @@ CREATE TABLE ddt_consilium (
   r_creation_date TIMESTAMP DEFAULT NOW() NOT NULL,
   r_modify_date TIMESTAMP NOT NULL,
 
-  dsid_hospitality_session VARCHAR(16) REFERENCES ddt_hospital(r_object_id),
-  dsid_patient VARCHAR(16) REFERENCES ddt_patient(r_object_id),
+  dsid_hospitality_session VARCHAR(16) REFERENCES ddt_hospital(r_object_id)  ON DELETE CASCADE,
+  dsid_patient VARCHAR(16) REFERENCES ddt_patient(r_object_id)  ON DELETE CASCADE,
   dsid_doctor VARCHAR(16) REFERENCES ddt_doctors(r_object_id),
   dsdt_consilium_date timestamp,
   
@@ -41,7 +41,7 @@ CREATE TABLE ddt_consilium_member (
   r_creation_date TIMESTAMP DEFAULT NOW() NOT NULL,
   r_modify_date TIMESTAMP NOT NULL,
 
-  dsid_consilium VARCHAR(16) REFERENCES ddt_consilium(r_object_id),
+  dsid_consilium VARCHAR(16) REFERENCES ddt_consilium(r_object_id) ON DELETE CASCADE,
   
   dss_group_name VARCHAR(512),
   dss_doctor_name VARCHAR(512),

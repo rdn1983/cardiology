@@ -69,7 +69,7 @@ namespace Cardiology.Controls
             {
                 journalTxt.Text = JournalShuffleUtils.shuffleJournalText();
                 adTxt.SelectedIndex = JournalShuffleUtils.shuffleNextIndex(adTxt.Items.Count - 1);
-                chddTxt.SelectedIndex = JournalShuffleUtils.shuffleNextIndex(chddTxt.Items.Count - 1);
+                chddTxt.SelectedIndex = chddTxt.FindString("14");
                 chssTxt.SelectedIndex = JournalShuffleUtils.shuffleNextIndex(chssTxt.Items.Count - 1);
             }
         }

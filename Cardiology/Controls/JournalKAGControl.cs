@@ -28,7 +28,7 @@ namespace Cardiology.Controls
             CommonUtils.initRangedItems(chssTxt, 40, 200);
             CommonUtils.initRangedItems(chddTxt, 14, 26);
             journalTxt.Text = JournalShuffleUtils.shuffleJournalText();
-            chddTxt.SelectedIndex = JournalShuffleUtils.shuffleNextIndex(chddTxt.Items.Count - 1);
+            chddTxt.SelectedIndex = chddTxt.FindString("14");
             adTxt.SelectedIndex = JournalShuffleUtils.shuffleNextIndex(adTxt.Items.Count - 1);
             chssTxt.SelectedIndex = JournalShuffleUtils.shuffleNextIndex(chssTxt.Items.Count - 1);
         }

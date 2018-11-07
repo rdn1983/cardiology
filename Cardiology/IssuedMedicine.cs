@@ -216,6 +216,7 @@ namespace Cardiology
                 }
                 medList.DssDiagnosis = diagnosisTxt.Text;
                 medList.DssHasKag = shortlyOperationTxt.Text;
+                medList.DsdtIssuingDate = createDateTxt.Value;
                 string id = service.updateOrCreateIfNeedObject<DdtIssuedMedicineList>(medList, DdtIssuedMedicineList.TABLE_NAME, medList.ObjectId);
                 medList.ObjectId = id;
                 foreach (DdtIssuedMedicine med in meds)

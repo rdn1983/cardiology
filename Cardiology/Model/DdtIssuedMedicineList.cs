@@ -26,6 +26,8 @@ namespace Cardiology.Model
         private string dssDiagnosis;
         [TableAttribute("dss_has_kag")]
         private string dssHasKag;
+        [TableAttribute("dsb_skip_print")]
+        private bool dsbSkipPrint;
 
         public string ObjectId
         {
@@ -61,5 +63,6 @@ namespace Cardiology.Model
         public DateTime DsdtIssuingDate { get => dsdtIssuingDate; set => dsdtIssuingDate = value; }
         public string DssDiagnosis { get => dssDiagnosis; set => dssDiagnosis = value; }
         public string DssHasKag { get => dssHasKag; set => dssHasKag = value; }
+        public bool DsbSkipPrint { get => dsbSkipPrint; set => dsbSkipPrint = value; }
     }
 }

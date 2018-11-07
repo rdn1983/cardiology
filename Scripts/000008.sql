@@ -5,12 +5,13 @@ CREATE TABLE ddt_issued_medicine_list (
 
   dsid_doctor VARCHAR(16) REFERENCES ddt_doctors(r_object_id),
   dsid_patient VARCHAR(16) REFERENCES ddt_patient(r_object_id),
-  dsid_hospitality_session VARCHAR(16) REFERENCES ddt_hospital(r_object_id),
+  dsid_hospitality_session VARCHAR(16) REFERENCES ddt_hospital(r_object_id) ON DELETE CASCADE,
   dsdt_issuing_date timestamp,
   dsid_parent_id VARCHAR(16),
   dss_parent_type VARCHAR(30),
   dss_diagnosis VARCHAR(30),
-  dss_has_kag VARCHAR(30)
+  dss_has_kag VARCHAR(30),
+  dsb_skip_print BOOLEAN
 );
 
 CREATE TRIGGER ddt_issued_medicine_list BEFORE INSERT OR UPDATE

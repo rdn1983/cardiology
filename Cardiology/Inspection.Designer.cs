@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inspection));
             this.tabbedContainer = new System.Windows.Forms.TabControl();
             this.baseTab = new System.Windows.Forms.TabPage();
+            this.analysisBtn = new System.Windows.Forms.Button();
             this.kagContainer = new System.Windows.Forms.Panel();
             this.kagInfo = new System.Windows.Forms.Label();
             this.resultTxt = new System.Windows.Forms.RichTextBox();
@@ -51,7 +52,6 @@
             this.addAnalysis = new System.Windows.Forms.Button();
             this.isssuedMedsTab = new System.Windows.Forms.TabPage();
             this.medicinesPnl = new System.Windows.Forms.Panel();
-            this.issuedMedicineContainer = new Cardiology.Controls.IssuedMedicineContainer();
             this.addMedicineBtn = new System.Windows.Forms.Button();
             this.printBtn = new System.Windows.Forms.Button();
             this.saveBtn = new System.Windows.Forms.Button();
@@ -64,7 +64,10 @@
             this.xRayItem = new System.Windows.Forms.ToolStripMenuItem();
             this.holterItem = new System.Windows.Forms.ToolStripMenuItem();
             this.specialistItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.analysisBtn = new System.Windows.Forms.Button();
+            this.addFirstInsBtn = new System.Windows.Forms.Button();
+            this.selectMedListBtn = new System.Windows.Forms.Button();
+            this.skipPrintBtn = new System.Windows.Forms.CheckBox();
+            this.issuedMedicineContainer = new Cardiology.Controls.IssuedMedicineContainer();
             this.tabbedContainer.SuspendLayout();
             this.baseTab.SuspendLayout();
             this.kagContainer.SuspendLayout();
@@ -113,6 +116,17 @@
             this.baseTab.Text = "Общее";
             this.baseTab.ToolTipText = "14452";
             this.baseTab.UseVisualStyleBackColor = true;
+            // 
+            // analysisBtn
+            // 
+            this.analysisBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.analysisBtn.Location = new System.Drawing.Point(594, 9);
+            this.analysisBtn.Name = "analysisBtn";
+            this.analysisBtn.Size = new System.Drawing.Size(213, 23);
+            this.analysisBtn.TabIndex = 16;
+            this.analysisBtn.Text = "Проверить анализы и обследования";
+            this.analysisBtn.UseVisualStyleBackColor = true;
+            this.analysisBtn.Click += new System.EventHandler(this.nextBtn_Click);
             // 
             // kagContainer
             // 
@@ -287,6 +301,9 @@
             // 
             // isssuedMedsTab
             // 
+            this.isssuedMedsTab.Controls.Add(this.skipPrintBtn);
+            this.isssuedMedsTab.Controls.Add(this.selectMedListBtn);
+            this.isssuedMedsTab.Controls.Add(this.addFirstInsBtn);
             this.isssuedMedsTab.Controls.Add(this.medicinesPnl);
             this.isssuedMedsTab.Controls.Add(this.addMedicineBtn);
             this.isssuedMedsTab.Location = new System.Drawing.Point(4, 22);
@@ -304,23 +321,14 @@
             this.medicinesPnl.Controls.Add(this.issuedMedicineContainer);
             this.medicinesPnl.Location = new System.Drawing.Point(3, 15);
             this.medicinesPnl.Name = "medicinesPnl";
-            this.medicinesPnl.Size = new System.Drawing.Size(747, 489);
+            this.medicinesPnl.Size = new System.Drawing.Size(630, 489);
             this.medicinesPnl.TabIndex = 3;
-            // 
-            // issuedMedicineContainer
-            // 
-            this.issuedMedicineContainer.AutoSize = true;
-            this.issuedMedicineContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.issuedMedicineContainer.Location = new System.Drawing.Point(13, 12);
-            this.issuedMedicineContainer.Name = "issuedMedicineContainer";
-            this.issuedMedicineContainer.Size = new System.Drawing.Size(6, 6);
-            this.issuedMedicineContainer.TabIndex = 0;
             // 
             // addMedicineBtn
             // 
             this.addMedicineBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.addMedicineBtn.Image = global::Cardiology.Properties.Resources.addd1;
-            this.addMedicineBtn.Location = new System.Drawing.Point(793, 15);
+            this.addMedicineBtn.Location = new System.Drawing.Point(641, 15);
             this.addMedicineBtn.Name = "addMedicineBtn";
             this.addMedicineBtn.Size = new System.Drawing.Size(28, 28);
             this.addMedicineBtn.TabIndex = 2;
@@ -425,15 +433,44 @@
             this.specialistItem.Text = "Заключения специалистов";
             this.specialistItem.Click += new System.EventHandler(this.specialistItem_Click);
             // 
-            // analysisBtn
+            // addFirstInsBtn
             // 
-            this.analysisBtn.Location = new System.Drawing.Point(594, 9);
-            this.analysisBtn.Name = "analysisBtn";
-            this.analysisBtn.Size = new System.Drawing.Size(213, 23);
-            this.analysisBtn.TabIndex = 16;
-            this.analysisBtn.Text = "Проверить анализы и обследования";
-            this.analysisBtn.UseVisualStyleBackColor = true;
-            this.analysisBtn.Click += new System.EventHandler(this.nextBtn_Click);
+            this.addFirstInsBtn.Location = new System.Drawing.Point(689, 18);
+            this.addFirstInsBtn.Name = "addFirstInsBtn";
+            this.addFirstInsBtn.Size = new System.Drawing.Size(132, 42);
+            this.addFirstInsBtn.TabIndex = 4;
+            this.addFirstInsBtn.Text = "Добавить из первички";
+            this.addFirstInsBtn.UseVisualStyleBackColor = true;
+            this.addFirstInsBtn.Click += new System.EventHandler(this.addFirstInsBtn_Click);
+            // 
+            // selectMedListBtn
+            // 
+            this.selectMedListBtn.Location = new System.Drawing.Point(689, 66);
+            this.selectMedListBtn.Name = "selectMedListBtn";
+            this.selectMedListBtn.Size = new System.Drawing.Size(132, 38);
+            this.selectMedListBtn.TabIndex = 5;
+            this.selectMedListBtn.Text = "Добавить из листа назначений";
+            this.selectMedListBtn.UseVisualStyleBackColor = true;
+            this.selectMedListBtn.Click += new System.EventHandler(this.selectMedListBtn_Click);
+            // 
+            // skipPrintBtn
+            // 
+            this.skipPrintBtn.AutoSize = true;
+            this.skipPrintBtn.Location = new System.Drawing.Point(689, 110);
+            this.skipPrintBtn.Name = "skipPrintBtn";
+            this.skipPrintBtn.Size = new System.Drawing.Size(142, 17);
+            this.skipPrintBtn.TabIndex = 6;
+            this.skipPrintBtn.Text = "не выводить на печать";
+            this.skipPrintBtn.UseVisualStyleBackColor = true;
+            // 
+            // issuedMedicineContainer
+            // 
+            this.issuedMedicineContainer.AutoSize = true;
+            this.issuedMedicineContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.issuedMedicineContainer.Location = new System.Drawing.Point(13, 12);
+            this.issuedMedicineContainer.Name = "issuedMedicineContainer";
+            this.issuedMedicineContainer.Size = new System.Drawing.Size(6, 6);
+            this.issuedMedicineContainer.TabIndex = 0;
             // 
             // Inspection
             // 
@@ -457,6 +494,7 @@
             this.kagContainer.PerformLayout();
             this.analysisTab.ResumeLayout(false);
             this.isssuedMedsTab.ResumeLayout(false);
+            this.isssuedMedsTab.PerformLayout();
             this.medicinesPnl.ResumeLayout(false);
             this.medicinesPnl.PerformLayout();
             this.analysisTypeMenu.ResumeLayout(false);
@@ -501,5 +539,8 @@
         private System.Windows.Forms.Panel kagContainer;
         private Controls.IssuedMedicineContainer issuedMedicineContainer;
         private System.Windows.Forms.Button analysisBtn;
+        private System.Windows.Forms.Button selectMedListBtn;
+        private System.Windows.Forms.Button addFirstInsBtn;
+        private System.Windows.Forms.CheckBox skipPrintBtn;
     }
 }

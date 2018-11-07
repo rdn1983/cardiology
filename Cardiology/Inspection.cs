@@ -1,5 +1,4 @@
 ﻿using Cardiology.Model;
-using Cardiology.Model.Dictionary;
 using Cardiology.Utils;
 using System;
 using System.Collections.Generic;
@@ -42,7 +41,6 @@ namespace Cardiology
                 resultTxt.Text = inspectionObj.DssInspectionResult;
                 kateterPlacementTxt.Text = inspectionObj.DssKateterPlacement;
 
-                initIssuedCure(service);
                 initAnalysis(service);
             }
             else
@@ -149,24 +147,6 @@ namespace Cardiology
 
         }
 
-        private void initIssuedCure(DataService service)
-        {
-            DdtIssuedMedicineList medList = service.queryObject<DdtIssuedMedicineList>(@"SELECT * FROM " + DdtIssuedMedicineList.TABLE_NAME +
-                " WHERE dsid_parent_id='" + inspectionObj.RObjectId + "'");
-            if (medList != null)
-            {
-                skipPrintBtn.Checked = medList.DsbSkipPrint;
-                reinitFromMedList(service, medList);
-            }
-        }
-
-        private void reinitFromMedList(DataService service, DdtIssuedMedicineList medList)
-        {
-            if (medList != null)
-            {
-                issuedMedicineContainer.Init(service, medList);
-            }
-        }
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
@@ -177,7 +157,6 @@ namespace Cardiology
 
             DataService service = new DataService();
             saveInspectionObj(service);
-            saveIssuedMedicine(service);
             saveAnalysis(service);
             Close();
         }
@@ -207,33 +186,7 @@ namespace Cardiology
             inspectionObj.RObjectId = id;
         }
 
-        private void saveIssuedMedicine(DataService service)
-        {
-            List<DdtIssuedMedicine> meds = issuedMedicineContainer.getIssuedMedicines();
-            if (meds.Count > 0)
-            {
-                DdtIssuedMedicineList medList = service.queryObject<DdtIssuedMedicineList>(@"SELECT * FROM " + DdtIssuedMedicineList.TABLE_NAME +
-                " WHERE dsid_parent_id='" + inspectionObj + "'");
-                if (medList == null)
-                {
-                    medList = new DdtIssuedMedicineList();
-                    medList.DsidDoctor = hospitalitySession.DsidDutyDoctor;
-                    medList.DsidHospitalitySession = hospitalitySession.ObjectId;
-                    medList.DsidPatient = hospitalitySession.DsidPatient;
-                    medList.DsidParentId = inspectionObj.RObjectId;
-                    medList.DssParentType = DdtInspection.TABLE_NAME;
-                    medList.DsdtIssuingDate = CommonUtils.constructDateWIthTime(inspectionDate.Value, inspectionTime.Value);
-                }
-                medList.DsbSkipPrint = skipPrintBtn.Checked;
-                string id = service.updateOrCreateIfNeedObject<DdtIssuedMedicineList>(medList, DdtIssuedMedicineList.TABLE_NAME, medList.ObjectId);
-                medList.ObjectId = id;
-                foreach (DdtIssuedMedicine med in meds)
-                {
-                    med.DsidMedList = medList.ObjectId;
-                    service.updateOrCreateIfNeedObject<DdtIssuedMedicine>(med, DdtIssuedMedicine.TABLE_NAME, med.RObjectId);
-                }
-            }
-        }
+       
 
         private void saveAnalysis(DataService service)
         {
@@ -253,11 +206,6 @@ namespace Cardiology
                 IDocbaseControl control = (IDocbaseControl)tabCntr.Controls[i];
                 control.saveObject(hospitalitySession, inspectionObj.RObjectId, DdtInspection.TABLE_NAME);
             }
-        }
-
-        private void addMedicineBtn_Click(object sender, EventArgs e)
-        {
-            issuedMedicineContainer.addMedicineBox();
         }
 
         private void addAnalysisBtn_Click(object sender, EventArgs e)
@@ -337,7 +285,6 @@ namespace Cardiology
         {
             DataService service = new DataService();
             saveInspectionObj(service);
-            saveIssuedMedicine(service);
             saveAnalysis(service);
 
             ITemplateProcessor tp = TemplateProcessorManager.getProcessorByObjectType(DdtInspection.TABLE_NAME);
@@ -374,43 +321,6 @@ namespace Cardiology
             DdtJournal kagJournal = CommonUtils.resolveKagJournal(service, startDate, hospitalitySession.ObjectId);
             initKag(service, kagJournal);
         }
-        //
-        private void addFirstInsBtn_Click(object sender, EventArgs e)
-        {
-            DataService service = new DataService();
-            String meListId = service.querySingleString(@"SELECT * FROM ddt_issued_medicine_list WHERE dsid_hospitality_session='" +
-                   hospitalitySession.ObjectId + "' AND dss_parent_type='ddt_anamnesis'");
-            if (CommonUtils.isNotBlank(meListId))
-            {
-                List<DdtCure> cures = service.queryObjectsCollection<DdtCure>(@"SELECT cures.* FROM " + DdtCure.TABLE_NAME + " cures, " + DdtIssuedMedicine.TABLE_NAME +
-                    " meds WHERE meds.dsid_med_list='" + meListId + "' AND meds.dsid_cure=cures.r_object_id");
-                issuedMedicineContainer.refreshData(service, cures);
-            }
-        }
 
-        private void selectMedListBtn_Click(object sender, EventArgs e)
-        {
-            if (selector == null)
-            {
-                selector = new AnalysisSelector();
-            }
-
-            selector.ShowDialog(DdtIssuedMedicineList.TABLE_NAME, "dsid_hospitality_session='" + hospitalitySession.ObjectId + "'", "dsdt_issuing_date", "r_object_id", null);
-            if (selector.isSuccess())
-            {
-                List<string> ids = selector.returnValues();
-                if (ids.Count > 0)
-                {
-                    DataService service = new DataService();
-                    string meListId = ids[0];
-                    if (CommonUtils.isNotBlank(meListId))
-                    {
-                        List<DdtCure> cures = service.queryObjectsCollection<DdtCure>(@"SELECT cures.* FROM " + DdtCure.TABLE_NAME + " cures, " + DdtIssuedMedicine.TABLE_NAME +
-                            " meds WHERE meds.dsid_med_list='" + meListId + "' AND meds.dsid_cure=cures.r_object_id");
-                        issuedMedicineContainer.refreshData(service, cures);
-                    }
-                }
-            }
-        }
     }
 }

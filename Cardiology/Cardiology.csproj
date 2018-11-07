@@ -141,6 +141,18 @@
     <Compile Include="Controls\HormonesControl.Designer.cs">
       <DependentUpon>HormonesControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\IssuedActionContainer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\IssuedActionContainer.Designer.cs">
+      <DependentUpon>IssuedActionContainer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\IssuedActionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\IssuedActionControl.Designer.cs">
+      <DependentUpon>IssuedActionControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\IssuedMedicineContainer.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -202,6 +214,7 @@
     <Compile Include="Model\DdtHormones.cs" />
     <Compile Include="Model\DdtHospital.cs" />
     <Compile Include="Model\DdtInspection.cs" />
+    <Compile Include="Model\DdtIssuedAction.cs" />
     <Compile Include="Model\DdtIssuedMedicine.cs" />
     <Compile Include="Model\DdtIssuedMedicineList.cs" />
     <Compile Include="Model\DdtJournal.cs" />
@@ -429,6 +442,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\HormonesControl.resx">
       <DependentUpon>HormonesControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\IssuedActionContainer.resx">
+      <DependentUpon>IssuedActionContainer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\IssuedActionControl.resx">
+      <DependentUpon>IssuedActionControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\IssuedMedicineContainer.resx">
       <DependentUpon>IssuedMedicineContainer.cs</DependentUpon>

@@ -54,6 +54,7 @@ namespace Cardiology
             anamnesis = service.queryObject<DdtAnamnesis>(@"select * from ddt_anamnesis WHERE dsid_hospitality_session='" + hospitalSession.ObjectId + "'");
             initializeAnamnesis(anamnesis);
             initIssuedMedicine(service);
+            initIssuedActions(service);
             initDiagnosis();
             initAdmissionAnalysis(service);
             initDocBox(service);
@@ -138,6 +139,16 @@ namespace Cardiology
             if (medList != null)
             {
                 issuedMedicineContainer.Init(service, medList);
+            }
+        }
+
+
+        private void initIssuedActions(DataService service)
+        {
+            List<DdtIssuedAction> allActions = service.queryObjectsCollection<DdtIssuedAction>(@"SELECT * FROM ddt_issued_action WHERE dsid_parent_id='" + anamnesis.ObjectId + "'");
+            if (allActions != null)
+            {
+                issuedActionContainer.init(service, allActions);
             }
         }
 
@@ -481,6 +492,7 @@ namespace Cardiology
 
                 saveAnamnesis(service);
                 saveIssuedMedicine(service);
+                saveIssuedAction(service);
                 saveUrineAnalysisTab(service);
                 saveEgdsAnalysisTab(service);
                 saveEkgAnalysisTab(service);
@@ -591,6 +603,25 @@ namespace Cardiology
                     med.DsidMedList = medList.ObjectId;
 
                     service.updateOrCreateIfNeedObject<DdtIssuedMedicine>(med, DdtIssuedMedicine.TABLE_NAME, med.RObjectId);
+                }
+            }
+
+        }
+
+        private void saveIssuedAction(DataService service)
+        {
+            List<DdtIssuedAction> meds = issuedActionContainer.getIssuedMedicines();
+            if (meds.Count > 0)
+            {
+                foreach (DdtIssuedAction med in meds)
+                {
+                    med.DsidParentId = anamnesis.ObjectId;
+                    med.DsidDoctor = hospitalSession.DsidCuringDoctor;
+                    med.DsidPatient = hospitalSession.DsidPatient;
+                    med.DsidHospitalitySession = hospitalSession.ObjectId;
+                    med.DsdtIssuingDate = DateTime.Now;
+
+                    service.updateOrCreateIfNeedObject<DdtIssuedAction>(med, DdtIssuedAction.TABLE_NAME, med.RObjectId);
                 }
             }
 
@@ -778,6 +809,11 @@ namespace Cardiology
                 }
                 i++;
             }
+        }
+
+        private void addIssuedAction_Click(object sender, EventArgs e)
+        {
+            issuedActionContainer.addMedicineBox();
         }
     }
 }

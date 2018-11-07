@@ -69,6 +69,15 @@ namespace Cardiology.Utils
             }
             values.Add("{issued_medicine}", builder.ToString());
 
+            StringBuilder actionsBuilder = new StringBuilder();
+            List<DdtIssuedAction> actions = service.queryObjectsCollectionByAttrCond<DdtIssuedAction>(DdtIssuedAction.TABLE_NAME, "dsid_parent_id", objectId, true);
+            for (int i = 0; i < actions.Count; i++)
+            {
+                actionsBuilder.Append(i + 1).Append(". ");
+                actionsBuilder.Append(actions[i].DssAction).Append('\n');
+            }
+            values.Add("{issued_actions}", actionsBuilder.ToString());
+
             values.Add("{date}", DateTime.Now.ToShortDateString());
 
             return TemplatesUtils.fillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + TEMPLATE_FILE_NAME, values);

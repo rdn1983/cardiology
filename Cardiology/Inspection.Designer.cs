@@ -51,7 +51,11 @@
             this.tabbedAnalysis = new System.Windows.Forms.TabControl();
             this.addAnalysis = new System.Windows.Forms.Button();
             this.isssuedMedsTab = new System.Windows.Forms.TabPage();
+            this.skipPrintBtn = new System.Windows.Forms.CheckBox();
+            this.selectMedListBtn = new System.Windows.Forms.Button();
+            this.addFirstInsBtn = new System.Windows.Forms.Button();
             this.medicinesPnl = new System.Windows.Forms.Panel();
+            this.issuedMedicineContainer = new Cardiology.Controls.IssuedMedicineContainer();
             this.addMedicineBtn = new System.Windows.Forms.Button();
             this.printBtn = new System.Windows.Forms.Button();
             this.saveBtn = new System.Windows.Forms.Button();
@@ -64,10 +68,6 @@
             this.xRayItem = new System.Windows.Forms.ToolStripMenuItem();
             this.holterItem = new System.Windows.Forms.ToolStripMenuItem();
             this.specialistItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addFirstInsBtn = new System.Windows.Forms.Button();
-            this.selectMedListBtn = new System.Windows.Forms.Button();
-            this.skipPrintBtn = new System.Windows.Forms.CheckBox();
-            this.issuedMedicineContainer = new Cardiology.Controls.IssuedMedicineContainer();
             this.tabbedContainer.SuspendLayout();
             this.baseTab.SuspendLayout();
             this.kagContainer.SuspendLayout();
@@ -313,6 +313,36 @@
             this.isssuedMedsTab.Text = "Назначения";
             this.isssuedMedsTab.UseVisualStyleBackColor = true;
             // 
+            // skipPrintBtn
+            // 
+            this.skipPrintBtn.AutoSize = true;
+            this.skipPrintBtn.Location = new System.Drawing.Point(689, 110);
+            this.skipPrintBtn.Name = "skipPrintBtn";
+            this.skipPrintBtn.Size = new System.Drawing.Size(142, 17);
+            this.skipPrintBtn.TabIndex = 6;
+            this.skipPrintBtn.Text = "не выводить на печать";
+            this.skipPrintBtn.UseVisualStyleBackColor = true;
+            // 
+            // selectMedListBtn
+            // 
+            this.selectMedListBtn.Location = new System.Drawing.Point(689, 66);
+            this.selectMedListBtn.Name = "selectMedListBtn";
+            this.selectMedListBtn.Size = new System.Drawing.Size(132, 38);
+            this.selectMedListBtn.TabIndex = 5;
+            this.selectMedListBtn.Text = "Добавить из листа назначений";
+            this.selectMedListBtn.UseVisualStyleBackColor = true;
+            this.selectMedListBtn.Click += new System.EventHandler(this.selectMedListBtn_Click);
+            // 
+            // addFirstInsBtn
+            // 
+            this.addFirstInsBtn.Location = new System.Drawing.Point(689, 18);
+            this.addFirstInsBtn.Name = "addFirstInsBtn";
+            this.addFirstInsBtn.Size = new System.Drawing.Size(132, 42);
+            this.addFirstInsBtn.TabIndex = 4;
+            this.addFirstInsBtn.Text = "Добавить из первички";
+            this.addFirstInsBtn.UseVisualStyleBackColor = true;
+            this.addFirstInsBtn.Click += new System.EventHandler(this.addFirstInsBtn_Click);
+            // 
             // medicinesPnl
             // 
             this.medicinesPnl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -323,6 +353,15 @@
             this.medicinesPnl.Name = "medicinesPnl";
             this.medicinesPnl.Size = new System.Drawing.Size(630, 489);
             this.medicinesPnl.TabIndex = 3;
+            // 
+            // issuedMedicineContainer
+            // 
+            this.issuedMedicineContainer.AutoSize = true;
+            this.issuedMedicineContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.issuedMedicineContainer.Location = new System.Drawing.Point(13, 12);
+            this.issuedMedicineContainer.Name = "issuedMedicineContainer";
+            this.issuedMedicineContainer.Size = new System.Drawing.Size(6, 6);
+            this.issuedMedicineContainer.TabIndex = 0;
             // 
             // addMedicineBtn
             // 
@@ -432,45 +471,6 @@
             this.specialistItem.Size = new System.Drawing.Size(223, 22);
             this.specialistItem.Text = "Заключения специалистов";
             this.specialistItem.Click += new System.EventHandler(this.specialistItem_Click);
-            // 
-            // addFirstInsBtn
-            // 
-            this.addFirstInsBtn.Location = new System.Drawing.Point(689, 18);
-            this.addFirstInsBtn.Name = "addFirstInsBtn";
-            this.addFirstInsBtn.Size = new System.Drawing.Size(132, 42);
-            this.addFirstInsBtn.TabIndex = 4;
-            this.addFirstInsBtn.Text = "Добавить из первички";
-            this.addFirstInsBtn.UseVisualStyleBackColor = true;
-            this.addFirstInsBtn.Click += new System.EventHandler(this.addFirstInsBtn_Click);
-            // 
-            // selectMedListBtn
-            // 
-            this.selectMedListBtn.Location = new System.Drawing.Point(689, 66);
-            this.selectMedListBtn.Name = "selectMedListBtn";
-            this.selectMedListBtn.Size = new System.Drawing.Size(132, 38);
-            this.selectMedListBtn.TabIndex = 5;
-            this.selectMedListBtn.Text = "Добавить из листа назначений";
-            this.selectMedListBtn.UseVisualStyleBackColor = true;
-            this.selectMedListBtn.Click += new System.EventHandler(this.selectMedListBtn_Click);
-            // 
-            // skipPrintBtn
-            // 
-            this.skipPrintBtn.AutoSize = true;
-            this.skipPrintBtn.Location = new System.Drawing.Point(689, 110);
-            this.skipPrintBtn.Name = "skipPrintBtn";
-            this.skipPrintBtn.Size = new System.Drawing.Size(142, 17);
-            this.skipPrintBtn.TabIndex = 6;
-            this.skipPrintBtn.Text = "не выводить на печать";
-            this.skipPrintBtn.UseVisualStyleBackColor = true;
-            // 
-            // issuedMedicineContainer
-            // 
-            this.issuedMedicineContainer.AutoSize = true;
-            this.issuedMedicineContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.issuedMedicineContainer.Location = new System.Drawing.Point(13, 12);
-            this.issuedMedicineContainer.Name = "issuedMedicineContainer";
-            this.issuedMedicineContainer.Size = new System.Drawing.Size(6, 6);
-            this.issuedMedicineContainer.TabIndex = 0;
             // 
             // Inspection
             // 

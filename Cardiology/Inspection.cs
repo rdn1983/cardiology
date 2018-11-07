@@ -374,7 +374,7 @@ namespace Cardiology
             DdtJournal kagJournal = CommonUtils.resolveKagJournal(service, startDate, hospitalitySession.ObjectId);
             initKag(service, kagJournal);
         }
-
+        //
         private void addFirstInsBtn_Click(object sender, EventArgs e)
         {
             DataService service = new DataService();

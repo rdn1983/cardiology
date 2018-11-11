@@ -53,7 +53,7 @@ namespace Cardiology
             anamnesis = service.queryObject<DdtAnamnesis>(@"select * from ddt_anamnesis WHERE dsid_hospitality_session='" + hospitalSession.ObjectId + "'");
             initializeAnamnesis(anamnesis);
             initIssuedMedicine(service);
-            initIssuedActions(service);
+            initIssuedActions(service, anamnesis);
             initDiagnosis();
             initAdmissionAnalysis(service);
             initDocBox(service);
@@ -142,11 +142,11 @@ namespace Cardiology
         }
 
 
-        private void initIssuedActions(DataService service)
+        private void initIssuedActions(DataService service, DdtAnamnesis parent)
         {
-            if (anamnesis != null)
+            if (parent != null)
             {
-                List<DdtIssuedAction> allActions = service.queryObjectsCollection<DdtIssuedAction>(@"SELECT * FROM ddt_issued_action WHERE dsid_parent_id='" + anamnesis.ObjectId + "'");
+                List<DdtIssuedAction> allActions = service.queryObjectsCollection<DdtIssuedAction>(@"SELECT * FROM ddt_issued_action WHERE dsid_parent_id='" + parent.ObjectId + "'");
                 if (allActions != null)
                 {
                     issuedActionContainer.init(service, allActions);
@@ -226,6 +226,7 @@ namespace Cardiology
                 DataService service = new DataService();
                 DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + OKSUP_TYPE + "'");
                 initializeAnamnesis(template);
+                initIssuedActions(service, template);
                 updatemedicineFromTemplate("oks.medicine");
                 OKSUpBtn.BackColor = Color.LightSkyBlue;
             }
@@ -240,6 +241,7 @@ namespace Cardiology
                 DataService service = new DataService();
                 DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + OKSDOWN_TYPE + "'");
                 initializeAnamnesis(template);
+                initIssuedActions(service, template);
                 updatemedicineFromTemplate("okslongs.medicine");
                 OKSDownBtn.BackColor = Color.LightSkyBlue;
             }
@@ -254,6 +256,7 @@ namespace Cardiology
                 DataService service = new DataService();
                 DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + KAG_TYPE + "'");
                 initializeAnamnesis(template);
+                initIssuedActions(service, template);
                 updatemedicineFromTemplate(KAG_TYPE + ".medicine");
                 KAGBtn.BackColor = Color.LightSkyBlue;
             }
@@ -268,6 +271,7 @@ namespace Cardiology
                 DataService service = new DataService();
                 DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + AORTA_TYPE + "'");
                 initializeAnamnesis(template);
+                initIssuedActions(service, template);
                 updatemedicineFromTemplate(AORTA_TYPE + ".medicine");
                 aorticDissectionBtn.BackColor = Color.LightSkyBlue;
             }
@@ -282,6 +286,7 @@ namespace Cardiology
                 DataService service = new DataService();
                 DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + GB_TYPE + "'");
                 initializeAnamnesis(template);
+                initIssuedActions(service, template);
                 updatemedicineFromTemplate(GB_TYPE + ".medicine");
                 GBBtn.BackColor = Color.LightSkyBlue;
             }
@@ -296,6 +301,7 @@ namespace Cardiology
                 DataService service = new DataService();
                 DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + PIKS_TYPE + "'");
                 initializeAnamnesis(template);
+                initIssuedActions(service, template);
                 updatemedicineFromTemplate("nk.medicine");
                 PIKSBtn.BackColor = Color.LightSkyBlue;
             }
@@ -310,6 +316,7 @@ namespace Cardiology
                 DataService service = new DataService();
                 DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + PIKVIK_TYPE + "'");
                 initializeAnamnesis(template);
+                initIssuedActions(service, template);
                 updatemedicineFromTemplate("hobl.medicine");
                 PIKVIKBtn.BackColor = Color.LightSkyBlue;
 
@@ -325,6 +332,7 @@ namespace Cardiology
                 DataService service = new DataService();
                 DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + DEP_TYPE + "'");
                 initializeAnamnesis(template);
+                initIssuedActions(service, template);
                 updatemedicineFromTemplate(DEP_TYPE + ".medicine");
                 DEPBtn.BackColor = Color.LightSkyBlue;
             }
@@ -339,6 +347,7 @@ namespace Cardiology
                 DataService service = new DataService();
                 DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + DEATH_TYPE + "'");
                 initializeAnamnesis(template);
+                initIssuedActions(service, template);
                 updatemedicineFromTemplate(DEATH_TYPE + ".medicine");
                 deathBtn.BackColor = Color.LightSkyBlue;
             }
@@ -666,7 +675,7 @@ namespace Cardiology
         private void saveEkgAnalysisTab(DataService service)
         {
             EkgAnalysisControlcs ekgControl = getSafeObjectValueUni(ekgTab,
-               new getValue<EkgAnalysisControlcs>((ctrl) =>(EkgAnalysisControlcs) ((TabPage)ctrl).Controls[0]));
+               new getValue<EkgAnalysisControlcs>((ctrl) => (EkgAnalysisControlcs)((TabPage)ctrl).Controls[0]));
             DdtEkg ekg = ekgControl.getObject();
             if (CommonUtils.isNotBlank(ekg.DssEkg))
             {

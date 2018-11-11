@@ -28,7 +28,6 @@ namespace Cardiology
         {
             CommonUtils.initRangedItems(chssSurgeryTxt, 40, 200);
             CommonUtils.initRangedItems(chddSurgeryTxt, 14, 26);
-            CommonUtils.initRangedItems(surgeryPsTxt, 40, 200);
 
             afterKagDiagnosisTxt.Text = hospitalitySession.DssDiagnosis;
             DataService service = new DataService();
@@ -51,7 +50,6 @@ namespace Cardiology
                     chssSurgeryTxt.Text = journal.DssChss;
                     chddSurgeryTxt.Text = journal.DssChdd;
                     adSurgeryTxt.Text = journal.DssAd;
-                    surgeryPsTxt.Text = journal.DssPs;
                     admissionTimeTxt.Value = journal.DsdtAdmissionDate;
                     admissionDateTxt.Value = journal.DsdtAdmissionDate;
                     ekgTxt0.Text = journal.DssEkg;
@@ -165,7 +163,6 @@ namespace Cardiology
             journal.DssChdd = chddSurgeryTxt.Text;
             journal.DssChss = chssSurgeryTxt.Text;
             journal.DssAd = adSurgeryTxt.Text;
-            journal.DssPs = surgeryPsTxt.Text;
             journal.DssEkg = ekgTxt0.Text;
             journal.DsdtAdmissionDate = CommonUtils.constructDateWIthTime(admissionDateTxt.Value, admissionTimeTxt.Value);
             journalId = service.updateOrCreateIfNeedObject<DdtJournal>(journal, DdtJournal.TABLE_NAME, journal.RObjectId);
@@ -267,5 +264,7 @@ namespace Cardiology
         {
             SilentSaver.clearForm();
         }
+
+        
     }
 }

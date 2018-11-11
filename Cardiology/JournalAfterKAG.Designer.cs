@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JournalAfterKAG));
             this.afterKagDiagnosisPnl = new System.Windows.Forms.GroupBox();
             this.removeKAG = new System.Windows.Forms.Button();
@@ -40,8 +41,6 @@
             this.journalDocLbl = new System.Windows.Forms.Label();
             this.journalDocBox = new System.Windows.Forms.ComboBox();
             this.surgeryInspectationPnl = new System.Windows.Forms.GroupBox();
-            this.surgeryPsLbl = new System.Windows.Forms.Label();
-            this.surgeryPsTxt = new System.Windows.Forms.ComboBox();
             this.adSurgeryLbl = new System.Windows.Forms.Label();
             this.chssSurgeryLbl = new System.Windows.Forms.Label();
             this.chddSurgeryLbl = new System.Windows.Forms.Label();
@@ -58,6 +57,7 @@
             this.ekgLbl0 = new System.Windows.Forms.Label();
             this.printBtn = new System.Windows.Forms.Button();
             this.saveBtn = new System.Windows.Forms.Button();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.afterKagDiagnosisPnl.SuspendLayout();
             this.surgeryInspectationPnl.SuspendLayout();
             this.dutyCardioInspectationPnl.SuspendLayout();
@@ -177,8 +177,6 @@
             // 
             this.surgeryInspectationPnl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.surgeryInspectationPnl.Controls.Add(this.surgeryPsLbl);
-            this.surgeryInspectationPnl.Controls.Add(this.surgeryPsTxt);
             this.surgeryInspectationPnl.Controls.Add(this.adSurgeryLbl);
             this.surgeryInspectationPnl.Controls.Add(this.chssSurgeryLbl);
             this.surgeryInspectationPnl.Controls.Add(this.chddSurgeryLbl);
@@ -192,28 +190,6 @@
             this.surgeryInspectationPnl.TabIndex = 1;
             this.surgeryInspectationPnl.TabStop = false;
             this.surgeryInspectationPnl.Text = "Осмотр ренгеноваскулярного хирурга (через 1 час после КАГ).";
-            // 
-            // surgeryPsLbl
-            // 
-            this.surgeryPsLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.surgeryPsLbl.AutoSize = true;
-            this.surgeryPsLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.surgeryPsLbl.Location = new System.Drawing.Point(877, 49);
-            this.surgeryPsLbl.Name = "surgeryPsLbl";
-            this.surgeryPsLbl.Size = new System.Drawing.Size(22, 13);
-            this.surgeryPsLbl.TabIndex = 41;
-            this.surgeryPsLbl.Text = "Ps:";
-            // 
-            // surgeryPsTxt
-            // 
-            this.surgeryPsTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.surgeryPsTxt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.surgeryPsTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.surgeryPsTxt.FormattingEnabled = true;
-            this.surgeryPsTxt.Location = new System.Drawing.Point(905, 43);
-            this.surgeryPsTxt.Name = "surgeryPsTxt";
-            this.surgeryPsTxt.Size = new System.Drawing.Size(49, 21);
-            this.surgeryPsTxt.TabIndex = 40;
             // 
             // adSurgeryLbl
             // 
@@ -413,6 +389,11 @@
             this.saveBtn.UseVisualStyleBackColor = true;
             this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
             // JournalAfterKAG
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -463,8 +444,6 @@
         private System.Windows.Forms.ComboBox chddSurgeryTxt;
         private System.Windows.Forms.ComboBox chssSurgeryTxt;
         private System.Windows.Forms.Panel finalDiaryBox;
-        private System.Windows.Forms.Label surgeryPsLbl;
-        private System.Windows.Forms.ComboBox surgeryPsTxt;
         private System.Windows.Forms.DateTimePicker admissionTimeTxt;
         private System.Windows.Forms.DateTimePicker admissionDateTxt;
         private System.Windows.Forms.ComboBox journalDocBox;
@@ -475,5 +454,6 @@
         private System.Windows.Forms.Button selectKAGBtn;
         private System.Windows.Forms.FlowLayoutPanel dutyCardioContainer;
         private Controls.JournalKAGControl releaseJournalCtrl;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }

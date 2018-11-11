@@ -16,6 +16,7 @@ namespace Cardiology.Controls
 
         private const int CONTROL_HEIGHT = 108;
         private string objId;
+        private PulseTableCOntainer pulseSelector;
 
         public JournalKAGControl()
         {
@@ -25,7 +26,7 @@ namespace Cardiology.Controls
 
         private void initControl()
         {
-            CommonUtils.initRangedItems(chssTxt, 40, 200);
+            CommonUtils.initRangedItems(chssTxt, 0, 230);
             CommonUtils.initRangedItems(chddTxt, 14, 26);
             journalTxt.Text = JournalShuffleUtils.shuffleJournalText();
             chddTxt.SelectedIndex = chddTxt.FindString("14");
@@ -141,6 +142,26 @@ namespace Cardiology.Controls
                 string oldJournal = journalTxt.Text;
                 journalTxt.Text = CommonUtils.replaceJournalIntParameter(oldJournal, "ЧСС", newValue);
             }
+        }
+
+        private void shuffleBtn_Click(object sender, EventArgs e)
+        {
+            if (pulseSelector == null)
+            {
+                pulseSelector = new PulseTableCOntainer(RefreshPulseInfo);
+            }
+            pulseSelector.Show();
+        }
+
+        private void RefreshPulseInfo(Range adRange, Range chsRange)
+        {
+            int nextAdValue = JournalShuffleUtils.shuffleNextValue(adRange.Start, adRange.End);
+            if (nextAdValue < 40) nextAdValue = 40;
+            if (nextAdValue > 150) nextAdValue = 150;
+            nextAdValue = (int) Math.Round((double)nextAdValue / 10) * 10;
+            adTxt.SelectedIndex = adTxt.FindString(nextAdValue + "/");
+            int chssNextValue = JournalShuffleUtils.shuffleNextValue(chsRange.Start, chsRange.End);
+            chssTxt.SelectedIndex = chssTxt.FindString(chssNextValue + "");
         }
     }
 }

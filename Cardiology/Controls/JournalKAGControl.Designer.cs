@@ -43,6 +43,7 @@
             this.chddLbl0 = new System.Windows.Forms.Label();
             this.hideBtn0 = new System.Windows.Forms.CheckBox();
             this.inspectionTime0 = new System.Windows.Forms.DateTimePicker();
+            this.shuffleBtn = new System.Windows.Forms.Button();
             this.hidingPnl0.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,6 +58,7 @@
             // 
             // hidingPnl0
             // 
+            this.hidingPnl0.Controls.Add(this.shuffleBtn);
             this.hidingPnl0.Controls.Add(this.badRhytmBtn0);
             this.hidingPnl0.Controls.Add(this.journalTxt);
             this.hidingPnl0.Controls.Add(this.goodRhytmBtn0);
@@ -77,7 +79,7 @@
             // 
             this.badRhytmBtn0.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.badRhytmBtn0.AutoSize = true;
-            this.badRhytmBtn0.Location = new System.Drawing.Point(682, 2);
+            this.badRhytmBtn0.Location = new System.Drawing.Point(686, 2);
             this.badRhytmBtn0.Name = "badRhytmBtn0";
             this.badRhytmBtn0.Size = new System.Drawing.Size(85, 30);
             this.badRhytmBtn0.TabIndex = 1;
@@ -91,7 +93,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.journalTxt.Location = new System.Drawing.Point(5, 7);
             this.journalTxt.Name = "journalTxt";
-            this.journalTxt.Size = new System.Drawing.Size(484, 71);
+            this.journalTxt.Size = new System.Drawing.Size(462, 71);
             this.journalTxt.TabIndex = 1;
             this.journalTxt.Text = "";
             // 
@@ -100,7 +102,7 @@
             this.goodRhytmBtn0.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.goodRhytmBtn0.AutoSize = true;
             this.goodRhytmBtn0.Checked = true;
-            this.goodRhytmBtn0.Location = new System.Drawing.Point(603, 2);
+            this.goodRhytmBtn0.Location = new System.Drawing.Point(608, 2);
             this.goodRhytmBtn0.Name = "goodRhytmBtn0";
             this.goodRhytmBtn0.Size = new System.Drawing.Size(80, 30);
             this.goodRhytmBtn0.TabIndex = 0;
@@ -115,7 +117,7 @@
             this.chssTxt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.chssTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.chssTxt.FormattingEnabled = true;
-            this.chssTxt.Location = new System.Drawing.Point(530, 55);
+            this.chssTxt.Location = new System.Drawing.Point(510, 54);
             this.chssTxt.Name = "chssTxt";
             this.chssTxt.Size = new System.Drawing.Size(66, 21);
             this.chssTxt.TabIndex = 33;
@@ -137,7 +139,7 @@
             this.chddTxt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.chddTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.chddTxt.FormattingEnabled = true;
-            this.chddTxt.Location = new System.Drawing.Point(530, 4);
+            this.chddTxt.Location = new System.Drawing.Point(510, 3);
             this.chddTxt.Name = "chddTxt";
             this.chddTxt.Size = new System.Drawing.Size(66, 21);
             this.chddTxt.TabIndex = 32;
@@ -148,7 +150,7 @@
             this.adLbl0.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.adLbl0.AutoSize = true;
             this.adLbl0.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.adLbl0.Location = new System.Drawing.Point(498, 33);
+            this.adLbl0.Location = new System.Drawing.Point(478, 32);
             this.adLbl0.Name = "adLbl0";
             this.adLbl0.Size = new System.Drawing.Size(26, 13);
             this.adLbl0.TabIndex = 37;
@@ -173,7 +175,7 @@
             "130/90",
             "140/100",
             "150/110"});
-            this.adTxt.Location = new System.Drawing.Point(530, 30);
+            this.adTxt.Location = new System.Drawing.Point(510, 29);
             this.adTxt.Name = "adTxt";
             this.adTxt.Size = new System.Drawing.Size(66, 21);
             this.adTxt.TabIndex = 34;
@@ -184,7 +186,7 @@
             this.chssLbl0.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.chssLbl0.AutoSize = true;
             this.chssLbl0.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.chssLbl0.Location = new System.Drawing.Point(492, 58);
+            this.chssLbl0.Location = new System.Drawing.Point(472, 57);
             this.chssLbl0.Name = "chssLbl0";
             this.chssLbl0.Size = new System.Drawing.Size(32, 13);
             this.chssLbl0.TabIndex = 36;
@@ -204,7 +206,7 @@
             this.chddLbl0.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.chddLbl0.AutoSize = true;
             this.chddLbl0.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.chddLbl0.Location = new System.Drawing.Point(488, 7);
+            this.chddLbl0.Location = new System.Drawing.Point(468, 6);
             this.chddLbl0.Name = "chddLbl0";
             this.chddLbl0.Size = new System.Drawing.Size(36, 13);
             this.chddLbl0.TabIndex = 35;
@@ -230,6 +232,16 @@
             this.inspectionTime0.ShowUpDown = true;
             this.inspectionTime0.Size = new System.Drawing.Size(98, 20);
             this.inspectionTime0.TabIndex = 0;
+            // 
+            // shuffleBtn
+            // 
+            this.shuffleBtn.Image = global::Cardiology.Properties.Resources.shuffle;
+            this.shuffleBtn.Location = new System.Drawing.Point(577, 2);
+            this.shuffleBtn.Name = "shuffleBtn";
+            this.shuffleBtn.Size = new System.Drawing.Size(25, 73);
+            this.shuffleBtn.TabIndex = 15;
+            this.shuffleBtn.UseVisualStyleBackColor = true;
+            this.shuffleBtn.Click += new System.EventHandler(this.shuffleBtn_Click);
             // 
             // JournalKAGControl
             // 
@@ -267,5 +279,6 @@
         private System.Windows.Forms.Label chddLbl0;
         private System.Windows.Forms.CheckBox hideBtn0;
         private System.Windows.Forms.DateTimePicker inspectionTime0;
+        private System.Windows.Forms.Button shuffleBtn;
     }
 }

@@ -22,5 +22,12 @@ namespace Cardiology.Utils
             Random rndm = new Random();
             return rndm.Next(max);
         }
+
+        internal static int shuffleNextValue(int minValue, int maxValue)
+        {
+            Random rndm = new Random();
+            return rndm.Next(minValue, maxValue);
+        }
+
     }
 }

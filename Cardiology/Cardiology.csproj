@@ -259,6 +259,12 @@
     <Compile Include="Controls\SpecialistConclusionControl.Designer.cs">
       <DependentUpon>SpecialistConclusionControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="PulseTableCOntainer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PulseTableCOntainer.Designer.cs">
+      <DependentUpon>PulseTableCOntainer.cs</DependentUpon>
+    </Compile>
     <Compile Include="TableAttribute.cs" />
     <Compile Include="DataService.cs" />
     <Compile Include="JournalBeforeKag.cs">
@@ -408,6 +414,7 @@
     <Compile Include="Utils\SilentSaver.cs" />
     <Compile Include="Utils\TemplateProcessorManager.cs" />
     <Compile Include="Utils\JournalTemplateProcessor.cs" />
+    <None Include="Resources\shuffle.png" />
     <None Include="Resources\link20.png" />
     <EmbeddedResource Include="AdmissionPatient.resx">
       <DependentUpon>AdmissionPatient.cs</DependentUpon>
@@ -504,6 +511,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ProtocolsManipulation.resx">
       <DependentUpon>ProtocolsManipulation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PulseTableCOntainer.resx">
+      <DependentUpon>PulseTableCOntainer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReanimDEAD.resx">
       <DependentUpon>ReanimDEAD.cs</DependentUpon>

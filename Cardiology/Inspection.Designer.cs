@@ -402,6 +402,7 @@
             this.Name = "Inspection";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Обход";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Inspection_FormClosing);
             this.tabbedContainer.ResumeLayout(false);
             this.baseTab.ResumeLayout(false);
             this.baseTab.PerformLayout();

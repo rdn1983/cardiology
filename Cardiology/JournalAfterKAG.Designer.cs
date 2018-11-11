@@ -358,7 +358,7 @@
             this.releaseJournalCtrl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.releaseJournalCtrl.Location = new System.Drawing.Point(3, 3);
             this.releaseJournalCtrl.Name = "releaseJournalCtrl";
-            this.releaseJournalCtrl.Size = new System.Drawing.Size(729, 112);
+            this.releaseJournalCtrl.Size = new System.Drawing.Size(779, 112);
             this.releaseJournalCtrl.TabIndex = 0;
             // 
             // ekgTxt0
@@ -430,6 +430,7 @@
             this.Name = "JournalAfterKAG";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Дневник после КАГ";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.JournalAfterKAG_FormClosing);
             this.afterKagDiagnosisPnl.ResumeLayout(false);
             this.afterKagDiagnosisPnl.PerformLayout();
             this.surgeryInspectationPnl.ResumeLayout(false);

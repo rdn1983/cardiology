@@ -9,11 +9,10 @@ using System.Text;
 
 namespace Cardiology
 {
-    public partial class FirstInspection : Form
+    public partial class FirstInspection : Form, IAutoSaveForm
     {
         private const string FIRST_ANALYSIS_QRY_TEMPLATE = @"SELECT * FROM {0} WHERE dsb_admission_analysis=true and dsid_hospitality_session='{1}'";
         private const int EGDS_TAB_INDX = 1;
-        private const int EKG_TAB_INDX = 0;
         private const int URINE_TAB_INDX = 2;
         private const int BLOOD_TAB_INDX = 3;
 
@@ -42,13 +41,13 @@ namespace Cardiology
 
         private DdtHospital hospitalSession;
         private DdtAnamnesis anamnesis;
-        private List<DdtIssuedMedicine> issuedMedicine;
         private bool acceptTemplate = false;
 
         public FirstInspection(DdtHospital hospitalitySession)
         {
             this.hospitalSession = hospitalitySession;
             InitializeComponent();
+            SilentSaver.setForm(this);
 
             DataService service = new DataService();
             anamnesis = service.queryObject<DdtAnamnesis>(@"select * from ddt_anamnesis WHERE dsid_hospitality_session='" + hospitalSession.ObjectId + "'");
@@ -145,10 +144,13 @@ namespace Cardiology
 
         private void initIssuedActions(DataService service)
         {
-            List<DdtIssuedAction> allActions = service.queryObjectsCollection<DdtIssuedAction>(@"SELECT * FROM ddt_issued_action WHERE dsid_parent_id='" + anamnesis.ObjectId + "'");
-            if (allActions != null)
+            if (anamnesis != null)
             {
-                issuedActionContainer.init(service, allActions);
+                List<DdtIssuedAction> allActions = service.queryObjectsCollection<DdtIssuedAction>(@"SELECT * FROM ddt_issued_action WHERE dsid_parent_id='" + anamnesis.ObjectId + "'");
+                if (allActions != null)
+                {
+                    issuedActionContainer.init(service, allActions);
+                }
             }
         }
 
@@ -195,9 +197,9 @@ namespace Cardiology
             bool result = true;
             if (tabIndex == 0)
             {
-                result = CommonUtils.isNotBlank(complaintsTxt.Text) && CommonUtils.isNotBlank(anamnesisVitaeTxt.Text) &&
-                    CommonUtils.isNotBlank(anamnesisMorbiTxt.Text) && CommonUtils.isNotBlank(anamnesisAllergyTxt.Text) &&
-                    CommonUtils.isNotBlank(anamnesisEpidTxt.Text) && CommonUtils.isNotBlank(drugsTxt.Text);
+                result = CommonUtils.isNotBlank(getSafeStringValue(complaintsTxt)) && CommonUtils.isNotBlank(getSafeStringValue(anamnesisVitaeTxt)) &&
+                    CommonUtils.isNotBlank(getSafeStringValue(anamnesisMorbiTxt)) && CommonUtils.isNotBlank(getSafeStringValue(anamnesisAllergyTxt)) &&
+                    CommonUtils.isNotBlank(getSafeStringValue(anamnesisEpidTxt)) && CommonUtils.isNotBlank(getSafeStringValue(drugsTxt));
             }
             else if (tabIndex == 1)
             {
@@ -488,18 +490,7 @@ namespace Cardiology
 
             if (!isNotValid)
             {
-                DataService service = new DataService();
-
-                saveAnamnesis(service);
-                saveIssuedMedicine(service);
-                saveIssuedAction(service);
-                saveUrineAnalysisTab(service);
-                saveEgdsAnalysisTab(service);
-                saveEkgAnalysisTab(service);
-                saveBloodAnalysis(service);
-
-                hospitalSession.DssDiagnosis = diagnosisTxt.Text;
-                service.updateObject<DdtHospital>(hospitalSession, DdtHospital.TABLENAME, "r_object_id", hospitalSession.ObjectId);
+                save();
                 Close();
             }
         }
@@ -522,24 +513,24 @@ namespace Cardiology
                     bloodObj.DsidPatient = hospitalSession.DsidPatient;
                     bloodObj.DsbAdmissionAnalysis = true;
                 }
-                bloodObj.DsdAlt = altTxt.Text;
-                bloodObj.DsdAmylase = amilazaTxt.Text;
-                bloodObj.DsdAst = astTxt.Text;
-                bloodObj.DsdBil = bilTxt.Text;
-                bloodObj.DsdChlorine = chlorineTxt.Text;
-                bloodObj.DsdCholesterolr = cholesterolTxt.Text;
-                bloodObj.DsdCreatinine = kreatininTxt.Text;
-                bloodObj.DsdHemoglobin = hemoglobinTxt.Text;
-                bloodObj.DsdIron = ironTxt.Text;
-                bloodObj.DsdKfk = kfkTxt.Text;
-                bloodObj.DsdKfkMv = kfkMvTxt.Text;
-                bloodObj.DsdLeucocytes = leucocytesTxt.Text;
-                bloodObj.DsdPlatelets = plateletsTxt.Text;
-                bloodObj.DsdPotassium = potassiumTxt.Text;
-                bloodObj.DsdProtein = proteinTxt.Text;
-                bloodObj.DsdSchf = schfTxt.Text;
-                bloodObj.DsdSodium = sodiumTxt.Text;
-                bloodObj.DsdSrp = srbTxt.Text;
+                bloodObj.DsdAlt = getSafeStringValue(altTxt);
+                bloodObj.DsdAmylase = getSafeStringValue(amilazaTxt);
+                bloodObj.DsdAst = getSafeStringValue(astTxt);
+                bloodObj.DsdBil = getSafeStringValue(bilTxt);
+                bloodObj.DsdChlorine = getSafeStringValue(chlorineTxt);
+                bloodObj.DsdCholesterolr = getSafeStringValue(cholesterolTxt);
+                bloodObj.DsdCreatinine = getSafeStringValue(kreatininTxt);
+                bloodObj.DsdHemoglobin = getSafeStringValue(hemoglobinTxt);
+                bloodObj.DsdIron = getSafeStringValue(ironTxt);
+                bloodObj.DsdKfk = getSafeStringValue(kfkTxt);
+                bloodObj.DsdKfkMv = getSafeStringValue(kfkMvTxt);
+                bloodObj.DsdLeucocytes = getSafeStringValue(leucocytesTxt);
+                bloodObj.DsdPlatelets = getSafeStringValue(plateletsTxt);
+                bloodObj.DsdPotassium = getSafeStringValue(potassiumTxt);
+                bloodObj.DsdProtein = getSafeStringValue(proteinTxt);
+                bloodObj.DsdSchf = getSafeStringValue(schfTxt);
+                bloodObj.DsdSodium = getSafeStringValue(sodiumTxt);
+                bloodObj.DsdSrp = getSafeStringValue(srbTxt);
                 service.updateOrCreateIfNeedObject<DdtBloodAnalysis>(bloodObj, DdtBloodAnalysis.TABLE_NAME, bloodObj.RObjectId);
 
             }
@@ -554,26 +545,26 @@ namespace Cardiology
                 anamnesis.DsidPatient = hospitalSession.DsidPatient;
                 anamnesis.DsdtInspectionDate = DateTime.Now;
             }
-            DdtDoctors doc = (DdtDoctors)docBox.SelectedItem;
+            DdtDoctors doc = getSafeObjectValueUni<DdtDoctors>(docBox, new getValue<DdtDoctors>((ctrl) => (DdtDoctors)((ComboBox)ctrl).SelectedItem));
             anamnesis.DsidDoctor = doc.ObjectId;
 
-            anamnesis.DssAccompayingIll = accompanyingIllnessesTxt.Text;
-            anamnesis.DssAnamnesisAllergy = anamnesisAllergyTxt.Text;
-            anamnesis.DssAnamnesisEpid = anamnesisEpidTxt.Text;
-            anamnesis.DssAnamnesisMorbi = anamnesisMorbiTxt.Text;
-            anamnesis.DssAnamnesisVitae = anamnesisVitaeTxt.Text;
-            anamnesis.DssCardioVascular = cardiovascularSystemTxt.Text;
-            anamnesis.DssComplaints = complaintsTxt.Text;
-            anamnesis.DssDiagnosisJustifies = justificationTxt.Text;
-            anamnesis.DssDigestiveSystem = digestiveSystemTxt.Text;
-            anamnesis.DssDrugs = drugsTxt.Text;
-            anamnesis.DssNervousSystem = nervousSystemTxt.Text;
-            anamnesis.DssPastSurgeries = pastSurgeriesTxt.Text;
-            anamnesis.DssRespiratorySystem = respiratorySystemTxt.Text;
-            anamnesis.DssStPresens = stPresensTxt.Text;
-            anamnesis.DssUrinarySystem = urinarySystemTxt.Text;
-            anamnesis.DssDiagnosis = diagnosisTxt.Text;
-            anamnesis.DssOperationCause = operationCauseTxt.Text;
+            anamnesis.DssAccompayingIll = getSafeStringValue(accompanyingIllnessesTxt);
+            anamnesis.DssAnamnesisAllergy = getSafeStringValue(anamnesisAllergyTxt);
+            anamnesis.DssAnamnesisEpid = getSafeStringValue(anamnesisEpidTxt);
+            anamnesis.DssAnamnesisMorbi = getSafeStringValue(anamnesisMorbiTxt);
+            anamnesis.DssAnamnesisVitae = getSafeStringValue(anamnesisVitaeTxt);
+            anamnesis.DssCardioVascular = getSafeStringValue(cardiovascularSystemTxt);
+            anamnesis.DssComplaints = getSafeStringValue(complaintsTxt);
+            anamnesis.DssDiagnosisJustifies = getSafeStringValue(justificationTxt);
+            anamnesis.DssDigestiveSystem = getSafeStringValue(digestiveSystemTxt);
+            anamnesis.DssDrugs = getSafeStringValue(drugsTxt);
+            anamnesis.DssNervousSystem = getSafeStringValue(nervousSystemTxt);
+            anamnesis.DssPastSurgeries = getSafeStringValue(pastSurgeriesTxt);
+            anamnesis.DssRespiratorySystem = getSafeStringValue(respiratorySystemTxt);
+            anamnesis.DssStPresens = getSafeStringValue(stPresensTxt);
+            anamnesis.DssUrinarySystem = getSafeStringValue(urinarySystemTxt);
+            anamnesis.DssDiagnosis = getSafeStringValue(diagnosisTxt);
+            anamnesis.DssOperationCause = getSafeStringValue(operationCauseTxt);
 
             string id = updateObject<DdtAnamnesis>(service, anamnesis, DdtAnamnesis.TABLE_NAME, anamnesis.ObjectId);
             anamnesis.ObjectId = id;
@@ -581,7 +572,9 @@ namespace Cardiology
 
         private void saveIssuedMedicine(DataService service)
         {
-            List<DdtIssuedMedicine> meds = issuedMedicineContainer.getIssuedMedicines();
+            List<DdtIssuedMedicine> meds = getSafeObjectValueUni(issuedMedicineContainer,
+                new getValue<List<DdtIssuedMedicine>>((ctrl) => ((IssuedMedicineContainer)ctrl).getIssuedMedicines()));
+
             if (meds.Count > 0)
             {
                 DdtIssuedMedicineList medList = service.queryObject<DdtIssuedMedicineList>(@"SELECT * FROM ddt_issued_medicine_list WHERE dsid_hospitality_session='" +
@@ -610,7 +603,8 @@ namespace Cardiology
 
         private void saveIssuedAction(DataService service)
         {
-            List<DdtIssuedAction> meds = issuedActionContainer.getIssuedMedicines();
+            List<DdtIssuedAction> meds = getSafeObjectValueUni(issuedActionContainer,
+               new getValue<List<DdtIssuedAction>>((ctrl) => ((IssuedActionContainer)ctrl).getIssuedMedicines()));
             if (meds.Count > 0)
             {
                 foreach (DdtIssuedAction med in meds)
@@ -641,10 +635,10 @@ namespace Cardiology
                     urineAnalysis.DsbAdmissionAnalysis = true;
                     urineAnalysis.DsdtAnalysisDate = DateTime.Now;
                 }
-                urineAnalysis.DssColor = firstColorTxt.Text;
-                urineAnalysis.DssErythrocytes = firstErythrocytesTxt.Text;
-                urineAnalysis.DssLeukocytes = firstLeucocytesTxt.Text;
-                urineAnalysis.DssProtein = firstProteinTxt.Text;
+                urineAnalysis.DssColor = getSafeStringValue(firstColorTxt);
+                urineAnalysis.DssErythrocytes = getSafeStringValue(firstErythrocytesTxt);
+                urineAnalysis.DssLeukocytes = getSafeStringValue(firstLeucocytesTxt);
+                urineAnalysis.DssProtein = getSafeStringValue(firstProteinTxt);
 
                 updateObject<DdtUrineAnalysis>(service, urineAnalysis, DdtUrineAnalysis.TABLE_NAME, urineAnalysis.ObjectId);
             }
@@ -664,14 +658,15 @@ namespace Cardiology
                     egds.DsbAdmissionAnalysis = true;
                     egds.DsdtAnalysisDate = DateTime.Now;
                 }
-                egds.DssEgds = firstEgdsTxt.Text;
+                egds.DssEgds = getSafeStringValue(firstEgdsTxt);
                 updateObject<DdtEgds>(service, egds, DdtEgds.TABLE_NAME, egds.ObjectId);
             }
         }
 
         private void saveEkgAnalysisTab(DataService service)
         {
-            EkgAnalysisControlcs ekgControl = (EkgAnalysisControlcs)ekgTab.Controls[0];
+            EkgAnalysisControlcs ekgControl = getSafeObjectValueUni(ekgTab,
+               new getValue<EkgAnalysisControlcs>((ctrl) =>(EkgAnalysisControlcs) ((TabPage)ctrl).Controls[0]));
             DdtEkg ekg = ekgControl.getObject();
             if (CommonUtils.isNotBlank(ekg.DssEkg))
             {
@@ -815,5 +810,58 @@ namespace Cardiology
         {
             issuedActionContainer.addMedicineBox();
         }
+
+        private void FirstInspection_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SilentSaver.clearForm();
+        }
+
+        public void save()
+        {
+            bool isNotValid = false;
+            for (int i = 0; i < tabsContainer.TabCount; i++)
+            {
+                isNotValid |= !getIsValid(i);
+            }
+
+            if (!isNotValid)
+            {
+                DataService service = new DataService();
+
+                saveAnamnesis(service);
+                saveIssuedMedicine(service);
+                saveIssuedAction(service);
+                saveUrineAnalysisTab(service);
+                saveEgdsAnalysisTab(service);
+                saveEkgAnalysisTab(service);
+                saveBloodAnalysis(service);
+
+                hospitalSession.DssDiagnosis = diagnosisTxt.Text;
+                service.updateObject<DdtHospital>(hospitalSession, DdtHospital.TABLENAME, "r_object_id", hospitalSession.ObjectId);
+            }
+        }
+
+        private string getSafeStringValue(Control c)
+        {
+            if (c.InvokeRequired)
+            {
+                return (string)c.Invoke(new getControlTextValue((ctrl) => ctrl.Text), c);
+            }
+            return c.Text;
+        }
+
+        private T getSafeObjectValueUni<T>(Control c, getValue<T> getter)
+        {
+            if (c.InvokeRequired)
+            {
+                return (T)c.Invoke(new getControlObjectValue<T>((ctrl) => getter(ctrl)), c);
+            }
+            return getter(c);
+        }
+
+        delegate T getValue<T>(Control ctrl);
+
+        delegate string getControlTextValue(Control ctrl);
+        delegate T getControlObjectValue<T>(Control ctrl);
     }
 }

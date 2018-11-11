@@ -12,6 +12,7 @@ namespace Cardiology
     {
         public PatientList()
         {
+            System.Windows.Forms.Control.CheckForIllegalCrossThreadCalls = false;
             InitializeComponent();
             this.hospitalPatientsTbl.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
         }

@@ -321,6 +321,29 @@ namespace Cardiology.Utils
             return journal;
         }
 
+        private string getSafeStringValue(Control c)
+        {
+            if (c.InvokeRequired)
+            {
+                return (string)c.Invoke(new getControlTextValue((ctrl) => ctrl.Text), c);
+            }
+            return c.Text;
+        }
+
+        private T getSafeObjectValueUni<T>(Control c, getValue<T> getter)
+        {
+            if (c.InvokeRequired)
+            {
+                return (T)c.Invoke(new getControlObjectValue<T>((ctrl) => getter(ctrl)), c);
+            }
+            return getter(c);
+        }
+
+        delegate T getValue<T>(Control ctrl);
+
+        delegate string getControlTextValue(Control ctrl);
+        delegate T getControlObjectValue<T>(Control ctrl);
+
 
     }
 }

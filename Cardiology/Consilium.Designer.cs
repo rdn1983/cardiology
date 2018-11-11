@@ -514,6 +514,7 @@
             this.Name = "Consilium";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Консилиум";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Consilium_FormClosing);
             this.ConsiliumMembersPnl.ResumeLayout(false);
             this.ConsiliumMembersPnl.PerformLayout();
             this.allDoctorsPnl.ResumeLayout(false);

@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JournalBeforeKag));
             this.journalAllPnl = new System.Windows.Forms.GroupBox();
             this.journalGrouppedPanel = new System.Windows.Forms.Panel();
+            this.journalContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.deffedredAllPnl = new System.Windows.Forms.GroupBox();
             this.defferedGrouppedPanel = new System.Windows.Forms.Panel();
             this.deferredContainer = new System.Windows.Forms.FlowLayoutPanel();
@@ -38,7 +39,6 @@
             this.printBtn = new System.Windows.Forms.Button();
             this.addDefferedBtn = new System.Windows.Forms.Button();
             this.addJournalBtn = new System.Windows.Forms.Button();
-            this.journalContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.journalAllPnl.SuspendLayout();
             this.journalGrouppedPanel.SuspendLayout();
             this.deffedredAllPnl.SuspendLayout();
@@ -69,6 +69,17 @@
             this.journalGrouppedPanel.Name = "journalGrouppedPanel";
             this.journalGrouppedPanel.Size = new System.Drawing.Size(940, 264);
             this.journalGrouppedPanel.TabIndex = 38;
+            // 
+            // journalContainer
+            // 
+            this.journalContainer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.journalContainer.AutoSize = true;
+            this.journalContainer.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.journalContainer.Location = new System.Drawing.Point(6, 3);
+            this.journalContainer.Name = "journalContainer";
+            this.journalContainer.Size = new System.Drawing.Size(907, 258);
+            this.journalContainer.TabIndex = 0;
             // 
             // deffedredAllPnl
             // 
@@ -147,17 +158,6 @@
             this.addJournalBtn.UseVisualStyleBackColor = true;
             this.addJournalBtn.Click += new System.EventHandler(this.addJournalBtn_Click);
             // 
-            // journalContainer
-            // 
-            this.journalContainer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.journalContainer.AutoSize = true;
-            this.journalContainer.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.journalContainer.Location = new System.Drawing.Point(6, 3);
-            this.journalContainer.Name = "journalContainer";
-            this.journalContainer.Size = new System.Drawing.Size(907, 258);
-            this.journalContainer.TabIndex = 0;
-            // 
             // JournalBeforeKag
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -174,6 +174,7 @@
             this.Name = "JournalBeforeKag";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Дневники";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.JournalBeforeKag_FormClosing);
             this.journalAllPnl.ResumeLayout(false);
             this.journalGrouppedPanel.ResumeLayout(false);
             this.journalGrouppedPanel.PerformLayout();

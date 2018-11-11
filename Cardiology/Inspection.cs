@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace Cardiology
 {
-    public partial class Inspection : Form
+    public partial class Inspection : Form, IAutoSaveForm
     {
         private DdtHospital hospitalitySession;
         private DdtInspection inspectionObj;
@@ -16,6 +16,7 @@ namespace Cardiology
         public Inspection(DdtHospital hospitalitySession, string id)
         {
             this.hospitalitySession = hospitalitySession;
+            SilentSaver.setForm(this);
             InitializeComponent();
             initControls(id);
         }
@@ -65,7 +66,6 @@ namespace Cardiology
 
             initKag(service, kagJournal);
         }
-
 
         private void initAnalysis(DataService service)
         {
@@ -155,10 +155,20 @@ namespace Cardiology
                 return;
             }
 
+            save();
+            Close();
+        }
+
+        public void save()
+        {
+            if (!getIsValid())
+            {
+                return;
+            }
+
             DataService service = new DataService();
             saveInspectionObj(service);
             saveAnalysis(service);
-            Close();
         }
 
         private bool getIsValid()
@@ -176,17 +186,17 @@ namespace Cardiology
                 inspectionObj.DsidPatient = hospitalitySession.DsidPatient;
             }
 
-            inspectionObj.DssComplaints = complaintsTxt.Text;
-            inspectionObj.DssDiagnosis = diagnosisTxt.Text;
-            inspectionObj.DssInspection = inspectionTxt.Text;
-            inspectionObj.DssInspectionResult = resultTxt.Text;
-            inspectionObj.DssKateterPlacement = kateterPlacementTxt.Text;
+            inspectionObj.DssComplaints = getSafeStringValue(complaintsTxt);
+            inspectionObj.DssDiagnosis = getSafeStringValue(diagnosisTxt);
+            inspectionObj.DssInspection = getSafeStringValue(inspectionTxt);
+            inspectionObj.DssInspectionResult = getSafeStringValue(resultTxt);
+            inspectionObj.DssKateterPlacement = getSafeStringValue(kateterPlacementTxt);
             inspectionObj.DsdtInspectionDate = CommonUtils.constructDateWIthTime(inspectionDate.Value, inspectionTime.Value);
             string id = service.updateOrCreateIfNeedObject<DdtInspection>(inspectionObj, DdtInspection.TABLE_NAME, inspectionObj.RObjectId);
             inspectionObj.RObjectId = id;
         }
 
-       
+
 
         private void saveAnalysis(DataService service)
         {
@@ -203,7 +213,7 @@ namespace Cardiology
             TableLayoutPanel tabCntr = getTabContainer(name, title, false);
             for (int i = 0; i < tabCntr.Controls.Count; i++)
             {
-                IDocbaseControl control = (IDocbaseControl)tabCntr.Controls[i];
+                IDocbaseControl control = getSafeObjectValueUni(tabCntr, new getValue<IDocbaseControl>((ctrl) => (IDocbaseControl)((TableLayoutPanel)ctrl).Controls[i]));
                 control.saveObject(hospitalitySession, inspectionObj.RObjectId, DdtInspection.TABLE_NAME);
             }
         }
@@ -219,18 +229,16 @@ namespace Cardiology
             TableLayoutPanel result = null;
             if (!tabbedAnalysis.TabPages.ContainsKey(name))
             {
-                TabPage tab = new TabPage();
-                tab.Name = name;
-                tab.Text = title;
-                tab.AutoScroll = true;
-                result = new TableLayoutPanel();
-                result.ColumnCount = 1;
-                result.RowCount = 1;
-                result.GrowStyle = isVerticalStyle ? TableLayoutPanelGrowStyle.AddColumns : TableLayoutPanelGrowStyle.AddRows;
-                result.AutoSize = true;
-                result.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-                tab.Controls.Add(result);
-                tabbedAnalysis.TabPages.Add(tab);
+                if (tabbedAnalysis.InvokeRequired)
+                {
+                    tabbedAnalysis.Invoke(new MethodInvoker(() =>
+                    {
+                        result = createTab(name, title, isVerticalStyle);
+                    }));
+                } else
+                {
+                    result = createTab(name, title, isVerticalStyle);
+                }
             }
             else
             {
@@ -238,6 +246,23 @@ namespace Cardiology
                 TabPage tab = tabbedAnalysis.TabPages[index];
                 result = (TableLayoutPanel)tab.Controls[0];
             }
+            return result;
+        }
+
+        private TableLayoutPanel createTab(string name, string title, bool isVerticalStyle)
+        {
+            TabPage tab = new TabPage();
+            tab.Name = name;
+            tab.Text = title;
+            tab.AutoScroll = true;
+            TableLayoutPanel result = new TableLayoutPanel();
+            result.ColumnCount = 1;
+            result.RowCount = 1;
+            result.GrowStyle = isVerticalStyle ? TableLayoutPanelGrowStyle.AddColumns : TableLayoutPanelGrowStyle.AddRows;
+            result.AutoSize = true;
+            result.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            tab.Controls.Add(result);
+            tabbedAnalysis.TabPages.Add(tab);
             return result;
         }
 
@@ -283,9 +308,7 @@ namespace Cardiology
 
         private void printBtn_Click(object sender, EventArgs e)
         {
-            DataService service = new DataService();
-            saveInspectionObj(service);
-            saveAnalysis(service);
+            save();
 
             ITemplateProcessor tp = TemplateProcessorManager.getProcessorByObjectType(DdtInspection.TABLE_NAME);
             if (tp != null)
@@ -321,6 +344,34 @@ namespace Cardiology
             DdtJournal kagJournal = CommonUtils.resolveKagJournal(service, startDate, hospitalitySession.ObjectId);
             initKag(service, kagJournal);
         }
+
+        private void Inspection_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SilentSaver.clearForm();
+        }
+
+        private string getSafeStringValue(Control c)
+        {
+            if (c.InvokeRequired)
+            {
+                return (string)c.Invoke(new getControlTextValue((ctrl) => ctrl.Text), c);
+            }
+            return c.Text;
+        }
+
+        private T getSafeObjectValueUni<T>(Control c, getValue<T> getter)
+        {
+            if (c.InvokeRequired)
+            {
+                return (T)c.Invoke(new getControlObjectValue<T>((ctrl) => getter(ctrl)), c);
+            }
+            return getter(c);
+        }
+
+        delegate T getValue<T>(Control ctrl);
+
+        delegate string getControlTextValue(Control ctrl);
+        delegate T getControlObjectValue<T>(Control ctrl);
 
     }
 }

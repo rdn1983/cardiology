@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace Cardiology
 {
-    public partial class JournalAfterKAG : Form
+    public partial class JournalAfterKAG : Form, IAutoSaveForm
     {
         private DdtHospital hospitalitySession;
         private AnalysisSelector selector;
@@ -21,6 +21,7 @@ namespace Cardiology
             this.journalId = journalId;
             InitializeComponent();
             initControls();
+            SilentSaver.setForm(this);
         }
 
         private void initControls()
@@ -139,7 +140,7 @@ namespace Cardiology
             Close();
         }
 
-        private void save()
+        public void save()
         {
             DataService service = new DataService();
             service.updateObject<DdtHospital>(hospitalitySession, DdtHospital.TABLENAME, "r_object_id", hospitalitySession.ObjectId);
@@ -260,6 +261,11 @@ namespace Cardiology
                 }
             }
             kagId = null;
+        }
+
+        private void JournalAfterKAG_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SilentSaver.clearForm();
         }
     }
 }

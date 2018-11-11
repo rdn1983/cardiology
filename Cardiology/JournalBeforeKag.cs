@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace Cardiology
 {
-    public partial class JournalBeforeKag : Form
+    public partial class JournalBeforeKag : Form, IAutoSaveForm
     {
         private int journalType;
         private List<string> journalIds;
@@ -22,6 +22,7 @@ namespace Cardiology
             InitializeComponent();
             initJournals();
             initControlVisibility();
+            SilentSaver.setForm(this);
         }
 
 
@@ -133,7 +134,7 @@ namespace Cardiology
             return isValid;
         }
 
-        private void save()
+        public void save()
         {
             journalIds.Clear();
             foreach (Control c in journalContainer.Controls)
@@ -171,6 +172,11 @@ namespace Cardiology
                 string result = TemplatesUtils.mergeFiles(paths.ToArray(), false);
                 TemplatesUtils.showDocument(result);
             }
+        }
+
+        private void JournalBeforeKag_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SilentSaver.clearForm();
         }
     }
 }

@@ -113,9 +113,11 @@
             this.issuedActionBox = new System.Windows.Forms.GroupBox();
             this.addIssuedAction = new System.Windows.Forms.Button();
             this.scrollableCntr = new System.Windows.Forms.Panel();
+            this.issuedActionContainer = new Cardiology.Controls.IssuedActionContainer();
             this.issuedMedicineBox = new System.Windows.Forms.GroupBox();
             this.fixIssuedMedTemplate = new System.Windows.Forms.Button();
             this.issuedCntr = new System.Windows.Forms.Panel();
+            this.issuedMedicineContainer = new Cardiology.Controls.IssuedMedicineContainer();
             this.addIssuedMedicineBtn = new System.Windows.Forms.Button();
             this.firstAnalysisTab = new System.Windows.Forms.TabPage();
             this.tabs = new System.Windows.Forms.TabControl();
@@ -177,8 +179,6 @@
             this.docBox = new System.Windows.Forms.ComboBox();
             this.docLbl = new System.Windows.Forms.Label();
             this.patientInitialsLbl = new System.Windows.Forms.Label();
-            this.issuedActionContainer = new Cardiology.Controls.IssuedActionContainer();
-            this.issuedMedicineContainer = new Cardiology.Controls.IssuedMedicineContainer();
             this.templateChanger = new Cardiology.Controls.TemplateChanger();
             this.complaintsBox.SuspendLayout();
             this.anamnesisMorbiBox.SuspendLayout();
@@ -1166,6 +1166,15 @@
             this.scrollableCntr.Size = new System.Drawing.Size(372, 465);
             this.scrollableCntr.TabIndex = 0;
             // 
+            // issuedActionContainer
+            // 
+            this.issuedActionContainer.AutoSize = true;
+            this.issuedActionContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.issuedActionContainer.Location = new System.Drawing.Point(8, 8);
+            this.issuedActionContainer.Name = "issuedActionContainer";
+            this.issuedActionContainer.Size = new System.Drawing.Size(6, 6);
+            this.issuedActionContainer.TabIndex = 0;
+            // 
             // issuedMedicineBox
             // 
             this.issuedMedicineBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -1203,6 +1212,15 @@
             this.issuedCntr.Name = "issuedCntr";
             this.issuedCntr.Size = new System.Drawing.Size(574, 465);
             this.issuedCntr.TabIndex = 18;
+            // 
+            // issuedMedicineContainer
+            // 
+            this.issuedMedicineContainer.AutoSize = true;
+            this.issuedMedicineContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.issuedMedicineContainer.Location = new System.Drawing.Point(4, 4);
+            this.issuedMedicineContainer.Name = "issuedMedicineContainer";
+            this.issuedMedicineContainer.Size = new System.Drawing.Size(6, 6);
+            this.issuedMedicineContainer.TabIndex = 0;
             // 
             // addIssuedMedicineBtn
             // 
@@ -1761,24 +1779,6 @@
             this.patientInitialsLbl.Size = new System.Drawing.Size(0, 13);
             this.patientInitialsLbl.TabIndex = 17;
             // 
-            // issuedActionContainer
-            // 
-            this.issuedActionContainer.AutoSize = true;
-            this.issuedActionContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.issuedActionContainer.Location = new System.Drawing.Point(8, 8);
-            this.issuedActionContainer.Name = "issuedActionContainer";
-            this.issuedActionContainer.Size = new System.Drawing.Size(6, 6);
-            this.issuedActionContainer.TabIndex = 0;
-            // 
-            // issuedMedicineContainer
-            // 
-            this.issuedMedicineContainer.AutoSize = true;
-            this.issuedMedicineContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.issuedMedicineContainer.Location = new System.Drawing.Point(4, 4);
-            this.issuedMedicineContainer.Name = "issuedMedicineContainer";
-            this.issuedMedicineContainer.Size = new System.Drawing.Size(6, 6);
-            this.issuedMedicineContainer.TabIndex = 0;
-            // 
             // templateChanger
             // 
             this.templateChanger.Name = "templateChanger";
@@ -1812,6 +1812,7 @@
             this.Name = "FirstInspection";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Данные первичного осмотра";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FirstInspection_FormClosing);
             this.complaintsBox.ResumeLayout(false);
             this.anamnesisMorbiBox.ResumeLayout(false);
             this.anamnesisAllergyBox.ResumeLayout(false);

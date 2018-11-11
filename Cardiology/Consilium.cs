@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace Cardiology
 {
-    public partial class Consilium : Form
+    public partial class Consilium : Form, IAutoSaveForm
     {
         private DdtHospital hospitalitySession;
         private string consiliumId;
@@ -18,6 +18,7 @@ namespace Cardiology
             this.consiliumId = consiliumId;
             InitializeComponent();
             initControls();
+            SilentSaver.setForm(this);
         }
 
         private void initControls()
@@ -135,14 +136,14 @@ namespace Cardiology
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
-            DataService service = new DataService();
-            save(service);
+            save();
             Close();
         }
 
-        private void save(DataService service)
+        public void save()
         {
-            hospitalitySession.DssDiagnosis = diagnosisTxt1.Text;
+            DataService service = new DataService();
+            hospitalitySession.DssDiagnosis = getSafeStringValue(diagnosisTxt1);
             service.updateObject<DdtHospital>(hospitalitySession, DdtHospital.TABLENAME, "r_object_id", hospitalitySession.ObjectId);
 
             DdtConsilium consilium = null;
@@ -158,17 +159,17 @@ namespace Cardiology
                 consilium.DsidPatient = hospitalitySession.DsidPatient;
                 consilium.DsidDoctor = hospitalitySession.DsidCuringDoctor;
             }
-            consilium.DssDecision = decisionTxt.Text;
-            consilium.DssDiagnosis = diagnosisTxt0.Text;
-            consilium.DssDutyAdminName = adminTxt.Text;
-            consilium.DssDynamics = dynamicsTxt.Text;
-            consilium.DssGoal = goalTxt.Text;
+            consilium.DssDecision = getSafeStringValue(decisionTxt);
+            consilium.DssDiagnosis = getSafeStringValue(diagnosisTxt0);
+            consilium.DssDutyAdminName = getSafeStringValue(adminTxt);
+            consilium.DssDynamics = getSafeStringValue(dynamicsTxt);
+            consilium.DssGoal = getSafeStringValue(goalTxt);
             consiliumId = service.updateOrCreateIfNeedObject<DdtConsilium>(consilium, DdtConsilium.TABLE_NAME, consilium.RObjectId);
 
-            foreach(Control doctorInfoPnl in doctorsContainer.Controls)
+            foreach (Control doctorInfoPnl in doctorsContainer.Controls)
             {
                 DdtConsiliumMember member = null;
-                String doctorInfoPnlName = doctorInfoPnl.Name;
+                String doctorInfoPnlName = getSafeObjectValueUni<string>(doctorInfoPnl, new getValue<string>((ctrl) => (ctrl.Name)));
                 string indexstr = string.Intern(doctorInfoPnlName.Substring(CommonUtils.getFirstDigitIndex(doctorInfoPnlName)));
                 int indx = Int32.Parse(indexstr);
 
@@ -188,25 +189,25 @@ namespace Cardiology
                     member = new DdtConsiliumMember();
                     member.DsidConsilium = consiliumId;
                 }
-                DmGroup group = (DmGroup)appointment.SelectedItem;
+                DmGroup group = getSafeObjectValueUni<DmGroup>(appointment, new getValue<DmGroup>((ctrl) => ((DmGroup)((ComboBox)ctrl).SelectedItem)));
                 member.DssGroupName = group.DssName;
                 c = CommonUtils.findControl(doctorsContainer, "doctorWho" + indx);
-                member.DssDoctorName = c.Text;
+                member.DssDoctorName = getSafeStringValue(c);
                 service.updateOrCreateIfNeedObject<DdtConsiliumMember>(member, DdtConsiliumMember.TABLE_NAME, member.RObjectId);
             }
 
             foreach (String memberId in membersToRemove)
             {
-            service.queryDelete(DdtConsiliumMember.TABLE_NAME, "r_object_id", memberId, true);
+                service.queryDelete(DdtConsiliumMember.TABLE_NAME, "r_object_id", memberId, true);
             }
         }
 
         private void printBtn_Click(object sender, EventArgs e)
         {
             DataService service = new DataService();
-            save(service);
+            save();
             ITemplateProcessor processor = TemplateProcessorManager.getProcessorByObjectType(DdtConsilium.TABLE_NAME);
-            if (processor!=null)
+            if (processor != null)
             {
                 string path = processor.processTemplate(hospitalitySession.ObjectId, consiliumId, new Dictionary<string, string>());
                 TemplatesUtils.showDocument(path);
@@ -215,7 +216,7 @@ namespace Cardiology
 
         private void appointmentTxt0_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ComboBox cb = (ComboBox)sender;            
+            ComboBox cb = (ComboBox)sender;
             DmGroup group = (DmGroup)cb.SelectedItem;
             if (group != null)
             {
@@ -249,6 +250,34 @@ namespace Cardiology
             }
             doctorsContainer.Controls.Remove(doctorInfoPnl);
             doctorsContainer.Refresh();
+        }
+
+        private string getSafeStringValue(Control c)
+        {
+            if (c.InvokeRequired)
+            {
+                return (string)c.Invoke(new getControlTextValue((ctrl) => ctrl.Text), c);
+            }
+            return c.Text;
+        }
+
+        private T getSafeObjectValueUni<T>(Control c, getValue<T> getter)
+        {
+            if (c.InvokeRequired)
+            {
+                return (T)c.Invoke(new getControlObjectValue<T>((ctrl) => getter(ctrl)), c);
+            }
+            return getter(c);
+        }
+
+        delegate T getValue<T>(Control ctrl);
+
+        delegate string getControlTextValue(Control ctrl);
+        delegate T getControlObjectValue<T>(Control ctrl);
+
+        private void Consilium_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SilentSaver.clearForm();
         }
     }
 }

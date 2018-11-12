@@ -414,6 +414,7 @@
     <Compile Include="Utils\SilentSaver.cs" />
     <Compile Include="Utils\TemplateProcessorManager.cs" />
     <Compile Include="Utils\JournalTemplateProcessor.cs" />
+    <None Include="NLog.config" />
     <None Include="Resources\shuffle.png" />
     <None Include="Resources\link20.png" />
     <EmbeddedResource Include="AdmissionPatient.resx">
@@ -570,9 +571,6 @@
     <EmbeddedResource Include="Controls\UziAnalysisControl.resx">
       <DependentUpon>UziAnalysisControl.cs</DependentUpon>
     </EmbeddedResource>
-    <Content Include="NLog.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>
     </None>

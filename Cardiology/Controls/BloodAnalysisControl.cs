@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 using Cardiology.Model;
 
 namespace Cardiology
@@ -22,7 +23,10 @@ namespace Cardiology
             DdtBloodAnalysis blood = service.queryObjectById<DdtBloodAnalysis>(DdtBloodAnalysis.TABLE_NAME, objectId);
             if (blood != null)
             {
-                regularBloodDateTxt.Value = blood.DsdtAnalysisDate;
+                if (blood.DsdtAnalysisDate > DateTime.MinValue)
+                {
+                    regularBloodDateTxt.Value = blood.DsdtAnalysisDate;
+                }
                 regularAltTxt.Text = blood.DsdAlt + "";
                 regularAmilazaTzt.Text = blood.DsdAmylase + "";
                 regularAstTxt.Text = blood.DsdAst + "";

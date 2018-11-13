@@ -40,7 +40,7 @@ namespace Cardiology
                 return;
             }
             DataService service = new DataService();
-            DdtPatient patient = service.queryObjectById<DdtPatient>(DdtPatient.TABLENAME, hospital.DsidPatient);    
+            DdtPatient patient = service.queryObjectById<DdtPatient>(DdtPatient.TABLENAME, hospital.DsidPatient);
             addressTxt.Text = patient.DssAddress;
             string[] fio = patient.DssFullName.Split(' ');
             patientLastName.Text = fio[0];
@@ -90,7 +90,7 @@ namespace Cardiology
             }
 
             DataService service = new DataService();
-            DdtPatient patient = service.queryObjectById<DdtPatient>(DdtPatient.TABLENAME, hospital.DsidPatient);
+            DdtPatient patient = patient = service.queryObjectById<DdtPatient>(DdtPatient.TABLENAME, hospital?.DsidPatient);
             if (patient == null)
             {
                 patient = new DdtPatient();
@@ -148,7 +148,7 @@ namespace Cardiology
         private bool getIsValid()
         {
             return CommonUtils.isNotBlank(patientLastName.Text) && CommonUtils.isNotBlank(patientFirstName.Text) &&
-                CommonUtils.isNotBlank(patientSecondName.Text) && dutyCardioBox.SelectedIndex >= 0  &&
+                CommonUtils.isNotBlank(patientSecondName.Text) && dutyCardioBox.SelectedIndex >= 0 &&
                 cardioDocBox.SelectedIndex >= 0 && subDoctorBox.SelectedIndex >= 0 &&
                 directorCardioReanimBox.SelectedIndex >= 0 && anesthetistComboBox.SelectedIndex >= 0;
         }

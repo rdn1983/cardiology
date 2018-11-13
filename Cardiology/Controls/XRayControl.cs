@@ -1,5 +1,6 @@
 ﻿using System.Windows.Forms;
 using Cardiology.Model;
+using Cardiology.Utils;
 
 namespace Cardiology.Controls
 {
@@ -59,6 +60,7 @@ namespace Cardiology.Controls
                 xRay.DssMrt = mrtTxt.Text;
                 xRay.DssParentType = parentType;
                 xRay.DsidParent = parentId;
+                xRay.DsdtAnalysisDate = CommonUtils.constructDateWIthTime(ktDateTxt.Value, ktTimeTxt.Value);
                 objectId = service.updateOrCreateIfNeedObject<DdtXRay>(xRay, DdtXRay.TABLE_NAME, xRay.ObjectId);
             }
         }

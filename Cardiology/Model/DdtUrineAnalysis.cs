@@ -38,6 +38,10 @@ namespace Cardiology.Model
         private bool dsbAdmissionAnalysis;
         [TableAttribute("dsb_discharge_analysis")]
         private bool dsbDischargeAnalysis;
+        [TableAttribute("dsid_parent")]
+        private string dsidParent;
+        [TableAttribute("dss_parent_type")]
+        private string dssParentType;
 
 
         public string ObjectId
@@ -79,5 +83,7 @@ namespace Cardiology.Model
         public bool DsbAdmissionAnalysis { get => dsbAdmissionAnalysis; set => dsbAdmissionAnalysis = value; }
         public bool DsbDischargeAnalysis { get => dsbDischargeAnalysis; set => dsbDischargeAnalysis = value; }
         public DateTime DsdtAnalysisDate { get => dsdtAnalysisDate; set => dsdtAnalysisDate = value; }
+        public string DsidParent { get => dsidParent; set => dsidParent = value; }
+        public string DssParentType { get => dssParentType; set => dssParentType = value; }
     }
 }

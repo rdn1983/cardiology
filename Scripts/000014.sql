@@ -16,7 +16,9 @@ CREATE TABLE ddt_urine_analysis (
   dss_protein VARCHAR(512),
   dss_ketones VARCHAR(512),
   dsb_admission_analysis BOOLEAN,
-  dsb_discharge_analysis BOOLEAN
+  dsb_discharge_analysis BOOLEAN,
+  dsid_parent VARCHAR(16),
+  dss_parent_type VARCHAR(30)
 );
 
 

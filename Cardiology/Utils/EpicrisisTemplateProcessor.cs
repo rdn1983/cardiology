@@ -45,10 +45,10 @@ namespace Cardiology.Utils
             values.Add("{anamnesis}", anamnesis == null ? " " : anamnesis.DssAnamnesisMorbi);
 
             StringBuilder inspectonBld = new StringBuilder();
-            inspectonBld.Append(compileValue("St.Presens", anamnesis.DssStPresens));
-            inspectonBld.Append(compileValue("Органы дыхания", anamnesis.DssRespiratorySystem));
-            inspectonBld.Append(compileValue("Сердечно-сосудистая система", anamnesis.DssCardioVascular));
-            inspectonBld.Append(compileValue("Органы пищеварения", anamnesis.DssDigestiveSystem));
+            inspectonBld.Append(compileValue("St.Presens", anamnesis?.DssStPresens));
+            inspectonBld.Append(compileValue("Органы дыхания", anamnesis?.DssRespiratorySystem));
+            inspectonBld.Append(compileValue("Сердечно-сосудистая система", anamnesis?.DssCardioVascular));
+            inspectonBld.Append(compileValue("Органы пищеварения", anamnesis?.DssDigestiveSystem));
             values.Add("{inspection}", anamnesis == null ? " " : inspectonBld.ToString());
 
             DdtSerology serology = service.queryObjectByAttrCond<DdtSerology>(DdtSerology.TABLE_NAME, "dsid_hospitality_session", hospital.ObjectId, true);

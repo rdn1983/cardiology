@@ -293,5 +293,7 @@ namespace Cardiology
             AnalysisContainer container = new AnalysisContainer(hospitalitySession, DdtXRay.TABLE_NAME, null);
             container.ShowDialog();
         }
+
+       
     }
 }

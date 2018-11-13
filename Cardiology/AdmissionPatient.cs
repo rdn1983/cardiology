@@ -90,7 +90,7 @@ namespace Cardiology
             }
 
             DataService service = new DataService();
-            DdtPatient patient = patient = service.queryObjectById<DdtPatient>(DdtPatient.TABLENAME, hospital?.DsidPatient);
+            DdtPatient patient = service.queryObjectById<DdtPatient>(DdtPatient.TABLENAME, hospital?.DsidPatient);
             if (patient == null)
             {
                 patient = new DdtPatient();

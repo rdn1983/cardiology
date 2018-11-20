@@ -2,7 +2,7 @@
 
 namespace Cardiology.Model
 {
-    public class DdtKag
+    public class DdtKag : DdtTypedObject
     {
         public const string TABLE_NAME = "ddt_kag";
 

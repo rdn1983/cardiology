@@ -57,6 +57,7 @@
             this.monitoringAdTxt.Size = new System.Drawing.Size(678, 64);
             this.monitoringAdTxt.TabIndex = 1;
             this.monitoringAdTxt.Text = "";
+            this.monitoringAdTxt.TextChanged += new System.EventHandler(this.monitoringAdTxt_TextChanged);
             // 
             // holterBox
             // 
@@ -75,6 +76,7 @@
             this.holterTxt.Size = new System.Drawing.Size(678, 71);
             this.holterTxt.TabIndex = 0;
             this.holterTxt.Text = "";
+            this.holterTxt.TextChanged += new System.EventHandler(this.holterTxt_TextChanged);
             // 
             // title
             // 
@@ -105,6 +107,7 @@
             this.analysisDate.Name = "analysisDate";
             this.analysisDate.Size = new System.Drawing.Size(117, 20);
             this.analysisDate.TabIndex = 10;
+            this.analysisDate.ValueChanged += new System.EventHandler(this.analysisDate_ValueChanged);
             // 
             // HolterControl
             // 

@@ -52,6 +52,7 @@
             this.regularEgdsTxt.Size = new System.Drawing.Size(664, 71);
             this.regularEgdsTxt.TabIndex = 0;
             this.regularEgdsTxt.Text = "";
+            this.regularEgdsTxt.TextChanged += new System.EventHandler(this.regularEgdsTxt_TextChanged);
             // 
             // analysisTitleLbl
             // 
@@ -70,6 +71,7 @@
             this.analysisDate.Name = "analysisDate";
             this.analysisDate.Size = new System.Drawing.Size(107, 20);
             this.analysisDate.TabIndex = 8;
+            this.analysisDate.ValueChanged += new System.EventHandler(this.analysisDate_ValueChanged);
             // 
             // EgdsAnalysisControl
             // 

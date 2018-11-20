@@ -66,6 +66,7 @@
             this.admissionDateTxt.Name = "admissionDateTxt";
             this.admissionDateTxt.Size = new System.Drawing.Size(113, 20);
             this.admissionDateTxt.TabIndex = 7;
+            this.admissionDateTxt.ValueChanged += new System.EventHandler(this.admissionDateTxt_ValueChanged);
             // 
             // admissionDateLbl
             // 
@@ -83,6 +84,7 @@
             this.ddimerTxt.Name = "ddimerTxt";
             this.ddimerTxt.Size = new System.Drawing.Size(113, 20);
             this.ddimerTxt.TabIndex = 5;
+            this.ddimerTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_KeyPress);
             // 
             // mchoTxt
             // 
@@ -91,6 +93,7 @@
             this.mchoTxt.Name = "mchoTxt";
             this.mchoTxt.Size = new System.Drawing.Size(113, 20);
             this.mchoTxt.TabIndex = 4;
+            this.mchoTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_KeyPress);
             // 
             // achtvTxt
             // 
@@ -99,6 +102,7 @@
             this.achtvTxt.Name = "achtvTxt";
             this.achtvTxt.Size = new System.Drawing.Size(113, 20);
             this.achtvTxt.TabIndex = 3;
+            this.achtvTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt_KeyPress);
             // 
             // ddimerLbl
             // 

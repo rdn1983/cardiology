@@ -18,7 +18,7 @@ namespace Cardiology.Utils
             {
                 timer = new System.Timers.Timer();
                 timer.Elapsed += new ElapsedEventHandler(OnAutoSave);
-                timer.Interval = 1000 * 60;
+                timer.Interval = 1000 * 60*2;
                 timer.Enabled = true;
             }
 
@@ -39,7 +39,7 @@ namespace Cardiology.Utils
         internal static void stop()
         {
             start = false;
-            if(timer!=null)
+            if (timer != null)
             {
                 timer.Stop();
             }

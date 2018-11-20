@@ -2,7 +2,7 @@
 
 namespace Cardiology.Model
 {
-    public class DdtBloodAnalysis
+    public class DdtBloodAnalysis : DdtTypedObject
     {
         public const string TABLE_NAME = "ddt_blood_analysis";
 
@@ -63,12 +63,13 @@ namespace Cardiology.Model
         [TableAttribute("dss_parent_type")]
         private string dssParentType;
 
+
         public string RObjectId { get => rObjectId; set => rObjectId = value; }
         public DateTime RCreationDate { get => rCreationDate; set => rCreationDate = value; }
         public string DsidHospitalitySession { get => dsidHospitalitySession; set => dsidHospitalitySession = value; }
         public string DsidPatient { get => dsidPatient; set => dsidPatient = value; }
         public string DsidDoctor { get => dsidDoctor; set => dsidDoctor = value; }
-        public string DsdHemoglobin { get => dssHemoglobin; set => dssHemoglobin = value; }
+        public string DsdHemoglobin { get => dssHemoglobin; set => dssHemoglobin = value; } 
         public string DsdLeucocytes { get => dssLeucocytes; set => dssLeucocytes = value; }
         public string DsdPlatelets { get => dssPlatelets; set => dssPlatelets = value; }
         public string DsdProtein { get => dssProtein; set => dssProtein = value; }

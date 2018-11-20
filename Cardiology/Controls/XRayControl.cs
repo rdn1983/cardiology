@@ -8,6 +8,8 @@ namespace Cardiology.Controls
     {
         private string objectId;
         private bool isEditable;
+        private bool hasChanges;
+        private bool isNew;
 
         public XRayControl(string objectId, bool additional)
         {
@@ -15,21 +17,15 @@ namespace Cardiology.Controls
             this.isEditable = !additional;
             InitializeComponent();
             initControls();
+            hasChanges = false;
+            isNew = CommonUtils.isBlank(objectId);
         }
 
         private void initControls()
         {
             DataService service = new DataService();
             DdtXRay xRay = service.queryObjectById<DdtXRay>(DdtXRay.TABLE_NAME, objectId);
-            if (xRay != null)
-            {
-                ktDateTxt.Value = xRay.DsdtAnalysisDate;
-                ktTimeTxt.Value = xRay.DsdtAnalysisDate;
-                chestXRayTxt.Text = xRay.DssChestXray;
-                controlRadiographyTxt.Text = xRay.DssControlRadiography;
-                ktTxt.Text = xRay.DssKt;
-                mrtTxt.Text = xRay.DssMrt;
-            }
+            refreshObject(xRay);
             chestXRayTxt.Enabled = isEditable;
             controlRadiographyTxt.Enabled = isEditable;
             ktTxt.Enabled = isEditable;
@@ -43,31 +39,84 @@ namespace Cardiology.Controls
 
         public void saveObject(DdtHospital hospitalitySession, string parentId, string parentType)
         {
-            if (isEditable)
+            if (isEditable && (isNew && getIsValid()|| isDirty()))
             {
                 DataService service = new DataService();
-                DdtXRay xRay = service.queryObjectById<DdtXRay>(DdtXRay.TABLE_NAME, objectId);
-                if (xRay == null)
+                DdtXRay xRay = (DdtXRay) getObject();
+                xRay.DsidHospitalitySession = hospitalitySession.ObjectId;
+                xRay.DsidDoctor = hospitalitySession.DsidCuringDoctor;
+                xRay.DsidPatient = hospitalitySession.DsidPatient;
+                if (parentId != null)
                 {
-                    xRay = new DdtXRay();
-                    xRay.DsidHospitalitySession = hospitalitySession.ObjectId;
-                    xRay.DsidDoctor = hospitalitySession.DsidCuringDoctor;
-                    xRay.DsidPatient = hospitalitySession.DsidPatient;
+                    xRay.DsidParent = parentId;
                 }
-                xRay.DssChestXray = chestXRayTxt.Text;
-                xRay.DssControlRadiography = controlRadiographyTxt.Text;
-                xRay.DssKt = ktTxt.Text;
-                xRay.DssMrt = mrtTxt.Text;
-                xRay.DssParentType = parentType;
-                xRay.DsidParent = parentId;
-                xRay.DsdtAnalysisDate = CommonUtils.constructDateWIthTime(ktDateTxt.Value, ktTimeTxt.Value);
+                if (parentType != null)
+                {
+                    xRay.DssParentType = parentType;
+                }
                 objectId = service.updateOrCreateIfNeedObject<DdtXRay>(xRay, DdtXRay.TABLE_NAME, xRay.ObjectId);
+                isNew = false;
+                hasChanges = false;
             }
         }
 
         public bool getIsValid()
         {
+            return CommonUtils.isNotBlank(chestXRayTxt.Text) || CommonUtils.isNotBlank(controlRadiographyTxt.Text) ||
+                CommonUtils.isNotBlank(ktTxt.Text) || CommonUtils.isNotBlank(mrtTxt.Text);
+        }
+
+        public bool isDirty()
+        {
+            return hasChanges;
+        }
+
+        public object getObject()
+        {
+            DataService service = new DataService();
+            DdtXRay xRay = service.queryObjectById<DdtXRay>(DdtXRay.TABLE_NAME, objectId);
+            if (xRay == null)
+            {
+                xRay = new DdtXRay();
+            }
+            xRay.DssChestXray = chestXRayTxt.Text;
+            xRay.DssControlRadiography = controlRadiographyTxt.Text;
+            xRay.DssKt = ktTxt.Text;
+            xRay.DssMrt = mrtTxt.Text;
+            xRay.DsdtAnalysisDate = CommonUtils.constructDateWIthTime(ktDateTxt.Value, ktTimeTxt.Value);
+            return xRay;
+        }
+
+        public void refreshObject(object obj)
+        {
+            if (obj != null && obj is DdtXRay)
+            {
+                DdtXRay xRay = (DdtXRay) obj;
+                ktDateTxt.Value = xRay.DsdtAnalysisDate;
+                ktTimeTxt.Value = xRay.DsdtAnalysisDate;
+                chestXRayTxt.Text = xRay.DssChestXray;
+                controlRadiographyTxt.Text = xRay.DssControlRadiography;
+                ktTxt.Text = xRay.DssKt;
+                mrtTxt.Text = xRay.DssMrt;
+                objectId = xRay.ObjectId;
+                isNew = CommonUtils.isBlank(objectId);
+                hasChanges = false;
+            }
+        }
+
+        public bool isVisible()
+        {
             return true;
+        }
+
+        private void ktDateTxt_ValueChanged(object sender, System.EventArgs e)
+        {
+            hasChanges = true;
+        }
+
+        private void ControlTxt_TextChanged(object sender, System.EventArgs e)
+        {
+            hasChanges = true;
         }
     }
 }

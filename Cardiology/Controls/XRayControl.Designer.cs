@@ -62,6 +62,7 @@
             this.controlRadiographyTxt.Size = new System.Drawing.Size(471, 66);
             this.controlRadiographyTxt.TabIndex = 1;
             this.controlRadiographyTxt.Text = "";
+            this.controlRadiographyTxt.TextChanged += new System.EventHandler(this.ControlTxt_TextChanged);
             // 
             // chestXRayBox
             // 
@@ -80,6 +81,7 @@
             this.chestXRayTxt.Size = new System.Drawing.Size(465, 66);
             this.chestXRayTxt.TabIndex = 0;
             this.chestXRayTxt.Text = "";
+            this.chestXRayTxt.TextChanged += new System.EventHandler(this.ControlTxt_TextChanged);
             // 
             // dateLbl
             // 
@@ -99,6 +101,7 @@
             this.ktTimeTxt.ShowUpDown = true;
             this.ktTimeTxt.Size = new System.Drawing.Size(117, 20);
             this.ktTimeTxt.TabIndex = 19;
+            this.ktTimeTxt.ValueChanged += new System.EventHandler(this.ktDateTxt_ValueChanged);
             // 
             // ktDateTxt
             // 
@@ -107,6 +110,7 @@
             this.ktDateTxt.Name = "ktDateTxt";
             this.ktDateTxt.Size = new System.Drawing.Size(117, 20);
             this.ktDateTxt.TabIndex = 18;
+            this.ktDateTxt.ValueChanged += new System.EventHandler(this.ktDateTxt_ValueChanged);
             // 
             // mrtBox
             // 
@@ -125,6 +129,7 @@
             this.mrtTxt.Size = new System.Drawing.Size(471, 66);
             this.mrtTxt.TabIndex = 1;
             this.mrtTxt.Text = "";
+            this.mrtTxt.TextChanged += new System.EventHandler(this.ControlTxt_TextChanged);
             // 
             // ktBox
             // 
@@ -143,6 +148,7 @@
             this.ktTxt.Size = new System.Drawing.Size(471, 66);
             this.ktTxt.TabIndex = 1;
             this.ktTxt.Text = "";
+            this.ktTxt.TextChanged += new System.EventHandler(this.ControlTxt_TextChanged);
             // 
             // XRayControl
             // 

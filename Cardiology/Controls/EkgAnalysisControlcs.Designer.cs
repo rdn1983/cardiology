@@ -380,6 +380,7 @@
             this.regularEkgTxt.Size = new System.Drawing.Size(385, 174);
             this.regularEkgTxt.TabIndex = 29;
             this.regularEkgTxt.Text = "";
+            this.regularEkgTxt.TextChanged += new System.EventHandler(this.regularEkgTxt_TextChanged);
             // 
             // clearBtn
             // 
@@ -704,6 +705,7 @@
             this.analysisDate.Name = "analysisDate";
             this.analysisDate.Size = new System.Drawing.Size(107, 20);
             this.analysisDate.TabIndex = 31;
+            this.analysisDate.ValueChanged += new System.EventHandler(this.analysisDate_ValueChanged);
             // 
             // EkgAnalysisControlcs
             // 

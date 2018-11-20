@@ -66,6 +66,7 @@
             this.admissionDateTxt.Name = "admissionDateTxt";
             this.admissionDateTxt.Size = new System.Drawing.Size(85, 20);
             this.admissionDateTxt.TabIndex = 7;
+            this.admissionDateTxt.ValueChanged += new System.EventHandler(this.admissionDateTxt_ValueChanged);
             // 
             // admissionDateLbl
             // 
@@ -83,6 +84,7 @@
             this.ttgTxt.Name = "ttgTxt";
             this.ttgTxt.Size = new System.Drawing.Size(85, 20);
             this.ttgTxt.TabIndex = 5;
+            this.ttgTxt.TextChanged += new System.EventHandler(this.controlTxt_TextChanged);
             // 
             // t4Txt
             // 
@@ -91,6 +93,7 @@
             this.t4Txt.Name = "t4Txt";
             this.t4Txt.Size = new System.Drawing.Size(85, 20);
             this.t4Txt.TabIndex = 4;
+            this.t4Txt.TextChanged += new System.EventHandler(this.controlTxt_TextChanged);
             // 
             // t3Txt
             // 
@@ -99,6 +102,7 @@
             this.t3Txt.Name = "t3Txt";
             this.t3Txt.Size = new System.Drawing.Size(85, 20);
             this.t3Txt.TabIndex = 3;
+            this.t3Txt.TextChanged += new System.EventHandler(this.controlTxt_TextChanged);
             // 
             // ttgLbl
             // 

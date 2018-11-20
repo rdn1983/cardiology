@@ -37,8 +37,8 @@
             this.neurologBox = new System.Windows.Forms.GroupBox();
             this.neurologTxt = new System.Windows.Forms.RichTextBox();
             this.container = new System.Windows.Forms.Panel();
-            this.title = new System.Windows.Forms.Label();
             this.analysisDate = new System.Windows.Forms.DateTimePicker();
+            this.title = new System.Windows.Forms.Label();
             this.endicrinologistBox.SuspendLayout();
             this.neuroSurgeonBox.SuspendLayout();
             this.surgeonBox.SuspendLayout();
@@ -63,6 +63,7 @@
             this.endocrinologistTx.Size = new System.Drawing.Size(408, 65);
             this.endocrinologistTx.TabIndex = 1;
             this.endocrinologistTx.Text = "";
+            this.endocrinologistTx.TextChanged += new System.EventHandler(this.ControlTxt_TextChanged);
             // 
             // neuroSurgeonBox
             // 
@@ -81,6 +82,7 @@
             this.neuroSurgeonTxt.Size = new System.Drawing.Size(408, 69);
             this.neuroSurgeonTxt.TabIndex = 1;
             this.neuroSurgeonTxt.Text = "";
+            this.neuroSurgeonTxt.TextChanged += new System.EventHandler(this.ControlTxt_TextChanged);
             // 
             // surgeonBox
             // 
@@ -99,6 +101,7 @@
             this.surgeonTxt.Size = new System.Drawing.Size(408, 63);
             this.surgeonTxt.TabIndex = 1;
             this.surgeonTxt.Text = "";
+            this.surgeonTxt.TextChanged += new System.EventHandler(this.ControlTxt_TextChanged);
             // 
             // neurologBox
             // 
@@ -117,6 +120,7 @@
             this.neurologTxt.Size = new System.Drawing.Size(402, 62);
             this.neurologTxt.TabIndex = 0;
             this.neurologTxt.Text = "";
+            this.neurologTxt.TextChanged += new System.EventHandler(this.ControlTxt_TextChanged);
             // 
             // container
             // 
@@ -132,6 +136,15 @@
             this.container.Size = new System.Drawing.Size(436, 456);
             this.container.TabIndex = 13;
             // 
+            // analysisDate
+            // 
+            this.analysisDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.analysisDate.Location = new System.Drawing.Point(3, 43);
+            this.analysisDate.Name = "analysisDate";
+            this.analysisDate.Size = new System.Drawing.Size(114, 20);
+            this.analysisDate.TabIndex = 14;
+            this.analysisDate.ValueChanged += new System.EventHandler(this.analysisDate_ValueChanged);
+            // 
             // title
             // 
             this.title.AutoSize = true;
@@ -141,14 +154,6 @@
             this.title.Size = new System.Drawing.Size(220, 13);
             this.title.TabIndex = 13;
             this.title.Text = "Заключения специалистов текущие";
-            // 
-            // analysisDate
-            // 
-            this.analysisDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.analysisDate.Location = new System.Drawing.Point(3, 43);
-            this.analysisDate.Name = "analysisDate";
-            this.analysisDate.Size = new System.Drawing.Size(114, 20);
-            this.analysisDate.TabIndex = 14;
             // 
             // SpecialistConclusionControl
             // 

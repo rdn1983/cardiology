@@ -134,6 +134,7 @@
             this.regularBloodDateTxt.Name = "regularBloodDateTxt";
             this.regularBloodDateTxt.Size = new System.Drawing.Size(79, 20);
             this.regularBloodDateTxt.TabIndex = 37;
+            this.regularBloodDateTxt.ValueChanged += new System.EventHandler(this.regularBloodDateTxt_ValueChanged);
             // 
             // regularBloodDateLbl
             // 

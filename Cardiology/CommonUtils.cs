@@ -1,5 +1,6 @@
 ﻿using Cardiology.Model;
 using Cardiology.Model.Dictionary;
+using NLog;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,6 +11,8 @@ namespace Cardiology.Utils
 {
     public class CommonUtils
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
+
         public static bool isNotBlank(string str)
         {
             return str != null && str.Length > 0;
@@ -260,65 +263,73 @@ namespace Cardiology.Utils
 
         internal static string replaceJournalIntParameter(string journal, string mask, string newValue)
         {
-            if (isNotBlank(journal))
+            try
             {
-
-                int index = -1;
-                StringBuilder resultBuilder = new StringBuilder();
-                if ((index = journal.IndexOf(mask)) >= 0)
+                if (isNotBlank(journal))
                 {
-                    int startIndex = index + mask.Length - 1;
-                    int counter = 0;
-                    int replaceStartIndex = -1;
-                    int replaceEndIndex = -1;
-                    while (replaceStartIndex < 0 && counter < 5)
-                    {
-                        char c = journal[startIndex + counter];
-                        if (Char.IsDigit(c))
-                        {
-                            replaceStartIndex = startIndex + counter;
-                        }
-                        counter++;
-                    }
-                    while (replaceEndIndex < 0)
-                    {
-                        char c = journal[startIndex + counter];
-                        bool isLastChar = startIndex + counter == journal.Length - 1;
-                        if ((!Char.IsDigit(c) && '/' != c )|| isLastChar)
-                        {
-                            replaceEndIndex = startIndex + counter;
-                        }
-                        counter++;
-                    }
 
-                    if (replaceStartIndex >= 0 && replaceEndIndex >= 0)
+                    int index = -1;
+                    StringBuilder resultBuilder = new StringBuilder();
+                    if ((index = journal.IndexOf(mask)) >= 0)
                     {
-                        bool inserted = false;
-                        for (int i = 0; i < journal.Length; i++)
+                        int startIndex = index + mask.Length - 1;
+                        int counter = 0;
+                        int replaceStartIndex = -1;
+                        int replaceEndIndex = -1;
+                        while (replaceStartIndex < 0 && counter < 5)
                         {
-                            if (i < replaceStartIndex || i >= replaceEndIndex)
+                            char c = journal[startIndex + counter];
+                            if (Char.IsDigit(c))
                             {
-                                resultBuilder.Append(journal[i]);
+                                replaceStartIndex = startIndex + counter;
                             }
-                            else
+                            counter++;
+                        }
+                        while (replaceEndIndex < 0)
+                        {
+                            char c = journal[startIndex + counter];
+                            bool isLastChar = startIndex + counter == journal.Length - 1;
+                            if ((!Char.IsDigit(c) && '/' != c) || isLastChar)
                             {
-                                if (!inserted)
+                                replaceEndIndex = startIndex + counter;
+                            }
+                            counter++;
+                        }
+
+                        if (replaceStartIndex >= 0 && replaceEndIndex >= 0)
+                        {
+                            bool inserted = false;
+                            for (int i = 0; i < journal.Length; i++)
+                            {
+                                if (i < replaceStartIndex || i >= replaceEndIndex)
                                 {
-                                    inserted = true;
-                                    resultBuilder.Append(newValue);
+                                    resultBuilder.Append(journal[i]);
+                                }
+                                else
+                                {
+                                    if (!inserted)
+                                    {
+                                        inserted = true;
+                                        resultBuilder.Append(newValue);
+                                    }
                                 }
                             }
                         }
                     }
-                }
-                else
-                {
-                    resultBuilder.Append(journal).Append(mask).Append(" ").Append(newValue).Append(" ");
+                    else
+                    {
+                        resultBuilder.Append(journal).Append(mask).Append(" ").Append(newValue).Append(" ");
 
+                    }
+                    return resultBuilder.ToString();
                 }
-                return resultBuilder.ToString();
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex, ex.Message);
             }
             return journal;
+
         }
 
         private string getSafeStringValue(Control c)

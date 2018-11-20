@@ -123,56 +123,11 @@
             this.tabs = new System.Windows.Forms.TabControl();
             this.ekgTab = new System.Windows.Forms.TabPage();
             this.egdsTab = new System.Windows.Forms.TabPage();
-            this.firstEgdsBox = new System.Windows.Forms.GroupBox();
-            this.firstEgdsTxt = new System.Windows.Forms.RichTextBox();
+            this.egdsAnalysisControl1 = new Cardiology.EgdsAnalysisControl();
             this.bloodTab = new System.Windows.Forms.TabPage();
-            this.bloodAnalysisPnl = new System.Windows.Forms.GroupBox();
-            this.kreatininLbl = new System.Windows.Forms.Label();
-            this.proteinLbl = new System.Windows.Forms.Label();
-            this.plateletsLbl = new System.Windows.Forms.Label();
-            this.chlorineTxt = new System.Windows.Forms.TextBox();
-            this.srbTxt = new System.Windows.Forms.TextBox();
-            this.sodiumTxt = new System.Windows.Forms.TextBox();
-            this.potassiumTxt = new System.Windows.Forms.TextBox();
-            this.kfkMvTxt = new System.Windows.Forms.TextBox();
-            this.kfkTxt = new System.Windows.Forms.TextBox();
-            this.amilazaTxt = new System.Windows.Forms.TextBox();
-            this.schfTxt = new System.Windows.Forms.TextBox();
-            this.astTxt = new System.Windows.Forms.TextBox();
-            this.altTxt = new System.Windows.Forms.TextBox();
-            this.ironTxt = new System.Windows.Forms.TextBox();
-            this.bilTxt = new System.Windows.Forms.TextBox();
-            this.cholesterolTxt = new System.Windows.Forms.TextBox();
-            this.kreatininTxt = new System.Windows.Forms.TextBox();
-            this.proteinTxt = new System.Windows.Forms.TextBox();
-            this.plateletsTxt = new System.Windows.Forms.TextBox();
-            this.leucocytesTxt = new System.Windows.Forms.TextBox();
-            this.hemoglobinTxt = new System.Windows.Forms.TextBox();
-            this.leucocytesLbl = new System.Windows.Forms.Label();
-            this.cholesterolLbl = new System.Windows.Forms.Label();
-            this.bilLbl = new System.Windows.Forms.Label();
-            this.ironLbl = new System.Windows.Forms.Label();
-            this.schfLbl = new System.Windows.Forms.Label();
-            this.amilazaLbl = new System.Windows.Forms.Label();
-            this.potassiumLbl = new System.Windows.Forms.Label();
-            this.sodiumLbl = new System.Windows.Forms.Label();
-            this.altLbl = new System.Windows.Forms.Label();
-            this.astLbl = new System.Windows.Forms.Label();
-            this.kfkMvLbl = new System.Windows.Forms.Label();
-            this.kfkLbl = new System.Windows.Forms.Label();
-            this.srbLbl = new System.Windows.Forms.Label();
-            this.chlorineLbl = new System.Windows.Forms.Label();
-            this.hemoglobinLbl = new System.Windows.Forms.Label();
+            this.bloodAnalysisControl = new Cardiology.BloodAnalysisControl();
             this.urineTab = new System.Windows.Forms.TabPage();
-            this.firstAnalysisBox = new System.Windows.Forms.GroupBox();
-            this.firstProteinTxt = new System.Windows.Forms.TextBox();
-            this.firstErythrocytesTxt = new System.Windows.Forms.TextBox();
-            this.firstLeucocytesTxt = new System.Windows.Forms.TextBox();
-            this.firstColorTxt = new System.Windows.Forms.TextBox();
-            this.urineProteinLbl = new System.Windows.Forms.Label();
-            this.erythrocytesLbl = new System.Windows.Forms.Label();
-            this.urineLeucoLbl = new System.Windows.Forms.Label();
-            this.firstColorLbl = new System.Windows.Forms.Label();
+            this.urineAnalysisControl = new Cardiology.UrineAnalysisControl();
             this.templatesLbl = new System.Windows.Forms.Label();
             this.tip = new System.Windows.Forms.ToolTip(this.components);
             this.addTip = new System.Windows.Forms.ToolTip(this.components);
@@ -180,6 +135,7 @@
             this.docLbl = new System.Windows.Forms.Label();
             this.patientInitialsLbl = new System.Windows.Forms.Label();
             this.templateChanger = new Cardiology.Controls.TemplateChanger();
+            this.ekgAnalysisControlcs = new Cardiology.EkgAnalysisControlcs();
             this.complaintsBox.SuspendLayout();
             this.anamnesisMorbiBox.SuspendLayout();
             this.anamnesisAllergyBox.SuspendLayout();
@@ -209,12 +165,10 @@
             this.issuedCntr.SuspendLayout();
             this.firstAnalysisTab.SuspendLayout();
             this.tabs.SuspendLayout();
+            this.ekgTab.SuspendLayout();
             this.egdsTab.SuspendLayout();
-            this.firstEgdsBox.SuspendLayout();
             this.bloodTab.SuspendLayout();
-            this.bloodAnalysisPnl.SuspendLayout();
             this.urineTab.SuspendLayout();
-            this.firstAnalysisBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // deathBtn
@@ -1258,6 +1212,7 @@
             // 
             // ekgTab
             // 
+            this.ekgTab.Controls.Add(this.ekgAnalysisControlcs);
             this.ekgTab.Location = new System.Drawing.Point(4, 22);
             this.ekgTab.Name = "ekgTab";
             this.ekgTab.Padding = new System.Windows.Forms.Padding(3);
@@ -1268,7 +1223,7 @@
             // 
             // egdsTab
             // 
-            this.egdsTab.Controls.Add(this.firstEgdsBox);
+            this.egdsTab.Controls.Add(this.egdsAnalysisControl1);
             this.egdsTab.Location = new System.Drawing.Point(4, 22);
             this.egdsTab.Name = "egdsTab";
             this.egdsTab.Padding = new System.Windows.Forms.Padding(3);
@@ -1277,27 +1232,16 @@
             this.egdsTab.Text = "ЭГДС";
             this.egdsTab.UseVisualStyleBackColor = true;
             // 
-            // firstEgdsBox
+            // egdsAnalysisControl1
             // 
-            this.firstEgdsBox.Controls.Add(this.firstEgdsTxt);
-            this.firstEgdsBox.Location = new System.Drawing.Point(6, 6);
-            this.firstEgdsBox.Name = "firstEgdsBox";
-            this.firstEgdsBox.Size = new System.Drawing.Size(613, 152);
-            this.firstEgdsBox.TabIndex = 4;
-            this.firstEgdsBox.TabStop = false;
-            this.firstEgdsBox.Text = "Первичное исследование";
-            // 
-            // firstEgdsTxt
-            // 
-            this.firstEgdsTxt.Location = new System.Drawing.Point(7, 19);
-            this.firstEgdsTxt.Name = "firstEgdsTxt";
-            this.firstEgdsTxt.Size = new System.Drawing.Size(596, 127);
-            this.firstEgdsTxt.TabIndex = 0;
-            this.firstEgdsTxt.Text = "";
+            this.egdsAnalysisControl1.Location = new System.Drawing.Point(6, 6);
+            this.egdsAnalysisControl1.Name = "egdsAnalysisControl1";
+            this.egdsAnalysisControl1.Size = new System.Drawing.Size(683, 158);
+            this.egdsAnalysisControl1.TabIndex = 5;
             // 
             // bloodTab
             // 
-            this.bloodTab.Controls.Add(this.bloodAnalysisPnl);
+            this.bloodTab.Controls.Add(this.bloodAnalysisControl);
             this.bloodTab.Location = new System.Drawing.Point(4, 22);
             this.bloodTab.Name = "bloodTab";
             this.bloodTab.Padding = new System.Windows.Forms.Padding(3);
@@ -1306,342 +1250,16 @@
             this.bloodTab.Text = "Показатели крови";
             this.bloodTab.UseVisualStyleBackColor = true;
             // 
-            // bloodAnalysisPnl
-            // 
-            this.bloodAnalysisPnl.Controls.Add(this.kreatininLbl);
-            this.bloodAnalysisPnl.Controls.Add(this.proteinLbl);
-            this.bloodAnalysisPnl.Controls.Add(this.plateletsLbl);
-            this.bloodAnalysisPnl.Controls.Add(this.chlorineTxt);
-            this.bloodAnalysisPnl.Controls.Add(this.srbTxt);
-            this.bloodAnalysisPnl.Controls.Add(this.sodiumTxt);
-            this.bloodAnalysisPnl.Controls.Add(this.potassiumTxt);
-            this.bloodAnalysisPnl.Controls.Add(this.kfkMvTxt);
-            this.bloodAnalysisPnl.Controls.Add(this.kfkTxt);
-            this.bloodAnalysisPnl.Controls.Add(this.amilazaTxt);
-            this.bloodAnalysisPnl.Controls.Add(this.schfTxt);
-            this.bloodAnalysisPnl.Controls.Add(this.astTxt);
-            this.bloodAnalysisPnl.Controls.Add(this.altTxt);
-            this.bloodAnalysisPnl.Controls.Add(this.ironTxt);
-            this.bloodAnalysisPnl.Controls.Add(this.bilTxt);
-            this.bloodAnalysisPnl.Controls.Add(this.cholesterolTxt);
-            this.bloodAnalysisPnl.Controls.Add(this.kreatininTxt);
-            this.bloodAnalysisPnl.Controls.Add(this.proteinTxt);
-            this.bloodAnalysisPnl.Controls.Add(this.plateletsTxt);
-            this.bloodAnalysisPnl.Controls.Add(this.leucocytesTxt);
-            this.bloodAnalysisPnl.Controls.Add(this.hemoglobinTxt);
-            this.bloodAnalysisPnl.Controls.Add(this.leucocytesLbl);
-            this.bloodAnalysisPnl.Controls.Add(this.cholesterolLbl);
-            this.bloodAnalysisPnl.Controls.Add(this.bilLbl);
-            this.bloodAnalysisPnl.Controls.Add(this.ironLbl);
-            this.bloodAnalysisPnl.Controls.Add(this.schfLbl);
-            this.bloodAnalysisPnl.Controls.Add(this.amilazaLbl);
-            this.bloodAnalysisPnl.Controls.Add(this.potassiumLbl);
-            this.bloodAnalysisPnl.Controls.Add(this.sodiumLbl);
-            this.bloodAnalysisPnl.Controls.Add(this.altLbl);
-            this.bloodAnalysisPnl.Controls.Add(this.astLbl);
-            this.bloodAnalysisPnl.Controls.Add(this.kfkMvLbl);
-            this.bloodAnalysisPnl.Controls.Add(this.kfkLbl);
-            this.bloodAnalysisPnl.Controls.Add(this.srbLbl);
-            this.bloodAnalysisPnl.Controls.Add(this.chlorineLbl);
-            this.bloodAnalysisPnl.Controls.Add(this.hemoglobinLbl);
-            this.bloodAnalysisPnl.Location = new System.Drawing.Point(13, 6);
-            this.bloodAnalysisPnl.Name = "bloodAnalysisPnl";
-            this.bloodAnalysisPnl.Size = new System.Drawing.Size(172, 472);
-            this.bloodAnalysisPnl.TabIndex = 0;
-            this.bloodAnalysisPnl.TabStop = false;
-            this.bloodAnalysisPnl.Text = "Анализы при поступлении";
-            // 
-            // kreatininLbl
-            // 
-            this.kreatininLbl.AutoSize = true;
-            this.kreatininLbl.Location = new System.Drawing.Point(6, 121);
-            this.kreatininLbl.Name = "kreatininLbl";
-            this.kreatininLbl.Size = new System.Drawing.Size(64, 13);
-            this.kreatininLbl.TabIndex = 35;
-            this.kreatininLbl.Text = "Креатинин:";
-            // 
-            // proteinLbl
-            // 
-            this.proteinLbl.AutoSize = true;
-            this.proteinLbl.Location = new System.Drawing.Point(6, 97);
-            this.proteinLbl.Name = "proteinLbl";
-            this.proteinLbl.Size = new System.Drawing.Size(60, 13);
-            this.proteinLbl.TabIndex = 34;
-            this.proteinLbl.Text = "Об. белок:";
-            // 
-            // plateletsLbl
-            // 
-            this.plateletsLbl.AutoSize = true;
-            this.plateletsLbl.Location = new System.Drawing.Point(6, 73);
-            this.plateletsLbl.Name = "plateletsLbl";
-            this.plateletsLbl.Size = new System.Drawing.Size(74, 13);
-            this.plateletsLbl.TabIndex = 33;
-            this.plateletsLbl.Text = "Тромбоциты:";
-            // 
-            // chlorineTxt
-            // 
-            this.chlorineTxt.Location = new System.Drawing.Point(81, 424);
-            this.chlorineTxt.Name = "chlorineTxt";
-            this.chlorineTxt.Size = new System.Drawing.Size(79, 20);
-            this.chlorineTxt.TabIndex = 32;
-            // 
-            // srbTxt
-            // 
-            this.srbTxt.Location = new System.Drawing.Point(81, 352);
-            this.srbTxt.Name = "srbTxt";
-            this.srbTxt.Size = new System.Drawing.Size(79, 20);
-            this.srbTxt.TabIndex = 31;
-            // 
-            // sodiumTxt
-            // 
-            this.sodiumTxt.Location = new System.Drawing.Point(81, 400);
-            this.sodiumTxt.Name = "sodiumTxt";
-            this.sodiumTxt.Size = new System.Drawing.Size(79, 20);
-            this.sodiumTxt.TabIndex = 30;
-            // 
-            // potassiumTxt
-            // 
-            this.potassiumTxt.Location = new System.Drawing.Point(81, 376);
-            this.potassiumTxt.Name = "potassiumTxt";
-            this.potassiumTxt.Size = new System.Drawing.Size(79, 20);
-            this.potassiumTxt.TabIndex = 29;
-            // 
-            // kfkMvTxt
-            // 
-            this.kfkMvTxt.Location = new System.Drawing.Point(81, 328);
-            this.kfkMvTxt.Name = "kfkMvTxt";
-            this.kfkMvTxt.Size = new System.Drawing.Size(79, 20);
-            this.kfkMvTxt.TabIndex = 28;
-            // 
-            // kfkTxt
-            // 
-            this.kfkTxt.Location = new System.Drawing.Point(81, 304);
-            this.kfkTxt.Name = "kfkTxt";
-            this.kfkTxt.Size = new System.Drawing.Size(79, 20);
-            this.kfkTxt.TabIndex = 27;
-            // 
-            // amilazaTxt
-            // 
-            this.amilazaTxt.Location = new System.Drawing.Point(81, 281);
-            this.amilazaTxt.Name = "amilazaTxt";
-            this.amilazaTxt.Size = new System.Drawing.Size(79, 20);
-            this.amilazaTxt.TabIndex = 26;
-            // 
-            // schfTxt
-            // 
-            this.schfTxt.Location = new System.Drawing.Point(81, 257);
-            this.schfTxt.Name = "schfTxt";
-            this.schfTxt.Size = new System.Drawing.Size(79, 20);
-            this.schfTxt.TabIndex = 25;
-            // 
-            // astTxt
-            // 
-            this.astTxt.Location = new System.Drawing.Point(81, 233);
-            this.astTxt.Name = "astTxt";
-            this.astTxt.Size = new System.Drawing.Size(79, 20);
-            this.astTxt.TabIndex = 24;
-            // 
-            // altTxt
-            // 
-            this.altTxt.Location = new System.Drawing.Point(81, 209);
-            this.altTxt.Name = "altTxt";
-            this.altTxt.Size = new System.Drawing.Size(79, 20);
-            this.altTxt.TabIndex = 23;
-            // 
-            // ironTxt
-            // 
-            this.ironTxt.Location = new System.Drawing.Point(81, 185);
-            this.ironTxt.Name = "ironTxt";
-            this.ironTxt.Size = new System.Drawing.Size(79, 20);
-            this.ironTxt.TabIndex = 22;
-            // 
-            // bilTxt
-            // 
-            this.bilTxt.Location = new System.Drawing.Point(81, 162);
-            this.bilTxt.Name = "bilTxt";
-            this.bilTxt.Size = new System.Drawing.Size(79, 20);
-            this.bilTxt.TabIndex = 21;
-            // 
-            // cholesterolTxt
-            // 
-            this.cholesterolTxt.Location = new System.Drawing.Point(81, 138);
-            this.cholesterolTxt.Name = "cholesterolTxt";
-            this.cholesterolTxt.Size = new System.Drawing.Size(79, 20);
-            this.cholesterolTxt.TabIndex = 20;
-            // 
-            // kreatininTxt
-            // 
-            this.kreatininTxt.Location = new System.Drawing.Point(81, 114);
-            this.kreatininTxt.Name = "kreatininTxt";
-            this.kreatininTxt.Size = new System.Drawing.Size(79, 20);
-            this.kreatininTxt.TabIndex = 19;
-            // 
-            // proteinTxt
-            // 
-            this.proteinTxt.Location = new System.Drawing.Point(81, 90);
-            this.proteinTxt.Name = "proteinTxt";
-            this.proteinTxt.Size = new System.Drawing.Size(79, 20);
-            this.proteinTxt.TabIndex = 18;
-            // 
-            // plateletsTxt
-            // 
-            this.plateletsTxt.Location = new System.Drawing.Point(81, 66);
-            this.plateletsTxt.Name = "plateletsTxt";
-            this.plateletsTxt.Size = new System.Drawing.Size(79, 20);
-            this.plateletsTxt.TabIndex = 17;
-            // 
-            // leucocytesTxt
-            // 
-            this.leucocytesTxt.Location = new System.Drawing.Point(81, 42);
-            this.leucocytesTxt.Name = "leucocytesTxt";
-            this.leucocytesTxt.Size = new System.Drawing.Size(79, 20);
-            this.leucocytesTxt.TabIndex = 16;
-            // 
-            // hemoglobinTxt
-            // 
-            this.hemoglobinTxt.Location = new System.Drawing.Point(81, 19);
-            this.hemoglobinTxt.Name = "hemoglobinTxt";
-            this.hemoglobinTxt.Size = new System.Drawing.Size(79, 20);
-            this.hemoglobinTxt.TabIndex = 15;
-            // 
-            // leucocytesLbl
-            // 
-            this.leucocytesLbl.AutoSize = true;
-            this.leucocytesLbl.Location = new System.Drawing.Point(6, 49);
-            this.leucocytesLbl.Name = "leucocytesLbl";
-            this.leucocytesLbl.Size = new System.Drawing.Size(67, 13);
-            this.leucocytesLbl.TabIndex = 14;
-            this.leucocytesLbl.Text = "Лейкоциты:";
-            // 
-            // cholesterolLbl
-            // 
-            this.cholesterolLbl.AutoSize = true;
-            this.cholesterolLbl.Location = new System.Drawing.Point(6, 145);
-            this.cholesterolLbl.Name = "cholesterolLbl";
-            this.cholesterolLbl.Size = new System.Drawing.Size(70, 13);
-            this.cholesterolLbl.TabIndex = 13;
-            this.cholesterolLbl.Text = "Холестерин:";
-            // 
-            // bilLbl
-            // 
-            this.bilLbl.AutoSize = true;
-            this.bilLbl.Location = new System.Drawing.Point(6, 169);
-            this.bilLbl.Name = "bilLbl";
-            this.bilLbl.Size = new System.Drawing.Size(59, 13);
-            this.bilLbl.TabIndex = 12;
-            this.bilLbl.Text = "Бил. общ.:";
-            // 
-            // ironLbl
-            // 
-            this.ironLbl.AutoSize = true;
-            this.ironLbl.Location = new System.Drawing.Point(6, 192);
-            this.ironLbl.Name = "ironLbl";
-            this.ironLbl.Size = new System.Drawing.Size(51, 13);
-            this.ironLbl.TabIndex = 11;
-            this.ironLbl.Text = "Железо:";
-            // 
-            // schfLbl
-            // 
-            this.schfLbl.AutoSize = true;
-            this.schfLbl.Location = new System.Drawing.Point(6, 264);
-            this.schfLbl.Name = "schfLbl";
-            this.schfLbl.Size = new System.Drawing.Size(31, 13);
-            this.schfLbl.TabIndex = 10;
-            this.schfLbl.Text = "ЩФ:";
-            // 
-            // amilazaLbl
-            // 
-            this.amilazaLbl.AutoSize = true;
-            this.amilazaLbl.Location = new System.Drawing.Point(6, 288);
-            this.amilazaLbl.Name = "amilazaLbl";
-            this.amilazaLbl.Size = new System.Drawing.Size(55, 13);
-            this.amilazaLbl.TabIndex = 9;
-            this.amilazaLbl.Text = "Амилаза:";
-            // 
-            // potassiumLbl
-            // 
-            this.potassiumLbl.AutoSize = true;
-            this.potassiumLbl.Location = new System.Drawing.Point(6, 383);
-            this.potassiumLbl.Name = "potassiumLbl";
-            this.potassiumLbl.Size = new System.Drawing.Size(41, 13);
-            this.potassiumLbl.TabIndex = 8;
-            this.potassiumLbl.Text = "Калий:";
-            // 
-            // sodiumLbl
-            // 
-            this.sodiumLbl.AutoSize = true;
-            this.sodiumLbl.Location = new System.Drawing.Point(6, 407);
-            this.sodiumLbl.Name = "sodiumLbl";
-            this.sodiumLbl.Size = new System.Drawing.Size(47, 13);
-            this.sodiumLbl.TabIndex = 7;
-            this.sodiumLbl.Text = "Натрий:";
-            // 
-            // altLbl
-            // 
-            this.altLbl.AutoSize = true;
-            this.altLbl.Location = new System.Drawing.Point(6, 216);
-            this.altLbl.Name = "altLbl";
-            this.altLbl.Size = new System.Drawing.Size(32, 13);
-            this.altLbl.TabIndex = 6;
-            this.altLbl.Text = "АЛТ:";
-            // 
-            // astLbl
-            // 
-            this.astLbl.AutoSize = true;
-            this.astLbl.Location = new System.Drawing.Point(6, 240);
-            this.astLbl.Name = "astLbl";
-            this.astLbl.Size = new System.Drawing.Size(31, 13);
-            this.astLbl.TabIndex = 5;
-            this.astLbl.Text = "АСТ:";
-            // 
-            // kfkMvLbl
-            // 
-            this.kfkMvLbl.AutoSize = true;
-            this.kfkMvLbl.Location = new System.Drawing.Point(6, 335);
-            this.kfkMvLbl.Name = "kfkMvLbl";
-            this.kfkMvLbl.Size = new System.Drawing.Size(54, 13);
-            this.kfkMvLbl.TabIndex = 4;
-            this.kfkMvLbl.Text = "КФК-МВ:";
-            // 
-            // kfkLbl
-            // 
-            this.kfkLbl.AutoSize = true;
-            this.kfkLbl.Location = new System.Drawing.Point(6, 311);
-            this.kfkLbl.Name = "kfkLbl";
-            this.kfkLbl.Size = new System.Drawing.Size(35, 13);
-            this.kfkLbl.TabIndex = 3;
-            this.kfkLbl.Text = "КФК:";
-            // 
-            // srbLbl
-            // 
-            this.srbLbl.AutoSize = true;
-            this.srbLbl.Location = new System.Drawing.Point(6, 359);
-            this.srbLbl.Name = "srbLbl";
-            this.srbLbl.Size = new System.Drawing.Size(31, 13);
-            this.srbLbl.TabIndex = 2;
-            this.srbLbl.Text = "СРБ:";
-            // 
-            // chlorineLbl
-            // 
-            this.chlorineLbl.AutoSize = true;
-            this.chlorineLbl.Location = new System.Drawing.Point(6, 431);
-            this.chlorineLbl.Name = "chlorineLbl";
-            this.chlorineLbl.Size = new System.Drawing.Size(35, 13);
-            this.chlorineLbl.TabIndex = 1;
-            this.chlorineLbl.Text = "Хлор:";
-            // 
-            // hemoglobinLbl
-            // 
-            this.hemoglobinLbl.AutoSize = true;
-            this.hemoglobinLbl.Location = new System.Drawing.Point(6, 26);
-            this.hemoglobinLbl.Name = "hemoglobinLbl";
-            this.hemoglobinLbl.Size = new System.Drawing.Size(71, 13);
-            this.hemoglobinLbl.TabIndex = 0;
-            this.hemoglobinLbl.Text = "Гемоглобин:";
+            // bloodAnalysisControl
+            // 
+            this.bloodAnalysisControl.Location = new System.Drawing.Point(6, 6);
+            this.bloodAnalysisControl.Name = "bloodAnalysisControl";
+            this.bloodAnalysisControl.Size = new System.Drawing.Size(180, 502);
+            this.bloodAnalysisControl.TabIndex = 1;
             // 
             // urineTab
             // 
-            this.urineTab.Controls.Add(this.firstAnalysisBox);
+            this.urineTab.Controls.Add(this.urineAnalysisControl);
             this.urineTab.Location = new System.Drawing.Point(4, 22);
             this.urineTab.Name = "urineTab";
             this.urineTab.Padding = new System.Windows.Forms.Padding(3);
@@ -1650,86 +1268,12 @@
             this.urineTab.Text = "Анализ мочи";
             this.urineTab.UseVisualStyleBackColor = true;
             // 
-            // firstAnalysisBox
+            // urineAnalysisControl
             // 
-            this.firstAnalysisBox.Controls.Add(this.firstProteinTxt);
-            this.firstAnalysisBox.Controls.Add(this.firstErythrocytesTxt);
-            this.firstAnalysisBox.Controls.Add(this.firstLeucocytesTxt);
-            this.firstAnalysisBox.Controls.Add(this.firstColorTxt);
-            this.firstAnalysisBox.Controls.Add(this.urineProteinLbl);
-            this.firstAnalysisBox.Controls.Add(this.erythrocytesLbl);
-            this.firstAnalysisBox.Controls.Add(this.urineLeucoLbl);
-            this.firstAnalysisBox.Controls.Add(this.firstColorLbl);
-            this.firstAnalysisBox.Location = new System.Drawing.Point(17, 23);
-            this.firstAnalysisBox.Name = "firstAnalysisBox";
-            this.firstAnalysisBox.Size = new System.Drawing.Size(259, 208);
-            this.firstAnalysisBox.TabIndex = 0;
-            this.firstAnalysisBox.TabStop = false;
-            this.firstAnalysisBox.Text = "При поступлении";
-            // 
-            // firstProteinTxt
-            // 
-            this.firstProteinTxt.Location = new System.Drawing.Point(88, 159);
-            this.firstProteinTxt.Name = "firstProteinTxt";
-            this.firstProteinTxt.Size = new System.Drawing.Size(156, 20);
-            this.firstProteinTxt.TabIndex = 14;
-            // 
-            // firstErythrocytesTxt
-            // 
-            this.firstErythrocytesTxt.Location = new System.Drawing.Point(88, 119);
-            this.firstErythrocytesTxt.Name = "firstErythrocytesTxt";
-            this.firstErythrocytesTxt.Size = new System.Drawing.Size(156, 20);
-            this.firstErythrocytesTxt.TabIndex = 12;
-            // 
-            // firstLeucocytesTxt
-            // 
-            this.firstLeucocytesTxt.Location = new System.Drawing.Point(88, 75);
-            this.firstLeucocytesTxt.Name = "firstLeucocytesTxt";
-            this.firstLeucocytesTxt.Size = new System.Drawing.Size(156, 20);
-            this.firstLeucocytesTxt.TabIndex = 11;
-            // 
-            // firstColorTxt
-            // 
-            this.firstColorTxt.Location = new System.Drawing.Point(88, 34);
-            this.firstColorTxt.Name = "firstColorTxt";
-            this.firstColorTxt.Size = new System.Drawing.Size(156, 20);
-            this.firstColorTxt.TabIndex = 8;
-            // 
-            // urineProteinLbl
-            // 
-            this.urineProteinLbl.AutoSize = true;
-            this.urineProteinLbl.Location = new System.Drawing.Point(8, 166);
-            this.urineProteinLbl.Name = "urineProteinLbl";
-            this.urineProteinLbl.Size = new System.Drawing.Size(41, 13);
-            this.urineProteinLbl.TabIndex = 7;
-            this.urineProteinLbl.Text = "Белок:";
-            // 
-            // erythrocytesLbl
-            // 
-            this.erythrocytesLbl.AutoSize = true;
-            this.erythrocytesLbl.Location = new System.Drawing.Point(8, 126);
-            this.erythrocytesLbl.Name = "erythrocytesLbl";
-            this.erythrocytesLbl.Size = new System.Drawing.Size(71, 13);
-            this.erythrocytesLbl.TabIndex = 4;
-            this.erythrocytesLbl.Text = "Эритроциты:";
-            // 
-            // urineLeucoLbl
-            // 
-            this.urineLeucoLbl.AutoSize = true;
-            this.urineLeucoLbl.Location = new System.Drawing.Point(8, 82);
-            this.urineLeucoLbl.Name = "urineLeucoLbl";
-            this.urineLeucoLbl.Size = new System.Drawing.Size(67, 13);
-            this.urineLeucoLbl.TabIndex = 3;
-            this.urineLeucoLbl.Text = "Лейкоциты:";
-            // 
-            // firstColorLbl
-            // 
-            this.firstColorLbl.AutoSize = true;
-            this.firstColorLbl.Location = new System.Drawing.Point(8, 41);
-            this.firstColorLbl.Name = "firstColorLbl";
-            this.firstColorLbl.Size = new System.Drawing.Size(35, 13);
-            this.firstColorLbl.TabIndex = 0;
-            this.firstColorLbl.Text = "Цвет:";
+            this.urineAnalysisControl.Location = new System.Drawing.Point(7, 11);
+            this.urineAnalysisControl.Name = "urineAnalysisControl";
+            this.urineAnalysisControl.Size = new System.Drawing.Size(270, 237);
+            this.urineAnalysisControl.TabIndex = 0;
             // 
             // templatesLbl
             // 
@@ -1783,6 +1327,15 @@
             // 
             this.templateChanger.Name = "templateChanger";
             this.templateChanger.Size = new System.Drawing.Size(189, 202);
+            // 
+            // ekgAnalysisControlcs
+            // 
+            this.ekgAnalysisControlcs.Location = new System.Drawing.Point(7, 11);
+            this.ekgAnalysisControlcs.MaximumSize = new System.Drawing.Size(732, 409);
+            this.ekgAnalysisControlcs.MinimumSize = new System.Drawing.Size(732, 409);
+            this.ekgAnalysisControlcs.Name = "ekgAnalysisControlcs";
+            this.ekgAnalysisControlcs.Size = new System.Drawing.Size(732, 409);
+            this.ekgAnalysisControlcs.TabIndex = 0;
             // 
             // FirstInspection
             // 
@@ -1846,14 +1399,10 @@
             this.issuedCntr.PerformLayout();
             this.firstAnalysisTab.ResumeLayout(false);
             this.tabs.ResumeLayout(false);
+            this.ekgTab.ResumeLayout(false);
             this.egdsTab.ResumeLayout(false);
-            this.firstEgdsBox.ResumeLayout(false);
             this.bloodTab.ResumeLayout(false);
-            this.bloodAnalysisPnl.ResumeLayout(false);
-            this.bloodAnalysisPnl.PerformLayout();
             this.urineTab.ResumeLayout(false);
-            this.firstAnalysisBox.ResumeLayout(false);
-            this.firstAnalysisBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1946,56 +1495,8 @@
         private System.Windows.Forms.TabControl tabs;
         private System.Windows.Forms.TabPage ekgTab;
         private System.Windows.Forms.TabPage egdsTab;
-        private System.Windows.Forms.GroupBox firstEgdsBox;
-        private System.Windows.Forms.RichTextBox firstEgdsTxt;
         private System.Windows.Forms.TabPage bloodTab;
-        private System.Windows.Forms.GroupBox bloodAnalysisPnl;
-        private System.Windows.Forms.Label kreatininLbl;
-        private System.Windows.Forms.Label proteinLbl;
-        private System.Windows.Forms.Label plateletsLbl;
-        private System.Windows.Forms.TextBox chlorineTxt;
-        private System.Windows.Forms.TextBox srbTxt;
-        private System.Windows.Forms.TextBox sodiumTxt;
-        private System.Windows.Forms.TextBox potassiumTxt;
-        private System.Windows.Forms.TextBox kfkMvTxt;
-        private System.Windows.Forms.TextBox kfkTxt;
-        private System.Windows.Forms.TextBox amilazaTxt;
-        private System.Windows.Forms.TextBox schfTxt;
-        private System.Windows.Forms.TextBox astTxt;
-        private System.Windows.Forms.TextBox altTxt;
-        private System.Windows.Forms.TextBox ironTxt;
-        private System.Windows.Forms.TextBox bilTxt;
-        private System.Windows.Forms.TextBox cholesterolTxt;
-        private System.Windows.Forms.TextBox kreatininTxt;
-        private System.Windows.Forms.TextBox proteinTxt;
-        private System.Windows.Forms.TextBox plateletsTxt;
-        private System.Windows.Forms.TextBox leucocytesTxt;
-        private System.Windows.Forms.TextBox hemoglobinTxt;
-        private System.Windows.Forms.Label leucocytesLbl;
-        private System.Windows.Forms.Label cholesterolLbl;
-        private System.Windows.Forms.Label bilLbl;
-        private System.Windows.Forms.Label ironLbl;
-        private System.Windows.Forms.Label schfLbl;
-        private System.Windows.Forms.Label amilazaLbl;
-        private System.Windows.Forms.Label potassiumLbl;
-        private System.Windows.Forms.Label sodiumLbl;
-        private System.Windows.Forms.Label altLbl;
-        private System.Windows.Forms.Label astLbl;
-        private System.Windows.Forms.Label kfkMvLbl;
-        private System.Windows.Forms.Label kfkLbl;
-        private System.Windows.Forms.Label srbLbl;
-        private System.Windows.Forms.Label chlorineLbl;
-        private System.Windows.Forms.Label hemoglobinLbl;
         private System.Windows.Forms.TabPage urineTab;
-        private System.Windows.Forms.GroupBox firstAnalysisBox;
-        private System.Windows.Forms.TextBox firstProteinTxt;
-        private System.Windows.Forms.TextBox firstErythrocytesTxt;
-        private System.Windows.Forms.TextBox firstLeucocytesTxt;
-        private System.Windows.Forms.TextBox firstColorTxt;
-        private System.Windows.Forms.Label urineProteinLbl;
-        private System.Windows.Forms.Label erythrocytesLbl;
-        private System.Windows.Forms.Label urineLeucoLbl;
-        private System.Windows.Forms.Label firstColorLbl;
         private System.Windows.Forms.ToolTip tip;
         private System.Windows.Forms.ToolTip addTip;
         private System.Windows.Forms.Panel issuedCntr;
@@ -2010,5 +1511,9 @@
         private System.Windows.Forms.Button addIssuedAction;
         private System.Windows.Forms.Panel scrollableCntr;
         private Controls.IssuedActionContainer issuedActionContainer;
+        private BloodAnalysisControl bloodAnalysisControl;
+        private UrineAnalysisControl urineAnalysisControl;
+        private EgdsAnalysisControl egdsAnalysisControl1;
+        private EkgAnalysisControlcs ekgAnalysisControlcs;
     }
 }

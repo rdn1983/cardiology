@@ -2,7 +2,7 @@
 
 namespace Cardiology.Model
 {
-    public class DdtVariousSpecConcluson
+    public class DdtVariousSpecConcluson : DdtTypedObject
     {
         public const string TABLE_NAME = "ddt_various_spec_concluson";
 

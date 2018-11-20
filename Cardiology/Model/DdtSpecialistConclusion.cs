@@ -2,7 +2,7 @@
 
 namespace Cardiology.Model
 {
-    public class DdtSpecialistConclusion
+    public class DdtSpecialistConclusion : DdtTypedObject
     {
         public const string TABLE_NAME = "ddt_specialist_conclusion";
 

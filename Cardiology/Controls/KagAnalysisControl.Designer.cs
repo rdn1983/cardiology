@@ -43,8 +43,8 @@
             this.kagDateBox = new System.Windows.Forms.GroupBox();
             this.kagDate = new System.Windows.Forms.DateTimePicker();
             this.container = new System.Windows.Forms.Panel();
-            this.title = new System.Windows.Forms.Label();
             this.showBlanksBtn = new System.Windows.Forms.Button();
+            this.title = new System.Windows.Forms.Label();
             this.blanksMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.procedureConsentBlank = new System.Windows.Forms.ToolStripMenuItem();
             this.dataProcessingBlank = new System.Windows.Forms.ToolStripMenuItem();
@@ -75,6 +75,7 @@
             this.kagActionsTxt.Size = new System.Drawing.Size(456, 86);
             this.kagActionsTxt.TabIndex = 0;
             this.kagActionsTxt.Text = "";
+            this.kagActionsTxt.TextChanged += new System.EventHandler(this.ControlTxt_TextChanged);
             // 
             // manipulationBox
             // 
@@ -93,6 +94,7 @@
             this.kagManipulationTxt.Size = new System.Drawing.Size(456, 81);
             this.kagManipulationTxt.TabIndex = 0;
             this.kagManipulationTxt.Text = "";
+            this.kagManipulationTxt.TextChanged += new System.EventHandler(this.ControlTxt_TextChanged);
             // 
             // resultsBox
             // 
@@ -111,6 +113,7 @@
             this.kagResultsTxt.Size = new System.Drawing.Size(457, 78);
             this.kagResultsTxt.TabIndex = 0;
             this.kagResultsTxt.Text = "";
+            this.kagResultsTxt.TextChanged += new System.EventHandler(this.ControlTxt_TextChanged);
             // 
             // kagTimeBox
             // 
@@ -145,6 +148,7 @@
             this.kagEndTime.ShowUpDown = true;
             this.kagEndTime.Size = new System.Drawing.Size(171, 20);
             this.kagEndTime.TabIndex = 2;
+            this.kagEndTime.ValueChanged += new System.EventHandler(this.kagDate_ValueChanged);
             // 
             // endTimeLbl
             // 
@@ -181,6 +185,7 @@
             this.kagDate.Name = "kagDate";
             this.kagDate.Size = new System.Drawing.Size(167, 20);
             this.kagDate.TabIndex = 0;
+            this.kagDate.ValueChanged += new System.EventHandler(this.kagDate_ValueChanged);
             // 
             // container
             // 
@@ -197,16 +202,6 @@
             this.container.Size = new System.Drawing.Size(479, 495);
             this.container.TabIndex = 14;
             // 
-            // title
-            // 
-            this.title.AutoSize = true;
-            this.title.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.title.Location = new System.Drawing.Point(3, 12);
-            this.title.Name = "title";
-            this.title.Size = new System.Drawing.Size(113, 13);
-            this.title.TabIndex = 14;
-            this.title.Text = "Анализы текущие";
-            // 
             // showBlanksBtn
             // 
             this.showBlanksBtn.Location = new System.Drawing.Point(8, 455);
@@ -217,6 +212,16 @@
             this.showBlanksBtn.UseVisualStyleBackColor = true;
             this.showBlanksBtn.Click += new System.EventHandler(this.showBlanksBtn_Click);
             // 
+            // title
+            // 
+            this.title.AutoSize = true;
+            this.title.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.title.Location = new System.Drawing.Point(3, 12);
+            this.title.Name = "title";
+            this.title.Size = new System.Drawing.Size(113, 13);
+            this.title.TabIndex = 14;
+            this.title.Text = "Анализы текущие";
+            // 
             // blanksMenu
             // 
             this.blanksMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -224,7 +229,7 @@
             this.dataProcessingBlank,
             this.anesthesiaBlank});
             this.blanksMenu.Name = "blanksMenu";
-            this.blanksMenu.Size = new System.Drawing.Size(247, 92);
+            this.blanksMenu.Size = new System.Drawing.Size(247, 70);
             // 
             // procedureConsentBlank
             // 

@@ -2,6 +2,6 @@
 {
     interface IAutoSaveForm
     {
-        void save();
+        bool save();
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Cardiology.Model;
 using Cardiology.Model.Dictionary;
+using System;
 using System.Collections.Generic;
 using System.IO;
 
@@ -59,29 +60,31 @@ namespace Cardiology.Utils
                 DdtVariousSpecConcluson.TABLE_NAME + " WHERE dsid_parent='" + journal.RObjectId + "' AND dsb_additional_bool=false order by dsdt_admission_date");
             DdtKag kag = service.queryObjectByAttrCond<DdtKag>(DdtKag.TABLE_NAME, "dsid_parent", journal.RObjectId, true);
 
+            DateTime journalDate = journal.DsdtAdmissionDate;
             if (cardioConclusions.Count > 0)
             {
                 DdtVariousSpecConcluson kagMainPart = cardioConclusions[0];
-                values.Add("{time}", journal.DsdtAdmissionDate.ToShortTimeString());
+                values.Add("{time}", journalDate.ToShortTimeString());
                 values.Add("{title}", "Осмотр дежурного кардиореаниматолога " + (doc == null ? "" : doc.DssInitials) + 
                     " совместно с ангиохирургом Потехиным Д.А. \n Пациента доставили из рентгеноперационной.");
                 values.Add("{complaints}", " ");
                 values.Add("{journal}", kagMainPart.DssSpecialistConclusion);
                 values.Add("{monitor}", kagMainPart.DssAdditionalInfo4);
-                values.Add("{kag_diagnosis}", kag == null ? " " : "У пациента по данным КАГ выявлено:" + kag.DssResults + "\n");
+                values.Add("{kag_diagnosis}", kag == null ? " " : "У пациента по данным КАГ выявлено:" + kag.DssKagAction + "\n");
                 values.Add("{diagnosis}", "Таким образом, у пациента:" + journal.DssDiagnosis);
                 partsPaths.Add(TemplatesUtils.fillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + TEMPLATE_FILE_NAME, values));
                 cardioConclusions.Remove(kagMainPart);
             }
 
             Dictionary<string, string> surgeryValues = new Dictionary<string, string>();
-            surgeryValues.Add("{time}", journal.DsdtAdmissionDate.ToShortTimeString());
+            surgeryValues.Add("{time}", journalDate.AddHours(1).ToShortTimeString());
             surgeryValues.Add("{title}", "Осмотр ренгеноваскулярного хирурга Потехина Д.А. \n");
             surgeryValues.Add("{complaints}", journal.DssComplaints);
             surgeryValues.Add("{journal}", journal.DssJournal);
             surgeryValues.Add("{monitor}", " ");
             surgeryValues.Add("{kag_diagnosis}", " ");
             surgeryValues.Add("{diagnosis}", " ");
+            surgeryValues.Add("{doctor.initials}", doc == null ? "" : doc.DssInitials);
             partsPaths.Add(TemplatesUtils.fillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + TEMPLATE_FILE_NAME, surgeryValues));
 
             foreach (DdtVariousSpecConcluson conclusion in cardioConclusions)
@@ -110,7 +113,7 @@ namespace Cardiology.Utils
                 conclusionValues.Add("{journal}", releaseConclusion.DssSpecialistConclusion);
                 conclusionValues.Add("{monitor}", releaseConclusion.DssAdditionalInfo4);
                 conclusionValues.Add("{doctor.initials}", doc == null ? "" : doc.DssInitials);
-                conclusionValues.Add("{kag_diagnosis}", kag == null ? " " : "У пациента по данным КАГ выявлено:" + kag.DssResults + "\n");
+                conclusionValues.Add("{kag_diagnosis}", kag == null ? " " : "У пациента по данным КАГ выявлено:" + kag.DssKagAction + "\n");
                 conclusionValues.Add("{diagnosis}", "Таким образом, у пациента:" + journal.DssDiagnosis);
                 partsPaths.Add(TemplatesUtils.fillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + TEMPLATE_FILE_NAME, conclusionValues));
             }

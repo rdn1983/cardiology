@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.visibledPanel = new System.Windows.Forms.Panel();
+            this.warningLbl = new System.Windows.Forms.Label();
             this.docLbl = new System.Windows.Forms.Label();
             this.docBox = new System.Windows.Forms.ComboBox();
             this.complaintsTxt = new System.Windows.Forms.TextBox();
@@ -48,7 +49,6 @@
             this.chssLbl = new System.Windows.Forms.Label();
             this.goodRhytmBtn = new System.Windows.Forms.RadioButton();
             this.hideJournalBtn = new System.Windows.Forms.CheckBox();
-            this.warningLbl = new System.Windows.Forms.Label();
             this.visibledPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,6 +77,16 @@
             this.visibledPanel.Name = "visibledPanel";
             this.visibledPanel.Size = new System.Drawing.Size(696, 149);
             this.visibledPanel.TabIndex = 38;
+            // 
+            // warningLbl
+            // 
+            this.warningLbl.AutoSize = true;
+            this.warningLbl.ForeColor = System.Drawing.Color.Maroon;
+            this.warningLbl.Location = new System.Drawing.Point(168, 106);
+            this.warningLbl.Name = "warningLbl";
+            this.warningLbl.Size = new System.Drawing.Size(233, 13);
+            this.warningLbl.TabIndex = 47;
+            this.warningLbl.Text = "Выберите значения для ЧСС, ЧД, АД, врача";
             // 
             // docLbl
             // 
@@ -143,6 +153,7 @@
             this.startDateTxt.Name = "startDateTxt";
             this.startDateTxt.Size = new System.Drawing.Size(100, 20);
             this.startDateTxt.TabIndex = 35;
+            this.startDateTxt.ValueChanged += new System.EventHandler(this.TimeTxt_ValueChanged);
             // 
             // chddTxt
             // 
@@ -208,6 +219,7 @@
             this.journalTxt.Size = new System.Drawing.Size(428, 72);
             this.journalTxt.TabIndex = 15;
             this.journalTxt.Text = "";
+            this.journalTxt.TextChanged += new System.EventHandler(this.journalTxt_TextChanged);
             // 
             // adLbl
             // 
@@ -239,6 +251,7 @@
             this.startTimeTxt.ShowUpDown = true;
             this.startTimeTxt.Size = new System.Drawing.Size(100, 20);
             this.startTimeTxt.TabIndex = 2;
+            this.startTimeTxt.ValueChanged += new System.EventHandler(this.TimeTxt_ValueChanged);
             // 
             // badRhytmBtn
             // 
@@ -286,16 +299,6 @@
             this.hideJournalBtn.Text = "Скрыть дневник";
             this.hideJournalBtn.UseVisualStyleBackColor = true;
             this.hideJournalBtn.CheckedChanged += new System.EventHandler(this.hideJournalBtn_CheckedChanged);
-            // 
-            // warningLbl
-            // 
-            this.warningLbl.AutoSize = true;
-            this.warningLbl.ForeColor = System.Drawing.Color.Maroon;
-            this.warningLbl.Location = new System.Drawing.Point(168, 106);
-            this.warningLbl.Name = "warningLbl";
-            this.warningLbl.Size = new System.Drawing.Size(198, 13);
-            this.warningLbl.TabIndex = 47;
-            this.warningLbl.Text = "Выберите значения для ЧСС, ЧД, АД";
             // 
             // JournalNoKAGControl
             // 

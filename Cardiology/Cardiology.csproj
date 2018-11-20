@@ -225,6 +225,7 @@
     <Compile Include="Model\DdtSerology.cs" />
     <Compile Include="Model\DdtSpecialistConclusion.cs" />
     <Compile Include="Model\DdtTransfer.cs" />
+    <Compile Include="Model\DdtTypedObject.cs" />
     <Compile Include="Model\DdtUrineAnalysis.cs" />
     <Compile Include="Model\DdtUzi.cs" />
     <Compile Include="Model\DdtValues.cs" />

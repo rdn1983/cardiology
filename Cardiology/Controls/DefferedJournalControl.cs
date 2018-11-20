@@ -9,15 +9,19 @@ namespace Cardiology.Controls
     public partial class DefferedJournalControl : UserControl, IDocbaseControl
     {
         private string objectId;
+        private bool hasChanges;
+        private bool isNew;
 
         public DefferedJournalControl(string objectId)
         {
             this.objectId = objectId;
             InitializeComponent();
             initControls();
+            hasChanges = false;
+            isNew = CommonUtils.isBlank(objectId);
         }
 
-        internal bool isVisible()
+        public bool isVisible()
         {
             return !hideDefferedCb.Checked;
         }
@@ -36,64 +40,26 @@ namespace Cardiology.Controls
 
             DataService service = new DataService();
             CommonUtils.initDoctorsComboboxValues(service, docBox, null);
-
             DdtJournal journal = service.queryObjectById<DdtJournal>(DdtJournal.TABLE_NAME, objectId);
-            if (journal != null)
-            {
-                deferredJournalTxt.Text = journal.DssJournal;
-                deferredAdTxt.Text = journal.DssAd;
-                defferedChddTxt.Text = journal.DssChdd;
-                deferredChssTxt.Text = journal.DssChss;
-                deferredMonitorTxt.Text = journal.DssMonitor;
-
-                deferredStartDate.Value = journal.DsdtAdmissionDate;
-                deferredStartTime.Value = journal.DsdtAdmissionDate;
-
-                DdtDoctors doc = service.queryObjectById<DdtDoctors>(DdtDoctors.TABLE_NAME, journal.DsidDoctor);
-                docBox.SelectedIndex = docBox.FindStringExact(doc.DssInitials);
-            }
-            else
-            {
-                deferredJournalTxt.Text = JournalShuffleUtils.shuffleJournalText();
-                deferredChssTxt.SelectedIndex = JournalShuffleUtils.shuffleNextIndex(deferredChssTxt.Items.Count - 1);
-                deferredAdTxt.SelectedIndex = JournalShuffleUtils.shuffleNextIndex(deferredAdTxt.Items.Count - 1);
-                defferedChddTxt.SelectedIndex = defferedChddTxt.FindString("14");
-            }
+            refreshObject(journal);
         }
 
         public void saveObject(DdtHospital hospitalitySession, string parentId, string parentType)
         {
-            DataService service = new DataService();
-
-            if (CommonUtils.isBlank(deferredJournalTxt.Text))
+            if (CommonUtils.isBlank(deferredJournalTxt.Text) || !(hasChanges || isNew))
             {
                 return;
             }
 
-            DdtJournal journal = service.queryObjectById<DdtJournal>(DdtJournal.TABLE_NAME, objectId);
-            if (journal == null)
-            {
-                journal = new DdtJournal();
-                journal.DsidDoctor = hospitalitySession.DsidCuringDoctor;
-                journal.DsidHospitalitySession = hospitalitySession.ObjectId;
-                journal.DsidPatient = hospitalitySession.DsidPatient;
-                journal.DsiJournalType = (int)DdtJournalDsiType.PENDING_JUSTIFICATION;
-            }
-
-            journal.DssAd = deferredAdTxt.Text;
-            journal.DssChdd = defferedChddTxt.Text;
-            journal.DssChss = deferredChssTxt.Text;
-            journal.DssJournal = deferredJournalTxt.Text;
-            journal.DssMonitor = deferredMonitorTxt.Text;
-            journal.DsdtAdmissionDate = CommonUtils.constructDateWIthTime(deferredStartDate.Value, deferredStartTime.Value);
-
-            DdtDoctors selectedDoc = (DdtDoctors)docBox.SelectedItem;
-            if (selectedDoc != null)
-            {
-                journal.DsidDoctor = selectedDoc.ObjectId;
-            }
-
+            DataService service = new DataService();
+            DdtJournal journal = (DdtJournal)getObject();
+            journal.DsidHospitalitySession = hospitalitySession.ObjectId;
+            journal.DsidPatient = hospitalitySession.DsidPatient;
+            journal.DsidDoctor = CommonUtils.isBlank(journal.DsidDoctor) ? hospitalitySession.DsidCuringDoctor : journal.DsidDoctor;
+           
             objectId = service.updateOrCreateIfNeedObject<DdtJournal>(journal, DdtJournal.TABLE_NAME, journal.RObjectId);
+            hasChanges = false;
+            isNew = false;
         }
 
         public string getObjectId()
@@ -109,6 +75,7 @@ namespace Cardiology.Controls
         private void badRhytmBtn_CheckedChanged(object sender, EventArgs e)
         {
             deferredMonitorTxt.Text = badRhytmBtn.Checked ? "синусовый ритм" : "трепетание предсердий";
+            hasChanges = true;
         }
 
         public bool isGoodRhytm()
@@ -140,6 +107,7 @@ namespace Cardiology.Controls
             {
                 string oldJournal = deferredJournalTxt.Text;
                 deferredJournalTxt.Text = CommonUtils.replaceJournalIntParameter(oldJournal, "ЧД", newValue);
+                hasChanges = true;
             }
         }
 
@@ -150,6 +118,7 @@ namespace Cardiology.Controls
             {
                 string oldJournal = deferredJournalTxt.Text;
                 deferredJournalTxt.Text = CommonUtils.replaceJournalIntParameter(oldJournal, "ЧСС", newValue);
+                hasChanges = true;
             }
         }
 
@@ -160,6 +129,7 @@ namespace Cardiology.Controls
             {
                 string oldJournal = deferredJournalTxt.Text;
                 deferredJournalTxt.Text = CommonUtils.replaceJournalIntParameter(oldJournal, "АД", newValue);
+                hasChanges = true;
             }
         }
 
@@ -176,6 +146,77 @@ namespace Cardiology.Controls
             bool result = deferredChssTxt.SelectedIndex >= 0 && defferedChddTxt.SelectedIndex >= 0 && deferredAdTxt.SelectedIndex >= 0;
             warningLbl.Visible = !result;
             return result;
+        }
+
+        public bool isDirty()
+        {
+            return hasChanges;
+        }
+
+        public object getObject()
+        {
+            DataService service = new DataService();
+            DdtJournal journal = service.queryObjectById<DdtJournal>(DdtJournal.TABLE_NAME, objectId);
+            if (journal == null)
+            {
+                journal = new DdtJournal();
+                journal.DsiJournalType = (int)DdtJournalDsiType.PENDING_JUSTIFICATION;
+            }
+
+            journal.DssAd = deferredAdTxt.Text;
+            journal.DssChdd = defferedChddTxt.Text;
+            journal.DssChss = deferredChssTxt.Text;
+            journal.DssJournal = deferredJournalTxt.Text;
+            journal.DssMonitor = deferredMonitorTxt.Text;
+            journal.DsdtAdmissionDate = CommonUtils.constructDateWIthTime(deferredStartDate.Value, deferredStartTime.Value);
+
+            DdtDoctors selectedDoc = (DdtDoctors)docBox.SelectedItem;
+            if (selectedDoc != null)
+            {
+                journal.DsidDoctor = selectedDoc.ObjectId;
+            }
+
+            return journal;
+        }
+
+        public void refreshObject(object obj)
+        {
+            if (obj != null && obj is DdtJournal)
+            {
+                DdtJournal journal = (DdtJournal)obj;
+                DataService service = new DataService();
+                deferredJournalTxt.Text = journal.DssJournal;
+                deferredAdTxt.Text = journal.DssAd;
+                defferedChddTxt.Text = journal.DssChdd;
+                deferredChssTxt.Text = journal.DssChss;
+                deferredMonitorTxt.Text = journal.DssMonitor;
+
+                deferredStartDate.Value = journal.DsdtAdmissionDate;
+                deferredStartTime.Value = journal.DsdtAdmissionDate;
+
+                DdtDoctors doc = service.queryObjectById<DdtDoctors>(DdtDoctors.TABLE_NAME, journal.DsidDoctor);
+                docBox.SelectedIndex = docBox.FindStringExact(doc.DssInitials);
+                objectId = journal.RObjectId;
+                isNew = CommonUtils.isBlank(objectId);
+                hasChanges = false;
+            }
+            else
+            {
+                deferredJournalTxt.Text = JournalShuffleUtils.shuffleJournalText();
+                deferredChssTxt.SelectedIndex = JournalShuffleUtils.shuffleNextIndex(deferredChssTxt.Items.Count - 1);
+                deferredAdTxt.SelectedIndex = JournalShuffleUtils.shuffleNextIndex(deferredAdTxt.Items.Count - 1);
+                defferedChddTxt.SelectedIndex = defferedChddTxt.FindString("14");
+            }
+        }
+
+        private void deferredJournalTxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            hasChanges = true;
+        }
+
+        private void deferredStartTime_ValueChanged(object sender, EventArgs e)
+        {
+            hasChanges = true;
         }
     }
 }

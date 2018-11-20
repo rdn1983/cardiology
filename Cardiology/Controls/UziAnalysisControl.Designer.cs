@@ -39,8 +39,8 @@
             this.ehoKgBox = new System.Windows.Forms.GroupBox();
             this.ehoKgTxt = new System.Windows.Forms.RichTextBox();
             this.container = new System.Windows.Forms.Panel();
-            this.title = new System.Windows.Forms.Label();
             this.analysisDate = new System.Windows.Forms.DateTimePicker();
+            this.title = new System.Windows.Forms.Label();
             this.pleursUziBox.SuspendLayout();
             this.uziObpBox.SuspendLayout();
             this.cdsBox.SuspendLayout();
@@ -66,6 +66,7 @@
             this.pleursUziTxt.Size = new System.Drawing.Size(471, 73);
             this.pleursUziTxt.TabIndex = 1;
             this.pleursUziTxt.Text = "";
+            this.pleursUziTxt.TextChanged += new System.EventHandler(this.ControlTxt_TextChanged);
             // 
             // uziObpBox
             // 
@@ -84,6 +85,7 @@
             this.uziObpTxt.Size = new System.Drawing.Size(471, 73);
             this.uziObpTxt.TabIndex = 1;
             this.uziObpTxt.Text = "";
+            this.uziObpTxt.TextChanged += new System.EventHandler(this.ControlTxt_TextChanged);
             // 
             // cdsBox
             // 
@@ -102,6 +104,7 @@
             this.cdsTxt.Size = new System.Drawing.Size(471, 73);
             this.cdsTxt.TabIndex = 1;
             this.cdsTxt.Text = "";
+            this.cdsTxt.TextChanged += new System.EventHandler(this.ControlTxt_TextChanged);
             // 
             // uzdBox
             // 
@@ -120,6 +123,7 @@
             this.uzdTxt.Size = new System.Drawing.Size(471, 73);
             this.uzdTxt.TabIndex = 1;
             this.uzdTxt.Text = "";
+            this.uzdTxt.TextChanged += new System.EventHandler(this.ControlTxt_TextChanged);
             // 
             // ehoKgBox
             // 
@@ -138,6 +142,7 @@
             this.ehoKgTxt.Size = new System.Drawing.Size(465, 73);
             this.ehoKgTxt.TabIndex = 0;
             this.ehoKgTxt.Text = "";
+            this.ehoKgTxt.TextChanged += new System.EventHandler(this.ControlTxt_TextChanged);
             // 
             // container
             // 
@@ -154,6 +159,15 @@
             this.container.Size = new System.Drawing.Size(500, 559);
             this.container.TabIndex = 10;
             // 
+            // analysisDate
+            // 
+            this.analysisDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.analysisDate.Location = new System.Drawing.Point(4, 34);
+            this.analysisDate.Name = "analysisDate";
+            this.analysisDate.Size = new System.Drawing.Size(112, 20);
+            this.analysisDate.TabIndex = 11;
+            this.analysisDate.ValueChanged += new System.EventHandler(this.analysisDate_ValueChanged);
+            // 
             // title
             // 
             this.title.AutoSize = true;
@@ -163,14 +177,6 @@
             this.title.Size = new System.Drawing.Size(87, 13);
             this.title.TabIndex = 10;
             this.title.Text = "УЗИ текущие";
-            // 
-            // analysisDate
-            // 
-            this.analysisDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.analysisDate.Location = new System.Drawing.Point(4, 34);
-            this.analysisDate.Name = "analysisDate";
-            this.analysisDate.Size = new System.Drawing.Size(112, 20);
-            this.analysisDate.TabIndex = 11;
             // 
             // UziAnalysisControl
             // 

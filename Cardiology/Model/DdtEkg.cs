@@ -2,7 +2,7 @@
 
 namespace Cardiology.Model
 {
-    public class DdtEkg
+    public class DdtEkg : DdtTypedObject
     {
         public const string TABLE_NAME = "ddt_ekg";
 
@@ -27,16 +27,6 @@ namespace Cardiology.Model
         [TableAttribute("dss_parent_type")]
         private string dssParentType;
 
-        public string ObjectId
-        {
-            get { return rObjectId; }
-        }
-
-        public DateTime RCreationDate
-        {
-            get { return rCreationDate; }
-        }
-
         public string DsidHospitalitySession { get => dsidHospitalitySession; set => dsidHospitalitySession = value; }
         public string DsidPatient { get => dsidPatient; set => dsidPatient = value; }
         public string DsidDoctor { get => dsidDoctor; set => dsidDoctor = value; }
@@ -45,5 +35,7 @@ namespace Cardiology.Model
         public DateTime DsdtAnalysisDate { get => dsdtAnalysisDate; set => dsdtAnalysisDate = value; }
         public string DsidParent { get => dsidParent; set => dsidParent = value; }
         public string DssParentType { get => dssParentType; set => dssParentType = value; }
+        public string ObjectId { get => rObjectId; set => rObjectId = value; }
+        public DateTime RCreationDate { get => rCreationDate; set => rCreationDate = value; }
     }
 }

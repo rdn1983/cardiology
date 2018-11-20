@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.visibledPnl = new System.Windows.Forms.Panel();
+            this.warningLbl = new System.Windows.Forms.Label();
             this.goodRhytmBtn = new System.Windows.Forms.RadioButton();
             this.badRhytmBtn = new System.Windows.Forms.RadioButton();
             this.docLbl = new System.Windows.Forms.Label();
@@ -45,7 +46,6 @@
             this.deferredJournalTxt = new System.Windows.Forms.RichTextBox();
             this.deferredAdTxt = new System.Windows.Forms.ComboBox();
             this.hideDefferedCb = new System.Windows.Forms.CheckBox();
-            this.warningLbl = new System.Windows.Forms.Label();
             this.visibledPnl.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,6 +71,16 @@
             this.visibledPnl.Name = "visibledPnl";
             this.visibledPnl.Size = new System.Drawing.Size(665, 147);
             this.visibledPnl.TabIndex = 22;
+            // 
+            // warningLbl
+            // 
+            this.warningLbl.AutoSize = true;
+            this.warningLbl.ForeColor = System.Drawing.Color.Maroon;
+            this.warningLbl.Location = new System.Drawing.Point(126, 107);
+            this.warningLbl.Name = "warningLbl";
+            this.warningLbl.Size = new System.Drawing.Size(177, 13);
+            this.warningLbl.TabIndex = 25;
+            this.warningLbl.Text = "Выберите значения ЧСС, ЧД, АД";
             // 
             // goodRhytmBtn
             // 
@@ -121,6 +131,7 @@
             this.deferredStartDate.Name = "deferredStartDate";
             this.deferredStartDate.Size = new System.Drawing.Size(93, 20);
             this.deferredStartDate.TabIndex = 20;
+            this.deferredStartDate.ValueChanged += new System.EventHandler(this.deferredStartTime_ValueChanged);
             // 
             // deferredStartTime
             // 
@@ -132,6 +143,7 @@
             this.deferredStartTime.ShowUpDown = true;
             this.deferredStartTime.Size = new System.Drawing.Size(84, 20);
             this.deferredStartTime.TabIndex = 2;
+            this.deferredStartTime.ValueChanged += new System.EventHandler(this.deferredStartTime_ValueChanged);
             // 
             // deferredAdLbl
             // 
@@ -211,6 +223,7 @@
             this.deferredJournalTxt.Size = new System.Drawing.Size(416, 100);
             this.deferredJournalTxt.TabIndex = 15;
             this.deferredJournalTxt.Text = "";
+            this.deferredJournalTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.deferredJournalTxt_KeyPress);
             // 
             // deferredAdTxt
             // 
@@ -246,16 +259,6 @@
             this.hideDefferedCb.Text = "Скрыть дневник";
             this.hideDefferedCb.UseVisualStyleBackColor = true;
             this.hideDefferedCb.CheckedChanged += new System.EventHandler(this.hideDefferedCb_CheckedChanged);
-            // 
-            // warningLbl
-            // 
-            this.warningLbl.AutoSize = true;
-            this.warningLbl.ForeColor = System.Drawing.Color.Maroon;
-            this.warningLbl.Location = new System.Drawing.Point(126, 107);
-            this.warningLbl.Name = "warningLbl";
-            this.warningLbl.Size = new System.Drawing.Size(177, 13);
-            this.warningLbl.TabIndex = 25;
-            this.warningLbl.Text = "Выберите значения ЧСС, ЧД, АД";
             // 
             // DefferedJournalControl
             // 

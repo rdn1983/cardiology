@@ -8,11 +8,15 @@ namespace Cardiology
 {
     public partial class EkgAnalysisControlcs : UserControl, IDocbaseControl
     {
-        private static Size FULL_SIZE = new Size(732, 409);
-        private static Size READONLY_SIZE = new Size(732, 83);
+        private static readonly Size FULL_SIZE = new Size(732, 409);
+        private static readonly Size READONLY_SIZE = new Size(732, 83);
 
         private string objectId;
         private bool isEditable;
+        private bool hasChanges;
+        private bool isNew;
+
+        public EkgAnalysisControlcs() : this(null, false) { }
 
         public EkgAnalysisControlcs(string objectId, bool additional)
         {
@@ -23,18 +27,15 @@ namespace Cardiology
             this.MinimumSize = isEditable ? FULL_SIZE : READONLY_SIZE;
             InitializeComponent();
             initControls();
+            hasChanges = false;
+            isNew = CommonUtils.isBlank(objectId);
         }
+
         private void initControls()
         {
             DataService service = new DataService();
             DdtEkg ekg = service.queryObjectById<DdtEkg>(DdtEkg.TABLE_NAME, objectId);
-            if (ekg != null)
-            {
-                readonlyEkgTxt.Text = ekg.DssEkg;
-                regularEkgTxt.Text = ekg.DssEkg;
-                analysisDate.Value = ekg.DsdtAnalysisDate;
-                readonlyEkgBox.Text = "ЭКГ за " + ekg.DsdtAnalysisDate.ToShortDateString();
-            }
+            refreshObject(ekg);
             regularEkgTxt.Enabled = isEditable;
             readonlyEkgTxt.Enabled = isEditable;
             analysisDate.Enabled = isEditable;
@@ -45,7 +46,7 @@ namespace Cardiology
             editablePnl.Size = isEditable ? FULL_SIZE : READONLY_SIZE;
         }
 
-        public DdtEkg getObject()
+        public object getObject()
         {
             DataService service = new DataService();
             DdtEkg ekg = service.queryObjectById<DdtEkg>(DdtEkg.TABLE_NAME, objectId);
@@ -60,22 +61,24 @@ namespace Cardiology
 
         public void saveObject(DdtHospital hospitalitySession, string parentId, string parentType)
         {
-            if (isEditable && CommonUtils.isNotBlank(regularEkgTxt.Text))
+            if (isEditable && (isNew && CommonUtils.isNotBlank(regularEkgTxt.Text) || isDirty()))
             {
                 DataService service = new DataService();
-                DdtEkg ekg = service.queryObjectById<DdtEkg>(DdtEkg.TABLE_NAME, objectId);
-                if (ekg == null)
+                DdtEkg ekg = (DdtEkg)getObject();
+                ekg.DsidHospitalitySession = hospitalitySession.ObjectId;
+                ekg.DsidDoctor = hospitalitySession.DsidCuringDoctor;
+                ekg.DsidPatient = hospitalitySession.DsidPatient;
+                if (parentId != null)
                 {
-                    ekg = new DdtEkg();
-                    ekg.DsidHospitalitySession = hospitalitySession.ObjectId;
-                    ekg.DsidDoctor = hospitalitySession.DsidCuringDoctor;
-                    ekg.DsidPatient = hospitalitySession.DsidPatient;
+                    ekg.DsidParent = parentId;
                 }
-                ekg.DsdtAnalysisDate = analysisDate.Value;
-                ekg.DssEkg = regularEkgTxt.Text;
-                ekg.DsidParent = parentId;
-                ekg.DssParentType = parentType;
+                if (parentType != null)
+                {
+                    ekg.DssParentType = parentType;
+                }
                 objectId = service.updateOrCreateIfNeedObject<DdtEkg>(ekg, DdtEkg.TABLE_NAME, ekg.ObjectId);
+                isNew = false;
+                hasChanges = false;
             }
         }
 
@@ -84,6 +87,42 @@ namespace Cardiology
             return objectId;
         }
 
+        public void setObjectId(string id)
+        {
+            this.objectId = id;
+        }
+
+        public bool getIsValid()
+        {
+            return CommonUtils.isNotBlank(regularEkgTxt.Text) || !isEditable;
+        }
+
+        public bool isDirty()
+        {
+            return hasChanges;
+        }
+
+        public void refreshObject(object obj)
+        {
+            if (obj != null && obj is DdtEkg)
+            {
+                DdtEkg ekg = (DdtEkg)obj;
+                readonlyEkgTxt.Text = ekg.DssEkg;
+                regularEkgTxt.Text = ekg.DssEkg;
+                analysisDate.Value = ekg.DsdtAnalysisDate;
+                readonlyEkgBox.Text = "ЭКГ за " + ekg.DsdtAnalysisDate.ToShortDateString();
+                objectId = ekg.ObjectId;
+                isNew = CommonUtils.isBlank(objectId);
+                hasChanges = false;
+            }
+        }
+
+        public bool isVisible()
+        {
+            return true;
+        }
+
+        #region controls_behavior
         private void clearBtn_Click(object sender, EventArgs e)
         {
             regularEkgTxt.Text = "";
@@ -229,10 +268,15 @@ namespace Cardiology
 
         }
 
-        public bool getIsValid()
+        private void regularEkgTxt_TextChanged(object sender, EventArgs e)
         {
-            return true;
+            hasChanges = true;
         }
 
+        private void analysisDate_ValueChanged(object sender, EventArgs e)
+        {
+            hasChanges = true;
+        }
+        #endregion
     }
 }

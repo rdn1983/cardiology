@@ -150,25 +150,24 @@ namespace Cardiology
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
-            if (!getIsValid())
-            {
-                return;
-            }
 
-            save();
+            if (save())
+            {
             Close();
+            }
         }
 
-        public void save()
+        public bool save()
         {
             if (!getIsValid())
             {
-                return;
+                return false;
             }
 
             DataService service = new DataService();
             saveInspectionObj(service);
             saveAnalysis(service);
+            return true;
         }
 
         private bool getIsValid()
@@ -213,7 +212,8 @@ namespace Cardiology
             TableLayoutPanel tabCntr = getTabContainer(name, title, false);
             for (int i = 0; i < tabCntr.Controls.Count; i++)
             {
-                IDocbaseControl control = getSafeObjectValueUni(tabCntr, new getValue<IDocbaseControl>((ctrl) => (IDocbaseControl)((TableLayoutPanel)ctrl).Controls[i]));
+                IDocbaseControl control = getSafeObjectValueUni(tabCntr, new getValue<IDocbaseControl>((ctrl) 
+                    => (IDocbaseControl)((TableLayoutPanel)ctrl).Controls[i]));
                 control.saveObject(hospitalitySession, inspectionObj.RObjectId, DdtInspection.TABLE_NAME);
             }
         }

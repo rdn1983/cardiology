@@ -3,7 +3,7 @@ using System;
 
 namespace Cardiology.Model
 {
-    public class DdtHormones
+    public class DdtHormones : DdtTypedObject
     {
         public const string TABLE_NAME = "ddt_hormones";
 
@@ -25,6 +25,7 @@ namespace Cardiology.Model
         private string dssTtg;
         [TableAttribute("dsdt_analysis_date")]
         private DateTime dsdtAnalysisDate;
+
 
         public string RObjectId { get => rObjectId; set => rObjectId = value; }
         public DateTime RCreationDate { get => rCreationDate; set => rCreationDate = value; }

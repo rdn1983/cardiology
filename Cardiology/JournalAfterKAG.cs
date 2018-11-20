@@ -62,6 +62,7 @@ namespace Cardiology
                     if (kag != null)
                     {
                         kagDiagnosisTxt.Text = kag.DssKagAction;
+                        kagId = kag.ObjectId;
                     }
 
                     initCardioConslusions(service);
@@ -101,9 +102,8 @@ namespace Cardiology
             {
                 if (dutyCardioContainer.Controls.Count <= i)
                 {
-                    JournalKAGControl control = new JournalKAGControl();
-                    control.Anchor = AnchorStyles.Right;
-                    control.initObject(cardioConclusions[i]);
+                    JournalKAGControl control = new JournalKAGControl(cardioConclusions[i].RObjectId, false);
+                    //control.Anchor = AnchorStyles.Right;
                     dutyCardioContainer.Controls.Add(control);
                 }
             }
@@ -112,13 +112,13 @@ namespace Cardiology
                 " WHERE dsid_parent='" + journalId + "' AND dsb_additional_bool=true");
             if (releaseConclusion != null)
             {
-                releaseJournalCtrl.initObject(releaseConclusion);
+                releaseJournalCtrl.refreshObject(releaseConclusion);
             } 
         }
 
         private void addCardioInspetions_Click(object sender, EventArgs e)
         {
-            JournalKAGControl control = new JournalKAGControl();
+            JournalKAGControl control = new JournalKAGControl(null, false);
             int indx = dutyCardioContainer.Controls.Count - 1;
             DateTime lastDate = DateTime.Now;
             if (indx >= 0)
@@ -128,17 +128,19 @@ namespace Cardiology
                 control.initRhytm(last.isGoodRhytm());
             }
             control.Anchor = AnchorStyles.Right;
-            control.initDateTime(lastDate.AddHours(1));
+            control.initDateTime(lastDate.AddHours(4));
             dutyCardioContainer.Controls.Add(control);
         }
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
-            save();
-            Close();
+            if (save())
+            {
+                Close();
+            }
         }
 
-        public void save()
+        public bool save()
         {
             DataService service = new DataService();
             service.updateObject<DdtHospital>(hospitalitySession, DdtHospital.TABLENAME, "r_object_id", hospitalitySession.ObjectId);
@@ -183,46 +185,31 @@ namespace Cardiology
                 }
                 kag.DsidParent = journalId;
                 kag.DssKagAction = kagDiagnosisTxt.Text;
-                service.updateOrCreateIfNeedObject<DdtKag>(kag, DdtKag.TABLE_NAME, kag.ObjectId);
+                kagId = service.updateOrCreateIfNeedObject<DdtKag>(kag, DdtKag.TABLE_NAME, kag.ObjectId);
             }
 
             for (int i = 0; i < dutyCardioContainer.Controls.Count; i++)
             {
                 JournalKAGControl journalCtrl = (JournalKAGControl)dutyCardioContainer.Controls[i];
-                DdtVariousSpecConcluson conclusion = journalCtrl.getObject();
-                if (conclusion == null)
-                {
-                    conclusion = new DdtVariousSpecConcluson();
-                }
-                conclusion.DssParentType = DdtJournal.TABLE_NAME;
-                conclusion.DsidParent = journalId;
-                conclusion.DssSpecialistType = "Дежурный кардиореаниматолог";
-                conclusion.DsbAdditionalBool = false;
-                service.updateOrCreateIfNeedObject<DdtVariousSpecConcluson>(conclusion, DdtVariousSpecConcluson.TABLE_NAME, conclusion.RObjectId);
+                journalCtrl.saveObject(hospitalitySession, journalId, DdtJournal.TABLE_NAME);
             }
 
-            DdtVariousSpecConcluson releaseConclusion = releaseJournalCtrl.getObject();
-            if (releaseConclusion == null)
-            {
-                releaseConclusion = new DdtVariousSpecConcluson();
-            }
-            releaseConclusion.DssParentType = DdtJournal.TABLE_NAME;
-            releaseConclusion.DsidParent = journalId;
-            releaseConclusion.DssSpecialistType = "Дежурный кардиореаниматолог";
-            releaseConclusion.DsbAdditionalBool = true;
-            service.updateOrCreateIfNeedObject<DdtVariousSpecConcluson>(releaseConclusion, DdtVariousSpecConcluson.TABLE_NAME, releaseConclusion.RObjectId);
+            releaseJournalCtrl.saveObject(hospitalitySession, journalId, DdtJournal.TABLE_NAME);
+            return true;
         }
 
         private void printBtn_Click(object sender, EventArgs e)
         {
-            save();
-            DataService service = new DataService();
-            DdtJournal journal = service.queryObjectById<DdtJournal>(DdtJournal.TABLE_NAME, journalId);
-            if (journal != null)
+            if (save())
             {
-                ITemplateProcessor processor = TemplateProcessorManager.getProcessorByObjectType(DdtJournal.TABLE_NAME);
-                string path = processor.processTemplate(hospitalitySession.ObjectId, journal.RObjectId, null);
-                TemplatesUtils.showDocument(path);
+                DataService service = new DataService();
+                DdtJournal journal = service.queryObjectById<DdtJournal>(DdtJournal.TABLE_NAME, journalId);
+                if (journal != null)
+                {
+                    ITemplateProcessor processor = TemplateProcessorManager.getProcessorByObjectType(DdtJournal.TABLE_NAME);
+                    string path = processor.processTemplate(hospitalitySession.ObjectId, journal.RObjectId, null);
+                    TemplatesUtils.showDocument(path);
+                }
             }
         }
 

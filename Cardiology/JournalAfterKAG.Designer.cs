@@ -51,7 +51,7 @@
             this.dutyCardioInspectationPnl = new System.Windows.Forms.GroupBox();
             this.dutyCardioContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.finalDiaryBox = new System.Windows.Forms.Panel();
-            this.releaseJournalCtrl = new Cardiology.Controls.JournalKAGControl();
+            this.releaseJournalCtrl = new Cardiology.Controls.JournalKAGControl(null, true);
             this.ekgTxt0 = new System.Windows.Forms.TextBox();
             this.addCardioInspetions = new System.Windows.Forms.Button();
             this.ekgLbl0 = new System.Windows.Forms.Label();
@@ -312,17 +312,7 @@
             this.dutyCardioContainer.Size = new System.Drawing.Size(907, 269);
             this.dutyCardioContainer.TabIndex = 7;
             this.dutyCardioContainer.WrapContents = false;
-            // 
-            // finalDiaryBox
-            // 
-            this.finalDiaryBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.finalDiaryBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.finalDiaryBox.Controls.Add(this.releaseJournalCtrl);
-            this.finalDiaryBox.Location = new System.Drawing.Point(8, 294);
-            this.finalDiaryBox.Name = "finalDiaryBox";
-            this.finalDiaryBox.Size = new System.Drawing.Size(916, 115);
-            this.finalDiaryBox.TabIndex = 12;
+   
             // 
             // releaseJournalCtrl
             // 
@@ -336,6 +326,17 @@
             this.releaseJournalCtrl.Name = "releaseJournalCtrl";
             this.releaseJournalCtrl.Size = new System.Drawing.Size(779, 112);
             this.releaseJournalCtrl.TabIndex = 0;
+            // 
+            // finalDiaryBox
+            // 
+            this.finalDiaryBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.finalDiaryBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.finalDiaryBox.Controls.Add(this.releaseJournalCtrl);
+            this.finalDiaryBox.Location = new System.Drawing.Point(8, 294);
+            this.finalDiaryBox.Name = "finalDiaryBox";
+            this.finalDiaryBox.Size = new System.Drawing.Size(916, 115);
+            this.finalDiaryBox.TabIndex = 12;
             // 
             // ekgTxt0
             // 

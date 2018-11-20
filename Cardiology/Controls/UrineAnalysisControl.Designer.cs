@@ -70,6 +70,7 @@
             this.dateUrineAnalysis.Name = "dateUrineAnalysis";
             this.dateUrineAnalysis.Size = new System.Drawing.Size(156, 20);
             this.dateUrineAnalysis.TabIndex = 43;
+            this.dateUrineAnalysis.ValueChanged += new System.EventHandler(this.dateUrineAnalysis_ValueChanged);
             // 
             // dateUrineAnalysisLbl
             // 
@@ -89,6 +90,7 @@
             this.proteinTxt.Size = new System.Drawing.Size(156, 20);
             this.proteinTxt.TabIndex = 14;
             this.proteinTxt.Text = "следы";
+            this.proteinTxt.TextChanged += new System.EventHandler(this.ControlTxt_TextChanged);
             // 
             // erythrocytesTxt
             // 
@@ -98,6 +100,7 @@
             this.erythrocytesTxt.Size = new System.Drawing.Size(156, 20);
             this.erythrocytesTxt.TabIndex = 12;
             this.erythrocytesTxt.Text = "1-3 в поле зрения";
+            this.erythrocytesTxt.TextChanged += new System.EventHandler(this.ControlTxt_TextChanged);
             // 
             // leukocytesTxt
             // 
@@ -107,6 +110,7 @@
             this.leukocytesTxt.Size = new System.Drawing.Size(156, 20);
             this.leukocytesTxt.TabIndex = 11;
             this.leukocytesTxt.Text = "5-6 в поле зрения";
+            this.leukocytesTxt.TextChanged += new System.EventHandler(this.ControlTxt_TextChanged);
             // 
             // colorTxt
             // 
@@ -116,6 +120,7 @@
             this.colorTxt.Size = new System.Drawing.Size(156, 20);
             this.colorTxt.TabIndex = 8;
             this.colorTxt.Text = "соломенно-желтый";
+            this.colorTxt.TextChanged += new System.EventHandler(this.ControlTxt_TextChanged);
             // 
             // label91
             // 

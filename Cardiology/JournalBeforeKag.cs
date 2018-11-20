@@ -134,7 +134,7 @@ namespace Cardiology
             return isValid;
         }
 
-        public void save()
+        public bool save()
         {
             journalIds.Clear();
             foreach (Control c in journalContainer.Controls)
@@ -150,6 +150,7 @@ namespace Cardiology
                 docbaseControl.saveObject(hospitalitySession, null, null);
                 journalIds.Add(docbaseControl.getObjectId());
             }
+            return true;
         }
 
         private void printBtn_Click(object sender, EventArgs e)

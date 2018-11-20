@@ -8,7 +8,7 @@ namespace Cardiology
 {
     public partial class AnalysisContainer : Form
     {
-        private const string FIRST_ANALYSIS_QRY_TEMPLATE = @"SELECT * FROM {0} WHERE dsb_admission_analysis=true and dsid_hospitality_session='{1}'";
+        private const string FIRST_ANALYSIS_QRY_TEMPLATE = @"SELECT * FROM {0} WHERE dss_parent_type='ddt_anamnesis' and dsid_hospitality_session='{1}'";
 
         private string typeName;
         private List<string> selectedIds;
@@ -77,7 +77,7 @@ namespace Cardiology
             }
             else if (DdtXRay.TABLE_NAME.Equals(typeName))
             {
-                combainingContainer.Controls.Add(new XRayControl(objectId, objectId != null &&!objectId.Equals(currentId)));
+                combainingContainer.Controls.Add(new XRayControl(objectId, objectId != null && !objectId.Equals(currentId)));
             }
             else if (DdtHolter.TABLE_NAME.Equals(typeName))
             {

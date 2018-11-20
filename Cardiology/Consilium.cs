@@ -136,12 +136,18 @@ namespace Cardiology
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
-            save();
-            Close();
+            if (save())
+            {
+                Close();
+            }
         }
 
-        public void save()
+        public bool save()
         {
+            if (!getIsValid())
+            {
+                return false;
+            }
             DataService service = new DataService();
             hospitalitySession.DssDiagnosis = getSafeStringValue(diagnosisTxt1);
             service.updateObject<DdtHospital>(hospitalitySession, DdtHospital.TABLENAME, "r_object_id", hospitalitySession.ObjectId);
@@ -173,11 +179,11 @@ namespace Cardiology
                 string indexstr = string.Intern(doctorInfoPnlName.Substring(CommonUtils.getFirstDigitIndex(doctorInfoPnlName)));
                 int indx = Int32.Parse(indexstr);
 
-                Control c = CommonUtils.findControl(doctorsContainer, "objectIdLbl" + indx);
+                Control objectIdCtrl = CommonUtils.findControl(doctorsContainer, "objectIdLbl" + indx);
                 ComboBox appointment = (ComboBox)CommonUtils.findControl(doctorsContainer, "appointmentTxt" + indx);
-                if (CommonUtils.isNotBlank(c.Text))
+                if (CommonUtils.isNotBlank(objectIdCtrl.Text))
                 {
-                    member = service.queryObjectById<DdtConsiliumMember>(DdtConsiliumMember.TABLE_NAME, c.Text);
+                    member = service.queryObjectById<DdtConsiliumMember>(DdtConsiliumMember.TABLE_NAME, objectIdCtrl.Text);
                 }
                 else
                 {
@@ -191,15 +197,22 @@ namespace Cardiology
                 }
                 DmGroup group = getSafeObjectValueUni<DmGroup>(appointment, new getValue<DmGroup>((ctrl) => ((DmGroup)((ComboBox)ctrl).SelectedItem)));
                 member.DssGroupName = group.DssName;
-                c = CommonUtils.findControl(doctorsContainer, "doctorWho" + indx);
-                member.DssDoctorName = getSafeStringValue(c);
-                service.updateOrCreateIfNeedObject<DdtConsiliumMember>(member, DdtConsiliumMember.TABLE_NAME, member.RObjectId);
+                Control docCtrl = CommonUtils.findControl(doctorsContainer, "doctorWho" + indx);
+                member.DssDoctorName = getSafeStringValue(docCtrl);
+                objectIdCtrl.Text = service.updateOrCreateIfNeedObject<DdtConsiliumMember>(member, DdtConsiliumMember.TABLE_NAME, member.RObjectId);
             }
 
             foreach (String memberId in membersToRemove)
             {
                 service.queryDelete(DdtConsiliumMember.TABLE_NAME, "r_object_id", memberId, true);
             }
+            return true;
+        }
+
+        private bool getIsValid()
+        {
+            return CommonUtils.isNotBlank(goalTxt.Text) && CommonUtils.isNotBlank(dynamicsTxt.Text)
+                && CommonUtils.isNotBlank(diagnosisTxt0.Text) && CommonUtils.isNotBlank(decisionTxt.Text);
         }
 
         private void printBtn_Click(object sender, EventArgs e)

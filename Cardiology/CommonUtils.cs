@@ -25,7 +25,7 @@ namespace Cardiology.Utils
 
         public static string toQuotedStr(string str)
         {
-            return isNotBlank(str) ? String.Intern("'" + str + "'") : "";
+            return isNotBlank(str) ? String.Intern("'" + str + "'") : "''";
         }
 
         internal static void initGroupsComboboxValues(DataService service, ComboBox cb)

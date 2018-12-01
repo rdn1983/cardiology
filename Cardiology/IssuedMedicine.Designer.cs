@@ -255,7 +255,6 @@
             // 
             // shortlyOperationPnl
             // 
-            this.shortlyOperationPnl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.shortlyOperationPnl.Controls.Add(this.noKagBtn);
             this.shortlyOperationPnl.Controls.Add(this.kagBtn);
             this.shortlyOperationPnl.Controls.Add(this.shortlyOperationTxt);
@@ -303,7 +302,6 @@
             // 
             // insertIssuedMedPnl
             // 
-            this.insertIssuedMedPnl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.insertIssuedMedPnl.Controls.Add(this.clearMedBtn);
             this.insertIssuedMedPnl.Controls.Add(this.copyYesterdayMedBtn);
             this.insertIssuedMedPnl.Controls.Add(this.copyJournalMedBtn);
@@ -362,7 +360,6 @@
             // 
             // medTemplatesPnl
             // 
-            this.medTemplatesPnl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.medTemplatesPnl.Controls.Add(this.deathMedBtn);
             this.medTemplatesPnl.Controls.Add(this.depMedBtn);
             this.medTemplatesPnl.Controls.Add(this.aortaMedBtn);
@@ -533,7 +530,8 @@
             // 
             // medContainer
             // 
-            this.medContainer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.medContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.medContainer.AutoScroll = true;
             this.medContainer.Controls.Add(this.issuedMedicineContainer);

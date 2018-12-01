@@ -78,16 +78,22 @@ namespace Cardiology
 
         private void initAdmissionAnalysis(DataService service)
         {
-            DdtUrineAnalysis firstAnalysis = service.queryObjectByAttrCond<DdtUrineAnalysis>(DdtUrineAnalysis.TABLE_NAME, "dsid_parent", anamnesis?.ObjectId, true);
+            DdtUrineAnalysis firstAnalysis = service.queryObject<DdtUrineAnalysis>("SELECT * FROM " + DdtUrineAnalysis.TABLE_NAME + " WHERE " +
+                "dsid_hospitality_session = '" + hospitalSession.ObjectId + "' AND dsid_parent='" + anamnesis?.ObjectId + "'");
             urineAnalysisControl.refreshObject(firstAnalysis);
 
-            DdtEgds firstEgdsAnalysis = service.queryObjectByAttrCond<DdtEgds>(DdtEgds.TABLE_NAME, "dsid_parent", anamnesis?.ObjectId, true);
+            DdtEgds firstEgdsAnalysis = service.queryObject<DdtEgds>("SELECT * FROM " + DdtEgds.TABLE_NAME + " WHERE " +
+                "dsid_hospitality_session = '" + hospitalSession.ObjectId + "' AND dsid_parent='" + anamnesis?.ObjectId + "'");
+
             egdsAnalysisControl1.refreshObject(firstEgdsAnalysis);
 
-            DdtBloodAnalysis blood = service.queryObjectByAttrCond<DdtBloodAnalysis>(DdtBloodAnalysis.TABLE_NAME, "dsid_parent", anamnesis?.ObjectId, true);
+            DdtBloodAnalysis blood = service.queryObject<DdtBloodAnalysis>("SELECT * FROM " + DdtBloodAnalysis.TABLE_NAME + " WHERE " +
+                "dsid_hospitality_session = '" + hospitalSession.ObjectId + "' AND dsid_parent='" + anamnesis?.ObjectId + "'");
+
             bloodAnalysisControl.refreshObject(blood);
 
-            DdtEkg ekg = service.queryObjectByAttrCond<DdtEkg>(DdtEkg.TABLE_NAME, "dsid_parent", anamnesis?.ObjectId, true);
+            DdtEkg ekg = service.queryObject<DdtEkg>("SELECT * FROM " + DdtEkg.TABLE_NAME + " WHERE " +
+                "dsid_hospitality_session = '" + hospitalSession.ObjectId + "' AND dsid_parent='" + anamnesis?.ObjectId + "'");
             ekgAnalysisControlcs.refreshObject(ekg);
         }
 
@@ -724,6 +730,6 @@ namespace Cardiology
         }
 
         #endregion
-        
+
     }
 }

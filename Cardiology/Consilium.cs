@@ -9,6 +9,7 @@ namespace Cardiology
     public partial class Consilium : Form, IAutoSaveForm
     {
         private DdtHospital hospitalitySession;
+        private DdtDoctors curingDoc;
         private string consiliumId;
         IList<String> membersToRemove = new List<String>();
 
@@ -24,6 +25,7 @@ namespace Cardiology
         private void initControls()
         {
             DataService service = new DataService();
+            curingDoc = service.queryObjectById<DdtDoctors>(DdtDoctors.TABLE_NAME, hospitalitySession?.DsidCuringDoctor);
             CommonUtils.initDoctorsComboboxValues(service, adminTxt, " dsi_appointment_type=3");
             CommonUtils.initGroupsComboboxValues(service, appointmentTxt0);
             CommonUtils.initDoctorsByGroupComboboxValues(service, doctorWho0, null);
@@ -238,6 +240,10 @@ namespace Cardiology
                 int index = Convert.ToInt32(String.Intern(ctrlName.Substring(indxPlace)));
                 ComboBox c = (ComboBox)CommonUtils.findControl(doctorsContainer, "doctorWho" + index);
                 CommonUtils.initDoctorsByGroupComboboxValues(new DataService(), c, group.DssName);
+                if ("duty_cardioreanim".Equals(group.DssName))
+                {
+                    c.SelectedIndex = c.FindStringExact(curingDoc?.DssInitials);
+                }
             }
         }
 

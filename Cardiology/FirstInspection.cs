@@ -41,6 +41,7 @@ namespace Cardiology
         private DdtHospital hospitalSession;
         private DdtAnamnesis anamnesis;
         private bool acceptTemplate = false;
+        private string templateName;
 
         public FirstInspection(DdtHospital hospitalitySession)
         {
@@ -137,6 +138,7 @@ namespace Cardiology
             if (medList != null)
             {
                 issuedMedicineContainer.Init(service, medList);
+                templateName = medList.DssTemplateName;
             }
         }
 
@@ -257,9 +259,10 @@ namespace Cardiology
                     medList.DssParentType = "ddt_anamnesis";
                     medList.DsidParentId = anamnesis.ObjectId;
                     medList.DsdtIssuingDate = DateTime.Now;
-                    string id = service.insertObject<DdtIssuedMedicineList>(medList, DdtIssuedMedicineList.TABLE_NAME);
-                    medList.ObjectId = id;
                 }
+                medList.DssTemplateName = templateName;
+                string id = service.updateOrCreateIfNeedObject<DdtIssuedMedicineList>(medList, DdtIssuedMedicineList.TABLE_NAME, medList.ObjectId);
+                medList.ObjectId = id;
                 foreach (DdtIssuedMedicine med in meds)
                 {
                     med.DsidMedList = medList.ObjectId;
@@ -418,7 +421,8 @@ namespace Cardiology
                 DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + OKSUP_TYPE + "'");
                 initializeAnamnesis(template);
                 initIssuedActions(service, template);
-                updatemedicineFromTemplate("oks.medicine");
+                templateName = "oks.medicine.";
+                updatemedicineFromTemplate(templateName);
                 OKSUpBtn.BackColor = Color.LightSkyBlue;
             }
         }
@@ -433,7 +437,8 @@ namespace Cardiology
                 DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + OKSDOWN_TYPE + "'");
                 initializeAnamnesis(template);
                 initIssuedActions(service, template);
-                updatemedicineFromTemplate("okslongs.medicine");
+                templateName = "okslongs.medicine.";
+                updatemedicineFromTemplate(templateName);
                 OKSDownBtn.BackColor = Color.LightSkyBlue;
             }
         }
@@ -448,7 +453,8 @@ namespace Cardiology
                 DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + KAG_TYPE + "'");
                 initializeAnamnesis(template);
                 initIssuedActions(service, template);
-                updatemedicineFromTemplate(KAG_TYPE + ".medicine");
+                templateName = "kag.medicine.";
+                updatemedicineFromTemplate(templateName);
                 KAGBtn.BackColor = Color.LightSkyBlue;
             }
         }
@@ -463,7 +469,8 @@ namespace Cardiology
                 DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + AORTA_TYPE + "'");
                 initializeAnamnesis(template);
                 initIssuedActions(service, template);
-                updatemedicineFromTemplate(AORTA_TYPE + ".medicine");
+                templateName = "aorta.medicine.";
+                updatemedicineFromTemplate(templateName);
                 aorticDissectionBtn.BackColor = Color.LightSkyBlue;
             }
         }
@@ -478,7 +485,8 @@ namespace Cardiology
                 DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + GB_TYPE + "'");
                 initializeAnamnesis(template);
                 initIssuedActions(service, template);
-                updatemedicineFromTemplate(GB_TYPE + ".medicine");
+                templateName = "gb.medicine.";
+                updatemedicineFromTemplate(templateName);
                 GBBtn.BackColor = Color.LightSkyBlue;
             }
         }
@@ -493,7 +501,8 @@ namespace Cardiology
                 DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + PIKS_TYPE + "'");
                 initializeAnamnesis(template);
                 initIssuedActions(service, template);
-                updatemedicineFromTemplate("nk.medicine");
+                templateName = "nk.medicine.";
+                updatemedicineFromTemplate(templateName);
                 PIKSBtn.BackColor = Color.LightSkyBlue;
             }
         }
@@ -508,7 +517,8 @@ namespace Cardiology
                 DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + PIKVIK_TYPE + "'");
                 initializeAnamnesis(template);
                 initIssuedActions(service, template);
-                updatemedicineFromTemplate("hobl.medicine");
+                templateName = "hobl.medicine.";
+                updatemedicineFromTemplate(templateName);
                 PIKVIKBtn.BackColor = Color.LightSkyBlue;
 
             }
@@ -524,7 +534,8 @@ namespace Cardiology
                 DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + DEP_TYPE + "'");
                 initializeAnamnesis(template);
                 initIssuedActions(service, template);
-                updatemedicineFromTemplate(DEP_TYPE + ".medicine");
+                templateName = "dep.medicine.";
+                updatemedicineFromTemplate(templateName);
                 DEPBtn.BackColor = Color.LightSkyBlue;
             }
         }
@@ -539,7 +550,8 @@ namespace Cardiology
                 DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + DEATH_TYPE + "'");
                 initializeAnamnesis(template);
                 initIssuedActions(service, template);
-                updatemedicineFromTemplate(DEATH_TYPE + ".medicine");
+                templateName = "death.medicine.";
+                updatemedicineFromTemplate(templateName);
                 deathBtn.BackColor = Color.LightSkyBlue;
             }
         }

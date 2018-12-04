@@ -28,6 +28,15 @@ namespace Cardiology.Model
         private string dssHasKag;
         [TableAttribute("dsb_skip_print")]
         private bool dsbSkipPrint;
+        [TableAttribute("dsid_pharmacologist")]
+        private string dsidPharmacologist;
+        [TableAttribute("dsid_nurse")]
+        private string dsidNurse;
+        [TableAttribute("dsid_director")]
+        private string dsidDirector;
+        [TableAttribute("dss_template_name")]
+        private string dssTemplateName;
+
 
         public string ObjectId
         {
@@ -64,5 +73,9 @@ namespace Cardiology.Model
         public string DssDiagnosis { get => dssDiagnosis; set => dssDiagnosis = value; }
         public string DssHasKag { get => dssHasKag; set => dssHasKag = value; }
         public bool DsbSkipPrint { get => dsbSkipPrint; set => dsbSkipPrint = value; }
+        public string DsidPharmacologist { get => dsidPharmacologist; set => dsidPharmacologist = value; }
+        public string DsidNurse { get => dsidNurse; set => dsidNurse = value; }
+        public string DsidDirector { get => dsidDirector; set => dsidDirector = value; }
+        public string DssTemplateName { get => dssTemplateName; set => dssTemplateName = value; }
     }
 }

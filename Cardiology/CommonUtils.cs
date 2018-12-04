@@ -51,7 +51,7 @@ namespace Cardiology.Utils
         internal static void initDoctorsByGroupComboboxValues(DataService service, ComboBox cb, string groupName)
         {
             cb.Items.Clear();
-            string query = @"SELECT * FROM ddt_doctors doc , dm_group_users gr WHERE gr.dss_group_name='" + groupName + "' AND gr.dss_user_name=doc.dss_login";
+            string query = @"SELECT doc.* FROM ddt_doctors doc , dm_group_users gr WHERE gr.dss_group_name='" + groupName + "' AND gr.dss_user_name=doc.dss_login";
             List<DdtDoctors> doctors = service.queryObjectsCollection<DdtDoctors>(query);
             cb.Items.AddRange(doctors.ToArray());
             cb.ValueMember = "ObjectId";

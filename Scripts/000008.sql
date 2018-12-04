@@ -11,7 +11,11 @@ CREATE TABLE ddt_issued_medicine_list (
   dss_parent_type VARCHAR(30),
   dss_diagnosis VARCHAR(30),
   dss_has_kag VARCHAR(30),
-  dsb_skip_print BOOLEAN
+  dsb_skip_print BOOLEAN,
+  dsid_pharmacologist VARCHAR(16),
+  dsid_nurse VARCHAR(16),
+  dsid_director VARCHAR(16),
+  dss_template_name VARCHAR(30)
 );
 
 CREATE TRIGGER ddt_issued_medicine_list BEFORE INSERT OR UPDATE

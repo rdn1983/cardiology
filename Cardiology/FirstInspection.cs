@@ -147,10 +147,7 @@ namespace Cardiology
             if (parent != null)
             {
                 List<DdtIssuedAction> allActions = service.queryObjectsCollection<DdtIssuedAction>(@"SELECT * FROM ddt_issued_action WHERE dsid_parent_id='" + parent.ObjectId + "'");
-                if (allActions != null)
-                {
-                    issuedActionContainer.init(service, allActions);
-                }
+                issuedActionContainer.init(service, allActions);
             }
         }
 
@@ -281,11 +278,14 @@ namespace Cardiology
             {
                 foreach (DdtIssuedAction med in meds)
                 {
-                    med.DsidParentId = anamnesis.ObjectId;
-                    med.DsidDoctor = hospitalSession.DsidCuringDoctor;
-                    med.DsidPatient = hospitalSession.DsidPatient;
-                    med.DsidHospitalitySession = hospitalSession.ObjectId;
-                    med.DsdtIssuingDate = DateTime.Now;
+                    if (CommonUtils.isBlank(med.RObjectId))
+                    {
+                        med.DsidParentId = anamnesis.ObjectId;
+                        med.DsidDoctor = hospitalSession.DsidCuringDoctor;
+                        med.DsidPatient = hospitalSession.DsidPatient;
+                        med.DsidHospitalitySession = hospitalSession.ObjectId;
+                        med.DsdtIssuingDate = DateTime.Now;
+                    }
 
                     med.RObjectId = service.updateOrCreateIfNeedObject<DdtIssuedAction>(med, DdtIssuedAction.TABLE_NAME, med.RObjectId);
                 }
@@ -659,15 +659,16 @@ namespace Cardiology
 
         private void printBtn_Click(object sender, EventArgs e)
         {
-            DataService service = new DataService();
-            saveAnamnesis(service);
-            saveIssuedMedicine(service);
-            ITemplateProcessor te = TemplateProcessorManager.getProcessorByObjectType(DdtAnamnesis.TABLE_NAME);
-            if (te != null)
+            if (save())
             {
-                string path = te.processTemplate(hospitalSession.ObjectId, anamnesis.ObjectId, null);
-                TemplatesUtils.showDocument(path);
-            }
+                ITemplateProcessor te = TemplateProcessorManager.getProcessorByObjectType(DdtAnamnesis.TABLE_NAME);
+                if (te != null)
+                {
+                    string path = te.processTemplate(hospitalSession.ObjectId, anamnesis.ObjectId, null);
+                    TemplatesUtils.showDocument(path);
+                }
+            } 
+            
         }
 
         private void stPresensTemplates_Click(object sender, EventArgs e)

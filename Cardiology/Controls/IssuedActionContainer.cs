@@ -46,10 +46,10 @@ namespace Cardiology.Controls
 
         internal void clearMedicine()
         {
-            foreach (IssuedActionControl med in sizedContainer.Controls)
+            /*foreach (IssuedActionControl med in sizedContainer.Controls)
             {
                 med.remove();
-            }
+            }*/
             sizedContainer.Controls.Clear();
         }
 

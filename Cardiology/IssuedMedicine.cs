@@ -184,8 +184,8 @@ namespace Cardiology
                 medList.DssTemplateName = templateName;
                 medList.DssHasKag = shortlyOperationTxt.Text;
                 medList.DsdtIssuingDate = createDateTxt.Value;
-                string id = service.updateOrCreateIfNeedObject<DdtIssuedMedicineList>(medList, DdtIssuedMedicineList.TABLE_NAME, medList.ObjectId);
-                medList.ObjectId = id;
+                issuedMedId = service.updateOrCreateIfNeedObject<DdtIssuedMedicineList>(medList, DdtIssuedMedicineList.TABLE_NAME, medList.ObjectId);
+                medList.ObjectId = issuedMedId;
                 foreach (DdtIssuedMedicine med in meds)
                 {
                     med.DsidMedList = medList.ObjectId;
@@ -391,16 +391,19 @@ namespace Cardiology
 
             Dictionary<string, string> values = new Dictionary<string, string>();
             DataService service = new DataService();
+            DdtIssuedMedicineList medList = service.queryObjectById<DdtIssuedMedicineList>(DdtIssuedMedicineList.TABLE_NAME, issuedMedId);
             DdtHospital hospitalSession = service.queryObjectById<DdtHospital>(DdtHospital.TABLENAME, hospitalitySession.ObjectId);
-            DdtDoctors doc = service.queryObjectById<DdtDoctors>(DdtDoctors.TABLE_NAME, hospitalSession.DsidCuringDoctor);
-            DdtPatient patient = service.queryObjectById<DdtPatient>(DdtPatient.TABLENAME, hospitalSession.DsidPatient);
-            values.Add(@"{doctor.who.short}", doc.DssInitials);
+            DdtDoctors doc = service.queryObjectById<DdtDoctors>(DdtDoctors.TABLE_NAME, medList.DsidDoctor);
+            DdtDoctors nurse = service.queryObjectById<DdtDoctors>(DdtDoctors.TABLE_NAME, medList.DsidNurse);
+            DdtPatient patient = service.queryObjectById<DdtPatient>(DdtPatient.TABLENAME, medList.DsidPatient);
+            values.Add(@"{doctor.who.short}", doc?.DssInitials);
             values.Add(@"{patient.diagnosis}", hospitalSession.DssDiagnosis);
             values.Add(@"{patient.age}", DateTime.Now.Year - patient.DsdtBirthdate.Year + "");
             values.Add(@"{admission.date}", hospitalSession.DsdtAdmissionDate.ToShortDateString());
-            values.Add(@"{patient.historycard}", patient.DssMedCode);
-            values.Add(@"{patient.fullname}", patient.DssFullName);
-            values.Add(@"{room}", "");
+            values.Add(@"{patient.historycard}", patient?.DssMedCode);
+            values.Add(@"{patient.fullname}", patient?.DssFullName);
+            values.Add(@"{nurse}", nurse?.DssInitials);
+            values.Add(@"{room}", hospitalitySession.DssRoomCell);
             values.Add(@"{cell}", "");
             values.Add(@"{date}", DateTime.Now.ToShortDateString());
             //todo переписать,к огда будет время. Сделать добавление в таблицу строчек автоматом

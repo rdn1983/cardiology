@@ -73,6 +73,7 @@
             this.journalWithoutKAGMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.konsiliumItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.oncologicMarkersItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.patientHistoryGrid)).BeginInit();
             this.gridContextMenu.SuspendLayout();
             this.mainMenu.SuspendLayout();
@@ -329,7 +330,8 @@
             this.urineItem,
             this.koagulogrammItem,
             this.bloodTypeItem,
-            this.hormonesItem});
+            this.hormonesItem,
+            this.oncologicMarkersItem});
             this.analysisItem.Name = "analysisItem";
             this.analysisItem.Size = new System.Drawing.Size(261, 22);
             this.analysisItem.Text = "Анализы";
@@ -435,6 +437,13 @@
             this.konsiliumItem.Text = "Консилиум";
             this.konsiliumItem.Click += new System.EventHandler(this.konsiliumItem_Click);
             // 
+            // oncologicMarkersItem
+            // 
+            this.oncologicMarkersItem.Name = "oncologicMarkersItem";
+            this.oncologicMarkersItem.Size = new System.Drawing.Size(225, 22);
+            this.oncologicMarkersItem.Text = "Онкомаркеры";
+            this.oncologicMarkersItem.Click += new System.EventHandler(this.oncologicMarkersItem_Click);
+            // 
             // PatientsHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -503,5 +512,6 @@
         private System.Windows.Forms.ToolStripMenuItem bloodTypeItem;
         private System.Windows.Forms.ToolStripMenuItem hormonesItem;
         private System.Windows.Forms.ToolStripMenuItem xrayMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem oncologicMarkersItem;
     }
 }

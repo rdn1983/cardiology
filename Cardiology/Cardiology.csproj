@@ -177,6 +177,12 @@
     <Compile Include="Controls\KagAnalysisControl.Designer.cs">
       <DependentUpon>KagAnalysisControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\OncologicMarkersControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\OncologicMarkersControl.Designer.cs">
+      <DependentUpon>OncologicMarkersControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\TemplateChanger.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -220,6 +226,7 @@
     <Compile Include="Model\DdtJournal.cs" />
     <Compile Include="Model\DdtJournalDsiType.cs" />
     <Compile Include="Model\DdtKag.cs" />
+    <Compile Include="Model\DdtOncologicMarkers.cs" />
     <Compile Include="Model\DdtPatientAnalysis.cs" />
     <Compile Include="Model\DdtReleasePatient.cs" />
     <Compile Include="Model\DdtSerology.cs" />
@@ -471,6 +478,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\JournalNoKAGControl.resx">
       <DependentUpon>JournalNoKAGControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\OncologicMarkersControl.resx">
+      <DependentUpon>OncologicMarkersControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\TemplateChanger.resx">
       <DependentUpon>TemplateChanger.cs</DependentUpon>

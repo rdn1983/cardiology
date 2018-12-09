@@ -99,6 +99,10 @@ namespace Cardiology
             {
                 combainingContainer.Controls.Add(new CoagulogrammControl(objectId, objectId != null && !objectId.Equals(currentId)));
             }
+            else if (DdtOncologicMarkers.TABLE_NAME.Equals(typeName))
+            {
+                combainingContainer.Controls.Add(new OncologicMarkersControl(objectId, objectId != null && !objectId.Equals(currentId), hospitalitySession.ObjectId));
+            }
         }
 
         private void initTitle()
@@ -146,6 +150,10 @@ namespace Cardiology
             else if (DdtHormones.TABLE_NAME.Equals(typeName))
             {
                 this.Text = "Гормоны";
+            }
+            else if (DdtHormones.TABLE_NAME.Equals(typeName))
+            {
+                this.Text = "Онкомаркеры";
             }
             DataService service = new DataService();
             DdtPatient patient = service.queryObjectById<DdtPatient>(DdtPatient.TABLENAME, hospitalitySession.DsidPatient);

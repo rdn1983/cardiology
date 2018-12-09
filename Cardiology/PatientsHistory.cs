@@ -132,7 +132,7 @@ namespace Cardiology
                     || DdtSpecialistConclusion.TABLE_NAME.Equals(typeValue) || DdtUzi.TABLE_NAME.Equals(typeValue)
                     || DdtKag.TABLE_NAME.Equals(typeValue) || DdtHolter.TABLE_NAME.Equals(typeValue)
                     || DdtBloodAnalysis.TABLE_NAME.Equals(typeValue) || DdtHormones.TABLE_NAME.Equals(typeValue)
-                    || DdtCoagulogram.TABLE_NAME.Equals(typeValue))
+                    || DdtCoagulogram.TABLE_NAME.Equals(typeValue) || DdtOncologicMarkers.TABLE_NAME.Equals(typeValue))
                 {
                     form = new AnalysisContainer(hospitalitySession, typeValue, idsValue);
                 }
@@ -294,6 +294,10 @@ namespace Cardiology
             container.ShowDialog();
         }
 
-       
+        private void oncologicMarkersItem_Click(object sender, EventArgs e)
+        {
+            AnalysisContainer container = new AnalysisContainer(hospitalitySession, DdtOncologicMarkers.TABLE_NAME, null);
+            container.ShowDialog();
+        }
     }
 }

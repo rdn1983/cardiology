@@ -4,6 +4,7 @@ using Cardiology.Model.Dictionary;
 using Cardiology.Utils;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Cardiology
@@ -21,23 +22,7 @@ namespace Cardiology
             this.journalType = journalType;
             InitializeComponent();
             initJournals();
-            initControlVisibility();
             SilentSaver.setForm(this);
-        }
-
-
-
-        private void initControlVisibility()
-        {
-            bool isWithKag = (int)DdtJournalDsiType.BEFORE_KAG == journalType || (int)DdtJournalDsiType.PENDING_JUSTIFICATION == journalType;
-            deffedredAllPnl.Visible = isWithKag;
-            addDefferedBtn.Visible = isWithKag;
-            if (!isWithKag)
-            {
-                journalAllPnl.Text = "Журнал";
-                journalAllPnl.Size = new System.Drawing.Size(940, 580);
-                journalGrouppedPanel.Size = new System.Drawing.Size(940, 548);
-            }
         }
 
         private void initRangedItems(ComboBox c, int start, int end)
@@ -50,7 +35,7 @@ namespace Cardiology
 
         private void initJournals()
         {
-            if (journalIds == null)
+            if (journalIds == null || journalIds.Count == 0)
             {
                 return;
             }
@@ -61,51 +46,19 @@ namespace Cardiology
             {
                 Text += " " + patient.DssInitials;
             }
-            DdtJournal journal = null;
-            for (int i = 0; i < journalIds.Count; i++)
+
+            List<DdtJournal> journals = service.queryObjectsCollection<DdtJournal>(@"Select * FROM ddt_journal WHERE r_object_id IN ('" +
+                journalIds.Aggregate((a, b) => a + "','" + b) + "') ORDER BY dsdt_admission_date ASC");
+            foreach (DdtJournal j in journals)
             {
-                journal = service.queryObject<DdtJournal>("Select * FROM ddt_journal WHERE r_object_id ='" + journalIds[i] + "'");
-                if (journal != null)
-                {
-                    journalType = journal.DsiJournalType;
-                    if ((int)DdtJournalDsiType.BEFORE_KAG == journalType || (int)DdtJournalDsiType.WITHOUT_KAG == journalType)
-                    {
-                        journalContainer.Controls.Add(new JournalNoKAGControl(journal.RObjectId, journalType));
-                    }
-                    else if ((int)DdtJournalDsiType.PENDING_JUSTIFICATION == journalType)
-                    {
-                        deferredContainer.Controls.Add(new DefferedJournalControl(journal.RObjectId));
-                    }
-                }
+                journalContainer.Controls.Add(new JournalNoKAGControl(j.RObjectId, j.DsiJournalType));
             }
         }
-
-
 
         private void addJournalBtn_Click(object sender, EventArgs e)
         {
-            JournalNoKAGControl nextJournal = new JournalNoKAGControl(null, journalType);
-            if (journalContainer.Controls.Count > 0)
-            {
-                JournalNoKAGControl lastJournal = (JournalNoKAGControl)journalContainer.Controls[journalContainer.Controls.Count - 1];
-                nextJournal.initTime(lastJournal.getJournalDateTime().AddHours(4));
-                nextJournal.initDocName(lastJournal.getDocName());
-                nextJournal.initRhytm(lastJournal.isGoodRhytm());
-            }
-            journalContainer.Controls.Add(nextJournal);
-        }
-
-        private void addDefferedBtn_Click(object sender, EventArgs e)
-        {
-            DefferedJournalControl newCtrl = new DefferedJournalControl(null);
-            if (deferredContainer.Controls.Count > 0)
-            {
-                DefferedJournalControl oldCtrl = (DefferedJournalControl)deferredContainer.Controls[deferredContainer.Controls.Count - 1];
-                newCtrl.initDoc(oldCtrl.getDoctorName());
-                newCtrl.initRhytm(oldCtrl.isGoodRhytm());
-                newCtrl.initTime(oldCtrl.getTime().AddHours(4));
-            }
-            deferredContainer.Controls.Add(newCtrl);
+            MouseEventArgs mea = (MouseEventArgs)e;
+            journalCreationMenu.Show((Control)sender, mea.Location);
         }
 
         private void saveBtn_Click(object sender, EventArgs e)
@@ -126,11 +79,6 @@ namespace Cardiology
                 isValid |= !docbaseControl.getIsValid();
             }
 
-            foreach (Control c in deferredContainer.Controls)
-            {
-                IDocbaseControl docbaseControl = (IDocbaseControl)c;
-                isValid |= !docbaseControl.getIsValid();
-            }
             return isValid;
         }
 
@@ -144,12 +92,6 @@ namespace Cardiology
                 journalIds.Add(docbaseControl.getObjectId());
             }
 
-            foreach (Control c in deferredContainer.Controls)
-            {
-                IDocbaseControl docbaseControl = (IDocbaseControl)c;
-                docbaseControl.saveObject(hospitalitySession, null, null);
-                journalIds.Add(docbaseControl.getObjectId());
-            }
             return true;
         }
 
@@ -179,5 +121,39 @@ namespace Cardiology
         {
             SilentSaver.clearForm();
         }
+
+        private void createJournalMenu_Click(object sender, EventArgs e)
+        {
+            JournalNoKAGControl nextJournal = new JournalNoKAGControl(null, (int)DdtJournalDsiType.BEFORE_KAG);
+            if (journalContainer.Controls.Count > 0)
+            {
+                JournalNoKAGControl lastJournal = (JournalNoKAGControl)journalContainer.Controls[journalContainer.Controls.Count - 1];
+                nextJournal.initTime(lastJournal.getJournalDateTime().AddHours(4));
+                nextJournal.initDocName(lastJournal.getDocName());
+                nextJournal.initRhytm(lastJournal.isGoodRhytm());
+            }
+            journalContainer.Controls.Add(nextJournal);
+        }
+
+        private void createDefferedJournalMenu_Click(object sender, EventArgs e)
+        {
+            JournalNoKAGControl badJournal = new JournalNoKAGControl(null, (int)DdtJournalDsiType.PENDING_JUSTIFICATION);
+            if (journalContainer.Controls.Count > 0)
+            {
+                JournalNoKAGControl lastJournal = (JournalNoKAGControl)journalContainer.Controls[journalContainer.Controls.Count - 1];
+                badJournal.initTime(lastJournal.getJournalDateTime().AddHours(4));
+                badJournal.initDocName(lastJournal.getDocName());
+                badJournal.initRhytm(lastJournal.isGoodRhytm());
+
+            }
+            journalContainer.Controls.Add(badJournal);
+            JournalNoKAGControl goodJournal = new JournalNoKAGControl(null, (int)DdtJournalDsiType.BEFORE_KAG);
+            goodJournal.initTime(badJournal.getJournalDateTime().AddMinutes(15));
+            goodJournal.initDocName(badJournal.getDocName());
+            goodJournal.initRhytm(badJournal.isGoodRhytm());
+            journalContainer.Controls.Add(goodJournal);
+        }
+
+
     }
 }

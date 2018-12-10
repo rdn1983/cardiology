@@ -97,70 +97,87 @@ namespace Cardiology
         private void editMenu_Click(object sender, EventArgs e)
         {
             IEnumerator it = patientHistoryGrid.SelectedRows.GetEnumerator();
+            string firstId = null;
+            string firstType = null;
+            List<string> ids = new List<string>();
             if (it.MoveNext())
             {
                 DataGridViewRow row = (DataGridViewRow)it.Current;
                 DataGridViewCell cell = row.Cells[3];
-                string idsValue = cell.Value.ToString();
-                string typeValue = row.Cells[2].Value.ToString();
-                List<string> ids = new List<string>();
-                ids.Add(idsValue);
-                Form form = null;
-                if (DdtAnamnesis.TABLE_NAME.Equals(typeValue))
+                DataGridViewCheckBoxCell checkBoxCell = (DataGridViewCheckBoxCell) row.Cells[0];
+                firstId = cell.Value.ToString();
+                firstType = row.Cells[2].Value.ToString();
+            }
+            DataGridViewRowCollection rows = patientHistoryGrid.Rows;
+            for(int i=0; i<rows.Count; i++)
+            {
+                DataGridViewCell cell = rows[i].Cells[3];
+                DataGridViewCheckBoxCell checkBoxCell = (DataGridViewCheckBoxCell)rows[i].Cells[0];
+                if ((bool) checkBoxCell.Value)
                 {
-                    form = new FirstInspection(hospitalitySession);
+                    ids.Add(cell.Value.ToString());
                 }
-                else if (DdtJournal.TABLE_NAME.Equals(typeValue))
-                {
-                    DataService service = new DataService();
-                    DdtJournal jourmal = service.queryObjectById<DdtJournal>(DdtJournal.TABLE_NAME, idsValue);
-                    if (jourmal.DsiJournalType == (int)DdtJournalDsiType.AFTER_KAG)
-                    {
-                        form = new JournalAfterKAG(hospitalitySession, idsValue);
-                    }
-                    else
-                    {
-                        form = new JournalBeforeKag(hospitalitySession, ids, -1);
-                    }
-                }
-                else if (DdtIssuedMedicineList.TABLE_NAME.Equals(typeValue))
-                {
-                    form = new IssuedMedicine(hospitalitySession, idsValue);
-                }
-                else if (DdtEgds.TABLE_NAME.Equals(typeValue) || DdtXRay.TABLE_NAME.Equals(typeValue)
-                    || DdtUrineAnalysis.TABLE_NAME.Equals(typeValue) || DdtEkg.TABLE_NAME.Equals(typeValue)
-                    || DdtSpecialistConclusion.TABLE_NAME.Equals(typeValue) || DdtUzi.TABLE_NAME.Equals(typeValue)
-                    || DdtKag.TABLE_NAME.Equals(typeValue) || DdtHolter.TABLE_NAME.Equals(typeValue)
-                    || DdtBloodAnalysis.TABLE_NAME.Equals(typeValue) || DdtHormones.TABLE_NAME.Equals(typeValue)
-                    || DdtCoagulogram.TABLE_NAME.Equals(typeValue) || DdtOncologicMarkers.TABLE_NAME.Equals(typeValue))
-                {
-                    form = new AnalysisContainer(hospitalitySession, typeValue, idsValue);
-                }
-                else if (DdtConsilium.TABLE_NAME.Equals(typeValue))
-                {
-                    form = new Consilium(hospitalitySession, idsValue);
-                }
-                else if (DdtSerology.TABLE_NAME.Equals(typeValue))
-                {
-                    form = new Serology(hospitalitySession);
-                }
-                else if (DdtInspection.TABLE_NAME.Equals(typeValue))
-                {
-                    form = new Inspection(hospitalitySession, idsValue);
-                }
-                else if (DdtEpicrisis.TABLE_NAME.Equals(typeValue))
-                {
-                    form = new PreoperativeEpicrisiscs(hospitalitySession, idsValue);
-                }
-                else if (DdtHospital.TABLENAME.Equals(typeValue))
-                {
-                    form = new AdmissionPatient(hospitalitySession);
-                }
+            }
+            if (!ids.Contains(firstId))
+            {
+                ids.Add(firstId);
+            }
+            Form form = null;
 
-                if (form != null)
+            if (DdtAnamnesis.TABLE_NAME.Equals(firstType))
+            {
+                form = new FirstInspection(hospitalitySession);
+            }
+            else if (DdtJournal.TABLE_NAME.Equals(firstType))
+            {
+                DataService service = new DataService();
+                DdtJournal jourmal = service.queryObjectById<DdtJournal>(DdtJournal.TABLE_NAME, firstId);
+                if (jourmal.DsiJournalType == (int)DdtJournalDsiType.AFTER_KAG)
                 {
-                    form.ShowDialog();
+                    form = new JournalAfterKAG(hospitalitySession, firstId);
                 }
+                else
+                {
+                    form = new JournalBeforeKag(hospitalitySession, ids, -1);
+                }
+            }
+            else if (DdtIssuedMedicineList.TABLE_NAME.Equals(firstType))
+            {
+                form = new IssuedMedicine(hospitalitySession, firstId);
+            }
+            else if (DdtEgds.TABLE_NAME.Equals(firstType) || DdtXRay.TABLE_NAME.Equals(firstType)
+                || DdtUrineAnalysis.TABLE_NAME.Equals(firstType) || DdtEkg.TABLE_NAME.Equals(firstType)
+                || DdtSpecialistConclusion.TABLE_NAME.Equals(firstType) || DdtUzi.TABLE_NAME.Equals(firstType)
+                || DdtKag.TABLE_NAME.Equals(firstType) || DdtHolter.TABLE_NAME.Equals(firstType)
+                || DdtBloodAnalysis.TABLE_NAME.Equals(firstType) || DdtHormones.TABLE_NAME.Equals(firstType)
+                || DdtCoagulogram.TABLE_NAME.Equals(firstType) || DdtOncologicMarkers.TABLE_NAME.Equals(firstType))
+            {
+                form = new AnalysisContainer(hospitalitySession, firstType, firstId);
+            }
+            else if (DdtConsilium.TABLE_NAME.Equals(firstType))
+            {
+                form = new Consilium(hospitalitySession, firstId);
+            }
+            else if (DdtSerology.TABLE_NAME.Equals(firstType))
+            {
+                form = new Serology(hospitalitySession);
+            }
+            else if (DdtInspection.TABLE_NAME.Equals(firstType))
+            {
+                form = new Inspection(hospitalitySession, firstId);
+            }
+            else if (DdtEpicrisis.TABLE_NAME.Equals(firstType))
+            {
+                form = new PreoperativeEpicrisiscs(hospitalitySession, firstId);
+            }
+            else if (DdtHospital.TABLENAME.Equals(firstType))
+            {
+                form = new AdmissionPatient(hospitalitySession);
+            }
+
+            if (form != null)
+            {
+                form.ShowDialog();
             }
         }
 

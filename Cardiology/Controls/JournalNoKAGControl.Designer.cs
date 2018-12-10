@@ -40,7 +40,6 @@
             this.chddTxt = new System.Windows.Forms.ComboBox();
             this.monitorLbl = new System.Windows.Forms.Label();
             this.adTxt = new System.Windows.Forms.ComboBox();
-            this.addDayCb = new System.Windows.Forms.CheckBox();
             this.journalTxt = new System.Windows.Forms.RichTextBox();
             this.adLbl = new System.Windows.Forms.Label();
             this.chddLbl = new System.Windows.Forms.Label();
@@ -65,7 +64,6 @@
             this.visibledPanel.Controls.Add(this.chddTxt);
             this.visibledPanel.Controls.Add(this.monitorLbl);
             this.visibledPanel.Controls.Add(this.adTxt);
-            this.visibledPanel.Controls.Add(this.addDayCb);
             this.visibledPanel.Controls.Add(this.journalTxt);
             this.visibledPanel.Controls.Add(this.adLbl);
             this.visibledPanel.Controls.Add(this.chddLbl);
@@ -105,6 +103,7 @@
             this.docBox.Name = "docBox";
             this.docBox.Size = new System.Drawing.Size(220, 21);
             this.docBox.TabIndex = 45;
+            this.docBox.SelectedIndexChanged += new System.EventHandler(this.docBox_SelectedIndexChanged);
             // 
             // complaintsTxt
             // 
@@ -199,17 +198,6 @@
             this.adTxt.Size = new System.Drawing.Size(56, 21);
             this.adTxt.TabIndex = 14;
             this.adTxt.SelectedIndexChanged += new System.EventHandler(this.adTxt_SelectedIndexChanged);
-            // 
-            // addDayCb
-            // 
-            this.addDayCb.AutoSize = true;
-            this.addDayCb.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.addDayCb.Location = new System.Drawing.Point(107, 7);
-            this.addDayCb.Name = "addDayCb";
-            this.addDayCb.Size = new System.Drawing.Size(59, 17);
-            this.addDayCb.TabIndex = 1;
-            this.addDayCb.Text = "+ день";
-            this.addDayCb.UseVisualStyleBackColor = true;
             // 
             // journalTxt
             // 
@@ -321,7 +309,6 @@
         private System.Windows.Forms.Label complaintsLbl;
         private System.Windows.Forms.DateTimePicker startDateTxt;
         private System.Windows.Forms.Label monitorLbl;
-        private System.Windows.Forms.CheckBox addDayCb;
         private System.Windows.Forms.Label adLbl;
         private System.Windows.Forms.DateTimePicker startTimeTxt;
         private System.Windows.Forms.RadioButton goodRhytmBtn;

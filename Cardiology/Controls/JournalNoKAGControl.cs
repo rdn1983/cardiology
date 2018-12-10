@@ -45,23 +45,11 @@ namespace Cardiology.Controls
             CommonUtils.initRangedItems(chddTxt, 14, 26);
             warningLbl.Visible = false;
 
-            initControlVisibility();
-
             DataService service = new DataService();
             CommonUtils.initDoctorsComboboxValues(service, docBox, null);
 
             DdtJournal journal = service.queryObjectById<DdtJournal>(DdtJournal.TABLE_NAME, objectId);
             refreshObject(journal);
-        }
-
-        private void initControlVisibility()
-        {
-            bool isWithKag = (int)DdtJournalDsiType.BEFORE_KAG == journalType;
-            goodRhytmBtn.Visible = isWithKag;
-            badRhytmBtn.Visible = isWithKag;
-            complaintsTxt.Visible = !isWithKag;
-            complaintsLbl.Visible = !isWithKag;
-            addDayCb.Visible = isWithKag;
         }
 
         public void saveObject(DdtHospital hospitalitySession, string parentId, string parentType)
@@ -73,8 +61,9 @@ namespace Cardiology.Controls
                 return;
             }
 
-            DdtJournal journal = (DdtJournal) getObject();
-            journal.DsidDoctor = hospitalitySession.DsidCuringDoctor;
+            DdtJournal journal = (DdtJournal)getObject();
+            DdtDoctors selectedDoc = (DdtDoctors)docBox.SelectedItem;
+            journal.DsidDoctor = selectedDoc == null ? hospitalitySession.DsidCuringDoctor : selectedDoc.ObjectId;
             journal.DsidHospitalitySession = hospitalitySession.ObjectId;
             journal.DsidPatient = hospitalitySession.DsidPatient;
 
@@ -176,7 +165,7 @@ namespace Cardiology.Controls
             }
             else
             {
-                journalTxt.Text = JournalShuffleUtils.shuffleJournalText();
+                journalTxt.Text = journalType == (int)DdtJournalDsiType.PENDING_JUSTIFICATION ? JournalShuffleUtils.shuffleBadJournalText() : JournalShuffleUtils.shuffleJournalText();
                 adTxt.SelectedIndex = JournalShuffleUtils.shuffleNextIndex(adTxt.Items.Count - 1);
                 chddTxt.SelectedIndex = chddTxt.FindString("14");
                 chssTxt.SelectedIndex = JournalShuffleUtils.shuffleNextIndex(chssTxt.Items.Count - 1);
@@ -236,6 +225,11 @@ namespace Cardiology.Controls
         }
 
         private void TimeTxt_ValueChanged(object sender, EventArgs e)
+        {
+            hasChanges = true;
+        }
+
+        private void docBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             hasChanges = true;
         }

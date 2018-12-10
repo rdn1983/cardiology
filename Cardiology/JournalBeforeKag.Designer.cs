@@ -28,21 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JournalBeforeKag));
             this.journalAllPnl = new System.Windows.Forms.GroupBox();
             this.journalGrouppedPanel = new System.Windows.Forms.Panel();
             this.journalContainer = new System.Windows.Forms.FlowLayoutPanel();
-            this.deffedredAllPnl = new System.Windows.Forms.GroupBox();
-            this.defferedGrouppedPanel = new System.Windows.Forms.Panel();
-            this.deferredContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.saveBtn = new System.Windows.Forms.Button();
             this.printBtn = new System.Windows.Forms.Button();
-            this.addDefferedBtn = new System.Windows.Forms.Button();
-            this.addJournalBtn = new System.Windows.Forms.Button();
+            this.addJournalByMenuBtn = new System.Windows.Forms.Button();
+            this.journalCreationMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.createJournalMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.createDefferedJournalMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.journalAllPnl.SuspendLayout();
             this.journalGrouppedPanel.SuspendLayout();
-            this.deffedredAllPnl.SuspendLayout();
-            this.defferedGrouppedPanel.SuspendLayout();
+            this.journalCreationMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // journalAllPnl
@@ -54,10 +53,10 @@
             this.journalAllPnl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.journalAllPnl.Location = new System.Drawing.Point(12, 12);
             this.journalAllPnl.Name = "journalAllPnl";
-            this.journalAllPnl.Size = new System.Drawing.Size(973, 285);
+            this.journalAllPnl.Size = new System.Drawing.Size(973, 580);
             this.journalAllPnl.TabIndex = 0;
             this.journalAllPnl.TabStop = false;
-            this.journalAllPnl.Text = "Дневник (через 1 час с момента поступления пациента)";
+            this.journalAllPnl.Text = "Журнал";
             // 
             // journalGrouppedPanel
             // 
@@ -67,7 +66,7 @@
             this.journalGrouppedPanel.Controls.Add(this.journalContainer);
             this.journalGrouppedPanel.Location = new System.Drawing.Point(4, 16);
             this.journalGrouppedPanel.Name = "journalGrouppedPanel";
-            this.journalGrouppedPanel.Size = new System.Drawing.Size(940, 264);
+            this.journalGrouppedPanel.Size = new System.Drawing.Size(940, 548);
             this.journalGrouppedPanel.TabIndex = 38;
             // 
             // journalContainer
@@ -78,41 +77,8 @@
             this.journalContainer.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.journalContainer.Location = new System.Drawing.Point(6, 3);
             this.journalContainer.Name = "journalContainer";
-            this.journalContainer.Size = new System.Drawing.Size(907, 258);
+            this.journalContainer.Size = new System.Drawing.Size(907, 542);
             this.journalContainer.TabIndex = 0;
-            // 
-            // deffedredAllPnl
-            // 
-            this.deffedredAllPnl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.deffedredAllPnl.Controls.Add(this.defferedGrouppedPanel);
-            this.deffedredAllPnl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.deffedredAllPnl.Location = new System.Drawing.Point(12, 303);
-            this.deffedredAllPnl.Name = "deffedredAllPnl";
-            this.deffedredAllPnl.Size = new System.Drawing.Size(973, 289);
-            this.deffedredAllPnl.TabIndex = 1;
-            this.deffedredAllPnl.TabStop = false;
-            this.deffedredAllPnl.Text = "Обоснование\"отложенной коронароангиографии\"";
-            // 
-            // defferedGrouppedPanel
-            // 
-            this.defferedGrouppedPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.defferedGrouppedPanel.AutoScroll = true;
-            this.defferedGrouppedPanel.Controls.Add(this.deferredContainer);
-            this.defferedGrouppedPanel.Location = new System.Drawing.Point(6, 21);
-            this.defferedGrouppedPanel.Name = "defferedGrouppedPanel";
-            this.defferedGrouppedPanel.Size = new System.Drawing.Size(939, 260);
-            this.defferedGrouppedPanel.TabIndex = 42;
-            // 
-            // deferredContainer
-            // 
-            this.deferredContainer.AutoSize = true;
-            this.deferredContainer.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.deferredContainer.Location = new System.Drawing.Point(4, 3);
-            this.deferredContainer.Name = "deferredContainer";
-            this.deferredContainer.Size = new System.Drawing.Size(907, 254);
-            this.deferredContainer.TabIndex = 0;
             // 
             // saveBtn
             // 
@@ -136,38 +102,47 @@
             this.printBtn.UseVisualStyleBackColor = true;
             this.printBtn.Click += new System.EventHandler(this.printBtn_Click);
             // 
-            // addDefferedBtn
+            // addJournalByMenuBtn
             // 
-            this.addDefferedBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.addDefferedBtn.Image = global::Cardiology.Properties.Resources.addd1;
-            this.addDefferedBtn.Location = new System.Drawing.Point(991, 305);
-            this.addDefferedBtn.Name = "addDefferedBtn";
-            this.addDefferedBtn.Size = new System.Drawing.Size(30, 28);
-            this.addDefferedBtn.TabIndex = 39;
-            this.addDefferedBtn.UseVisualStyleBackColor = true;
-            this.addDefferedBtn.Click += new System.EventHandler(this.addDefferedBtn_Click);
+            this.addJournalByMenuBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.addJournalByMenuBtn.Image = global::Cardiology.Properties.Resources.addd1;
+            this.addJournalByMenuBtn.Location = new System.Drawing.Point(991, 12);
+            this.addJournalByMenuBtn.Name = "addJournalByMenuBtn";
+            this.addJournalByMenuBtn.Size = new System.Drawing.Size(30, 28);
+            this.addJournalByMenuBtn.TabIndex = 38;
+            this.addJournalByMenuBtn.UseVisualStyleBackColor = true;
+            this.addJournalByMenuBtn.Click += new System.EventHandler(this.addJournalBtn_Click);
             // 
-            // addJournalBtn
+            // journalCreationMenu
             // 
-            this.addJournalBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.addJournalBtn.Image = global::Cardiology.Properties.Resources.addd1;
-            this.addJournalBtn.Location = new System.Drawing.Point(991, 28);
-            this.addJournalBtn.Name = "addJournalBtn";
-            this.addJournalBtn.Size = new System.Drawing.Size(30, 28);
-            this.addJournalBtn.TabIndex = 38;
-            this.addJournalBtn.UseVisualStyleBackColor = true;
-            this.addJournalBtn.Click += new System.EventHandler(this.addJournalBtn_Click);
+            this.journalCreationMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.createJournalMenu,
+            this.createDefferedJournalMenu});
+            this.journalCreationMenu.Name = "journalCreationMenu";
+            this.journalCreationMenu.Size = new System.Drawing.Size(359, 48);
+            // 
+            // createJournalMenu
+            // 
+            this.createJournalMenu.Name = "createJournalMenu";
+            this.createJournalMenu.Size = new System.Drawing.Size(358, 22);
+            this.createJournalMenu.Text = "Дневник";
+            this.createJournalMenu.Click += new System.EventHandler(this.createJournalMenu_Click);
+            // 
+            // createDefferedJournalMenu
+            // 
+            this.createDefferedJournalMenu.Name = "createDefferedJournalMenu";
+            this.createDefferedJournalMenu.Size = new System.Drawing.Size(358, 22);
+            this.createDefferedJournalMenu.Text = "Обоснование\"отложенной коронароангиографии\"";
+            this.createDefferedJournalMenu.Click += new System.EventHandler(this.createDefferedJournalMenu_Click);
             // 
             // JournalBeforeKag
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1022, 631);
-            this.Controls.Add(this.addDefferedBtn);
-            this.Controls.Add(this.addJournalBtn);
+            this.Controls.Add(this.addJournalByMenuBtn);
             this.Controls.Add(this.printBtn);
             this.Controls.Add(this.saveBtn);
-            this.Controls.Add(this.deffedredAllPnl);
             this.Controls.Add(this.journalAllPnl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -178,9 +153,7 @@
             this.journalAllPnl.ResumeLayout(false);
             this.journalGrouppedPanel.ResumeLayout(false);
             this.journalGrouppedPanel.PerformLayout();
-            this.deffedredAllPnl.ResumeLayout(false);
-            this.defferedGrouppedPanel.ResumeLayout(false);
-            this.defferedGrouppedPanel.PerformLayout();
+            this.journalCreationMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -188,14 +161,13 @@
         #endregion
 
         private System.Windows.Forms.GroupBox journalAllPnl;
-        private System.Windows.Forms.GroupBox deffedredAllPnl;
         private System.Windows.Forms.Button saveBtn;
         private System.Windows.Forms.Button printBtn;
-        private System.Windows.Forms.Button addJournalBtn;
-        private System.Windows.Forms.Button addDefferedBtn;
+        private System.Windows.Forms.Button addJournalByMenuBtn;
         private System.Windows.Forms.Panel journalGrouppedPanel;
-        private System.Windows.Forms.Panel defferedGrouppedPanel;
-        private System.Windows.Forms.FlowLayoutPanel deferredContainer;
         private System.Windows.Forms.FlowLayoutPanel journalContainer;
+        private System.Windows.Forms.ContextMenuStrip journalCreationMenu;
+        private System.Windows.Forms.ToolStripMenuItem createJournalMenu;
+        private System.Windows.Forms.ToolStripMenuItem createDefferedJournalMenu;
     }
 }

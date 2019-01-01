@@ -71,9 +71,7 @@ namespace Cardiology
             else
             {
                 //Для нового дневника ставим время через 1 час после приема. если есть КАГ, то через 15 мин после КАГ
-                admissionDateTxt.Value = hospitalitySession.DsdtAdmissionDate.AddHours(1);
-                admissionTimeTxt.Value = hospitalitySession.DsdtAdmissionDate.AddHours(1);
-                DdtKag kag = service.queryObject<DdtKag>(@"SELECT * FROM ddt_kag WHERE dsid_hospitality_session='" + hospitalitySession.ObjectId + "' ORDER BY dsdt_analysis_date DESC");
+                DdtKag kag = service.queryObject<DdtKag>(@"SELECT * FROM ddt_kag WHERE dsid_hospitality_session='" + hospitalitySession.ObjectId + "' ORDER BY dsdt_analysis_date ASC");
                 initKag(kag);
 
                 DdtDoctors doctors = service.queryObjectById<DdtDoctors>(DdtDoctors.TABLE_NAME, hospitalitySession.DsidCuringDoctor);
@@ -83,14 +81,24 @@ namespace Cardiology
 
         private void initKag(DdtKag kag)
         {
+            DateTime dt = hospitalitySession.DsdtAdmissionDate.AddHours(1);
             if (kag != null)
             {
                 kagDiagnosisTxt.Text = kag.DssKagAction;
-                DateTime kagEndTime = kag.DsdtEndTime == default(DateTime) ? DateTime.Now : kag.DsdtEndTime;
-                admissionDateTxt.Value = kagEndTime.AddMinutes(15);
-                admissionTimeTxt.Value = kagEndTime.AddMinutes(15);
+                if (kag.DsdtEndTime != default(DateTime))
+                {
+                    dt = kag.DsdtEndTime.AddMinutes(15);
+                }
                 kagId = kag.ObjectId;
             }
+            admissionDateTxt.Value = dt;
+            admissionTimeTxt.Value = dt;
+
+            if (dt != default(DateTime) && dt.Hour > 8)
+            {
+                dt = dt.AddDays(1);
+            }
+            releaseJournalCtrl.initDateTime(CommonUtils.constructDateWIthTime(dt, DateTime.Parse("8:05:00")));
         }
 
         private void initCardioConslusions(DataService service)
@@ -113,7 +121,7 @@ namespace Cardiology
             if (releaseConclusion != null)
             {
                 releaseJournalCtrl.refreshObject(releaseConclusion);
-            } 
+            }
         }
 
         private void addCardioInspetions_Click(object sender, EventArgs e)
@@ -252,6 +260,6 @@ namespace Cardiology
             SilentSaver.clearForm();
         }
 
-        
+
     }
 }

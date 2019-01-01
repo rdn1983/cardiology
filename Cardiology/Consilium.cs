@@ -213,19 +213,26 @@ namespace Cardiology
 
         private bool getIsValid()
         {
-            return CommonUtils.isNotBlank(goalTxt.Text) && CommonUtils.isNotBlank(dynamicsTxt.Text)
+            bool result = CommonUtils.isNotBlank(goalTxt.Text) && CommonUtils.isNotBlank(dynamicsTxt.Text)
                 && CommonUtils.isNotBlank(diagnosisTxt0.Text) && CommonUtils.isNotBlank(decisionTxt.Text);
+            if (!result)
+            {
+                MessageBox.Show("Заполните обязательные поля: цель консилиума, динамика в отделении, диагноз, решение!", "Внимание!");
+            }
+            return result;
         }
 
         private void printBtn_Click(object sender, EventArgs e)
         {
             DataService service = new DataService();
-            save();
-            ITemplateProcessor processor = TemplateProcessorManager.getProcessorByObjectType(DdtConsilium.TABLE_NAME);
-            if (processor != null)
+            if (save())
             {
-                string path = processor.processTemplate(hospitalitySession.ObjectId, consiliumId, new Dictionary<string, string>());
-                TemplatesUtils.showDocument(path);
+                ITemplateProcessor processor = TemplateProcessorManager.getProcessorByObjectType(DdtConsilium.TABLE_NAME);
+                if (processor != null)
+                {
+                    string path = processor.processTemplate(hospitalitySession.ObjectId, consiliumId, new Dictionary<string, string>());
+                    TemplatesUtils.showDocument(path);
+                }
             }
         }
 

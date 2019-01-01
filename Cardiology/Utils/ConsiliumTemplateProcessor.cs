@@ -30,7 +30,7 @@ namespace Cardiology.Utils
             values.Add(@"{consilium.date}", DateTime.Now.ToString("dd.MM.yyyy"));
             values.Add(@"{consilium.time}", DateTime.Now.ToString("HH:mm"));
             values.Add(@"{consilium.members}", getMembersInString(service, objectId));
-            values.Add(@"{admin}", obj.DssDutyAdminName);
+            values.Add(@"{admin}", obj?.DssDutyAdminName);
             values.Add(@"{doctor.who}", getDoctorInString(service, obj.DsidDoctor));
             values.Add(@"{consilium.goal}", obj.DssGoal);
             DdtPatient patient = service.queryObjectById<DdtPatient>(DdtPatient.TABLENAME, obj.DsidPatient);

@@ -16,6 +16,18 @@ INSERT INTO dm_group_users (dss_group_name, dss_user_name) VALUES('io_cardio_rea
 INSERT INTO dm_group_users (dss_group_name, dss_user_name) VALUES('io_therapy', 'arefievAA');
 INSERT INTO dm_group_users (dss_group_name, dss_user_name) VALUES('io_rhmdil', 'samochatovDN');
 INSERT INTO dm_group_users (dss_group_name, dss_user_name) VALUES('duty_cardioreanim', 'generalOlga');
+INSERT INTO dm_group_users (dss_group_name, dss_user_name) VALUES('duty_cardioreanim', 'arslanbekovaSM');
+INSERT INTO dm_group_users (dss_group_name, dss_user_name) VALUES('duty_cardioreanim', 'goryachevaEV');
+INSERT INTO dm_group_users (dss_group_name, dss_user_name) VALUES('duty_cardioreanim', 'koshkinaEV');
+INSERT INTO dm_group_users (dss_group_name, dss_user_name) VALUES('duty_cardioreanim', 'bespalovaYUE');
+INSERT INTO dm_group_users (dss_group_name, dss_user_name) VALUES('duty_cardioreanim', 'mironovaEA');
+INSERT INTO dm_group_users (dss_group_name, dss_user_name) VALUES('duty_cardioreanim', 'doctorovaMV');
+INSERT INTO dm_group_users (dss_group_name, dss_user_name) VALUES('duty_cardioreanim', 'balhanovaAYU');
+INSERT INTO dm_group_users (dss_group_name, dss_user_name) VALUES('duty_cardioreanim', 'bagramovaYUA');
+INSERT INTO dm_group_users (dss_group_name, dss_user_name) VALUES('duty_cardioreanim', 'shcherbakovaSV');
+INSERT INTO dm_group_users (dss_group_name, dss_user_name) VALUES('duty_cardioreanim', 'kustovaTYU');
+
+
 INSERT INTO dm_group_users (dss_group_name, dss_user_name) VALUES('duty_rhdmil', 'samochatovDN');
 INSERT INTO dm_group_users (dss_group_name, dss_user_name) VALUES('duty_admin', 'arefievAA');
 INSERT INTO dm_group_users (dss_group_name, dss_user_name) VALUES('duty_admin', 'gorbunovAL');

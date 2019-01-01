@@ -26,10 +26,10 @@ namespace Cardiology
         private void initDutyDoctors()
         {
             DataService service = new DataService();
-            CommonUtils.initDoctorsComboboxValues(service, directorCardioReanimBox, null);
-            CommonUtils.initDoctorsComboboxValues(service, dutyCardioBox, null);
-            CommonUtils.initDoctorsComboboxValues(service, cardioDocBox, null);
-            CommonUtils.initDoctorsComboboxValues(service, subDoctorBox, null);
+            CommonUtils.initDoctorsByGroupComboboxValues(service, directorCardioReanimBox, "io_cardio_reanim");
+            CommonUtils.initDoctorsByGroupComboboxValues(service, dutyCardioBox, "duty_cardioreanim");
+            CommonUtils.initDoctorsByGroupComboboxValues(service, cardioDocBox, "duty_rhdmil");
+            CommonUtils.initDoctorsByGroupComboboxValues(service, subDoctorBox, "io_rhmdil");
             CommonUtils.initDoctorsComboboxValues(service, anesthetistComboBox, null);
         }
 

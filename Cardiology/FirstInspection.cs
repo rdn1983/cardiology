@@ -413,7 +413,7 @@ namespace Cardiology
 
         private void OKSUpBtn_Click(object sender, EventArgs e)
         {
-            if (isSureChangeTemplate())
+            if (!"oks.medicine.".Equals(templateName) && isSureChangeTemplate())
             {
                 acceptTemplate = true;
                 clearSelection();
@@ -429,7 +429,7 @@ namespace Cardiology
 
         private void OKSDownBtn_Click(object sender, EventArgs e)
         {
-            if (isSureChangeTemplate())
+            if (!"okslongs.medicine.".Equals(templateName) && isSureChangeTemplate())
             {
                 acceptTemplate = true;
                 clearSelection();
@@ -445,7 +445,7 @@ namespace Cardiology
 
         private void KAGBtn_Click(object sender, EventArgs e)
         {
-            if (isSureChangeTemplate())
+            if (!"kag.medicine.".Equals(templateName) && isSureChangeTemplate())
             {
                 acceptTemplate = true;
                 clearSelection();
@@ -461,7 +461,7 @@ namespace Cardiology
 
         private void aorticDissectionBtn_Click(object sender, EventArgs e)
         {
-            if (isSureChangeTemplate())
+            if (!"aorta.medicine.".Equals(templateName) && isSureChangeTemplate())
             {
                 acceptTemplate = true;
                 clearSelection();
@@ -477,7 +477,7 @@ namespace Cardiology
 
         private void GBBtn_Click(object sender, EventArgs e)
         {
-            if (isSureChangeTemplate())
+            if (!"gb.medicine.".Equals(templateName) && isSureChangeTemplate())
             {
                 acceptTemplate = true;
                 clearSelection();
@@ -493,7 +493,7 @@ namespace Cardiology
 
         private void PIKSBtn_Click(object sender, EventArgs e)
         {
-            if (isSureChangeTemplate())
+            if (!"nk.medicine.".Equals(templateName) && isSureChangeTemplate())
             {
                 acceptTemplate = true;
                 clearSelection();
@@ -509,7 +509,7 @@ namespace Cardiology
 
         private void PIKVIKBtn_Click(object sender, EventArgs e)
         {
-            if (isSureChangeTemplate())
+            if (!"hobl.medicine.".Equals(templateName) && isSureChangeTemplate())
             {
                 acceptTemplate = true;
                 clearSelection();
@@ -526,7 +526,7 @@ namespace Cardiology
 
         private void DEPBtn_Click(object sender, EventArgs e)
         {
-            if (isSureChangeTemplate())
+            if (!"dep.medicine.".Equals(templateName) && isSureChangeTemplate())
             {
                 acceptTemplate = true;
                 clearSelection();
@@ -542,7 +542,7 @@ namespace Cardiology
 
         private void deathBtn_Click(object sender, EventArgs e)
         {
-            if (isSureChangeTemplate())
+            if (!"death.medicine.".Equals(templateName) && isSureChangeTemplate())
             {
                 acceptTemplate = true;
                 clearSelection();
@@ -667,8 +667,8 @@ namespace Cardiology
                     string path = te.processTemplate(hospitalSession.ObjectId, anamnesis.ObjectId, null);
                     TemplatesUtils.showDocument(path);
                 }
-            } 
-            
+            }
+
         }
 
         private void stPresensTemplates_Click(object sender, EventArgs e)

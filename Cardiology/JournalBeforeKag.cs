@@ -87,9 +87,12 @@ namespace Cardiology
             journalIds.Clear();
             foreach (Control c in journalContainer.Controls)
             {
-                IDocbaseControl docbaseControl = (IDocbaseControl)c;
-                docbaseControl.saveObject(hospitalitySession, null, null);
-                journalIds.Add(docbaseControl.getObjectId());
+                CheckBox hide = c.Controls.Find("hideJournalBtn", true).FirstOrDefault() as CheckBox;
+                if (!hide.Checked) {
+                    IDocbaseControl docbaseControl = (IDocbaseControl)c;
+                    docbaseControl.saveObject(hospitalitySession, null, null);
+                    journalIds.Add(docbaseControl.getObjectId());
+                }
             }
 
             return true;

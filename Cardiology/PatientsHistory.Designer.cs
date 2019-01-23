@@ -32,14 +32,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PatientsHistory));
             this.patientHistoryGrid = new System.Windows.Forms.DataGridView();
-            this.checkedToPrint = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.hospitalSession = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.operationType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.operationId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.operationName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.operationDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.docExecutor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.operationDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gridContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.editMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteMenu = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,6 +55,7 @@
             this.koagulogrammItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bloodTypeItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hormonesItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.oncologicMarkersItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bloodTrunsfusionMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.issuingMedicineMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.beforeOperationItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -73,7 +66,14 @@
             this.journalWithoutKAGMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.konsiliumItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.oncologicMarkersItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.checkedToPrint = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.hospitalSession = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.operationType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.operationId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.operationName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.operationDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.docExecutor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.operationDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.patientHistoryGrid)).BeginInit();
             this.gridContextMenu.SuspendLayout();
             this.mainMenu.SuspendLayout();
@@ -115,61 +115,6 @@
             this.patientHistoryGrid.Size = new System.Drawing.Size(776, 319);
             this.patientHistoryGrid.TabIndex = 0;
             this.patientHistoryGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.patientHistoryGrid_CellClick);
-            // 
-            // checkedToPrint
-            // 
-            this.checkedToPrint.HeaderText = "";
-            this.checkedToPrint.Name = "checkedToPrint";
-            this.checkedToPrint.ReadOnly = true;
-            this.checkedToPrint.Width = 30;
-            // 
-            // hospitalSession
-            // 
-            this.hospitalSession.HeaderText = "hospitalSession";
-            this.hospitalSession.Name = "hospitalSession";
-            this.hospitalSession.ReadOnly = true;
-            this.hospitalSession.Visible = false;
-            // 
-            // operationType
-            // 
-            this.operationType.HeaderText = "operationType";
-            this.operationType.Name = "operationType";
-            this.operationType.ReadOnly = true;
-            this.operationType.Visible = false;
-            // 
-            // operationId
-            // 
-            this.operationId.HeaderText = "operationId";
-            this.operationId.Name = "operationId";
-            this.operationId.ReadOnly = true;
-            this.operationId.Visible = false;
-            // 
-            // operationName
-            // 
-            this.operationName.HeaderText = "Название операции";
-            this.operationName.Name = "operationName";
-            this.operationName.ReadOnly = true;
-            this.operationName.Width = 250;
-            // 
-            // operationDate
-            // 
-            this.operationDate.HeaderText = "Дата операции";
-            this.operationDate.Name = "operationDate";
-            this.operationDate.ReadOnly = true;
-            // 
-            // docExecutor
-            // 
-            this.docExecutor.HeaderText = "Ответственный врач";
-            this.docExecutor.Name = "docExecutor";
-            this.docExecutor.ReadOnly = true;
-            this.docExecutor.Width = 250;
-            // 
-            // operationDescription
-            // 
-            this.operationDescription.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.operationDescription.HeaderText = "Подробности";
-            this.operationDescription.Name = "operationDescription";
-            this.operationDescription.ReadOnly = true;
             // 
             // gridContextMenu
             // 
@@ -371,6 +316,13 @@
             this.hormonesItem.Text = "Гормоны";
             this.hormonesItem.Click += new System.EventHandler(this.hormonesItem_Click);
             // 
+            // oncologicMarkersItem
+            // 
+            this.oncologicMarkersItem.Name = "oncologicMarkersItem";
+            this.oncologicMarkersItem.Size = new System.Drawing.Size(225, 22);
+            this.oncologicMarkersItem.Text = "Онкомаркеры";
+            this.oncologicMarkersItem.Click += new System.EventHandler(this.oncologicMarkersItem_Click);
+            // 
             // bloodTrunsfusionMenuItem
             // 
             this.bloodTrunsfusionMenuItem.Name = "bloodTrunsfusionMenuItem";
@@ -437,12 +389,61 @@
             this.konsiliumItem.Text = "Консилиум";
             this.konsiliumItem.Click += new System.EventHandler(this.konsiliumItem_Click);
             // 
-            // oncologicMarkersItem
+            // checkedToPrint
             // 
-            this.oncologicMarkersItem.Name = "oncologicMarkersItem";
-            this.oncologicMarkersItem.Size = new System.Drawing.Size(225, 22);
-            this.oncologicMarkersItem.Text = "Онкомаркеры";
-            this.oncologicMarkersItem.Click += new System.EventHandler(this.oncologicMarkersItem_Click);
+            this.checkedToPrint.HeaderText = "";
+            this.checkedToPrint.Name = "checkedToPrint";
+            this.checkedToPrint.ReadOnly = true;
+            this.checkedToPrint.Width = 30;
+            // 
+            // hospitalSession
+            // 
+            this.hospitalSession.HeaderText = "hospitalSession";
+            this.hospitalSession.Name = "hospitalSession";
+            this.hospitalSession.ReadOnly = true;
+            this.hospitalSession.Visible = false;
+            // 
+            // operationType
+            // 
+            this.operationType.HeaderText = "operationType";
+            this.operationType.Name = "operationType";
+            this.operationType.ReadOnly = true;
+            this.operationType.Visible = false;
+            // 
+            // operationId
+            // 
+            this.operationId.HeaderText = "operationId";
+            this.operationId.Name = "operationId";
+            this.operationId.ReadOnly = true;
+            this.operationId.Visible = false;
+            // 
+            // operationName
+            // 
+            this.operationName.HeaderText = "Название операции";
+            this.operationName.Name = "operationName";
+            this.operationName.ReadOnly = true;
+            this.operationName.Width = 250;
+            // 
+            // operationDate
+            // 
+            this.operationDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.operationDate.HeaderText = "Дата операции";
+            this.operationDate.Name = "operationDate";
+            this.operationDate.ReadOnly = true;
+            // 
+            // docExecutor
+            // 
+            this.docExecutor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.docExecutor.HeaderText = "Ответственный врач";
+            this.docExecutor.Name = "docExecutor";
+            this.docExecutor.ReadOnly = true;
+            // 
+            // operationDescription
+            // 
+            this.operationDescription.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.operationDescription.HeaderText = "Подробности";
+            this.operationDescription.Name = "operationDescription";
+            this.operationDescription.ReadOnly = true;
             // 
             // PatientsHistory
             // 
@@ -489,14 +490,6 @@
         private System.Windows.Forms.ToolStripMenuItem journalWithoutKAGMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem konsiliumItem;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn checkedToPrint;
-        private System.Windows.Forms.DataGridViewTextBoxColumn hospitalSession;
-        private System.Windows.Forms.DataGridViewTextBoxColumn operationType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn operationId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn operationName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn operationDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn docExecutor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn operationDescription;
         private System.Windows.Forms.ToolStripMenuItem firstInspectationsItem;
         private System.Windows.Forms.ToolStripMenuItem holterItem;
         private System.Windows.Forms.ToolStripMenuItem ekgItem;
@@ -513,5 +506,13 @@
         private System.Windows.Forms.ToolStripMenuItem hormonesItem;
         private System.Windows.Forms.ToolStripMenuItem xrayMenuItem;
         private System.Windows.Forms.ToolStripMenuItem oncologicMarkersItem;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn checkedToPrint;
+        private System.Windows.Forms.DataGridViewTextBoxColumn hospitalSession;
+        private System.Windows.Forms.DataGridViewTextBoxColumn operationType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn operationId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn operationName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn operationDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn docExecutor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn operationDescription;
     }
 }

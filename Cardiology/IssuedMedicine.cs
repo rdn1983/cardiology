@@ -395,6 +395,8 @@ namespace Cardiology
             DdtHospital hospitalSession = service.queryObjectById<DdtHospital>(DdtHospital.TABLENAME, hospitalitySession.ObjectId);
             DdtDoctors doc = service.queryObjectById<DdtDoctors>(DdtDoctors.TABLE_NAME, medList.DsidDoctor);
             DdtDoctors nurse = service.queryObjectById<DdtDoctors>(DdtDoctors.TABLE_NAME, medList.DsidNurse);
+            DdtDoctors director = service.queryObjectById<DdtDoctors>(DdtDoctors.TABLE_NAME, medList.DsidDirector);
+            DdtDoctors pharma = service.queryObjectById<DdtDoctors>(DdtDoctors.TABLE_NAME, medList.DsidPharmacologist);
             DdtPatient patient = service.queryObjectById<DdtPatient>(DdtPatient.TABLENAME, medList.DsidPatient);
             values.Add(@"{doctor.who.short}", doc?.DssInitials);
             values.Add(@"{patient.diagnosis}", hospitalSession.DssDiagnosis);
@@ -402,7 +404,10 @@ namespace Cardiology
             values.Add(@"{admission.date}", hospitalSession.DsdtAdmissionDate.ToShortDateString());
             values.Add(@"{patient.historycard}", patient?.DssMedCode);
             values.Add(@"{patient.fullname}", patient?.DssFullName);
+            values.Add(@"{kag}", kagBtn.Checked ? shortlyOperationTxt.Text : "");
             values.Add(@"{nurse}", nurse?.DssInitials);
+            values.Add(@"{doctor.pharma}", pharma?.DssInitials);
+            values.Add(@"{doctor.director}", director?.DssInitials);
             values.Add(@"{room}", hospitalitySession.DssRoomCell);
             values.Add(@"{cell}", "");
             values.Add(@"{date}", DateTime.Now.ToShortDateString());

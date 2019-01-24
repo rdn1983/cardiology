@@ -298,7 +298,7 @@
             this.shortlyOperationTxt.Name = "shortlyOperationTxt";
             this.shortlyOperationTxt.Size = new System.Drawing.Size(151, 47);
             this.shortlyOperationTxt.TabIndex = 0;
-            this.shortlyOperationTxt.Text = "";
+            this.shortlyOperationTxt.Text = "КАГ. ";
             // 
             // insertIssuedMedPnl
             // 

@@ -61,6 +61,8 @@
             this.xRayItem = new System.Windows.Forms.ToolStripMenuItem();
             this.holterItem = new System.Windows.Forms.ToolStripMenuItem();
             this.specialistItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label1 = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tabbedContainer.SuspendLayout();
             this.baseTab.SuspendLayout();
             this.kagContainer.SuspendLayout();
@@ -84,6 +86,7 @@
             // 
             // baseTab
             // 
+            this.baseTab.Controls.Add(this.label1);
             this.baseTab.Controls.Add(this.analysisBtn);
             this.baseTab.Controls.Add(this.kagContainer);
             this.baseTab.Controls.Add(this.resultTxt);
@@ -387,6 +390,21 @@
             this.specialistItem.Text = "Заключения специалистов";
             this.specialistItem.Click += new System.EventHandler(this.specialistItem_Click);
             // 
+            // label1
+            // 
+            this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
+            this.label1.Location = new System.Drawing.Point(770, 86);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(34, 23);
+            this.label1.TabIndex = 18;
+            this.toolTip1.SetToolTip(this.label1, "ДЭП 3ст., последствия перенесенного ОНМК, субкомпенсация.\r\nСахарный диабет 2 типа" +
+        ", среднетяжелого течения, субкомпенсация.");
+            // 
+            // toolTip1
+            // 
+            this.toolTip1.IsBalloon = true;
+            this.toolTip1.ShowAlways = true;
+            // 
             // Inspection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -447,5 +465,7 @@
         private System.Windows.Forms.Label kagInfo;
         private System.Windows.Forms.Panel kagContainer;
         private System.Windows.Forms.Button analysisBtn;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

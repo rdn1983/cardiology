@@ -127,7 +127,7 @@ namespace Cardiology
                 {
                     kagId = kag.ObjectId;
                     TableLayoutPanel container = getTabContainer("kagTab", "КАГ", true);
-                    KagAnalysisControl specControl = new KagAnalysisControl(kag.ObjectId, true, hospitalitySession.ObjectId);
+                    KagAnalysisControl specControl = new KagAnalysisControl(kag.ObjectId, false, hospitalitySession.ObjectId);
                     container.Controls.Clear();
                     container.Controls.Add(specControl);
                     kagContainer.Visible = true;

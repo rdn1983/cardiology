@@ -98,6 +98,7 @@
             this.button24 = new System.Windows.Forms.Button();
             this.button23 = new System.Windows.Forms.Button();
             this.justificationPnl = new System.Windows.Forms.GroupBox();
+            this.depRadio = new System.Windows.Forms.RadioButton();
             this.ibsRadio = new System.Windows.Forms.RadioButton();
             this.gbRadio = new System.Windows.Forms.RadioButton();
             this.pmaRadio = new System.Windows.Forms.RadioButton();
@@ -860,9 +861,9 @@
             this.calculatorsPnl.Controls.Add(this.button29);
             this.calculatorsPnl.Controls.Add(this.button24);
             this.calculatorsPnl.Controls.Add(this.button23);
-            this.calculatorsPnl.Location = new System.Drawing.Point(535, 14);
+            this.calculatorsPnl.Location = new System.Drawing.Point(559, 6);
             this.calculatorsPnl.Name = "calculatorsPnl";
-            this.calculatorsPnl.Size = new System.Drawing.Size(336, 172);
+            this.calculatorsPnl.Size = new System.Drawing.Size(335, 172);
             this.calculatorsPnl.TabIndex = 13;
             this.calculatorsPnl.TabStop = false;
             this.calculatorsPnl.Text = "Калькуляторы";
@@ -923,6 +924,7 @@
             // 
             // justificationPnl
             // 
+            this.justificationPnl.Controls.Add(this.depRadio);
             this.justificationPnl.Controls.Add(this.ibsRadio);
             this.justificationPnl.Controls.Add(this.gbRadio);
             this.justificationPnl.Controls.Add(this.pmaRadio);
@@ -934,10 +936,23 @@
             this.justificationPnl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.justificationPnl.Location = new System.Drawing.Point(6, 219);
             this.justificationPnl.Name = "justificationPnl";
-            this.justificationPnl.Size = new System.Drawing.Size(509, 207);
+            this.justificationPnl.Size = new System.Drawing.Size(547, 207);
             this.justificationPnl.TabIndex = 12;
             this.justificationPnl.TabStop = false;
             this.justificationPnl.Text = "Обоснование:";
+            // 
+            // depRadio
+            // 
+            this.depRadio.AutoSize = true;
+            this.depRadio.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.depRadio.Location = new System.Drawing.Point(492, 23);
+            this.depRadio.Name = "depRadio";
+            this.depRadio.Size = new System.Drawing.Size(49, 17);
+            this.depRadio.TabIndex = 8;
+            this.depRadio.TabStop = true;
+            this.depRadio.Text = "ДЭП";
+            this.depRadio.UseVisualStyleBackColor = true;
+            this.depRadio.CheckedChanged += new System.EventHandler(this.depRadio_CheckedChanged);
             // 
             // ibsRadio
             // 
@@ -1035,7 +1050,7 @@
             this.justificationTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.justificationTxt.Location = new System.Drawing.Point(6, 46);
             this.justificationTxt.Name = "justificationTxt";
-            this.justificationTxt.Size = new System.Drawing.Size(497, 155);
+            this.justificationTxt.Size = new System.Drawing.Size(535, 155);
             this.justificationTxt.TabIndex = 0;
             this.justificationTxt.Text = "";
             // 
@@ -1046,7 +1061,7 @@
             this.diagnosisPnl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.diagnosisPnl.Location = new System.Drawing.Point(6, 6);
             this.diagnosisPnl.Name = "diagnosisPnl";
-            this.diagnosisPnl.Size = new System.Drawing.Size(509, 207);
+            this.diagnosisPnl.Size = new System.Drawing.Size(547, 207);
             this.diagnosisPnl.TabIndex = 11;
             this.diagnosisPnl.TabStop = false;
             this.diagnosisPnl.Text = "Предварительный  клинический диагноз:";
@@ -1054,7 +1069,7 @@
             // diagnosisTemplateBtn
             // 
             this.diagnosisTemplateBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.diagnosisTemplateBtn.Location = new System.Drawing.Point(343, 177);
+            this.diagnosisTemplateBtn.Location = new System.Drawing.Point(381, 180);
             this.diagnosisTemplateBtn.Name = "diagnosisTemplateBtn";
             this.diagnosisTemplateBtn.Size = new System.Drawing.Size(160, 21);
             this.diagnosisTemplateBtn.TabIndex = 3;
@@ -1067,7 +1082,7 @@
             this.diagnosisTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.diagnosisTxt.Location = new System.Drawing.Point(6, 19);
             this.diagnosisTxt.Name = "diagnosisTxt";
-            this.diagnosisTxt.Size = new System.Drawing.Size(497, 161);
+            this.diagnosisTxt.Size = new System.Drawing.Size(535, 161);
             this.diagnosisTxt.TabIndex = 0;
             this.diagnosisTxt.Text = "";
             // 
@@ -1483,6 +1498,7 @@
         private System.Windows.Forms.RadioButton oksStRadio;
         private System.Windows.Forms.RadioButton nkRadio;
         private System.Windows.Forms.RadioButton telaRadio;
+        private System.Windows.Forms.RadioButton depRadio;
         private System.Windows.Forms.RichTextBox justificationTxt;
         private System.Windows.Forms.GroupBox diagnosisPnl;
         private System.Windows.Forms.Button diagnosisTemplateBtn;

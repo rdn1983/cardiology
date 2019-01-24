@@ -37,6 +37,7 @@ namespace Cardiology
         private const string OKS_TYPE = "oks";
         private const string PMA_TYPE = "pma";
         private const string IBS_TYPE = "ibs";
+        private const string DT_TYPE = "dt";
 
         private DdtHospital hospitalSession;
         private DdtAnamnesis anamnesis;
@@ -636,6 +637,11 @@ namespace Cardiology
         private void ibsRadio_CheckedChanged(object sender, EventArgs e)
         {
             justificationTxt.Text = getDefaultValueForType(justificationTxt.Name, IBS_TYPE);
+        }
+
+        private void depRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            justificationTxt.Text = getDefaultValueForType(justificationTxt.Name, DT_TYPE);
         }
 
         private void saveBtn_Click(object sender, EventArgs e)

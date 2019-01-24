@@ -144,7 +144,7 @@ namespace Cardiology
             if (journalContainer.Controls.Count > 0)
             {
                 JournalNoKAGControl lastJournal = (JournalNoKAGControl)journalContainer.Controls[journalContainer.Controls.Count - 1];
-                badJournal.initTime(lastJournal.getJournalDateTime().AddHours(4));
+                badJournal.initTime(lastJournal.getJournalDateTime().AddHours(1));
                 badJournal.initDocName(lastJournal.getDocName());
                 badJournal.initRhytm(lastJournal.isGoodRhytm());
 

@@ -234,6 +234,7 @@ namespace Cardiology
             anamnesis.DssUrinarySystem = getSafeStringValue(urinarySystemTxt);
             anamnesis.DssDiagnosis = getSafeStringValue(diagnosisTxt);
             anamnesis.DssOperationCause = getSafeStringValue(operationCauseTxt);
+            anamnesis.DssJustification = getSafeStringValue(justificationTxt);
 
             string id = service.updateOrCreateIfNeedObject<DdtAnamnesis>(anamnesis, DdtAnamnesis.TABLE_NAME, anamnesis.ObjectId);
             anamnesis.ObjectId = id;
@@ -279,7 +280,7 @@ namespace Cardiology
             {
                 foreach (DdtIssuedAction med in meds)
                 {
-                    if (CommonUtils.isBlank(med.RObjectId))
+                    if (CommonUtils.isBlank(med.RObjectId) || CommonUtils.isBlank(med.DsidDoctor))
                     {
                         med.DsidParentId = anamnesis.ObjectId;
                         med.DsidDoctor = hospitalSession.DsidCuringDoctor;

@@ -43,6 +43,7 @@ namespace Cardiology.Utils
             values.Add("{past_surgeries}", anamnesis.DssPastSurgeries);
             values.Add("{operation_cause}", anamnesis.DssOperationCause);
             values.Add("{diagnosis}", anamnesis.DssDiagnosis);
+            values.Add("{justification}", anamnesis.DssJustification);
 
             DdtDoctors doc = service.queryObjectById<DdtDoctors>(DdtDoctors.TABLE_NAME, anamnesis.DsidDoctor);
             values.Add("{cardio}", doc.DssInitials);

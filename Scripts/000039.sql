@@ -1,0 +1,1 @@
+ALTER TABLE ddt_anamnesis ADD COLUMN dss_oks_st VARCHAR(512);

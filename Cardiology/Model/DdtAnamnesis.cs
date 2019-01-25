@@ -56,6 +56,8 @@ namespace Cardiology.Model
         private bool dsbTemplate;
         [TableAttribute("dsdt_inspection_date")]
         private DateTime dsdtInspectionDate;
+        [TableAttribute("dss_justification")]
+        private string dssJustification;
 
         public string ObjectId
         {
@@ -157,6 +159,12 @@ namespace Cardiology.Model
         {
             get { return dssDiagnosisJustifies; }
             set { this.dssDiagnosisJustifies = value; }
+        }
+
+        public string DssJustification
+        {
+            get { return dssJustification; }
+            set { this.dssJustification = value; }
         }
 
         public string DssTemplateName { get => dssTemplateName; set => dssTemplateName = value; }

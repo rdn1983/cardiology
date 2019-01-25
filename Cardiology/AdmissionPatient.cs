@@ -57,6 +57,7 @@ namespace Cardiology
             weightTxt.Text = patient.DsdWeight.ToString();
             highTxt.Text = patient.DsdHigh.ToString();
             patientBirthDate.Text = patient.DsdtBirthdate.ToString();
+            sdBtn.Checked = patient.DsbSd;
 
             patientReceiptDate.Value = hospital.DsdtAdmissionDate;
             patientReceiptTime.Text = hospital.DsdtAdmissionDate.TimeOfDay.ToString();
@@ -108,6 +109,7 @@ namespace Cardiology
             patient.DssPassportIssuePlace = passportIssuePlaceTxt.Text;
             patient.DssPassportNum = passportNumTxt.Text;
             patient.DssPassportSerial = passportSerialTxt.Text;
+            patient.DsbSd = sdBtn.Checked;
 
             if (CommonUtils.isNotBlank(weightTxt.Text))
             {

@@ -40,6 +40,8 @@ namespace Cardiology.Model
         private DateTime dssPassportDate;
         [TableAttribute("dss_passport_issue_place")]
         private string dssPassportIssuePlace;
+        [TableAttribute("dsb_sd")]
+        private bool dsbSd;
 
         //add sex
 
@@ -103,5 +105,6 @@ namespace Cardiology.Model
         public string DssPassportNum { get => dssPassportNum; set => dssPassportNum = value; }
         public DateTime DssPassportDate { get => dssPassportDate; set => dssPassportDate = value; }
         public string DssPassportIssuePlace { get => dssPassportIssuePlace; set => dssPassportIssuePlace = value; }
+        public bool DsbSd { get => dsbSd; set => dsbSd = value; }
     }
 }

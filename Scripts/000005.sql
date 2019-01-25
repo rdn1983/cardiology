@@ -19,7 +19,8 @@ CREATE TABLE ddt_patient (
   dss_passport_serial VARCHAR(10),
   dss_passport_num VARCHAR(20),
   dss_passport_issue_place VARCHAR(128),
-  dss_passport_date TIMESTAMP
+  dss_passport_date TIMESTAMP,
+  dsb_sd boolean
 );
 
 CREATE TRIGGER ddt_patient_trg_modify_date BEFORE INSERT OR UPDATE

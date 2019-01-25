@@ -255,3 +255,5 @@ INSERT INTO ddt_values (dss_name, dss_value) VALUES ('death.medicine.0', 'Sol. D
 INSERT INTO ddt_values (dss_name, dss_value) VALUES ('death.medicine.2', 'Sol. Noradrenalini 2mg/ml + NaCl 0,9%– 50ml  V = 4-8 мл/ч');
 INSERT INTO ddt_values (dss_name, dss_value) VALUES ('death.medicine.3', 'Sol. Dofamini 10mg/ml – 5,0 + Sol. NaCl 0,9%– 50ml V = 2 мл/ч');
 INSERT INTO ddt_values (dss_name, dss_value) VALUES ('death.medicine.4', 'Sol. Sterofundini 400,0 х 2раз в/в кап, медленно');
+
+INSERT INTO ddt_values (dss_name, dss_value) VALUES ('sd', 'Стол НКД');

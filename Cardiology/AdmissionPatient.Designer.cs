@@ -87,6 +87,7 @@ namespace Cardiology
             this.firstNameLbl = new System.Windows.Forms.Label();
             this.patientLastName = new System.Windows.Forms.TextBox();
             this.lastNameLbl = new System.Windows.Forms.Label();
+            this.sdBtn = new System.Windows.Forms.CheckBox();
             this.lordOfTheCotBox.SuspendLayout();
             this.anesthetistBox.SuspendLayout();
             this.directorCardioReanimPnl.SuspendLayout();
@@ -107,6 +108,7 @@ namespace Cardiology
             this.lordOfTheCotBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.lordOfTheCotBox.Controls.Add(this.sdBtn);
             this.lordOfTheCotBox.Controls.Add(this.anesthetistBox);
             this.lordOfTheCotBox.Controls.Add(this.directorCardioReanimPnl);
             this.lordOfTheCotBox.Controls.Add(this.placeBox);
@@ -119,7 +121,7 @@ namespace Cardiology
             this.lordOfTheCotBox.Controls.Add(this.cardioReanimBox);
             this.lordOfTheCotBox.Location = new System.Drawing.Point(295, 4);
             this.lordOfTheCotBox.Name = "lordOfTheCotBox";
-            this.lordOfTheCotBox.Size = new System.Drawing.Size(270, 529);
+            this.lordOfTheCotBox.Size = new System.Drawing.Size(270, 537);
             this.lordOfTheCotBox.TabIndex = 3;
             this.lordOfTheCotBox.TabStop = false;
             this.lordOfTheCotBox.Text = "Дежурная бригада";
@@ -241,7 +243,7 @@ namespace Cardiology
             // 
             this.admisPatient.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.admisPatient.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.admisPatient.Location = new System.Drawing.Point(127, 500);
+            this.admisPatient.Location = new System.Drawing.Point(127, 508);
             this.admisPatient.Name = "admisPatient";
             this.admisPatient.Size = new System.Drawing.Size(137, 23);
             this.admisPatient.TabIndex = 1;
@@ -406,7 +408,7 @@ namespace Cardiology
             this.patientBaseInfoBox.Controls.Add(this.lastNameLbl);
             this.patientBaseInfoBox.Location = new System.Drawing.Point(12, 4);
             this.patientBaseInfoBox.Name = "patientBaseInfoBox";
-            this.patientBaseInfoBox.Size = new System.Drawing.Size(277, 529);
+            this.patientBaseInfoBox.Size = new System.Drawing.Size(277, 537);
             this.patientBaseInfoBox.TabIndex = 2;
             this.patientBaseInfoBox.TabStop = false;
             this.patientBaseInfoBox.Text = "Пациент";
@@ -720,6 +722,16 @@ namespace Cardiology
             this.lastNameLbl.TabIndex = 0;
             this.lastNameLbl.Text = "Ф.";
             // 
+            // sdBtn
+            // 
+            this.sdBtn.AutoSize = true;
+            this.sdBtn.Location = new System.Drawing.Point(8, 489);
+            this.sdBtn.Name = "sdBtn";
+            this.sdBtn.Size = new System.Drawing.Size(42, 17);
+            this.sdBtn.TabIndex = 13;
+            this.sdBtn.Text = "СД";
+            this.sdBtn.UseVisualStyleBackColor = true;
+            // 
             // AdmissionPatient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -733,6 +745,7 @@ namespace Cardiology
             this.Text = "Поступление пациента";
             this.Resize += new System.EventHandler(this.AdmissionPatient_Resize);
             this.lordOfTheCotBox.ResumeLayout(false);
+            this.lordOfTheCotBox.PerformLayout();
             this.anesthetistBox.ResumeLayout(false);
             this.directorCardioReanimPnl.ResumeLayout(false);
             this.placeBox.ResumeLayout(false);
@@ -813,5 +826,6 @@ namespace Cardiology
         private System.Windows.Forms.GroupBox anesthetistBox;
         private System.Windows.Forms.ComboBox anesthetistComboBox;
         private System.Windows.Forms.DateTimePicker patientReceiptTime;
+        private CheckBox sdBtn;
     }
 }

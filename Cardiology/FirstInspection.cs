@@ -252,7 +252,15 @@ namespace Cardiology
             List<DdtIssuedMedicine> meds = getSafeObjectValueUni(issuedMedicineContainer,
                 new getValue<List<DdtIssuedMedicine>>((ctrl) => ((IssuedMedicineContainer)ctrl).getIssuedMedicines()));
 
-            if (meds.Count > 0)
+            List<DdtIssuedMedicine> meds2 = new List<DdtIssuedMedicine>();
+            foreach (DdtIssuedMedicine med in meds)
+            {
+                if(med.DsidCure != null) {
+                    meds2.Add(med);
+                }                
+            }
+
+            if (meds2.Count > 0)
             {
                 DdtIssuedMedicineList medList = service.queryObject<DdtIssuedMedicineList>(@"SELECT * FROM ddt_issued_medicine_list WHERE dsid_hospitality_session='" +
                   hospitalSession.ObjectId + "' AND dss_parent_type='ddt_anamnesis'");
@@ -269,7 +277,7 @@ namespace Cardiology
                 medList.DssTemplateName = templateName;
                 string id = service.updateOrCreateIfNeedObject<DdtIssuedMedicineList>(medList, DdtIssuedMedicineList.TABLE_NAME, medList.ObjectId);
                 medList.ObjectId = id;
-                foreach (DdtIssuedMedicine med in meds)
+                foreach (DdtIssuedMedicine med in meds2)
                 {
                     med.DsidMedList = medList.ObjectId;
 

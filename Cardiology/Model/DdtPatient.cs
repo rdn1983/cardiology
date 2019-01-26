@@ -5,41 +5,55 @@ namespace Cardiology.Model
     public class DdtPatient
     {
         public const string TABLENAME= "ddt_patient";
+
         [TableAttribute("r_object_id", false)]
         private string rObjectId;
+
         [TableAttribute("r_creation_date", false)]
         private DateTime rCreationDate;
-        [TableAttribute("dss_login")]
-        private string dssLogin;
+
         [TableAttribute("dss_initials")]
         private string dssInitials;
+
         [TableAttribute("dss_full_name")]
         private string dssFullName;
+
         [TableAttribute("dsdt_birthdate")]
         private DateTime dsdtBirthdate;
+
         [TableAttribute("dss_phone")]
         private string dssPhone;
+
         [TableAttribute("dss_address")]
         private string dssAddress;
+
         [TableAttribute("dsd_weight")]
         private double dsdWeight;
+
         [TableAttribute("dsd_high")]
         private double dsdHigh;
+
         [TableAttribute("dss_med_code")]
         private string dssMedCode;
+
         [TableAttribute("dss_snils")]
         private string dssSnils;
+
         [TableAttribute("dss_oms")]
         private string dssOms;
 
         [TableAttribute("dss_passport_serial")]
         private string dssPassportSerial;
+
         [TableAttribute("dss_passport_num")]
         private string dssPassportNum;
+
         [TableAttribute("dss_passport_date")]
         private DateTime dssPassportDate;
+
         [TableAttribute("dss_passport_issue_place")]
         private string dssPassportIssuePlace;
+
         [TableAttribute("dsb_sd")]
         private bool dsbSd;
 
@@ -49,15 +63,12 @@ namespace Cardiology.Model
         {
             get {return rObjectId; }
         }
+
         public DateTime RCreationDate
         {
             get { return rCreationDate; }
         }
-        public string DssLogin
-        {
-            get { return dssLogin; }
-            set {this.dssLogin = value; }
-        }
+
         public string DssInitials
         {
             get { return dssInitials; }

@@ -95,8 +95,6 @@ namespace Cardiology
             if (patient == null)
             {
                 patient = new DdtPatient();
-                //todo Сделаь проверку на существующий логин
-                patient.DssLogin = translit(patientLastName.Text.Trim() + patientFirstName.Text.Substring(0, 1) + patientSecondName.Text.Substring(0, 1));
             }
             patient.DssAddress = addressTxt.Text.Trim();
             patient.DssInitials = patientLastName.Text.Trim() + " " + patientFirstName.Text.Substring(0, 1) + "." + " " + patientSecondName.Text.Substring(0, 1) + ".";

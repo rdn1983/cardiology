@@ -399,7 +399,7 @@ namespace Cardiology
             DdtDoctors pharma = service.queryObjectById<DdtDoctors>(DdtDoctors.TABLE_NAME, medList.DsidPharmacologist);
             DdtPatient patient = service.queryObjectById<DdtPatient>(DdtPatient.TABLENAME, medList.DsidPatient);
             values.Add(@"{doctor.who.short}", doc?.DssInitials);
-            values.Add(@"{patient.diagnosis}", hospitalSession.DssDiagnosis);
+            values.Add(@"{patient.diagnosis}", diagnosisTxt.Text);
             values.Add(@"{patient.age}", DateTime.Now.Year - patient.DsdtBirthdate.Year + "");
             values.Add(@"{admission.date}", hospitalSession.DsdtAdmissionDate.ToShortDateString());
             values.Add(@"{patient.historycard}", patient?.DssMedCode);
@@ -413,7 +413,7 @@ namespace Cardiology
             values.Add(@"{date}", DateTime.Now.ToShortDateString());
             //todo переписать,к огда будет время. Сделать добавление в таблицу строчек автоматом
             List<DdtIssuedMedicine> med = issuedMedicineContainer.getIssuedMedicines();
-            for (int i = 0; i < 12; i++)
+            for (int i = 0; i < 19; i++)
             {
                 string value = "";
                 if (i < med.Count)

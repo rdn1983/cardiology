@@ -30,6 +30,10 @@ namespace Cardiology.Controls
 
         internal void initTime(DateTime time)
         {
+            if (time != null && time > DateTime.MinValue)
+            {
+                time = time.AddMinutes(JournalShuffleUtils.shuffleNextValue(-8, 8));
+            }
             startDateTxt.Value = time;
             startTimeTxt.Value = time;
         }
@@ -166,6 +170,11 @@ namespace Cardiology.Controls
             else
             {
                 journalTxt.Text = journalType == (int)DdtJournalDsiType.PENDING_JUSTIFICATION ? JournalShuffleUtils.shuffleBadJournalText() : JournalShuffleUtils.shuffleJournalText();
+                if (journalType == (int) DdtJournalDsiType.AFTER_PENDING)
+                {
+                    journalTxt.Text += "Необходимо решить вопрос о проведении консилиума.";
+                    this.journalType = (int) DdtJournalDsiType.BEFORE_KAG;
+                }
                 adTxt.SelectedIndex = JournalShuffleUtils.shuffleNextIndex(adTxt.Items.Count - 1);
                 chddTxt.SelectedIndex = chddTxt.FindString("14");
                 chssTxt.SelectedIndex = JournalShuffleUtils.shuffleNextIndex(chssTxt.Items.Count - 1);

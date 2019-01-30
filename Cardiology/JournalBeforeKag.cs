@@ -140,17 +140,24 @@ namespace Cardiology
 
         private void createDefferedJournalMenu_Click(object sender, EventArgs e)
         {
-            JournalNoKAGControl badJournal = new JournalNoKAGControl(null, (int)DdtJournalDsiType.PENDING_JUSTIFICATION);
+            JournalNoKAGControl goodJournalBefore = new JournalNoKAGControl(null, (int)DdtJournalDsiType.BEFORE_KAG);
             if (journalContainer.Controls.Count > 0)
             {
                 JournalNoKAGControl lastJournal = (JournalNoKAGControl)journalContainer.Controls[journalContainer.Controls.Count - 1];
-                badJournal.initTime(lastJournal.getJournalDateTime().AddHours(1));
-                badJournal.initDocName(lastJournal.getDocName());
-                badJournal.initRhytm(lastJournal.isGoodRhytm());
+                goodJournalBefore.initTime(lastJournal.getJournalDateTime().AddHours(1));
+                goodJournalBefore.initDocName(lastJournal.getDocName());
+                goodJournalBefore.initRhytm(lastJournal.isGoodRhytm());
 
             }
+            journalContainer.Controls.Add(goodJournalBefore);
+
+            JournalNoKAGControl badJournal = new JournalNoKAGControl(null, (int)DdtJournalDsiType.PENDING_JUSTIFICATION);
+            badJournal.initTime(goodJournalBefore.getJournalDateTime().AddHours(1));
+            badJournal.initDocName(goodJournalBefore.getDocName());
+            badJournal.initRhytm(goodJournalBefore.isGoodRhytm());
             journalContainer.Controls.Add(badJournal);
-            JournalNoKAGControl goodJournal = new JournalNoKAGControl(null, (int)DdtJournalDsiType.BEFORE_KAG);
+
+            JournalNoKAGControl goodJournal = new JournalNoKAGControl(null, (int)DdtJournalDsiType.AFTER_PENDING);
             goodJournal.initTime(badJournal.getJournalDateTime().AddMinutes(15));
             goodJournal.initDocName(badJournal.getDocName());
             goodJournal.initRhytm(badJournal.isGoodRhytm());

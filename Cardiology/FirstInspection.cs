@@ -72,7 +72,11 @@ namespace Cardiology
                     List<DdtCure> medicineTemplates = service.queryObjectsCollection<DdtCure>(@"Select cure.* from ddt_values vv, ddt_cure cure 
                             where vv.dss_name like 'sd' AND vv.dss_value=cure.dss_name");
                     issuedMedicineContainer.refreshData(service, medicineTemplates);
-                    accompanyingIllnessesTxt.Text += "Сахарный диабет 2 типа, среднетяжелого течения, субкомпенсация. \n";
+                    if (patient.DsbSd)
+                    {
+                        accompanyingIllnessesTxt.Text += "Сахарный диабет 2 типа, среднетяжелого течения, субкомпенсация. \n";
+                        diagnosisTxt.Text += "Сахарный диабет 2 типа, среднетяжелого течения, субкомпенсация. \n";
+                    }
                 }
             }
         }

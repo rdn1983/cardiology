@@ -31,6 +31,10 @@ namespace Cardiology
             if (patient != null)
             {
                 Text += " " + patient.DssInitials;
+                if (patient.DsbSd && (diagnosisTxt.Text == null || !diagnosisTxt.Text.Contains("СД")))
+                {
+                    diagnosisTxt.Text += "СД ";
+                }
             }
         }
 
@@ -410,6 +414,7 @@ namespace Cardiology
             values.Add(@"{doctor.director}", director?.DssInitials);
             values.Add(@"{room}", hospitalitySession.DssRoomCell);
             values.Add(@"{cell}", "");
+            values.Add(@"{diet}", "НКД");
             values.Add(@"{date}", DateTime.Now.ToShortDateString());
             //todo переписать,к огда будет время. Сделать добавление в таблицу строчек автоматом
             List<DdtIssuedMedicine> med = issuedMedicineContainer.getIssuedMedicines();

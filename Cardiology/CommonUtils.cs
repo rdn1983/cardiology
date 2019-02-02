@@ -88,6 +88,17 @@ namespace Cardiology.Utils
             cb.DisplayMember = "DssName";
         }
 
+        internal static void setDoctorsComboboxDefaultValue(DataService service, ComboBox cb, string dsidCuringDoctor)
+        {
+            if (isNotBlank(dsidCuringDoctor))
+            {
+                string query = @"SELECT * FROM ddt_doctors WHERE r_object_id = '" + dsidCuringDoctor + "'";
+                DdtDoctors doctor = service.queryObjectById<DdtDoctors>(DdtDoctors.TABLE_NAME, dsidCuringDoctor);
+                cb.SelectedIndex = cb.FindStringExact(doctor.DssInitials);
+            }
+        }
+
+
         internal static void initRangedItems(ComboBox c, int start, int end)
         {
             for (int i = start; i <= end; i++)

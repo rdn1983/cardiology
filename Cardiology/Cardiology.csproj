@@ -209,7 +209,6 @@
     <Compile Include="Model\DdtConsiliumMember.cs" />
     <Compile Include="Model\DdtConsiliumMemberLevel.cs" />
     <Compile Include="Model\DdtCure.cs" />
-    <Compile Include="Model\DdtCureDictionary.cs" />
     <Compile Include="Model\DdtCureType.cs" />
     <Compile Include="Model\DdtDoctors.cs" />
     <Compile Include="Model\DdtEgds.cs" />

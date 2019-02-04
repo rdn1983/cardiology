@@ -34,7 +34,7 @@ namespace Cardiology
                 DdtCure cure = service.queryObjectById<DdtCure>(DdtCure.TABLE_NAME, med.DsidCure);
                 if (cure != null)
                 {
-                    DdtCureType type = service.queryObjectByAttrCond<DdtCureType>(DdtCureType.TABLE_NAME, "dsi_type", cure.DsiType + "", false);
+                    DdtCureType type = service.queryObjectByAttrCond<DdtCureType>(DdtCureType.TABLE_NAME, "r_object_id", cure.CureTypeId + "", true);
                     if (type != null)
                     {
                         medicineTypeTxt0.SelectedIndex = medicineTypeTxt0.FindStringExact(type.DssName);
@@ -47,7 +47,7 @@ namespace Cardiology
 
         internal void refreshData(DataService service, DdtCure cure)
         {
-            DdtCureType type = service.queryObjectByAttrCond<DdtCureType>(DdtCureType.TABLE_NAME, "dsi_type", cure.DsiType + "", false);
+            DdtCureType type = service.queryObjectByAttrCond<DdtCureType>(DdtCureType.TABLE_NAME, "r_object_id", cure.CureTypeId + "", true);
             if (type != null)
             {
                 medicineTypeTxt0.SelectedIndex = medicineTypeTxt0.FindStringExact(type.DssName);
@@ -84,7 +84,7 @@ namespace Cardiology
         {
             ComboBox box = (ComboBox)sender;
             DdtCureType selectedVal = (DdtCureType)box.SelectedItem;
-            CommonUtils.initCureComboboxValues(new DataService(), issuedMedicineTxt0, selectedVal.DsiType);
+            CommonUtils.initCureComboboxValuesByTypeId(new DataService(), issuedMedicineTxt0, selectedVal.ObjectId);
         }
     }
 }

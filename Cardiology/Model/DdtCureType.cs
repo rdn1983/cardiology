@@ -11,8 +11,6 @@ namespace Cardiology.Model
         private DateTime rCreationDate;
         [TableAttribute("dss_name")]
         private string dssName;
-        [TableAttribute("dsi_type")]
-        private int dsiType;
 
         public string ObjectId
         {
@@ -28,11 +26,6 @@ namespace Cardiology.Model
         {
             get { return dssName; }
             set { this.dssName = value; }
-        }
-        public int DsiType
-        {
-            get { return dsiType; }
-            set { this.dsiType = value; }
         }
 
     }

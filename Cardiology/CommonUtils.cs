@@ -58,20 +58,10 @@ namespace Cardiology.Utils
             cb.DisplayMember = "DssInitials";
         }
 
-        internal static void initCureComboboxValues(DataService service, ComboBox cb, string whereCnd)
+        internal static void initCureComboboxValuesByTypeId(DataService service, ComboBox cb, string cureTypeId)
         {
             cb.Items.Clear();
-            string query = @"SELECT * FROM ddt_cure " + (isBlank(whereCnd) ? "" : (" WHERE " + whereCnd)) + " ORDER BY dsi_type";
-            List<DdtCure> cureList = service.queryObjectsCollection<DdtCure>(query);
-            cb.Items.AddRange(cureList.ToArray());
-            cb.ValueMember = "ObjectId";
-            cb.DisplayMember = "DssName";
-        }
-
-        internal static void initCureComboboxValues(DataService service, ComboBox cb, int cureType)
-        {
-            cb.Items.Clear();
-            string query = @"SELECT * FROM ddt_cure WHERE dsi_type= " + cureType;
+            string query = @"SELECT * FROM ddt_cure WHERE dsid_cure_type= '" + cureTypeId + "'";
             List<DdtCure> cureList = service.queryObjectsCollection<DdtCure>(query);
             cb.Items.AddRange(cureList.ToArray());
             cb.ValueMember = "ObjectId";

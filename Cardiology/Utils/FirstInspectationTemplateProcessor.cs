@@ -79,7 +79,8 @@ namespace Cardiology.Utils
             }
             values.Add("{issued_actions}", actionsBuilder.ToString());
 
-            values.Add("{date}", DateTime.Now.ToShortDateString());
+            DdtHospital hospital = service.queryObject<DdtHospital>(@"SELECT * FROM ddt_hospital WHERE r_object_id='" + hospitalitySession + "'");
+            values.Add("{date}", hospital.DsdtAdmissionDate.ToShortDateString() + " " + hospital.DsdtAdmissionDate.ToShortTimeString());
 
             return TemplatesUtils.fillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + TEMPLATE_FILE_NAME, values);
         }

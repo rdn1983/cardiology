@@ -9,14 +9,16 @@ namespace Cardiology.Controls
     public partial class JournalNoKAGControl : UserControl, IDocbaseControl
     {
         private string objectId;
+        private string dsidCuringDoctor;
         private int journalType;
         private bool hasChanges;
         private bool isNew;
 
-        public JournalNoKAGControl(string objectId, int journalType)
+        public JournalNoKAGControl(string objectId, int journalType, string dsidCuringDoctor)
         {
             this.objectId = objectId;
             this.journalType = journalType;
+            this.dsidCuringDoctor = dsidCuringDoctor;
             InitializeComponent();
             initControls();
             hasChanges = false;
@@ -50,7 +52,8 @@ namespace Cardiology.Controls
             warningLbl.Visible = false;
 
             DataService service = new DataService();
-            CommonUtils.initDoctorsComboboxValues(service, docBox, null);
+            CommonUtils.initDoctorsComboboxValues(service, docBox, " dss_login in (select dss_user_name from dm_group_users where dss_group_name = 'duty_cardioreanim') ");
+            CommonUtils.setDoctorsComboboxDefaultValue(service, docBox, dsidCuringDoctor);
 
             DdtJournal journal = service.queryObjectById<DdtJournal>(DdtJournal.TABLE_NAME, objectId);
             refreshObject(journal);

@@ -19,28 +19,19 @@ namespace Cardiology
 
         private Npgsql.NpgsqlConnection getConnection()
         {
-            Npgsql.NpgsqlConnection connection = null;
-            connection = new Npgsql.NpgsqlConnection();
+            Npgsql.NpgsqlConnection connection = new Npgsql.NpgsqlConnection();
             connection.ConnectionString = "Server=89.223.91.196;Port=5432;User Id=cardio;Password=AbC123456!ab;Database=cardio;";
             connection.Open();
             return connection;
         }
 
-        public void update(string query)
+        public void update(string sql)
         {
-            Npgsql.NpgsqlConnection connection = null;
-            try
-            {
-                connection = getConnection();
-                Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(query, connection);
+            using (Npgsql.NpgsqlConnection connection = getConnection()) {
+                logger.Debug(sql);
+
+                Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 command.ExecuteScalar();
-            }
-            finally
-            {
-                if (connection != null)
-                {
-                    connection.Close();
-                }
             }
         }
 

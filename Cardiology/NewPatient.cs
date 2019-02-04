@@ -7,11 +7,11 @@ using Cardiology.Utils;
 
 namespace Cardiology
 {
-    public partial class AdmissionPatient : Form
+    public partial class NewPatient : Form
     {
         private DdtHospital hospital;
 
-        public AdmissionPatient(DdtHospital hospital)
+        public NewPatient(DdtHospital hospital)
         {
             this.hospital = hospital;
             InitializeComponent();

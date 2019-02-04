@@ -2,7 +2,7 @@
 
 namespace Cardiology
 {
-    partial class AdmissionPatient
+    partial class NewPatient
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@ namespace Cardiology
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdmissionPatient));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewPatient));
             this.lordOfTheCotBox = new System.Windows.Forms.GroupBox();
             this.anesthetistBox = new System.Windows.Forms.GroupBox();
             this.anesthetistComboBox = new System.Windows.Forms.ComboBox();

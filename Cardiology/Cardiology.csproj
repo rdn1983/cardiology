@@ -69,11 +69,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdmissionPatient.cs">
+    <Compile Include="NewPatient.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdmissionPatient.Designer.cs">
-      <DependentUpon>AdmissionPatient.cs</DependentUpon>
+    <Compile Include="NewPatient.Designer.cs">
+      <DependentUpon>NewPatient.cs</DependentUpon>
     </Compile>
     <Compile Include="AlcoIntoxication.cs">
       <SubType>Form</SubType>
@@ -424,8 +424,8 @@
     <None Include="NLog.config" />
     <None Include="Resources\shuffle.png" />
     <None Include="Resources\link20.png" />
-    <EmbeddedResource Include="AdmissionPatient.resx">
-      <DependentUpon>AdmissionPatient.cs</DependentUpon>
+    <EmbeddedResource Include="NewPatient.resx">
+      <DependentUpon>NewPatient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AlcoIntoxication.resx">
       <DependentUpon>AlcoIntoxication.cs</DependentUpon>

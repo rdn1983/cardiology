@@ -25,11 +25,11 @@ namespace Cardiology
         private void initControls()
         {
             DataService service = new DataService();
-            curingDoc = service.queryObjectById<DdtDoctors>(DdtDoctors.TABLE_NAME, hospitalitySession?.DsidCuringDoctor);
+            curingDoc = service.queryObjectById<DdtDoctors>(hospitalitySession?.DsidCuringDoctor);
             CommonUtils.initDoctorsComboboxValues(service, adminTxt, " dsi_appointment_type=3");
             CommonUtils.initGroupsComboboxValues(service, appointmentTxt0);
             CommonUtils.initDoctorsByGroupComboboxValues(service, doctorWho0, null);
-            DdtPatient patient = service.queryObjectById<DdtPatient>(DdtPatient.TABLENAME, hospitalitySession.DsidPatient);
+            DdtPatient patient = service.queryObjectById<DdtPatient>(hospitalitySession.DsidPatient);
             if (patient != null)
             {
                 Text += " " + patient.DssInitials;
@@ -37,7 +37,7 @@ namespace Cardiology
             diagnosisTxt0.Text = hospitalitySession.DssDiagnosis;
             if (CommonUtils.isNotBlank(consiliumId))
             {
-                DdtConsilium consilium = service.queryObjectById<DdtConsilium>(DdtConsilium.TABLE_NAME, consiliumId);
+                DdtConsilium consilium = service.queryObjectById<DdtConsilium>(consiliumId);
                 if (consilium != null)
                 {
                     goalTxt.Text = consilium.DssGoal;
@@ -152,12 +152,12 @@ namespace Cardiology
             }
             DataService service = new DataService();
             hospitalitySession.DssDiagnosis = getSafeStringValue(diagnosisTxt1);
-            service.updateObject<DdtHospital>(hospitalitySession, DdtHospital.TABLENAME, "r_object_id", hospitalitySession.ObjectId);
+            service.updateObject<DdtHospital>(hospitalitySession, DdtHospital.TABLE_NAME, "r_object_id", hospitalitySession.ObjectId);
 
             DdtConsilium consilium = null;
             if (CommonUtils.isNotBlank(consiliumId))
             {
-                consilium = service.queryObjectById<DdtConsilium>(DdtConsilium.TABLE_NAME, consiliumId);
+                consilium = service.queryObjectById<DdtConsilium>(consiliumId);
             }
             else
             {
@@ -185,7 +185,7 @@ namespace Cardiology
                 ComboBox appointment = (ComboBox)CommonUtils.findControl(doctorsContainer, "appointmentTxt" + indx);
                 if (CommonUtils.isNotBlank(objectIdCtrl.Text))
                 {
-                    member = service.queryObjectById<DdtConsiliumMember>(DdtConsiliumMember.TABLE_NAME, objectIdCtrl.Text);
+                    member = service.queryObjectById<DdtConsiliumMember>(objectIdCtrl.Text);
                 }
                 else
                 {

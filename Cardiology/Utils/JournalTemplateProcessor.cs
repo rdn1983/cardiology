@@ -27,8 +27,8 @@ namespace Cardiology.Utils
                 values = new Dictionary<string, string>();
             }
             DataService service = new DataService();
-            DdtJournal journal = service.queryObjectById<DdtJournal>(DdtJournal.TABLE_NAME, objectId);
-            DdtDoctors doc = service.queryObjectById<DdtDoctors>(DdtDoctors.TABLE_NAME, journal.DsidDoctor);
+            DdtJournal journal = service.queryObjectById<DdtJournal>(objectId);
+            DdtDoctors doc = service.queryObjectById<DdtDoctors>(journal.DsidDoctor);
             values.Add("{doctor.initials}", doc == null ? "" : doc.DssInitials);
 
             List<string> partsPaths = new List<string>();

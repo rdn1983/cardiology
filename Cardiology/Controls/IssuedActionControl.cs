@@ -35,7 +35,7 @@ namespace Cardiology.Controls
         {
             if (CommonUtils.isNotBlank(issuedActionTxt.Text))
             {
-                DdtIssuedAction result = service.queryObjectById<DdtIssuedAction>(DdtIssuedAction.TABLE_NAME, objectId) ?? new DdtIssuedAction();
+                DdtIssuedAction result = service.queryObjectById<DdtIssuedAction>(objectId) ?? new DdtIssuedAction();
                 result.DssAction = issuedActionTxt.Text;
                 return result;
             }

@@ -24,7 +24,7 @@ namespace Cardiology
         private void initControls()
         {
             DataService service = new DataService();
-            DdtSpecialistConclusion specConclusion = service.queryObjectById<DdtSpecialistConclusion>(DdtSpecialistConclusion.TABLE_NAME, objectId);
+            DdtSpecialistConclusion specConclusion = service.queryObjectById<DdtSpecialistConclusion>(objectId);
             refreshObject(specConclusion);
             neurologTxt.ReadOnly = !isEditable;
             surgeonTxt.ReadOnly = !isEditable;
@@ -75,7 +75,7 @@ namespace Cardiology
         public object getObject()
         {
             DataService service = new DataService();
-            DdtSpecialistConclusion specConslusion = service.queryObjectById<DdtSpecialistConclusion>(DdtSpecialistConclusion.TABLE_NAME, objectId);
+            DdtSpecialistConclusion specConslusion = service.queryObjectById<DdtSpecialistConclusion>(objectId);
             if (specConslusion == null)
             {
                 specConslusion = new DdtSpecialistConclusion();

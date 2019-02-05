@@ -29,7 +29,7 @@ namespace Cardiology.Utils
                 values = new Dictionary<string, string>();
             }
             DataService service = new DataService();
-            DdtInspection obj = service.queryObjectById<DdtInspection>(DdtInspection.TABLE_NAME, objectId);
+            DdtInspection obj = service.queryObjectById<DdtInspection>(objectId);
             values.Add("{date}", obj.DsdtInspectionDate.ToShortDateString());
             values.Add("{time}", obj.DsdtInspectionDate.ToShortTimeString());
             values.Add("{patient.diagnosis}", obj.DssDiagnosis);
@@ -38,11 +38,11 @@ namespace Cardiology.Utils
             values.Add("{kateter}", obj.DssKateterPlacement);
             values.Add("{result}", obj.DssInspectionResult);
 
-            DdtPatient patient = service.queryObjectById<DdtPatient>(DdtPatient.TABLENAME, obj.DsidPatient);
+            DdtPatient patient = service.queryObjectById<DdtPatient>(obj.DsidPatient);
             values.Add("{patient.initials}", patient == null ? "" : patient.DssInitials);
             values.Add("{patient.age}", patient == null ? "" : (DateTime.Now.Year - patient.DsdtBirthdate.Year) + "");
 
-            DdtDoctors doc = service.queryObjectById<DdtDoctors>(DdtDoctors.TABLE_NAME, obj.DsidDoctor);
+            DdtDoctors doc = service.queryObjectById<DdtDoctors>(obj.DsidDoctor);
             values.Add("{doctor.who.short}", doc == null ? "" : doc.DssInitials);
 
             putBloodData(values, service, obj.RObjectId);

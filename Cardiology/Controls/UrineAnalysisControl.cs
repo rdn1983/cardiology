@@ -27,7 +27,7 @@ namespace Cardiology
         private void initControls()
         {
             DataService service = new DataService();
-            DdtUrineAnalysis urineAnalysis = service.queryObjectById<DdtUrineAnalysis>(DdtUrineAnalysis.TABLE_NAME, objectId);
+            DdtUrineAnalysis urineAnalysis = service.queryObjectById<DdtUrineAnalysis>(objectId);
             refreshObject(urineAnalysis);
             dateUrineAnalysis.Enabled = isEditable;
             colorTxt.ReadOnly = !isEditable;
@@ -78,7 +78,7 @@ namespace Cardiology
         public object getObject()
         {
             DataService service = new DataService();
-            DdtUrineAnalysis urine = service.queryObjectById<DdtUrineAnalysis>(DdtUrineAnalysis.TABLE_NAME, objectId);
+            DdtUrineAnalysis urine = service.queryObjectById<DdtUrineAnalysis>(objectId);
             if (urine == null)
             {
                 urine = new DdtUrineAnalysis();

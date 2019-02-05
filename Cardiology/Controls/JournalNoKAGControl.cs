@@ -55,7 +55,7 @@ namespace Cardiology.Controls
             CommonUtils.initDoctorsComboboxValues(service, docBox, " dss_login in (select dss_user_name from dm_group_users where dss_group_name = 'duty_cardioreanim') ");
             CommonUtils.setDoctorsComboboxDefaultValue(service, docBox, dsidCuringDoctor);
 
-            DdtJournal journal = service.queryObjectById<DdtJournal>(DdtJournal.TABLE_NAME, objectId);
+            DdtJournal journal = service.queryObjectById<DdtJournal>(objectId);
             refreshObject(journal);
         }
 
@@ -121,7 +121,7 @@ namespace Cardiology.Controls
         public object getObject()
         {
             DataService service = new DataService();
-            DdtJournal journal = service.queryObjectById<DdtJournal>(DdtJournal.TABLE_NAME, objectId);
+            DdtJournal journal = service.queryObjectById<DdtJournal>(objectId);
             if (journal == null)
             {
                 journal = new DdtJournal();
@@ -164,7 +164,7 @@ namespace Cardiology.Controls
                 goodRhytmBtn.Checked = journal.DsbGoodRhytm;
                 badRhytmBtn.Checked = !journal.DsbGoodRhytm;
 
-                DdtDoctors doc = service.queryObjectById<DdtDoctors>(DdtDoctors.TABLE_NAME, journal.DsidDoctor);
+                DdtDoctors doc = service.queryObjectById<DdtDoctors>(journal.DsidDoctor);
                 docBox.SelectedIndex = docBox.FindStringExact(doc.DssInitials);
                 objectId = journal.RObjectId;
                 isNew = CommonUtils.isBlank(objectId);

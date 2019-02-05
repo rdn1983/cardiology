@@ -24,7 +24,7 @@ namespace Cardiology.Controls
         private void initControls()
         {
             DataService service = new DataService();
-            DdtXRay xRay = service.queryObjectById<DdtXRay>(DdtXRay.TABLE_NAME, objectId);
+            DdtXRay xRay = service.queryObjectById<DdtXRay>(objectId);
             refreshObject(xRay);
             chestXRayTxt.Enabled = isEditable;
             controlRadiographyTxt.Enabled = isEditable;
@@ -74,7 +74,7 @@ namespace Cardiology.Controls
         public object getObject()
         {
             DataService service = new DataService();
-            DdtXRay xRay = service.queryObjectById<DdtXRay>(DdtXRay.TABLE_NAME, objectId);
+            DdtXRay xRay = service.queryObjectById<DdtXRay>(objectId);
             if (xRay == null)
             {
                 xRay = new DdtXRay();

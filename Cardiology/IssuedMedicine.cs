@@ -27,7 +27,7 @@ namespace Cardiology
             CommonUtils.initDoctorsByGroupComboboxValues(service, directorBox, "io_cardio_reanim");
             initIssuedCure(service);
 
-            DdtPatient patient = service.queryObjectById<DdtPatient>(DdtPatient.TABLENAME, hospitalitySession.DsidPatient);
+            DdtPatient patient = service.queryObjectById<DdtPatient>(hospitalitySession.DsidPatient);
             if (patient != null)
             {
                 Text += " " + patient.DssInitials;
@@ -40,7 +40,7 @@ namespace Cardiology
 
         private void initIssuedCure(DataService service)
         {
-            DdtIssuedMedicineList medList = service.queryObjectById<DdtIssuedMedicineList>(DdtIssuedMedicineList.TABLE_NAME, issuedMedId);
+            DdtIssuedMedicineList medList = service.queryObjectById<DdtIssuedMedicineList>(issuedMedId);
             initDocBoxValue(service, clinicalPharmacologistBox, medList?.DsidPharmacologist);
             initDocBoxValue(service, nurseBox, medList?.DsidNurse);
             initDocBoxValue(service, cardioReanimBox, medList == null ? hospitalitySession.DsidDutyDoctor : medList.DsidDoctor);
@@ -140,7 +140,7 @@ namespace Cardiology
         {
             if (CommonUtils.isNotBlank(docId))
             {
-                DdtDoctors doc = service.queryObjectById<DdtDoctors>(DdtDoctors.TABLE_NAME, docId);
+                DdtDoctors doc = service.queryObjectById<DdtDoctors>(docId);
                 cb.SelectedIndex = cb.FindStringExact(doc?.DssInitials);
             }
         }
@@ -168,7 +168,7 @@ namespace Cardiology
             List<DdtIssuedMedicine> meds = issuedMedicineContainer.getIssuedMedicines();
             if (meds.Count > 0)
             {
-                DdtIssuedMedicineList medList = service.queryObjectById<DdtIssuedMedicineList>(DdtIssuedMedicineList.TABLE_NAME, issuedMedId);
+                DdtIssuedMedicineList medList = service.queryObjectById<DdtIssuedMedicineList>(issuedMedId);
                 if (medList == null)
                 {
                     medList = new DdtIssuedMedicineList();
@@ -395,13 +395,13 @@ namespace Cardiology
 
             Dictionary<string, string> values = new Dictionary<string, string>();
             DataService service = new DataService();
-            DdtIssuedMedicineList medList = service.queryObjectById<DdtIssuedMedicineList>(DdtIssuedMedicineList.TABLE_NAME, issuedMedId);
-            DdtHospital hospitalSession = service.queryObjectById<DdtHospital>(DdtHospital.TABLENAME, hospitalitySession.ObjectId);
-            DdtDoctors doc = service.queryObjectById<DdtDoctors>(DdtDoctors.TABLE_NAME, medList.DsidDoctor);
-            DdtDoctors nurse = service.queryObjectById<DdtDoctors>(DdtDoctors.TABLE_NAME, medList.DsidNurse);
-            DdtDoctors director = service.queryObjectById<DdtDoctors>(DdtDoctors.TABLE_NAME, medList.DsidDirector);
-            DdtDoctors pharma = service.queryObjectById<DdtDoctors>(DdtDoctors.TABLE_NAME, medList.DsidPharmacologist);
-            DdtPatient patient = service.queryObjectById<DdtPatient>(DdtPatient.TABLENAME, medList.DsidPatient);
+            DdtIssuedMedicineList medList = service.queryObjectById<DdtIssuedMedicineList>(issuedMedId);
+            DdtHospital hospitalSession = service.queryObjectById<DdtHospital>(hospitalitySession.ObjectId);
+            DdtDoctors doc = service.queryObjectById<DdtDoctors>(medList.DsidDoctor);
+            DdtDoctors nurse = service.queryObjectById<DdtDoctors>(medList.DsidNurse);
+            DdtDoctors director = service.queryObjectById<DdtDoctors>(medList.DsidDirector);
+            DdtDoctors pharma = service.queryObjectById<DdtDoctors>(medList.DsidPharmacologist);
+            DdtPatient patient = service.queryObjectById<DdtPatient>(medList.DsidPatient);
             values.Add(@"{doctor.who.short}", doc?.DssInitials);
             values.Add(@"{patient.diagnosis}", diagnosisTxt.Text);
             values.Add(@"{patient.age}", DateTime.Now.Year - patient.DsdtBirthdate.Year + "");
@@ -423,7 +423,7 @@ namespace Cardiology
                 string value = "";
                 if (i < med.Count)
                 {
-                    DdtCure cure = service.queryObjectById<DdtCure>(DdtCure.TABLE_NAME, med[i].DsidCure);
+                    DdtCure cure = service.queryObjectById<DdtCure>(med[i].DsidCure);
                     value = cure.DssName;
                 }
                 values.Add(@"{issued_medicine_" + i + "}", value);

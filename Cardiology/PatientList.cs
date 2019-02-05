@@ -88,8 +88,8 @@ namespace Cardiology
                 DataGridViewCell cell = row.Cells[0];
                 string value = cell.Value.ToString();
                 DataService service = new DataService();
-                DdtHospital hospitalSession = service.queryObjectById<DdtHospital>(DdtHospital.TABLENAME, value);
-                DdtPatient patient = service.queryObjectById<DdtPatient>(DdtPatient.TABLENAME, hospitalSession.DsidPatient);
+                DdtHospital hospitalSession = service.queryObjectById<DdtHospital>(value);
+                DdtPatient patient = service.queryObjectById<DdtPatient>(hospitalSession.DsidPatient);
                 ReanimDEAD form = new ReanimDEAD(patient);
                 form.ShowDialog();
             }
@@ -105,8 +105,8 @@ namespace Cardiology
                 DataGridViewCell cell = row.Cells[0];
                 string value = cell.Value.ToString();
                 DataService service = new DataService();
-                DdtHospital hospitalSession = service.queryObjectById<DdtHospital>(DdtHospital.TABLENAME, value);
-                DdtPatient patient = service.queryObjectById<DdtPatient>(DdtPatient.TABLENAME, hospitalSession.DsidPatient);
+                DdtHospital hospitalSession = service.queryObjectById<DdtHospital>(value);
+                DdtPatient patient = service.queryObjectById<DdtPatient>(hospitalSession.DsidPatient);
                 ReanimDEAD form = new ReanimDEAD(patient);
                 form.ShowDialog();
             }
@@ -134,7 +134,7 @@ namespace Cardiology
                 DataGridViewCell cell = row.Cells[0];
                 string value = cell.Value.ToString();
                 DataService service = new DataService();
-                DdtHospital hospitalSession = service.queryObjectById<DdtHospital>(DdtHospital.TABLENAME, value);
+                DdtHospital hospitalSession = service.queryObjectById<DdtHospital>(value);
                 PatientsHistory form = new PatientsHistory(hospitalSession);
                 form.ShowDialog();
             }
@@ -149,7 +149,7 @@ namespace Cardiology
                 DataGridViewCell cell = row.Cells[0];
                 string value = cell.Value.ToString();
                 DataService service = new DataService();
-                DdtHospital hospitalSession = service.queryObjectById<DdtHospital>(DdtHospital.TABLENAME, value);
+                DdtHospital hospitalSession = service.queryObjectById<DdtHospital>(value);
                 ReleasePatient dialog = new ReleasePatient(hospitalSession, null);
                 dialog.ShowDialog();
             }
@@ -326,7 +326,7 @@ namespace Cardiology
                 DataGridViewRow row = (DataGridViewRow)it.Current;
                 DataGridViewCell cell = row.Cells[0];
                 string value = cell.Value.ToString();
-                DdtHospital hospitalSession = new DataService().queryObjectById<DdtHospital>(DdtHospital.TABLENAME, value);
+                DdtHospital hospitalSession = new DataService().queryObjectById<DdtHospital>(value);
                 AmbulanceLetters form = new AmbulanceLetters(hospitalSession);
                 form.ShowDialog();
             }
@@ -482,8 +482,8 @@ namespace Cardiology
                 Dictionary<string, string> values = new Dictionary<string, string>();
                 values.Add("{time}", DateTime.Now.ToShortTimeString());
                 DataService service = new DataService();
-                DdtHospital hospitalSession = service.queryObjectById<DdtHospital>(DdtHospital.TABLENAME, value);
-                DdtPatient patient = service.queryObjectById<DdtPatient>(DdtPatient.TABLENAME, hospitalSession.DsidPatient);
+                DdtHospital hospitalSession = service.queryObjectById<DdtHospital>(value);
+                DdtPatient patient = service.queryObjectById<DdtPatient>(hospitalSession.DsidPatient);
                 string passportInfo = patient.DssPassportSerial + " " + patient.DssPassportNum + " выдан "
                     + patient.DssPassportDate.ToShortDateString() + " " + patient.DssPassportIssuePlace;
                 values.Add("{patient.passport}", passportInfo);
@@ -505,7 +505,7 @@ namespace Cardiology
                 DataGridViewRow row = (DataGridViewRow)it.Current;
                 DataGridViewCell cell = row.Cells[0];
                 DataService service = new DataService();
-                DdtHospital hospitalSession = service.queryObjectById<DdtHospital>(DdtHospital.TABLENAME, cell.Value.ToString());
+                DdtHospital hospitalSession = service.queryObjectById<DdtHospital>(cell.Value.ToString());
                 NewPatient admissionPatient = new NewPatient(hospitalSession);
                 admissionPatient.ShowDialog();
 
@@ -529,7 +529,7 @@ namespace Cardiology
                 }
                 else
                 {
-                    DdtHospital hospitalSession = service.queryObjectById<DdtHospital>(DdtHospital.TABLENAME, cell.Value.ToString());
+                    DdtHospital hospitalSession = service.queryObjectById<DdtHospital>(cell.Value.ToString());
                     IssuedMedicine form = new IssuedMedicine(hospitalSession, lastListId);
                     form.ShowDialog();
                 }

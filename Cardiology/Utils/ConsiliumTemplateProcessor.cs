@@ -26,14 +26,14 @@ namespace Cardiology.Utils
                 values = new Dictionary<string, string>();
             }
             DataService service = new DataService();
-            DdtConsilium obj = service.queryObjectById<DdtConsilium>(DdtConsilium.TABLE_NAME, objectId);
+            DdtConsilium obj = service.queryObjectById<DdtConsilium>(objectId);
             values.Add(@"{consilium.date}", DateTime.Now.ToString("dd.MM.yyyy"));
             values.Add(@"{consilium.time}", DateTime.Now.ToString("HH:mm"));
             values.Add(@"{consilium.members}", getMembersInString(service, objectId));
             values.Add(@"{admin}", obj?.DssDutyAdminName);
             values.Add(@"{doctor.who}", getDoctorInString(service, obj.DsidDoctor));
             values.Add(@"{consilium.goal}", obj.DssGoal);
-            DdtPatient patient = service.queryObjectById<DdtPatient>(DdtPatient.TABLENAME, obj.DsidPatient);
+            DdtPatient patient = service.queryObjectById<DdtPatient>(obj.DsidPatient);
             values.Add(@"{patient.initials}", patient.DssInitials);
             values.Add(@"{patient.age}", (DateTime.Now.Year - patient.DsdtBirthdate.Year) + "");
             values.Add(@"{patient.diagnosis}", obj.DssDiagnosis);
@@ -48,7 +48,7 @@ namespace Cardiology.Utils
 
         private string getDoctorInString(DataService service, String doctorId)
         {
-            DdtDoctors doc = service.queryObjectById<DdtDoctors>(DdtDoctors.TABLE_NAME, doctorId);
+            DdtDoctors doc = service.queryObjectById<DdtDoctors>(doctorId);
             return doc.DssInitials;
         }
 

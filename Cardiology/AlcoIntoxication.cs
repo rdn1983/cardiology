@@ -19,7 +19,7 @@ namespace Cardiology
         private void initProtocol()
         {
             DataService service = new DataService();
-            DdtPatient patient = service.queryObjectById<DdtPatient>(DdtPatient.TABLENAME, hospitalitySession.DsidPatient);
+            DdtPatient patient = service.queryObjectById<DdtPatient>(hospitalitySession.DsidPatient);
             if (patient != null)
             {
                 Text += " " + patient.DssInitials;

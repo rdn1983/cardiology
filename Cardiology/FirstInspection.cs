@@ -63,7 +63,7 @@ namespace Cardiology
 
         private void initPatientInfo(DataService service)
         {
-            DdtPatient patient = service.queryObjectById<DdtPatient>(DdtPatient.TABLENAME, hospitalSession.DsidPatient);
+            DdtPatient patient = service.queryObjectById<DdtPatient>(hospitalSession.DsidPatient);
             if (patient != null)
             {
                 patientInitialsLbl.Text = patient.DssInitials;
@@ -85,7 +85,7 @@ namespace Cardiology
         {
             CommonUtils.initDoctorsComboboxValues(service, docBox, null);
 
-            DdtDoctors doc = service.queryObjectById<DdtDoctors>(DdtDoctors.TABLE_NAME, anamnesis == null ? hospitalSession.DsidCuringDoctor : anamnesis.DsidDoctor);
+            DdtDoctors doc = service.queryObjectById<DdtDoctors>(anamnesis == null ? hospitalSession.DsidCuringDoctor : anamnesis.DsidDoctor);
             docBox.SelectedIndex = docBox.FindString(doc.DssInitials);
         }
 
@@ -212,7 +212,7 @@ namespace Cardiology
             egdsAnalysisControl1.saveObject(hospitalSession, anamnesis.ObjectId, DdtAnamnesis.TABLE_NAME);
 
             hospitalSession.DssDiagnosis = diagnosisTxt.Text;
-            service.updateObject<DdtHospital>(hospitalSession, DdtHospital.TABLENAME, "r_object_id", hospitalSession.ObjectId);
+            service.updateObject<DdtHospital>(hospitalSession, DdtHospital.TABLE_NAME, "r_object_id", hospitalSession.ObjectId);
             return true;
         }
 

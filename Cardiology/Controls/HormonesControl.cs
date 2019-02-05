@@ -24,7 +24,7 @@ namespace Cardiology.Controls
         private void initControls()
         {
             DataService service = new DataService();
-            DdtHormones hormones = service.queryObjectById<DdtHormones>(DdtHormones.TABLE_NAME, objectId);
+            DdtHormones hormones = service.queryObjectById<DdtHormones>(objectId);
             refreshObject(hormones);
             admissionDateTxt.Enabled = isEditable;
             t4Txt.Enabled = isEditable;
@@ -65,7 +65,7 @@ namespace Cardiology.Controls
         public object getObject()
         {
             DataService service = new DataService();
-            DdtHormones hormones = service.queryObjectById<DdtHormones>(DdtHormones.TABLE_NAME, objectId);
+            DdtHormones hormones = service.queryObjectById<DdtHormones>(objectId);
             if (hormones == null)
             {
                 hormones = new DdtHormones();

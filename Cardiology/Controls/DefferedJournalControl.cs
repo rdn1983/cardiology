@@ -40,7 +40,7 @@ namespace Cardiology.Controls
 
             DataService service = new DataService();
             CommonUtils.initDoctorsComboboxValues(service, docBox, null);
-            DdtJournal journal = service.queryObjectById<DdtJournal>(DdtJournal.TABLE_NAME, objectId);
+            DdtJournal journal = service.queryObjectById<DdtJournal>(objectId);
             refreshObject(journal);
         }
 
@@ -156,7 +156,7 @@ namespace Cardiology.Controls
         public object getObject()
         {
             DataService service = new DataService();
-            DdtJournal journal = service.queryObjectById<DdtJournal>(DdtJournal.TABLE_NAME, objectId);
+            DdtJournal journal = service.queryObjectById<DdtJournal>(objectId);
             if (journal == null)
             {
                 journal = new DdtJournal();
@@ -194,7 +194,7 @@ namespace Cardiology.Controls
                 deferredStartDate.Value = journal.DsdtAdmissionDate;
                 deferredStartTime.Value = journal.DsdtAdmissionDate;
 
-                DdtDoctors doc = service.queryObjectById<DdtDoctors>(DdtDoctors.TABLE_NAME, journal.DsidDoctor);
+                DdtDoctors doc = service.queryObjectById<DdtDoctors>(journal.DsidDoctor);
                 docBox.SelectedIndex = docBox.FindStringExact(doc.DssInitials);
                 objectId = journal.RObjectId;
                 isNew = CommonUtils.isBlank(objectId);

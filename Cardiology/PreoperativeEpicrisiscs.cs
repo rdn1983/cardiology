@@ -27,12 +27,12 @@ namespace Cardiology
             if (CommonUtils.isNotBlank(objectId))
             {
                 DataService service = new DataService();
-                DdtPatient patient = service.queryObjectById<DdtPatient>(DdtPatient.TABLENAME, hospitalitySession.DsidPatient);
+                DdtPatient patient = service.queryObjectById<DdtPatient>(hospitalitySession.DsidPatient);
                 if (patient != null)
                 {
                     Text += " " + patient.DssInitials;
                 }
-                DdtEpicrisis epicrisis = service.queryObjectById<DdtEpicrisis>(DdtEpicrisis.TABLE_NAME, objectId);
+                DdtEpicrisis epicrisis = service.queryObjectById<DdtEpicrisis>(objectId);
                 if (epicrisis != null)
                 {
                     diagnosisTxt.Text = epicrisis.DssDiagnosis;
@@ -114,7 +114,7 @@ namespace Cardiology
         private void saveObject()
         {
             DataService service = new DataService();
-            DdtEpicrisis obj = service.queryObjectById<DdtEpicrisis>(DdtEpicrisis.TABLE_NAME, objectId);
+            DdtEpicrisis obj = service.queryObjectById<DdtEpicrisis>(objectId);
             if (obj == null)
             {
                 obj = new DdtEpicrisis();

@@ -156,7 +156,7 @@ namespace Cardiology
                 this.Text = "Онкомаркеры";
             }
             DataService service = new DataService();
-            DdtPatient patient = service.queryObjectById<DdtPatient>(DdtPatient.TABLENAME, hospitalitySession.DsidPatient);
+            DdtPatient patient = service.queryObjectById<DdtPatient>(hospitalitySession.DsidPatient);
             if (patient != null)
             {
                 this.Text += " " + patient.DssInitials;

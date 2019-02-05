@@ -83,7 +83,7 @@ namespace Cardiology.Utils
             if (isNotBlank(dsidCuringDoctor))
             {
                 string query = @"SELECT * FROM ddt_doctors WHERE r_object_id = '" + dsidCuringDoctor + "'";
-                DdtDoctors doctor = service.queryObjectById<DdtDoctors>(DdtDoctors.TABLE_NAME, dsidCuringDoctor);
+                DdtDoctors doctor = service.queryObjectById<DdtDoctors>(dsidCuringDoctor);
                 cb.SelectedIndex = cb.FindStringExact(doctor.DssInitials);
             }
         }

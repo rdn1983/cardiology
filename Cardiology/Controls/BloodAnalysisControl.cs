@@ -29,7 +29,7 @@ namespace Cardiology
         private void initControls()
         {
             DataService service = new DataService();
-            DdtBloodAnalysis blood = service.queryObjectById<DdtBloodAnalysis>(DdtBloodAnalysis.TABLE_NAME, objectId);
+            DdtBloodAnalysis blood = service.queryObjectById<DdtBloodAnalysis>(objectId);
             refreshObject(blood);
             regularAltTxt.Enabled = isEditable;
             regularAmilazaTzt.Enabled = isEditable;
@@ -104,7 +104,7 @@ namespace Cardiology
         public object getObject()
         {
             DataService service = new DataService();
-            DdtBloodAnalysis bloodObj = service.queryObjectById<DdtBloodAnalysis>(DdtBloodAnalysis.TABLE_NAME, objectId);
+            DdtBloodAnalysis bloodObj = service.queryObjectById<DdtBloodAnalysis>(objectId);
             if (bloodObj == null)
             {
                 bloodObj = new DdtBloodAnalysis();

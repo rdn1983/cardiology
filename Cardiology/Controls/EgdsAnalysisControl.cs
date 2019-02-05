@@ -26,7 +26,7 @@ namespace Cardiology
         private void initControls()
         {
             DataService service = new DataService();
-            DdtEgds egds = service.queryObjectById<DdtEgds>(DdtEgds.TABLE_NAME, objectId);
+            DdtEgds egds = service.queryObjectById<DdtEgds>(objectId);
             refreshObject(egds);
             regularEgdsTxt.Enabled = isEditable;
             analysisDate.Enabled = isEditable;
@@ -73,7 +73,7 @@ namespace Cardiology
         public object getObject()
         {
             DataService service = new DataService();
-            DdtEgds egds = service.queryObjectById<DdtEgds>(DdtEgds.TABLE_NAME, objectId);
+            DdtEgds egds = service.queryObjectById<DdtEgds>(objectId);
             if (egds == null)
             {
                 egds = new DdtEgds();

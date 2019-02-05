@@ -24,7 +24,7 @@ namespace Cardiology
         private void initControls()
         {
             DataService service = new DataService();
-            DdtHolter holter = service.queryObjectById<DdtHolter>(DdtHolter.TABLE_NAME, objectId);
+            DdtHolter holter = service.queryObjectById<DdtHolter>(objectId);
             refreshObject(holter);
             holterTxt.Enabled = isEditable;
             monitoringAdTxt.Enabled = isEditable;
@@ -73,7 +73,7 @@ namespace Cardiology
         public object getObject()
         {
             DataService service = new DataService();
-            DdtHolter holter = service.queryObjectById<DdtHolter>(DdtHolter.TABLE_NAME, objectId);
+            DdtHolter holter = service.queryObjectById<DdtHolter>(objectId);
             if (holter == null)
             {
                 holter = new DdtHolter();

@@ -24,7 +24,7 @@ namespace Cardiology
         private void initControls()
         {
             DataService service = new DataService();
-            DdtUzi uzi = service.queryObjectById<DdtUzi>(DdtUzi.TABLE_NAME, objectId);
+            DdtUzi uzi = service.queryObjectById<DdtUzi>(objectId);
             refreshObject(uzi);
             ehoKgTxt.Enabled = isEditable;
             uzdTxt.Enabled = isEditable;
@@ -82,7 +82,7 @@ namespace Cardiology
         public object getObject()
         {
             DataService service = new DataService();
-            DdtUzi uziObj = service.queryObjectById<DdtUzi>(DdtUzi.TABLE_NAME, objectId);
+            DdtUzi uziObj = service.queryObjectById<DdtUzi>(objectId);
             if (uziObj == null)
             {
                 uziObj = new DdtUzi();

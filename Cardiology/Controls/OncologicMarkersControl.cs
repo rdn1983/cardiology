@@ -27,7 +27,7 @@ namespace Cardiology.Controls
         private void initControls()
         {
             DataService service = new DataService();
-            DdtOncologicMarkers markers = service.queryObjectById<DdtOncologicMarkers>(DdtOncologicMarkers.TABLE_NAME, objectId);
+            DdtOncologicMarkers markers = service.queryObjectById<DdtOncologicMarkers>(objectId);
             refreshObject(markers);
             ceaTxt.Enabled = isEditable;
             psaCommonTxt.Enabled = isEditable;
@@ -84,7 +84,7 @@ namespace Cardiology.Controls
         public object getObject()
         {
             DataService service = new DataService();
-            DdtOncologicMarkers markerObj = service.queryObjectById<DdtOncologicMarkers>(DdtOncologicMarkers.TABLE_NAME, objectId);
+            DdtOncologicMarkers markerObj = service.queryObjectById<DdtOncologicMarkers>(objectId);
             if (markerObj == null)
             {
                 markerObj = new DdtOncologicMarkers();

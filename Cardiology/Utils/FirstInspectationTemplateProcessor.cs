@@ -27,7 +27,7 @@ namespace Cardiology.Utils
                 values = new Dictionary<string, string>();
             }
             DataService service = new DataService();
-            DdtAnamnesis anamnesis = service.queryObjectById<DdtAnamnesis>(DdtAnamnesis.TABLE_NAME, objectId);
+            DdtAnamnesis anamnesis = service.queryObjectById<DdtAnamnesis>(objectId);
             values.Add("{allergy}", anamnesis.DssAnamnesisAllergy);
             values.Add("{complaints}", anamnesis.DssComplaints);
             values.Add("{anamnesis}", anamnesis.DssAnamnesisMorbi);
@@ -45,7 +45,7 @@ namespace Cardiology.Utils
             values.Add("{diagnosis}", anamnesis.DssDiagnosis);
             values.Add("{justification}", anamnesis.DssJustification);
 
-            DdtDoctors doc = service.queryObjectById<DdtDoctors>(DdtDoctors.TABLE_NAME, anamnesis.DsidDoctor);
+            DdtDoctors doc = service.queryObjectById<DdtDoctors>(anamnesis.DsidDoctor);
             values.Add("{cardio}", doc.DssInitials);
 
             DdtEkg ekg = service.queryObject<DdtEkg>(@"SELECT * from ddt_ekg WHERE dsid_hospitality_session='' and dsb_admission_analysis=true");
@@ -60,7 +60,7 @@ namespace Cardiology.Utils
                 List<DdtIssuedMedicine> med = service.queryObjectsCollectionByAttrCond<DdtIssuedMedicine>(DdtIssuedMedicine.TABLE_NAME, "dsid_med_list", medList.ObjectId, true);
                 for (int i = 0; i < med.Count; i++)
                 {
-                    DdtCure cure = service.queryObjectById<DdtCure>(DdtCure.TABLE_NAME, med[i].DsidCure);
+                    DdtCure cure = service.queryObjectById<DdtCure>(med[i].DsidCure);
                     if (cure != null)
                     {
                         builder.Append(cure.DssName).Append('\n');

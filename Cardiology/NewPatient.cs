@@ -40,7 +40,7 @@ namespace Cardiology
                 return;
             }
             DataService service = new DataService();
-            DdtPatient patient = service.queryObjectById<DdtPatient>(DdtPatient.TABLENAME, hospital.DsidPatient);
+            DdtPatient patient = service.queryObjectById<DdtPatient>(hospital.DsidPatient);
             addressTxt.Text = patient.DssAddress;
             string[] fio = patient.DssFullName.Split(' ');
             patientLastName.Text = fio[0];
@@ -62,19 +62,19 @@ namespace Cardiology
             patientReceiptDate.Value = hospital.DsdtAdmissionDate;
             patientReceiptTime.Text = hospital.DsdtAdmissionDate.TimeOfDay.ToString();
 
-            DdtDoctors docDuty = service.queryObjectById<DdtDoctors>(DdtDoctors.TABLE_NAME, hospital.DsidDutyDoctor);
+            DdtDoctors docDuty = service.queryObjectById<DdtDoctors>(hospital.DsidDutyDoctor);
             dutyCardioBox.SelectedIndex = dutyCardioBox.FindStringExact(docDuty.DssInitials);
 
-            DdtDoctors docCuring = service.queryObjectById<DdtDoctors>(DdtDoctors.TABLE_NAME, hospital.DsidCuringDoctor);
+            DdtDoctors docCuring = service.queryObjectById<DdtDoctors>(hospital.DsidCuringDoctor);
             cardioDocBox.SelectedIndex = cardioDocBox.FindStringExact(docCuring.DssInitials);
 
-            DdtDoctors docSubstitution = service.queryObjectById<DdtDoctors>(DdtDoctors.TABLE_NAME, hospital.DsidSubstitutionDoctor);
+            DdtDoctors docSubstitution = service.queryObjectById<DdtDoctors>(hospital.DsidSubstitutionDoctor);
             subDoctorBox.SelectedIndex = subDoctorBox.FindStringExact(docSubstitution.DssInitials);
 
-            DdtDoctors directorCardioReanim = service.queryObjectById<DdtDoctors>(DdtDoctors.TABLE_NAME, hospital.DsidDirCardioReanimDoctor);
+            DdtDoctors directorCardioReanim = service.queryObjectById<DdtDoctors>(hospital.DsidDirCardioReanimDoctor);
             directorCardioReanimBox.SelectedIndex = directorCardioReanimBox.FindStringExact(directorCardioReanim.DssInitials);
 
-            DdtDoctors anesthetistDoctor = service.queryObjectById<DdtDoctors>(DdtDoctors.TABLE_NAME, hospital.DsidAnesthetistDoctor);
+            DdtDoctors anesthetistDoctor = service.queryObjectById<DdtDoctors>(hospital.DsidAnesthetistDoctor);
             anesthetistComboBox.SelectedIndex = anesthetistComboBox.FindStringExact(anesthetistDoctor.DssInitials);
 
             string[] roomCell = hospital.DssRoomCell.Split('/');
@@ -91,7 +91,7 @@ namespace Cardiology
             }
 
             DataService service = new DataService();
-            DdtPatient patient = service.queryObjectById<DdtPatient>(DdtPatient.TABLENAME, hospital?.DsidPatient);
+            DdtPatient patient = service.queryObjectById<DdtPatient>(hospital?.DsidPatient);
             if (patient == null)
             {
                 patient = new DdtPatient();
@@ -119,7 +119,7 @@ namespace Cardiology
             }
             patient.DsdtBirthdate = DateTime.ParseExact(patientBirthDate.Text.Trim(), "dd.MM.yyyy", CultureInfo.InvariantCulture);
 
-            String patientId = service.updateOrCreateIfNeedObject(patient, DdtPatient.TABLENAME, patient.ObjectId);
+            String patientId = service.updateOrCreateIfNeedObject(patient, DdtPatient.TABLE_NAME, patient.ObjectId);
 
             if (hospital == null)
             {
@@ -140,7 +140,7 @@ namespace Cardiology
             hospital.DsidAnesthetistDoctor = anesthetistDoctor.ObjectId;
 
             hospital.DssRoomCell = roomTxt.Text + "/" + bedTxt.Text;
-            service.updateOrCreateIfNeedObject(hospital, DdtHospital.TABLENAME, hospital.ObjectId);
+            service.updateOrCreateIfNeedObject(hospital, DdtHospital.TABLE_NAME, hospital.ObjectId);
             //todo перенести в статусную строку
             Close();
         }

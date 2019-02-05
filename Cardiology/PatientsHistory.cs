@@ -19,7 +19,7 @@ namespace Cardiology
             InitializeComponent();
             this.patientHistoryGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             DataService service = new DataService();
-            DdtPatient patient = service.queryObjectById<DdtPatient>(DdtPatient.TABLENAME, hospitalitySession.DsidPatient);
+            DdtPatient patient = service.queryObjectById<DdtPatient>(hospitalitySession.DsidPatient);
             if (patient != null)
             {
                 Text += " " + patient.DssInitials;
@@ -131,7 +131,7 @@ namespace Cardiology
             else if (DdtJournal.TABLE_NAME.Equals(firstType))
             {
                 DataService service = new DataService();
-                DdtJournal jourmal = service.queryObjectById<DdtJournal>(DdtJournal.TABLE_NAME, firstId);
+                DdtJournal jourmal = service.queryObjectById<DdtJournal>(firstId);
                 if (jourmal.DsiJournalType == (int)DdtJournalDsiType.AFTER_KAG)
                 {
                     form = new JournalAfterKAG(hospitalitySession, firstId);
@@ -170,7 +170,7 @@ namespace Cardiology
             {
                 form = new PreoperativeEpicrisiscs(hospitalitySession, firstId);
             }
-            else if (DdtHospital.TABLENAME.Equals(firstType))
+            else if (DdtHospital.TABLE_NAME.Equals(firstType))
             {
                 form = new NewPatient(hospitalitySession);
             }
@@ -271,7 +271,7 @@ namespace Cardiology
                 DataGridViewCell cell = row.Cells[3];
                 string idsValue = cell.Value.ToString();
                 string typeValue = row.Cells[2].Value.ToString();
-                if (!DdtHospital.TABLENAME.Equals(typeValue))
+                if (!DdtHospital.TABLE_NAME.Equals(typeValue))
                 {
                     DataService service = new DataService();
                     service.delete(@"delete from " + typeValue + " WHERE r_object_id='" + idsValue + "'");

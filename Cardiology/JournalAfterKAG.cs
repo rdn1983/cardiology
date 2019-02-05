@@ -35,7 +35,7 @@ namespace Cardiology
             CommonUtils.initDoctorsComboboxValues(service, journalDocBox, "");
             releaseJournalCtrl.initDateTime(CommonUtils.constructDateWIthTime(admissionDateTxt.Value, DateTime.Parse("8:05:00")));
 
-            DdtPatient patient = service.queryObjectById<DdtPatient>(DdtPatient.TABLENAME, hospitalitySession.DsidPatient);
+            DdtPatient patient = service.queryObjectById<DdtPatient>(hospitalitySession.DsidPatient);
             if (patient != null)
             {
                 Text += " " + patient.DssInitials;
@@ -43,7 +43,7 @@ namespace Cardiology
 
             if (CommonUtils.isNotBlank(journalId))
             {
-                DdtJournal journal = service.queryObjectById<DdtJournal>(DdtJournal.TABLE_NAME, journalId);
+                DdtJournal journal = service.queryObjectById<DdtJournal>(journalId);
                 if (journal != null)
                 {
                     surgeryInspectationTxt.Text = journal.DssJournal;
@@ -55,7 +55,7 @@ namespace Cardiology
                     ekgTxt0.Text = journal.DssEkg;
                     afterKagDiagnosisTxt.Text = journal.DssDiagnosis;
 
-                    DdtDoctors doctors = service.queryObjectById<DdtDoctors>(DdtDoctors.TABLE_NAME, journal.DsidDoctor);
+                    DdtDoctors doctors = service.queryObjectById<DdtDoctors>(journal.DsidDoctor);
                     journalDocBox.SelectedIndex = journalDocBox.FindStringExact(doctors.DssInitials);
 
                     DdtKag kag = service.queryObjectByAttrCond<DdtKag>(DdtKag.TABLE_NAME, "dsid_parent", journal.RObjectId, true);
@@ -74,7 +74,7 @@ namespace Cardiology
                 DdtKag kag = service.queryObject<DdtKag>(@"SELECT * FROM ddt_kag WHERE dsid_hospitality_session='" + hospitalitySession.ObjectId + "' ORDER BY dsdt_analysis_date ASC");
                 initKag(kag);
 
-                DdtDoctors doctors = service.queryObjectById<DdtDoctors>(DdtDoctors.TABLE_NAME, hospitalitySession.DsidCuringDoctor);
+                DdtDoctors doctors = service.queryObjectById<DdtDoctors>(hospitalitySession.DsidCuringDoctor);
                 journalDocBox.SelectedIndex = journalDocBox.FindStringExact(doctors.DssInitials);
             }
         }
@@ -151,12 +151,12 @@ namespace Cardiology
         public bool save()
         {
             DataService service = new DataService();
-            service.updateObject<DdtHospital>(hospitalitySession, DdtHospital.TABLENAME, "r_object_id", hospitalitySession.ObjectId);
+            service.updateObject<DdtHospital>(hospitalitySession, DdtHospital.TABLE_NAME, "r_object_id", hospitalitySession.ObjectId);
 
             DdtJournal journal = null;
             if (CommonUtils.isNotBlank(journalId))
             {
-                journal = service.queryObjectById<DdtJournal>(DdtJournal.TABLE_NAME, journalId);
+                journal = service.queryObjectById<DdtJournal>(journalId);
             }
             else
             {
@@ -179,7 +179,7 @@ namespace Cardiology
 
             if (CommonUtils.isNotBlank(kagDiagnosisTxt.Text))
             {
-                DdtKag kag = service.queryObjectById<DdtKag>(DdtKag.TABLE_NAME, kagId);
+                DdtKag kag = service.queryObjectById<DdtKag>(kagId);
                 if (kag == null)
                 {
                     kag = new DdtKag();
@@ -211,7 +211,7 @@ namespace Cardiology
             if (save())
             {
                 DataService service = new DataService();
-                DdtJournal journal = service.queryObjectById<DdtJournal>(DdtJournal.TABLE_NAME, journalId);
+                DdtJournal journal = service.queryObjectById<DdtJournal>(journalId);
                 if (journal != null)
                 {
                     ITemplateProcessor processor = TemplateProcessorManager.getProcessorByObjectType(DdtJournal.TABLE_NAME);
@@ -234,7 +234,7 @@ namespace Cardiology
                 if (ids.Count > 0)
                 {
                     DataService service = new DataService();
-                    DdtKag kag = service.queryObjectById<DdtKag>(DdtKag.TABLE_NAME, ids[0]);
+                    DdtKag kag = service.queryObjectById<DdtKag>(ids[0]);
                     initKag(kag);
                 }
             }
@@ -245,7 +245,7 @@ namespace Cardiology
             if (CommonUtils.isNotBlank(kagId))
             {
                 DataService service = new DataService();
-                DdtKag kag = service.queryObjectById<DdtKag>(DdtKag.TABLE_NAME, kagId);
+                DdtKag kag = service.queryObjectById<DdtKag>(kagId);
                 if (kag != null)
                 {
                     kag.DsidParent = null;

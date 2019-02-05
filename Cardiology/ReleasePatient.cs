@@ -20,7 +20,7 @@ namespace Cardiology
             releasePatientInfo.DsidPatient = hospitalitySession.DsidPatient;
             InitializeComponent();
             DataService service = new DataService();
-            DdtPatient patient = service.queryObjectById<DdtPatient>(DdtPatient.TABLENAME, hospitalitySession.DsidPatient);
+            DdtPatient patient = service.queryObjectById<DdtPatient>(hospitalitySession.DsidPatient);
             if (patient != null)
             {
                 Text += " " + patient.DssInitials;
@@ -46,9 +46,9 @@ namespace Cardiology
 
             hospitalitySession.DsbActive = false;
             hospitalitySession.DsbRejectCure = refusedBtn.Checked;
-            service.updateObject<DdtHospital>(hospitalitySession, DdtHospital.TABLENAME, "r_object_id", hospitalitySession.ObjectId);
+            service.updateObject<DdtHospital>(hospitalitySession, DdtHospital.TABLE_NAME, "r_object_id", hospitalitySession.ObjectId);
 
-            DdtEpicrisis epicrisis = service.queryObjectById<DdtEpicrisis>(DdtEpicrisis.TABLE_NAME, epicrisisId);
+            DdtEpicrisis epicrisis = service.queryObjectById<DdtEpicrisis>(epicrisisId);
             if (epicrisis == null)
             {
                 epicrisis = new DdtEpicrisis();

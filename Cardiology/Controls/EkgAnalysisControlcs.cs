@@ -34,7 +34,7 @@ namespace Cardiology
         private void initControls()
         {
             DataService service = new DataService();
-            DdtEkg ekg = service.queryObjectById<DdtEkg>(DdtEkg.TABLE_NAME, objectId);
+            DdtEkg ekg = service.queryObjectById<DdtEkg>(objectId);
             refreshObject(ekg);
             regularEkgTxt.Enabled = isEditable;
             readonlyEkgTxt.Enabled = isEditable;
@@ -49,7 +49,7 @@ namespace Cardiology
         public object getObject()
         {
             DataService service = new DataService();
-            DdtEkg ekg = service.queryObjectById<DdtEkg>(DdtEkg.TABLE_NAME, objectId);
+            DdtEkg ekg = service.queryObjectById<DdtEkg>(objectId);
             if (ekg == null)
             {
                 ekg = new DdtEkg();

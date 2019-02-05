@@ -28,7 +28,7 @@ namespace Cardiology
         private void initControls()
         {
             DataService service = new DataService();
-            DdtKag kag = service.queryObjectById<DdtKag>(DdtKag.TABLE_NAME, objectId);
+            DdtKag kag = service.queryObjectById<DdtKag>(objectId);
             refreshObject(kag);
             kagResultsTxt.Enabled = isEditable;
             kagManipulationTxt.Enabled = isEditable;
@@ -81,7 +81,7 @@ namespace Cardiology
         public object getObject()
         {
             DataService service = new DataService();
-            DdtKag kag = service.queryObjectById<DdtKag>(DdtKag.TABLE_NAME, objectId);
+            DdtKag kag = service.queryObjectById<DdtKag>(objectId);
             if (kag == null)
             {
                 kag = new DdtKag();
@@ -115,7 +115,7 @@ namespace Cardiology
             else
             {
                 DataService service = new DataService();
-                DdtHospital hospitalitySession = service.queryObjectById<DdtHospital>(DdtHospital.TABLENAME, hospitalSessionId);
+                DdtHospital hospitalitySession = service.queryObjectById<DdtHospital>(hospitalSessionId);
                 DateTime admissionDate = hospitalitySession.DsdtAdmissionDate;
                 kagDate.Value = admissionDate;
                 kagStartTime.Value = admissionDate.AddMinutes(30);

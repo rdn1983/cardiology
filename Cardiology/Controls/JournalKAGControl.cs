@@ -39,7 +39,7 @@ namespace Cardiology.Controls
             CommonUtils.initRangedItems(chddTxt, 14, 26);
 
             DataService service = new DataService();
-            DdtVariousSpecConcluson obj = service.queryObjectById<DdtVariousSpecConcluson>(DdtVariousSpecConcluson.TABLE_NAME, objId);
+            DdtVariousSpecConcluson obj = service.queryObjectById<DdtVariousSpecConcluson>(objId);
             refreshObject(obj);
         }
 
@@ -77,7 +77,7 @@ namespace Cardiology.Controls
         public object getObject()
         {
             DataService service = new DataService();
-            DdtVariousSpecConcluson result = service.queryObjectById<DdtVariousSpecConcluson>(DdtVariousSpecConcluson.TABLE_NAME, objId);
+            DdtVariousSpecConcluson result = service.queryObjectById<DdtVariousSpecConcluson>(objId);
             if (result == null)
             {
                 result = new DdtVariousSpecConcluson();

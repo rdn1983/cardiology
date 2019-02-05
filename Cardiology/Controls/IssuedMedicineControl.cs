@@ -31,7 +31,7 @@ namespace Cardiology
         {
             if (med != null)
             {
-                DdtCure cure = service.queryObjectById<DdtCure>(DdtCure.TABLE_NAME, med.DsidCure);
+                DdtCure cure = service.queryObjectById<DdtCure>(med.DsidCure);
                 if (cure != null)
                 {
                     DdtCureType type = service.queryObjectByAttrCond<DdtCureType>(DdtCureType.TABLE_NAME, "r_object_id", cure.CureTypeId + "", true);
@@ -57,7 +57,7 @@ namespace Cardiology
 
         internal DdtIssuedMedicine getObject(DataService service, string medListId)
         {
-            DdtIssuedMedicine result = service.queryObjectById<DdtIssuedMedicine>(DdtIssuedMedicine.TABLE_NAME, objectId) ?? new DdtIssuedMedicine();
+            DdtIssuedMedicine result = service.queryObjectById<DdtIssuedMedicine>(objectId) ?? new DdtIssuedMedicine();
             DdtCure cure = (DdtCure)issuedMedicineTxt0.SelectedItem;
             if (cure != null && CommonUtils.isNotBlank(issuedMedicineTxt0.Text))
             {

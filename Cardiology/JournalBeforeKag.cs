@@ -41,7 +41,7 @@ namespace Cardiology
             }
 
             DataService service = new DataService();
-            DdtPatient patient = service.queryObjectById<DdtPatient>(DdtPatient.TABLENAME, hospitalitySession.DsidPatient);
+            DdtPatient patient = service.queryObjectById<DdtPatient>(hospitalitySession.DsidPatient);
             if (patient != null)
             {
                 Text += " " + patient.DssInitials;
@@ -108,7 +108,7 @@ namespace Cardiology
                 ITemplateProcessor processor = TemplateProcessorManager.getProcessorByObjectType(DdtJournal.TABLE_NAME);
                 foreach (string id in journalIds)
                 {
-                    DdtJournal journal = service.queryObjectById<DdtJournal>(DdtJournal.TABLE_NAME, id);
+                    DdtJournal journal = service.queryObjectById<DdtJournal>(id);
                     if (journal != null)
                     {
                         string path = processor.processTemplate(hospitalitySession.ObjectId, journal.RObjectId, null);

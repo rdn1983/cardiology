@@ -29,15 +29,15 @@ namespace Cardiology.Utils
                 values = new Dictionary<string, string>();
             }
             DataService service = new DataService();
-            DdtEpicrisis obj = service.queryObjectById<DdtEpicrisis>(DdtEpicrisis.TABLE_NAME, objectId);
+            DdtEpicrisis obj = service.queryObjectById<DdtEpicrisis>(objectId);
             values.Add("{diagnosis}", obj.DssDiagnosis);
             values.Add("{date}", obj.DsdtEpicrisisDate.ToShortDateString());
 
-            DdtPatient patient = service.queryObjectById<DdtPatient>(DdtPatient.TABLENAME, obj.DsidPatient);
+            DdtPatient patient = service.queryObjectById<DdtPatient>(obj.DsidPatient);
             values.Add("{patient.initials}", patient == null ? "" : patient.DssInitials);
             values.Add("{patient.age}", patient == null ? "" : (DateTime.Now.Year - patient.DsdtBirthdate.Year) + "");
 
-            DdtHospital hospital = service.queryObjectById<DdtHospital>(DdtHospital.TABLENAME, hospitalitySession);
+            DdtHospital hospital = service.queryObjectById<DdtHospital>(hospitalitySession);
             values.Add("{patient.admission_date}", hospital.DsdtAdmissionDate.ToShortDateString());
 
             DdtAnamnesis anamnesis = service.queryObjectByAttrCond<DdtAnamnesis>(DdtAnamnesis.TABLE_NAME, "dsid_hospitality_session", hospital.ObjectId, true);
@@ -128,7 +128,7 @@ namespace Cardiology.Utils
                 values.Add("{conclusion}", " ");
             }
 
-            DdtDoctors doc = service.queryObjectById<DdtDoctors>(DdtDoctors.TABLE_NAME, obj.DsidDoctor);
+            DdtDoctors doc = service.queryObjectById<DdtDoctors>(obj.DsidDoctor);
             values.Add("{doctor.who.short}", doc.DssInitials);
 
             return TemplatesUtils.fillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + getTemplateName(obj), values);

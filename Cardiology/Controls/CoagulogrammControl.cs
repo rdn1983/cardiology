@@ -76,7 +76,7 @@ namespace Cardiology.Controls
         public object getObject()
         {
             DataService service = new DataService();
-            DdtCoagulogram coagulgramm = service.queryObjectById<DdtCoagulogram>(DdtCoagulogram.TABLE_NAME, objectId);
+            DdtCoagulogram coagulgramm = service.queryObjectById<DdtCoagulogram>(objectId);
             if (coagulgramm == null)
             {
                 coagulgramm = new DdtCoagulogram();

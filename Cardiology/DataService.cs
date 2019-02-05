@@ -150,8 +150,22 @@ namespace Cardiology
             return result;
         }
 
-        public T queryObjectById<T>(string tableName, string id)
+        public T queryObjectById<T>(string id)
         {
+            string tableName = null;
+            FieldInfo[] fields = typeof(T).GetFields(BindingFlags.Public | BindingFlags.Static);
+            for(int index = 0; index < fields.Length; index++)
+            {
+                if("TABLE_NAME".Equals(fields[index].Name))
+                {
+                    tableName = (string) fields[index].GetValue(null);
+                }
+            }
+
+            if(tableName == null)
+            {
+                throw new Exception("table name not found!");
+            }
             return queryObject<T>(@"Select * FROM " + tableName + " WHERE r_object_id='" + id + "'");
         }
 

@@ -581,9 +581,6 @@
     <EmbeddedResource Include="Controls\UziAnalysisControl.resx">
       <DependentUpon>UziAnalysisControl.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="NLog.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -608,9 +605,6 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\addd1.png" />

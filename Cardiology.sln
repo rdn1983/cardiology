@@ -5,11 +5,6 @@ VisualStudioVersion = 15.0.27428.2043
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cardiology", "Cardiology\Cardiology.csproj", "{56CE2A5F-5831-4A4B-A1DF-14E99060A699}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F29FB06D-B154-4E80-AAF5-502AAAB4DBAF}"
-	ProjectSection(SolutionItems) = preProject
-		Cardiology\NLog.config = Cardiology\NLog.config
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>.\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -69,34 +69,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NewPatient.cs">
+    <Compile Include="UI\NewPatient.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NewPatient.Designer.cs">
+    <Compile Include="UI\NewPatient.Designer.cs">
       <DependentUpon>NewPatient.cs</DependentUpon>
     </Compile>
-    <Compile Include="AlcoIntoxication.cs">
+    <Compile Include="UI\AlcoIntoxication.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AlcoIntoxication.Designer.cs">
+    <Compile Include="UI\AlcoIntoxication.Designer.cs">
       <DependentUpon>AlcoIntoxication.cs</DependentUpon>
     </Compile>
-    <Compile Include="AmbulanceLetters.cs">
+    <Compile Include="UI\AmbulanceLetters.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AmbulanceLetters.Designer.cs">
+    <Compile Include="UI\AmbulanceLetters.Designer.cs">
       <DependentUpon>AmbulanceLetters.cs</DependentUpon>
     </Compile>
-    <Compile Include="AnalysisContainer.cs">
+    <Compile Include="UI\AnalysisContainer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AnalysisContainer.Designer.cs">
+    <Compile Include="UI\AnalysisContainer.Designer.cs">
       <DependentUpon>AnalysisContainer.cs</DependentUpon>
     </Compile>
-    <Compile Include="AnalysisSelector.cs">
+    <Compile Include="UI\AnalysisSelector.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AnalysisSelector.Designer.cs">
+    <Compile Include="UI\AnalysisSelector.Designer.cs">
       <DependentUpon>AnalysisSelector.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\BloodAnalysisControl.cs">
@@ -195,69 +195,69 @@
     <Compile Include="Controls\XRayControl.Designer.cs">
       <DependentUpon>XRayControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Inspection.cs">
+    <Compile Include="UI\Inspection.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Inspection.Designer.cs">
+    <Compile Include="UI\Inspection.Designer.cs">
       <DependentUpon>Inspection.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\DdtAlcoProtocol.cs" />
-    <Compile Include="Model\DdtAnamnesis.cs" />
-    <Compile Include="Model\DdtBloodAnalysis.cs" />
-    <Compile Include="Model\DdtCoagulogram.cs" />
-    <Compile Include="Model\DdtConsilium.cs" />
-    <Compile Include="Model\DdtConsiliumMember.cs" />
-    <Compile Include="Model\DdtConsiliumMemberLevel.cs" />
-    <Compile Include="Model\DdtCure.cs" />
-    <Compile Include="Model\DdtCureType.cs" />
-    <Compile Include="Model\DdtDoctors.cs" />
-    <Compile Include="Model\DdtEgds.cs" />
-    <Compile Include="Model\DdtEkg.cs" />
-    <Compile Include="Model\DdtEpicrisis.cs" />
-    <Compile Include="Model\DdtEpicrisisDsiType.cs" />
-    <Compile Include="Model\DdtHolter.cs" />
-    <Compile Include="Model\DdtHormones.cs" />
-    <Compile Include="Model\DdtHospital.cs" />
-    <Compile Include="Model\DdtInspection.cs" />
-    <Compile Include="Model\DdtIssuedAction.cs" />
-    <Compile Include="Model\DdtIssuedMedicine.cs" />
-    <Compile Include="Model\DdtIssuedMedicineList.cs" />
-    <Compile Include="Model\DdtJournal.cs" />
-    <Compile Include="Model\DdtJournalDsiType.cs" />
-    <Compile Include="Model\DdtKag.cs" />
-    <Compile Include="Model\DdtOncologicMarkers.cs" />
-    <Compile Include="Model\DdtPatientAnalysis.cs" />
-    <Compile Include="Model\DdtReleasePatient.cs" />
-    <Compile Include="Model\DdtSerology.cs" />
-    <Compile Include="Model\DdtSpecialistConclusion.cs" />
-    <Compile Include="Model\DdtTransfer.cs" />
-    <Compile Include="Model\DdtTypedObject.cs" />
-    <Compile Include="Model\DdtUrineAnalysis.cs" />
-    <Compile Include="Model\DdtUzi.cs" />
-    <Compile Include="Model\DdtValues.cs" />
-    <Compile Include="Model\DdtVariousSpecConcluson.cs" />
-    <Compile Include="Model\DdtXRay.cs" />
-    <Compile Include="Model\DdvActiveHospitalPatients.cs" />
-    <Compile Include="Model\DdvHistory.cs" />
-    <Compile Include="IDocbaseControl.cs" />
-    <Compile Include="Model\DmGroup.cs" />
-    <Compile Include="Morpher.cs" />
-    <Compile Include="PatientsHistory.cs">
+    <Compile Include="Data\Model\DdtAlcoProtocol.cs" />
+    <Compile Include="Data\Model\DdtAnamnesis.cs" />
+    <Compile Include="Data\Model\DdtBloodAnalysis.cs" />
+    <Compile Include="Data\Model\DdtCoagulogram.cs" />
+    <Compile Include="Data\Model\DdtConsilium.cs" />
+    <Compile Include="Data\Model\DdtConsiliumMember.cs" />
+    <Compile Include="Data\Model\DdtConsiliumMemberLevel.cs" />
+    <Compile Include="Data\Model\DdtCure.cs" />
+    <Compile Include="Data\Model\DdtCureType.cs" />
+    <Compile Include="Data\Model\DdtDoctors.cs" />
+    <Compile Include="Data\Model\DdtEgds.cs" />
+    <Compile Include="Data\Model\DdtEkg.cs" />
+    <Compile Include="Data\Model\DdtEpicrisis.cs" />
+    <Compile Include="Data\Model\DdtEpicrisisDsiType.cs" />
+    <Compile Include="Data\Model\DdtHolter.cs" />
+    <Compile Include="Data\Model\DdtHormones.cs" />
+    <Compile Include="Data\Model\DdtHospital.cs" />
+    <Compile Include="Data\Model\DdtInspection.cs" />
+    <Compile Include="Data\Model\DdtIssuedAction.cs" />
+    <Compile Include="Data\Model\DdtIssuedMedicine.cs" />
+    <Compile Include="Data\Model\DdtIssuedMedicineList.cs" />
+    <Compile Include="Data\Model\DdtJournal.cs" />
+    <Compile Include="Data\Model\DdtJournalDsiType.cs" />
+    <Compile Include="Data\Model\DdtKag.cs" />
+    <Compile Include="Data\Model\DdtOncologicMarkers.cs" />
+    <Compile Include="Data\Model\DdtPatientAnalysis.cs" />
+    <Compile Include="Data\Model\DdtReleasePatient.cs" />
+    <Compile Include="Data\Model\DdtSerology.cs" />
+    <Compile Include="Data\Model\DdtSpecialistConclusion.cs" />
+    <Compile Include="Data\Model\DdtTransfer.cs" />
+    <Compile Include="Data\Model\DdtTypedObject.cs" />
+    <Compile Include="Data\Model\DdtUrineAnalysis.cs" />
+    <Compile Include="Data\Model\DdtUzi.cs" />
+    <Compile Include="Data\Model\DdtValues.cs" />
+    <Compile Include="Data\Model\DdtVariousSpecConcluson.cs" />
+    <Compile Include="Data\Model\DdtXRay.cs" />
+    <Compile Include="Data\Model\DdvActiveHospitalPatients.cs" />
+    <Compile Include="Data\Model\DdvHistory.cs" />
+    <Compile Include="Controls\IDocbaseControl.cs" />
+    <Compile Include="Data\Model\DmGroup.cs" />
+    <Compile Include="Commons\Morpher.cs" />
+    <Compile Include="UI\PatientsHistory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PatientsHistory.Designer.cs">
+    <Compile Include="UI\PatientsHistory.Designer.cs">
       <DependentUpon>PatientsHistory.cs</DependentUpon>
     </Compile>
-    <Compile Include="PreoperativeEpicrisiscs.cs">
+    <Compile Include="UI\PreoperativeEpicrisiscs.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PreoperativeEpicrisiscs.Designer.cs">
+    <Compile Include="UI\PreoperativeEpicrisiscs.Designer.cs">
       <DependentUpon>PreoperativeEpicrisiscs.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProtocolsManipulation.cs">
+    <Compile Include="UI\ProtocolsManipulation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProtocolsManipulation.Designer.cs">
+    <Compile Include="UI\ProtocolsManipulation.Designer.cs">
       <DependentUpon>ProtocolsManipulation.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\SpecialistConclusionControl.cs">
@@ -266,71 +266,71 @@
     <Compile Include="Controls\SpecialistConclusionControl.Designer.cs">
       <DependentUpon>SpecialistConclusionControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="PulseTableCOntainer.cs">
+    <Compile Include="UI\PulseTableCOntainer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PulseTableCOntainer.Designer.cs">
+    <Compile Include="UI\PulseTableCOntainer.Designer.cs">
       <DependentUpon>PulseTableCOntainer.cs</DependentUpon>
     </Compile>
-    <Compile Include="TableAttribute.cs" />
-    <Compile Include="DataService.cs" />
-    <Compile Include="JournalBeforeKag.cs">
+    <Compile Include="Commons\TableAttribute.cs" />
+    <Compile Include="Data\DataService.cs" />
+    <Compile Include="UI\JournalBeforeKag.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="JournalBeforeKag.Designer.cs">
+    <Compile Include="UI\JournalBeforeKag.Designer.cs">
       <DependentUpon>JournalBeforeKag.cs</DependentUpon>
     </Compile>
-    <Compile Include="FirstInspection.cs">
+    <Compile Include="UI\FirstInspection.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FirstInspection.Designer.cs">
+    <Compile Include="UI\FirstInspection.Designer.cs">
       <DependentUpon>FirstInspection.cs</DependentUpon>
     </Compile>
-    <Compile Include="PatientList.cs">
+    <Compile Include="UI\PatientList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PatientList.Designer.cs">
+    <Compile Include="UI\PatientList.Designer.cs">
       <DependentUpon>PatientList.cs</DependentUpon>
     </Compile>
-    <Compile Include="JournalAfterKAG.cs">
+    <Compile Include="UI\JournalAfterKAG.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="JournalAfterKAG.Designer.cs">
+    <Compile Include="UI\JournalAfterKAG.Designer.cs">
       <DependentUpon>JournalAfterKAG.cs</DependentUpon>
     </Compile>
-    <Compile Include="IssuedMedicine.cs">
+    <Compile Include="UI\IssuedMedicine.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="IssuedMedicine.Designer.cs">
+    <Compile Include="UI\IssuedMedicine.Designer.cs">
       <DependentUpon>IssuedMedicine.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\DdtPatient.cs" />
-    <Compile Include="Perelivanie.cs">
+    <Compile Include="Data\Model\DdtPatient.cs" />
+    <Compile Include="UI\Perelivanie.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Perelivanie.Designer.cs">
+    <Compile Include="UI\Perelivanie.Designer.cs">
       <DependentUpon>Perelivanie.cs</DependentUpon>
     </Compile>
-    <Compile Include="Consilium.cs">
+    <Compile Include="UI\Consilium.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Consilium.Designer.cs">
+    <Compile Include="UI\Consilium.Designer.cs">
       <DependentUpon>Consilium.cs</DependentUpon>
     </Compile>
-    <Compile Include="ReanimDEAD.cs">
+    <Compile Include="UI\ReanimDEAD.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ReanimDEAD.Designer.cs">
+    <Compile Include="UI\ReanimDEAD.Designer.cs">
       <DependentUpon>ReanimDEAD.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TemplatesUtils.cs" />
-    <Compile Include="CommonUtils.cs" />
-    <Compile Include="Serology.cs">
+    <Compile Include="Commons\TemplatesUtils.cs" />
+    <Compile Include="Commons\CommonUtils.cs" />
+    <Compile Include="UI\Serology.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Serology.Designer.cs">
+    <Compile Include="UI\Serology.Designer.cs">
       <DependentUpon>Serology.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\IssuedMedicineControl.cs">
@@ -345,64 +345,64 @@
     <Compile Include="Controls\UrineAnalysisControl.Designer.cs">
       <DependentUpon>UrineAnalysisControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserFormEIT.cs">
+    <Compile Include="UI\UserFormEIT.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UserFormEIT.Designer.cs">
+    <Compile Include="UI\UserFormEIT.Designer.cs">
       <DependentUpon>UserFormEIT.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserFormExtubation.cs">
+    <Compile Include="UI\UserFormExtubation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UserFormExtubation.Designer.cs">
+    <Compile Include="UI\UserFormExtubation.Designer.cs">
       <DependentUpon>UserFormExtubation.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserFormIntubation.cs">
+    <Compile Include="UI\UserFormIntubation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UserFormIntubation.Designer.cs">
+    <Compile Include="UI\UserFormIntubation.Designer.cs">
       <DependentUpon>UserFormIntubation.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserFormProtocolManipulation.cs">
+    <Compile Include="UI\UserFormProtocolManipulation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UserFormProtocolManipulation.Designer.cs">
+    <Compile Include="UI\UserFormProtocolManipulation.Designer.cs">
       <DependentUpon>UserFormProtocolManipulation.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserFormTorCent.cs">
+    <Compile Include="UI\UserFormTorCent.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UserFormTorCent.Designer.cs">
+    <Compile Include="UI\UserFormTorCent.Designer.cs">
       <DependentUpon>UserFormTorCent.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserFormTrombolisis.cs">
+    <Compile Include="UI\UserFormTrombolisis.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UserFormTrombolisis.Designer.cs">
+    <Compile Include="UI\UserFormTrombolisis.Designer.cs">
       <DependentUpon>UserFormTrombolisis.cs</DependentUpon>
     </Compile>
-    <Compile Include="PatientWorkInfo.cs">
+    <Compile Include="UI\PatientWorkInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PatientWorkInfo.Designer.cs">
+    <Compile Include="UI\PatientWorkInfo.Designer.cs">
       <DependentUpon>PatientWorkInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserFormVEKS.cs">
+    <Compile Include="UI\UserFormVEKS.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UserFormVEKS.Designer.cs">
+    <Compile Include="UI\UserFormVEKS.Designer.cs">
       <DependentUpon>UserFormVEKS.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserFromVena.cs">
+    <Compile Include="UI\UserFromVena.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UserFromVena.Designer.cs">
+    <Compile Include="UI\UserFromVena.Designer.cs">
       <DependentUpon>UserFromVena.cs</DependentUpon>
     </Compile>
-    <Compile Include="ReleasePatient.cs">
+    <Compile Include="UI\ReleasePatient.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ReleasePatient.Designer.cs">
+    <Compile Include="UI\ReleasePatient.Designer.cs">
       <DependentUpon>ReleasePatient.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\UziAnalysisControl.cs">
@@ -411,32 +411,31 @@
     <Compile Include="Controls\UziAnalysisControl.Designer.cs">
       <DependentUpon>UziAnalysisControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Utils\ConsiliumTemplateProcessor.cs" />
-    <Compile Include="Utils\EpicrisisTemplateProcessor.cs" />
-    <Compile Include="Utils\FirstInspectationTemplateProcessor.cs" />
-    <Compile Include="Utils\IAutoSaveForm.cs" />
-    <Compile Include="Utils\InspectionTemplateProcessor.cs" />
-    <Compile Include="Utils\ITemplateProcessor.cs" />
-    <Compile Include="Utils\JournalShuffleUtils.cs" />
-    <Compile Include="Utils\SilentSaver.cs" />
-    <Compile Include="Utils\TemplateProcessorManager.cs" />
-    <Compile Include="Utils\JournalTemplateProcessor.cs" />
-    <None Include="NLog.config" />
+    <Compile Include="Commons\ConsiliumTemplateProcessor.cs" />
+    <Compile Include="Commons\EpicrisisTemplateProcessor.cs" />
+    <Compile Include="Commons\FirstInspectationTemplateProcessor.cs" />
+    <Compile Include="Commons\IAutoSaveForm.cs" />
+    <Compile Include="Commons\InspectionTemplateProcessor.cs" />
+    <Compile Include="Commons\ITemplateProcessor.cs" />
+    <Compile Include="Commons\JournalShuffleUtils.cs" />
+    <Compile Include="Commons\SilentSaver.cs" />
+    <Compile Include="Commons\TemplateProcessorManager.cs" />
+    <Compile Include="Commons\JournalTemplateProcessor.cs" />
     <None Include="Resources\shuffle.png" />
     <None Include="Resources\link20.png" />
-    <EmbeddedResource Include="NewPatient.resx">
+    <EmbeddedResource Include="UI\NewPatient.resx">
       <DependentUpon>NewPatient.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AlcoIntoxication.resx">
+    <EmbeddedResource Include="UI\AlcoIntoxication.resx">
       <DependentUpon>AlcoIntoxication.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AmbulanceLetters.resx">
+    <EmbeddedResource Include="UI\AmbulanceLetters.resx">
       <DependentUpon>AmbulanceLetters.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AnalysisContainer.resx">
+    <EmbeddedResource Include="UI\AnalysisContainer.resx">
       <DependentUpon>AnalysisContainer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AnalysisSelector.resx">
+    <EmbeddedResource Include="UI\AnalysisSelector.resx">
       <DependentUpon>AnalysisSelector.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\BloodAnalysisControl.resx">
@@ -487,46 +486,46 @@
     <EmbeddedResource Include="Controls\XRayControl.resx">
       <DependentUpon>XRayControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Inspection.resx">
+    <EmbeddedResource Include="UI\Inspection.resx">
       <DependentUpon>Inspection.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="JournalBeforeKag.resx">
+    <EmbeddedResource Include="UI\JournalBeforeKag.resx">
       <DependentUpon>JournalBeforeKag.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FirstInspection.resx">
+    <EmbeddedResource Include="UI\FirstInspection.resx">
       <DependentUpon>FirstInspection.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\KagAnalysisControl.resx">
       <DependentUpon>KagAnalysisControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PatientList.resx">
+    <EmbeddedResource Include="UI\PatientList.resx">
       <DependentUpon>PatientList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="JournalAfterKAG.resx">
+    <EmbeddedResource Include="UI\JournalAfterKAG.resx">
       <DependentUpon>JournalAfterKAG.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IssuedMedicine.resx">
+    <EmbeddedResource Include="UI\IssuedMedicine.resx">
       <DependentUpon>IssuedMedicine.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PatientsHistory.resx">
+    <EmbeddedResource Include="UI\PatientsHistory.resx">
       <DependentUpon>PatientsHistory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Perelivanie.resx">
+    <EmbeddedResource Include="UI\Perelivanie.resx">
       <DependentUpon>Perelivanie.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PreoperativeEpicrisiscs.resx">
+    <EmbeddedResource Include="UI\PreoperativeEpicrisiscs.resx">
       <DependentUpon>PreoperativeEpicrisiscs.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Consilium.resx">
+    <EmbeddedResource Include="UI\Consilium.resx">
       <DependentUpon>Consilium.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProtocolsManipulation.resx">
+    <EmbeddedResource Include="UI\ProtocolsManipulation.resx">
       <DependentUpon>ProtocolsManipulation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PulseTableCOntainer.resx">
+    <EmbeddedResource Include="UI\PulseTableCOntainer.resx">
       <DependentUpon>PulseTableCOntainer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReanimDEAD.resx">
+    <EmbeddedResource Include="UI\ReanimDEAD.resx">
       <DependentUpon>ReanimDEAD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -539,7 +538,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Serology.resx">
+    <EmbeddedResource Include="UI\Serology.resx">
       <DependentUpon>Serology.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\SpecialistConclusionControl.resx">
@@ -548,34 +547,34 @@
     <EmbeddedResource Include="Controls\UrineAnalysisControl.resx">
       <DependentUpon>UrineAnalysisControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserFormEIT.resx">
+    <EmbeddedResource Include="UI\UserFormEIT.resx">
       <DependentUpon>UserFormEIT.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserFormExtubation.resx">
+    <EmbeddedResource Include="UI\UserFormExtubation.resx">
       <DependentUpon>UserFormExtubation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserFormIntubation.resx">
+    <EmbeddedResource Include="UI\UserFormIntubation.resx">
       <DependentUpon>UserFormIntubation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserFormProtocolManipulation.resx">
+    <EmbeddedResource Include="UI\UserFormProtocolManipulation.resx">
       <DependentUpon>UserFormProtocolManipulation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserFormTorCent.resx">
+    <EmbeddedResource Include="UI\UserFormTorCent.resx">
       <DependentUpon>UserFormTorCent.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserFormTrombolisis.resx">
+    <EmbeddedResource Include="UI\UserFormTrombolisis.resx">
       <DependentUpon>UserFormTrombolisis.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PatientWorkInfo.resx">
+    <EmbeddedResource Include="UI\PatientWorkInfo.resx">
       <DependentUpon>PatientWorkInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserFormVEKS.resx">
+    <EmbeddedResource Include="UI\UserFormVEKS.resx">
       <DependentUpon>UserFormVEKS.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserFromVena.resx">
+    <EmbeddedResource Include="UI\UserFromVena.resx">
       <DependentUpon>UserFromVena.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReleasePatient.resx">
+    <EmbeddedResource Include="UI\ReleasePatient.resx">
       <DependentUpon>ReleasePatient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\UziAnalysisControl.resx">

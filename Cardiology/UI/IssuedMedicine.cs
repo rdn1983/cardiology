@@ -1,4 +1,6 @@
-﻿using Cardiology.Model;
+﻿using Cardiology.Data;
+using Cardiology.Model;
+using Cardiology.UI;
 using Cardiology.Utils;
 using System;
 using System.Collections.Generic;
@@ -10,24 +12,26 @@ namespace Cardiology
 {
     public partial class IssuedMedicine : Form
     {
+        private readonly IDbDataService service;
         private DdtHospital hospitalitySession;
         private string issuedMedId;
         private string templateName;
         private bool isAcceptTemplate = false;
 
-        public IssuedMedicine(DdtHospital hospitalitySession, string issuedMedId)
+        public IssuedMedicine(IDbDataService service, DdtHospital hospitalitySession, string issuedMedId)
         {
+            this.service = service;
             this.hospitalitySession = hospitalitySession;
             this.issuedMedId = issuedMedId;
             InitializeComponent();
-            DataService service = new DataService();
-            CommonUtils.initDoctorsComboboxValues(service, clinicalPharmacologistBox, "dsi_appointment_type=2");
-            CommonUtils.initDoctorsComboboxValues(service, nurseBox, null);
-            CommonUtils.initDoctorsByGroupComboboxValues(service, cardioReanimBox, "duty_cardioreanim");
-            CommonUtils.initDoctorsByGroupComboboxValues(service, directorBox, "io_cardio_reanim");
-            initIssuedCure(service);
 
-            DdtPatient patient = service.queryObjectById<DdtPatient>(hospitalitySession.DsidPatient);
+            CommonUtils.initDoctorsComboboxValues(new DataService(), clinicalPharmacologistBox, "dsi_appointment_type=2");
+            CommonUtils.initDoctorsComboboxValues(new DataService(), nurseBox, null);
+            ControlUtils.initDoctorsByGroupName(service.GetDoctorService(), cardioReanimBox, "duty_cardioreanim");
+            ControlUtils.initDoctorsByGroupName(service.GetDoctorService(), directorBox, "io_cardio_reanim");
+            initIssuedCure(new DataService());
+
+            DdtPatient patient = new DataService().queryObjectById<DdtPatient>(hospitalitySession.DsidPatient);
             if (patient != null)
             {
                 Text += " " + patient.DssInitials;

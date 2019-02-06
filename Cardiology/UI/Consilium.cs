@@ -1,4 +1,5 @@
-﻿using Cardiology.Model;
+﻿using Cardiology.Data;
+using Cardiology.Model;
 using Cardiology.Utils;
 using System;
 using System.Collections.Generic;
@@ -8,12 +9,13 @@ namespace Cardiology
 {
     public partial class Consilium : Form, IAutoSaveForm
     {
+        private readonly IDbDataService service;
         private DdtHospital hospitalitySession;
         private DdtDoctors curingDoc;
         private string consiliumId;
         IList<String> membersToRemove = new List<String>();
 
-        public Consilium(DdtHospital hospitalitySession, string consiliumId)
+        public Consilium(IDbDataService service, DdtHospital hospitalitySession, string consiliumId)
         {
             this.hospitalitySession = hospitalitySession;
             this.consiliumId = consiliumId;

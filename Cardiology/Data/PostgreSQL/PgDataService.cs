@@ -7,6 +7,7 @@
         private readonly IDbGroupService groupService;
         private readonly IDbHospitalService hospitalService;
         private readonly IDbPatientService patientService;
+        private readonly IDbCureService cureService;
 
         public PgDataService(IDbConnectionFactory connectionFactory) {
             this.connectionFactory = connectionFactory;
@@ -15,6 +16,12 @@
             groupService = new PgGroupService(connectionFactory);
             hospitalService = new PgHospitalService(connectionFactory);
             patientService = new PgPatientService(connectionFactory);
+            cureService = new PgCureService(connectionFactory);
+        }
+
+        public IDbCureService GetCureService()
+        {
+            return cureService;
         }
 
         public IDbDoctorService GetDoctorService()

@@ -51,7 +51,7 @@ namespace Cardiology
 
         private void issuingMedicineMenuItem_Click(object sender, EventArgs e)
         {
-            IssuedMedicine form = new IssuedMedicine(hospitalitySession, null);
+            IssuedMedicine form = new IssuedMedicine(this.service, hospitalitySession, null);
             form.ShowDialog();
         }
 
@@ -81,7 +81,7 @@ namespace Cardiology
 
         private void konsiliumItem_Click(object sender, EventArgs e)
         {
-            Consilium form = new Consilium(hospitalitySession, null);
+            Consilium form = new Consilium(service, hospitalitySession, null);
             form.ShowDialog();
         }
 
@@ -145,7 +145,7 @@ namespace Cardiology
             }
             else if (DdtIssuedMedicineList.TABLE_NAME.Equals(firstType))
             {
-                form = new IssuedMedicine(hospitalitySession, firstId);
+                form = new IssuedMedicine(this.service, hospitalitySession, firstId);
             }
             else if (DdtEgds.TABLE_NAME.Equals(firstType) || DdtXRay.TABLE_NAME.Equals(firstType)
                 || DdtUrineAnalysis.TABLE_NAME.Equals(firstType) || DdtEkg.TABLE_NAME.Equals(firstType)
@@ -158,7 +158,7 @@ namespace Cardiology
             }
             else if (DdtConsilium.TABLE_NAME.Equals(firstType))
             {
-                form = new Consilium(hospitalitySession, firstId);
+                form = new Consilium(service, hospitalitySession, firstId);
             }
             else if (DdtSerology.TABLE_NAME.Equals(firstType))
             {

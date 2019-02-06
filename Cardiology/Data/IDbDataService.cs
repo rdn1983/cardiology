@@ -9,5 +9,7 @@
         IDbHospitalService GetHospitalService();
 
         IDbDoctorService GetDoctorService();
+
+        IDbCureService GetCureService();
     }
 }

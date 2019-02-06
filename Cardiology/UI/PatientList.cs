@@ -537,7 +537,7 @@ namespace Cardiology
                 else
                 {
                     DdtHospital hospitalSession = service.queryObjectById<DdtHospital>(cell.Value.ToString());
-                    IssuedMedicine form = new IssuedMedicine(hospitalSession, lastListId);
+                    IssuedMedicine form = new IssuedMedicine(this.service, hospitalSession, lastListId);
                     form.ShowDialog();
                 }
             }

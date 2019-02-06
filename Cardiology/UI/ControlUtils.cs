@@ -23,7 +23,10 @@ namespace Cardiology.UI
             control.Items.Clear();
 
             IList<DdtDoctorV2> list = service.GetAll();
-            control.DataSource = list;
+            for(int index = 0; index < list.Count; index++)
+            {
+                control.Items.Add(list[index]); ;
+            }
 
             control.ValueMember = "Id";
             control.DisplayMember = "Initials";

@@ -1,4 +1,5 @@
-﻿using Cardiology.Model;
+﻿using Cardiology.Data;
+using Cardiology.Model;
 using Cardiology.Model.Dictionary;
 using Cardiology.Utils;
 using System;
@@ -12,14 +13,15 @@ namespace Cardiology
 {
     public partial class PatientsHistory : Form
     {
+        private readonly IDbDataService service;
         private DdtHospital hospitalitySession;
-        public PatientsHistory(DdtHospital hospitalitySession)
+        public PatientsHistory(IDbDataService service, DdtHospital hospitalitySession)
         {
+            this.service = service;
             this.hospitalitySession = hospitalitySession;
             InitializeComponent();
             this.patientHistoryGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            DataService service = new DataService();
-            DdtPatient patient = service.queryObjectById<DdtPatient>(hospitalitySession.DsidPatient);
+            DdtPatient patient = new DataService().queryObjectById<DdtPatient>(hospitalitySession.DsidPatient);
             if (patient != null)
             {
                 Text += " " + patient.DssInitials;
@@ -172,7 +174,7 @@ namespace Cardiology
             }
             else if (DdtHospital.TABLE_NAME.Equals(firstType))
             {
-                form = new PatientAdmission(hospitalitySession);
+                form = new PatientAdmission(service, hospitalitySession);
             }
 
             if (form != null)

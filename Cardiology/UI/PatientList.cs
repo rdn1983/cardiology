@@ -40,7 +40,7 @@ namespace Cardiology
 
         private void patientAdmission_Click(object sender, EventArgs e)
         {
-            PatientAdmission st = new PatientAdmission(null);
+            PatientAdmission st = new PatientAdmission(service, null);
             st.ShowDialog();
         }
 
@@ -140,9 +140,9 @@ namespace Cardiology
                 DataGridViewRow row = (DataGridViewRow)it.Current;
                 DataGridViewCell cell = row.Cells[0];
                 string value = cell.Value.ToString();
-                DataService service = new DataService();
-                DdtHospital hospitalSession = service.queryObjectById<DdtHospital>(value);
-                PatientsHistory form = new PatientsHistory(hospitalSession);
+
+                DdtHospital hospitalSession = new DataService().queryObjectById<DdtHospital>(value);
+                PatientsHistory form = new PatientsHistory(service, hospitalSession);
                 form.ShowDialog();
             }
         }
@@ -513,7 +513,7 @@ namespace Cardiology
                 DataGridViewCell cell = row.Cells[0];
                 DataService service = new DataService();
                 DdtHospital hospitalSession = service.queryObjectById<DdtHospital>(cell.Value.ToString());
-                PatientAdmission admissionPatient = new PatientAdmission(hospitalSession);
+                PatientAdmission admissionPatient = new PatientAdmission(this.service, hospitalSession);
                 admissionPatient.ShowDialog();
 
             }

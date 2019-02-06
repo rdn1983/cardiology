@@ -2,17 +2,21 @@
 using System.Globalization;
 using System.Text;
 using System.Windows.Forms;
+using Cardiology.Data;
 using Cardiology.Model;
+using Cardiology.UI;
 using Cardiology.Utils;
 
 namespace Cardiology
 {
     public partial class PatientAdmission : Form
     {
+        private readonly IDbDataService service;
         private DdtHospital hospital;
 
-        public PatientAdmission(DdtHospital hospital)
+        public PatientAdmission(IDbDataService service, DdtHospital hospital)
         {
+            this.service = service;
             this.hospital = hospital;
             InitializeComponent();
             System.Drawing.Size halfScreenSize = new System.Drawing.Size(SystemInformation.PrimaryMonitorSize.Width / 2,
@@ -25,12 +29,11 @@ namespace Cardiology
 
         private void initDutyDoctors()
         {
-            DataService service = new DataService();
-            CommonUtils.initDoctorsByGroupComboboxValues(service, directorCardioReanimBox, "io_cardio_reanim");
-            CommonUtils.initDoctorsByGroupComboboxValues(service, dutyCardioBox, "duty_cardioreanim");
-            CommonUtils.initDoctorsByGroupComboboxValues(service, cardioDocBox, "duty_rhdmil");
-            CommonUtils.initDoctorsByGroupComboboxValues(service, subDoctorBox, "io_rhmdil");
-            CommonUtils.initDoctorsComboboxValues(service, anesthetistComboBox, null);
+            ControlUtils.initDoctorsByGroupName(service.GetDoctorService(), directorCardioReanimBox, "io_cardio_reanim");
+            ControlUtils.initDoctorsByGroupName(service.GetDoctorService(), dutyCardioBox, "duty_cardioreanim");
+            ControlUtils.initDoctorsByGroupName(service.GetDoctorService(), cardioDocBox, "duty_rhdmil");
+            ControlUtils.initDoctorsByGroupName(service.GetDoctorService(), subDoctorBox, "io_rhmdil");
+            CommonUtils.initDoctorsComboboxValues(new DataService(), anesthetistComboBox, null);
         }
 
         private void initControls()

@@ -126,100 +126,100 @@
     <Compile Include="UI\AnalysisSelector.Designer.cs">
       <DependentUpon>AnalysisSelector.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\BloodAnalysisControl.cs">
+    <Compile Include="UI\Controls\BloodAnalysisControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\BloodAnalysisControl.Designer.cs">
+    <Compile Include="UI\Controls\BloodAnalysisControl.Designer.cs">
       <DependentUpon>BloodAnalysisControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\CoagulogrammControl.cs">
+    <Compile Include="UI\Controls\CoagulogrammControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\CoagulogrammControl.Designer.cs">
+    <Compile Include="UI\Controls\CoagulogrammControl.Designer.cs">
       <DependentUpon>CoagulogrammControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\DefferedJournalControl.cs">
+    <Compile Include="UI\Controls\DefferedJournalControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\DefferedJournalControl.Designer.cs">
+    <Compile Include="UI\Controls\DefferedJournalControl.Designer.cs">
       <DependentUpon>DefferedJournalControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\EgdsAnalysisControl.cs">
+    <Compile Include="UI\Controls\EgdsAnalysisControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\EgdsAnalysisControl.Designer.cs">
+    <Compile Include="UI\Controls\EgdsAnalysisControl.Designer.cs">
       <DependentUpon>EgdsAnalysisControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\EkgAnalysisControlcs.cs">
+    <Compile Include="UI\Controls\EkgAnalysisControlcs.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\EkgAnalysisControlcs.Designer.cs">
+    <Compile Include="UI\Controls\EkgAnalysisControlcs.Designer.cs">
       <DependentUpon>EkgAnalysisControlcs.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\HolterControl.cs">
+    <Compile Include="UI\Controls\HolterControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\HolterControl.Designer.cs">
+    <Compile Include="UI\Controls\HolterControl.Designer.cs">
       <DependentUpon>HolterControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\HormonesControl.cs">
+    <Compile Include="UI\Controls\HormonesControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\HormonesControl.Designer.cs">
+    <Compile Include="UI\Controls\HormonesControl.Designer.cs">
       <DependentUpon>HormonesControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\IssuedActionContainer.cs">
+    <Compile Include="UI\Controls\IssuedActionContainer.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\IssuedActionContainer.Designer.cs">
+    <Compile Include="UI\Controls\IssuedActionContainer.Designer.cs">
       <DependentUpon>IssuedActionContainer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\IssuedActionControl.cs">
+    <Compile Include="UI\Controls\IssuedActionControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\IssuedActionControl.Designer.cs">
+    <Compile Include="UI\Controls\IssuedActionControl.Designer.cs">
       <DependentUpon>IssuedActionControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\IssuedMedicineContainer.cs">
+    <Compile Include="UI\Controls\IssuedMedicineContainer.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\IssuedMedicineContainer.Designer.cs">
+    <Compile Include="UI\Controls\IssuedMedicineContainer.Designer.cs">
       <DependentUpon>IssuedMedicineContainer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\JournalKAGControl.cs">
+    <Compile Include="UI\Controls\JournalKAGControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\JournalKAGControl.Designer.cs">
+    <Compile Include="UI\Controls\JournalKAGControl.Designer.cs">
       <DependentUpon>JournalKAGControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\JournalNoKAGControl.cs">
+    <Compile Include="UI\Controls\JournalNoKAGControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\JournalNoKAGControl.Designer.cs">
+    <Compile Include="UI\Controls\JournalNoKAGControl.Designer.cs">
       <DependentUpon>JournalNoKAGControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\KagAnalysisControl.cs">
+    <Compile Include="UI\Controls\KagAnalysisControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\KagAnalysisControl.Designer.cs">
+    <Compile Include="UI\Controls\KagAnalysisControl.Designer.cs">
       <DependentUpon>KagAnalysisControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\OncologicMarkersControl.cs">
+    <Compile Include="UI\Controls\OncologicMarkersControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\OncologicMarkersControl.Designer.cs">
+    <Compile Include="UI\Controls\OncologicMarkersControl.Designer.cs">
       <DependentUpon>OncologicMarkersControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\TemplateChanger.cs">
+    <Compile Include="UI\Controls\TemplateChanger.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\TemplateChanger.Designer.cs">
+    <Compile Include="UI\Controls\TemplateChanger.Designer.cs">
       <DependentUpon>TemplateChanger.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\XRayControl.cs">
+    <Compile Include="UI\Controls\XRayControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\XRayControl.Designer.cs">
+    <Compile Include="UI\Controls\XRayControl.Designer.cs">
       <DependentUpon>XRayControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Inspection.cs">
@@ -265,7 +265,7 @@
     <Compile Include="Data\Model\DdtVariousSpecConcluson.cs" />
     <Compile Include="Data\Model\DdtXRay.cs" />
     <Compile Include="Data\Model\DdvHistory.cs" />
-    <Compile Include="Controls\IDocbaseControl.cs" />
+    <Compile Include="UI\Controls\IDocbaseControl.cs" />
     <Compile Include="Data\Model\DmGroup.cs" />
     <Compile Include="Commons\Morpher.cs" />
     <Compile Include="UI\PatientsHistory.cs">
@@ -286,10 +286,10 @@
     <Compile Include="UI\ProtocolsManipulation.Designer.cs">
       <DependentUpon>ProtocolsManipulation.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\SpecialistConclusionControl.cs">
+    <Compile Include="UI\Controls\SpecialistConclusionControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\SpecialistConclusionControl.Designer.cs">
+    <Compile Include="UI\Controls\SpecialistConclusionControl.Designer.cs">
       <DependentUpon>SpecialistConclusionControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\PulseTableCOntainer.cs">
@@ -359,16 +359,16 @@
     <Compile Include="UI\Serology.Designer.cs">
       <DependentUpon>Serology.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\IssuedMedicineControl.cs">
+    <Compile Include="UI\Controls\IssuedMedicineControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\IssuedMedicineControl.Designer.cs">
+    <Compile Include="UI\Controls\IssuedMedicineControl.Designer.cs">
       <DependentUpon>IssuedMedicineControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\UrineAnalysisControl.cs">
+    <Compile Include="UI\Controls\UrineAnalysisControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\UrineAnalysisControl.Designer.cs">
+    <Compile Include="UI\Controls\UrineAnalysisControl.Designer.cs">
       <DependentUpon>UrineAnalysisControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\UserFormEIT.cs">
@@ -431,10 +431,10 @@
     <Compile Include="UI\ReleasePatient.Designer.cs">
       <DependentUpon>ReleasePatient.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\UziAnalysisControl.cs">
+    <Compile Include="UI\Controls\UziAnalysisControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\UziAnalysisControl.Designer.cs">
+    <Compile Include="UI\Controls\UziAnalysisControl.Designer.cs">
       <DependentUpon>UziAnalysisControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Commons\ConsiliumTemplateProcessor.cs" />
@@ -464,52 +464,52 @@
     <EmbeddedResource Include="UI\AnalysisSelector.resx">
       <DependentUpon>AnalysisSelector.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\BloodAnalysisControl.resx">
+    <EmbeddedResource Include="UI\Controls\BloodAnalysisControl.resx">
       <DependentUpon>BloodAnalysisControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\CoagulogrammControl.resx">
+    <EmbeddedResource Include="UI\Controls\CoagulogrammControl.resx">
       <DependentUpon>CoagulogrammControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\DefferedJournalControl.resx">
+    <EmbeddedResource Include="UI\Controls\DefferedJournalControl.resx">
       <DependentUpon>DefferedJournalControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\EgdsAnalysisControl.resx">
+    <EmbeddedResource Include="UI\Controls\EgdsAnalysisControl.resx">
       <DependentUpon>EgdsAnalysisControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\EkgAnalysisControlcs.resx">
+    <EmbeddedResource Include="UI\Controls\EkgAnalysisControlcs.resx">
       <DependentUpon>EkgAnalysisControlcs.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\HolterControl.resx">
+    <EmbeddedResource Include="UI\Controls\HolterControl.resx">
       <DependentUpon>HolterControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\HormonesControl.resx">
+    <EmbeddedResource Include="UI\Controls\HormonesControl.resx">
       <DependentUpon>HormonesControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\IssuedActionContainer.resx">
+    <EmbeddedResource Include="UI\Controls\IssuedActionContainer.resx">
       <DependentUpon>IssuedActionContainer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\IssuedActionControl.resx">
+    <EmbeddedResource Include="UI\Controls\IssuedActionControl.resx">
       <DependentUpon>IssuedActionControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\IssuedMedicineContainer.resx">
+    <EmbeddedResource Include="UI\Controls\IssuedMedicineContainer.resx">
       <DependentUpon>IssuedMedicineContainer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\IssuedMedicineControl.resx">
+    <EmbeddedResource Include="UI\Controls\IssuedMedicineControl.resx">
       <DependentUpon>IssuedMedicineControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\JournalKAGControl.resx">
+    <EmbeddedResource Include="UI\Controls\JournalKAGControl.resx">
       <DependentUpon>JournalKAGControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\JournalNoKAGControl.resx">
+    <EmbeddedResource Include="UI\Controls\JournalNoKAGControl.resx">
       <DependentUpon>JournalNoKAGControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\OncologicMarkersControl.resx">
+    <EmbeddedResource Include="UI\Controls\OncologicMarkersControl.resx">
       <DependentUpon>OncologicMarkersControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\TemplateChanger.resx">
+    <EmbeddedResource Include="UI\Controls\TemplateChanger.resx">
       <DependentUpon>TemplateChanger.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\XRayControl.resx">
+    <EmbeddedResource Include="UI\Controls\XRayControl.resx">
       <DependentUpon>XRayControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Inspection.resx">
@@ -521,7 +521,7 @@
     <EmbeddedResource Include="UI\FirstInspection.resx">
       <DependentUpon>FirstInspection.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\KagAnalysisControl.resx">
+    <EmbeddedResource Include="UI\Controls\KagAnalysisControl.resx">
       <DependentUpon>KagAnalysisControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\PatientList.resx">
@@ -567,10 +567,10 @@
     <EmbeddedResource Include="UI\Serology.resx">
       <DependentUpon>Serology.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\SpecialistConclusionControl.resx">
+    <EmbeddedResource Include="UI\Controls\SpecialistConclusionControl.resx">
       <DependentUpon>SpecialistConclusionControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\UrineAnalysisControl.resx">
+    <EmbeddedResource Include="UI\Controls\UrineAnalysisControl.resx">
       <DependentUpon>UrineAnalysisControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\UserFormEIT.resx">
@@ -603,7 +603,7 @@
     <EmbeddedResource Include="UI\ReleasePatient.resx">
       <DependentUpon>ReleasePatient.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\UziAnalysisControl.resx">
+    <EmbeddedResource Include="UI\Controls\UziAnalysisControl.resx">
       <DependentUpon>UziAnalysisControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />

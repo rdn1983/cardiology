@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using System.Text;
 using Cardiology.Utils;
 using NLog;
+using System.Configuration;
 
 namespace Cardiology
 {
@@ -20,7 +21,7 @@ namespace Cardiology
         private Npgsql.NpgsqlConnection getConnection()
         {
             Npgsql.NpgsqlConnection connection = new Npgsql.NpgsqlConnection();
-            connection.ConnectionString = "Server=89.223.91.196;Port=5432;User Id=cardio;Password=AbC123456!ab;Database=cardio;";
+            connection.ConnectionString = ConfigurationManager.ConnectionStrings["Cardio"].ConnectionString;
             connection.Open();
             return connection;
         }

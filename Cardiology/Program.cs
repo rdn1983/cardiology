@@ -1,4 +1,6 @@
-﻿using NLog;
+﻿using Cardiology.Data;
+using Cardiology.Data.PostgreSQL;
+using NLog;
 using System;
 using System.Windows.Forms;
 
@@ -12,10 +14,12 @@ namespace Cardiology
         [STAThread]
         static void Main()
         {
-            Logger logger = LogManager.GetCurrentClassLogger();
+            IDbConnectionFactory connectionFactory = new PgConnectionFactory();
+            IDbDataService service = new PgDataService(connectionFactory);
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new PatientList());
+            Application.Run(new PatientList(service));
         }
     }
 }

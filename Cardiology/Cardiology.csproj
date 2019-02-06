@@ -77,6 +77,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\IDbConnectionFactory.cs" />
+    <Compile Include="Data\IDbDataService.cs" />
+    <Compile Include="Data\IDbPatientList.cs" />
+    <Compile Include="Data\Model2\DdtPatientV2.cs" />
+    <Compile Include="Data\Model2\DdvActiveHospitalPatientV2.cs" />
+    <Compile Include="Data\Model2\DmPersistent.cs" />
+    <Compile Include="Data\PostgreSQL\PgConnectionFactory.cs" />
+    <Compile Include="Data\PostgreSQL\PgDataService.cs" />
+    <Compile Include="Data\PostgreSQL\PgPatientList.cs" />
     <Compile Include="UI\NewPatient.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -245,7 +254,6 @@
     <Compile Include="Data\Model\DdtValues.cs" />
     <Compile Include="Data\Model\DdtVariousSpecConcluson.cs" />
     <Compile Include="Data\Model\DdtXRay.cs" />
-    <Compile Include="Data\Model\DdvActiveHospitalPatients.cs" />
     <Compile Include="Data\Model\DdvHistory.cs" />
     <Compile Include="Controls\IDocbaseControl.cs" />
     <Compile Include="Data\Model\DmGroup.cs" />

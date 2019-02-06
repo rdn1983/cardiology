@@ -1,4 +1,6 @@
-﻿using Cardiology.Model;
+﻿using Cardiology.Data;
+using Cardiology.Data.Model2;
+using Cardiology.Model;
 using Cardiology.Utils;
 using System;
 using System.Collections;
@@ -10,8 +12,12 @@ namespace Cardiology
 {
     public partial class PatientList : Form
     {
-        public PatientList()
+        private IDbDataService service;
+
+        public PatientList(IDbDataService service)
         {
+            this.service = service;
+
             System.Windows.Forms.Control.CheckForIllegalCrossThreadCalls = false;
             InitializeComponent();
             this.hospitalPatientsTbl.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
@@ -20,13 +26,14 @@ namespace Cardiology
         private void loadPatientsGrid(bool idOnlyActive)
         {
             hospitalPatientsTbl.Rows.Clear();
-            DataService service = new DataService();
-            string query = @"Select * from ddv_active_hospital_patients " + (idOnlyActive ? " WHERE dsb_active=true" : "");
-            List<DdvActiveHospitalPatients> allHspitalPatients = service.queryObjectsCollection<DdvActiveHospitalPatients>(query);
-            for (int i = 0; i < allHspitalPatients.Count(); i++)
+            IList<DdvActiveHospitalPatientV2> activePatients = service.GetPatientService().GetActive();
+            for (int i = 0; i < activePatients.Count(); i++)
             {
-                DdvActiveHospitalPatients h = allHspitalPatients[i];
-                hospitalPatientsTbl.Rows.Add(h.PatientSessionId, h.DssPatientName, h.DssRoomCell, h.DsdtAdmissionDate, h.DssDocName, h.DssDiagnosis);
+                DdvActiveHospitalPatientV2 activePatient = activePatients[i];
+                hospitalPatientsTbl.Rows.Add(
+                    activePatient.SessionId, 
+                    activePatient.PatientName, 
+                    activePatient.RoomCell, activePatient.AdmissionDate, activePatient.DocName, activePatient.Diagnosis);
             }
 
         }

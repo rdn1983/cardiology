@@ -77,8 +77,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\IDbDoctorService.cs" />
+    <Compile Include="Data\Model2\DdtDoctorV2.cs" />
+    <Compile Include="Data\Model2\DdtHospitalV2.cs" />
     <Compile Include="Data\IDbConnectionFactory.cs" />
     <Compile Include="Data\IDbDataService.cs" />
+    <Compile Include="Data\IDbHospitalService.cs" />
     <Compile Include="Data\IDbPatientList.cs" />
     <Compile Include="Data\IDmGroupService.cs" />
     <Compile Include="Data\Model2\DdtPatientV2.cs" />
@@ -87,8 +91,11 @@
     <Compile Include="Data\Model2\DmPersistent.cs" />
     <Compile Include="Data\PostgreSQL\PgConnectionFactory.cs" />
     <Compile Include="Data\PostgreSQL\PgDataService.cs" />
+    <Compile Include="Data\PostgreSQL\PgDoctorService.cs" />
     <Compile Include="Data\PostgreSQL\PgGroupService.cs" />
+    <Compile Include="Data\PostgreSQL\PgHospitalService.cs" />
     <Compile Include="Data\PostgreSQL\PgPatientList.cs" />
+    <Compile Include="UI\ControlUtils.cs" />
     <Compile Include="UI\PatientAdmission.cs">
       <SubType>Form</SubType>
     </Compile>

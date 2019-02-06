@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Cardiology.Data
 {
-    public interface IDmGroupService
+    public interface IDbGroupService
     {
         IList<DmGroupV2> GetList();
     }

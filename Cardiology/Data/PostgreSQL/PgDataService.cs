@@ -2,20 +2,39 @@
 {
     class PgDataService : IDbDataService
     {
-        private IDbConnectionFactory connectionFactory;
+        private readonly IDbConnectionFactory connectionFactory;
+        private readonly IDbDoctorService doctorService;
+        private readonly IDbGroupService groupService;
+        private readonly IDbHospitalService hospitalService;
+        private readonly IDbPatientService patientService;
 
         public PgDataService(IDbConnectionFactory connectionFactory) {
             this.connectionFactory = connectionFactory;
+
+            doctorService = new PgDoctorService(connectionFactory);
+            groupService = new PgGroupService(connectionFactory);
+            hospitalService = new PgHospitalService(connectionFactory);
+            patientService = new PgPatientService(connectionFactory);
         }
 
-        public IDmGroupService GetGroupService()
+        public IDbDoctorService GetDoctorService()
         {
-            return new PgGroupService(connectionFactory);
+            return doctorService;
+        }
+
+        public IDbGroupService GetGroupService()
+        {
+            return groupService;
+        }
+
+        public IDbHospitalService GetHospitalService()
+        {
+            return hospitalService;
         }
 
         public IDbPatientService GetPatientService()
         {
-            return new PgPatientList(connectionFactory);
+            return patientService;
         }
     }
 }

@@ -4,6 +4,10 @@
     {
         IDbPatientService GetPatientService();
 
-        IDmGroupService GetGroupService();
+        IDbGroupService GetGroupService();
+
+        IDbHospitalService GetHospitalService();
+
+        IDbDoctorService GetDoctorService();
     }
 }

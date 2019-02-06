@@ -5,11 +5,11 @@ using System.Data.Common;
 
 namespace Cardiology.Data.PostgreSQL
 {
-    class PgPatientList : IDbPatientService
+    class PgPatientService : IDbPatientService
     {
         private IDbConnectionFactory connectionFactory;
 
-        public PgPatientList(IDbConnectionFactory connectionFactory)
+        public PgPatientService(IDbConnectionFactory connectionFactory)
         {
             this.connectionFactory = connectionFactory;
         }

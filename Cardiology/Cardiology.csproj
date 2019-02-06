@@ -80,17 +80,20 @@
     <Compile Include="Data\IDbConnectionFactory.cs" />
     <Compile Include="Data\IDbDataService.cs" />
     <Compile Include="Data\IDbPatientList.cs" />
+    <Compile Include="Data\IDmGroupService.cs" />
     <Compile Include="Data\Model2\DdtPatientV2.cs" />
     <Compile Include="Data\Model2\DdvActiveHospitalPatientV2.cs" />
+    <Compile Include="Data\Model2\DmGroupV2.cs" />
     <Compile Include="Data\Model2\DmPersistent.cs" />
     <Compile Include="Data\PostgreSQL\PgConnectionFactory.cs" />
     <Compile Include="Data\PostgreSQL\PgDataService.cs" />
+    <Compile Include="Data\PostgreSQL\PgGroupService.cs" />
     <Compile Include="Data\PostgreSQL\PgPatientList.cs" />
-    <Compile Include="UI\NewPatient.cs">
+    <Compile Include="UI\PatientAdmission.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\NewPatient.Designer.cs">
-      <DependentUpon>NewPatient.cs</DependentUpon>
+    <Compile Include="UI\PatientAdmission.Designer.cs">
+      <DependentUpon>PatientAdmission.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\AlcoIntoxication.cs">
       <SubType>Form</SubType>
@@ -439,8 +442,8 @@
     <Compile Include="Commons\JournalTemplateProcessor.cs" />
     <None Include="Resources\shuffle.png" />
     <None Include="Resources\link20.png" />
-    <EmbeddedResource Include="UI\NewPatient.resx">
-      <DependentUpon>NewPatient.cs</DependentUpon>
+    <EmbeddedResource Include="UI\PatientAdmission.resx">
+      <DependentUpon>PatientAdmission.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\AlcoIntoxication.resx">
       <DependentUpon>AlcoIntoxication.cs</DependentUpon>

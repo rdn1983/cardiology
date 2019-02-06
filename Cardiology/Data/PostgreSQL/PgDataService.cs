@@ -8,6 +8,11 @@
             this.connectionFactory = connectionFactory;
         }
 
+        public IDmGroupService GetGroupService()
+        {
+            return new PgGroupService(connectionFactory);
+        }
+
         public IDbPatientService GetPatientService()
         {
             return new PgPatientList(connectionFactory);

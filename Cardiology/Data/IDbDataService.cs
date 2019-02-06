@@ -3,5 +3,7 @@
     public interface IDbDataService
     {
         IDbPatientService GetPatientService();
+
+        IDmGroupService GetGroupService();
     }
 }

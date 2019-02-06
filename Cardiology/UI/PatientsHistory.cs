@@ -172,7 +172,7 @@ namespace Cardiology
             }
             else if (DdtHospital.TABLE_NAME.Equals(firstType))
             {
-                form = new NewPatient(hospitalitySession);
+                form = new PatientAdmission(hospitalitySession);
             }
 
             if (form != null)

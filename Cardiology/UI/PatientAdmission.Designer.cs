@@ -2,7 +2,7 @@
 
 namespace Cardiology
 {
-    partial class NewPatient
+    partial class PatientAdmission
     {
         /// <summary>
         /// Required designer variable.
@@ -30,8 +30,9 @@ namespace Cardiology
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewPatient));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PatientAdmission));
             this.lordOfTheCotBox = new System.Windows.Forms.GroupBox();
+            this.sdBtn = new System.Windows.Forms.CheckBox();
             this.anesthetistBox = new System.Windows.Forms.GroupBox();
             this.anesthetistComboBox = new System.Windows.Forms.ComboBox();
             this.directorCardioReanimPnl = new System.Windows.Forms.GroupBox();
@@ -87,7 +88,6 @@ namespace Cardiology
             this.firstNameLbl = new System.Windows.Forms.Label();
             this.patientLastName = new System.Windows.Forms.TextBox();
             this.lastNameLbl = new System.Windows.Forms.Label();
-            this.sdBtn = new System.Windows.Forms.CheckBox();
             this.lordOfTheCotBox.SuspendLayout();
             this.anesthetistBox.SuspendLayout();
             this.directorCardioReanimPnl.SuspendLayout();
@@ -125,6 +125,16 @@ namespace Cardiology
             this.lordOfTheCotBox.TabIndex = 3;
             this.lordOfTheCotBox.TabStop = false;
             this.lordOfTheCotBox.Text = "Дежурная бригада";
+            // 
+            // sdBtn
+            // 
+            this.sdBtn.AutoSize = true;
+            this.sdBtn.Location = new System.Drawing.Point(8, 489);
+            this.sdBtn.Name = "sdBtn";
+            this.sdBtn.Size = new System.Drawing.Size(42, 17);
+            this.sdBtn.TabIndex = 13;
+            this.sdBtn.Text = "СД";
+            this.sdBtn.UseVisualStyleBackColor = true;
             // 
             // anesthetistBox
             // 
@@ -722,17 +732,7 @@ namespace Cardiology
             this.lastNameLbl.TabIndex = 0;
             this.lastNameLbl.Text = "Ф.";
             // 
-            // sdBtn
-            // 
-            this.sdBtn.AutoSize = true;
-            this.sdBtn.Location = new System.Drawing.Point(8, 489);
-            this.sdBtn.Name = "sdBtn";
-            this.sdBtn.Size = new System.Drawing.Size(42, 17);
-            this.sdBtn.TabIndex = 13;
-            this.sdBtn.Text = "СД";
-            this.sdBtn.UseVisualStyleBackColor = true;
-            // 
-            // AdmissionPatient
+            // PatientAdmission
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -740,7 +740,7 @@ namespace Cardiology
             this.Controls.Add(this.lordOfTheCotBox);
             this.Controls.Add(this.patientBaseInfoBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "AdmissionPatient";
+            this.Name = "PatientAdmission";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Поступление пациента";
             this.Resize += new System.EventHandler(this.AdmissionPatient_Resize);

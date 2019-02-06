@@ -270,7 +270,6 @@
     <Compile Include="Data\Model\DdvHistory.cs" />
     <Compile Include="UI\Controls\IDocbaseControl.cs" />
     <Compile Include="Data\Model\DmGroup.cs" />
-    <Compile Include="Commons\Morpher.cs" />
     <Compile Include="UI\PatientsHistory.cs">
       <SubType>Form</SubType>
     </Compile>

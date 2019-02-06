@@ -1,7 +1,7 @@
 ﻿using Cardiology.Data;
 using Cardiology.Data.Model2;
-using Cardiology.Model;
-using Cardiology.Utils;
+using Cardiology.Data;
+using Cardiology.Commons;
 using System;
 using System.Collections;
 using System.Collections.Generic;

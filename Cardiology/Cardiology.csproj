@@ -300,7 +300,7 @@
     <Compile Include="UI\PulseTableCOntainer.Designer.cs">
       <DependentUpon>PulseTableCOntainer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Commons\TableAttribute.cs" />
+    <Compile Include="Data\TableAttribute.cs" />
     <Compile Include="Data\DataService.cs" />
     <Compile Include="UI\JournalBeforeKag.cs">
       <SubType>Form</SubType>

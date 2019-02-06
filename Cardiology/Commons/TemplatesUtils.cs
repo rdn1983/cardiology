@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using Word = Microsoft.Office.Interop.Word;
 using System.IO;
-using Cardiology.Model;
+using Cardiology.Data;
 
-namespace Cardiology.Utils
+namespace Cardiology.Commons
 {
     public class TemplatesUtils
     {

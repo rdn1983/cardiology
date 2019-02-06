@@ -2,8 +2,8 @@
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
-using Cardiology.Utils;
-using Cardiology.Model;
+using Cardiology.Commons;
+using Cardiology.Data;
 
 namespace Cardiology.Controls
 {

@@ -1,4 +1,4 @@
-﻿namespace Cardiology.Model
+﻿namespace Cardiology.Data
 {
     public class DdtTypedObject
     {

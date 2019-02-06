@@ -1,6 +1,6 @@
 ﻿
 
-namespace Cardiology.Model
+namespace Cardiology.Data
 {
     class DdtValues
     {

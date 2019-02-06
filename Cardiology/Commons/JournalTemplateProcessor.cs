@@ -1,10 +1,10 @@
-﻿using Cardiology.Model;
-using Cardiology.Model.Dictionary;
+﻿using Cardiology.Data;
+using Cardiology.Data.Dictionary;
 using System;
 using System.Collections.Generic;
 using System.IO;
 
-namespace Cardiology.Utils
+namespace Cardiology.Commons
 {
     class JournalTemplateProcessor : ITemplateProcessor
     {

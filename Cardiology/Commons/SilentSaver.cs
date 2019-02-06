@@ -1,7 +1,7 @@
 ﻿using NLog;
 using System.Timers;
 
-namespace Cardiology.Utils
+namespace Cardiology.Commons
 {
     internal class SilentSaver
     {

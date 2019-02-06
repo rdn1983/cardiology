@@ -1,5 +1,5 @@
-﻿using Cardiology.Model;
-using Cardiology.Model.Dictionary;
+﻿using Cardiology.Data;
+using Cardiology.Data.Dictionary;
 using NLog;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using static System.Windows.Forms.ComboBox;
 
-namespace Cardiology.Utils
+namespace Cardiology.Commons
 {
     public class CommonUtils
     {

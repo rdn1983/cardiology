@@ -1,5 +1,5 @@
 ﻿
-namespace Cardiology.Model.Dictionary
+namespace Cardiology.Data.Dictionary
 {
     public enum DdtJournalDsiType : int 
     {

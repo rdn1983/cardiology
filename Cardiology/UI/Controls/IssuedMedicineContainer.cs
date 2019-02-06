@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Windows.Forms;
-using Cardiology.Model;
+using Cardiology.Data;
 
 namespace Cardiology.Controls
 {

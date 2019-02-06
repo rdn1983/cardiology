@@ -1,6 +1,7 @@
-﻿using System;
+﻿using Cardiology.Commons;
+using System;
 
-namespace Cardiology.Model
+namespace Cardiology.Data
 {
     class DdtAnamnesis
     {

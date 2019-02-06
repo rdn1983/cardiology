@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using Cardiology.Model;
+using Cardiology.Data;
 using System.IO;
-using Cardiology.Utils;
+using Cardiology.Commons;
 
 namespace Cardiology
 {

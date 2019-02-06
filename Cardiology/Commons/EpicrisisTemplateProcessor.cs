@@ -1,10 +1,10 @@
-﻿using Cardiology.Model;
+﻿using Cardiology.Data;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace Cardiology.Utils
+namespace Cardiology.Commons
 {
     class EpicrisisTemplateProcessor : ITemplateProcessor
     {

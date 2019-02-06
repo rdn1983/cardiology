@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
-namespace Cardiology.Utils
+namespace Cardiology.Commons
 {
     class BlankTemplateProcessor : ITemplateProcessor
     {

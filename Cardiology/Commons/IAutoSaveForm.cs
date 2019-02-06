@@ -1,4 +1,4 @@
-﻿namespace Cardiology.Utils
+﻿namespace Cardiology.Commons
 {
     interface IAutoSaveForm
     {

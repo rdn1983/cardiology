@@ -1,4 +1,4 @@
-﻿using Cardiology.Model;
+﻿using Cardiology.Data;
 using System;
 using System.Windows.Forms;
 

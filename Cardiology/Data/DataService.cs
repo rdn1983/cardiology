@@ -4,9 +4,10 @@ using System.Reflection;
 using Npgsql.Schema;
 using System.Collections.ObjectModel;
 using System.Text;
-using Cardiology.Utils;
+using Cardiology.Commons;
 using NLog;
 using System.Configuration;
+using Cardiology.Data;
 
 namespace Cardiology
 {

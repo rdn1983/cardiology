@@ -1,7 +1,7 @@
 ﻿using Cardiology.Controls;
-using Cardiology.Model;
-using Cardiology.Model.Dictionary;
-using Cardiology.Utils;
+using Cardiology.Data;
+using Cardiology.Data.Dictionary;
+using Cardiology.Commons;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;

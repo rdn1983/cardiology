@@ -1,4 +1,4 @@
-﻿using Cardiology.Model;
+﻿using Cardiology.Data;
 
 namespace Cardiology
 {

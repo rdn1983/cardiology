@@ -3,9 +3,9 @@ using System.Globalization;
 using System.Text;
 using System.Windows.Forms;
 using Cardiology.Data;
-using Cardiology.Model;
+using Cardiology.Data;
 using Cardiology.UI;
-using Cardiology.Utils;
+using Cardiology.Commons;
 
 namespace Cardiology
 {

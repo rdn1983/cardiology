@@ -1,7 +1,7 @@
 ﻿using System;
 
 
-namespace Cardiology.Model
+namespace Cardiology.Data
 {
     public class DdtDoctors
     {

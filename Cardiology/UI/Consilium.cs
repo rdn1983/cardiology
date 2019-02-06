@@ -1,6 +1,6 @@
 ﻿using Cardiology.Data;
-using Cardiology.Model;
-using Cardiology.Utils;
+using Cardiology.Data;
+using Cardiology.Commons;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;

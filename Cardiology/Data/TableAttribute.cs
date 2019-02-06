@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Cardiology
+namespace Cardiology.Data
 {
     class TableAttribute : Attribute
     {

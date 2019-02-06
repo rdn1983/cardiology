@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
-using Cardiology.Model;
-using Cardiology.Model.Dictionary;
-using Cardiology.Utils;
+using Cardiology.Data;
+using Cardiology.Data.Dictionary;
+using Cardiology.Commons;
 
 namespace Cardiology.Controls
 {

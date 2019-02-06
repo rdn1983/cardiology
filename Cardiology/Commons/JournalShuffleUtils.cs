@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Cardiology.Utils
+namespace Cardiology.Commons
 {
     class JournalShuffleUtils
     {

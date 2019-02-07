@@ -169,17 +169,17 @@ namespace Cardiology.UI
             bool result = true;
             if (tabIndex == 0)
             {
-                result = CommonUtils.isNotBlank(getSafeStringValue(complaintsTxt)) && CommonUtils.isNotBlank(getSafeStringValue(anamnesisVitaeTxt)) &&
-                    CommonUtils.isNotBlank(getSafeStringValue(anamnesisMorbiTxt)) && CommonUtils.isNotBlank(getSafeStringValue(anamnesisAllergyTxt)) &&
-                    CommonUtils.isNotBlank(getSafeStringValue(anamnesisEpidTxt)) && CommonUtils.isNotBlank(getSafeStringValue(drugsTxt));
+                result = !string.IsNullOrEmpty(getSafeStringValue(complaintsTxt)) && !string.IsNullOrEmpty(getSafeStringValue(anamnesisVitaeTxt)) &&
+                    !string.IsNullOrEmpty(getSafeStringValue(anamnesisMorbiTxt)) && !string.IsNullOrEmpty(getSafeStringValue(anamnesisAllergyTxt)) &&
+                    !string.IsNullOrEmpty(getSafeStringValue(anamnesisEpidTxt)) && !string.IsNullOrEmpty(getSafeStringValue(drugsTxt));
             }
             else if (tabIndex == 1)
             {
-                result = CommonUtils.isNotBlank(stPresensTxt.Text);
+                result = !string.IsNullOrEmpty(stPresensTxt.Text);
             }
             else if (tabIndex == 2)
             {
-                result = CommonUtils.isNotBlank(diagnosisTxt.Text) && CommonUtils.isNotBlank(justificationTxt.Text);
+                result = !string.IsNullOrEmpty(diagnosisTxt.Text) && !string.IsNullOrEmpty(justificationTxt.Text);
             }
 
             if (!result)
@@ -300,7 +300,7 @@ namespace Cardiology.UI
             {
                 foreach (DdtIssuedAction med in meds)
                 {
-                    if (CommonUtils.isBlank(med.RObjectId) || CommonUtils.isBlank(med.DsidDoctor))
+                    if (string.IsNullOrEmpty(med.RObjectId) || string.IsNullOrEmpty(med.DsidDoctor))
                     {
                         med.DsidParentId = anamnesis.ObjectId;
                         med.DsidDoctor = hospitalSession.DsidCuringDoctor;

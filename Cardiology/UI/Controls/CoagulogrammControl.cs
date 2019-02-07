@@ -21,7 +21,7 @@ namespace Cardiology.UI.Controls
             InitializeComponent();
             InitControls();
             hasChanges = false;
-            isNew = CommonUtils.isBlank(objectId);
+            isNew = string.IsNullOrEmpty(objectId);
         }
 
         private void InitControls()
@@ -56,7 +56,7 @@ namespace Cardiology.UI.Controls
 
         public bool getIsValid()
         {
-            return CommonUtils.isNotBlank(achtvTxt.Text) || CommonUtils.isNotBlank(ddimerTxt.Text) || CommonUtils.isNotBlank(mchoTxt.Text);
+            return !string.IsNullOrEmpty(achtvTxt.Text) || !string.IsNullOrEmpty(ddimerTxt.Text) || !string.IsNullOrEmpty(mchoTxt.Text);
         }
 
         private void Txt_KeyPress(object sender, KeyPressEventArgs e)
@@ -100,7 +100,7 @@ namespace Cardiology.UI.Controls
                 mchoTxt.Text = coagulogramm.DssMcho;
                 coagulogramPnl.Text = "Коагулограмма за " + coagulogramm.DsdtAnalysisDate.ToShortDateString();
                 objectId = coagulogramm.RObjectId;
-                isNew = CommonUtils.isBlank(objectId);
+                isNew = string.IsNullOrEmpty(objectId);
                 hasChanges = false;
             }
         }

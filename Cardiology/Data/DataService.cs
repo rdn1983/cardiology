@@ -209,7 +209,7 @@ namespace Cardiology.Data
 
         public string updateOrCreateIfNeedObject<T>(T obj, string tablName, string objId)
         {
-            if (CommonUtils.isBlank(objId))
+            if (string.IsNullOrEmpty(objId))
             {
                 return insertObject<T>(obj, tablName);
             }

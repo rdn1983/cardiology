@@ -64,19 +64,19 @@ namespace Cardiology.Commons
             foreach (DdtSpecialistConclusion obj in lspecobj)
             {
                 specBld.Append(obj.DsdtAnalysisDate.ToShortDateString());
-                if (CommonUtils.isNotBlank(obj.DssEndocrinologist))
+                if (!string.IsNullOrEmpty(obj.DssEndocrinologist))
                 {
                     specBld.Append("Эндокринолог ").Append(obj.DssEndocrinologist).Append('\n');
                 }
-                if (CommonUtils.isNotBlank(obj.DssNeurolog))
+                if (!string.IsNullOrEmpty(obj.DssNeurolog))
                 {
                     specBld.Append("Невролог ").Append(obj.DssNeurolog).Append('\n');
                 }
-                if (CommonUtils.isNotBlank(obj.DssNeuroSurgeon))
+                if (!string.IsNullOrEmpty(obj.DssNeuroSurgeon))
                 {
                     specBld.Append("Нейрохирург ").Append(obj.DssNeuroSurgeon).Append('\n');
                 }
-                if (CommonUtils.isNotBlank(obj.DssSurgeon))
+                if (!string.IsNullOrEmpty(obj.DssSurgeon))
                 {
                     specBld.Append("Хирург ").Append(obj.DssSurgeon).Append('\n');
                 }
@@ -138,23 +138,23 @@ namespace Cardiology.Commons
             foreach (DdtUzi uzObj in uzies)
             {
                 uziBld.Append(uzObj.DsdtAnalysisDate.ToShortDateString()).Append(" ");
-                if (CommonUtils.isNotBlank(uzObj.DssCds))
+                if (!string.IsNullOrEmpty(uzObj.DssCds))
                 {
                     uziBld.Append("ЧДС ").Append(uzObj.DssCds).Append('\n');
                 }
-                if (CommonUtils.isNotBlank(uzObj.DssEhoKg))
+                if (!string.IsNullOrEmpty(uzObj.DssEhoKg))
                 {
                     uziBld.Append("ЭХО КГ ").Append(uzObj.DssEhoKg).Append('\n');
                 }
-                if (CommonUtils.isNotBlank(uzObj.DssPleursUzi))
+                if (!string.IsNullOrEmpty(uzObj.DssPleursUzi))
                 {
                     uziBld.Append("УЗИ плевр ").Append(uzObj.DssPleursUzi).Append('\n');
                 }
-                if (CommonUtils.isNotBlank(uzObj.DssUzdBca))
+                if (!string.IsNullOrEmpty(uzObj.DssUzdBca))
                 {
                     uziBld.Append("УЗи БЦА ").Append(uzObj.DssUzdBca).Append('\n');
                 }
-                if (CommonUtils.isNotBlank(uzObj.DssUziObp))
+                if (!string.IsNullOrEmpty(uzObj.DssUziObp))
                 {
                     uziBld.Append("УЗИ ОБП ").Append(uzObj.DssUziObp).Append('\n');
                 }

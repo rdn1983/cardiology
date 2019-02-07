@@ -9,7 +9,7 @@ namespace Cardiology.Commons
 {
     class ConsiliumTemplateProcessor : ITemplateProcessor
     {
-        private const string TEMPLATE_FILE_NAME = "consilium_template.doc";
+        private const string TemplateFileName = "consilium_template.doc";
         public bool accept(string templateType)
         {
             return DdtConsilium.TABLE_NAME.Equals(templateType);
@@ -44,7 +44,7 @@ namespace Cardiology.Commons
             putEkgData(values, service, hospitalitySession);
             putBloodData(values, service, hospitalitySession);
 
-            return TemplatesUtils.fillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + TEMPLATE_FILE_NAME, values);
+            return TemplatesUtils.fillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + TemplateFileName, values);
         }
 
         private string getDoctorInString(DataService service, String doctorId)

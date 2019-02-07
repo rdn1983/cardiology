@@ -19,7 +19,7 @@ namespace Cardiology.UI.Controls
             this.index = index;
             this.parent = parent;
             DataService service = new DataService();
-            CommonUtils.initCureTypeComboboxValues(service, medicineTypeTxt0);
+            CommonUtils.InitCureTypeComboboxValues(service, medicineTypeTxt0);
         }
 
         internal int getIndex()
@@ -59,7 +59,7 @@ namespace Cardiology.UI.Controls
         {
             DdtIssuedMedicine result = service.queryObjectById<DdtIssuedMedicine>(objectId) ?? new DdtIssuedMedicine();
             DdtCure cure = (DdtCure)issuedMedicineTxt0.SelectedItem;
-            if (cure != null && CommonUtils.isNotBlank(issuedMedicineTxt0.Text))
+            if (cure != null && !string.IsNullOrEmpty(issuedMedicineTxt0.Text))
             {
                 result.DsidCure = cure.ObjectId;
             }
@@ -69,7 +69,7 @@ namespace Cardiology.UI.Controls
 
         internal void removeBtn0_Click(object sender, EventArgs e)
         {
-            if (CommonUtils.isNotBlank(objectId))
+            if (!string.IsNullOrEmpty(objectId))
             {
                 DataService service = new DataService();
                 service.queryDelete(DdtIssuedMedicine.TABLE_NAME, "r_object_id", objectId, true);
@@ -84,7 +84,7 @@ namespace Cardiology.UI.Controls
         {
             ComboBox box = (ComboBox)sender;
             DdtCureType selectedVal = (DdtCureType)box.SelectedItem;
-            CommonUtils.initCureComboboxValuesByTypeId(new DataService(), issuedMedicineTxt0, selectedVal.ObjectId);
+            CommonUtils.InitCureComboboxValuesByTypeId(new DataService(), issuedMedicineTxt0, selectedVal.ObjectId);
         }
     }
 }

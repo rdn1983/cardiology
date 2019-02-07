@@ -137,7 +137,7 @@ namespace Cardiology.Commons
 
         private string compileValue(string title, string value)
         {
-            if (CommonUtils.isNotBlank(value))
+            if (!string.IsNullOrEmpty(value))
             {
                 return String.Intern(" " + title + ":" + value);
             }

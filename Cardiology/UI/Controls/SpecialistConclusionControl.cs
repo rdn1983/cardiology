@@ -19,7 +19,7 @@ namespace Cardiology.UI.Controls
             InitializeComponent();
             initControls();
             hasChanges = false;
-            isNew = CommonUtils.isBlank(objectId);
+            isNew = string.IsNullOrEmpty(objectId);
         }
 
         private void initControls()
@@ -64,8 +64,8 @@ namespace Cardiology.UI.Controls
 
         public bool getIsValid()
         {
-            return CommonUtils.isNotBlank(neurologTxt.Text) ||CommonUtils.isNotBlank(surgeonTxt.Text) 
-                ||CommonUtils.isNotBlank(neuroSurgeonTxt.Text) ||CommonUtils.isNotBlank(endocrinologistTx.Text);
+            return !string.IsNullOrEmpty(neurologTxt.Text) ||!string.IsNullOrEmpty(surgeonTxt.Text) 
+                ||!string.IsNullOrEmpty(neuroSurgeonTxt.Text) ||!string.IsNullOrEmpty(endocrinologistTx.Text);
         }
 
         public bool isDirty()
@@ -101,7 +101,7 @@ namespace Cardiology.UI.Controls
                 title.Text = "Заключения специалистов за " + specConclusion.DsdtAnalysisDate.ToShortDateString();
                 analysisDate.Value = specConclusion.DsdtAnalysisDate;
                 objectId = specConclusion.ObjectId;
-                isNew = CommonUtils.isBlank(objectId);
+                isNew = string.IsNullOrEmpty(objectId);
                 hasChanges = false;
             }
         }

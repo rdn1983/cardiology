@@ -19,7 +19,7 @@ namespace Cardiology.UI.Controls
             InitializeComponent();
             initControls();
             hasChanges = false;
-            isNew = CommonUtils.isBlank(objectId);
+            isNew = string.IsNullOrEmpty(objectId);
         }
 
         private void initControls()
@@ -63,7 +63,7 @@ namespace Cardiology.UI.Controls
 
         public bool getIsValid()
         {
-            return CommonUtils.isNotBlank(holterTxt.Text) || CommonUtils.isNotBlank(monitoringAdTxt.Text);
+            return !string.IsNullOrEmpty(holterTxt.Text) || !string.IsNullOrEmpty(monitoringAdTxt.Text);
         }
 
         public bool isDirty()
@@ -95,7 +95,7 @@ namespace Cardiology.UI.Controls
                 title.Text = "Анализы за " + holter.DsdtAnalysisDate.ToShortDateString();
                 analysisDate.Value = holter.DsdtAnalysisDate;
                 objectId = holter.ObjectId;
-                isNew = CommonUtils.isBlank(objectId);
+                isNew = string.IsNullOrEmpty(objectId);
             }
         }
 

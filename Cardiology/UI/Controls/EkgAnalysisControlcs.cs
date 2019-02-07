@@ -29,7 +29,7 @@ namespace Cardiology.UI.Controls
             InitializeComponent();
             initControls();
             hasChanges = false;
-            isNew = CommonUtils.isBlank(objectId);
+            isNew = string.IsNullOrEmpty(objectId);
         }
 
         private void initControls()
@@ -62,7 +62,7 @@ namespace Cardiology.UI.Controls
 
         public void saveObject(DdtHospital hospitalitySession, string parentId, string parentType)
         {
-            if (isEditable && (isNew && CommonUtils.isNotBlank(regularEkgTxt.Text) || isDirty()))
+            if (isEditable && (isNew && !string.IsNullOrEmpty(regularEkgTxt.Text) || isDirty()))
             {
                 DataService service = new DataService();
                 DdtEkg ekg = (DdtEkg)getObject();
@@ -95,7 +95,7 @@ namespace Cardiology.UI.Controls
 
         public bool getIsValid()
         {
-            return CommonUtils.isNotBlank(regularEkgTxt.Text) || !isEditable;
+            return !string.IsNullOrEmpty(regularEkgTxt.Text) || !isEditable;
         }
 
         public bool isDirty()
@@ -113,7 +113,7 @@ namespace Cardiology.UI.Controls
                 analysisDate.Value = ekg.DsdtAnalysisDate;
                 readonlyEkgBox.Text = "ЭКГ за " + ekg.DsdtAnalysisDate.ToShortDateString();
                 objectId = ekg.ObjectId;
-                isNew = CommonUtils.isBlank(objectId);
+                isNew = string.IsNullOrEmpty(objectId);
                 hasChanges = false;
             }
         }
@@ -243,7 +243,7 @@ namespace Cardiology.UI.Controls
         {
             Button btn = (Button)sender;
             string name = btn.Name;
-            string indxStr = String.Intern(name.Substring(CommonUtils.getFirstDigitIndex(name), 1));
+            string indxStr = String.Intern(name.Substring(CommonUtils.GetFirstDigitIndex(name), 1));
             string mirrorCtrlName = null;
             if (name.StartsWith("frontType"))
             {
@@ -261,7 +261,7 @@ namespace Cardiology.UI.Controls
             {
                 mirrorCtrlName = "backType" + indxStr;
             }
-            Control mirrorCtrl = CommonUtils.findControl(ekgTemplates, mirrorCtrlName);
+            Control mirrorCtrl = CommonUtils.FindControl(ekgTemplates, mirrorCtrlName);
             if (mirrorCtrl != null)
             {
                 regularEkgTxt.Text += mirrorCtrl.Text;

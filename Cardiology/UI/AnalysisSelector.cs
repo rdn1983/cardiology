@@ -46,7 +46,7 @@ namespace Cardiology.UI
                 dqlBuilder.Append(")");
             }
 
-            if (CommonUtils.isNotBlank(condition))
+            if (!string.IsNullOrEmpty(condition))
             {
                 dqlBuilder.Append(exceptedIds != null && exceptedIds.Count > 0 ? " AND " : " WHERE ");
                 dqlBuilder.Append(condition);

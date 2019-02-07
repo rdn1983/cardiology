@@ -19,7 +19,7 @@ namespace Cardiology.UI.Controls
             InitializeComponent();
             initControls();
             hasChanges = false;
-            isNew = CommonUtils.isBlank(objectId);
+            isNew = string.IsNullOrEmpty(objectId);
         }
 
         private void initControls()
@@ -55,7 +55,7 @@ namespace Cardiology.UI.Controls
 
         public bool getIsValid()
         {
-            return CommonUtils.isNotBlank(t3Txt.Text) || CommonUtils.isNotBlank(t4Txt.Text) || CommonUtils.isNotBlank(ttgTxt.Text);
+            return !string.IsNullOrEmpty(t3Txt.Text) || !string.IsNullOrEmpty(t4Txt.Text) || !string.IsNullOrEmpty(ttgTxt.Text);
         }
 
         public bool isDirty()
@@ -89,7 +89,7 @@ namespace Cardiology.UI.Controls
                 t3Txt.Text = hormones.DssT3;
                 hormonesPnl.Text = "Гормоны за " + hormones.DsdtAnalysisDate.ToShortDateString();
                 objectId = hormones.RObjectId;
-                isNew = CommonUtils.isBlank(objectId);
+                isNew = string.IsNullOrEmpty(objectId);
                 hasChanges = false;
             }
         }

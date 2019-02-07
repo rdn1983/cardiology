@@ -11,21 +11,11 @@ namespace Cardiology.Commons
 {
     public class CommonUtils
     {
-        private static Logger logger = LogManager.GetCurrentClassLogger();
-
-        public static bool isNotBlank(string str)
-        {
-            return !string.IsNullOrEmpty(str);
-        }
-
-        public static bool isBlank(string str)
-        {
-            return string.IsNullOrEmpty(str);
-        }
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
 
         public static string ToQuotedStr(string str)
         {
-            return isNotBlank(str) ? String.Intern("'" + str + "'") : "''";
+            return !string.IsNullOrEmpty(str) ? String.Intern("'" + str + "'") : "''";
         }
 
         internal static void InitGroupsComboboxValues(DataService service, ComboBox cb)
@@ -41,7 +31,7 @@ namespace Cardiology.Commons
         internal static void InitDoctorsComboboxValues(DataService service, ComboBox cb, string whereCnd)
         {
             cb.Items.Clear();
-            string query = @"SELECT * FROM ddt_doctors " + (isBlank(whereCnd) ? "" : (" WHERE " + whereCnd));
+            string query = @"SELECT * FROM ddt_doctors " + (string.IsNullOrEmpty(whereCnd) ? "" : (" WHERE " + whereCnd));
             List<DdtDoctors> doctors = service.queryObjectsCollection<DdtDoctors>(query);
             cb.Items.AddRange(doctors.ToArray());
             cb.ValueMember = "ObjectId";
@@ -58,7 +48,7 @@ namespace Cardiology.Commons
             cb.DisplayMember = "DssInitials";
         }
 
-        internal static void initCureComboboxValuesByTypeId(DataService service, ComboBox cb, string cureTypeId)
+        internal static void InitCureComboboxValuesByTypeId(DataService service, ComboBox cb, string cureTypeId)
         {
             cb.Items.Clear();
             string query = @"SELECT * FROM ddt_cure WHERE dsid_cure_type= '" + cureTypeId + "'";
@@ -68,7 +58,7 @@ namespace Cardiology.Commons
             cb.DisplayMember = "DssName";
         }
 
-        internal static void initCureTypeComboboxValues(DataService service, ComboBox cb)
+        internal static void InitCureTypeComboboxValues(DataService service, ComboBox cb)
         {
             cb.Items.Clear();
             string query = @"SELECT * FROM ddt_cure_type";
@@ -78,9 +68,9 @@ namespace Cardiology.Commons
             cb.DisplayMember = "DssName";
         }
 
-        internal static void setDoctorsComboboxDefaultValue(DataService service, ComboBox cb, string dsidCuringDoctor)
+        internal static void SetDoctorsComboboxDefaultValue(DataService service, ComboBox cb, string dsidCuringDoctor)
         {
-            if (isNotBlank(dsidCuringDoctor))
+            if (!string.IsNullOrEmpty(dsidCuringDoctor))
             {
                 string query = @"SELECT * FROM ddt_doctors WHERE r_object_id = '" + dsidCuringDoctor + "'";
                 DdtDoctors doctor = service.queryObjectById<DdtDoctors>(dsidCuringDoctor);
@@ -89,7 +79,7 @@ namespace Cardiology.Commons
         }
 
 
-        internal static void initRangedItems(ComboBox c, int start, int end)
+        internal static void InitRangedItems(ComboBox c, int start, int end)
         {
             for (int i = start; i <= end; i++)
             {
@@ -97,15 +87,15 @@ namespace Cardiology.Commons
             }
         }
 
-        internal static DateTime constructDateWIthTime(DateTime dateSource, DateTime timeSource)
+        internal static DateTime ConstructDateWIthTime(DateTime dateSource, DateTime timeSource)
         {
             return new DateTime(dateSource.Year, dateSource.Month, dateSource.Day, timeSource.Hour, timeSource.Minute, 0);
         }
 
 
-        internal static Control copyControl(Control srcContainer, int index)
+        internal static Control CopyControl(Control srcContainer, int index)
         {
-            Control c = createControl(srcContainer, index);
+            Control c = CreateControl(srcContainer, index);
             if (c != null)
             {
                 for (int i = 0; i < srcContainer.Controls.Count; i++)
@@ -114,11 +104,11 @@ namespace Cardiology.Commons
                     Control child;
                     if (sourceCtrl.Controls.Count > 0)
                     {
-                        child = copyControl(sourceCtrl, index);
+                        child = CopyControl(sourceCtrl, index);
                     }
                     else
                     {
-                        child = createControl(sourceCtrl, index);
+                        child = CreateControl(sourceCtrl, index);
                     }
                     if (child != null)
                     {
@@ -130,7 +120,7 @@ namespace Cardiology.Commons
             return c;
         }
 
-        private static Control createControl(Control sourceCtrl, int index)
+        private static Control CreateControl(Control sourceCtrl, int index)
         {
             Control result = null;
             if (sourceCtrl.GetType() == typeof(Label))
@@ -183,14 +173,11 @@ namespace Cardiology.Commons
             }
             if (sourceCtrl.GetType() == typeof(RadioButton))
             {
-                result = new RadioButton();
-                result.Text = sourceCtrl.Text;
+                result = new RadioButton {Text = sourceCtrl.Text};
             }
             if (sourceCtrl.GetType() == typeof(Button))
             {
-                result = new Button();
-                result.Text = sourceCtrl.Text;
-                result.Visible = sourceCtrl.Visible;
+                result = new Button {Text = sourceCtrl.Text, Visible = sourceCtrl.Visible};
                 ((Button)result).UseVisualStyleBackColor = ((Button)sourceCtrl).UseVisualStyleBackColor;
                 ((Button)result).Image = ((Button)sourceCtrl).Image;
             }
@@ -199,14 +186,14 @@ namespace Cardiology.Commons
                 result.Size = sourceCtrl.Size;
                 result.Font = sourceCtrl.Font;
                 string controlName = sourceCtrl.Name;
-                int firstDigitIndx = getFirstDigitIndex(controlName);
+                int firstDigitIndx = GetFirstDigitIndex(controlName);
                 result.Name = String.Intern(controlName.Substring(0, firstDigitIndx)) + index;
             }
 
             return result;
         }
 
-        internal static int getFirstDigitIndex(string str)
+        internal static int GetFirstDigitIndex(string str)
         {
             for (int i = str.Length - 1; i >= 0; i--)
             {
@@ -218,27 +205,7 @@ namespace Cardiology.Commons
             return -1;
         }
 
-        public static string getStrigControlValue(Control container, string ctrlName)
-        {
-            Control c = findControl(container, ctrlName);
-            if (c != null)
-            {
-                return c.Text;
-            }
-            return "";
-
-        }
-
-        public static void updateControl(Control container, string ctrlName, string value)
-        {
-            Control c = findControl(container, ctrlName);
-            if (c != null)
-            {
-                c.Text = value;
-            }
-        }
-
-        public static Control findControl(Control container, string name)
+        public static Control FindControl(Control container, string name)
         {
             Control[] c = container.Controls.Find(name, true);
             if (c.Length > 0)
@@ -248,7 +215,7 @@ namespace Cardiology.Commons
             return null;
         }
 
-        internal static DdtJournal resolveKagJournal(DataService service, DateTime incpectionDate, string sessionId)
+        internal static DdtJournal ResolveKagJournal(DataService service, DateTime incpectionDate, string sessionId)
         {
             string startDateQuery = @"SELECT dsdt_inspection_date FROM " + DdtInspection.TABLE_NAME + " WHERE dsid_hospitality_session='" + sessionId + "'" +
                 " AND dsdt_inspection_date<to_timestamp('" + incpectionDate.ToShortDateString() + " " + incpectionDate.ToLongTimeString() + "', 'DD.MM.YYYY HH24:MI:SS') ORDER BY dsdt_inspection_date DESC";
@@ -262,11 +229,11 @@ namespace Cardiology.Commons
 
         }
 
-        internal static string replaceJournalIntParameter(string journal, string mask, string newValue)
+        internal static string ReplaceJournalIntParameter(string journal, string mask, string newValue)
         {
             try
             {
-                if (isNotBlank(journal))
+                if (!string.IsNullOrEmpty(journal))
                 {
 
                     int index = -1;
@@ -327,35 +294,11 @@ namespace Cardiology.Commons
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message);
+                Logger.Error(ex, ex.Message);
             }
             return journal;
 
         }
-
-        private string getSafeStringValue(Control c)
-        {
-            if (c.InvokeRequired)
-            {
-                return (string)c.Invoke(new getControlTextValue((ctrl) => ctrl.Text), c);
-            }
-            return c.Text;
-        }
-
-        private T getSafeObjectValueUni<T>(Control c, getValue<T> getter)
-        {
-            if (c.InvokeRequired)
-            {
-                return (T)c.Invoke(new getControlObjectValue<T>((ctrl) => getter(ctrl)), c);
-            }
-            return getter(c);
-        }
-
-        delegate T getValue<T>(Control ctrl);
-
-        delegate string getControlTextValue(Control ctrl);
-        delegate T getControlObjectValue<T>(Control ctrl);
-
 
     }
 }

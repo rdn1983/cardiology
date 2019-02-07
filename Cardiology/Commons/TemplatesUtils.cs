@@ -86,7 +86,7 @@ namespace Cardiology.Commons
                                 wRange.Find.Execute(FindText:entry.Key);
                                 wRange.Select();
                                 string newVal = entry.Value;
-                                if (CommonUtils.isBlank(newVal))
+                                if (string.IsNullOrEmpty(newVal))
                                 {
                                     newVal = " ";
                                 }
@@ -126,7 +126,7 @@ namespace Cardiology.Commons
         public static string fillTemplateAndShow(string templatePath, Dictionary<string, string> mappedValues)
         {
             string filledTemplate = fillTemplate(templatePath, mappedValues);
-            if (CommonUtils.isNotBlank(filledTemplate))
+            if (!string.IsNullOrEmpty(filledTemplate))
             {
                 showDocument(filledTemplate);
             }

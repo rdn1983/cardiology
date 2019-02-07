@@ -111,11 +111,11 @@ namespace Cardiology.UI
             patient.DssPassportSerial = passportSerialTxt.Text;
             patient.DsbSd = sdBtn.Checked;
 
-            if (CommonUtils.isNotBlank(weightTxt.Text))
+            if (!string.IsNullOrEmpty(weightTxt.Text))
             {
                 patient.DsdWeight = Double.Parse(weightTxt.Text.Trim());
             }
-            if (CommonUtils.isNotBlank(highTxt.Text))
+            if (!string.IsNullOrEmpty(highTxt.Text))
             {
                 patient.DsdHigh = Double.Parse(highTxt.Text.Trim());
             }
@@ -129,7 +129,7 @@ namespace Cardiology.UI
                 hospital.DsidPatient = patientId;
             }
             hospital.DsbActive = true;
-            hospital.DsdtAdmissionDate = CommonUtils.constructDateWIthTime(patientReceiptDate.Value, patientReceiptTime.Value);
+            hospital.DsdtAdmissionDate = CommonUtils.ConstructDateWIthTime(patientReceiptDate.Value, patientReceiptTime.Value);
             DdtDoctors docDuty = (DdtDoctors)dutyCardioBox.SelectedItem;
             hospital.DsidDutyDoctor = docDuty.ObjectId;
             DdtDoctors docCuring = (DdtDoctors)cardioDocBox.SelectedItem;
@@ -149,8 +149,8 @@ namespace Cardiology.UI
 
         private bool getIsValid()
         {
-            return CommonUtils.isNotBlank(patientLastName.Text) && CommonUtils.isNotBlank(patientFirstName.Text) &&
-                CommonUtils.isNotBlank(patientSecondName.Text) && dutyCardioBox.SelectedIndex >= 0 &&
+            return !string.IsNullOrEmpty(patientLastName.Text) && !string.IsNullOrEmpty(patientFirstName.Text) &&
+                !string.IsNullOrEmpty(patientSecondName.Text) && dutyCardioBox.SelectedIndex >= 0 &&
                 cardioDocBox.SelectedIndex >= 0 && subDoctorBox.SelectedIndex >= 0 &&
                 directorCardioReanimBox.SelectedIndex >= 0 && anesthetistComboBox.SelectedIndex >= 0;
         }
@@ -168,7 +168,7 @@ namespace Cardiology.UI
             for (int j = 0; j < initials.Length; j++)
                 for (int i = 0; i < rus.Length; i++)
                     if (initials.Substring(j, 1) == rus[i]) ret.Append(eng[i]);
-            return CommonUtils.isBlank(ret.ToString()) ? initials : ret.ToString();
+            return string.IsNullOrEmpty(ret.ToString()) ? initials : ret.ToString();
         }
 
         private void OnlyDigits_KeyPress(object sender, KeyPressEventArgs e)

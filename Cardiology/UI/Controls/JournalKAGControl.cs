@@ -31,13 +31,13 @@ namespace Cardiology.UI.Controls
             InitializeComponent();
             initControl();
             hasChanges = false;
-            isNew = CommonUtils.isBlank(objId);
+            isNew = string.IsNullOrEmpty(objId);
         }
 
         private void initControl()
         {
-            CommonUtils.initRangedItems(chssTxt, 0, 230);
-            CommonUtils.initRangedItems(chddTxt, 14, 26);
+            CommonUtils.InitRangedItems(chssTxt, 0, 230);
+            CommonUtils.InitRangedItems(chddTxt, 14, 26);
 
             DataService service = new DataService();
             DdtVariousSpecConcluson obj = service.queryObjectById<DdtVariousSpecConcluson>(objId);
@@ -58,7 +58,7 @@ namespace Cardiology.UI.Controls
                 badRhytmBtn0.Checked = !"синусовый ритм".Equals(journal.DssAdditionalInfo4);
                 monitorTxt0.Text = journal.DssAdditionalInfo4;
                 objId = journal.RObjectId;
-                isNew = CommonUtils.isBlank(objId);
+                isNew = string.IsNullOrEmpty(objId);
                 hasChanges = false;
                 isReleaseJournal = journal.DsbAdditionalBool;
             } else
@@ -84,7 +84,7 @@ namespace Cardiology.UI.Controls
                 result = new DdtVariousSpecConcluson();
             }
             result.RObjectId = objId;
-            result.DsdtAdmissionDate = CommonUtils.constructDateWIthTime(inspectionDate0.Value, inspectionTime0.Value);
+            result.DsdtAdmissionDate = CommonUtils.ConstructDateWIthTime(inspectionDate0.Value, inspectionTime0.Value);
             result.DssSpecialistConclusion = journalTxt.Text;
             result.DssAdditionalInfo1 = chddTxt.Text;
             result.DssAdditionalInfo2 = chssTxt.Text;
@@ -102,7 +102,7 @@ namespace Cardiology.UI.Controls
 
         public DateTime getDateTime()
         {
-            return CommonUtils.constructDateWIthTime(inspectionDate0.Value, inspectionTime0.Value);
+            return CommonUtils.ConstructDateWIthTime(inspectionDate0.Value, inspectionTime0.Value);
         }
 
         public Boolean isGoodRhytm()
@@ -169,7 +169,7 @@ namespace Cardiology.UI.Controls
             string journalOld = journalTxt.Text;
             string findTxt = isGoodRhytm() ? BAD_RHYTM_LBL : GOOD_RHYTM_LBL;
             string replaceTxt = isGoodRhytm() ? GOOD_RHYTM_LBL : BAD_RHYTM_LBL;
-            if (CommonUtils.isNotBlank(journalOld) && journalOld.IndexOf(findTxt) >= 0)
+            if (!string.IsNullOrEmpty(journalOld) && journalOld.IndexOf(findTxt) >= 0)
             {
                 string val = journalOld.Replace(findTxt, replaceTxt);
                 journalTxt.Text = val;
@@ -183,30 +183,30 @@ namespace Cardiology.UI.Controls
         private void chddTxt0_SelectedIndexChanged(object sender, EventArgs e)
         {
             string newValue = chddTxt.Text;
-            if (CommonUtils.isNotBlank(newValue))
+            if (!string.IsNullOrEmpty(newValue))
             {
                 string oldJournal = journalTxt.Text;
-                journalTxt.Text = CommonUtils.replaceJournalIntParameter(oldJournal, "ЧД", newValue);
+                journalTxt.Text = CommonUtils.ReplaceJournalIntParameter(oldJournal, "ЧД", newValue);
             }
         }
 
         private void adText0_SelectedIndexChanged(object sender, EventArgs e)
         {
             string newValue = adTxt.Text;
-            if (CommonUtils.isNotBlank(newValue))
+            if (!string.IsNullOrEmpty(newValue))
             {
                 string oldJournal = journalTxt.Text;
-                journalTxt.Text = CommonUtils.replaceJournalIntParameter(oldJournal, "АД", newValue);
+                journalTxt.Text = CommonUtils.ReplaceJournalIntParameter(oldJournal, "АД", newValue);
             }
         }
 
         private void chssText0_SelectedIndexChanged(object sender, EventArgs e)
         {
             string newValue = chssTxt.Text;
-            if (CommonUtils.isNotBlank(newValue))
+            if (!string.IsNullOrEmpty(newValue))
             {
                 string oldJournal = journalTxt.Text;
-                journalTxt.Text = CommonUtils.replaceJournalIntParameter(oldJournal, "ЧСС", newValue);
+                journalTxt.Text = CommonUtils.ReplaceJournalIntParameter(oldJournal, "ЧСС", newValue);
             }
         }
 

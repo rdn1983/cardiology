@@ -19,7 +19,7 @@ namespace Cardiology.UI.Controls
             InitializeComponent();
             initControls();
             hasChanges = false;
-            isNew = CommonUtils.isBlank(objectId);
+            isNew = string.IsNullOrEmpty(objectId);
         }
 
         private void initControls()
@@ -63,8 +63,8 @@ namespace Cardiology.UI.Controls
 
         public bool getIsValid()
         {
-            return CommonUtils.isNotBlank(chestXRayTxt.Text) || CommonUtils.isNotBlank(controlRadiographyTxt.Text) ||
-                CommonUtils.isNotBlank(ktTxt.Text) || CommonUtils.isNotBlank(mrtTxt.Text);
+            return !string.IsNullOrEmpty(chestXRayTxt.Text) || !string.IsNullOrEmpty(controlRadiographyTxt.Text) ||
+                !string.IsNullOrEmpty(ktTxt.Text) || !string.IsNullOrEmpty(mrtTxt.Text);
         }
 
         public bool isDirty()
@@ -84,7 +84,7 @@ namespace Cardiology.UI.Controls
             xRay.DssControlRadiography = controlRadiographyTxt.Text;
             xRay.DssKt = ktTxt.Text;
             xRay.DssMrt = mrtTxt.Text;
-            xRay.DsdtAnalysisDate = CommonUtils.constructDateWIthTime(ktDateTxt.Value, ktTimeTxt.Value);
+            xRay.DsdtAnalysisDate = CommonUtils.ConstructDateWIthTime(ktDateTxt.Value, ktTimeTxt.Value);
             return xRay;
         }
 
@@ -100,7 +100,7 @@ namespace Cardiology.UI.Controls
                 ktTxt.Text = xRay.DssKt;
                 mrtTxt.Text = xRay.DssMrt;
                 objectId = xRay.ObjectId;
-                isNew = CommonUtils.isBlank(objectId);
+                isNew = string.IsNullOrEmpty(objectId);
                 hasChanges = false;
             }
         }

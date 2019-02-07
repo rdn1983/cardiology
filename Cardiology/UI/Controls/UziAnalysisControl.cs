@@ -19,7 +19,7 @@ namespace Cardiology.UI.Controls
             InitializeComponent();
             initControls();
             hasChanges = false;
-            isNew = CommonUtils.isBlank(objectId);
+            isNew = string.IsNullOrEmpty(objectId);
         }
 
         private void initControls()
@@ -65,9 +65,9 @@ namespace Cardiology.UI.Controls
 
         public bool getIsValid()
         {
-            return CommonUtils.isNotBlank(ehoKgTxt.Text) || CommonUtils.isNotBlank(uzdTxt.Text) ||
-                CommonUtils.isNotBlank(cdsTxt.Text) || CommonUtils.isNotBlank(uziObpTxt.Text) ||
-                CommonUtils.isNotBlank(pleursUziTxt.Text);
+            return !string.IsNullOrEmpty(ehoKgTxt.Text) || !string.IsNullOrEmpty(uzdTxt.Text) ||
+                !string.IsNullOrEmpty(cdsTxt.Text) || !string.IsNullOrEmpty(uziObpTxt.Text) ||
+                !string.IsNullOrEmpty(pleursUziTxt.Text);
         }
 
         private void analysisDate_ValueChanged(object sender, System.EventArgs e)
@@ -110,7 +110,7 @@ namespace Cardiology.UI.Controls
                 title.Text = "УЗИ за " + uzi.DsdtAnalysisDate.ToShortDateString();
                 analysisDate.Value = uzi.DsdtAnalysisDate;
                 objectId = uzi.ObjectId;
-                isNew = CommonUtils.isBlank(objectId);
+                isNew = string.IsNullOrEmpty(objectId);
                 hasChanges = false;
             }
         }

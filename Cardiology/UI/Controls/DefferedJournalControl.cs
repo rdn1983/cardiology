@@ -18,7 +18,7 @@ namespace Cardiology.UI.Controls
             InitializeComponent();
             initControls();
             hasChanges = false;
-            isNew = CommonUtils.isBlank(objectId);
+            isNew = string.IsNullOrEmpty(objectId);
         }
 
         public bool isVisible()
@@ -34,8 +34,8 @@ namespace Cardiology.UI.Controls
 
         private void initControls()
         {
-            CommonUtils.initRangedItems(deferredChssTxt, 40, 200);
-            CommonUtils.initRangedItems(defferedChddTxt, 14, 26);
+            CommonUtils.InitRangedItems(deferredChssTxt, 40, 200);
+            CommonUtils.InitRangedItems(defferedChddTxt, 14, 26);
             warningLbl.Visible = false;
 
             DataService service = new DataService();
@@ -46,7 +46,7 @@ namespace Cardiology.UI.Controls
 
         public void saveObject(DdtHospital hospitalitySession, string parentId, string parentType)
         {
-            if (CommonUtils.isBlank(deferredJournalTxt.Text) || !(hasChanges || isNew))
+            if (string.IsNullOrEmpty(deferredJournalTxt.Text) || !(hasChanges || isNew))
             {
                 return;
             }
@@ -55,7 +55,7 @@ namespace Cardiology.UI.Controls
             DdtJournal journal = (DdtJournal)getObject();
             journal.DsidHospitalitySession = hospitalitySession.ObjectId;
             journal.DsidPatient = hospitalitySession.DsidPatient;
-            journal.DsidDoctor = CommonUtils.isBlank(journal.DsidDoctor) ? hospitalitySession.DsidCuringDoctor : journal.DsidDoctor;
+            journal.DsidDoctor = string.IsNullOrEmpty(journal.DsidDoctor) ? hospitalitySession.DsidCuringDoctor : journal.DsidDoctor;
            
             objectId = service.updateOrCreateIfNeedObject<DdtJournal>(journal, DdtJournal.TABLE_NAME, journal.RObjectId);
             hasChanges = false;
@@ -69,7 +69,7 @@ namespace Cardiology.UI.Controls
 
         public DateTime getTime()
         {
-            return CommonUtils.constructDateWIthTime(deferredStartDate.Value, deferredStartTime.Value);
+            return CommonUtils.ConstructDateWIthTime(deferredStartDate.Value, deferredStartTime.Value);
         }
 
         private void badRhytmBtn_CheckedChanged(object sender, EventArgs e)
@@ -103,10 +103,10 @@ namespace Cardiology.UI.Controls
         private void defferedChddTxt_SelectedIndexChanged(object sender, EventArgs e)
         {
             string newValue = defferedChddTxt.Text;
-            if (CommonUtils.isNotBlank(newValue))
+            if (!string.IsNullOrEmpty(newValue))
             {
                 string oldJournal = deferredJournalTxt.Text;
-                deferredJournalTxt.Text = CommonUtils.replaceJournalIntParameter(oldJournal, "ЧД", newValue);
+                deferredJournalTxt.Text = CommonUtils.ReplaceJournalIntParameter(oldJournal, "ЧД", newValue);
                 hasChanges = true;
             }
         }
@@ -114,10 +114,10 @@ namespace Cardiology.UI.Controls
         private void deferredChssTxt_SelectedIndexChanged(object sender, EventArgs e)
         {
             string newValue = deferredChssTxt.Text;
-            if (CommonUtils.isNotBlank(newValue))
+            if (!string.IsNullOrEmpty(newValue))
             {
                 string oldJournal = deferredJournalTxt.Text;
-                deferredJournalTxt.Text = CommonUtils.replaceJournalIntParameter(oldJournal, "ЧСС", newValue);
+                deferredJournalTxt.Text = CommonUtils.ReplaceJournalIntParameter(oldJournal, "ЧСС", newValue);
                 hasChanges = true;
             }
         }
@@ -125,10 +125,10 @@ namespace Cardiology.UI.Controls
         private void deferredAdTxt_SelectedIndexChanged(object sender, EventArgs e)
         {
             string newValue = deferredAdTxt.Text;
-            if (CommonUtils.isNotBlank(newValue))
+            if (!string.IsNullOrEmpty(newValue))
             {
                 string oldJournal = deferredJournalTxt.Text;
-                deferredJournalTxt.Text = CommonUtils.replaceJournalIntParameter(oldJournal, "АД", newValue);
+                deferredJournalTxt.Text = CommonUtils.ReplaceJournalIntParameter(oldJournal, "АД", newValue);
                 hasChanges = true;
             }
         }
@@ -168,7 +168,7 @@ namespace Cardiology.UI.Controls
             journal.DssChss = deferredChssTxt.Text;
             journal.DssJournal = deferredJournalTxt.Text;
             journal.DssMonitor = deferredMonitorTxt.Text;
-            journal.DsdtAdmissionDate = CommonUtils.constructDateWIthTime(deferredStartDate.Value, deferredStartTime.Value);
+            journal.DsdtAdmissionDate = CommonUtils.ConstructDateWIthTime(deferredStartDate.Value, deferredStartTime.Value);
 
             DdtDoctors selectedDoc = (DdtDoctors)docBox.SelectedItem;
             if (selectedDoc != null)
@@ -197,7 +197,7 @@ namespace Cardiology.UI.Controls
                 DdtDoctors doc = service.queryObjectById<DdtDoctors>(journal.DsidDoctor);
                 docBox.SelectedIndex = docBox.FindStringExact(doc.DssInitials);
                 objectId = journal.RObjectId;
-                isNew = CommonUtils.isBlank(objectId);
+                isNew = string.IsNullOrEmpty(objectId);
                 hasChanges = false;
             }
             else

@@ -141,7 +141,7 @@ namespace Cardiology.UI
 
         private void initDocBoxValue(DataService service, ComboBox cb, string docId)
         {
-            if (CommonUtils.isNotBlank(docId))
+            if (!string.IsNullOrEmpty(docId))
             {
                 DdtDoctors doc = service.queryObjectById<DdtDoctors>(docId);
                 cb.SelectedIndex = cb.FindStringExact(doc?.DssInitials);
@@ -160,7 +160,7 @@ namespace Cardiology.UI
         {
             for (int i = 0; i < medicineContainer.Controls.Count; i++)
             {
-                ComboBox cb = (ComboBox)CommonUtils.findControl(medicineContainer, "issuedMedicineTxt" + i);
+                ComboBox cb = (ComboBox)CommonUtils.FindControl(medicineContainer, "issuedMedicineTxt" + i);
                 cb.SelectedIndex = -1;
             }
         }
@@ -358,7 +358,7 @@ namespace Cardiology.UI
             DataService service = new DataService();
             String meListId = service.querySingleString(@"SELECT * FROM ddt_issued_medicine_list WHERE dsid_hospitality_session='" +
                    hospitalitySession.ObjectId + "' AND dss_parent_type='ddt_anamnesis'");
-            if (CommonUtils.isNotBlank(meListId))
+            if (!string.IsNullOrEmpty(meListId))
             {
                 List<DdtCure> cures = service.queryObjectsCollection<DdtCure>(@"SELECT cures.* FROM " + DdtCure.TABLE_NAME + " cures, " + DdtIssuedMedicine.TABLE_NAME +
                     " meds WHERE meds.dsid_med_list='" + meListId + "' AND meds.dsid_cure=cures.r_object_id");
@@ -371,7 +371,7 @@ namespace Cardiology.UI
             DataService service = new DataService();
             String meListId = service.querySingleString(@"SELECT medlist.* FROM ddt_issued_medicine_list medlist, ddt_inspection ins WHERE ins.dsid_hospitality_session='" +
                    hospitalitySession.ObjectId + "' AND medlist.dsid_parent_id=ins.r_object_id ORDER BY dsdt_inspection_date DESC");
-            if (CommonUtils.isNotBlank(meListId))
+            if (!string.IsNullOrEmpty(meListId))
             {
                 List<DdtCure> cures = service.queryObjectsCollection<DdtCure>(@"SELECT cures.* FROM " + DdtCure.TABLE_NAME + " cures, " + DdtIssuedMedicine.TABLE_NAME +
                     " meds WHERE meds.dsid_med_list='" + meListId + "' AND meds.dsid_cure=cures.r_object_id");
@@ -384,7 +384,7 @@ namespace Cardiology.UI
             DataService service = new DataService();
             String meListId = service.querySingleString(@"SELECT * FROM ddt_issued_medicine_list  WHERE dsid_hospitality_session='" +
                    hospitalitySession.ObjectId + "'   ORDER BY dsdt_issuing_date DESC");
-            if (CommonUtils.isNotBlank(meListId))
+            if (!string.IsNullOrEmpty(meListId))
             {
                 List<DdtCure> cures = service.queryObjectsCollection<DdtCure>(@"SELECT cures.* FROM " + DdtCure.TABLE_NAME + " cures, " + DdtIssuedMedicine.TABLE_NAME +
                     " meds WHERE meds.dsid_med_list='" + meListId + "' AND meds.dsid_cure=cures.r_object_id");

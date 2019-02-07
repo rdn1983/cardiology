@@ -21,7 +21,7 @@ namespace Cardiology.UI.Controls
             InitializeComponent();
             initControls();
             hasChanges = false;
-            isNew = CommonUtils.isBlank(objectId);
+            isNew = string.IsNullOrEmpty(objectId);
         }
 
         private void initControls()
@@ -63,7 +63,7 @@ namespace Cardiology.UI.Controls
 
         public bool getIsValid()
         {
-            return CommonUtils.isNotBlank(regularEgdsTxt.Text);
+            return !string.IsNullOrEmpty(regularEgdsTxt.Text);
         }
 
         public bool isDirty()
@@ -93,7 +93,7 @@ namespace Cardiology.UI.Controls
                 analysisTitleLbl.Text = "ЭГДС за " + egds.DsdtAnalysisDate.ToShortDateString();
                 analysisDate.Value = egds.DsdtAnalysisDate;
                 objectId = egds.ObjectId;
-                isNew = CommonUtils.isBlank(objectId);
+                isNew = string.IsNullOrEmpty(objectId);
                 hasChanges = false;
             }
         }

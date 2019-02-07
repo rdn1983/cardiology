@@ -22,7 +22,7 @@ namespace Cardiology.UI.Controls
             InitializeComponent();
             initControls();
             hasChanges = false;
-            isNew = CommonUtils.isBlank(objectId);
+            isNew = string.IsNullOrEmpty(objectId);
         }
 
         private void initControls()
@@ -72,9 +72,9 @@ namespace Cardiology.UI.Controls
 
         public bool getIsValid()
         {
-            return CommonUtils.isNotBlank(psaCommonTxt.Text) || CommonUtils.isNotBlank(psaFreeTxt.Text)
-                || CommonUtils.isNotBlank(ca125Txt.Text) || CommonUtils.isNotBlank(ca153Txt.Text) || CommonUtils.isNotBlank(ca199Txt.Text)
-                || CommonUtils.isNotBlank(ceaTxt.Text) || CommonUtils.isNotBlank(hgchTxt.Text) || CommonUtils.isNotBlank(afrTxt.Text);
+            return !string.IsNullOrEmpty(psaCommonTxt.Text) || !string.IsNullOrEmpty(psaFreeTxt.Text)
+                || !string.IsNullOrEmpty(ca125Txt.Text) || !string.IsNullOrEmpty(ca153Txt.Text) || !string.IsNullOrEmpty(ca199Txt.Text)
+                || !string.IsNullOrEmpty(ceaTxt.Text) || !string.IsNullOrEmpty(hgchTxt.Text) || !string.IsNullOrEmpty(afrTxt.Text);
         }
 
         public bool isDirty()
@@ -98,7 +98,7 @@ namespace Cardiology.UI.Controls
             markerObj.DssCa199 = ca199Txt.Text;
             markerObj.DssHgch = hgchTxt.Text;
             markerObj.DssAfr = afrTxt.Text;
-            markerObj.DsdtAnalysisDate = CommonUtils.constructDateWIthTime(admissionDateTxt.Value, admissionTimeTxt.Value);
+            markerObj.DsdtAnalysisDate = CommonUtils.ConstructDateWIthTime(admissionDateTxt.Value, admissionTimeTxt.Value);
             return markerObj;
         }
 
@@ -120,7 +120,7 @@ namespace Cardiology.UI.Controls
                 admissionTimeTxt.Value = startTime;
                 cntr.Text = "Онкомаркеры за " + marker.RCreationDate.ToShortDateString();
                 objectId = marker.RObjectId;
-                isNew = CommonUtils.isBlank(objectId);
+                isNew = string.IsNullOrEmpty(objectId);
                 hasChanges = false;
             }
         }

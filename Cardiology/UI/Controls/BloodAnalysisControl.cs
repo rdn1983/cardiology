@@ -24,7 +24,7 @@ namespace Cardiology.UI.Controls
             InitializeComponent();
             initControls();
             hasChanges = false;
-            isNew = CommonUtils.isBlank(objectId);
+            isNew = string.IsNullOrEmpty(objectId);
         }
 
         private void initControls()
@@ -91,15 +91,15 @@ namespace Cardiology.UI.Controls
 
         public bool getIsValid()
         {
-            return CommonUtils.isNotBlank(regularTrombocytesTxt.Text) || CommonUtils.isNotBlank(regularAltTxt.Text)
-                        || CommonUtils.isNotBlank(regularAmilazaTzt.Text) || CommonUtils.isNotBlank(regularAstTxt.Text)
-                        || CommonUtils.isNotBlank(regularBilTxt.Text) || CommonUtils.isNotBlank(regularChloriumTxt.Text)
-                        || CommonUtils.isNotBlank(regularCholesterolTxt.Text) || CommonUtils.isNotBlank(regularKreatininTxt.Text)
-                        || CommonUtils.isNotBlank(regularHemoglobinTxt.Text) || CommonUtils.isNotBlank(regularIronTxt.Text)
-                        || CommonUtils.isNotBlank(regularKfkTxt.Text) || CommonUtils.isNotBlank(regularKfkMvTxt.Text)
-                        || CommonUtils.isNotBlank(regularBloodLeucoTxt.Text) || CommonUtils.isNotBlank(regularPotassiumTxt.Text)
-                        || CommonUtils.isNotBlank(regularProreinTxt.Text) || CommonUtils.isNotBlank(regularSchfTxt.Text)
-                        || CommonUtils.isNotBlank(regularSodiumTxt.Text) || CommonUtils.isNotBlank(regularSrbTxt.Text);
+            return !string.IsNullOrEmpty(regularTrombocytesTxt.Text) || !string.IsNullOrEmpty(regularAltTxt.Text)
+                        || !string.IsNullOrEmpty(regularAmilazaTzt.Text) || !string.IsNullOrEmpty(regularAstTxt.Text)
+                        || !string.IsNullOrEmpty(regularBilTxt.Text) || !string.IsNullOrEmpty(regularChloriumTxt.Text)
+                        || !string.IsNullOrEmpty(regularCholesterolTxt.Text) || !string.IsNullOrEmpty(regularKreatininTxt.Text)
+                        || !string.IsNullOrEmpty(regularHemoglobinTxt.Text) || !string.IsNullOrEmpty(regularIronTxt.Text)
+                        || !string.IsNullOrEmpty(regularKfkTxt.Text) || !string.IsNullOrEmpty(regularKfkMvTxt.Text)
+                        || !string.IsNullOrEmpty(regularBloodLeucoTxt.Text) || !string.IsNullOrEmpty(regularPotassiumTxt.Text)
+                        || !string.IsNullOrEmpty(regularProreinTxt.Text) || !string.IsNullOrEmpty(regularSchfTxt.Text)
+                        || !string.IsNullOrEmpty(regularSodiumTxt.Text) || !string.IsNullOrEmpty(regularSrbTxt.Text);
         }
 
         public object getObject()
@@ -160,7 +160,7 @@ namespace Cardiology.UI.Controls
                 regularSodiumTxt.Text = blood.DsdSodium;
                 regularSrbTxt.Text = blood.DsdSrp;
                 objectId = blood.RObjectId;
-                isNew = CommonUtils.isBlank(blood.RObjectId);
+                isNew = string.IsNullOrEmpty(blood.RObjectId);
                 hasChanges = false;
             }
 

@@ -34,7 +34,7 @@ namespace Cardiology.UI
             }
             inspectionObj = service.queryObjectById<DdtInspection>(inspectionObjId);
             DateTime startDate = inspectionObj == null ? DateTime.Now : inspectionObj.DsdtInspectionDate;
-            DdtJournal kagJournal = CommonUtils.resolveKagJournal(service, startDate, hospitalitySession.ObjectId);
+            DdtJournal kagJournal = CommonUtils.ResolveKagJournal(service, startDate, hospitalitySession.ObjectId);
 
             if (inspectionObj != null)
             {
@@ -192,7 +192,7 @@ namespace Cardiology.UI
             inspectionObj.DssInspection = getSafeStringValue(inspectionTxt);
             inspectionObj.DssInspectionResult = getSafeStringValue(resultTxt);
             inspectionObj.DssKateterPlacement = getSafeStringValue(kateterPlacementTxt);
-            inspectionObj.DsdtInspectionDate = CommonUtils.constructDateWIthTime(inspectionDate.Value, inspectionTime.Value);
+            inspectionObj.DsdtInspectionDate = CommonUtils.ConstructDateWIthTime(inspectionDate.Value, inspectionTime.Value);
             string id = service.updateOrCreateIfNeedObject<DdtInspection>(inspectionObj, DdtInspection.TABLE_NAME, inspectionObj.RObjectId);
             inspectionObj.RObjectId = id;
         }
@@ -341,9 +341,9 @@ namespace Cardiology.UI
         private void inspectionDate_ValueChanged(object sender, EventArgs e)
         {
             DataService service = new DataService();
-            DateTime startDate = CommonUtils.constructDateWIthTime(inspectionDate.Value, inspectionTime.Value);
+            DateTime startDate = CommonUtils.ConstructDateWIthTime(inspectionDate.Value, inspectionTime.Value);
 
-            DdtJournal kagJournal = CommonUtils.resolveKagJournal(service, startDate, hospitalitySession.ObjectId);
+            DdtJournal kagJournal = CommonUtils.ResolveKagJournal(service, startDate, hospitalitySession.ObjectId);
             initKag(service, kagJournal);
         }
 

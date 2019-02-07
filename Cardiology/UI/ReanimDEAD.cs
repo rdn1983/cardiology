@@ -77,7 +77,7 @@ namespace Cardiology.UI
             DdtDoctors doc = (DdtDoctors)doctorsBox.SelectedItem;
             values.Add(@"{doctor.who.short}", doc == null ? "" : doc.DssInitials);
 
-            DateTime deathTime = CommonUtils.constructDateWIthTime(deathDateTxt.Value, deathTimeCtrl.Value);
+            DateTime deathTime = CommonUtils.ConstructDateWIthTime(deathDateTxt.Value, deathTimeCtrl.Value);
             for (int i = 0; i < 10; i++)
             {
                 deathTime = deathTime.AddMinutes(-5.0);

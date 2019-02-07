@@ -25,7 +25,7 @@ namespace Cardiology.UI
 
         private void initControls()
         {
-            if (CommonUtils.isNotBlank(objectId))
+            if (!string.IsNullOrEmpty(objectId))
             {
                 DataService service = new DataService();
                 DdtPatient patient = service.queryObjectById<DdtPatient>(hospitalitySession.DsidPatient);

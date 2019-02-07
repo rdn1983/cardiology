@@ -23,7 +23,7 @@ namespace Cardiology.UI.Controls
             InitializeComponent();
             initControls();
             hasChanges = false;
-            isNew = CommonUtils.isBlank(objectId);
+            isNew = string.IsNullOrEmpty(objectId);
         }
 
         private void initControls()
@@ -71,7 +71,7 @@ namespace Cardiology.UI.Controls
 
         public bool getIsValid()
         {
-            return CommonUtils.isNotBlank(kagResultsTxt.Text) || CommonUtils.isNotBlank(kagManipulationTxt.Text) || CommonUtils.isNotBlank(kagActionsTxt.Text);
+            return !string.IsNullOrEmpty(kagResultsTxt.Text) || !string.IsNullOrEmpty(kagManipulationTxt.Text) || !string.IsNullOrEmpty(kagActionsTxt.Text);
         }
 
         public bool isDirty()
@@ -90,9 +90,9 @@ namespace Cardiology.UI.Controls
             kag.DssKagManipulation = kagManipulationTxt.Text;
             kag.DssResults = kagResultsTxt.Text;
             kag.DssKagAction = kagActionsTxt.Text;
-            kag.DsdtStartTime = CommonUtils.constructDateWIthTime(kagDate.Value, kagStartTime.Value);
-            kag.DsdtAnalysisDate = CommonUtils.constructDateWIthTime(kagDate.Value, kagStartTime.Value);
-            kag.DsdtEndTime = CommonUtils.constructDateWIthTime(kagDate.Value, kagEndTime.Value);
+            kag.DsdtStartTime = CommonUtils.ConstructDateWIthTime(kagDate.Value, kagStartTime.Value);
+            kag.DsdtAnalysisDate = CommonUtils.ConstructDateWIthTime(kagDate.Value, kagStartTime.Value);
+            kag.DsdtEndTime = CommonUtils.ConstructDateWIthTime(kagDate.Value, kagEndTime.Value);
             return kag;
         }
 
@@ -110,7 +110,7 @@ namespace Cardiology.UI.Controls
                 kagEndTime.Value = kag.DsdtEndTime == default(DateTime) ? startTime.AddHours(1) : kag.DsdtEndTime;
                 title.Text = "Анализы за " + kag.RCreationDate.ToShortDateString();
                 objectId = kag.ObjectId;
-                isNew = CommonUtils.isBlank(objectId);
+                isNew = string.IsNullOrEmpty(objectId);
                 hasChanges = false;
             }
             else

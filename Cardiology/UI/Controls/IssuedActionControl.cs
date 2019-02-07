@@ -34,7 +34,7 @@ namespace Cardiology.UI.Controls
 
         internal DdtIssuedAction getObject(DataService service)
         {
-            if (CommonUtils.isNotBlank(issuedActionTxt.Text))
+            if (!string.IsNullOrEmpty(issuedActionTxt.Text))
             {
                 DdtIssuedAction result = service.queryObjectById<DdtIssuedAction>(objectId) ?? new DdtIssuedAction();
                 result.DssAction = issuedActionTxt.Text;
@@ -50,7 +50,7 @@ namespace Cardiology.UI.Controls
 
         internal void remove()
         {
-            if (CommonUtils.isNotBlank(objectId))
+            if (!string.IsNullOrEmpty(objectId))
             {
                 DataService service = new DataService();
                 service.queryDelete(DdtIssuedAction.TABLE_NAME, "r_object_id", objectId, true);

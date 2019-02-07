@@ -26,14 +26,14 @@ namespace Cardiology.UI
 
         private void initControls()
         {
-            CommonUtils.initRangedItems(chssSurgeryTxt, 40, 200);
-            CommonUtils.initRangedItems(chddSurgeryTxt, 14, 26);
+            CommonUtils.InitRangedItems(chssSurgeryTxt, 40, 200);
+            CommonUtils.InitRangedItems(chddSurgeryTxt, 14, 26);
 
             afterKagDiagnosisTxt.Text = hospitalitySession.DssDiagnosis;
             DataService service = new DataService();
 
             CommonUtils.InitDoctorsComboboxValues(service, journalDocBox, "");
-            releaseJournalCtrl.initDateTime(CommonUtils.constructDateWIthTime(admissionDateTxt.Value, DateTime.Parse("8:05:00")));
+            releaseJournalCtrl.initDateTime(CommonUtils.ConstructDateWIthTime(admissionDateTxt.Value, DateTime.Parse("8:05:00")));
 
             DdtPatient patient = service.queryObjectById<DdtPatient>(hospitalitySession.DsidPatient);
             if (patient != null)
@@ -41,7 +41,7 @@ namespace Cardiology.UI
                 Text += " " + patient.DssInitials;
             }
 
-            if (CommonUtils.isNotBlank(journalId))
+            if (!string.IsNullOrEmpty(journalId))
             {
                 DdtJournal journal = service.queryObjectById<DdtJournal>(journalId);
                 if (journal != null)
@@ -98,7 +98,7 @@ namespace Cardiology.UI
             {
                 dt = dt.AddDays(1);
             }
-            releaseJournalCtrl.initDateTime(CommonUtils.constructDateWIthTime(dt, DateTime.Parse("8:05:00")));
+            releaseJournalCtrl.initDateTime(CommonUtils.ConstructDateWIthTime(dt, DateTime.Parse("8:05:00")));
         }
 
         private void initCardioConslusions(DataService service)
@@ -154,7 +154,7 @@ namespace Cardiology.UI
             service.updateObject<DdtHospital>(hospitalitySession, DdtHospital.TABLE_NAME, "r_object_id", hospitalitySession.ObjectId);
 
             DdtJournal journal = null;
-            if (CommonUtils.isNotBlank(journalId))
+            if (!string.IsNullOrEmpty(journalId))
             {
                 journal = service.queryObjectById<DdtJournal>(journalId);
             }
@@ -174,10 +174,10 @@ namespace Cardiology.UI
             journal.DssChss = chssSurgeryTxt.Text;
             journal.DssAd = adSurgeryTxt.Text;
             journal.DssEkg = ekgTxt0.Text;
-            journal.DsdtAdmissionDate = CommonUtils.constructDateWIthTime(admissionDateTxt.Value, admissionTimeTxt.Value);
+            journal.DsdtAdmissionDate = CommonUtils.ConstructDateWIthTime(admissionDateTxt.Value, admissionTimeTxt.Value);
             journalId = service.updateOrCreateIfNeedObject<DdtJournal>(journal, DdtJournal.TABLE_NAME, journal.RObjectId);
 
-            if (CommonUtils.isNotBlank(kagDiagnosisTxt.Text))
+            if (!string.IsNullOrEmpty(kagDiagnosisTxt.Text))
             {
                 DdtKag kag = service.queryObjectById<DdtKag>(kagId);
                 if (kag == null)
@@ -186,7 +186,7 @@ namespace Cardiology.UI
                     kag.DsidDoctor = hospitalitySession.DsidCuringDoctor;
                     kag.DsidHospitalitySession = hospitalitySession.ObjectId;
                     kag.DsidPatient = hospitalitySession.DsidPatient;
-                    DateTime admissionDateTime = CommonUtils.constructDateWIthTime(admissionDateTxt.Value, admissionTimeTxt.Value);
+                    DateTime admissionDateTime = CommonUtils.ConstructDateWIthTime(admissionDateTxt.Value, admissionTimeTxt.Value);
                     kag.DsdtAnalysisDate = admissionDateTime.AddMinutes(-75);
                     kag.DsdtStartTime = admissionDateTime.AddMinutes(-75); ;
                     kag.DsdtEndTime = admissionDateTime.AddMinutes(-15); ;
@@ -242,7 +242,7 @@ namespace Cardiology.UI
 
         private void removeKAG_Click(object sender, EventArgs e)
         {
-            if (CommonUtils.isNotBlank(kagId))
+            if (!string.IsNullOrEmpty(kagId))
             {
                 DataService service = new DataService();
                 DdtKag kag = service.queryObjectById<DdtKag>(kagId);

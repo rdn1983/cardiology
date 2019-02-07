@@ -88,7 +88,7 @@ namespace Cardiology.UI
             serology.DssRw = rwBox.Text;
             serology.DsdtAnalysisDate = analysisDate.Value;
 
-            if (CommonUtils.isBlank(serology.ObjectId))
+            if (string.IsNullOrEmpty(serology.ObjectId))
             {
                 service.insertObject<DdtSerology>(serology, DdtSerology.TABLE_NAME);
             }

@@ -22,7 +22,7 @@ namespace Cardiology.UI.Controls
             InitializeComponent();
             initControls();
             hasChanges = false;
-            isNew = CommonUtils.isBlank(objectId);
+            isNew = string.IsNullOrEmpty(objectId);
         }
 
         public bool isVisible()
@@ -42,18 +42,18 @@ namespace Cardiology.UI.Controls
 
         internal DateTime getJournalDateTime()
         {
-            return CommonUtils.constructDateWIthTime(startDateTxt.Value, startTimeTxt.Value);
+            return CommonUtils.ConstructDateWIthTime(startDateTxt.Value, startTimeTxt.Value);
         }
 
         private void initControls()
         {
-            CommonUtils.initRangedItems(chssTxt, 40, 200);
-            CommonUtils.initRangedItems(chddTxt, 14, 26);
+            CommonUtils.InitRangedItems(chssTxt, 40, 200);
+            CommonUtils.InitRangedItems(chddTxt, 14, 26);
             warningLbl.Visible = false;
 
             DataService service = new DataService();
             CommonUtils.InitDoctorsComboboxValues(service, docBox, " dss_login in (select dss_user_name from dm_group_users where dss_group_name = 'duty_cardioreanim') ");
-            CommonUtils.setDoctorsComboboxDefaultValue(service, docBox, dsidCuringDoctor);
+            CommonUtils.SetDoctorsComboboxDefaultValue(service, docBox, dsidCuringDoctor);
 
             DdtJournal journal = service.queryObjectById<DdtJournal>(objectId);
             refreshObject(journal);
@@ -63,7 +63,7 @@ namespace Cardiology.UI.Controls
         {
             DataService service = new DataService();
 
-            if (CommonUtils.isBlank(journalTxt.Text) || !(isDirty() || isNew))
+            if (string.IsNullOrEmpty(journalTxt.Text) || !(isDirty() || isNew))
             {
                 return;
             }
@@ -135,7 +135,7 @@ namespace Cardiology.UI.Controls
             journal.DssJournal = journalTxt.Text;
             journal.DssMonitor = monitorTxt.Text;
             journal.DsbGoodRhytm = goodRhytmBtn.Checked;
-            journal.DsdtAdmissionDate = CommonUtils.constructDateWIthTime(startDateTxt.Value, startTimeTxt.Value);
+            journal.DsdtAdmissionDate = CommonUtils.ConstructDateWIthTime(startDateTxt.Value, startTimeTxt.Value);
 
             DdtDoctors selectedDoc = (DdtDoctors)docBox.SelectedItem;
             if (selectedDoc != null)
@@ -167,7 +167,7 @@ namespace Cardiology.UI.Controls
                 DdtDoctors doc = service.queryObjectById<DdtDoctors>(journal.DsidDoctor);
                 docBox.SelectedIndex = docBox.FindStringExact(doc.DssInitials);
                 objectId = journal.RObjectId;
-                isNew = CommonUtils.isBlank(objectId);
+                isNew = string.IsNullOrEmpty(objectId);
                 hasChanges = false;
             }
             else
@@ -201,10 +201,10 @@ namespace Cardiology.UI.Controls
         private void chddTxt_SelectedIndexChanged(object sender, EventArgs e)
         {
             string newValue = chddTxt.Text;
-            if (CommonUtils.isNotBlank(newValue))
+            if (!string.IsNullOrEmpty(newValue))
             {
                 string oldJournal = journalTxt.Text;
-                journalTxt.Text = CommonUtils.replaceJournalIntParameter(oldJournal, "ЧД", newValue);
+                journalTxt.Text = CommonUtils.ReplaceJournalIntParameter(oldJournal, "ЧД", newValue);
                 hasChanges = true;
             }
         }
@@ -212,10 +212,10 @@ namespace Cardiology.UI.Controls
         private void chssTxt_SelectedIndexChanged(object sender, EventArgs e)
         {
             string newValue = chssTxt.Text;
-            if (CommonUtils.isNotBlank(newValue))
+            if (!string.IsNullOrEmpty(newValue))
             {
                 string oldJournal = journalTxt.Text;
-                journalTxt.Text = CommonUtils.replaceJournalIntParameter(oldJournal, "ЧСС", newValue);
+                journalTxt.Text = CommonUtils.ReplaceJournalIntParameter(oldJournal, "ЧСС", newValue);
                 hasChanges = true;
             }
         }
@@ -223,10 +223,10 @@ namespace Cardiology.UI.Controls
         private void adTxt_SelectedIndexChanged(object sender, EventArgs e)
         {
             string newValue = adTxt.Text;
-            if (CommonUtils.isNotBlank(newValue))
+            if (!string.IsNullOrEmpty(newValue))
             {
                 string oldJournal = journalTxt.Text;
-                journalTxt.Text = CommonUtils.replaceJournalIntParameter(oldJournal, "АД", newValue);
+                journalTxt.Text = CommonUtils.ReplaceJournalIntParameter(oldJournal, "АД", newValue);
                 hasChanges = true;
             }
         }

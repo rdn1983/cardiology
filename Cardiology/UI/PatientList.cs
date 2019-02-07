@@ -530,7 +530,7 @@ namespace Cardiology.UI
                 DataService service = new DataService();
                 String lastListId = service.querySingleString("SELECT r_object_id FROM " + DdtIssuedMedicineList.TABLE_NAME +
                     " WHERE dsid_hospitality_session='" + cell.Value + "' ORDER BY dsdt_issuing_date DESC");
-                if (CommonUtils.isBlank(lastListId))
+                if (string.IsNullOrEmpty(lastListId))
                 {
                     MessageBox.Show("Для пациента еще не создано ни одного листа назначений", "Предупреждение", MessageBoxButtons.OK);
                 }

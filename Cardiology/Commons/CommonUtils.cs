@@ -1,10 +1,10 @@
 ﻿using Cardiology.Data;
-using Cardiology.Data.Dictionary;
 using NLog;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Forms;
+using Cardiology.Data.Model;
 using static System.Windows.Forms.ComboBox;
 
 namespace Cardiology.Commons
@@ -15,30 +15,30 @@ namespace Cardiology.Commons
 
         public static bool isNotBlank(string str)
         {
-            return str != null && str.Length > 0;
+            return !string.IsNullOrEmpty(str);
         }
 
         public static bool isBlank(string str)
         {
-            return str == null || str.Length == 0;
+            return string.IsNullOrEmpty(str);
         }
 
-        public static string toQuotedStr(string str)
+        public static string ToQuotedStr(string str)
         {
             return isNotBlank(str) ? String.Intern("'" + str + "'") : "''";
         }
 
-        internal static void initGroupsComboboxValues(DataService service, ComboBox cb)
+        internal static void InitGroupsComboboxValues(DataService service, ComboBox cb)
         {
             cb.Items.Clear();
             string query = @"SELECT * FROM " + DmGroup.TABLE_NAME;
             List<DmGroup> groups = service.queryObjectsCollection<DmGroup>(query);
-            cb.Items.AddRange(groups.ToArray());
+            cb.Items.AddRange(groups?.ToArray());
             cb.ValueMember = "DssName";
             cb.DisplayMember = "DssDescription";
         }
 
-        internal static void initDoctorsComboboxValues(DataService service, ComboBox cb, string whereCnd)
+        internal static void InitDoctorsComboboxValues(DataService service, ComboBox cb, string whereCnd)
         {
             cb.Items.Clear();
             string query = @"SELECT * FROM ddt_doctors " + (isBlank(whereCnd) ? "" : (" WHERE " + whereCnd));
@@ -48,7 +48,7 @@ namespace Cardiology.Commons
             cb.DisplayMember = "DssInitials";
         }
 
-        internal static void initDoctorsByGroupComboboxValues(DataService service, ComboBox cb, string groupName)
+        internal static void InitDoctorsByGroupComboboxValues(DataService service, ComboBox cb, string groupName)
         {
             cb.Items.Clear();
             string query = @"SELECT doc.* FROM ddt_doctors doc , dm_group_users gr WHERE gr.dss_group_name='" + groupName + "' AND gr.dss_user_name=doc.dss_login";

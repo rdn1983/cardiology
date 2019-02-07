@@ -1,40 +1,40 @@
 ﻿using System;
 
-namespace Cardiology.Data
+namespace Cardiology.Data.Model
 {
     public class DdtHospital
     {
         public const string TABLE_NAME = "ddt_hospital";
 
-        [TableAttribute("r_object_id", false)]
+        [Table("r_object_id", false)]
         private string rObjectId;
-        [TableAttribute("r_creation_date", false)]
+        [Table("r_creation_date", false)]
         private DateTime rCreationDate;
-        [TableAttribute("dsid_patient")]
+        [Table("dsid_patient")]
         private string dsidPatient;
-        [TableAttribute("dsdt_admission_date")]
+        [Table("dsdt_admission_date")]
         private DateTime dsdtAdmissionDate;
-        [TableAttribute("dsid_duty_doctor")]
+        [Table("dsid_duty_doctor")]
         private string dsidDutyDoctor;
-        [TableAttribute("dsid_curing_doctor")]
+        [Table("dsid_curing_doctor")]
         private string dsidCuringDoctor;
-        [TableAttribute("dsid_substitution_doctor")]
+        [Table("dsid_substitution_doctor")]
         private string dsidSubstitutionDoctor;
-        [TableAttribute("dsid_dir_cardio_reanim_doctor")]
+        [Table("dsid_dir_cardio_reanim_doctor")]
         private string dsidDirCardioReanimDoctor;
-        [TableAttribute("dsid_anesthetist_doctor")]
+        [Table("dsid_anesthetist_doctor")]
         private string dsidAnesthetistDoctor;
-        [TableAttribute("dsb_active")]
+        [Table("dsb_active")]
         private bool dsbActive;
-        [TableAttribute("dsb_reject_cure")]
+        [Table("dsb_reject_cure")]
         private bool dsbRejectCure;
-        [TableAttribute("dsb_death")]
+        [Table("dsb_death")]
         private bool dsbDeath;
-        [TableAttribute("dss_room_cell")]
+        [Table("dss_room_cell")]
         private string dssRoomCell;
-        [TableAttribute("dss_diagnosis")]
+        [Table("dss_diagnosis")]
         private string dssDiagnosis;
-        [TableAttribute("dsi_release_type")]
+        [Table("dsi_release_type")]
         private int dsiReleaseType;
 
         public string ObjectId {

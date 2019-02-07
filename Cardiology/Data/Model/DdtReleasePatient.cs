@@ -1,52 +1,52 @@
 ﻿using System;
 
-namespace Cardiology.Data
+namespace Cardiology.Data.Model
 {
     public class DdtReleasePatient
     {
         public const string TABLE_NAME = "ddt_release_patient";
 
-        [TableAttribute("r_object_id", false)]
+        [Table("r_object_id", false)]
         private string rObjectId;
-        [TableAttribute("r_creation_date", false)]
+        [Table("r_creation_date", false)]
         private DateTime rCreationDate;
-        [TableAttribute("dsid_hospitality_session")]
+        [Table("dsid_hospitality_session")]
         private string dsidHospitalitySession;
-        [TableAttribute("dsid_patient")]
+        [Table("dsid_patient")]
         private string dsidPatient;
-        [TableAttribute("dsid_doctor")]
+        [Table("dsid_doctor")]
         private string dsidDoctor;
-        [TableAttribute("dsdt_okr_release_date")]
+        [Table("dsdt_okr_release_date")]
         private DateTime dsdtOkrReleaseDate;
-        [TableAttribute("dsb_is_working")]
+        [Table("dsb_is_working")]
         private bool dsbIsWorking;
-        [TableAttribute("dsb_dismissed_less30d")]
+        [Table("dsb_dismissed_less30d")]
         private bool dsbDicmissedLess30D;
-        [TableAttribute("dss_profession")]
+        [Table("dss_profession")]
         private string dssProfession;
-        [TableAttribute("dss_occupational_hazard")]
+        [Table("dss_occupational_hazard")]
         private string dssOccupationalHazard;
-        [TableAttribute("dsb_pensioneer")]
+        [Table("dsb_pensioneer")]
         private bool dsbPensioneer;
-        [TableAttribute("dss_disability_num")]
+        [Table("dss_disability_num")]
         private string dssDisabilityNum;
-        [TableAttribute("dss_year_disabilities")]
+        [Table("dss_year_disabilities")]
         private string dssYearDisabilities;
-        [TableAttribute("dsb_sicklist_need")]
+        [Table("dsb_sicklist_need")]
         private bool dsbSicklistNeed;
-        [TableAttribute("dsb_extr_opened_sicklist")]
+        [Table("dsb_extr_opened_sicklist")]
         private bool dsbExtrOpenedSicklist;
-        [TableAttribute("dss_extr_sicklist_num")]
+        [Table("dss_extr_sicklist_num")]
         private string dssExtrSixklistNum;
-        [TableAttribute("dsdt_extr_startdate")]
+        [Table("dsdt_extr_startdate")]
         private DateTime dsdtExtrStartDate;
-        [TableAttribute("dsdt_extr_enddate")]
+        [Table("dsdt_extr_enddate")]
         private DateTime dsdtExtrEndDate;
-        [TableAttribute("dss_our_sicklist_num")]
+        [Table("dss_our_sicklist_num")]
         private string dssOurSicklistNum;
-        [TableAttribute("dsdt_our_startdate")]
+        [Table("dsdt_our_startdate")]
         private DateTime dsdtOurStartDate;
-        [TableAttribute("dsdt_our_enddate")]
+        [Table("dsdt_our_enddate")]
         private DateTime dsdtOurEndDate;
 
 

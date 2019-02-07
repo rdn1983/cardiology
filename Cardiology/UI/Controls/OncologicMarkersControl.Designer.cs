@@ -1,4 +1,4 @@
-﻿namespace Cardiology.Controls
+﻿namespace Cardiology.UI.Controls
 {
     partial class OncologicMarkersControl
     {

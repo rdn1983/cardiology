@@ -1,28 +1,28 @@
 ﻿using System;
 
-namespace Cardiology.Data
+namespace Cardiology.Data.Model
 {
     public class DdtCoagulogram
     {
         public const string TABLE_NAME = "ddt_coagulogram";
 
-        [TableAttribute("r_object_id", false)]
+        [Table("r_object_id", false)]
         private string rObjectId;
-        [TableAttribute("r_creation_date", false)]
+        [Table("r_creation_date", false)]
         private DateTime rCreationDate;
-        [TableAttribute("dsdt_analysis_date")]
+        [Table("dsdt_analysis_date")]
         private DateTime dsdtAnalysisDate;
-        [TableAttribute("dsid_hospitality_session")]
+        [Table("dsid_hospitality_session")]
         private string dsidHospitalitySession;
-        [TableAttribute("dsid_patient")]
+        [Table("dsid_patient")]
         private string dsidPatient;
-        [TableAttribute("dsid_doctor")]
+        [Table("dsid_doctor")]
         private string dsidDoctor;
-        [TableAttribute("dss_achtv")]
+        [Table("dss_achtv")]
         private string dssAchtv;
-        [TableAttribute("dss_mcho")]
+        [Table("dss_mcho")]
         private string dssMcho;
-        [TableAttribute("dss_ddimer")]
+        [Table("dss_ddimer")]
         private string dssDdimer;
 
         public string RObjectId { get => rObjectId; set => rObjectId = value; }

@@ -1,31 +1,31 @@
 ﻿using System;
 
-namespace Cardiology.Data
+namespace Cardiology.Data.Model
 {
     public class DdtPatientAnalysis
     {
         public const string TABLE_NAME = "ddt_patient_analysis";
-        [TableAttribute("r_object_id", false)]
+        [Table("r_object_id", false)]
         private string rObjectId;
-        [TableAttribute("r_creation_date", false)]
+        [Table("r_creation_date", false)]
         private DateTime rCreationDate;
-        [TableAttribute("dsid_hospitality_session")]
+        [Table("dsid_hospitality_session")]
         private string dsidHospitalitySession;
-        [TableAttribute("dsis_urine_analysis")]
+        [Table("dsis_urine_analysis")]
         private string dsisUrineAnalysis;
-        [TableAttribute("dsis_uzi")]
+        [Table("dsis_uzi")]
         private string dsisUzi;
-        [TableAttribute("dsid_holter")]
+        [Table("dsid_holter")]
         private string dsidHolter;
-        [TableAttribute("dsid_specialist_conclusion")]
+        [Table("dsid_specialist_conclusion")]
         private string dsidSpecialistConclusion;
-        [TableAttribute("dsid_xray")]
+        [Table("dsid_xray")]
         private string dsidXray;
-        [TableAttribute("dsid_egds")]
+        [Table("dsid_egds")]
         private string dsidEgds;
-        [TableAttribute("dsid_kag")]
+        [Table("dsid_kag")]
         private string dsidKag;
-        [TableAttribute("dsid_ekg")]
+        [Table("dsid_ekg")]
         private string dsidEkg;
 
         public string ObjectId

@@ -1,17 +1,17 @@
 ﻿using System;
 
-namespace Cardiology.Data
+namespace Cardiology.Data.Model
 {
     public class DdtCure
     {
         public const string TABLE_NAME = "ddt_cure";
-        [TableAttribute("r_object_id", false)]
+        [Table("r_object_id", false)]
         private string rObjectId;
-        [TableAttribute("r_creation_date", false)]
+        [Table("r_creation_date", false)]
         private DateTime rCreationDate;
-        [TableAttribute("dss_name")]
+        [Table("dss_name")]
         private string dssName;
-        [TableAttribute("dsid_cure_type")]
+        [Table("dsid_cure_type")]
         private string cureTypeId;
 
         public string ObjectId

@@ -1,63 +1,62 @@
-﻿using Cardiology.Commons;
-using System;
+﻿using System;
 
-namespace Cardiology.Data
+namespace Cardiology.Data.Model
 {
     class DdtAnamnesis
     {
         public const string TABLE_NAME = "ddt_anamnesis";
 
-        [TableAttribute("r_object_id", false)]
+        [Table("r_object_id", false)]
         private string rObjectId;
-        [TableAttribute("r_creation_date", false)]
+        [Table("r_creation_date", false)]
         private DateTime rCreationDate;
-        [TableAttribute("dsid_hospitality_session")]
+        [Table("dsid_hospitality_session")]
         private string dsidHospitalitySession;
-        [TableAttribute("dsid_patient")]
+        [Table("dsid_patient")]
         private string dsidPatient;
-        [TableAttribute("dsid_doctor")]
+        [Table("dsid_doctor")]
         private string dsidDoctor;
-        [TableAttribute("dss_complaints")]
+        [Table("dss_complaints")]
         private string dssComplaints;
-        [TableAttribute("dss_anamnesis_morbi")]
+        [Table("dss_anamnesis_morbi")]
         private string dssAnamnesisMorbi;
-        [TableAttribute("dss_anamnesis_vitae")]
+        [Table("dss_anamnesis_vitae")]
         private string dssAnamnesisVitae;
-        [TableAttribute("dss_anamnesis_allergy")]
+        [Table("dss_anamnesis_allergy")]
         private string dssAnamnesisAllergy;
-        [TableAttribute("dss_anamnesis_epid")]
+        [Table("dss_anamnesis_epid")]
         private string dssAnamnesisEpid;
-        [TableAttribute("dss_past_surgeries")]
+        [Table("dss_past_surgeries")]
         private string dssPastSurgeries;
-        [TableAttribute("dss_accompanying_illnesses")]
+        [Table("dss_accompanying_illnesses")]
         private string dssAccompayingIll;
-        [TableAttribute("dss_drugs_intoxication")]
+        [Table("dss_drugs_intoxication")]
         private string dssDrugs;
-        [TableAttribute("dss_st_presens")]
+        [Table("dss_st_presens")]
         private string dssStPresens;
-        [TableAttribute("dss_respiratory_system")]
+        [Table("dss_respiratory_system")]
         private string dssRespiratorySystem;
-        [TableAttribute("dss_cardiovascular_system")]
+        [Table("dss_cardiovascular_system")]
         private string dssCardioVascular;
-        [TableAttribute("dss_digestive_system")]
+        [Table("dss_digestive_system")]
         private string dssDigestiveSystem;
-        [TableAttribute("dss_urinary_system")]
+        [Table("dss_urinary_system")]
         private string dssUrinarySystem;
-        [TableAttribute("dss_nervous_system")]
+        [Table("dss_nervous_system")]
         private string dssNervousSystem;
-        [TableAttribute("dss_diagnosis_justification")]
+        [Table("dss_diagnosis_justification")]
         private string dssDiagnosisJustifies;
-        [TableAttribute("dss_diagnosis")]
+        [Table("dss_diagnosis")]
         private string dssDiagnosis;
-        [TableAttribute("dss_operation_cause")]
+        [Table("dss_operation_cause")]
         private string dssOperationCause;
-        [TableAttribute("dss_template_name")]
+        [Table("dss_template_name")]
         private string dssTemplateName;
-        [TableAttribute("dsb_template")]
+        [Table("dsb_template")]
         private bool dsbTemplate;
-        [TableAttribute("dsdt_inspection_date")]
+        [Table("dsdt_inspection_date")]
         private DateTime dsdtInspectionDate;
-        [TableAttribute("dss_justification")]
+        [Table("dss_justification")]
         private string dssJustification;
 
         public string ObjectId

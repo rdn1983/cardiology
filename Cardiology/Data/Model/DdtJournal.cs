@@ -1,53 +1,53 @@
 ﻿using System;
 
-namespace Cardiology.Data
+namespace Cardiology.Data.Model
 
 {
     public class DdtJournal : DdtTypedObject
     {
         public const string TABLE_NAME = "ddt_journal";
         
-        [TableAttribute("r_object_id", false)]
+        [Table("r_object_id", false)]
         private string rObjectId;
-        [TableAttribute("r_creation_date", false)]
+        [Table("r_creation_date", false)]
         private DateTime rCreationDate;
-        [TableAttribute("dsid_hospitality_session")]
+        [Table("dsid_hospitality_session")]
         private string dsidHospitalitySession;
-        [TableAttribute("dsid_patient")]
+        [Table("dsid_patient")]
         private string dsidPatient;
-        [TableAttribute("dsdt_admission_date")]
+        [Table("dsdt_admission_date")]
         private DateTime dsdtAdmissionDate;
-        [TableAttribute("dsid_doctor")]
+        [Table("dsid_doctor")]
         private string dsidDoctor;
-        [TableAttribute("dss_complaints")]
+        [Table("dss_complaints")]
         private string dssComplaints;
-        [TableAttribute("dss_chdd")]
+        [Table("dss_chdd")]
         private string dssChdd;
-        [TableAttribute("dss_chss")]
+        [Table("dss_chss")]
         private string dssChss;
-        [TableAttribute("dss_ps")]
+        [Table("dss_ps")]
         private string dssPs;
-        [TableAttribute("dss_ad")]
+        [Table("dss_ad")]
         private string dssAd;
-        [TableAttribute("dss_monitor")]
+        [Table("dss_monitor")]
         private string dssMonitor;
-        [TableAttribute("dss_rhythm")]
+        [Table("dss_rhythm")]
         private string dssRhythm;
-        [TableAttribute("dsb_good_rhythm")]
+        [Table("dsb_good_rhythm")]
         private bool dsbGoodRhytm;
-        [TableAttribute("dss_surgeon_exam")]
+        [Table("dss_surgeon_exam")]
         private string dssSurgeonExam;
-        [TableAttribute("dss_cardio_exam")]
+        [Table("dss_cardio_exam")]
         private string dssCardioExam;
-        [TableAttribute("dss_journal")]
+        [Table("dss_journal")]
         private string dssJournal;
-        [TableAttribute("dss_ekg")]
+        [Table("dss_ekg")]
         private string dssEkg;
-        [TableAttribute("dsi_journal_type")]
+        [Table("dsi_journal_type")]
         private int dsiJournalType;
-        [TableAttribute("dsb_release_journal")]
+        [Table("dsb_release_journal")]
         private bool dsbReleaseJournal;
-        [TableAttribute("dss_diagnosis")]
+        [Table("dss_diagnosis")]
         private string dssDiagnosis;
 
         public string RObjectId { get => rObjectId; }

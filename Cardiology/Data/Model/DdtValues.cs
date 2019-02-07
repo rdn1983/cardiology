@@ -1,14 +1,14 @@
 ﻿
 
-namespace Cardiology.Data
+namespace Cardiology.Data.Model
 {
     class DdtValues
     {
-        [TableAttribute("r_object_id", false)]
+        [Table("r_object_id", false)]
         private string rObjectId;
-        [TableAttribute("dss_name")]
+        [Table("dss_name")]
         private string dssName;
-        [TableAttribute("dss_value")]
+        [Table("dss_value")]
         private string dssValue;
 
         public string ObjectId

@@ -1,8 +1,8 @@
 ﻿using Cardiology.Data;
 using Cardiology.Data.PostgreSQL;
-using NLog;
 using System;
 using System.Windows.Forms;
+using Cardiology.UI;
 
 namespace Cardiology
 {

@@ -1,6 +1,6 @@
-﻿using Cardiology.Data;
+﻿using Cardiology.Data.Model;
 
-namespace Cardiology
+namespace Cardiology.UI.Controls
 {
     interface IDocbaseControl
     {

@@ -1,38 +1,38 @@
 ﻿using System;
 
-namespace Cardiology.Data
+namespace Cardiology.Data.Model
 {
     public class DdtXRay : DdtTypedObject
     {
         public const string TABLE_NAME = "ddt_xray";
 
-        [TableAttribute("r_object_id", false)]
+        [Table("r_object_id", false)]
         private string rObjectId;
-        [TableAttribute("r_creation_date", false)]
+        [Table("r_creation_date", false)]
         private DateTime rCreationDate;
-        [TableAttribute("dsid_hospitality_session")]
+        [Table("dsid_hospitality_session")]
         private string dsidHospitalitySession;
-        [TableAttribute("dsid_patient")]
+        [Table("dsid_patient")]
         private string dsidPatient;
-        [TableAttribute("dsid_doctor")]
+        [Table("dsid_doctor")]
         private string dsidDoctor;
-        [TableAttribute("dss_chest_xray")]
+        [Table("dss_chest_xray")]
         private string dssChestXray;
-        [TableAttribute("dss_control_radiography")]
+        [Table("dss_control_radiography")]
         private string dssControlRadiography;
-        [TableAttribute("dss_mskt")]
+        [Table("dss_mskt")]
         private string dssMskt;
-        [TableAttribute("dss_kt")]
+        [Table("dss_kt")]
         private string dssKt;
-        [TableAttribute("dss_mrt")]
+        [Table("dss_mrt")]
         private string dssMrt;
-        [TableAttribute("dsdt_kt_date")]
+        [Table("dsdt_kt_date")]
         private DateTime dsdtKtDate;
-        [TableAttribute("dsdt_analysis_date")]
+        [Table("dsdt_analysis_date")]
         private DateTime dsdtAnalysisDate;
-        [TableAttribute("dsid_parent")]
+        [Table("dsid_parent")]
         private string dsidParent;
-        [TableAttribute("dss_parent_type")]
+        [Table("dss_parent_type")]
         private string dssParentType;
 
         public string ObjectId

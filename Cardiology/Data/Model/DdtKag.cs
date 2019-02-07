@@ -1,36 +1,36 @@
 ﻿using System;
 
-namespace Cardiology.Data
+namespace Cardiology.Data.Model
 {
     public class DdtKag : DdtTypedObject
     {
         public const string TABLE_NAME = "ddt_kag";
 
-        [TableAttribute("r_object_id", false)]
+        [Table("r_object_id", false)]
         private string rObjectId;
-        [TableAttribute("r_creation_date", false)]
+        [Table("r_creation_date", false)]
         private DateTime rCreationDate;
-        [TableAttribute("dsid_hospitality_session")]
+        [Table("dsid_hospitality_session")]
         private string dsidHospitalitySession;
-        [TableAttribute("dsid_patient")]
+        [Table("dsid_patient")]
         private string dsidPatient;
-        [TableAttribute("dsid_doctor")]
+        [Table("dsid_doctor")]
         private string dsidDoctor;
-        [TableAttribute("dss_results")]
+        [Table("dss_results")]
         private string dssResults;
-        [TableAttribute("dss_kag_manipulation")]
+        [Table("dss_kag_manipulation")]
         private string dssKagManipulation;
-        [TableAttribute("dss_kag_action")]
+        [Table("dss_kag_action")]
         private string dssKagAction;
-        [TableAttribute("dsdt_start_time")]
+        [Table("dsdt_start_time")]
         private DateTime dsdtStartTime;
-        [TableAttribute("dsdt_end_time")]
+        [Table("dsdt_end_time")]
         private DateTime dsdtEndTime;
-        [TableAttribute("dsdt_analysis_date")]
+        [Table("dsdt_analysis_date")]
         private DateTime dsdtAnalysisDate;
-        [TableAttribute("dsid_parent")]
+        [Table("dsid_parent")]
         private string dsidParent;
-        [TableAttribute("dss_parent_type")]
+        [Table("dss_parent_type")]
         private string dssParentType;
 
         public string ObjectId

@@ -1,13 +1,13 @@
-﻿using Cardiology.Controls;
-using Cardiology.Data;
-using Cardiology.Data.Dictionary;
-using Cardiology.Commons;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using Cardiology.Commons;
+using Cardiology.Data;
+using Cardiology.Data.Model;
+using Cardiology.UI.Controls;
 
-namespace Cardiology
+namespace Cardiology.UI
 {
     public partial class JournalBeforeKag : Form, IAutoSaveForm
     {

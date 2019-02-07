@@ -1,13 +1,14 @@
-﻿using Cardiology.Data;
-using System;
-using System.Windows.Forms;
-using Cardiology.Commons;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using Cardiology.Controls;
 using System.Text;
+using System.Windows.Forms;
+using Cardiology.Commons;
+using Cardiology.Data;
+using Cardiology.Data.Model;
+using Cardiology.UI.Controls;
 
-namespace Cardiology
+namespace Cardiology.UI
 {
     public partial class FirstInspection : Form, IAutoSaveForm
     {
@@ -83,7 +84,7 @@ namespace Cardiology
 
         private void initDocBox(DataService service)
         {
-            CommonUtils.initDoctorsComboboxValues(service, docBox, null);
+            CommonUtils.InitDoctorsComboboxValues(service, docBox, null);
 
             DdtDoctors doc = service.queryObjectById<DdtDoctors>(anamnesis == null ? hospitalSession.DsidCuringDoctor : anamnesis.DsidDoctor);
             docBox.SelectedIndex = docBox.FindString(doc.DssInitials);

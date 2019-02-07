@@ -1,11 +1,11 @@
-﻿using Cardiology.Data;
-using Cardiology.Data;
-using Cardiology.Commons;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using Cardiology.Commons;
+using Cardiology.Data;
+using Cardiology.Data.Model;
 
-namespace Cardiology
+namespace Cardiology.UI
 {
     public partial class Consilium : Form, IAutoSaveForm
     {
@@ -28,9 +28,9 @@ namespace Cardiology
         {
             DataService service = new DataService();
             curingDoc = service.queryObjectById<DdtDoctors>(hospitalitySession?.DsidCuringDoctor);
-            CommonUtils.initDoctorsComboboxValues(service, adminTxt, " dsi_appointment_type=3");
-            CommonUtils.initGroupsComboboxValues(service, appointmentTxt0);
-            CommonUtils.initDoctorsByGroupComboboxValues(service, doctorWho0, null);
+            CommonUtils.InitDoctorsComboboxValues(service, adminTxt, " dsi_appointment_type=3");
+            CommonUtils.InitGroupsComboboxValues(service, appointmentTxt0);
+            CommonUtils.InitDoctorsByGroupComboboxValues(service, doctorWho0, null);
             DdtPatient patient = service.queryObjectById<DdtPatient>(hospitalitySession.DsidPatient);
             if (patient != null)
             {
@@ -248,7 +248,7 @@ namespace Cardiology
                 int indxPlace = CommonUtils.getFirstDigitIndex(ctrlName);
                 int index = Convert.ToInt32(String.Intern(ctrlName.Substring(indxPlace)));
                 ComboBox c = (ComboBox)CommonUtils.findControl(doctorsContainer, "doctorWho" + index);
-                CommonUtils.initDoctorsByGroupComboboxValues(new DataService(), c, group.DssName);
+                CommonUtils.InitDoctorsByGroupComboboxValues(new DataService(), c, group.DssName);
                 if ("duty_cardioreanim".Equals(group.DssName))
                 {
                     c.SelectedIndex = c.FindStringExact(curingDoc?.DssInitials);

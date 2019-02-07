@@ -1,12 +1,12 @@
-﻿using Cardiology.Controls;
-using Cardiology.Data;
-using Cardiology.Data.Dictionary;
-using Cardiology.Commons;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using Cardiology.Commons;
+using Cardiology.Data;
+using Cardiology.Data.Model;
+using Cardiology.UI.Controls;
 
-namespace Cardiology
+namespace Cardiology.UI
 {
     public partial class JournalAfterKAG : Form, IAutoSaveForm
     {
@@ -32,7 +32,7 @@ namespace Cardiology
             afterKagDiagnosisTxt.Text = hospitalitySession.DssDiagnosis;
             DataService service = new DataService();
 
-            CommonUtils.initDoctorsComboboxValues(service, journalDocBox, "");
+            CommonUtils.InitDoctorsComboboxValues(service, journalDocBox, "");
             releaseJournalCtrl.initDateTime(CommonUtils.constructDateWIthTime(admissionDateTxt.Value, DateTime.Parse("8:05:00")));
 
             DdtPatient patient = service.queryObjectById<DdtPatient>(hospitalitySession.DsidPatient);

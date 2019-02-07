@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Word = Microsoft.Office.Interop.Word;
 using System.IO;
 using Cardiology.Data;
+using Cardiology.Data.Model;
 
 namespace Cardiology.Commons
 {

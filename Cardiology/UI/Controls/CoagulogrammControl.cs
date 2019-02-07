@@ -1,8 +1,9 @@
 ﻿using System.Windows.Forms;
-using Cardiology.Data;
 using Cardiology.Commons;
+using Cardiology.Data;
+using Cardiology.Data.Model;
 
-namespace Cardiology.Controls
+namespace Cardiology.UI.Controls
 {
     public partial class CoagulogrammControl : UserControl, IDocbaseControl
     {
@@ -18,12 +19,12 @@ namespace Cardiology.Controls
             this.objectId = objectId;
             this.isEditable = !isAddit;
             InitializeComponent();
-            initControls();
+            InitControls();
             hasChanges = false;
             isNew = CommonUtils.isBlank(objectId);
         }
 
-        private void initControls()
+        private void InitControls()
         {
             DdtCoagulogram coagulogramm = (DdtCoagulogram)getObject();
             refreshObject(coagulogramm);

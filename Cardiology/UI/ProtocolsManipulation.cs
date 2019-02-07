@@ -1,9 +1,10 @@
-﻿using Cardiology.Data;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using Cardiology.Data;
+using Cardiology.Data.Model;
 
-namespace Cardiology
+namespace Cardiology.UI
 {
     public partial class ProtocolsManipulation : Form
     {

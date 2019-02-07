@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Windows.Forms;
-using Cardiology.Data;
 using Cardiology.Commons;
-using Cardiology.Data.Dictionary;
+using Cardiology.Data;
+using Cardiology.Data.Model;
 
-namespace Cardiology.Controls
+namespace Cardiology.UI.Controls
 {
     public partial class DefferedJournalControl : UserControl, IDocbaseControl
     {
@@ -39,7 +39,7 @@ namespace Cardiology.Controls
             warningLbl.Visible = false;
 
             DataService service = new DataService();
-            CommonUtils.initDoctorsComboboxValues(service, docBox, null);
+            CommonUtils.InitDoctorsComboboxValues(service, docBox, null);
             DdtJournal journal = service.queryObjectById<DdtJournal>(objectId);
             refreshObject(journal);
         }

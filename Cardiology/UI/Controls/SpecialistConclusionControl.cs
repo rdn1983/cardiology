@@ -1,8 +1,9 @@
 ﻿using System.Windows.Forms;
-using Cardiology.Data;
 using Cardiology.Commons;
+using Cardiology.Data;
+using Cardiology.Data.Model;
 
-namespace Cardiology
+namespace Cardiology.UI.Controls
 {
     public partial class SpecialistConclusionControl : UserControl, IDocbaseControl
     {

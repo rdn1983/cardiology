@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace Cardiology
+namespace Cardiology.UI
 {
     public partial class PulseTableCOntainer : Form
     {

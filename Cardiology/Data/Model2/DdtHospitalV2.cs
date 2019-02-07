@@ -1,5 +1,4 @@
-﻿using Cardiology.Data.Model2;
-using System;
+﻿using System;
 
 namespace Cardiology.Data.Model2
 {

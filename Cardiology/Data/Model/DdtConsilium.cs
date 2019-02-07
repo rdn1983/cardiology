@@ -1,31 +1,31 @@
 ﻿using System;
 
-namespace Cardiology.Data
+namespace Cardiology.Data.Model
 {
     public class DdtConsilium
     {
         public const string TABLE_NAME = "ddt_consilium";
-        [TableAttribute("r_object_id", false)]
+        [Table("r_object_id", false)]
         private string rObjectId;
-        [TableAttribute("r_creation_date", false)]
+        [Table("r_creation_date", false)]
         private DateTime rCreationDate;
-        [TableAttribute("dsid_hospitality_session")]
+        [Table("dsid_hospitality_session")]
         private string dsidHospitalitySession;
-        [TableAttribute("dsid_doctor")]
+        [Table("dsid_doctor")]
         private string dsidDoctor;
-        [TableAttribute("dsid_patient")]
+        [Table("dsid_patient")]
         private string dsidPatient;
-        [TableAttribute("dss_goal")]
+        [Table("dss_goal")]
         private string dssGoal;
-        [TableAttribute("dss_dynamics")]
+        [Table("dss_dynamics")]
         private string dssDynamics;
-        [TableAttribute("dss_diagnosis")]
+        [Table("dss_diagnosis")]
         private string dssDiagnosis;
-        [TableAttribute("dss_decision")]
+        [Table("dss_decision")]
         private string dssDecision;
-        [TableAttribute("dss_duty_admin_name")]
+        [Table("dss_duty_admin_name")]
         private string dssDutyAdminName;
-        [TableAttribute("dsdt_consilium_date")]
+        [Table("dsdt_consilium_date")]
         private DateTime dsdtConsiliumDate;
 
         public string RObjectId { get => rObjectId; set => rObjectId = value; }

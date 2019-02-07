@@ -1,40 +1,40 @@
 ﻿using System;
 
-namespace Cardiology.Data
+namespace Cardiology.Data.Model
 {
     public class DdtIssuedMedicineList
     {
         public const string TABLE_NAME = "ddt_issued_medicine_list";
 
-        [TableAttribute("r_object_id", false)]
+        [Table("r_object_id", false)]
         private string rObjectId;
-        [TableAttribute("r_creation_date", false)]
+        [Table("r_creation_date", false)]
         private DateTime rCreationDate;
-        [TableAttribute("dsid_doctor")]
+        [Table("dsid_doctor")]
         private string dsidDoctor;
-        [TableAttribute("dsid_patient")]
+        [Table("dsid_patient")]
         private string dsidPatient;
-        [TableAttribute("dsid_hospitality_session")]
+        [Table("dsid_hospitality_session")]
         private string dsidHospitalitySession;
-        [TableAttribute("dsid_parent_id")]
+        [Table("dsid_parent_id")]
         private string dsidParentId;
-        [TableAttribute("dss_parent_type")]
+        [Table("dss_parent_type")]
         private string dssParentType;
-        [TableAttribute("dsdt_issuing_date")]
+        [Table("dsdt_issuing_date")]
         private DateTime dsdtIssuingDate;
-        [TableAttribute("dss_diagnosis")]
+        [Table("dss_diagnosis")]
         private string dssDiagnosis;
-        [TableAttribute("dss_has_kag")]
+        [Table("dss_has_kag")]
         private string dssHasKag;
-        [TableAttribute("dsb_skip_print")]
+        [Table("dsb_skip_print")]
         private bool dsbSkipPrint;
-        [TableAttribute("dsid_pharmacologist")]
+        [Table("dsid_pharmacologist")]
         private string dsidPharmacologist;
-        [TableAttribute("dsid_nurse")]
+        [Table("dsid_nurse")]
         private string dsidNurse;
-        [TableAttribute("dsid_director")]
+        [Table("dsid_director")]
         private string dsidDirector;
-        [TableAttribute("dss_template_name")]
+        [Table("dss_template_name")]
         private string dssTemplateName;
 
 

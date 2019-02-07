@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Windows.Forms;
-using Cardiology.Data;
 using System.IO;
+using System.Windows.Forms;
 using Cardiology.Commons;
+using Cardiology.Data;
+using Cardiology.Data.Model;
 
-namespace Cardiology
+namespace Cardiology.UI
 {
     public partial class UserFromVena : Form
     {

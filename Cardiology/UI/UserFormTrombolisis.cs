@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
-using Cardiology.Data;
 using Cardiology.Commons;
+using Cardiology.Data;
+using Cardiology.Data.Model;
 
-namespace Cardiology
+namespace Cardiology.UI
 {
     public partial class UserFormTrombolizis : Form
     {
@@ -22,9 +23,9 @@ namespace Cardiology
         {
             DataService service = new DataService();
             List<DdtDoctors> doctors = service.queryObjectsCollection<DdtDoctors>(@"select * from ddt_doctors");
-            for (int i = 0; i < doctors.Count; i++)
+            foreach (var obj in doctors)
             {
-                doctorOkrCB.Items.Add(doctors[i]);
+                doctorOkrCB.Items.Add(obj);
             }
             doctorOkrCB.ValueMember = "ObjectId";
             doctorOkrCB.DisplayMember = "DssFullName";

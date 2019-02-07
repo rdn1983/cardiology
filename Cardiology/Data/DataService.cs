@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Reflection;
-using Npgsql.Schema;
 using System.Collections.ObjectModel;
+using System.Configuration;
+using System.Reflection;
 using System.Text;
 using Cardiology.Commons;
 using NLog;
-using System.Configuration;
-using Cardiology.Data;
+using Npgsql.Schema;
 
-namespace Cardiology
+namespace Cardiology.Data
 {
+    [Obsolete("Этот класс будет удален", false)]
     internal class DataService
     {
         private static Logger logger = LogManager.GetCurrentClassLogger();
@@ -118,7 +118,7 @@ namespace Cardiology
 
         public List<T> queryObjectsCollectionByAttrCond<T>(string tableName, string AttrName, string attrValue, bool isQuoted)
         {
-            return queryObjectsCollection<T>(@"SELECT * FROM " + tableName + " WHERE " + AttrName + "=" + (isQuoted ? CommonUtils.toQuotedStr(attrValue) : attrValue));
+            return queryObjectsCollection<T>(@"SELECT * FROM " + tableName + " WHERE " + AttrName + "=" + (isQuoted ? CommonUtils.ToQuotedStr(attrValue) : attrValue));
         }
 
         public List<T> queryObjectsCollection<T>(string query)
@@ -174,7 +174,7 @@ namespace Cardiology
 
         public T queryObjectByAttrCond<T>(string tableName, string attrName, string attrValue, bool isQuoted)
         {
-            return queryObject<T>(@"Select * FROM " + tableName + " WHERE " + attrName + "=" + (isQuoted ? CommonUtils.toQuotedStr(attrValue) : attrValue));
+            return queryObject<T>(@"Select * FROM " + tableName + " WHERE " + attrName + "=" + (isQuoted ? CommonUtils.ToQuotedStr(attrValue) : attrValue));
         }
 
         public T queryObject<T>(string query)
@@ -425,7 +425,7 @@ namespace Cardiology
 
         public bool queryDelete(string tableName, string AttrName, string attrValue, bool isQuoted)
         {
-            return delete(@"DELETE FROM " + tableName + " WHERE " + AttrName + "=" + (isQuoted ? CommonUtils.toQuotedStr(attrValue) : attrValue));
+            return delete(@"DELETE FROM " + tableName + " WHERE " + AttrName + "=" + (isQuoted ? CommonUtils.ToQuotedStr(attrValue) : attrValue));
         }
 
 

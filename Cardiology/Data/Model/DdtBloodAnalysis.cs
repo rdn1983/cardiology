@@ -1,66 +1,66 @@
 ﻿using System;
 
-namespace Cardiology.Data
+namespace Cardiology.Data.Model
 {
     public class DdtBloodAnalysis : DdtTypedObject
     {
         public const string TABLE_NAME = "ddt_blood_analysis";
 
-        [TableAttribute("r_object_id", false)]
+        [Table("r_object_id", false)]
         private string rObjectId;
-        [TableAttribute("r_creation_date", false)]
+        [Table("r_creation_date", false)]
         private DateTime rCreationDate;
-        [TableAttribute("dsid_hospitality_session")]
+        [Table("dsid_hospitality_session")]
         private string dsidHospitalitySession;
-        [TableAttribute("dsid_patient")]
+        [Table("dsid_patient")]
         private string dsidPatient;
-        [TableAttribute("dsid_doctor")]
+        [Table("dsid_doctor")]
         private string dsidDoctor;
-        [TableAttribute("dss_hemoglobin")]
+        [Table("dss_hemoglobin")]
         private string dssHemoglobin;
-        [TableAttribute("dss_leucocytes")]
+        [Table("dss_leucocytes")]
         private string dssLeucocytes;
-        [TableAttribute("dss_platelets")]
+        [Table("dss_platelets")]
         private string dssPlatelets;
-        [TableAttribute("dss_protein")]
+        [Table("dss_protein")]
         private string dssProtein;
-        [TableAttribute("dss_creatinine")]
+        [Table("dss_creatinine")]
         private string dssCreatinine;
-        [TableAttribute("dss_cholesterol")]
+        [Table("dss_cholesterol")]
         private string dssCholesterol;
-        [TableAttribute("dss_bil")]
+        [Table("dss_bil")]
         private string dssBil;
-        [TableAttribute("dss_iron")]
+        [Table("dss_iron")]
         private string dssIron;
-        [TableAttribute("dss_alt")]
+        [Table("dss_alt")]
         private string dssAlt;
-        [TableAttribute("dss_ast")]
+        [Table("dss_ast")]
         private string dssAst;
-        [TableAttribute("dss_schf")]
+        [Table("dss_schf")]
         private string dssSchf;
-        [TableAttribute("dss_amylase")]
+        [Table("dss_amylase")]
         private string dssAmylase;
-        [TableAttribute("dss_kfk")]
+        [Table("dss_kfk")]
         private string dssKfk;
-        [TableAttribute("dss_kfk_mv")]
+        [Table("dss_kfk_mv")]
         private string dssKfkMv;
-        [TableAttribute("dss_srp")]
+        [Table("dss_srp")]
         private string dssSrp;
-        [TableAttribute("dss_potassium")]
+        [Table("dss_potassium")]
         private string dssPotassium;
-        [TableAttribute("dss_sodium")]
+        [Table("dss_sodium")]
         private string dssSodium;
-        [TableAttribute("dss_chlorine")]
+        [Table("dss_chlorine")]
         private string dssChlorine;
-        [TableAttribute("dsb_admission_analysis")]
+        [Table("dsb_admission_analysis")]
         private bool dsbAdmissionAnalysis;
-        [TableAttribute("dsb_discharge_analysis")]
+        [Table("dsb_discharge_analysis")]
         private bool dsbDischargeAnalysis;
-        [TableAttribute("dsdt_analysis_date")]
+        [Table("dsdt_analysis_date")]
         private DateTime dsdtAnalysisDate;
-        [TableAttribute("dsid_parent")]
+        [Table("dsid_parent")]
         private string dsidParent;
-        [TableAttribute("dss_parent_type")]
+        [Table("dss_parent_type")]
         private string dssParentType;
 
 

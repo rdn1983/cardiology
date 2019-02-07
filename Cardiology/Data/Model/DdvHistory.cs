@@ -1,22 +1,22 @@
 ﻿using System;
 
-namespace Cardiology.Data
+namespace Cardiology.Data.Model
 {
     public class DdvHistory
     {
-        [TableAttribute("dsid_hospitality_session")]
+        [Table("dsid_hospitality_session")]
         private string dsidHospitalitySession;
-        [TableAttribute("dss_operation_type")]
+        [Table("dss_operation_type")]
         private string dssOperationType;
-        [TableAttribute("dss_operation_name")]
+        [Table("dss_operation_name")]
         private string dssOperationName;
-        [TableAttribute("dsdt_operation_date")]
+        [Table("dsdt_operation_date")]
         private DateTime dsdtOperationDate;
-        [TableAttribute("dss_doctor_name")]
+        [Table("dss_doctor_name")]
         private string dssDoctorName;
-        [TableAttribute("dss_description")]
+        [Table("dss_description")]
         private string dssDescription;
-        [TableAttribute("dsid_operation_id")]
+        [Table("dsid_operation_id")]
         private string dsidOperationId;
 
         public string DsidHospitalitySession { get => dsidHospitalitySession; set => dsidHospitalitySession = value; }

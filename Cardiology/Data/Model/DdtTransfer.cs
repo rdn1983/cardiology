@@ -1,36 +1,32 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Cardiology.Data
+namespace Cardiology.Data.Model
 {
     class DdtTransfer
     {
         public const string TABLE_NAME = "ddt_transfer";
 
-        [TableAttribute("r_object_id", false)]
+        [Table("r_object_id", false)]
         private string rObjectId;
-        [TableAttribute("r_creation_date", false)]
+        [Table("r_creation_date", false)]
         private DateTime rCreationDate;
-        [TableAttribute("dsid_hospitality_session")]
+        [Table("dsid_hospitality_session")]
         private string dsidHospitalitySession;
-        [TableAttribute("dsid_patient")]
+        [Table("dsid_patient")]
         private string dsidPatient;
-        [TableAttribute("dsid_doctor")]
+        [Table("dsid_doctor")]
         private string dsidDoctor;
-        [TableAttribute("dsdt_start_date")]
+        [Table("dsdt_start_date")]
         private DateTime dsdtStartDate;
-        [TableAttribute("dsdt_end_date")]
+        [Table("dsdt_end_date")]
         private DateTime dsdtEndDate;
-        [TableAttribute("dss_destination")]
+        [Table("dss_destination")]
         private string dssDestination;
-        [TableAttribute("dss_contacts")]
+        [Table("dss_contacts")]
         private string dssContacts;
-        [TableAttribute("dss_transfer_justification")]
+        [Table("dss_transfer_justification")]
         private string dssTransferJustification;
-        [TableAttribute("dsi_type")]
+        [Table("dsi_type")]
         private int dsiType;
 
         public string RObjectId { get => rObjectId; set => rObjectId = value; }

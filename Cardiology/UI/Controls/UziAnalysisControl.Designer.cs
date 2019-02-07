@@ -1,4 +1,4 @@
-﻿namespace Cardiology
+﻿namespace Cardiology.UI.Controls
 {
     partial class UziAnalysisControl
     {

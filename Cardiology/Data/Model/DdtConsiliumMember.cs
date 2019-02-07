@@ -1,23 +1,23 @@
 ﻿using System;
 
-namespace Cardiology.Data
+namespace Cardiology.Data.Model
 {
     public class DdtConsiliumMember
     {
         public const string TABLE_NAME = "ddt_consilium_member";
-        [TableAttribute("r_object_id", false)]
+        [Table("r_object_id", false)]
         private string rObjectId;
-        [TableAttribute("r_creation_date", false)]
+        [Table("r_creation_date", false)]
         private DateTime rCreationDate;
-        [TableAttribute("dsid_consilium")]
+        [Table("dsid_consilium")]
         private string dsidConsilium;
-        [TableAttribute("dss_group_name")]
+        [Table("dss_group_name")]
         private string dssGroupName;
-        [TableAttribute("dss_doctor_name")]
+        [Table("dss_doctor_name")]
         private string dssDoctorName;
-        [TableAttribute("dsb_template")]
+        [Table("dsb_template")]
         private bool dsbTemplate;
-        [TableAttribute("dss_template_name")]
+        [Table("dss_template_name")]
         private string dssTemplateName;
 
 

@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace Cardiology
+namespace Cardiology.UI
 {
     partial class PatientAdmission
     {

@@ -1,26 +1,26 @@
 ﻿using System;
 
-namespace Cardiology.Data
+namespace Cardiology.Data.Model
 {
     class DdtEpicrisis
     {
         public const string TABLE_NAME = "ddt_epicrisis";
 
-        [TableAttribute("r_object_id", false)]
+        [Table("r_object_id", false)]
         private string rObjectId;
-        [TableAttribute("r_creation_date", false)]
+        [Table("r_creation_date", false)]
         private DateTime rCreationDate;
-        [TableAttribute("dsid_hospitality_session")]
+        [Table("dsid_hospitality_session")]
         private string dsidHospitalitySession;
-        [TableAttribute("dsid_patient")]
+        [Table("dsid_patient")]
         private string dsidPatient;
-        [TableAttribute("dsdt_epicrisis_date")]
+        [Table("dsdt_epicrisis_date")]
         private DateTime dsdtEpicrisisDate;
-        [TableAttribute("dsid_doctor")]
+        [Table("dsid_doctor")]
         private string dsidDoctor;
-        [TableAttribute("dss_diagnosis")]
+        [Table("dss_diagnosis")]
         private string dssDiagnosis;
-        [TableAttribute("dsi_epicrisis_type")]
+        [Table("dsi_epicrisis_type")]
         private int dsiEpicrisisType;
 
         public string RObjectId { get => rObjectId; set => rObjectId = value; }

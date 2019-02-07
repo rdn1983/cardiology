@@ -1,14 +1,14 @@
-﻿using Cardiology.Data;
-using Cardiology.Data.Model2;
-using Cardiology.Data;
-using Cardiology.Commons;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using Cardiology.Commons;
+using Cardiology.Data;
+using Cardiology.Data.Model;
+using Cardiology.Data.Model2;
 
-namespace Cardiology
+namespace Cardiology.UI
 {
     public partial class PatientList : Form
     {

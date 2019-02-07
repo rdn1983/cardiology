@@ -1,10 +1,11 @@
-﻿using Cardiology.Controls;
-using Cardiology.Data;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using Cardiology.Data;
+using Cardiology.Data.Model;
+using Cardiology.UI.Controls;
 
-namespace Cardiology
+namespace Cardiology.UI
 {
     public partial class AnalysisContainer : Form
     {

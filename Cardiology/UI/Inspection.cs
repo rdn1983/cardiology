@@ -1,10 +1,12 @@
-﻿using Cardiology.Data;
-using Cardiology.Commons;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using Cardiology.Commons;
+using Cardiology.Data;
+using Cardiology.Data.Model;
+using Cardiology.UI.Controls;
 
-namespace Cardiology
+namespace Cardiology.UI
 {
     public partial class Inspection : Form, IAutoSaveForm
     {

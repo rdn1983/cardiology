@@ -1,9 +1,10 @@
-﻿using Cardiology.Data;
-using Cardiology.Commons;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Windows.Forms;
+using Cardiology.Commons;
+using Cardiology.Data;
+using Cardiology.Data.Model;
 
-namespace Cardiology
+namespace Cardiology.UI
 {
     public partial class AmbulanceLetters : Form
     {
@@ -13,7 +14,7 @@ namespace Cardiology
         {
             this.hospitalitySession = hospitalitySession;
             InitializeComponent();
-            CommonUtils.initDoctorsComboboxValues(new DataService(), doctorsBox, "");
+            CommonUtils.InitDoctorsComboboxValues(new DataService(), doctorsBox, "");
         }
 
         private void gbUdinaBtn_Click(object sender, System.EventArgs e)

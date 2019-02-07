@@ -1,46 +1,46 @@
 ﻿using System;
 
-namespace Cardiology.Data
+namespace Cardiology.Data.Model
 {
     public class DdtUrineAnalysis : DdtTypedObject
     {
         public const string TABLE_NAME = "ddt_urine_analysis";
 
-        [TableAttribute("r_object_id", false)]
+        [Table("r_object_id", false)]
         private string rObjectId;
-        [TableAttribute("r_creation_date", false)]
+        [Table("r_creation_date", false)]
         private DateTime rCreationDate;
-        [TableAttribute("dsdt_analysis_date")]
+        [Table("dsdt_analysis_date")]
         private DateTime dsdtAnalysisDate;
-        [TableAttribute("dsid_hospitality_session")]
+        [Table("dsid_hospitality_session")]
         private string dsidHospitalitySession;
-        [TableAttribute("dsid_patient")]
+        [Table("dsid_patient")]
         private string dsidPatient;
-        [TableAttribute("dsid_doctor")]
+        [Table("dsid_doctor")]
         private string dsidDoctor;
-        [TableAttribute("dss_color")]
+        [Table("dss_color")]
         private string dssColor;
-        [TableAttribute("dss_acidity")]
+        [Table("dss_acidity")]
         private string dssAcidity;
-        [TableAttribute("dss_specific_gravity")]
+        [Table("dss_specific_gravity")]
         private string dssSpecificGravity;
-        [TableAttribute("dss_leukocytes")]
+        [Table("dss_leukocytes")]
         private string dssLeukocytes;
-        [TableAttribute("dss_erythrocytes")]
+        [Table("dss_erythrocytes")]
         private string dssErythrocytes;
-        [TableAttribute("dss_glucose")]
+        [Table("dss_glucose")]
         private string dssGlucose;
-        [TableAttribute("dss_protein")]
+        [Table("dss_protein")]
         private string dssProtein;
-        [TableAttribute("dss_ketones")]
+        [Table("dss_ketones")]
         private string dssKetones;
-        [TableAttribute("dsb_admission_analysis")]
+        [Table("dsb_admission_analysis")]
         private bool dsbAdmissionAnalysis;
-        [TableAttribute("dsb_discharge_analysis")]
+        [Table("dsb_discharge_analysis")]
         private bool dsbDischargeAnalysis;
-        [TableAttribute("dsid_parent")]
+        [Table("dsid_parent")]
         private string dsidParent;
-        [TableAttribute("dss_parent_type")]
+        [Table("dss_parent_type")]
         private string dssParentType;
 
 

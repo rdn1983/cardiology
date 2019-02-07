@@ -1,4 +1,6 @@
-﻿namespace Cardiology
+﻿using Cardiology.UI.Controls;
+
+namespace Cardiology.UI
 {
     partial class IssuedMedicine
     {
@@ -66,7 +68,7 @@
             this.clinicalPharmacologistBox = new System.Windows.Forms.ComboBox();
             this.issuedMedicinePnl = new System.Windows.Forms.GroupBox();
             this.medContainer = new System.Windows.Forms.Panel();
-            this.issuedMedicineContainer = new Cardiology.Controls.IssuedMedicineContainer();
+            this.issuedMedicineContainer = new IssuedMedicineContainer();
             this.medicineContainer = new System.Windows.Forms.TableLayoutPanel();
             this.addCureBtn = new System.Windows.Forms.Button();
             this.saveBtn = new System.Windows.Forms.Button();
@@ -741,7 +743,7 @@
         private System.Windows.Forms.ComboBox cardioReanimBox;
         private System.Windows.Forms.TableLayoutPanel medicineContainer;
         private System.Windows.Forms.Panel medContainer;
-        private Controls.IssuedMedicineContainer issuedMedicineContainer;
+        private IssuedMedicineContainer issuedMedicineContainer;
         private System.Windows.Forms.Button kagMedBtn;
         private System.Windows.Forms.Button aortaMedBtn;
         private System.Windows.Forms.Button deathMedBtn;

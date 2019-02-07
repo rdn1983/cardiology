@@ -7,7 +7,7 @@ namespace Cardiology.Data.PostgreSQL
 {
     class PgPatientService : IDbPatientService
     {
-        private IDbConnectionFactory connectionFactory;
+        private readonly IDbConnectionFactory connectionFactory;
 
         public PgPatientService(IDbConnectionFactory connectionFactory)
         {

@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Windows.Forms;
-using Cardiology.Data;
-using Cardiology.Data.Dictionary;
 using Cardiology.Commons;
+using Cardiology.Data;
+using Cardiology.Data.Model;
 
-namespace Cardiology.Controls
+namespace Cardiology.UI.Controls
 {
     public partial class JournalNoKAGControl : UserControl, IDocbaseControl
     {
@@ -52,7 +52,7 @@ namespace Cardiology.Controls
             warningLbl.Visible = false;
 
             DataService service = new DataService();
-            CommonUtils.initDoctorsComboboxValues(service, docBox, " dss_login in (select dss_user_name from dm_group_users where dss_group_name = 'duty_cardioreanim') ");
+            CommonUtils.InitDoctorsComboboxValues(service, docBox, " dss_login in (select dss_user_name from dm_group_users where dss_group_name = 'duty_cardioreanim') ");
             CommonUtils.setDoctorsComboboxDefaultValue(service, docBox, dsidCuringDoctor);
 
             DdtJournal journal = service.queryObjectById<DdtJournal>(objectId);

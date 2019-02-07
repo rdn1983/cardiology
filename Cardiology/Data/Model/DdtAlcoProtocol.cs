@@ -1,67 +1,66 @@
-﻿using Cardiology.Commons;
-using System;
+﻿using System;
 
-namespace Cardiology.Data
+namespace Cardiology.Data.Model
 {
     public class DdtAlcoProtocol
     {
         public const string TABLE_NAME = "ddt_alco_protocol";
 
-        [TableAttribute("r_object_id", false)]
+        [Table("r_object_id", false)]
         private string rObjectId;
-        [TableAttribute("r_creation_date", false)]
+        [Table("r_creation_date", false)]
         private DateTime rCreationDate;
-        [TableAttribute("dsid_hospitality_session")]
+        [Table("dsid_hospitality_session")]
         private string dsidHospitalitySession;
-        [TableAttribute("dss_look")]
+        [Table("dss_look")]
         private string dssLook;
-        [TableAttribute("dss_behavior")]
+        [Table("dss_behavior")]
         private string dssBehavior;
-        [TableAttribute("dss_orientation")]
+        [Table("dss_orientation")]
         private string dssOrientation;
-        [TableAttribute("dss_speech")]
+        [Table("dss_speech")]
         private string dssSpeech;
-        [TableAttribute("dss_skin")]
+        [Table("dss_skin")]
         private string dssSkin;
-        [TableAttribute("dss_breathe")]
+        [Table("dss_breathe")]
         private string dssBreathe;
-        [TableAttribute("dss_pulse")]
+        [Table("dss_pulse")]
         private string dssPulse;
-        [TableAttribute("dss_pressure")]
+        [Table("dss_pressure")]
         private string dssPressure;
-        [TableAttribute("dss_eyes")]
+        [Table("dss_eyes")]
         private string dssEyes;
-        [TableAttribute("dss_nistagm")]
+        [Table("dss_nistagm")]
         private string dssNistagm;
-        [TableAttribute("dss_motions")]
+        [Table("dss_motions")]
         private string dssMotions;
-        [TableAttribute("dss_mimics")]
+        [Table("dss_mimics")]
         private string dssMimics;
-        [TableAttribute("dss_walk")]
+        [Table("dss_walk")]
         private string dssWalk;
-        [TableAttribute("dss_touch_nose")]
+        [Table("dss_touch_nose")]
         private string dssTouchNose;
-        [TableAttribute("dss_tremble")]
+        [Table("dss_tremble")]
         private string dssTremble;
-        [TableAttribute("dss_illness")]
+        [Table("dss_illness")]
         private string dssIllness;
-        [TableAttribute("dss_drunk")]
+        [Table("dss_drunk")]
         private string dssDrunk;
-        [TableAttribute("dss_smell")]
+        [Table("dss_smell")]
         private string dssSmell;
-        [TableAttribute("dss_pribor")]
+        [Table("dss_pribor")]
         private string dssPribor;
-        [TableAttribute("dss_trub")]
+        [Table("dss_trub")]
         private string dssTrub;
-        [TableAttribute("dss_bio")]
+        [Table("dss_bio")]
         private string dssBio;
-        [TableAttribute("dss_docs")]
+        [Table("dss_docs")]
         private string dssDocs;
-        [TableAttribute("dss_conclusion")]
+        [Table("dss_conclusion")]
         private string dssConclusion;
-        [TableAttribute("dss_cause")]
+        [Table("dss_cause")]
         private string dssCause;
-        [TableAttribute("dsb_template")]
+        [Table("dsb_template")]
         private bool dsbTemplate;
 
         public string RObjectId { get => rObjectId; set => rObjectId = value; }

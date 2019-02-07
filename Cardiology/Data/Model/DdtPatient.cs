@@ -1,60 +1,60 @@
 ﻿using System;
 
-namespace Cardiology.Data
+namespace Cardiology.Data.Model
 {
     public class DdtPatient
     {
         public const string TABLE_NAME= "ddt_patient";
 
-        [TableAttribute("r_object_id", false)]
+        [Table("r_object_id", false)]
         private string rObjectId;
 
-        [TableAttribute("r_creation_date", false)]
+        [Table("r_creation_date", false)]
         private DateTime rCreationDate;
 
-        [TableAttribute("dss_initials")]
+        [Table("dss_initials")]
         private string dssInitials;
 
-        [TableAttribute("dss_full_name")]
+        [Table("dss_full_name")]
         private string dssFullName;
 
-        [TableAttribute("dsdt_birthdate")]
+        [Table("dsdt_birthdate")]
         private DateTime dsdtBirthdate;
 
-        [TableAttribute("dss_phone")]
+        [Table("dss_phone")]
         private string dssPhone;
 
-        [TableAttribute("dss_address")]
+        [Table("dss_address")]
         private string dssAddress;
 
-        [TableAttribute("dsd_weight")]
+        [Table("dsd_weight")]
         private double dsdWeight;
 
-        [TableAttribute("dsd_high")]
+        [Table("dsd_high")]
         private double dsdHigh;
 
-        [TableAttribute("dss_med_code")]
+        [Table("dss_med_code")]
         private string dssMedCode;
 
-        [TableAttribute("dss_snils")]
+        [Table("dss_snils")]
         private string dssSnils;
 
-        [TableAttribute("dss_oms")]
+        [Table("dss_oms")]
         private string dssOms;
 
-        [TableAttribute("dss_passport_serial")]
+        [Table("dss_passport_serial")]
         private string dssPassportSerial;
 
-        [TableAttribute("dss_passport_num")]
+        [Table("dss_passport_num")]
         private string dssPassportNum;
 
-        [TableAttribute("dss_passport_date")]
+        [Table("dss_passport_date")]
         private DateTime dssPassportDate;
 
-        [TableAttribute("dss_passport_issue_place")]
+        [Table("dss_passport_issue_place")]
         private string dssPassportIssuePlace;
 
-        [TableAttribute("dsb_sd")]
+        [Table("dsb_sd")]
         private bool dsbSd;
 
         //add sex

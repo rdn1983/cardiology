@@ -1,18 +1,18 @@
 ﻿using System;
 
-namespace Cardiology.Data
+namespace Cardiology.Data.Model
 {
     public class DdtIssuedMedicine
     {
         public const string TABLE_NAME = "ddt_issued_medicine";
 
-        [TableAttribute("r_object_id", false)]
+        [Table("r_object_id", false)]
         private string rObjectId;
-        [TableAttribute("r_creation_date", false)]
+        [Table("r_creation_date", false)]
         private DateTime rCreationDate;
-        [TableAttribute("dsid_cure")]
+        [Table("dsid_cure")]
         private string dsidCure;
-        [TableAttribute("dsid_med_list")]
+        [Table("dsid_med_list")]
         private string dsidMedList;
 
         public string RObjectId { get => rObjectId; set => rObjectId = value; }

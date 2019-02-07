@@ -1,4 +1,6 @@
-﻿namespace Cardiology
+﻿using Cardiology.UI.Controls;
+
+namespace Cardiology.UI
 {
     partial class FirstInspection
     {
@@ -114,29 +116,29 @@
             this.issuedActionBox = new System.Windows.Forms.GroupBox();
             this.addIssuedAction = new System.Windows.Forms.Button();
             this.scrollableCntr = new System.Windows.Forms.Panel();
-            this.issuedActionContainer = new Cardiology.Controls.IssuedActionContainer();
+            this.issuedActionContainer = new IssuedActionContainer();
             this.issuedMedicineBox = new System.Windows.Forms.GroupBox();
             this.fixIssuedMedTemplate = new System.Windows.Forms.Button();
             this.issuedCntr = new System.Windows.Forms.Panel();
-            this.issuedMedicineContainer = new Cardiology.Controls.IssuedMedicineContainer();
+            this.issuedMedicineContainer = new IssuedMedicineContainer();
             this.addIssuedMedicineBtn = new System.Windows.Forms.Button();
             this.firstAnalysisTab = new System.Windows.Forms.TabPage();
             this.tabs = new System.Windows.Forms.TabControl();
             this.ekgTab = new System.Windows.Forms.TabPage();
             this.egdsTab = new System.Windows.Forms.TabPage();
-            this.egdsAnalysisControl1 = new Cardiology.EgdsAnalysisControl();
+            this.egdsAnalysisControl1 = new EgdsAnalysisControl();
             this.bloodTab = new System.Windows.Forms.TabPage();
-            this.bloodAnalysisControl = new Cardiology.BloodAnalysisControl();
+            this.bloodAnalysisControl = new BloodAnalysisControl();
             this.urineTab = new System.Windows.Forms.TabPage();
-            this.urineAnalysisControl = new Cardiology.UrineAnalysisControl();
+            this.urineAnalysisControl = new UrineAnalysisControl();
             this.templatesLbl = new System.Windows.Forms.Label();
             this.tip = new System.Windows.Forms.ToolTip(this.components);
             this.addTip = new System.Windows.Forms.ToolTip(this.components);
             this.docBox = new System.Windows.Forms.ComboBox();
             this.docLbl = new System.Windows.Forms.Label();
             this.patientInitialsLbl = new System.Windows.Forms.Label();
-            this.templateChanger = new Cardiology.Controls.TemplateChanger();
-            this.ekgAnalysisControlcs = new Cardiology.EkgAnalysisControlcs();
+            this.templateChanger = new TemplateChanger();
+            this.ekgAnalysisControlcs = new EkgAnalysisControlcs();
             this.complaintsBox.SuspendLayout();
             this.anamnesisMorbiBox.SuspendLayout();
             this.anamnesisAllergyBox.SuspendLayout();
@@ -1519,14 +1521,14 @@
         private System.Windows.Forms.ComboBox docBox;
         private System.Windows.Forms.Label docLbl;
         private System.Windows.Forms.RichTextBox operationCauseTxt;
-        private Controls.TemplateChanger templateChanger;
+        private TemplateChanger templateChanger;
         private System.Windows.Forms.Label patientInitialsLbl;
-        private Controls.IssuedMedicineContainer issuedMedicineContainer;
+        private IssuedMedicineContainer issuedMedicineContainer;
         private System.Windows.Forms.Button fixIssuedMedTemplate;
         private System.Windows.Forms.GroupBox issuedActionBox;
         private System.Windows.Forms.Button addIssuedAction;
         private System.Windows.Forms.Panel scrollableCntr;
-        private Controls.IssuedActionContainer issuedActionContainer;
+        private IssuedActionContainer issuedActionContainer;
         private BloodAnalysisControl bloodAnalysisControl;
         private UrineAnalysisControl urineAnalysisControl;
         private EgdsAnalysisControl egdsAnalysisControl1;

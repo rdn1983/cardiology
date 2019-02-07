@@ -1,28 +1,28 @@
 ﻿using System;
 
-namespace Cardiology.Data
+namespace Cardiology.Data.Model
 {
     public class DdtIssuedAction
     {
         public const string TABLE_NAME = "ddt_issued_action";
 
-        [TableAttribute("r_object_id", false)]
+        [Table("r_object_id", false)]
         private string rObjectId;
-        [TableAttribute("r_creation_date", false)]
+        [Table("r_creation_date", false)]
         private DateTime rCreationDate;
-        [TableAttribute("dsid_doctor")]
+        [Table("dsid_doctor")]
         private string dsidDoctor;
-        [TableAttribute("dsid_patient")]
+        [Table("dsid_patient")]
         private string dsidPatient;
-        [TableAttribute("dsid_hospitality_session")]
+        [Table("dsid_hospitality_session")]
         private string dsidHospitalitySession;
-        [TableAttribute("dsid_parent_id")]
+        [Table("dsid_parent_id")]
         private string dsidParentId;
-        [TableAttribute("dss_parent_type")]
+        [Table("dss_parent_type")]
         private string dssParentType;
-        [TableAttribute("dsdt_issuing_date")]
+        [Table("dsdt_issuing_date")]
         private DateTime dsdtIssuingDate;
-        [TableAttribute("dss_action")]
+        [Table("dss_action")]
         private string dssAction;
 
         public string RObjectId { get => rObjectId; set => rObjectId = value; }

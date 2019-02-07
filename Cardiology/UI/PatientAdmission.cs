@@ -2,12 +2,11 @@
 using System.Globalization;
 using System.Text;
 using System.Windows.Forms;
-using Cardiology.Data;
-using Cardiology.Data;
-using Cardiology.UI;
 using Cardiology.Commons;
+using Cardiology.Data;
+using Cardiology.Data.Model;
 
-namespace Cardiology
+namespace Cardiology.UI
 {
     public partial class PatientAdmission : Form
     {
@@ -33,7 +32,7 @@ namespace Cardiology
             ControlUtils.initDoctorsByGroupName(service.GetDoctorService(), dutyCardioBox, "duty_cardioreanim");
             ControlUtils.initDoctorsByGroupName(service.GetDoctorService(), cardioDocBox, "duty_rhdmil");
             ControlUtils.initDoctorsByGroupName(service.GetDoctorService(), subDoctorBox, "io_rhmdil");
-            CommonUtils.initDoctorsComboboxValues(new DataService(), anesthetistComboBox, null);
+            CommonUtils.InitDoctorsComboboxValues(new DataService(), anesthetistComboBox, null);
         }
 
         private void initControls()

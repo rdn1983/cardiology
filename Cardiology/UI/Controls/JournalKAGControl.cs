@@ -4,8 +4,9 @@ using System.Drawing;
 using System.Windows.Forms;
 using Cardiology.Commons;
 using Cardiology.Data;
+using Cardiology.Data.Model;
 
-namespace Cardiology.Controls
+namespace Cardiology.UI.Controls
 {
     public partial class JournalKAGControl : UserControl, IComponent, IDocbaseControl
     {

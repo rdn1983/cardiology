@@ -1,14 +1,13 @@
-﻿using Cardiology.Data;
-using Cardiology.Data;
-using Cardiology.UI;
-using Cardiology.Commons;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using Cardiology.Commons;
+using Cardiology.Data;
+using Cardiology.Data.Model;
 
-namespace Cardiology
+namespace Cardiology.UI
 {
     public partial class IssuedMedicine : Form
     {
@@ -25,8 +24,8 @@ namespace Cardiology
             this.issuedMedId = issuedMedId;
             InitializeComponent();
 
-            CommonUtils.initDoctorsComboboxValues(new DataService(), clinicalPharmacologistBox, "dsi_appointment_type=2");
-            CommonUtils.initDoctorsComboboxValues(new DataService(), nurseBox, null);
+            CommonUtils.InitDoctorsComboboxValues(new DataService(), clinicalPharmacologistBox, "dsi_appointment_type=2");
+            CommonUtils.InitDoctorsComboboxValues(new DataService(), nurseBox, null);
             ControlUtils.initDoctorsByGroupName(service.GetDoctorService(), cardioReanimBox, "duty_cardioreanim");
             ControlUtils.initDoctorsByGroupName(service.GetDoctorService(), directorBox, "io_cardio_reanim");
             initIssuedCure(new DataService());

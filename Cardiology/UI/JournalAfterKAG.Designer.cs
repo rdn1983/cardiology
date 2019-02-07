@@ -1,4 +1,6 @@
-﻿namespace Cardiology
+﻿using Cardiology.UI.Controls;
+
+namespace Cardiology.UI
 {
     partial class JournalAfterKAG
     {
@@ -51,7 +53,7 @@
             this.dutyCardioInspectationPnl = new System.Windows.Forms.GroupBox();
             this.dutyCardioContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.finalDiaryBox = new System.Windows.Forms.Panel();
-            this.releaseJournalCtrl = new Cardiology.Controls.JournalKAGControl(null, true);
+            this.releaseJournalCtrl = new JournalKAGControl(null, true);
             this.ekgTxt0 = new System.Windows.Forms.TextBox();
             this.addCardioInspetions = new System.Windows.Forms.Button();
             this.ekgLbl0 = new System.Windows.Forms.Label();
@@ -454,7 +456,7 @@
         private System.Windows.Forms.Button removeKAG;
         private System.Windows.Forms.Button selectKAGBtn;
         private System.Windows.Forms.FlowLayoutPanel dutyCardioContainer;
-        private Controls.JournalKAGControl releaseJournalCtrl;
+        private JournalKAGControl releaseJournalCtrl;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }

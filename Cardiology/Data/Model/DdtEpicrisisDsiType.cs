@@ -1,5 +1,5 @@
 ﻿
-namespace Cardiology.Data
+namespace Cardiology.Data.Model
 {
     enum DdtEpicrisisDsiType : int
     {

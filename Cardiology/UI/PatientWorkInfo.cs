@@ -1,8 +1,8 @@
-﻿using Cardiology.Data;
-using System;
+﻿using System;
 using System.Windows.Forms;
+using Cardiology.Data.Model;
 
-namespace Cardiology
+namespace Cardiology.UI
 {
     public partial class PatientWorkInfo : Form
     {

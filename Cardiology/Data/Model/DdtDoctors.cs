@@ -1,29 +1,28 @@
 ﻿using System;
 
-
-namespace Cardiology.Data
+namespace Cardiology.Data.Model
 {
     public class DdtDoctors
     {
         public const string TABLE_NAME = "ddt_doctors";
 
-        [TableAttribute("r_object_id", false)]
+        [Table("r_object_id", false)]
         private string rObjecId;
-        [TableAttribute("r_creation_date", false)]
+        [Table("r_creation_date", false)]
         private DateTime rCreationDate;
-        [TableAttribute("dss_login")]
+        [Table("dss_login")]
         private string dssLogin;
-        [TableAttribute("dss_full_name")]
+        [Table("dss_full_name")]
         private string dssFullName;
-        [TableAttribute("dss_initials")]
+        [Table("dss_initials")]
         private string dssInitials;
-        [TableAttribute("dss_appointment_name")]
+        [Table("dss_appointment_name")]
         private string dssAppointmentName;
-        [TableAttribute("dss_phone")]
+        [Table("dss_phone")]
         private string dssPhone;
-        [TableAttribute("dss_email")]
+        [Table("dss_email")]
         private string dssEmail;
-        [TableAttribute("dsi_appointment_type")]
+        [Table("dsi_appointment_type")]
         private int dsiAppointmentType;
 
         public string ObjectId {

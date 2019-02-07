@@ -1,38 +1,38 @@
 ﻿using System;
 
-namespace Cardiology.Data
+namespace Cardiology.Data.Model
 {
     public class DdtVariousSpecConcluson : DdtTypedObject
     {
         public const string TABLE_NAME = "ddt_various_spec_concluson";
 
-        [TableAttribute("r_object_id", false)]
+        [Table("r_object_id", false)]
         private string rObjectId;
-        [TableAttribute("r_creation_date", false)]
+        [Table("r_creation_date", false)]
         private DateTime rCreationDate;
-        [TableAttribute("dsid_parent")]
+        [Table("dsid_parent")]
         private string dsidParent;
-        [TableAttribute("dss_parent_type")]
+        [Table("dss_parent_type")]
         private string dssParentType;
-        [TableAttribute("dsdt_admission_date")]
+        [Table("dsdt_admission_date")]
         private DateTime dsdtAdmissionDate;
-        [TableAttribute("dss_specialist_type")]
+        [Table("dss_specialist_type")]
         private string dssSpecialistType;
-        [TableAttribute("dss_specialist_conclusion")]
+        [Table("dss_specialist_conclusion")]
         private string dssSpecialistConclusion;
-        [TableAttribute("dss_additional_info0")]
+        [Table("dss_additional_info0")]
         private string dssAdditionalInfo0;
-        [TableAttribute("dss_additional_info1")]
+        [Table("dss_additional_info1")]
         private string dssAdditionalInfo1;
-        [TableAttribute("dss_additional_info2")]
+        [Table("dss_additional_info2")]
         private string dssAdditionalInfo2;
-        [TableAttribute("dss_additional_info3")]
+        [Table("dss_additional_info3")]
         private string dssAdditionalInfo3;
-        [TableAttribute("dss_additional_info4")]
+        [Table("dss_additional_info4")]
         private string dssAdditionalInfo4;
-        [TableAttribute("dsb_visible")]
+        [Table("dsb_visible")]
         private bool dsbVisible;
-        [TableAttribute("dsb_additional_bool")]
+        [Table("dsb_additional_bool")]
         private bool dsbAdditionalBool;
 
         public string RObjectId { get => rObjectId; set => rObjectId = value; }

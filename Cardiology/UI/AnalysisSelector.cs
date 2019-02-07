@@ -1,12 +1,11 @@
-﻿using Cardiology.Commons;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Forms;
-using static Cardiology.DataService;
-using static System.Windows.Forms.ListViewItem;
+using Cardiology.Commons;
+using Cardiology.Data;
 
-namespace Cardiology
+namespace Cardiology.UI
 {
     public partial class AnalysisSelector : Form
     {
@@ -55,7 +54,7 @@ namespace Cardiology
 
             service.queryMappedValues(dqlBuilder.ToString(), labelAttr, valueAttr, (key,value) =>{
                 ListViewItem ll = new ListViewItem(key);
-                ListViewSubItem sub = new ListViewSubItem(ll, value);
+                ListViewItem.ListViewSubItem sub = new ListViewItem.ListViewSubItem(ll, value);
                 ll.SubItems.Add(sub);
                 selectionContainer.Items.Add(ll);
             });

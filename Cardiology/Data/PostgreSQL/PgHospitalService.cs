@@ -6,7 +6,7 @@ namespace Cardiology.Data.PostgreSQL
 {
     public class PgHospitalService : IDbHospitalService
     {
-        private IDbConnectionFactory connectionFactory;
+        private readonly IDbConnectionFactory connectionFactory;
 
         public PgHospitalService(IDbConnectionFactory connectionFactory) {
             this.connectionFactory = connectionFactory;
@@ -16,7 +16,7 @@ namespace Cardiology.Data.PostgreSQL
         {
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = String.Format(@"SELECT
+                String sql = $@"SELECT
                                                 h.r_object_id,
                                                 h.r_creation_date,
                                                 h.r_modify_date,
@@ -53,7 +53,7 @@ namespace Cardiology.Data.PostgreSQL
                                                 p.dsb_sd
 
                                               FROM ddt_hospital h LEFT OUTER JOIN ddt_patient p ON p.r_object_id = h.dsid_patient
-                                              WHERE h.r_object_id = '{0}'", id);
+                                              WHERE h.r_object_id = '{id}'";
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {

@@ -1,38 +1,38 @@
 ﻿using System;
 
-namespace Cardiology.Data
+namespace Cardiology.Data.Model
 {
     public class DdtSerology : DdtTypedObject
     {
         public const string TABLE_NAME = "ddt_serology";
 
-        [TableAttribute("r_object_id", false)]
+        [Table("r_object_id", false)]
         private string rObjectId;
-        [TableAttribute("r_creation_date", false)]
+        [Table("r_creation_date", false)]
         private DateTime rCreationDate;
-        [TableAttribute("dsid_hospitality_session")]
+        [Table("dsid_hospitality_session")]
         private string dsidHospitalitySession;
-        [TableAttribute("dsid_patient")]
+        [Table("dsid_patient")]
         private string dsidPatient;
-        [TableAttribute("dsid_doctor")]
+        [Table("dsid_doctor")]
         private string dsidDoctor;
-        [TableAttribute("dss_blood_type")]
+        [Table("dss_blood_type")]
         private string dssBloodType;
-        [TableAttribute("dss_phenotype")]
+        [Table("dss_phenotype")]
         private string dssPhenotype;
-        [TableAttribute("dss_rhesus_factor")]
+        [Table("dss_rhesus_factor")]
         private string dssRhesusFactor;
-        [TableAttribute("dss_kell_ag")]
+        [Table("dss_kell_ag")]
         private string dssKellAg;
-        [TableAttribute("dss_rw")]
+        [Table("dss_rw")]
         private string dssRw;
-        [TableAttribute("dss_hbs_ag")]
+        [Table("dss_hbs_ag")]
         private string dssHbsAg;
-        [TableAttribute("dss_anti_hcv")]
+        [Table("dss_anti_hcv")]
         private string dssAntiHcv;
-        [TableAttribute("dss_hiv")]
+        [Table("dss_hiv")]
         private string dssHiv;
-        [TableAttribute("dsdt_analysis_date")]
+        [Table("dsdt_analysis_date")]
         private DateTime dsdtAnalysisDate;
 
 

@@ -1,42 +1,42 @@
 ﻿using System;
 
-namespace Cardiology.Data
+namespace Cardiology.Data.Model
 {
     class DdtOncologicMarkers
     {
         public const string TABLE_NAME = "ddt_oncologic_markers";
 
-        [TableAttribute("r_object_id", false)]
+        [Table("r_object_id", false)]
         private string rObjectId;
-        [TableAttribute("r_creation_date", false)]
+        [Table("r_creation_date", false)]
         private DateTime rCreationDate;
-        [TableAttribute("dsid_hospitality_session")]
+        [Table("dsid_hospitality_session")]
         private string dsidHospitalitySession;
-        [TableAttribute("dsid_patient")]
+        [Table("dsid_patient")]
         private string dsidPatient;
-        [TableAttribute("dsid_doctor")]
+        [Table("dsid_doctor")]
         private string dsidDoctor;
-        [TableAttribute("dsdt_analysis_date")]
+        [Table("dsdt_analysis_date")]
         private DateTime dsdtAnalysisDate;
-        [TableAttribute("dsid_parent")]
+        [Table("dsid_parent")]
         private string dsidParent;
-        [TableAttribute("dss_parent_type")]
+        [Table("dss_parent_type")]
         private string dssParentType;
-        [TableAttribute("dss_psa_common")]
+        [Table("dss_psa_common")]
         private string dssPsaCommon;
-        [TableAttribute("dss_psa_free")]
+        [Table("dss_psa_free")]
         private string dssPsaFree;
-        [TableAttribute("dss_ca_199")]
+        [Table("dss_ca_199")]
         private string dssCa199;
-        [TableAttribute("dss_ca_125")]
+        [Table("dss_ca_125")]
         private string dssCa125;
-        [TableAttribute("dss_ca_153")]
+        [Table("dss_ca_153")]
         private string dssCa153;
-        [TableAttribute("dss_cea")]
+        [Table("dss_cea")]
         private string dssCea;
-        [TableAttribute("dss_hgch")]
+        [Table("dss_hgch")]
         private string dssHgch;
-        [TableAttribute("dss_afr")]
+        [Table("dss_afr")]
         private string dssAfr;
 
         public string RObjectId { get => rObjectId; set => rObjectId = value; }

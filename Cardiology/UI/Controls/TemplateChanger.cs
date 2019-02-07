@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
+using Cardiology.Data;
 
-namespace Cardiology.Controls
+namespace Cardiology.UI.Controls
 {
     public partial class TemplateChanger : ContextMenuStrip
     {

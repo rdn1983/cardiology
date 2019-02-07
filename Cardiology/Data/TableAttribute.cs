@@ -4,25 +4,21 @@ namespace Cardiology.Data
 {
     class TableAttribute : Attribute
     {
-        string attrName;
-        bool settable;
+        readonly bool settable;
         
         public TableAttribute(string attrName)
         {
-            this.attrName = attrName;
+            this.AttrName = attrName;
             this.settable = true;
         }
 
         public TableAttribute(string attrName, bool settable)
         {
-            this.attrName = attrName;
+            this.AttrName = attrName;
             this.settable = settable;
         }
 
-        public string AttrName
-        {
-            get { return attrName; }
-        }
+        public string AttrName { get; }
 
         public bool CanSetAttr
         {

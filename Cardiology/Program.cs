@@ -3,6 +3,7 @@ using Cardiology.Data.PostgreSQL;
 using System;
 using System.Windows.Forms;
 using Cardiology.UI;
+using Cardiology.UI.Forms;
 
 namespace Cardiology
 {

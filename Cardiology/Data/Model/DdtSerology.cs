@@ -2,7 +2,7 @@
 
 namespace Cardiology.Data.Model
 {
-    public class DdtSerology : DdtTypedObject
+    public class DdtSerology
     {
         public const string TABLE_NAME = "ddt_serology";
 

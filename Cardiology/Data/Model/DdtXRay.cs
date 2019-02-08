@@ -2,7 +2,7 @@
 
 namespace Cardiology.Data.Model
 {
-    public class DdtXRay : DdtTypedObject
+    public class DdtXRay
     {
         public const string TABLE_NAME = "ddt_xray";
 

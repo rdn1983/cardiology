@@ -3,7 +3,7 @@ using System;
 
 namespace Cardiology.Data.Model
 {
-    public class DdtHormones : DdtTypedObject
+    public class DdtHormones
     {
         public const string TABLE_NAME = "ddt_hormones";
 

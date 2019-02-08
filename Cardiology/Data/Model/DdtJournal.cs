@@ -3,7 +3,7 @@
 namespace Cardiology.Data.Model
 
 {
-    public class DdtJournal : DdtTypedObject
+    public class DdtJournal
     {
         public const string TABLE_NAME = "ddt_journal";
         

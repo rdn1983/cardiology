@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows.Forms;
-using Cardiology.Commons;
 using Cardiology.Data;
 using Cardiology.Data.Model;
 

@@ -91,7 +91,7 @@ namespace Cardiology.UI
 
         private void firstInspectationsItem_Click(object sender, EventArgs e)
         {
-            FirstInspection form = new FirstInspection(hospitalitySession);
+            FirstInspection form = new FirstInspection(service, hospitalitySession);
             form.ShowDialog();
         }
 
@@ -127,7 +127,7 @@ namespace Cardiology.UI
 
             if (DdtAnamnesis.TABLE_NAME.Equals(firstType))
             {
-                form = new FirstInspection(hospitalitySession);
+                form = new FirstInspection(service, hospitalitySession);
             }
             else if (DdtJournal.TABLE_NAME.Equals(firstType))
             {

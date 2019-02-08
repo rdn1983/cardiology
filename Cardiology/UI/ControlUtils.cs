@@ -1,4 +1,5 @@
-﻿using Cardiology.Data;
+﻿using System;
+using Cardiology.Data;
 using Cardiology.Data.Model2;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -18,18 +19,28 @@ namespace Cardiology.UI
             control.DisplayMember = "Initials";
         }
 
-        internal static void initDoctors(IDbDoctorService service, ComboBox control)
+        internal static void initDoctors(IDbDoctorService service, ComboBox control, String defaultId)
         {
             control.Items.Clear();
 
             IList<DdtDoctorV2> list = service.GetAll();
-            for(int index = 0; index < list.Count; index++)
+
+            var selectIndex = 0;
+            for (var index = 0; index < list.Count; index++)
             {
-                control.Items.Add(list[index]); ;
+                var obj = list[index];
+
+                if (obj.Id == defaultId)
+                {
+                    selectIndex = index;
+                }
+                control.Items.Add(obj);
             }
+
 
             control.ValueMember = "Id";
             control.DisplayMember = "Initials";
+            control.SelectedIndex = selectIndex;
         }
     }
 }

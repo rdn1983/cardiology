@@ -40,29 +40,31 @@ namespace Cardiology.UI
         private const string IBS_TYPE = "ibs";
         private const string DT_TYPE = "dt";
 
+        private IDbDataService service;
         private DdtHospital hospitalSession;
         private DdtAnamnesis anamnesis;
         private bool acceptTemplate = false;
         private string templateName;
 
-        public FirstInspection(DdtHospital hospitalitySession)
+        public FirstInspection(IDbDataService service, DdtHospital hospitalitySession)
         {
+            this.service = service;
             this.hospitalSession = hospitalitySession;
             InitializeComponent();
             SilentSaver.setForm(this);
 
-            DataService service = new DataService();
-            anamnesis = service.queryObject<DdtAnamnesis>(@"select * from ddt_anamnesis WHERE dsid_hospitality_session='" + hospitalSession.ObjectId + "'");
+            DataService dataService = new DataService();
+            anamnesis = dataService.queryObject<DdtAnamnesis>(@"select * from ddt_anamnesis WHERE dsid_hospitality_session='" + hospitalSession.ObjectId + "'");
             initializeAnamnesis(anamnesis);
-            initIssuedMedicine(service);
-            initIssuedActions(service, anamnesis);
-            initDiagnosis();
-            initAdmissionAnalysis(service);
-            initDocBox(service);
-            initPatientInfo(service);
+            initIssuedMedicine(dataService);
+            initIssuedActions(dataService, anamnesis);
+            InitDiagnosis();
+            initAdmissionAnalysis(dataService);
+            InitDoctorComboBox();
+            InitPatientInfo(dataService);
         }
 
-        private void initPatientInfo(DataService service)
+        private void InitPatientInfo(DataService service)
         {
             DdtPatient patient = service.queryObjectById<DdtPatient>(hospitalSession.DsidPatient);
             if (patient != null)
@@ -82,12 +84,10 @@ namespace Cardiology.UI
             }
         }
 
-        private void initDocBox(DataService service)
+        private void InitDoctorComboBox()
         {
-            CommonUtils.InitDoctorsComboboxValues(service, docBox, null);
-
-            DdtDoctors doc = service.queryObjectById<DdtDoctors>(anamnesis == null ? hospitalSession.DsidCuringDoctor : anamnesis.DsidDoctor);
-            docBox.SelectedIndex = docBox.FindString(doc.DssInitials);
+            String id = anamnesis == null ? hospitalSession.DsidCuringDoctor : anamnesis.DsidDoctor;
+            ControlUtils.initDoctors(this.service.GetDoctorService(), docBox, id);
         }
 
         private void initAdmissionAnalysis(DataService service)
@@ -111,7 +111,7 @@ namespace Cardiology.UI
             ekgAnalysisControlcs.refreshObject(ekg);
         }
 
-        private void initDiagnosis()
+        private void InitDiagnosis()
         {
             diagnosisTxt.Text = hospitalSession.DssDiagnosis;
         }

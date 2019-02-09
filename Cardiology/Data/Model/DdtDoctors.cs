@@ -20,8 +20,6 @@ namespace Cardiology.Data.Model
         private string dssAppointmentName;
         [Table("dss_phone")]
         private string dssPhone;
-        [Table("dss_email")]
-        private string dssEmail;
         [Table("dsi_appointment_type")]
         private int dsiAppointmentType;
 
@@ -48,10 +46,6 @@ namespace Cardiology.Data.Model
         public string DssPhone {
             get { return dssPhone; }
             set { this.dssPhone = value; }
-        }
-        public string DssEmail {
-            get { return dssEmail; }
-            set { this.dssEmail = value; }
         }
         public int DsiAppointmentType {
             get { return dsiAppointmentType; }

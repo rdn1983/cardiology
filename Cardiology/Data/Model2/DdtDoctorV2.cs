@@ -7,7 +7,6 @@
         public string Initials { get; set; }
         public string AppointmentName { get; set; }
         public string Phone { get; set; }
-        public string Email { get; set; }
         public int AppointmentType { get; set; }
     }
 }

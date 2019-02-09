@@ -20,7 +20,7 @@ namespace Cardiology.Data.PostgreSQL
             using (dynamic connection = connectionFactory.GetConnection())
             {
                 String sql = "SELECT r_object_id, r_creation_date, r_modify_date, dss_login, " +
-                    "dss_full_name, dss_initials, dss_appointment_name, dss_phone, dss_email, dsi_appointment_type FROM ddt_doctors";
+                    "dss_full_name, dss_initials, dss_appointment_name, dss_phone, dsi_appointment_type FROM ddt_doctors";
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -35,8 +35,7 @@ namespace Cardiology.Data.PostgreSQL
                         obj.Initials = reader.GetString(5);
                         obj.AppointmentName = reader.GetString(6);
                         obj.Phone = reader.GetString(7);
-                        obj.Email = reader.GetString(8);
-                        obj.AppointmentType = reader.GetInt16(9);
+                        obj.AppointmentType = reader.GetInt16(8);
 
                         list.Add(obj);
                     }
@@ -51,7 +50,7 @@ namespace Cardiology.Data.PostgreSQL
             using (dynamic connection = connectionFactory.GetConnection())
             {
                 String sql = String.Format("SELECT d.r_object_id, d.r_creation_date, d.r_modify_date, d.dss_login, " +
-                    "d.dss_full_name, d.dss_initials, d.dss_appointment_name, d.dss_phone, d.dss_email, d.dsi_appointment_type " +
+                    "d.dss_full_name, d.dss_initials, d.dss_appointment_name, d.dss_phone, d.dsi_appointment_type " +
                     "FROM ddt_doctors d, dm_group_users g WHERE g.dss_group_name = '{0}' AND g.dss_user_name = d.dss_login", groupName);
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
@@ -67,8 +66,7 @@ namespace Cardiology.Data.PostgreSQL
                         obj.Initials = reader.GetString(5);
                         obj.AppointmentName = reader.GetString(6);
                         obj.Phone = reader.GetString(7);
-                        obj.Email = reader.GetString(8);
-                        obj.AppointmentType = reader.GetInt16(9);
+                        obj.AppointmentType = reader.GetInt16(8);
 
                         list.Add(obj);
                     }

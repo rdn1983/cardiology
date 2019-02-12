@@ -11,7 +11,6 @@
         private int dsiLevel;
 
         public string RObjectId { get => rObjectId; set => rObjectId = value; }
-        public string DssGroupName { get => dssGroupName; set => dssGroupName = value; }
         public int DsiLevel { get => dsiLevel; set => dsiLevel = value; }
     }
 }

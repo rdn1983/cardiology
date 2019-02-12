@@ -20,11 +20,11 @@ namespace Cardiology.UI.Forms
             this.hospitalitySession = hospitalitySession;
             this.consiliumId = consiliumId;
             InitializeComponent();
-            initControls();
+            InitControls();
             SilentSaver.setForm(this);
         }
 
-        private void initControls()
+        private void InitControls()
         {
             DataService service = new DataService();
             curingDoc = service.queryObjectById<DdtDoctors>(hospitalitySession?.DsidCuringDoctor);
@@ -49,7 +49,7 @@ namespace Cardiology.UI.Forms
                     decisionTxt.Text = consilium.DssDecision;
                     List<DdtConsiliumMember> members = service.queryObjectsCollectionByAttrCond<DdtConsiliumMember>
                         (DdtConsiliumMember.TABLE_NAME, "dsid_consilium", consilium.RObjectId, true);
-                    initMembers(service, members);
+                    InitMembers(service, members);
                 }
             }
             else
@@ -62,12 +62,12 @@ namespace Cardiology.UI.Forms
 
                 List<DdtConsiliumMember> members = service.queryObjectsCollectionByAttrCond<DdtConsiliumMember>
                    (DdtConsiliumMember.TABLE_NAME, "dss_template_name", "default_consilium", true);
-                initMembers(service, members);
+                InitMembers(service, members);
             }
 
         }
 
-        private void initMembers(DataService service, List<DdtConsiliumMember> members)
+        private void InitMembers(DataService service, List<DdtConsiliumMember> members)
         {
             for (int i = 0; i < members.Count; i++)
             {

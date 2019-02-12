@@ -17,8 +17,6 @@ namespace Cardiology.Data.Model
         private string dssDoctorName;
         [Table("dsb_template")]
         private bool dsbTemplate;
-        [Table("dss_template_name")]
-        private string dssTemplateName;
 
 
         public string RObjectId { get => rObjectId; set => rObjectId = value; }
@@ -27,6 +25,5 @@ namespace Cardiology.Data.Model
         public string DssDoctorName { get => dssDoctorName; set => dssDoctorName = value; }
         public string DssGroupName { get => dssGroupName; set => dssGroupName = value; }
         public bool DsbTemplate { get => dsbTemplate; set => dsbTemplate = value; }
-        public string DssTemplateName { get => dssTemplateName; set => dssTemplateName = value; }
     }
 }

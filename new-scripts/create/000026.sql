@@ -40,12 +40,8 @@ CREATE TABLE ddt_consilium_member (
   r_creation_date TIMESTAMP DEFAULT NOW() NOT NULL,
   r_modify_date TIMESTAMP NOT NULL,
 
-  dsid_consilium VARCHAR(16) REFERENCES ddt_consilium(r_object_id) ON DELETE CASCADE,
-  
-  dss_group_name VARCHAR(512),
-  dss_doctor_name VARCHAR(512),
-  dsb_template BOOLEAN,
-  dss_template_name VARCHAR(64)
+  dsid_consilium VARCHAR(16) NOT NULL REFERENCES ddt_consilium(r_object_id) ON DELETE CASCADE,
+  dsid_doctor VARCHAR(16) NOT NULL REFERENCES ddt_doctor(r_object_id) ON DELETE RESTRICT
 );
 
 CREATE TRIGGER ddt_consilium_member_trg_modify_date BEFORE INSERT OR UPDATE

@@ -4,7 +4,7 @@ CREATE TABLE dm_group(
         r_modify_date TIMESTAMP NOT NULL,
 
 	dss_name varchar(64) UNIQUE NOT NULL,
-	dss_description varchar(1024)
+	dss_description varchar(1024) NOT NULL
 );
 
 CREATE TRIGGER dm_group_trg_modify_date BEFORE INSERT OR UPDATE

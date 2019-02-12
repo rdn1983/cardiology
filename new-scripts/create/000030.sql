@@ -3,8 +3,8 @@ CREATE TABLE dm_group_users(
   r_creation_date TIMESTAMP DEFAULT NOW() NOT NULL,
   r_modify_date TIMESTAMP NOT NULL,
 
-  dss_group_name varchar (64) REFERENCES dm_group (dss_name) ON DELETE CASCADE ON UPDATE CASCADE,
-  dsid_doctor_id varchar (100) REFERENCES ddt_doctor (r_object_id) ON DELETE CASCADE ON UPDATE CASCADE,
+  dss_group_name varchar (64) NOT NULL REFERENCES dm_group (dss_name) ON DELETE CASCADE ON UPDATE CASCADE,
+  dsid_doctor_id varchar (100) NOT NULL REFERENCES ddt_doctor (r_object_id) ON DELETE CASCADE ON UPDATE CASCADE,
   UNIQUE (dss_group_name, dss_user_name)
 );
 

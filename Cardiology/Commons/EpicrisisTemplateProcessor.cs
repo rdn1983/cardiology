@@ -104,33 +104,33 @@ namespace Cardiology.Commons
             StringBuilder uziStr = new StringBuilder();
             if (uzi != null)
             {
-                uziStr.Append(compileValue("ЦДС", uzi.DssCds));
-                uziStr.Append(compileValue(" ЭХО КГ", uzi.DssEhoKg));
-                uziStr.Append(compileValue(" УЗИ Плевр", uzi.DssPleursUzi));
-                uziStr.Append(compileValue(" УЗД БЦА", uzi.DssUzdBca));
-                uziStr.Append(compileValue(" УЗи ОБП", uzi.DssUziObp));
+                uziStr.Append(compileValue("ЦДС", uzi.Cds));
+                uziStr.Append(compileValue(" ЭХО КГ", uzi.EhoKg));
+                uziStr.Append(compileValue(" УЗИ Плевр", uzi.PleursUzi));
+                uziStr.Append(compileValue(" УЗД БЦА", uzi.UzdBca));
+                uziStr.Append(compileValue(" УЗи ОБП", uzi.UziObp));
             }
             values.Add("{analysis.uzi}", uzi == null ? " " : uziStr.ToString());
 
-            if (obj.DsiEpicrisisType == (int)DdtEpicrisisDsiType.TRANSFER)
+            if (obj.EpicrisisType == (int)DdtEpicrisisDsiType.TRANSFER)
             {
                 DdtTransfer transfer = service.queryObject<DdtTransfer>(@"Select * from " + DdtTransfer.TABLE_NAME +
                     " WHERE dsid_hospitality_session='" + hospitalitySession + "'");
                 if (transfer != null)
                 {
-                    values.Add("{destination}", transfer.DssDestination);
-                    values.Add("{contact}", transfer.DssContacts);
-                    values.Add("{transport_justification}", transfer.DssTransferJustification);
-                    values.Add("{patient.release_date}", transfer.DsdtStartDate.ToShortDateString());
+                    values.Add("{destination}", transfer.Destination);
+                    values.Add("{contact}", transfer.Contacts);
+                    values.Add("{transport_justification}", transfer.TransferJustification);
+                    values.Add("{patient.release_date}", transfer.StartDate.ToShortDateString());
                 }
             }
-            else if (obj.DsiEpicrisisType == (int)DdtEpicrisisDsiType.DEATH)
+            else if (obj.EpicrisisType == (int)DdtEpicrisisDsiType.DEATH)
             {
                 values.Add("{conclusion}", " ");
             }
 
-            DdvDoctor doc = service.queryObjectById<DdvDoctor>(obj.DsidDoctor);
-            values.Add("{doctor.who.short}", doc.DssInitials);
+            DdvDoctor doc = service.queryObjectById<DdvDoctor>(obj.Doctor);
+            values.Add("{doctor.who.short}", doc.ShortName);
 
             return TemplatesUtils.fillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + getTemplateName(obj), values);
         }
@@ -146,11 +146,11 @@ namespace Cardiology.Commons
 
         private string getTemplateName(DdtEpicrisis obj)
         {
-            if (obj.DsiEpicrisisType == (int)DdtEpicrisisDsiType.TRANSFER)
+            if (obj.EpicrisisType == (int)DdtEpicrisisDsiType.TRANSFER)
             {
                 return TEMPLATE_FILE_NAME_TRANSFER;
             }
-            else if (obj.DsiEpicrisisType == (int)DdtEpicrisisDsiType.DEATH)
+            else if (obj.EpicrisisType == (int)DdtEpicrisisDsiType.DEATH)
             {
                 return TEMPLATE_FILE_NAME_DEATH;
             }

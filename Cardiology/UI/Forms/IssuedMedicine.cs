@@ -5,7 +5,7 @@ using System.IO;
 using System.Windows.Forms;
 using Cardiology.Commons;
 using Cardiology.Data;
-using Cardiology.Data.Model;
+using Cardiology.Data.Model2;
 
 namespace Cardiology.UI.Forms
 {
@@ -28,30 +28,30 @@ namespace Cardiology.UI.Forms
             CommonUtils.InitDoctorsComboboxValues(new DataService(), nurseBox, null);
             ControlUtils.InitDoctorsByGroupName(service.GetDdvDoctorService(), cardioReanimBox, "duty_cardioreanim");
             ControlUtils.InitDoctorsByGroupName(service.GetDdvDoctorService(), directorBox, "io_cardio_reanim");
-            initIssuedCure(new DataService());
+            initIssuedCure();
 
-            DdtPatient patient = new DataService().queryObjectById<DdtPatient>(hospitalitySession.DsidPatient);
+            DdvPatient patient = service.GetDdvPatientService().GetById(hospitalitySession.Patient);
             if (patient != null)
             {
-                Text += " " + patient.DssInitials;
-                if (patient.DsbSd && (diagnosisTxt.Text == null || !diagnosisTxt.Text.Contains("СД")))
+                Text += " " + patient.ShortName;
+                if (patient.Sd && (diagnosisTxt.Text == null || !diagnosisTxt.Text.Contains("СД")))
                 {
                     diagnosisTxt.Text += "СД ";
                 }
             }
         }
 
-        private void initIssuedCure(DataService service)
+        private void initIssuedCure()
         {
-            DdtIssuedMedicineList medList = service.queryObjectById<DdtIssuedMedicineList>(issuedMedId);
-            initDocBoxValue(service, clinicalPharmacologistBox, medList?.DsidPharmacologist);
-            initDocBoxValue(service, nurseBox, medList?.DsidNurse);
-            initDocBoxValue(service, cardioReanimBox, medList == null ? hospitalitySession.DsidDutyDoctor : medList.DsidDoctor);
-            initDocBoxValue(service, directorBox, medList?.DsidDirector);
-            templateName = medList?.DssTemplateName;
+            DdtIssuedMedicineList medList = service.GetDdtIssuedMedicineListService().GetById(issuedMedId);
+            InitDocBoxValue(clinicalPharmacologistBox, medList?.Pharmacologist);
+            InitDocBoxValue(nurseBox, medList?.Nurse);
+            InitDocBoxValue(cardioReanimBox, medList == null ? hospitalitySession.DutyDoctor : medList.Doctor);
+            InitDocBoxValue(directorBox, medList?.Director);
+            templateName = medList?.TemplateName;
             markTemplateBtn(templateName);
 
-            reinitFromMedList(service, medList);
+            ReinitFromMedList(medList);
         }
 
         private void markTemplateBtn(string name)
@@ -139,21 +139,21 @@ namespace Cardiology.UI.Forms
             return true;
         }
 
-        private void initDocBoxValue(DataService service, ComboBox cb, string docId)
+        private void InitDocBoxValue(ComboBox cb, string docId)
         {
             if (!string.IsNullOrEmpty(docId))
             {
-                DdtDoctors doc = service.queryObjectById<DdtDoctors>(docId);
-                cb.SelectedIndex = cb.FindStringExact(doc?.DssInitials);
+                DdvDoctor doc = service.GetDdvDoctorService().GetById(docId);
+                cb.SelectedIndex = cb.FindStringExact(doc?.ShortName);
             }
         }
 
-        private void updatemedicineFromTemplate(string template)
+        private void UpdateMedicineFromTemplate(string template)
         {
             DataService service = new DataService();
             List<DdtCure> medicineTemplates = service.queryObjectsCollection<DdtCure>(@"Select cure.* from ddt_values vv, ddt_cure cure 
                             where vv.dss_name like '" + template + "%' AND vv.dss_value=cure.dss_name");
-            issuedMedicineContainer.refreshData(service, medicineTemplates);
+            issuedMedicineContainer.RefreshData(this.service, medicineTemplates);
         }
 
         private void clearMedicine()
@@ -167,46 +167,48 @@ namespace Cardiology.UI.Forms
 
         private void saveIssuedMedicine()
         {
-            DataService service = new DataService();
             List<DdtIssuedMedicine> meds = issuedMedicineContainer.getIssuedMedicines();
             if (meds.Count > 0)
             {
-                DdtIssuedMedicineList medList = service.queryObjectById<DdtIssuedMedicineList>(issuedMedId);
+                DdtIssuedMedicineList medList = service.GetDdtIssuedMedicineListService().GetById(issuedMedId);
                 if (medList == null)
                 {
                     medList = new DdtIssuedMedicineList();
-                    medList.DsidHospitalitySession = hospitalitySession.ObjectId;
-                    medList.DsidPatient = hospitalitySession.DsidPatient;
+                    medList.HospitalitySession = hospitalitySession.ObjectId;
+                    medList.Patient = hospitalitySession.Patient;
                 }
-                DdtDoctors dir = (DdtDoctors)directorBox.SelectedItem;
-                medList.DsidDirector = dir?.ObjectId;
-                DdtDoctors pharm = (DdtDoctors)clinicalPharmacologistBox.SelectedItem;
-                medList.DsidPharmacologist = pharm?.ObjectId;
-                DdtDoctors nurse = (DdtDoctors)nurseBox.SelectedItem;
-                medList.DsidNurse = nurse?.ObjectId;
-                DdtDoctors doc = (DdtDoctors)cardioReanimBox.SelectedItem;
-                medList.DsidDoctor = doc == null ? hospitalitySession.DsidDutyDoctor : doc.ObjectId;
+                DdvDoctor dir = (DdvDoctor)directorBox.SelectedItem;
+                medList.Director = dir?.ObjectId;
 
-                medList.DssDiagnosis = diagnosisTxt.Text;
-                medList.DssTemplateName = templateName;
-                medList.DssHasKag = shortlyOperationTxt.Text;
-                medList.DsdtIssuingDate = createDateTxt.Value;
-                issuedMedId = service.updateOrCreateIfNeedObject<DdtIssuedMedicineList>(medList, DdtIssuedMedicineList.TABLE_NAME, medList.ObjectId);
-                medList.ObjectId = issuedMedId;
+                DdvDoctor pharm = (DdvDoctor)clinicalPharmacologistBox.SelectedItem;
+                medList.Pharmacologist = pharm?.ObjectId;
+
+                DdvDoctor nurse = (DdvDoctor)nurseBox.SelectedItem;
+                medList.Nurse = nurse?.ObjectId;
+                DdvDoctor doc = (DdvDoctor)cardioReanimBox.SelectedItem;
+
+                medList.Doctor = doc == null ? hospitalitySession.DutyDoctor : doc.ObjectId;
+
+                medList.Diagnosis = diagnosisTxt.Text;
+                medList.TemplateName = templateName;
+                medList.HasKag = shortlyOperationTxt.Text;
+                medList.IssuingDate = createDateTxt.Value;
+
+                service.GetDdtIssuedMedicineListService().Save(medList);
                 foreach (DdtIssuedMedicine med in meds)
                 {
-                    med.DsidMedList = medList.ObjectId;
-                    service.updateOrCreateIfNeedObject<DdtIssuedMedicine>(med, DdtIssuedMedicine.TABLE_NAME, med.RObjectId);
+                    med.MedList = medList.ObjectId;
+                    service.GetDdtIssuedMedicineService().Save(med);
                 }
             }
         }
 
-        private void reinitFromMedList(DataService service, DdtIssuedMedicineList medList)
+        private void ReinitFromMedList(DdtIssuedMedicineList medList)
         {
             if (medList != null)
             {
-                diagnosisTxt.Text = medList.DssDiagnosis;
-                shortlyOperationTxt.Text = medList.DssHasKag;
+                diagnosisTxt.Text = medList.Diagnosis;
+                shortlyOperationTxt.Text = medList.HasKag;
                 issuedMedicineContainer.Init(service, medList);
             }
             else
@@ -289,7 +291,7 @@ namespace Cardiology.UI.Forms
                 isAcceptTemplate = true;
                 clearSelection();
                 templateName = "oks.medicine.";
-                updatemedicineFromTemplate(templateName);
+                UpdateMedicineFromTemplate(templateName);
                 oksTemplateMed.BackColor = Color.LightSkyBlue;
             }
         }
@@ -301,7 +303,7 @@ namespace Cardiology.UI.Forms
                 isAcceptTemplate = true;
                 clearSelection();
                 templateName = "okslongs.medicine.";
-                updatemedicineFromTemplate(templateName);
+                UpdateMedicineFromTemplate(templateName);
                 oksLongsMedBtn.BackColor = Color.LightSkyBlue;
             }
         }
@@ -313,7 +315,7 @@ namespace Cardiology.UI.Forms
                 isAcceptTemplate = true;
                 clearSelection();
                 templateName = "hobl.medicine.";
-                updatemedicineFromTemplate(templateName);
+                UpdateMedicineFromTemplate(templateName);
                 hoblMedBtn.BackColor = Color.LightSkyBlue;
             }
         }
@@ -325,7 +327,7 @@ namespace Cardiology.UI.Forms
                 isAcceptTemplate = true;
                 clearSelection();
                 templateName = "nk.medicine.";
-                updatemedicineFromTemplate(templateName);
+                UpdateMedicineFromTemplate(templateName);
                 nkMedBtn.BackColor = Color.LightSkyBlue;
             }
         }
@@ -337,7 +339,7 @@ namespace Cardiology.UI.Forms
                 isAcceptTemplate = true;
                 clearSelection();
                 templateName = "gb.medicine.";
-                updatemedicineFromTemplate(templateName);
+                UpdateMedicineFromTemplate(templateName);
                 gbMedBtn.BackColor = Color.LightSkyBlue;
             }
         }
@@ -355,27 +357,23 @@ namespace Cardiology.UI.Forms
 
         private void copyFirstMedicineBtn_Click(object sender, EventArgs e)
         {
-            DataService service = new DataService();
-            String meListId = service.querySingleString(@"SELECT * FROM ddt_issued_medicine_list WHERE dsid_hospitality_session='" +
-                   hospitalitySession.ObjectId + "' AND dss_parent_type='ddt_anamnesis'");
-            if (!string.IsNullOrEmpty(meListId))
+            DdtIssuedMedicineList medList = service.GetDdtIssuedMedicineListService().GetListByHospitalId("ddt_anamnesis", hospitalitySession.ObjectId);
+            if (medList != null)
             {
-                List<DdtCure> cures = service.queryObjectsCollection<DdtCure>(@"SELECT cures.* FROM " + DdtCure.TABLE_NAME + " cures, " + DdtIssuedMedicine.TABLE_NAME +
-                    " meds WHERE meds.dsid_med_list='" + meListId + "' AND meds.dsid_cure=cures.r_object_id");
-                issuedMedicineContainer.refreshData(service, cures);
+                IList<DdtCure> cures = service.GetDdtCureService().GetListByMedicineListId(medList.ObjectId);
+                issuedMedicineContainer.RefreshData(service, cures);
             }
         }
 
         private void copyJournalMedBtn_Click(object sender, EventArgs e)
         {
-            DataService service = new DataService();
             String meListId = service.querySingleString(@"SELECT medlist.* FROM ddt_issued_medicine_list medlist, ddt_inspection ins WHERE ins.dsid_hospitality_session='" +
                    hospitalitySession.ObjectId + "' AND medlist.dsid_parent_id=ins.r_object_id ORDER BY dsdt_inspection_date DESC");
             if (!string.IsNullOrEmpty(meListId))
             {
                 List<DdtCure> cures = service.queryObjectsCollection<DdtCure>(@"SELECT cures.* FROM " + DdtCure.TABLE_NAME + " cures, " + DdtIssuedMedicine.TABLE_NAME +
                     " meds WHERE meds.dsid_med_list='" + meListId + "' AND meds.dsid_cure=cures.r_object_id");
-                issuedMedicineContainer.refreshData(service, cures);
+                issuedMedicineContainer.RefreshData(service, cures);
             }
         }
 
@@ -388,7 +386,7 @@ namespace Cardiology.UI.Forms
             {
                 List<DdtCure> cures = service.queryObjectsCollection<DdtCure>(@"SELECT cures.* FROM " + DdtCure.TABLE_NAME + " cures, " + DdtIssuedMedicine.TABLE_NAME +
                     " meds WHERE meds.dsid_med_list='" + meListId + "' AND meds.dsid_cure=cures.r_object_id");
-                issuedMedicineContainer.refreshData(service, cures);
+                issuedMedicineContainer.RefreshData(service, cures);
             }
         }
 
@@ -397,25 +395,25 @@ namespace Cardiology.UI.Forms
             saveIssuedMedicine();
 
             Dictionary<string, string> values = new Dictionary<string, string>();
-            DataService service = new DataService();
-            DdtIssuedMedicineList medList = service.queryObjectById<DdtIssuedMedicineList>(issuedMedId);
-            DdtHospital hospitalSession = service.queryObjectById<DdtHospital>(hospitalitySession.ObjectId);
-            DdtDoctors doc = service.queryObjectById<DdtDoctors>(medList.DsidDoctor);
-            DdtDoctors nurse = service.queryObjectById<DdtDoctors>(medList.DsidNurse);
-            DdtDoctors director = service.queryObjectById<DdtDoctors>(medList.DsidDirector);
-            DdtDoctors pharma = service.queryObjectById<DdtDoctors>(medList.DsidPharmacologist);
-            DdtPatient patient = service.queryObjectById<DdtPatient>(medList.DsidPatient);
-            values.Add(@"{doctor.who.short}", doc?.DssInitials);
+            DdtIssuedMedicineList medList = service.GetDdtIssuedMedicineListService().GetById(issuedMedId);
+            DdtHospital hospitalSession = service.GetDdtHospitalService().GetById(hospitalitySession.ObjectId);
+            DdvDoctor doc = service.GetDdvDoctorService().GetById(medList.Doctor);
+            DdvDoctor nurse = service.GetDdvDoctorService().GetById(medList.Nurse);
+            DdvDoctor director = service.GetDdvDoctorService().GetById(medList.Director);
+            DdvDoctor pharma = service.GetDdvDoctorService().GetById(medList.Pharmacologist);
+            DdvPatient patient = service.GetDdvPatientService().GetById(medList.Patient);
+
+            values.Add(@"{doctor.who.short}", doc?.ShortName);
             values.Add(@"{patient.diagnosis}", diagnosisTxt.Text);
-            values.Add(@"{patient.age}", DateTime.Now.Year - patient.DsdtBirthdate.Year + "");
-            values.Add(@"{admission.date}", hospitalSession.DsdtAdmissionDate.ToShortDateString());
-            values.Add(@"{patient.historycard}", patient?.DssMedCode);
-            values.Add(@"{patient.fullname}", patient?.DssFullName);
+            values.Add(@"{patient.age}", DateTime.Now.Year - patient.Birthdate.Year + "");
+            values.Add(@"{admission.date}", hospitalSession.AdmissionDate.ToShortDateString());
+            values.Add(@"{patient.historycard}", patient?.MedCode);
+            values.Add(@"{patient.fullname}", patient?.FullName);
             values.Add(@"{kag}", kagBtn.Checked ? shortlyOperationTxt.Text : "");
-            values.Add(@"{nurse}", nurse?.DssInitials);
-            values.Add(@"{doctor.pharma}", pharma?.DssInitials);
-            values.Add(@"{doctor.director}", director?.DssInitials);
-            values.Add(@"{room}", hospitalitySession.DssRoomCell);
+            values.Add(@"{nurse}", nurse?.ShortName);
+            values.Add(@"{doctor.pharma}", pharma?.ShortName);
+            values.Add(@"{doctor.director}", director?.ShortName);
+            values.Add(@"{room}", hospitalitySession.RoomCell);
             values.Add(@"{cell}", "");
             values.Add(@"{diet}", "НКД");
             values.Add(@"{date}", DateTime.Now.ToShortDateString());
@@ -426,8 +424,8 @@ namespace Cardiology.UI.Forms
                 string value = "";
                 if (i < med.Count)
                 {
-                    DdtCure cure = service.queryObjectById<DdtCure>(med[i].DsidCure);
-                    value = cure.DssName;
+                    DdtCure cure = service.GetDdtCureService().GetById(med[i].Cure);
+                    value = cure.Name;
                 }
                 values.Add(@"{issued_medicine_" + i + "}", value);
             }
@@ -442,7 +440,7 @@ namespace Cardiology.UI.Forms
                 isAcceptTemplate = true;
                 clearSelection();
                 templateName = "kag.medicine.";
-                updatemedicineFromTemplate(templateName);
+                UpdateMedicineFromTemplate(templateName);
                 kagMedBtn.BackColor = Color.LightSkyBlue;
             }
         }
@@ -454,7 +452,7 @@ namespace Cardiology.UI.Forms
                 isAcceptTemplate = true;
                 clearSelection();
                 templateName = "aorta.medicine.";
-                updatemedicineFromTemplate(templateName);
+                UpdateMedicineFromTemplate(templateName);
                 aortaMedBtn.BackColor = Color.LightSkyBlue;
             }
         }
@@ -466,7 +464,7 @@ namespace Cardiology.UI.Forms
                 isAcceptTemplate = true;
                 clearSelection();
                 templateName = "dep.medicine.";
-                updatemedicineFromTemplate(templateName);
+                UpdateMedicineFromTemplate(templateName);
                 depMedBtn.BackColor = Color.LightSkyBlue;
             }
         }
@@ -478,7 +476,7 @@ namespace Cardiology.UI.Forms
                 isAcceptTemplate = true;
                 clearSelection();
                 templateName = "death.medicine.";
-                updatemedicineFromTemplate(templateName);
+                UpdateMedicineFromTemplate(templateName);
                 deathMedBtn.BackColor = Color.LightSkyBlue;
             }
         }

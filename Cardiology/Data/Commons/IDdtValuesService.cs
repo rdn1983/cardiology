@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Cardiology.Data.Model2;
 
@@ -8,5 +9,9 @@ namespace Cardiology.Data.Commons
         IList<DdtValues> GetAll();
 
         DdtValues GetById(string id);
+
+        DdtValues GetByNameLike(String name);
+
+        IList<DdtValues> GetListByNameLike(string name);
     }
 }

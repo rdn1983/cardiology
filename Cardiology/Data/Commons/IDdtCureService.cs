@@ -8,5 +8,7 @@ namespace Cardiology.Data.Commons
         IList<DdtCure> GetAll();
 
         DdtCure GetById(string id);
+
+        IList<DdtCure> GetListByMedicineListId(string id);
     }
 }

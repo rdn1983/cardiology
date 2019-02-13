@@ -3,23 +3,26 @@ using System.ComponentModel;
 using System.Windows.Forms;
 using Cardiology.Commons;
 using Cardiology.Data;
-using Cardiology.Data.Model;
+using Cardiology.Data.Model2;
 
 namespace Cardiology.UI.Controls
 {
     public partial class IssuedMedicineControl : UserControl, IComponent
     {
+        private readonly IDbDataService service;
         private string objectId;
         private int index;
         private IssuedMedicineContainer parent;
 
-        public IssuedMedicineControl(int index, IssuedMedicineContainer parent)
+        public IssuedMedicineControl(IDbDataService service, int index, IssuedMedicineContainer parent)
         {
+            this.service = service;
+
             InitializeComponent();
             this.index = index;
             this.parent = parent;
-            DataService service = new DataService();
-            CommonUtils.InitCureTypeComboboxValues(service, medicineTypeTxt0);
+
+            CommonUtils.InitCureTypeComboboxValues(new DataService(), medicineTypeTxt0);
         }
 
         internal int getIndex()
@@ -27,43 +30,43 @@ namespace Cardiology.UI.Controls
             return index;
         }
 
-        internal void Init(DataService service, DdtIssuedMedicine med)
+        internal void Init(DdtIssuedMedicine med)
         {
             if (med != null)
             {
-                DdtCure cure = service.queryObjectById<DdtCure>(med.DsidCure);
+                DdtCure cure = service.GetDdtCureService().GetById(med.Cure);
                 if (cure != null)
                 {
-                    DdtCureType type = service.queryObjectByAttrCond<DdtCureType>(DdtCureType.TABLE_NAME, "r_object_id", cure.CureTypeId + "", true);
+                    DdtCureType type = service.GetDdtCureTypeService().GetById(cure.CureType);
                     if (type != null)
                     {
-                        medicineTypeTxt0.SelectedIndex = medicineTypeTxt0.FindStringExact(type.DssName);
+                        medicineTypeTxt0.SelectedIndex = medicineTypeTxt0.FindStringExact(type.Name);
                     }
-                    issuedMedicineTxt0.SelectedIndex = issuedMedicineTxt0.FindStringExact(cure.DssName);
-                    objectId = med.RObjectId;
+                    issuedMedicineTxt0.SelectedIndex = issuedMedicineTxt0.FindStringExact(cure.Name);
+                    objectId = med.ObjectId;
                 }
             }
         }
 
-        internal void refreshData(DataService service, DdtCure cure)
+        internal void RefreshData(IDbDataService service, DdtCure cure)
         {
-            DdtCureType type = service.queryObjectByAttrCond<DdtCureType>(DdtCureType.TABLE_NAME, "r_object_id", cure.CureTypeId + "", true);
+            DdtCureType type = service.GetDdtCureTypeService().GetById(cure.CureType);
             if (type != null)
             {
-                medicineTypeTxt0.SelectedIndex = medicineTypeTxt0.FindStringExact(type.DssName);
+                medicineTypeTxt0.SelectedIndex = medicineTypeTxt0.FindStringExact(type.Name);
             }
-            issuedMedicineTxt0.SelectedIndex = issuedMedicineTxt0.FindStringExact(cure.DssName);
+            issuedMedicineTxt0.SelectedIndex = issuedMedicineTxt0.FindStringExact(cure.Name);
         }
 
-        internal DdtIssuedMedicine getObject(DataService service, string medListId)
+        internal DdtIssuedMedicine GetObject(IDbDataService service, string medListId)
         {
-            DdtIssuedMedicine result = service.queryObjectById<DdtIssuedMedicine>(objectId) ?? new DdtIssuedMedicine();
+            DdtIssuedMedicine result = service.GetDdtIssuedMedicineService().GetById(objectId) ?? new DdtIssuedMedicine();
             DdtCure cure = (DdtCure)issuedMedicineTxt0.SelectedItem;
             if (cure != null && !string.IsNullOrEmpty(issuedMedicineTxt0.Text))
             {
-                result.DsidCure = cure.ObjectId;
+                result.Cure = cure.ObjectId;
             }
-            result.DsidMedList = medListId;
+            result.MedList = medListId;
             return result;
         }
 
@@ -71,8 +74,8 @@ namespace Cardiology.UI.Controls
         {
             if (!string.IsNullOrEmpty(objectId))
             {
-                DataService service = new DataService();
-                service.queryDelete(DdtIssuedMedicine.TABLE_NAME, "r_object_id", objectId, true);
+                
+                service.GetDdtIssuedMedicineService().Delete(objectId);
             }
             if (parent != null)
             {

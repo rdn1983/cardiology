@@ -2,46 +2,47 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using Cardiology.Data;
-using Cardiology.Data.Model;
+using Cardiology.Data.Model2;
 
 namespace Cardiology.UI.Forms
 {
     public partial class Serology : Form
     {
+        private readonly IDbDataService service;
         private DdtSerology serology;
         private DdtHospital hospitalitySession;
 
-        public Serology(DdtHospital hospitalitySession)
+        public Serology(IDbDataService service, DdtHospital hospitalitySession)
         {
+            this.service = service;
             this.hospitalitySession = hospitalitySession;
-            DataService service = new DataService();
-            serology = service.queryObject<DdtSerology>(@"select * from ddt_serology where dsid_hospitality_session='" + hospitalitySession.ObjectId + "'");
+
+            serology = new DataService().queryObject<DdtSerology>(@"select * from ddt_serology where dsid_hospitality_session='" + hospitalitySession.ObjectId + "'");
             InitializeComponent();
-            initBoxes();
+            InitBoxes();
         }
 
-        private void initBoxes()
+        private void InitBoxes()
         {
-            DataService service = new DataService();
-            loadBoxValues(bloodTypeBox, "bloodtype", service);
-            loadBoxValues(rhesusFactorBox, "rhesusFactor", service);
-            loadBoxValues(kellAgBox, "kellAg", service);
-            loadBoxValues(rwBox, "serology", service);
-            loadBoxValues(hbsAgBox, "serology", service);
-            loadBoxValues(antiHcvBox, "serology", service);
-            loadBoxValues(hivBox, "serology", service);
+            LoadBoxValues(bloodTypeBox, "bloodtype");
+            LoadBoxValues(rhesusFactorBox, "rhesusFactor");
+            LoadBoxValues(kellAgBox, "kellAg");
+            LoadBoxValues(rwBox, "serology");
+            LoadBoxValues(hbsAgBox, "serology");
+            LoadBoxValues(antiHcvBox, "serology");
+            LoadBoxValues(hivBox, "serology");
 
             if (serology != null)
             {
-                bloodTypeBox.Text = serology.DssBloodType;
-                rhesusFactorBox.Text = serology.DssRhesusFactor;
-                kellAgBox.Text = serology.DssKellAg;
-                rwBox.Text = serology.DssRw;
-                hbsAgBox.Text = serology.DssHbsAg;
-                antiHcvBox.Text = serology.DssAntiHcv;
-                hivBox.Text = serology.DssHiv;
-                phenotypeTxt.Text = serology.DssPhenotype;
-                analysisDate.Value = serology.DsdtAnalysisDate;
+                bloodTypeBox.Text = serology.BloodType;
+                rhesusFactorBox.Text = serology.RhesusFactor;
+                kellAgBox.Text = serology.KellAg;
+                rwBox.Text = serology.Rw;
+                hbsAgBox.Text = serology.HbsAg;
+                antiHcvBox.Text = serology.AntiHcv;
+                hivBox.Text = serology.Hiv;
+                phenotypeTxt.Text = serology.Phenotype;
+                analysisDate.Value = serology.AnalysisDate;
             } else
             {
                 rwBox.SelectedIndex = rwBox.FindStringExact("в работе");
@@ -52,13 +53,13 @@ namespace Cardiology.UI.Forms
 
         }
 
-        private void loadBoxValues(ComboBox box, string type, DataService queryService)
+        private void LoadBoxValues(ComboBox box, string type)
         {
-            List<DdtValues> values = queryService.queryObjectsCollection<DdtValues>(@"select * from ddt_values where dss_name like '" + type + ".%'");
-            box.Items.AddRange(values.ToArray());
-            box.ValueMember = "dssValue";
-            box.DisplayMember = "dssValue";
-            values = null;
+            IList<DdtValues> list = service.GetDdtValuesService().GetListByNameLike(type + ".'");
+            box.DataSource = list;
+
+            box.ValueMember = "Value";
+            box.DisplayMember = "Value";
         }
 
         private void saveBtn_Click(object sender, EventArgs e)
@@ -68,34 +69,26 @@ namespace Cardiology.UI.Forms
                 MessageBox.Show("Введены не все данные на форме! Обязательные поля выделены жирным шрифтом!", "Предупреждение!", MessageBoxButtons.OK);
                 return;
             }
-            DataService service = new DataService();
             if (serology == null)
             {
                 serology = new DdtSerology();
-                serology.DsidHospitalitySession = hospitalitySession.ObjectId;
-                serology.DsidDoctor = hospitalitySession.DsidCuringDoctor;
-                serology.DsidPatient = hospitalitySession.DsidPatient;
+                serology.HospitalitySession = hospitalitySession.ObjectId;
+                serology.Doctor = hospitalitySession.CuringDoctor;
+                serology.Patient = hospitalitySession.Patient;
             }
 
-            serology.DssAntiHcv = antiHcvBox.Text;
-            serology.DssBloodType = bloodTypeBox.Text;
-            serology.DssHbsAg = hbsAgBox.Text;
-            serology.DssHiv = hivBox.Text;
-            serology.DssKellAg = kellAgBox.Text;
-            serology.DssPhenotype = phenotypeTxt.Text;
-            serology.DssRhesusFactor = rhesusFactorBox.Text;
-            serology.DssRw = rwBox.Text;
-            serology.DsdtAnalysisDate = analysisDate.Value;
+            serology.AntiHcv = antiHcvBox.Text;
+            serology.BloodType = bloodTypeBox.Text;
+            serology.HbsAg = hbsAgBox.Text;
+            serology.Hiv = hivBox.Text;
+            serology.KellAg = kellAgBox.Text;
+            serology.Phenotype = phenotypeTxt.Text;
+            serology.RhesusFactor = rhesusFactorBox.Text;
+            serology.Rw = rwBox.Text;
+            serology.AnalysisDate = analysisDate.Value;
 
-            if (string.IsNullOrEmpty(serology.ObjectId))
-            {
-                service.insertObject<DdtSerology>(serology, DdtSerology.TABLE_NAME);
-            }
-            else
-            {
-                service.updateObject<DdtSerology>(serology, DdtSerology.TABLE_NAME, "r_object_id", serology.ObjectId);
-            }
-            
+            service.GetDdtSerologyService().Save(serology);
+           
             Close();
         }
 

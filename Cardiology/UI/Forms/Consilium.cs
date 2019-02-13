@@ -29,8 +29,8 @@ namespace Cardiology.UI.Forms
             DataService service = new DataService();
             curingDoc = service.queryObjectById<DdtDoctors>(hospitalitySession?.DsidCuringDoctor);
             CommonUtils.InitDoctorsComboboxValues(service, adminTxt, " dsi_appointment_type=3");
-            CommonUtils.InitGroupsComboboxValues(service, appointmentTxt0);
-            CommonUtils.InitDoctorsByGroupComboboxValues(service, doctorWho0, null);
+            ControlUtils.InitGroupsComboboxValues(this.service.GetDmGroupService(), appointmentTxt0);
+            ControlUtils.InitDoctorsByGroupName(this.service.GetDdvDoctorService(), doctorWho0, null);
             DdtPatient patient = service.queryObjectById<DdtPatient>(hospitalitySession.DsidPatient);
             if (patient != null)
             {

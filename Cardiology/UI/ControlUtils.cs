@@ -1,5 +1,4 @@
 ﻿using System;
-using Cardiology.Data;
 using Cardiology.Data.Model2;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -42,6 +41,18 @@ namespace Cardiology.UI
             control.ValueMember = "ObjectId";
             control.DisplayMember = "ShortName";
             control.SelectedIndex = selectIndex;
+        }
+
+
+        internal static void InitGroupsComboboxValues(IDmGroupService service, ComboBox control)
+        {
+            control.Items.Clear();
+
+            IList<DmGroup> list = service.GetAll();
+            control.DataSource = list;
+
+            control.ValueMember = "Name";
+            control.DisplayMember = "Description";
         }
     }
 }

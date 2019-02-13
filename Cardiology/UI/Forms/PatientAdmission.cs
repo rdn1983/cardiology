@@ -4,7 +4,7 @@ using System.Text;
 using System.Windows.Forms;
 using Cardiology.Commons;
 using Cardiology.Data;
-using Cardiology.Data.Model;
+using Cardiology.Data.Model2;
 
 namespace Cardiology.UI.Forms
 {
@@ -41,45 +41,45 @@ namespace Cardiology.UI.Forms
             {
                 return;
             }
-            DataService service = new DataService();
-            DdtPatient patient = service.queryObjectById<DdtPatient>(hospital.DsidPatient);
-            addressTxt.Text = patient.DssAddress;
-            string[] fio = patient.DssFullName.Split(' ');
+
+            DdvPatient patient = service.GetDdvPatientService().GetById(hospital.Patient);
+            addressTxt.Text = patient.Address;
+            string[] fio = patient.FullName.Split(' ');
             patientLastName.Text = fio[0];
             patientFirstName.Text = fio[1];
             patientSecondName.Text = fio[2];
-            medCodeTxt.Text = patient.DssMedCode;
-            phoneTxt.Text = patient.DssPhone;
-            snilsTxt.Text = patient.DssSnils;
-            omsTxt.Text = patient.DssOms;
-            passportDataTxt.Text = patient.DssPassportDate.ToString();
-            passportIssuePlaceTxt.Text = patient.DssPassportIssuePlace;
-            passportNumTxt.Text = patient.DssPassportNum;
-            passportSerialTxt.Text = patient.DssPassportSerial;
-            weightTxt.Text = patient.DsdWeight.ToString();
-            highTxt.Text = patient.DsdHigh.ToString();
-            patientBirthDate.Text = patient.DsdtBirthdate.ToString();
-            sdBtn.Checked = patient.DsbSd;
+            medCodeTxt.Text = patient.MedCode;
+            phoneTxt.Text = patient.Phone;
+            snilsTxt.Text = patient.Snils;
+            omsTxt.Text = patient.Oms;
+            passportDataTxt.Text = patient.PassportDate.ToString();
+            passportIssuePlaceTxt.Text = patient.PassportIssuePlace;
+            passportNumTxt.Text = patient.PassportNum;
+            passportSerialTxt.Text = patient.PassportSerial;
+            weightTxt.Text = patient.Weight.ToString();
+            highTxt.Text = patient.High.ToString();
+            patientBirthDate.Text = patient.Birthdate.ToString();
+            sdBtn.Checked = patient.Sd;
 
-            patientReceiptDate.Value = hospital.DsdtAdmissionDate;
-            patientReceiptTime.Text = hospital.DsdtAdmissionDate.TimeOfDay.ToString();
+            patientReceiptDate.Value = hospital.AdmissionDate;
+            patientReceiptTime.Text = hospital.AdmissionDate.TimeOfDay.ToString();
 
-            DdtDoctors docDuty = service.queryObjectById<DdtDoctors>(hospital.DsidDutyDoctor);
-            dutyCardioBox.SelectedIndex = dutyCardioBox.FindStringExact(docDuty.DssInitials);
+            DdvDoctor docDuty = service.GetDdvDoctorService().GetById(hospital.DutyDoctor);
+            dutyCardioBox.SelectedIndex = dutyCardioBox.FindStringExact(docDuty.ShortName);
 
-            DdtDoctors docCuring = service.queryObjectById<DdtDoctors>(hospital.DsidCuringDoctor);
-            cardioDocBox.SelectedIndex = cardioDocBox.FindStringExact(docCuring.DssInitials);
+            DdvDoctor docCuring = service.GetDdvDoctorService().GetById(hospital.CuringDoctor);
+            cardioDocBox.SelectedIndex = cardioDocBox.FindStringExact(docCuring.ShortName);
 
-            DdtDoctors docSubstitution = service.queryObjectById<DdtDoctors>(hospital.DsidSubstitutionDoctor);
-            subDoctorBox.SelectedIndex = subDoctorBox.FindStringExact(docSubstitution.DssInitials);
+            DdvDoctor docSubstitution = service.GetDdvDoctorService().GetById(hospital.SubstitutionDoctor);
+            subDoctorBox.SelectedIndex = subDoctorBox.FindStringExact(docSubstitution.ShortName);
 
-            DdtDoctors directorCardioReanim = service.queryObjectById<DdtDoctors>(hospital.DsidDirCardioReanimDoctor);
-            directorCardioReanimBox.SelectedIndex = directorCardioReanimBox.FindStringExact(directorCardioReanim.DssInitials);
+            DdvDoctor directorCardioReanim = service.GetDdvDoctorService().GetById(hospital.DirCardioReanimDoctor);
+            directorCardioReanimBox.SelectedIndex = directorCardioReanimBox.FindStringExact(directorCardioReanim.ShortName);
 
-            DdtDoctors anesthetistDoctor = service.queryObjectById<DdtDoctors>(hospital.DsidAnesthetistDoctor);
-            anesthetistComboBox.SelectedIndex = anesthetistComboBox.FindStringExact(anesthetistDoctor.DssInitials);
+            DdvDoctor anesthetistDoctor = service.GetDdvDoctorService().GetById(hospital.AnesthetistDoctor);
+            anesthetistComboBox.SelectedIndex = anesthetistComboBox.FindStringExact(anesthetistDoctor.ShortName);
 
-            string[] roomCell = hospital.DssRoomCell.Split('/');
+            string[] roomCell = hospital.RoomCell.Split('/');
             roomTxt.Text = roomCell[0];
             bedTxt.Text = roomCell[1];
         }
@@ -92,56 +92,55 @@ namespace Cardiology.UI.Forms
                 return;
             }
 
-            DataService service = new DataService();
-            DdtPatient patient = service.queryObjectById<DdtPatient>(hospital?.DsidPatient);
+            DdvPatient patient = service.GetDdvPatientService().GetById(hospital?.Patient);
             if (patient == null)
             {
-                patient = new DdtPatient();
+                patient = new DdvPatient();
             }
-            patient.DssAddress = addressTxt.Text.Trim();
-            patient.DssInitials = patientLastName.Text.Trim() + " " + patientFirstName.Text.Substring(0, 1) + "." + " " + patientSecondName.Text.Substring(0, 1) + ".";
-            patient.DssFullName = patientLastName.Text.Trim() + " " + patientFirstName.Text.Trim() + " " + patientSecondName.Text.Trim();
-            patient.DssMedCode = medCodeTxt.Text.Trim();
-            patient.DssPhone = phoneTxt.Text;
-            patient.DssSnils = snilsTxt.Text;
-            patient.DssOms = omsTxt.Text;
-            patient.DssPassportDate = passportDataTxt.Value;
-            patient.DssPassportIssuePlace = passportIssuePlaceTxt.Text;
-            patient.DssPassportNum = passportNumTxt.Text;
-            patient.DssPassportSerial = passportSerialTxt.Text;
-            patient.DsbSd = sdBtn.Checked;
+            patient.Address = addressTxt.Text.Trim();
+            patient.ShortName = patientLastName.Text.Trim() + " " + patientFirstName.Text.Substring(0, 1) + "." + " " + patientSecondName.Text.Substring(0, 1) + ".";
+            patient.FullName = patientLastName.Text.Trim() + " " + patientFirstName.Text.Trim() + " " + patientSecondName.Text.Trim();
+            patient.MedCode = medCodeTxt.Text.Trim();
+            patient.Phone = phoneTxt.Text;
+            patient.Snils = snilsTxt.Text;
+            patient.Oms = omsTxt.Text;
+            patient.PassportDate = passportDataTxt.Value;
+            patient.PassportIssuePlace = passportIssuePlaceTxt.Text;
+            patient.PassportNum = passportNumTxt.Text;
+            patient.PassportSerial = passportSerialTxt.Text;
+            patient.Sd = sdBtn.Checked;
 
             if (!string.IsNullOrEmpty(weightTxt.Text))
             {
-                patient.DsdWeight = Double.Parse(weightTxt.Text.Trim());
+                patient.Weight = (float) Double.Parse(weightTxt.Text.Trim());
             }
             if (!string.IsNullOrEmpty(highTxt.Text))
             {
-                patient.DsdHigh = Double.Parse(highTxt.Text.Trim());
+                patient.High = (float) Double.Parse(highTxt.Text.Trim());
             }
-            patient.DsdtBirthdate = DateTime.ParseExact(patientBirthDate.Text.Trim(), "dd.MM.yyyy", CultureInfo.InvariantCulture);
+            patient.Birthdate = DateTime.ParseExact(patientBirthDate.Text.Trim(), "dd.MM.yyyy", CultureInfo.InvariantCulture);
 
             String patientId = service.updateOrCreateIfNeedObject(patient, DdtPatient.TABLE_NAME, patient.ObjectId);
 
             if (hospital == null)
             {
                 hospital = new DdtHospital();
-                hospital.DsidPatient = patientId;
+                hospital.Patient = patientId;
             }
-            hospital.DsbActive = true;
-            hospital.DsdtAdmissionDate = CommonUtils.ConstructDateWIthTime(patientReceiptDate.Value, patientReceiptTime.Value);
-            DdtDoctors docDuty = (DdtDoctors)dutyCardioBox.SelectedItem;
-            hospital.DsidDutyDoctor = docDuty.ObjectId;
-            DdtDoctors docCuring = (DdtDoctors)cardioDocBox.SelectedItem;
-            hospital.DsidCuringDoctor = docCuring.ObjectId;
-            DdtDoctors docSubstitution = (DdtDoctors)subDoctorBox.SelectedItem;
-            hospital.DsidSubstitutionDoctor = docSubstitution.ObjectId;
-            DdtDoctors directorCardioReanim = (DdtDoctors)directorCardioReanimBox.SelectedItem;
-            hospital.DsidDirCardioReanimDoctor = directorCardioReanim.ObjectId;
-            DdtDoctors anesthetistDoctor = (DdtDoctors)anesthetistComboBox.SelectedItem;
-            hospital.DsidAnesthetistDoctor = anesthetistDoctor.ObjectId;
+            hospital.Active = true;
+            hospital.AdmissionDate = CommonUtils.ConstructDateWIthTime(patientReceiptDate.Value, patientReceiptTime.Value);
+            DdvDoctor docDuty = (DdvDoctor)dutyCardioBox.SelectedItem;
+            hospital.DutyDoctor = docDuty.ObjectId;
+            DdvDoctor docCuring = (DdvDoctor)cardioDocBox.SelectedItem;
+            hospital.CuringDoctor = docCuring.ObjectId;
+            DdvDoctor docSubstitution = (DdvDoctor)subDoctorBox.SelectedItem;
+            hospital.SubstitutionDoctor = docSubstitution.ObjectId;
+            DdvDoctor directorCardioReanim = (DdvDoctor)directorCardioReanimBox.SelectedItem;
+            hospital.DirCardioReanimDoctor = directorCardioReanim.ObjectId;
+            DdvDoctor anesthetistDoctor = (DdvDoctor)anesthetistComboBox.SelectedItem;
+            hospital.AnesthetistDoctor = anesthetistDoctor.ObjectId;
 
-            hospital.DssRoomCell = roomTxt.Text + "/" + bedTxt.Text;
+            hospital.RoomCell = roomTxt.Text + "/" + bedTxt.Text;
             service.updateOrCreateIfNeedObject(hospital, DdtHospital.TABLE_NAME, hospital.ObjectId);
             //todo перенести в статусную строку
             Close();

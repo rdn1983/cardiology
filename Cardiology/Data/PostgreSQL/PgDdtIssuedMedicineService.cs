@@ -61,5 +61,27 @@ namespace Cardiology.Data.PostgreSQL
             }
             return null;
         }
+
+        public void Save(DdtIssuedMedicine obj)
+        {
+            if (string.IsNullOrEmpty(obj.ObjectId))
+            {
+                throw new NotImplementedException();
+            }
+            else
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public void Delete(string id)
+        {
+            using (dynamic connection = connectionFactory.GetConnection())
+            {
+                String sql = String.Format("DELETE FROM ddt_issued_medicine WHERE r_object_id = '{0}'", id);
+                Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
+                command.ExecuteNonQuery();
+            }
+        }
     }
 }

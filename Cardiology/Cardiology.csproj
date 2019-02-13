@@ -375,7 +375,6 @@
     <Compile Include="Data\Model\DdtTransfer.cs" />
     <Compile Include="Data\Model\DdtUrineAnalysis.cs" />
     <Compile Include="Data\Model\DdtUzi.cs" />
-    <Compile Include="Data\Model\DdtValues.cs" />
     <Compile Include="Data\Model\DdtVariousSpecConcluson.cs" />
     <Compile Include="Data\Model\DdtXRay.cs" />
     <Compile Include="Data\Model\DdvHistory.cs" />

@@ -14,10 +14,6 @@ namespace Cardiology.Data
     internal class DataService
     {
         private static Logger logger = LogManager.GetCurrentClassLogger();
-        public DataService()
-        {
-
-        }
 
         private Npgsql.NpgsqlConnection getConnection()
         {
@@ -34,25 +30,6 @@ namespace Cardiology.Data
 
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 command.ExecuteScalar();
-            }
-        }
-
-        public string insert(string query)
-        {
-            Npgsql.NpgsqlConnection connection = null;
-            try
-            {
-                connection = getConnection();
-                logger.Debug(query);
-                Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(query, connection);
-                return (string)command.ExecuteScalar();
-            }
-            finally
-            {
-                if (connection != null)
-                {
-                    connection.Close();
-                }
             }
         }
 

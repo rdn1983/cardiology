@@ -8,5 +8,7 @@ namespace Cardiology.Data.Commons
         IList<DdtSerology> GetAll();
 
         DdtSerology GetById(string id);
+
+        void Save(DdtSerology obj);
     }
 }

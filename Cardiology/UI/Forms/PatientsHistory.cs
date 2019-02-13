@@ -36,7 +36,7 @@ namespace Cardiology.UI.Forms
             for (int i = 0; i < allHspitalPatients.Count(); i++)
             {
                 DdvHistory h = allHspitalPatients[i];
-                patientHistoryGrid.Rows.Add(false, h.DsidHospitalitySession, h.DssOperationType, h.DsidOperationId, h.DssOperationName, h.DsdtOperationDate, h.DssDoctorName, h.DssDescription);
+                patientHistoryGrid.Rows.Add(false, h.HospitalitySession, h.OperationType, h.OperationId, h.OperationName, h.OperationDate, h.DoctorName, h.Description);
             }
 
         }
@@ -161,7 +161,7 @@ namespace Cardiology.UI.Forms
             }
             else if (DdtSerology.TABLE_NAME.Equals(firstType))
             {
-                form = new Serology(hospitalitySession);
+                form = new Serology(service, hospitalitySession);
             }
             else if (DdtInspection.TABLE_NAME.Equals(firstType))
             {
@@ -284,7 +284,7 @@ namespace Cardiology.UI.Forms
 
         private void bloodTypeItem_Click(object sender, EventArgs e)
         {
-            Serology form = new Serology(hospitalitySession);
+            Serology form = new Serology(service, hospitalitySession);
             form.ShowDialog();
         }
 

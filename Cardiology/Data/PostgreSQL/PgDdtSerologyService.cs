@@ -81,5 +81,17 @@ namespace Cardiology.Data.PostgreSQL
             }
             return null;
         }
+
+        public void Save(DdtSerology obj)
+        {
+            if (string.IsNullOrEmpty(obj.ObjectId))
+            {
+                throw new NotImplementedException();
+            }
+            else
+            {
+                throw new NotImplementedException();
+            }
+        }
     }
 }

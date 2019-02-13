@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Windows.Forms;
 using Cardiology.Data;
-using Cardiology.Data.Model;
+using Cardiology.Data.Model2;
 
 namespace Cardiology.UI.Controls
 {
@@ -16,7 +16,7 @@ namespace Cardiology.UI.Controls
             InitializeComponent();
         }
 
-        internal void Init(DataService service, DdtIssuedMedicineList medList)
+        internal void Init(IDbDataService service, DdtIssuedMedicineList medList)
         {
             if (medList != null)
             {
@@ -25,14 +25,14 @@ namespace Cardiology.UI.Controls
                 List<DdtIssuedMedicine> med = service.queryObjectsCollectionByAttrCond<DdtIssuedMedicine>(DdtIssuedMedicine.TABLE_NAME, "dsid_med_list", medList.ObjectId, true);
                 for (int i = 0; i < med.Count; i++)
                 {
-                    IssuedMedicineControl control = new IssuedMedicineControl(getNextIndex(), this);
-                    control.Init(service, med[i]);
+                    IssuedMedicineControl control = new IssuedMedicineControl(service, getNextIndex(), this);
+                    control.Init(med[i]);
                     sizedContainer.Controls.Add(control);
                 }
             }
         }
 
-        internal void refreshData(DataService service, List<DdtCure> cures)
+        internal void RefreshData(IDbDataService service, IList<DdtCure> cures)
         {
             if (cures != null)
             {
@@ -40,8 +40,8 @@ namespace Cardiology.UI.Controls
                 clearMedicine();
                 foreach (DdtCure cure in cures)
                 {
-                    IssuedMedicineControl ctrl = new IssuedMedicineControl(getNextIndex(), this);
-                    ctrl.refreshData(service, cure);
+                    IssuedMedicineControl ctrl = new IssuedMedicineControl(service, getNextIndex(), this);
+                    ctrl.RefreshData(service, cure);
                     sizedContainer.Controls.Add(ctrl);
                 }
             }
@@ -55,7 +55,7 @@ namespace Cardiology.UI.Controls
             for (int i = 0; i < sizedContainer.Controls.Count; i++)
             {
                 IssuedMedicineControl control = (IssuedMedicineControl)sizedContainer.Controls[i];
-                DdtIssuedMedicine medObj = control.getObject(service, medListId);
+                DdtIssuedMedicine medObj = control.GetObject(service, medListId);
                 if (medObj != null)
                 {
                     result.Add(medObj);

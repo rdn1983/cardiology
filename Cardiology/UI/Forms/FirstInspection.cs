@@ -7,6 +7,7 @@ using Cardiology.Commons;
 using Cardiology.Data;
 using Cardiology.Data.Model;
 using Cardiology.UI.Controls;
+using DdtValues = Cardiology.Data.Model2.DdtValues;
 
 namespace Cardiology.UI.Forms
 {
@@ -75,7 +76,7 @@ namespace Cardiology.UI.Forms
                 {
                     List<DdtCure> medicineTemplates = service.queryObjectsCollection<DdtCure>(@"Select cure.* from ddt_values vv, ddt_cure cure 
                             where vv.dss_name like 'sd' AND vv.dss_value=cure.dss_name");
-                    issuedMedicineContainer.refreshData(service, medicineTemplates);
+                    issuedMedicineContainer.RefreshData(service, medicineTemplates);
                     if (patient.DsbSd)
                     {
                         accompanyingIllnessesTxt.Text += "Сахарный диабет 2 типа, среднетяжелого течения, субкомпенсация. \n";
@@ -369,7 +370,7 @@ namespace Cardiology.UI.Forms
             List<DdtCure> medicineTemplates = service.queryObjectsCollection<DdtCure>(@"Select cure.* from ddt_values vv, ddt_cure cure 
                             where vv.dss_name like '" + template + "%' AND vv.dss_value=cure.dss_name");
             clearOldMedList(service);
-            issuedMedicineContainer.refreshData(service, medicineTemplates);
+            issuedMedicineContainer.RefreshData(service, medicineTemplates);
         }
 
         private void clearOldMedList(DataService service)
@@ -384,14 +385,8 @@ namespace Cardiology.UI.Forms
 
         private string getDefaultValueForType(string controlName, string baseType)
         {
-            string query = @"Select * from ddt_values WHERE dss_name like '" + controlName + "." + baseType + "'";
-            DataService service = new DataService();
-            DdtValues defaultValue = service.queryObject<DdtValues>(query);
-            if (defaultValue != null)
-            {
-                return defaultValue.DssValue;
-            }
-            return null;
+            DdtValues defaultValue = service.GetDdtValuesService().GetByNameLike(controlName + "." + baseType);
+            return defaultValue?.Value;
         }
 
         #region controls_behavior  

@@ -6,5 +6,7 @@ namespace Cardiology.Data.Commons
     public interface IDdtUrineAnalysisService
     {
         IList<DdtUrineAnalysis> GetAll();
+
+        DdtUrineAnalysis GetById(string id);
     }
 }

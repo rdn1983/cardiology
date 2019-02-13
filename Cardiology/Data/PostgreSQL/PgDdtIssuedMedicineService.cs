@@ -38,5 +38,28 @@ namespace Cardiology.Data.PostgreSQL
             }
             return list;
         }
+
+        public DdtIssuedMedicine GetById(string id)
+        {
+            using (dynamic connection = connectionFactory.GetConnection())
+            {
+                String sql = String.Format("SELECT dsid_med_list, r_object_id, dsid_cure, r_modify_date, r_creation_date FROM ddt_issued_medicine WHERE r_object_id = '{0}'", id);
+                Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
+                using (DbDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        DdtIssuedMedicine obj = new DdtIssuedMedicine();
+                        obj.MedList = reader.GetString(1);
+                        obj.ObjectId = reader.GetString(2);
+                        obj.Cure = reader.GetString(3);
+                        obj.ModifyDate = reader.GetDateTime(4);
+                        obj.CreationDate = reader.GetDateTime(5);
+                        return obj;
+                    }
+                }
+            }
+            return null;
+        }
     }
 }

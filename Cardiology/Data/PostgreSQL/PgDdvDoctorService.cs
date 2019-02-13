@@ -40,7 +40,7 @@ namespace Cardiology.Data.PostgreSQL
                 }
             }
             return list;
-        }
+        }    
 
         public IList<DdvDoctor> GetByGroupName(string groupName)
         {
@@ -67,6 +67,32 @@ namespace Cardiology.Data.PostgreSQL
                 }
             }
             return list;
+        }
+
+        public DdvDoctor GetById(string id)
+        {
+            using (dynamic connection = connectionFactory.GetConnection())
+            {
+                String sql = String.Format("SELECT r_object_id, dss_full_name, dss_middle_name, dss_first_name, r_modify_date, dss_short_name, r_creation_date, dss_last_name FROM ddv_doctor WHERE r_object_id = '{0}'", id);
+                Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
+                using (DbDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        DdvDoctor obj = new DdvDoctor();
+                        obj.ObjectId = reader.GetString(1);
+                        obj.FullName = reader.GetString(2);
+                        obj.MiddleName = reader.GetString(3);
+                        obj.FirstName = reader.GetString(4);
+                        obj.ModifyDate = reader.GetDateTime(5);
+                        obj.ShortName = reader.GetString(6);
+                        obj.CreationDate = reader.GetDateTime(7);
+                        obj.LastName = reader.GetString(8);
+                        return obj;
+                    }
+                }
+            }
+            return null;
         }
     }
 }

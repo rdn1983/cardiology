@@ -6,5 +6,7 @@ namespace Cardiology.Data.Commons
     public interface IDmGroupService
     {
         IList<DmGroup> GetAll();
+
+        DmGroup GetById(string id);
     }
 }

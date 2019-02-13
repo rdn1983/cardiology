@@ -6,5 +6,7 @@ namespace Cardiology.Data.Commons
     public interface IDdtCoagulogramService
     {
         IList<DdtCoagulogram> GetAll();
+
+        DdtCoagulogram GetById(string id);
     }
 }

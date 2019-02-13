@@ -7,6 +7,8 @@ namespace Cardiology.Data.Commons
     {
         IList<DdvActiveHospitalPatients> GetAll();
 
+        DdvActiveHospitalPatients GetById(string id);
+
         IList<DdvActiveHospitalPatients> GetList(bool onlyActive);
     }
 }

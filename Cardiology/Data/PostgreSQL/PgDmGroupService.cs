@@ -38,5 +38,28 @@ namespace Cardiology.Data.PostgreSQL
             }
             return list;
         }
+
+        public DmGroup GetById(string id)
+        {
+            using (dynamic connection = connectionFactory.GetConnection())
+            {
+                String sql = String.Format("SELECT r_object_id, r_modify_date, dss_description, r_creation_date, dss_name FROM dm_group WHERE r_object_id = '{0}'", id);
+                Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
+                using (DbDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        DmGroup obj = new DmGroup();
+                        obj.ObjectId = reader.GetString(1);
+                        obj.ModifyDate = reader.GetDateTime(2);
+                        obj.Description = reader.GetString(3);
+                        obj.CreationDate = reader.GetDateTime(4);
+                        obj.Name = reader.GetString(5);
+                        return obj;
+                    }
+                }
+            }
+            return null;
+        }
     }
 }

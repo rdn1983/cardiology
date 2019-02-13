@@ -6,5 +6,7 @@ namespace Cardiology.Data.Commons
     public interface IDdtHolterService
     {
         IList<DdtHolter> GetAll();
+
+        DdtHolter GetById(string id);
     }
 }

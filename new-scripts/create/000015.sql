@@ -11,7 +11,7 @@ CREATE TABLE ddt_specialist_conclusion (
   dss_surgeon VARCHAR(512),
   dss_neuro_surgeon VARCHAR(512),
   dss_endocrinologist VARCHAR(512),
-  
+
   dsid_parent VARCHAR(16),
   dss_parent_type VARCHAR(30)
 );
@@ -25,13 +25,13 @@ CREATE FUNCTION dmtrg_f_ddt_specialist_conclusion_audit()
 language plpgsql
 as $BODY$
 BEGIN
-INSERT INTO ddt_history 
-(dsid_hospitality_session, dsid_patient, dsid_doctor, dsid_operation_id, dss_operation_type, dsdt_operation_date, dss_operation_name)
- VALUES (NEW.dsid_hospitality_session, NEW.dsid_patient, NEW.dsid_doctor, NEW.r_object_id, TG_TABLE_NAME, new.dsdt_analysis_date, 'Анализы: Заключение специалистов');
- RETURN NEW;
+  INSERT INTO ddt_history
+  (dsid_hospitality_session, dsid_patient, dsid_doctor, dsid_operation_id, dss_operation_type, dsdt_operation_date, dss_operation_name)
+  VALUES (NEW.dsid_hospitality_session, NEW.dsid_patient, NEW.dsid_doctor, NEW.r_object_id, TG_TABLE_NAME, new.dsdt_analysis_date, 'Анализы: Заключение специалистов');
+  RETURN NEW;
 END;
 $BODY$;
 
-CREATE TRIGGER ddt_specialist_conclusion_trg_фгвше AFTER INSERT 
-	ON ddt_specialist_conclusion FOR EACH ROW 
+CREATE TRIGGER ddt_specialist_conclusion_trg_audit AFTER INSERT
+  ON ddt_specialist_conclusion FOR EACH ROW
 EXECUTE PROCEDURE dmtrg_f_ddt_specialist_conclusion_audit();

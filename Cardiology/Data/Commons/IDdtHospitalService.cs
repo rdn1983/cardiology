@@ -8,6 +8,5 @@ namespace Cardiology.Data.Commons
         IList<DdtHospital> GetAll();
 
         DdtHospital GetById(string id);
-
     }
 }

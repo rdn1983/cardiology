@@ -6,5 +6,7 @@ namespace Cardiology.Data.Commons
     public interface IDdtHistoryService
     {
         IList<DdtHistory> GetAll();
+
+        DdtHistory GetById(string id);
     }
 }

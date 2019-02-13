@@ -5,27 +5,30 @@ using System.Windows.Forms;
 using Cardiology.Commons;
 using Cardiology.Data;
 using Cardiology.Data.Model;
+using Cardiology.Data.Model2;
+using DdtPatient = Cardiology.Data.Model2.DdtPatient;
 
 namespace Cardiology.UI.Forms
 {
     public partial class ReanimDEAD : Form
     {
+        private readonly IDbDataService service;
         private DdtPatient patient;
 
-        public ReanimDEAD(DdtPatient patient)
+        public ReanimDEAD(IDbDataService service, DdtPatient patient)
         {
+            this.service = service;
             this.patient = patient;
             InitializeComponent();
-            initializeDoctorsBox();
+            InitializeDoctorsBox();
         }
 
-        private void initializeDoctorsBox()
+        private void InitializeDoctorsBox()
         {
-            DataService service = new DataService();
-            List<DdtDoctors> doctors = service.queryObjectsCollection<DdtDoctors>(@"select * from ddt_doctors");
-            for (int i = 0; i < doctors.Count; i++)
+            IList<DdvDoctor> doctors = service.GetDdvDoctorService().GetAll();
+            foreach (var obj in doctors)
             {
-                doctorsBox.Items.Add(doctors[i]);
+                doctorsBox.Items.Add(obj);
             }
             doctorsBox.ValueMember = "ObjectId";
             doctorsBox.DisplayMember = "DssFullName";

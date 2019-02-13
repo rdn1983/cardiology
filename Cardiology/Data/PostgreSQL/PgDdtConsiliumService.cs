@@ -45,5 +45,35 @@ namespace Cardiology.Data.PostgreSQL
             }
             return list;
         }
+
+        public DdtConsilium GetById(string id)
+        {
+            using (dynamic connection = connectionFactory.GetConnection())
+            {
+                String sql = String.Format("SELECT dsid_hospitality_session, r_object_id, dss_goal, r_modify_date, dss_dynamics, dss_diagnosis, dss_duty_admin_name, r_creation_date, dsdt_consilium_date, dss_decision, dsid_doctor, dsid_patient FROM ddt_consilium WHERE r_object_id = '{0}'", id);
+                Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
+                using (DbDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        DdtConsilium obj = new DdtConsilium();
+                        obj.HospitalitySession = reader.GetString(1);
+                        obj.ObjectId = reader.GetString(2);
+                        obj.Goal = reader.GetString(3);
+                        obj.ModifyDate = reader.GetDateTime(4);
+                        obj.Dynamics = reader.GetString(5);
+                        obj.Diagnosis = reader.GetString(6);
+                        obj.DutyAdminName = reader.GetString(7);
+                        obj.CreationDate = reader.GetDateTime(8);
+                        obj.ConsiliumDate = reader.GetDateTime(9);
+                        obj.Decision = reader.GetString(10);
+                        obj.Doctor = reader.GetString(11);
+                        obj.Patient = reader.GetString(12);
+                        return obj;
+                    }
+                }
+            }
+            return null;
+        }
     }
 }

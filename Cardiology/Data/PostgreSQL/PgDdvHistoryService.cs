@@ -40,5 +40,30 @@ namespace Cardiology.Data.PostgreSQL
             }
             return list;
         }
+
+        public DdvHistory GetById(string id)
+        {
+            using (dynamic connection = connectionFactory.GetConnection())
+            {
+                String sql = String.Format("SELECT dsid_hospitality_session, dsid_operation_id, dsdt_operation_date, dss_description, dss_doctor_name, dss_operation_type, dss_operation_name FROM ddv_history WHERE r_object_id = '{0}'", id);
+                Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
+                using (DbDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        DdvHistory obj = new DdvHistory();
+                        obj.HospitalitySession = reader.GetString(1);
+                        obj.OperationId = reader.GetString(2);
+                        obj.OperationDate = reader.GetDateTime(3);
+                        obj.Description = reader.GetString(4);
+                        obj.DoctorName = reader.GetString(5);
+                        obj.OperationType = reader.GetString(6);
+                        obj.OperationName = reader.GetString(7);
+                        return obj;
+                    }
+                }
+            }
+            return null;
+        }
     }
 }

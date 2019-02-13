@@ -6,5 +6,7 @@ namespace Cardiology.Data.Commons
     public interface IDdtReleasePatientService
     {
         IList<DdtReleasePatient> GetAll();
+
+        DdtReleasePatient GetById(string id);
     }
 }

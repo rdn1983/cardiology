@@ -6,5 +6,7 @@ namespace Cardiology.Data.Commons
     public interface IDdtVariousSpecConclusonService
     {
         IList<DdtVariousSpecConcluson> GetAll();
+
+        DdtVariousSpecConcluson GetById(string id);
     }
 }

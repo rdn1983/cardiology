@@ -6,5 +6,7 @@ namespace Cardiology.Data.Commons
     public interface IDdtTransferService
     {
         IList<DdtTransfer> GetAll();
+
+        DdtTransfer GetById(string id);
     }
 }

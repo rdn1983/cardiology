@@ -6,5 +6,7 @@ namespace Cardiology.Data.Commons
     public interface IDdtEkgService
     {
         IList<DdtEkg> GetAll();
+
+        DdtEkg GetById(string id);
     }
 }

@@ -94,9 +94,9 @@ namespace Cardiology.UI.Forms
                 DataGridViewCell cell = row.Cells[0];
                 string value = cell.Value.ToString();
 
-                DdtHospital hospitalSession = service.GetDdtHospitalService().GetAll()<DdtHospital>(value);
-                DdtPatient patient = service.queryObjectById<DdtPatient>(hospitalSession.DsidPatient);
-                ReanimDEAD form = new ReanimDEAD(patient);
+                DdtHospital hospitalSession = service.GetDdtHospitalService().GetById(value);
+                DdtPatient patient = service.GetDdtPatientService().GetById(hospitalSession.Patient);
+                ReanimDEAD form = new ReanimDEAD(service, patient);
                 form.ShowDialog();
             }
 

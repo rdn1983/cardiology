@@ -6,5 +6,7 @@ namespace Cardiology.Data.Commons
     public interface IDdtConsiliumMemberService
     {
         IList<DdtConsiliumMember> GetAll();
+
+        DdtConsiliumMember GetById(string id);
     }
 }

@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using Cardiology.Commons;
 using Cardiology.Data;
-using Cardiology.Data.Model;
+using Cardiology.Data.Model2;
 using Cardiology.UI.Forms;
 
 namespace Cardiology.UI.Controls

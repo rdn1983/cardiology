@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Forms;
-using Cardiology.Data.Model;
+using Cardiology.Data.Model2;
 using static System.Windows.Forms.ComboBox;
 
 namespace Cardiology.Commons

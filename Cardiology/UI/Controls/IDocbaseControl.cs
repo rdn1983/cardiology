@@ -1,4 +1,4 @@
-﻿using Cardiology.Data.Model;
+﻿using Cardiology.Data.Model2;
 
 namespace Cardiology.UI.Controls
 {

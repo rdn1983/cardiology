@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using Cardiology.Data.Model;
+using Cardiology.Data.Model2;
 
 namespace Cardiology.Commons
 {

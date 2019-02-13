@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-using Cardiology.Data.Model;
+using Cardiology.Data.Model2;
 
 namespace Cardiology.UI.Forms
 {

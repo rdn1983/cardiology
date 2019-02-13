@@ -2,7 +2,7 @@
 using System.Windows.Forms;
 using Cardiology.Commons;
 using Cardiology.Data;
-using Cardiology.Data.Model;
+using Cardiology.Data.Model2;
 
 namespace Cardiology.UI.Forms
 {

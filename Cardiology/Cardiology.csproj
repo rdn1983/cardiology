@@ -343,42 +343,9 @@
     <Compile Include="UI\Forms\Inspection.Designer.cs">
       <DependentUpon>Inspection.cs</DependentUpon>
     </Compile>
-    <Compile Include="Data\Model\DdtAlcoProtocol.cs" />
-    <Compile Include="Data\Model\DdtAnamnesis.cs" />
-    <Compile Include="Data\Model\DdtBloodAnalysis.cs" />
-    <Compile Include="Data\Model\DdtCoagulogram.cs" />
-    <Compile Include="Data\Model\DdtConsilium.cs" />
-    <Compile Include="Data\Model\DdtConsiliumMember.cs" />
-    <Compile Include="Data\Model\DdtConsiliumMemberLevel.cs" />
-    <Compile Include="Data\Model\DdtCure.cs" />
-    <Compile Include="Data\Model\DdtCureType.cs" />
-    <Compile Include="Data\Model\DdtDoctors.cs" />
-    <Compile Include="Data\Model\DdtEgds.cs" />
-    <Compile Include="Data\Model\DdtEkg.cs" />
-    <Compile Include="Data\Model\DdtEpicrisis.cs" />
-    <Compile Include="Data\Model\DdtEpicrisisDsiType.cs" />
-    <Compile Include="Data\Model\DdtHolter.cs" />
-    <Compile Include="Data\Model\DdtHormones.cs" />
-    <Compile Include="Data\Model\DdtHospital.cs" />
-    <Compile Include="Data\Model\DdtInspection.cs" />
-    <Compile Include="Data\Model\DdtIssuedAction.cs" />
-    <Compile Include="Data\Model\DdtIssuedMedicine.cs" />
-    <Compile Include="Data\Model\DdtIssuedMedicineList.cs" />
-    <Compile Include="Data\Model\DdtJournal.cs" />
-    <Compile Include="Data\Model\DdtJournalDsiType.cs" />
-    <Compile Include="Data\Model\DdtKag.cs" />
-    <Compile Include="Data\Model\DdtOncologicMarkers.cs" />
-    <Compile Include="Data\Model\DdtReleasePatient.cs" />
-    <Compile Include="Data\Model\DdtSerology.cs" />
-    <Compile Include="Data\Model\DdtSpecialistConclusion.cs" />
-    <Compile Include="Data\Model\DdtTransfer.cs" />
-    <Compile Include="Data\Model\DdtUrineAnalysis.cs" />
-    <Compile Include="Data\Model\DdtUzi.cs" />
-    <Compile Include="Data\Model\DdtVariousSpecConcluson.cs" />
-    <Compile Include="Data\Model\DdtXRay.cs" />
-    <Compile Include="Data\Model\DdvHistory.cs" />
+    <Compile Include="Data\Model2\DdtEpicrisisDsiType.cs" />
+    <Compile Include="Data\Model2\DdtJournalDsiType.cs" />
     <Compile Include="UI\Controls\IDocbaseControl.cs" />
-    <Compile Include="Data\Model\DmGroup.cs" />
     <Compile Include="UI\Forms\PatientsHistory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -441,7 +408,6 @@
     <Compile Include="UI\Forms\IssuedMedicine.Designer.cs">
       <DependentUpon>IssuedMedicine.cs</DependentUpon>
     </Compile>
-    <Compile Include="Data\Model\DdtPatient.cs" />
     <Compile Include="UI\Forms\Perelivanie.cs">
       <SubType>Form</SubType>
     </Compile>

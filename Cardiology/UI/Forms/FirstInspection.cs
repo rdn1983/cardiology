@@ -5,7 +5,7 @@ using System.Text;
 using System.Windows.Forms;
 using Cardiology.Commons;
 using Cardiology.Data;
-using Cardiology.Data.Model;
+using Cardiology.Data.Model2;
 using Cardiology.UI.Controls;
 using DdtValues = Cardiology.Data.Model2.DdtValues;
 

@@ -46,7 +46,7 @@ namespace Cardiology.Commons
             values.Add("{diagnosis}", anamnesis.DssDiagnosis);
             values.Add("{justification}", anamnesis.DssJustification);
 
-            DdtDoctors doc = service.queryObjectById<DdtDoctors>(anamnesis.DsidDoctor);
+            DdvDoctor doc = service.queryObjectById<DdvDoctor>(anamnesis.DsidDoctor);
             values.Add("{cardio}", doc.DssInitials);
 
             DdtEkg ekg = service.queryObject<DdtEkg>(@"SELECT * from ddt_ekg WHERE dsid_hospitality_session='' and dsb_admission_analysis=true");

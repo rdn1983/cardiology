@@ -227,7 +227,7 @@ namespace Cardiology.UI.Forms
                 anamnesis.DsidPatient = hospitalSession.DsidPatient;
                 anamnesis.DsdtInspectionDate = DateTime.Now;
             }
-            DdtDoctors doc = getSafeObjectValueUni<DdtDoctors>(docBox, new getValue<DdtDoctors>((ctrl) => (DdtDoctors)((ComboBox)ctrl).SelectedItem));
+            DdvDoctor doc = getSafeObjectValueUni<DdvDoctor>(docBox, new getValue<DdvDoctor>((ctrl) => (DdvDoctor)((ComboBox)ctrl).SelectedItem));
             anamnesis.DsidDoctor = doc.ObjectId;
 
             anamnesis.DssAccompayingIll = getSafeStringValue(accompanyingIllnessesTxt);
@@ -287,7 +287,7 @@ namespace Cardiology.UI.Forms
                 {
                     med.DsidMedList = medList.ObjectId;
 
-                    service.updateOrCreateIfNeedObject<DdtIssuedMedicine>(med, DdtIssuedMedicine.TABLE_NAME, med.RObjectId);
+                    service.updateOrCreateIfNeedObject<DdtIssuedMedicine>(med, DdtIssuedMedicine.TABLE_NAME, med.ObjectId);
                 }
             }
 
@@ -301,7 +301,7 @@ namespace Cardiology.UI.Forms
             {
                 foreach (DdtIssuedAction med in meds)
                 {
-                    if (string.IsNullOrEmpty(med.RObjectId) || string.IsNullOrEmpty(med.DsidDoctor))
+                    if (string.IsNullOrEmpty(med.ObjectId) || string.IsNullOrEmpty(med.DsidDoctor))
                     {
                         med.DsidParentId = anamnesis.ObjectId;
                         med.DsidDoctor = hospitalSession.DsidCuringDoctor;
@@ -310,7 +310,7 @@ namespace Cardiology.UI.Forms
                         med.DsdtIssuingDate = DateTime.Now;
                     }
 
-                    med.RObjectId = service.updateOrCreateIfNeedObject<DdtIssuedAction>(med, DdtIssuedAction.TABLE_NAME, med.RObjectId);
+                    med.ObjectId = service.updateOrCreateIfNeedObject<DdtIssuedAction>(med, DdtIssuedAction.TABLE_NAME, med.ObjectId);
                 }
                 issuedActionContainer.init(service, meds);
             }

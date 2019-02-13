@@ -52,7 +52,7 @@ namespace Cardiology.UI.Forms
                 {
                     diagnosisTxt.Text = kagJournal.DssDiagnosis;
                     DdtVariousSpecConcluson releaseConclusion = service.queryObject<DdtVariousSpecConcluson>("SELECt * FROM " + DdtVariousSpecConcluson.TABLE_NAME +
-                       " WHERE dsid_parent='" + kagJournal.RObjectId + "' AND dsb_additional_bool=true");
+                       " WHERE dsid_parent='" + kagJournal.ObjectId + "' AND dsb_additional_bool=true");
                     if (releaseConclusion != null)
                     {
                         inspectionTxt.Text = releaseConclusion.DssSpecialistConclusion;
@@ -73,7 +73,7 @@ namespace Cardiology.UI.Forms
         {
             if (inspectionObj != null)
             {
-                List<DdtEkg> ekgAnalysis = service.queryObjectsCollection<DdtEkg>(@"SELECT * FROM " + DdtEkg.TABLE_NAME + " WHERE dsid_parent='" + inspectionObj.RObjectId + "'");
+                List<DdtEkg> ekgAnalysis = service.queryObjectsCollection<DdtEkg>(@"SELECT * FROM " + DdtEkg.TABLE_NAME + " WHERE dsid_parent='" + inspectionObj.ObjectId + "'");
                 foreach (DdtEkg ekgObj in ekgAnalysis)
                 {
                     TableLayoutPanel container = getTabContainer("ekgTab", "ЭКГ", false);
@@ -82,7 +82,7 @@ namespace Cardiology.UI.Forms
                 }
 
                 List<DdtSpecialistConclusion> specs = service.queryObjectsCollection<DdtSpecialistConclusion>(@"SELECT * FROM " +
-                    DdtSpecialistConclusion.TABLE_NAME + " WHERE dsid_parent='" + inspectionObj.RObjectId + "'");
+                    DdtSpecialistConclusion.TABLE_NAME + " WHERE dsid_parent='" + inspectionObj.ObjectId + "'");
                 foreach (DdtSpecialistConclusion obj in specs)
                 {
                     TableLayoutPanel container = getTabContainer("specsTab", "Заключения специалистов", true);
@@ -91,7 +91,7 @@ namespace Cardiology.UI.Forms
                 }
 
                 List<DdtHolter> holters = service.queryObjectsCollection<DdtHolter>(@"SELECT * FROM " + DdtHolter.TABLE_NAME +
-                    " WHERE dsid_parent='" + inspectionObj.RObjectId + "'");
+                    " WHERE dsid_parent='" + inspectionObj.ObjectId + "'");
                 foreach (DdtHolter obj in holters)
                 {
                     TableLayoutPanel container = getTabContainer("holterTab", "Холтер", true);
@@ -100,16 +100,16 @@ namespace Cardiology.UI.Forms
                 }
 
                 List<DdtBloodAnalysis> bloods = service.queryObjectsCollection<DdtBloodAnalysis>(@"SELECT * FROM " +
-                    DdtBloodAnalysis.TABLE_NAME + " WHERE dsid_parent='" + inspectionObj.RObjectId + "'");
+                    DdtBloodAnalysis.TABLE_NAME + " WHERE dsid_parent='" + inspectionObj.ObjectId + "'");
                 foreach (DdtBloodAnalysis obj in bloods)
                 {
                     TableLayoutPanel container = getTabContainer("bloodTab", "Анализы крови", true);
-                    BloodAnalysisControl blood = new BloodAnalysisControl(obj.RObjectId, false);
+                    BloodAnalysisControl blood = new BloodAnalysisControl(obj.ObjectId, false);
                     container.Controls.Add(blood);
                 }
 
                 List<DdtUzi> uzis = service.queryObjectsCollection<DdtUzi>(@"SELECT * FROM " + DdtUzi.TABLE_NAME +
-                    " WHERE dsid_parent='" + inspectionObj.RObjectId + "'");
+                    " WHERE dsid_parent='" + inspectionObj.ObjectId + "'");
                 foreach (DdtUzi obj in uzis)
                 {
                     TableLayoutPanel container = getTabContainer("uziTab", "УЗИ", false);
@@ -124,7 +124,7 @@ namespace Cardiology.UI.Forms
             bool hasKag = false;
             if (kagJournal != null)
             {
-                DdtKag kag = service.queryObjectByAttrCond<DdtKag>(DdtKag.TABLE_NAME, "dsid_parent", kagJournal.RObjectId, true);
+                DdtKag kag = service.queryObjectByAttrCond<DdtKag>(DdtKag.TABLE_NAME, "dsid_parent", kagJournal.ObjectId, true);
                 if (kag != null)
                 {
                     kagId = kag.ObjectId;
@@ -193,8 +193,8 @@ namespace Cardiology.UI.Forms
             inspectionObj.DssInspectionResult = getSafeStringValue(resultTxt);
             inspectionObj.DssKateterPlacement = getSafeStringValue(kateterPlacementTxt);
             inspectionObj.DsdtInspectionDate = CommonUtils.ConstructDateWIthTime(inspectionDate.Value, inspectionTime.Value);
-            string id = service.updateOrCreateIfNeedObject<DdtInspection>(inspectionObj, DdtInspection.TABLE_NAME, inspectionObj.RObjectId);
-            inspectionObj.RObjectId = id;
+            string id = service.updateOrCreateIfNeedObject<DdtInspection>(inspectionObj, DdtInspection.TABLE_NAME, inspectionObj.ObjectId);
+            inspectionObj.ObjectId = id;
         }
 
 
@@ -216,7 +216,7 @@ namespace Cardiology.UI.Forms
             {
                 IDocbaseControl control = getSafeObjectValueUni(tabCntr, new getValue<IDocbaseControl>((ctrl) 
                     => (IDocbaseControl)((TableLayoutPanel)ctrl).Controls[i]));
-                control.saveObject(hospitalitySession, inspectionObj.RObjectId, DdtInspection.TABLE_NAME);
+                control.saveObject(hospitalitySession, inspectionObj.ObjectId, DdtInspection.TABLE_NAME);
             }
         }
 
@@ -315,7 +315,7 @@ namespace Cardiology.UI.Forms
             ITemplateProcessor tp = TemplateProcessorManager.getProcessorByObjectType(DdtInspection.TABLE_NAME);
             if (tp != null)
             {
-                string filled = tp.processTemplate(hospitalitySession.ObjectId, inspectionObj.RObjectId, new Dictionary<string, string>());
+                string filled = tp.processTemplate(hospitalitySession.ObjectId, inspectionObj.ObjectId, new Dictionary<string, string>());
                 TemplatesUtils.showDocument(filled);
             }
         }

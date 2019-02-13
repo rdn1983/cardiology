@@ -42,14 +42,14 @@ namespace Cardiology.Commons
             values.Add("{patient.initials}", patient == null ? "" : patient.DssInitials);
             values.Add("{patient.age}", patient == null ? "" : (DateTime.Now.Year - patient.DsdtBirthdate.Year) + "");
 
-            DdtDoctors doc = service.queryObjectById<DdtDoctors>(obj.DsidDoctor);
+            DdvDoctor doc = service.queryObjectById<DdvDoctor>(obj.DsidDoctor);
             values.Add("{doctor.who.short}", doc == null ? "" : doc.DssInitials);
 
-            putBloodData(values, service, obj.RObjectId);
-            putEkgData(values, service, obj.RObjectId);
-            putHolterData(values, service, obj.RObjectId);
-            putSpecialistData(values, service, obj.RObjectId);
-            putUziData(values, service, obj.RObjectId);
+            putBloodData(values, service, obj.ObjectId);
+            putEkgData(values, service, obj.ObjectId);
+            putHolterData(values, service, obj.ObjectId);
+            putSpecialistData(values, service, obj.ObjectId);
+            putUziData(values, service, obj.ObjectId);
             putKagData(values, service, obj.DsidHospitalitySession);
 
             return TemplatesUtils.fillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + TEMPLATE_FILE_NAME, values);
@@ -95,7 +95,7 @@ namespace Cardiology.Commons
                    " ORDER BY dsdt_admission_date desc");
             if (kagJournal != null)
             {
-                DdtKag kag = service.queryObjectByAttrCond<DdtKag>(DdtKag.TABLE_NAME, "dsid_parent", kagJournal.RObjectId, true);
+                DdtKag kag = service.queryObjectByAttrCond<DdtKag>(DdtKag.TABLE_NAME, "dsid_parent", kagJournal.ObjectId, true);
                 if (kag != null)
                 {
                     bld.Append("Пациент в экстренном порядке проведена КАГ. Коронарография от ")

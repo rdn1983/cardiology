@@ -77,7 +77,7 @@ namespace Cardiology.UI.Controls
                 bloodObj.DsidPatient = hospitalitySession.DsidPatient;
                 bloodObj.DssParentType = parentType == null ? bloodObj.DssParentType : parentType;
                 bloodObj.DsidParent = parentId == null ? bloodObj.DsidParent : parentId;
-                objectId = service.updateOrCreateIfNeedObject<DdtBloodAnalysis>(bloodObj, DdtBloodAnalysis.TABLE_NAME, bloodObj.RObjectId);
+                objectId = service.updateOrCreateIfNeedObject<DdtBloodAnalysis>(bloodObj, DdtBloodAnalysis.TABLE_NAME, bloodObj.ObjectId);
                 hasChanges = false;
                 isNew = false;
             }
@@ -158,8 +158,8 @@ namespace Cardiology.UI.Controls
                 regularSchfTxt.Text = blood.DsdSchf;
                 regularSodiumTxt.Text = blood.DsdSodium;
                 regularSrbTxt.Text = blood.DsdSrp;
-                objectId = blood.RObjectId;
-                isNew = string.IsNullOrEmpty(blood.RObjectId);
+                objectId = blood.ObjectId;
+                isNew = string.IsNullOrEmpty(blood.ObjectId);
                 hasChanges = false;
             }
 

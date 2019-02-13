@@ -23,7 +23,7 @@ namespace Cardiology.UI.Forms
             data.Add("{from_date}", fromDate.Value.ToShortDateString());
             data.Add("{from_time}", fromTime.Value.ToShortTimeString());
             data.Add("{to_time}", toTime.Value.ToShortTimeString());
-            DdtDoctors doc = (DdtDoctors)doctorsBox.SelectedItem;
+            DdvDoctor doc = (DdvDoctor)doctorsBox.SelectedItem;
             data.Add("{doctor.selected}", doc == null ? "" : doc.DssInitials);
             TemplatesUtils.fillAmbulanceLetterTemplate("gkb_yudina_letter_template.doc", hospitalitySession.ObjectId, data);
         }
@@ -34,7 +34,7 @@ namespace Cardiology.UI.Forms
             data.Add("{from_date}", fromDate.Value.ToShortDateString());
             data.Add("{from_time}", fromTime.Value.ToShortTimeString());
             data.Add("{to_time}", toTime.Value.ToShortTimeString());
-            DdtDoctors doc = (DdtDoctors)doctorsBox.SelectedItem;
+            DdvDoctor doc = (DdvDoctor)doctorsBox.SelectedItem;
             data.Add("{doctor.selected}", doc == null ? "" : doc.DssInitials);
             TemplatesUtils.fillAmbulanceLetterTemplate("gkb_buyanova_letter_template.doc", hospitalitySession.ObjectId, data);
         }
@@ -45,7 +45,7 @@ namespace Cardiology.UI.Forms
             data.Add("{from_date}", fromDate.Value.ToShortDateString());
             data.Add("{from_time}", fromTime.Value.ToShortTimeString());
             data.Add("{to_time}", toTime.Value.ToShortTimeString());
-            DdtDoctors doc = (DdtDoctors)doctorsBox.SelectedItem;
+            DdvDoctor doc = (DdvDoctor)doctorsBox.SelectedItem;
             data.Add("{doctor.selected}", doc == null ? "" : doc.DssInitials);
             TemplatesUtils.fillAmbulanceLetterTemplate("lrc_letter_template.doc", hospitalitySession.ObjectId, data);
         }
@@ -56,7 +56,7 @@ namespace Cardiology.UI.Forms
             data.Add("{from_date}", fromDate.Value.ToShortDateString());
             data.Add("{from_time}", fromTime.Value.ToShortTimeString());
             data.Add("{to_time}", toTime.Value.ToShortTimeString());
-            DdtDoctors doc = (DdtDoctors)doctorsBox.SelectedItem;
+            DdvDoctor doc = (DdvDoctor)doctorsBox.SelectedItem;
             data.Add("{doctor.selected}", doc == null ? "" : doc.DssInitials);
             TemplatesUtils.fillAmbulanceLetterTemplate("gkb83_letter_template.doc", hospitalitySession.ObjectId, data);
         }
@@ -67,7 +67,7 @@ namespace Cardiology.UI.Forms
             data.Add("{from_date}", fromDate.Value.ToShortDateString());
             data.Add("{from_time}", fromTime.Value.ToShortTimeString());
             data.Add("{to_time}", toTime.Value.ToShortTimeString());
-            DdtDoctors doc = (DdtDoctors)doctorsBox.SelectedItem;
+            DdvDoctor doc = (DdvDoctor)doctorsBox.SelectedItem;
             data.Add("{doctor.selected}", doc == null ? "" : doc.DssInitials);
             TemplatesUtils.fillAmbulanceLetterTemplate("msch60_letter_template.doc", hospitalitySession.ObjectId, data);
         }
@@ -78,7 +78,7 @@ namespace Cardiology.UI.Forms
             data.Add("{from_date}", fromDate.Value.ToShortDateString());
             data.Add("{from_time}", fromTime.Value.ToShortTimeString());
             data.Add("{to_time}", toTime.Value.ToShortTimeString());
-            DdtDoctors doc = (DdtDoctors)doctorsBox.SelectedItem;
+            DdvDoctor doc = (DdvDoctor)doctorsBox.SelectedItem;
             data.Add("{doctor.selected}", doc == null ? "" : doc.DssInitials);
             TemplatesUtils.fillAmbulanceLetterTemplate("gkb52_letter_template.doc", hospitalitySession.ObjectId, data);
         }

@@ -19,7 +19,7 @@ namespace Cardiology.Commons
             DdtHospital hospitalSession = service.queryObjectById<DdtHospital>(hospitalSessionId);
             if (hospitalSession != null)
             {
-                DdtDoctors doc = service.queryObjectById<DdtDoctors>(hospitalSession.DsidCuringDoctor);
+                DdvDoctor doc = service.queryObjectById<DdvDoctor>(hospitalSession.DsidCuringDoctor);
                 DdtPatient patient = service.queryObjectById<DdtPatient>(hospitalSession.DsidPatient);
                 values.Add(@"{doctor.who.short}", doc.DssInitials);
                 values.Add(@"{patient.initials}", patient.DssInitials);
@@ -32,10 +32,10 @@ namespace Cardiology.Commons
                 values.Add(@"{patient.fullname}", patient.DssFullName);
                 values.Add(@"{date}", DateTime.Now.ToShortDateString());
 
-                doc = service.queryObject<DdtDoctors>(@"SELECT * FROM " + DdtDoctors.TABLE_NAME +" where dss_login IN " +
+                doc = service.queryObject<DdvDoctor>(@"SELECT * FROM " + DdvDoctor.TABLE_NAME +" where dss_login IN " +
                     "(select dss_user_name FROM dm_group_users WHERE dss_group_name ='io_cardio_reanim')");
                 values.Add(@"{doctor.io.department}", doc.DssInitials);
-                doc = service.queryObject<DdtDoctors>(@"SELECT * FROM " + DdtDoctors.TABLE_NAME + " where dss_login IN " +
+                doc = service.queryObject<DdvDoctor>(@"SELECT * FROM " + DdvDoctor.TABLE_NAME + " where dss_login IN " +
                     "(select dss_user_name FROM dm_group_users WHERE dss_group_name ='io_therapy')");
                 values.Add(@"{doctor.io.hospital}", doc.DssInitials);
             }
@@ -47,7 +47,7 @@ namespace Cardiology.Commons
         {
             DataService service = new DataService();
             DdtHospital hospitalSession = service.queryObjectById<DdtHospital>(hospitalSessionId);
-            DdtDoctors doc = service.queryObjectById<DdtDoctors>(hospitalSession.DsidCuringDoctor);
+            DdvDoctor doc = service.queryObjectById<DdvDoctor>(hospitalSession.DsidCuringDoctor);
             DdtPatient patient = service.queryObjectById<DdtPatient>(hospitalSession.DsidPatient);
             values.Add(@"{doctor.who.short}", doc.DssInitials);
             values.Add(@"{patient.initials}", patient.DssInitials);

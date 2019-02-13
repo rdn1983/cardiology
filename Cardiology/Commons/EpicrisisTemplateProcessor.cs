@@ -62,13 +62,13 @@ namespace Cardiology.Commons
             }
             values.Add("{serology}", serology == null ? " " : serologyBld.ToString());
 
-            DdtEkg ekg = service.queryObject<DdtEkg>(@"SELECT * FROM ddt_ekg where dsid_parent='" + obj.RObjectId + "'");
+            DdtEkg ekg = service.queryObject<DdtEkg>(@"SELECT * FROM ddt_ekg where dsid_parent='" + obj.ObjectId + "'");
             values.Add("{analysis.ekg}", ekg == null ? " " : "ЭКГ:" + ekg.DssEkg);
-            DdtXRay xray = service.queryObject<DdtXRay>(@"SELECT * FROM ddt_xray where dsid_parent='" + obj.RObjectId + "'");
+            DdtXRay xray = service.queryObject<DdtXRay>(@"SELECT * FROM ddt_xray where dsid_parent='" + obj.ObjectId + "'");
             values.Add("{analysis.xray}", xray == null ? " " : "Рентген:" + xray.DssChestXray);
-            DdtEgds egds = service.queryObject<DdtEgds>(@"SELECT * FROM ddt_egds where dsid_parent='" + obj.RObjectId + "'");
+            DdtEgds egds = service.queryObject<DdtEgds>(@"SELECT * FROM ddt_egds where dsid_parent='" + obj.ObjectId + "'");
             values.Add("{analysis.egds}", egds == null ? " " : "ЭГДС:" + egds.DssEgds);
-            DdtBloodAnalysis blood = service.queryObject<DdtBloodAnalysis>(@"SELECT * FROM ddt_blood_analysis where dsid_parent='" + obj.RObjectId + "'");
+            DdtBloodAnalysis blood = service.queryObject<DdtBloodAnalysis>(@"SELECT * FROM ddt_blood_analysis where dsid_parent='" + obj.ObjectId + "'");
             StringBuilder bloodStr = new StringBuilder();
             if (blood != null)
             {
@@ -100,7 +100,7 @@ namespace Cardiology.Commons
             }
                 values.Add("{analysis.blood}", blood == null ? " " : "Анализы крови:" + bloodStr);
             values.Add("{analysis.urine}", " ");
-            DdtUzi uzi = service.queryObject<DdtUzi>(@"SELECT * FROM ddt_uzi where dsid_parent='" + obj.RObjectId + "'");
+            DdtUzi uzi = service.queryObject<DdtUzi>(@"SELECT * FROM ddt_uzi where dsid_parent='" + obj.ObjectId + "'");
             StringBuilder uziStr = new StringBuilder();
             if (uzi != null)
             {
@@ -129,7 +129,7 @@ namespace Cardiology.Commons
                 values.Add("{conclusion}", " ");
             }
 
-            DdtDoctors doc = service.queryObjectById<DdtDoctors>(obj.DsidDoctor);
+            DdvDoctor doc = service.queryObjectById<DdvDoctor>(obj.DsidDoctor);
             values.Add("{doctor.who.short}", doc.DssInitials);
 
             return TemplatesUtils.fillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + getTemplateName(obj), values);

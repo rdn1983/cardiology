@@ -59,7 +59,7 @@ namespace Cardiology.UI.Controls
                     kag.DssParentType = parentType;
                 }
 
-                objectId = service.updateOrCreateIfNeedObject<DdtOncologicMarkers>(kag, DdtOncologicMarkers.TABLE_NAME, kag.RObjectId);
+                objectId = service.updateOrCreateIfNeedObject<DdtOncologicMarkers>(kag, DdtOncologicMarkers.TABLE_NAME, kag.ObjectId);
                 isNew = false;
                 hasChanges = false;
             }
@@ -119,7 +119,7 @@ namespace Cardiology.UI.Controls
                 admissionDateTxt.Value = startTime;
                 admissionTimeTxt.Value = startTime;
                 cntr.Text = "Онкомаркеры за " + marker.RCreationDate.ToShortDateString();
-                objectId = marker.RObjectId;
+                objectId = marker.ObjectId;
                 isNew = string.IsNullOrEmpty(objectId);
                 hasChanges = false;
             }

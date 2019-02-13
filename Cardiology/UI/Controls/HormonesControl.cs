@@ -47,7 +47,7 @@ namespace Cardiology.UI.Controls
                 hormones.DsidHospitalitySession = hospitalitySession.ObjectId;
                 hormones.DsidDoctor = hospitalitySession.DsidCuringDoctor;
                 hormones.DsidPatient = hospitalitySession.DsidPatient;
-                objectId = service.updateOrCreateIfNeedObject<DdtHormones>(hormones, DdtHormones.TABLE_NAME, hormones.RObjectId);
+                objectId = service.updateOrCreateIfNeedObject<DdtHormones>(hormones, DdtHormones.TABLE_NAME, hormones.ObjectId);
                 isNew = false;
                 hasChanges = false;
             }
@@ -88,7 +88,7 @@ namespace Cardiology.UI.Controls
                 ttgTxt.Text = hormones.DssTtg;
                 t3Txt.Text = hormones.DssT3;
                 hormonesPnl.Text = "Гормоны за " + hormones.DsdtAnalysisDate.ToShortDateString();
-                objectId = hormones.RObjectId;
+                objectId = hormones.ObjectId;
                 isNew = string.IsNullOrEmpty(objectId);
                 hasChanges = false;
             }

@@ -58,7 +58,7 @@ namespace Cardiology.UI.Controls
                 goodRhytmBtn0.Checked = "синусовый ритм".Equals(journal.DssAdditionalInfo4);
                 badRhytmBtn0.Checked = !"синусовый ритм".Equals(journal.DssAdditionalInfo4);
                 monitorTxt0.Text = journal.DssAdditionalInfo4;
-                objId = journal.RObjectId;
+                objId = journal.ObjectId;
                 isNew = string.IsNullOrEmpty(objId);
                 hasChanges = false;
                 isReleaseJournal = journal.DsbAdditionalBool;
@@ -84,7 +84,7 @@ namespace Cardiology.UI.Controls
             {
                 result = new DdtVariousSpecConcluson();
             }
-            result.RObjectId = objId;
+            result.ObjectId = objId;
             result.DsdtAdmissionDate = CommonUtils.ConstructDateWIthTime(inspectionDate0.Value, inspectionTime0.Value);
             result.DssSpecialistConclusion = journalTxt.Text;
             result.DssAdditionalInfo1 = chddTxt.Text;
@@ -136,7 +136,7 @@ namespace Cardiology.UI.Controls
             conclusion.DssSpecialistType = "Дежурный кардиореаниматолог";
             conclusion.DsbAdditionalBool = isReleaseJournal;
             DataService service = new DataService();
-            objId = service.updateOrCreateIfNeedObject<DdtVariousSpecConcluson>(conclusion, DdtVariousSpecConcluson.TABLE_NAME, conclusion.RObjectId);
+            objId = service.updateOrCreateIfNeedObject<DdtVariousSpecConcluson>(conclusion, DdtVariousSpecConcluson.TABLE_NAME, conclusion.ObjectId);
             isNew = false;
             hasChanges = false;
         }

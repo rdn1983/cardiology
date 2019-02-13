@@ -23,7 +23,7 @@ namespace Cardiology.UI.Controls
             if (obj != null)
             {
                 issuedActionTxt.Text = obj.DssAction;
-                objectId = obj.RObjectId;
+                objectId = obj.ObjectId;
             }
         }
 

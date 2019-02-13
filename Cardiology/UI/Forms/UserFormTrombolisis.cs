@@ -22,7 +22,7 @@ namespace Cardiology.UI.Forms
         private void initializeDoctorsBox()
         {
             DataService service = new DataService();
-            List<DdtDoctors> doctors = service.queryObjectsCollection<DdtDoctors>(@"select * from ddt_doctors");
+            List<DdvDoctor> doctors = service.queryObjectsCollection<DdvDoctor>(@"select * from ddt_doctors");
             foreach (var obj in doctors)
             {
                 doctorOkrCB.Items.Add(obj);

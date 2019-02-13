@@ -28,7 +28,7 @@ namespace Cardiology.Commons
             }
             DataService service = new DataService();
             DdtJournal journal = service.queryObjectById<DdtJournal>(objectId);
-            DdtDoctors doc = service.queryObjectById<DdtDoctors>(journal.DsidDoctor);
+            DdvDoctor doc = service.queryObjectById<DdvDoctor>(journal.DsidDoctor);
             values.Add("{doctor.initials}", doc == null ? "" : doc.DssInitials);
 
             List<string> partsPaths = new List<string>();
@@ -52,13 +52,13 @@ namespace Cardiology.Commons
         }
 
 
-        private List<string> collectKagJournalPaths(DataService service, DdtJournal journal, DdtDoctors doc, Dictionary<string, string> values)
+        private List<string> collectKagJournalPaths(DataService service, DdtJournal journal, DdvDoctor doc, Dictionary<string, string> values)
         {
             List<string> partsPaths = new List<string>();
 
             List<DdtVariousSpecConcluson> cardioConclusions = service.queryObjectsCollection<DdtVariousSpecConcluson>("Select * from " +
-                DdtVariousSpecConcluson.TABLE_NAME + " WHERE dsid_parent='" + journal.RObjectId + "' AND dsb_additional_bool=false order by dsdt_admission_date");
-            DdtKag kag = service.queryObjectByAttrCond<DdtKag>(DdtKag.TABLE_NAME, "dsid_parent", journal.RObjectId, true);
+                DdtVariousSpecConcluson.TABLE_NAME + " WHERE dsid_parent='" + journal.ObjectId + "' AND dsb_additional_bool=false order by dsdt_admission_date");
+            DdtKag kag = service.queryObjectByAttrCond<DdtKag>(DdtKag.TABLE_NAME, "dsid_parent", journal.ObjectId, true);
 
             DateTime journalDate = journal.DsdtAdmissionDate;
             if (cardioConclusions.Count > 0)
@@ -103,7 +103,7 @@ namespace Cardiology.Commons
             }
 
             DdtVariousSpecConcluson releaseConclusion = service.queryObject<DdtVariousSpecConcluson>("Select * from " + DdtVariousSpecConcluson.TABLE_NAME +
-                " WHERE dsid_parent='" + journal.RObjectId + "' AND dsb_additional_bool=true");
+                " WHERE dsid_parent='" + journal.ObjectId + "' AND dsb_additional_bool=true");
             if (releaseConclusion != null)
             {
                 Dictionary<string, string> conclusionValues = new Dictionary<string, string>();

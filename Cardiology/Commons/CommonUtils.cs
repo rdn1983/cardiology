@@ -22,7 +22,7 @@ namespace Cardiology.Commons
         {
             cb.Items.Clear();
             string query = @"SELECT * FROM ddt_doctors " + (string.IsNullOrEmpty(whereCnd) ? "" : (" WHERE " + whereCnd));
-            List<DdtDoctors> doctors = service.queryObjectsCollection<DdtDoctors>(query);
+            List<DdvDoctor> doctors = service.queryObjectsCollection<DdvDoctor>(query);
             cb.Items.AddRange(doctors.ToArray());
             cb.ValueMember = "ObjectId";
             cb.DisplayMember = "DssInitials";
@@ -32,7 +32,7 @@ namespace Cardiology.Commons
         {
             cb.Items.Clear();
             string query = @"SELECT doc.* FROM ddt_doctors doc , dm_group_users gr WHERE gr.dss_group_name='" + groupName + "' AND gr.dss_user_name=doc.dss_login";
-            List<DdtDoctors> doctors = service.queryObjectsCollection<DdtDoctors>(query);
+            List<DdvDoctor> doctors = service.queryObjectsCollection<DdvDoctor>(query);
             cb.Items.AddRange(doctors.ToArray());
             cb.ValueMember = "ObjectId";
             cb.DisplayMember = "DssInitials";
@@ -63,7 +63,7 @@ namespace Cardiology.Commons
             if (!string.IsNullOrEmpty(dsidCuringDoctor))
             {
                 string query = @"SELECT * FROM ddt_doctors WHERE r_object_id = '" + dsidCuringDoctor + "'";
-                DdtDoctors doctor = service.queryObjectById<DdtDoctors>(dsidCuringDoctor);
+                DdvDoctor doctor = service.queryObjectById<DdvDoctor>(dsidCuringDoctor);
                 cb.SelectedIndex = cb.FindStringExact(doctor.DssInitials);
             }
         }

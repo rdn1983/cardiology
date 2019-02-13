@@ -91,7 +91,7 @@ namespace Cardiology.UI.Forms
             protocol.DssWalk = walkTxt.Text;
             protocol.DssCause = causeTxt.Text;
 
-            service.updateOrCreateIfNeedObject<DdtAlcoProtocol>(protocol, DdtAlcoProtocol.TABLE_NAME, protocol.RObjectId);
+            service.updateOrCreateIfNeedObject<DdtAlcoProtocol>(protocol, DdtAlcoProtocol.TABLE_NAME, protocol.ObjectId);
             Close();
         }
     }

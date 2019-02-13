@@ -31,15 +31,15 @@ namespace Cardiology.Commons
             values.Add(@"{consilium.date}", DateTime.Now.ToString("dd.MM.yyyy"));
             values.Add(@"{consilium.time}", DateTime.Now.ToString("HH:mm"));
             values.Add(@"{consilium.members}", getMembersInString(service, objectId));
-            values.Add(@"{admin}", obj?.DssDutyAdminName);
-            values.Add(@"{doctor.who}", getDoctorInString(service, obj.DsidDoctor));
-            values.Add(@"{consilium.goal}", obj.DssGoal);
-            DdtPatient patient = service.queryObjectById<DdtPatient>(obj.DsidPatient);
+            values.Add(@"{admin}", obj?.DutyAdminName);
+            values.Add(@"{doctor.who}", getDoctorInString(service, obj.Doctor));
+            values.Add(@"{consilium.goal}", obj.Goal);
+            DdtPatient patient = service.queryObjectById<DdtPatient>(obj.Patient);
             values.Add(@"{patient.initials}", patient.DssInitials);
-            values.Add(@"{patient.age}", (DateTime.Now.Year - patient.DsdtBirthdate.Year) + "");
-            values.Add(@"{patient.diagnosis}", obj.DssDiagnosis);
-            values.Add(@"{consilium.decision}", obj.DssDecision);
-            values.Add(@"{journal}", obj.DssDynamics);
+            values.Add(@"{patient.age}", (DateTime.Now.Year - patient.Birthdate.Year) + "");
+            values.Add(@"{patient.diagnosis}", obj.Diagnosis);
+            values.Add(@"{consilium.decision}", obj.Decision);
+            values.Add(@"{journal}", obj.Dynamics);
 
             putEkgData(values, service, hospitalitySession);
             putBloodData(values, service, hospitalitySession);
@@ -49,8 +49,8 @@ namespace Cardiology.Commons
 
         private string getDoctorInString(DataService service, String doctorId)
         {
-            DdtDoctors doc = service.queryObjectById<DdtDoctors>(doctorId);
-            return doc.DssInitials;
+            DdvDoctor doc = service.queryObjectById<DdvDoctor>(doctorId);
+            return doc.ShortName;
         }
 
         private string getMembersInString(DataService service, string consiliumId)
@@ -66,7 +66,7 @@ namespace Cardiology.Commons
                 DdtConsiliumMemberLevel groupLevel = service.queryObjectByAttrCond<DdtConsiliumMemberLevel>(DdtConsiliumMemberLevel.TABLE_NAME, "dss_group_name", mm.DssGroupName, true);
                 DmGroup group = service.queryObjectByAttrCond<DmGroup>(DmGroup.TABLE_NAME, "dss_name", mm.DssGroupName, true);
                 if (!sortedMembers.ContainsKey(groupLevel.DsiLevel + " " + group.DssDescription + " " + mm.DssDoctorName)) {
-                    sortedMembers.Add(groupLevel.DsiLevel + " " + group.DssDescription + " " + mm.DssDoctorName, group.DssDescription + " " + mm.DssDoctorName);
+                    sortedMembers.Add(groupLevel.DsiLevel + " " + group.DssDescription + " " + mm.DoctorName, group.Description + " " + mm.DoctorName);
                 }
             }
 
@@ -89,28 +89,28 @@ namespace Cardiology.Commons
             StringBuilder bloodBld = new StringBuilder();
             if (bloods != null)
             {
-                bloodBld.Append(bloods.DsdtAnalysisDate.ToShortDateString()).Append(" ");
+                bloodBld.Append(bloods.AnalysisDate.ToShortDateString()).Append(" ");
 
-                if (String.IsNullOrEmpty(bloods.DsdCreatinine + bloods.DsdAlt + bloods.DsdAst + bloods.DsdKfk + bloods.DsdKfkMv + bloods.DsdProtein + bloods.DsdLeucocytes))
+                if (String.IsNullOrEmpty(bloods.Creatinine + bloods.Alt + bloods.Ast + bloods.Kfk + bloods.KfkMv + bloods.Protein + bloods.Leucocytes))
                 {
                     bloodBld.Append("Анализы в работе");
                 }
                 else
                 {
-                    if (!String.IsNullOrEmpty(bloods.DsdCreatinine))
-                        bloodBld.Append("креатинин").Append(" ").Append(bloods.DsdCreatinine).Append(" ");
-                    if (!String.IsNullOrEmpty(bloods.DsdAlt))
-                        bloodBld.Append("АЛТ").Append(" ").Append(bloods.DsdAlt).Append(" ");
-                    if (!String.IsNullOrEmpty(bloods.DsdAst))
-                        bloodBld.Append("АСТ").Append(" ").Append(bloods.DsdAst).Append(" ");
-                    if (!String.IsNullOrEmpty(bloods.DsdKfk))
-                        bloodBld.Append("КФК").Append(" ").Append(bloods.DsdKfk).Append(" ");
-                    if (!String.IsNullOrEmpty(bloods.DsdKfkMv))
-                        bloodBld.Append("КФК МВ").Append(" ").Append(bloods.DsdKfkMv).Append(" ");
-                    if (!String.IsNullOrEmpty(bloods.DsdProtein))
-                        bloodBld.Append("гемоглобин").Append(" ").Append(bloods.DsdProtein).Append(" ");
-                    if (!String.IsNullOrEmpty(bloods.DsdLeucocytes))
-                        bloodBld.Append("лейкоциты").Append(" ").Append(bloods.DsdLeucocytes).Append(" ");
+                    if (!String.IsNullOrEmpty(bloods.Creatinine))
+                        bloodBld.Append("креатинин").Append(" ").Append(bloods.Creatinine).Append(" ");
+                    if (!String.IsNullOrEmpty(bloods.Alt))
+                        bloodBld.Append("АЛТ").Append(" ").Append(bloods.Alt).Append(" ");
+                    if (!String.IsNullOrEmpty(bloods.Ast))
+                        bloodBld.Append("АСТ").Append(" ").Append(bloods.Ast).Append(" ");
+                    if (!String.IsNullOrEmpty(bloods.Kfk))
+                        bloodBld.Append("КФК").Append(" ").Append(bloods.Kfk).Append(" ");
+                    if (!String.IsNullOrEmpty(bloods.KfkMv))
+                        bloodBld.Append("КФК МВ").Append(" ").Append(bloods.KfkMv).Append(" ");
+                    if (!String.IsNullOrEmpty(bloods.Protein))
+                        bloodBld.Append("гемоглобин").Append(" ").Append(bloods.Protein).Append(" ");
+                    if (!String.IsNullOrEmpty(bloods.Leucocytes))
+                        bloodBld.Append("лейкоциты").Append(" ").Append(bloods.Leucocytes).Append(" ");
                 }
             }
             values.Add("{analysis.blood}", bloodBld.ToString());
@@ -123,7 +123,7 @@ namespace Cardiology.Commons
             StringBuilder ekgBld = new StringBuilder();
             if (ekg != null)
             {
-                ekgBld.Append(ekg.DsdtAnalysisDate.ToShortDateString()).Append(" ").Append(ekg.DssEkg);
+                ekgBld.Append(ekg.AnalysisDate.ToShortDateString()).Append(" ").Append(ekg.Ekg);
             }
             values.Add("{analysis.ekg}", ekgBld.ToString());
         }

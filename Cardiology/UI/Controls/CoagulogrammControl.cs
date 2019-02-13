@@ -48,7 +48,7 @@ namespace Cardiology.UI.Controls
                 coagulgramm.DsidHospitalitySession = hospitalitySession.ObjectId;
                 coagulgramm.DsidDoctor = hospitalitySession.DsidCuringDoctor;
                 coagulgramm.DsidPatient = hospitalitySession.DsidPatient;
-                objectId = service.updateOrCreateIfNeedObject<DdtCoagulogram>(coagulgramm, DdtCoagulogram.TABLE_NAME, coagulgramm.RObjectId);
+                objectId = service.updateOrCreateIfNeedObject<DdtCoagulogram>(coagulgramm, DdtCoagulogram.TABLE_NAME, coagulgramm.ObjectId);
                 hasChanges = false;
                 isNew = false;
             }
@@ -99,7 +99,7 @@ namespace Cardiology.UI.Controls
                 ddimerTxt.Text = coagulogramm.DssDdimer;
                 mchoTxt.Text = coagulogramm.DssMcho;
                 coagulogramPnl.Text = "Коагулограмма за " + coagulogramm.DsdtAnalysisDate.ToShortDateString();
-                objectId = coagulogramm.RObjectId;
+                objectId = coagulogramm.ObjectId;
                 isNew = string.IsNullOrEmpty(objectId);
                 hasChanges = false;
             }

@@ -11,7 +11,7 @@ namespace Cardiology.UI.Forms
     {
         private readonly IDbDataService service;
         private DdtHospital hospitalitySession;
-        private DdtDoctors curingDoc;
+        private DdvDoctor curingDoc;
         private string consiliumId;
         IList<String> membersToRemove = new List<String>();
 
@@ -27,7 +27,7 @@ namespace Cardiology.UI.Forms
         private void InitControls()
         {
             DataService service = new DataService();
-            curingDoc = service.queryObjectById<DdtDoctors>(hospitalitySession?.DsidCuringDoctor);
+            curingDoc = service.queryObjectById<DdvDoctor>(hospitalitySession?.DsidCuringDoctor);
             CommonUtils.InitDoctorsComboboxValues(service, adminTxt, " dsi_appointment_type=3");
             ControlUtils.InitGroupsComboboxValues(this.service.GetDmGroupService(), appointmentTxt0);
             ControlUtils.InitDoctorsByGroupName(this.service.GetDdvDoctorService(), doctorWho0, null);
@@ -48,7 +48,7 @@ namespace Cardiology.UI.Forms
                     diagnosisTxt0.Text = consilium.DssDiagnosis;
                     decisionTxt.Text = consilium.DssDecision;
                     List<DdtConsiliumMember> members = service.queryObjectsCollectionByAttrCond<DdtConsiliumMember>
-                        (DdtConsiliumMember.TABLE_NAME, "dsid_consilium", consilium.RObjectId, true);
+                        (DdtConsiliumMember.TABLE_NAME, "dsid_consilium", consilium.ObjectId, true);
                     InitMembers(service, members);
                 }
             }
@@ -88,7 +88,7 @@ namespace Cardiology.UI.Forms
                 if (!members[i].DsbTemplate)
                 {
                     Control c = CommonUtils.FindControl(doctorsContainer, "objectIdLbl" + i);
-                    c.Text = members[i].RObjectId;
+                    c.Text = members[i].ObjectId;
                     Button b = (Button)CommonUtils.FindControl(doctorsContainer, "removeBtn" + i);
                     b.Visible = true;
                     b.Click += new System.EventHandler(this.removeBtn0_Click);
@@ -174,7 +174,7 @@ namespace Cardiology.UI.Forms
             consilium.DssDutyAdminName = getSafeStringValue(adminTxt);
             consilium.DssDynamics = getSafeStringValue(dynamicsTxt);
             consilium.DssGoal = getSafeStringValue(goalTxt);
-            consiliumId = service.updateOrCreateIfNeedObject<DdtConsilium>(consilium, DdtConsilium.TABLE_NAME, consilium.RObjectId);
+            consiliumId = service.updateOrCreateIfNeedObject<DdtConsilium>(consilium, DdtConsilium.TABLE_NAME, consilium.ObjectId);
 
             foreach (Control doctorInfoPnl in doctorsContainer.Controls)
             {
@@ -203,7 +203,7 @@ namespace Cardiology.UI.Forms
                 member.DssGroupName = group.DssName;
                 Control docCtrl = CommonUtils.FindControl(doctorsContainer, "doctorWho" + indx);
                 member.DssDoctorName = getSafeStringValue(docCtrl);
-                objectIdCtrl.Text = service.updateOrCreateIfNeedObject<DdtConsiliumMember>(member, DdtConsiliumMember.TABLE_NAME, member.RObjectId);
+                objectIdCtrl.Text = service.updateOrCreateIfNeedObject<DdtConsiliumMember>(member, DdtConsiliumMember.TABLE_NAME, member.ObjectId);
             }
 
             foreach (String memberId in membersToRemove)

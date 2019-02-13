@@ -51,7 +51,7 @@ namespace Cardiology.UI.Forms
                 journalIds.Aggregate((a, b) => a + "','" + b) + "') ORDER BY dsdt_admission_date ASC");
             foreach (DdtJournal j in journals)
             {
-                journalContainer.Controls.Add(new JournalNoKAGControl(j.RObjectId, j.DsiJournalType, null));
+                journalContainer.Controls.Add(new JournalNoKAGControl(j.ObjectId, j.DsiJournalType, null));
             }
         }
 
@@ -111,7 +111,7 @@ namespace Cardiology.UI.Forms
                     DdtJournal journal = service.queryObjectById<DdtJournal>(id);
                     if (journal != null)
                     {
-                        string path = processor.processTemplate(hospitalitySession.ObjectId, journal.RObjectId, null);
+                        string path = processor.processTemplate(hospitalitySession.ObjectId, journal.ObjectId, null);
                         paths.Add(path);
                     }
                 }

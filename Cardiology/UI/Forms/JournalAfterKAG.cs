@@ -55,10 +55,10 @@ namespace Cardiology.UI.Forms
                     ekgTxt0.Text = journal.DssEkg;
                     afterKagDiagnosisTxt.Text = journal.DssDiagnosis;
 
-                    DdtDoctors doctors = service.queryObjectById<DdtDoctors>(journal.DsidDoctor);
+                    DdvDoctor doctors = service.queryObjectById<DdvDoctor>(journal.DsidDoctor);
                     journalDocBox.SelectedIndex = journalDocBox.FindStringExact(doctors.DssInitials);
 
-                    DdtKag kag = service.queryObjectByAttrCond<DdtKag>(DdtKag.TABLE_NAME, "dsid_parent", journal.RObjectId, true);
+                    DdtKag kag = service.queryObjectByAttrCond<DdtKag>(DdtKag.TABLE_NAME, "dsid_parent", journal.ObjectId, true);
                     if (kag != null)
                     {
                         kagDiagnosisTxt.Text = kag.DssKagAction;
@@ -74,7 +74,7 @@ namespace Cardiology.UI.Forms
                 DdtKag kag = service.queryObject<DdtKag>(@"SELECT * FROM ddt_kag WHERE dsid_hospitality_session='" + hospitalitySession.ObjectId + "' ORDER BY dsdt_analysis_date ASC");
                 initKag(kag);
 
-                DdtDoctors doctors = service.queryObjectById<DdtDoctors>(hospitalitySession.DsidCuringDoctor);
+                DdvDoctor doctors = service.queryObjectById<DdvDoctor>(hospitalitySession.DsidCuringDoctor);
                 journalDocBox.SelectedIndex = journalDocBox.FindStringExact(doctors.DssInitials);
             }
         }
@@ -110,7 +110,7 @@ namespace Cardiology.UI.Forms
             {
                 if (dutyCardioContainer.Controls.Count <= i)
                 {
-                    JournalKAGControl control = new JournalKAGControl(cardioConclusions[i].RObjectId, false);
+                    JournalKAGControl control = new JournalKAGControl(cardioConclusions[i].ObjectId, false);
                     //control.Anchor = AnchorStyles.Right;
                     dutyCardioContainer.Controls.Add(control);
                 }
@@ -175,7 +175,7 @@ namespace Cardiology.UI.Forms
             journal.DssAd = adSurgeryTxt.Text;
             journal.DssEkg = ekgTxt0.Text;
             journal.DsdtAdmissionDate = CommonUtils.ConstructDateWIthTime(admissionDateTxt.Value, admissionTimeTxt.Value);
-            journalId = service.updateOrCreateIfNeedObject<DdtJournal>(journal, DdtJournal.TABLE_NAME, journal.RObjectId);
+            journalId = service.updateOrCreateIfNeedObject<DdtJournal>(journal, DdtJournal.TABLE_NAME, journal.ObjectId);
 
             if (!string.IsNullOrEmpty(kagDiagnosisTxt.Text))
             {
@@ -215,7 +215,7 @@ namespace Cardiology.UI.Forms
                 if (journal != null)
                 {
                     ITemplateProcessor processor = TemplateProcessorManager.getProcessorByObjectType(DdtJournal.TABLE_NAME);
-                    string path = processor.processTemplate(hospitalitySession.ObjectId, journal.RObjectId, null);
+                    string path = processor.processTemplate(hospitalitySession.ObjectId, journal.ObjectId, null);
                     TemplatesUtils.showDocument(path);
                 }
             }

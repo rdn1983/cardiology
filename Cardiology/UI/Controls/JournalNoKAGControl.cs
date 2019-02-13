@@ -69,12 +69,12 @@ namespace Cardiology.UI.Controls
             }
 
             DdtJournal journal = (DdtJournal)getObject();
-            DdtDoctors selectedDoc = (DdtDoctors)docBox.SelectedItem;
+            DdvDoctor selectedDoc = (DdvDoctor)docBox.SelectedItem;
             journal.DsidDoctor = selectedDoc == null ? hospitalitySession.DsidCuringDoctor : selectedDoc.ObjectId;
             journal.DsidHospitalitySession = hospitalitySession.ObjectId;
             journal.DsidPatient = hospitalitySession.DsidPatient;
 
-            objectId = service.updateOrCreateIfNeedObject<DdtJournal>(journal, DdtJournal.TABLE_NAME, journal.RObjectId);
+            objectId = service.updateOrCreateIfNeedObject<DdtJournal>(journal, DdtJournal.TABLE_NAME, journal.ObjectId);
             hasChanges = false;
             isNew = false;
         }
@@ -137,7 +137,7 @@ namespace Cardiology.UI.Controls
             journal.DsbGoodRhytm = goodRhytmBtn.Checked;
             journal.DsdtAdmissionDate = CommonUtils.ConstructDateWIthTime(startDateTxt.Value, startTimeTxt.Value);
 
-            DdtDoctors selectedDoc = (DdtDoctors)docBox.SelectedItem;
+            DdvDoctor selectedDoc = (DdvDoctor)docBox.SelectedItem;
             if (selectedDoc != null)
             {
                 journal.DsidDoctor = selectedDoc.ObjectId;
@@ -164,9 +164,9 @@ namespace Cardiology.UI.Controls
                 goodRhytmBtn.Checked = journal.DsbGoodRhytm;
                 badRhytmBtn.Checked = !journal.DsbGoodRhytm;
 
-                DdtDoctors doc = service.queryObjectById<DdtDoctors>(journal.DsidDoctor);
+                DdvDoctor doc = service.queryObjectById<DdvDoctor>(journal.DsidDoctor);
                 docBox.SelectedIndex = docBox.FindStringExact(doc.DssInitials);
-                objectId = journal.RObjectId;
+                objectId = journal.ObjectId;
                 isNew = string.IsNullOrEmpty(objectId);
                 hasChanges = false;
             }

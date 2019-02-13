@@ -30,7 +30,6 @@ namespace Cardiology.UI.Forms
         private void LoadPatientsHistoryGrid()
         {
             patientHistoryGrid.Rows.Clear();
-            DataService service = new DataService();
             string query = @"SELECT * FROM ddv_history WHERE dsid_hospitality_session='" + hospitalitySession.ObjectId + "' order by dsdt_operation_date";
             List<DdvHistory> allHspitalPatients = service.queryObjectsCollection<DdvHistory>(query);
             for (int i = 0; i < allHspitalPatients.Count(); i++)

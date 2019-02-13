@@ -18,16 +18,6 @@ namespace Cardiology.Commons
             return !string.IsNullOrEmpty(str) ? String.Intern("'" + str + "'") : "''";
         }
 
-        internal static void InitGroupsComboboxValues(DataService service, ComboBox cb)
-        {
-            cb.Items.Clear();
-            string query = @"SELECT * FROM " + DmGroup.TABLE_NAME;
-            List<DmGroup> groups = service.queryObjectsCollection<DmGroup>(query);
-            cb.Items.AddRange(groups?.ToArray());
-            cb.ValueMember = "DssName";
-            cb.DisplayMember = "DssDescription";
-        }
-
         internal static void InitDoctorsComboboxValues(DataService service, ComboBox cb, string whereCnd)
         {
             cb.Items.Clear();

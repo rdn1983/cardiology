@@ -1,5 +1,8 @@
-﻿namespace Cardiology.Data.Model
+﻿using System;
+
+namespace Cardiology.Data.Model
 {
+    [Obsolete("Этот класс будет удален", false)]
     public class DdtConsiliumMemberLevel
     {
         public const string TABLE_NAME = "ddt_consilium_member_level";

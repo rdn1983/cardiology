@@ -54,19 +54,18 @@ namespace Cardiology.UI.Forms
             InitializeComponent();
             SilentSaver.setForm(this);
 
-            DataService dataService = new DataService();
-            anamnesis = dataService.queryObject<DdtAnamnesis>(@"select * from ddt_anamnesis WHERE dsid_hospitality_session='" + hospitalSession.ObjectId + "'");
+            anamnesis = new DataService().queryObject<DdtAnamnesis>(@"select * from ddt_anamnesis WHERE dsid_hospitality_session='" + hospitalSession.ObjectId + "'");
 
-            initializeAnamnesis(anamnesis);
-            initIssuedMedicine(dataService);
-            initIssuedActions(dataService, anamnesis);
+            InitializeAnamnesis(anamnesis);
+            initIssuedMedicine();
+            initIssuedActions(anamnesis);
             InitDiagnosis();
-            initAdmissionAnalysis(dataService);
+            InitAdmissionAnalysis();
             InitDoctorComboBox();
-            InitPatientInfo(dataService);
+            InitPatientInfo();
         }
 
-        private void InitPatientInfo(DataService service)
+        private void InitPatientInfo()
         {
             DdtPatient patient = service.queryObjectById<DdtPatient>(hospitalSession.DsidPatient);
             if (patient != null)
@@ -92,7 +91,7 @@ namespace Cardiology.UI.Forms
             ControlUtils.InitDoctors(this.service.GetDdvDoctorService(), docBox, id);
         }
 
-        private void initAdmissionAnalysis(DataService service)
+        private void InitAdmissionAnalysis()
         {
             DdtUrineAnalysis firstAnalysis = service.queryObject<DdtUrineAnalysis>("SELECT * FROM " + DdtUrineAnalysis.TABLE_NAME + " WHERE " +
                 "dsid_hospitality_session = '" + hospitalSession.ObjectId + "' AND dsid_parent='" + anamnesis?.ObjectId + "'");
@@ -118,7 +117,7 @@ namespace Cardiology.UI.Forms
             diagnosisTxt.Text = hospitalSession.DssDiagnosis;
         }
 
-        private void initializeAnamnesis(DdtAnamnesis anamnesis)
+        private void InitializeAnamnesis(DdtAnamnesis anamnesis)
         {
             if (anamnesis != null)
             {
@@ -146,7 +145,7 @@ namespace Cardiology.UI.Forms
             }
         }
 
-        private void initIssuedMedicine(DataService service)
+        private void initIssuedMedicine()
         {
             DdtIssuedMedicineList medList = service.queryObject<DdtIssuedMedicineList>(@"SELECT * FROM ddt_issued_medicine_list WHERE dsid_hospitality_session='" +
                 hospitalSession.ObjectId + "' AND dss_parent_type='ddt_anamnesis'");
@@ -157,7 +156,7 @@ namespace Cardiology.UI.Forms
             }
         }
 
-        private void initIssuedActions(DataService service, DdtAnamnesis parent)
+        private void initIssuedActions(DdtAnamnesis parent)
         {
             if (parent != null)
             {
@@ -437,8 +436,8 @@ namespace Cardiology.UI.Forms
                 clearSelection();
                 DataService service = new DataService();
                 DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + OKSUP_TYPE + "'");
-                initializeAnamnesis(template);
-                initIssuedActions(service, template);
+                InitializeAnamnesis(template);
+                initIssuedActions(template);
                 templateName = "oks.medicine.";
                 updatemedicineFromTemplate(templateName);
                 OKSUpBtn.BackColor = Color.LightSkyBlue;
@@ -453,8 +452,8 @@ namespace Cardiology.UI.Forms
                 clearSelection();
                 DataService service = new DataService();
                 DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + OKSDOWN_TYPE + "'");
-                initializeAnamnesis(template);
-                initIssuedActions(service, template);
+                InitializeAnamnesis(template);
+                initIssuedActions(template);
                 templateName = "okslongs.medicine.";
                 updatemedicineFromTemplate(templateName);
                 OKSDownBtn.BackColor = Color.LightSkyBlue;
@@ -469,8 +468,8 @@ namespace Cardiology.UI.Forms
                 clearSelection();
                 DataService service = new DataService();
                 DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + KAG_TYPE + "'");
-                initializeAnamnesis(template);
-                initIssuedActions(service, template);
+                InitializeAnamnesis(template);
+                initIssuedActions(template);
                 templateName = "kag.medicine.";
                 updatemedicineFromTemplate(templateName);
                 KAGBtn.BackColor = Color.LightSkyBlue;
@@ -485,8 +484,8 @@ namespace Cardiology.UI.Forms
                 clearSelection();
                 DataService service = new DataService();
                 DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + AORTA_TYPE + "'");
-                initializeAnamnesis(template);
-                initIssuedActions(service, template);
+                InitializeAnamnesis(template);
+                initIssuedActions(template);
                 templateName = "aorta.medicine.";
                 updatemedicineFromTemplate(templateName);
                 aorticDissectionBtn.BackColor = Color.LightSkyBlue;
@@ -501,8 +500,8 @@ namespace Cardiology.UI.Forms
                 clearSelection();
                 DataService service = new DataService();
                 DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + GB_TYPE + "'");
-                initializeAnamnesis(template);
-                initIssuedActions(service, template);
+                InitializeAnamnesis(template);
+                initIssuedActions(template);
                 templateName = "gb.medicine.";
                 updatemedicineFromTemplate(templateName);
                 GBBtn.BackColor = Color.LightSkyBlue;
@@ -517,8 +516,8 @@ namespace Cardiology.UI.Forms
                 clearSelection();
                 DataService service = new DataService();
                 DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + PIKS_TYPE + "'");
-                initializeAnamnesis(template);
-                initIssuedActions(service, template);
+                InitializeAnamnesis(template);
+                initIssuedActions(template);
                 templateName = "nk.medicine.";
                 updatemedicineFromTemplate(templateName);
                 PIKSBtn.BackColor = Color.LightSkyBlue;
@@ -533,8 +532,8 @@ namespace Cardiology.UI.Forms
                 clearSelection();
                 DataService service = new DataService();
                 DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + PIKVIK_TYPE + "'");
-                initializeAnamnesis(template);
-                initIssuedActions(service, template);
+                InitializeAnamnesis(template);
+                initIssuedActions(template);
                 templateName = "hobl.medicine.";
                 updatemedicineFromTemplate(templateName);
                 PIKVIKBtn.BackColor = Color.LightSkyBlue;
@@ -550,8 +549,8 @@ namespace Cardiology.UI.Forms
                 clearSelection();
                 DataService service = new DataService();
                 DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + DEP_TYPE + "'");
-                initializeAnamnesis(template);
-                initIssuedActions(service, template);
+                InitializeAnamnesis(template);
+                initIssuedActions(template);
                 templateName = "dep.medicine.";
                 updatemedicineFromTemplate(templateName);
                 DEPBtn.BackColor = Color.LightSkyBlue;
@@ -566,8 +565,8 @@ namespace Cardiology.UI.Forms
                 clearSelection();
                 DataService service = new DataService();
                 DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + DEATH_TYPE + "'");
-                initializeAnamnesis(template);
-                initIssuedActions(service, template);
+                InitializeAnamnesis(template);
+                initIssuedActions(template);
                 templateName = "death.medicine.";
                 updatemedicineFromTemplate(templateName);
                 deathBtn.BackColor = Color.LightSkyBlue;

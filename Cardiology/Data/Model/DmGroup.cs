@@ -2,6 +2,7 @@
 
 namespace Cardiology.Data.Model
 {
+    [Obsolete("Этот класс будет удален", false)]
     class DmGroup
     {
         public const string TABLE_NAME = "dm_group";

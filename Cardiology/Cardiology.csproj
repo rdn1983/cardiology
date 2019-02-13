@@ -368,7 +368,6 @@
     <Compile Include="Data\Model\DdtJournalDsiType.cs" />
     <Compile Include="Data\Model\DdtKag.cs" />
     <Compile Include="Data\Model\DdtOncologicMarkers.cs" />
-    <Compile Include="Data\Model\DdtPatientAnalysis.cs" />
     <Compile Include="Data\Model\DdtReleasePatient.cs" />
     <Compile Include="Data\Model\DdtSerology.cs" />
     <Compile Include="Data\Model\DdtSpecialistConclusion.cs" />

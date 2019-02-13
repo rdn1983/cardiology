@@ -20,7 +20,7 @@ namespace Cardiology.Data.PostgreSQL
             IList<DdtConsilium> list = new List<DdtConsilium>();
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = "SELECT dsid_hospitality_session, r_object_id, dss_goal, r_modify_date, dss_dynamics, dss_diagnosis, dss_duty_admin_name, r_creation_date, dsdt_consilium_date, dss_decision, dsid_doctor, dsid_patient FROM ddt_consilium";
+                String sql = "SELECT dsid_hospitality_session, r_object_id, dss_goal, dss_dynamics, r_modify_date, dss_duty_admin_name, dss_diagnosis, r_creation_date, dsdt_consilium_date, dss_decision, dsid_doctor, dsid_patient FROM ddt_consilium";
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -30,10 +30,10 @@ namespace Cardiology.Data.PostgreSQL
                         obj.HospitalitySession = reader.GetString(1);
                         obj.ObjectId = reader.GetString(2);
                         obj.Goal = reader.GetString(3);
-                        obj.ModifyDate = reader.GetDateTime(4);
-                        obj.Dynamics = reader.GetString(5);
-                        obj.Diagnosis = reader.GetString(6);
-                        obj.DutyAdminName = reader.GetString(7);
+                        obj.Dynamics = reader.GetString(4);
+                        obj.ModifyDate = reader.GetDateTime(5);
+                        obj.DutyAdminName = reader.GetString(6);
+                        obj.Diagnosis = reader.GetString(7);
                         obj.CreationDate = reader.GetDateTime(8);
                         obj.ConsiliumDate = reader.GetDateTime(9);
                         obj.Decision = reader.GetString(10);
@@ -50,7 +50,7 @@ namespace Cardiology.Data.PostgreSQL
         {
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = String.Format("SELECT dsid_hospitality_session, r_object_id, dss_goal, r_modify_date, dss_dynamics, dss_diagnosis, dss_duty_admin_name, r_creation_date, dsdt_consilium_date, dss_decision, dsid_doctor, dsid_patient FROM ddt_consilium WHERE r_object_id = '{0}'", id);
+                String sql = String.Format("SELECT dsid_hospitality_session, r_object_id, dss_goal, dss_dynamics, r_modify_date, dss_duty_admin_name, dss_diagnosis, r_creation_date, dsdt_consilium_date, dss_decision, dsid_doctor, dsid_patient FROM ddt_consilium WHERE r_object_id = '{0}'", id);
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -60,10 +60,10 @@ namespace Cardiology.Data.PostgreSQL
                         obj.HospitalitySession = reader.GetString(1);
                         obj.ObjectId = reader.GetString(2);
                         obj.Goal = reader.GetString(3);
-                        obj.ModifyDate = reader.GetDateTime(4);
-                        obj.Dynamics = reader.GetString(5);
-                        obj.Diagnosis = reader.GetString(6);
-                        obj.DutyAdminName = reader.GetString(7);
+                        obj.Dynamics = reader.GetString(4);
+                        obj.ModifyDate = reader.GetDateTime(5);
+                        obj.DutyAdminName = reader.GetString(6);
+                        obj.Diagnosis = reader.GetString(7);
                         obj.CreationDate = reader.GetDateTime(8);
                         obj.ConsiliumDate = reader.GetDateTime(9);
                         obj.Decision = reader.GetString(10);

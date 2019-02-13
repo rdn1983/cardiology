@@ -16,17 +16,17 @@ namespace Cardiology.Data.Model2
 
         public string Phenotype { get; set; }
 
-        public string Doctor { get; set; }
-
         public string Rw { get; set; }
 
-        public string Patient { get; set; }
+        public string Doctor { get; set; }
 
-        public string HospitalitySession { get; set; }
+        public string Patient { get; set; }
 
         public string HbsAg { get; set; }
 
         public string AntiHcv { get; set; }
+
+        public string HospitalitySession { get; set; }
 
         public DateTime ModifyDate { get; set; }
 

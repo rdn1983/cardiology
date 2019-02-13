@@ -6,7 +6,7 @@ using System.Linq;
 using System.Windows.Forms;
 using Cardiology.Commons;
 using Cardiology.Data;
-using Cardiology.Data.Model;
+using Cardiology.Data.Model2;
 
 namespace Cardiology.UI.Forms
 {
@@ -20,14 +20,14 @@ namespace Cardiology.UI.Forms
             this.hospitalitySession = hospitalitySession;
             InitializeComponent();
             this.patientHistoryGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            DdtPatient patient = new DataService().queryObjectById<DdtPatient>(hospitalitySession.DsidPatient);
+            DdvPatient patient = service.GetDdvPatientService().GetById(hospitalitySession.Patient);
             if (patient != null)
             {
-                Text += " " + patient.DssInitials;
+                Text += " " + patient.ShortName;
             }
         }
 
-        private void loadPatientsHistoryGrid()
+        private void LoadPatientsHistoryGrid()
         {
             patientHistoryGrid.Rows.Clear();
             DataService service = new DataService();
@@ -86,7 +86,7 @@ namespace Cardiology.UI.Forms
 
         private void PatientHistory_Activated(object sender, EventArgs e)
         {
-            loadPatientsHistoryGrid();
+            LoadPatientsHistoryGrid();
         }
 
         private void firstInspectationsItem_Click(object sender, EventArgs e)
@@ -277,7 +277,7 @@ namespace Cardiology.UI.Forms
                     DataService service = new DataService();
                     service.delete(@"delete from " + typeValue + " WHERE r_object_id='" + idsValue + "'");
                     service.delete(@"delete from ddt_history  WHERE dsid_operation_id='" + idsValue + "'");
-                    loadPatientsHistoryGrid();
+                    LoadPatientsHistoryGrid();
                 }
             }
         }

@@ -6,9 +6,9 @@ namespace Cardiology.Data.Model2
     {
         public string ObjectId { get; set; }
 
-        public string DutyDoctor { get; set; }
-
         public string Diagnosis { get; set; }
+
+        public string DutyDoctor { get; set; }
 
         public DateTime CreationDate { get; set; }
 

@@ -22,9 +22,9 @@ namespace Cardiology.Data.Model2
 
         public bool Deleted { get; set; }
 
-        public DateTime ModifyDate { get; set; }
-
         public string Description { get; set; }
+
+        public DateTime ModifyDate { get; set; }
 
         public DateTime DeleteDate { get; set; }
 

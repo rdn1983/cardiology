@@ -10,13 +10,13 @@ namespace Cardiology.Data.Model2
 
         public string Goal { get; set; }
 
-        public DateTime ModifyDate { get; set; }
-
         public string Dynamics { get; set; }
 
-        public string Diagnosis { get; set; }
+        public DateTime ModifyDate { get; set; }
 
         public string DutyAdminName { get; set; }
+
+        public string Diagnosis { get; set; }
 
         public DateTime CreationDate { get; set; }
 

@@ -8,9 +8,9 @@ namespace Cardiology.Data.Model2
 
         public string Diagnosis { get; set; }
 
-        public string Chdd { get; set; }
-
         public string Chss { get; set; }
+
+        public string Chdd { get; set; }
 
         public DateTime CreationDate { get; set; }
 
@@ -22,27 +22,27 @@ namespace Cardiology.Data.Model2
 
         public DateTime AdmissionDate { get; set; }
 
-        public string Doctor { get; set; }
-
         public string Monitor { get; set; }
 
         public string Rhythm { get; set; }
 
-        public string Patient { get; set; }
+        public string Doctor { get; set; }
 
-        public string HospitalitySession { get; set; }
+        public string Patient { get; set; }
 
         public string Ps { get; set; }
 
         public string Ad { get; set; }
 
-        public DateTime ModifyDate { get; set; }
+        public string HospitalitySession { get; set; }
 
-        public bool GoodRhythm { get; set; }
+        public DateTime ModifyDate { get; set; }
 
         public string CardioExam { get; set; }
 
         public int JournalType { get; set; }
+
+        public bool GoodRhythm { get; set; }
 
         public bool ReleaseJournal { get; set; }
 

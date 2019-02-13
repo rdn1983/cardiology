@@ -20,7 +20,7 @@ namespace Cardiology.Data.PostgreSQL
             IList<DdtUrineAnalysis> list = new List<DdtUrineAnalysis>();
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = "SELECT dss_ketones, r_object_id, dsdt_analysis_date, dss_specific_gravity, dss_erythrocytes, r_creation_date, dsid_parent, dsid_doctor, dsid_patient, dsid_hospitality_session, dss_acidity, r_modify_date, dss_parent_type, dss_leukocytes, dss_color, dsb_admission_analysis, dsb_discharge_analysis, dss_glucose, dss_protein FROM ddt_urine_analysis";
+                String sql = "SELECT dss_ketones, r_object_id, dsdt_analysis_date, dss_specific_gravity, dss_erythrocytes, r_creation_date, dsid_parent, dsid_doctor, dsid_patient, dsid_hospitality_session, dss_acidity, r_modify_date, dss_parent_type, dss_leukocytes, dsb_admission_analysis, dss_color, dsb_discharge_analysis, dss_protein, dss_glucose FROM ddt_urine_analysis";
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -41,11 +41,11 @@ namespace Cardiology.Data.PostgreSQL
                         obj.ModifyDate = reader.GetDateTime(12);
                         obj.ParentType = reader.GetString(13);
                         obj.Leukocytes = reader.GetString(14);
-                        obj.Color = reader.GetString(15);
-                        obj.AdmissionAnalysis = reader.GetBoolean(16);
+                        obj.AdmissionAnalysis = reader.GetBoolean(15);
+                        obj.Color = reader.GetString(16);
                         obj.DischargeAnalysis = reader.GetBoolean(17);
-                        obj.Glucose = reader.GetString(18);
-                        obj.Protein = reader.GetString(19);
+                        obj.Protein = reader.GetString(18);
+                        obj.Glucose = reader.GetString(19);
                         list.Add(obj);
                     }
                 }
@@ -57,7 +57,7 @@ namespace Cardiology.Data.PostgreSQL
         {
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = String.Format("SELECT dss_ketones, r_object_id, dsdt_analysis_date, dss_specific_gravity, dss_erythrocytes, r_creation_date, dsid_parent, dsid_doctor, dsid_patient, dsid_hospitality_session, dss_acidity, r_modify_date, dss_parent_type, dss_leukocytes, dss_color, dsb_admission_analysis, dsb_discharge_analysis, dss_glucose, dss_protein FROM ddt_urine_analysis WHERE r_object_id = '{0}'", id);
+                String sql = String.Format("SELECT dss_ketones, r_object_id, dsdt_analysis_date, dss_specific_gravity, dss_erythrocytes, r_creation_date, dsid_parent, dsid_doctor, dsid_patient, dsid_hospitality_session, dss_acidity, r_modify_date, dss_parent_type, dss_leukocytes, dsb_admission_analysis, dss_color, dsb_discharge_analysis, dss_protein, dss_glucose FROM ddt_urine_analysis WHERE r_object_id = '{0}'", id);
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -78,11 +78,11 @@ namespace Cardiology.Data.PostgreSQL
                         obj.ModifyDate = reader.GetDateTime(12);
                         obj.ParentType = reader.GetString(13);
                         obj.Leukocytes = reader.GetString(14);
-                        obj.Color = reader.GetString(15);
-                        obj.AdmissionAnalysis = reader.GetBoolean(16);
+                        obj.AdmissionAnalysis = reader.GetBoolean(15);
+                        obj.Color = reader.GetString(16);
                         obj.DischargeAnalysis = reader.GetBoolean(17);
-                        obj.Glucose = reader.GetString(18);
-                        obj.Protein = reader.GetString(19);
+                        obj.Protein = reader.GetString(18);
+                        obj.Glucose = reader.GetString(19);
                         return obj;
                     }
                 }

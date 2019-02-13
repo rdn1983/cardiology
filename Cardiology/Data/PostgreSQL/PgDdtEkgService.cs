@@ -20,7 +20,7 @@ namespace Cardiology.Data.PostgreSQL
             IList<DdtEkg> list = new List<DdtEkg>();
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = "SELECT dsid_hospitality_session, r_object_id, dsdt_analysis_date, r_modify_date, dss_parent_type, r_creation_date, dsb_admission_analysis, dsid_parent, dss_ekg, dsid_doctor, dsid_patient FROM ddt_ekg";
+                String sql = "SELECT dsid_hospitality_session, r_object_id, dsdt_analysis_date, r_modify_date, dss_parent_type, r_creation_date, dsid_parent, dsb_admission_analysis, dss_ekg, dsid_doctor, dsid_patient FROM ddt_ekg";
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -33,8 +33,8 @@ namespace Cardiology.Data.PostgreSQL
                         obj.ModifyDate = reader.GetDateTime(4);
                         obj.ParentType = reader.GetString(5);
                         obj.CreationDate = reader.GetDateTime(6);
-                        obj.AdmissionAnalysis = reader.GetBoolean(7);
-                        obj.Parent = reader.GetString(8);
+                        obj.Parent = reader.GetString(7);
+                        obj.AdmissionAnalysis = reader.GetBoolean(8);
                         obj.Ekg = reader.GetString(9);
                         obj.Doctor = reader.GetString(10);
                         obj.Patient = reader.GetString(11);
@@ -49,7 +49,7 @@ namespace Cardiology.Data.PostgreSQL
         {
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = String.Format("SELECT dsid_hospitality_session, r_object_id, dsdt_analysis_date, r_modify_date, dss_parent_type, r_creation_date, dsb_admission_analysis, dsid_parent, dss_ekg, dsid_doctor, dsid_patient FROM ddt_ekg WHERE r_object_id = '{0}'", id);
+                String sql = String.Format("SELECT dsid_hospitality_session, r_object_id, dsdt_analysis_date, r_modify_date, dss_parent_type, r_creation_date, dsid_parent, dsb_admission_analysis, dss_ekg, dsid_doctor, dsid_patient FROM ddt_ekg WHERE r_object_id = '{0}'", id);
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -62,8 +62,8 @@ namespace Cardiology.Data.PostgreSQL
                         obj.ModifyDate = reader.GetDateTime(4);
                         obj.ParentType = reader.GetString(5);
                         obj.CreationDate = reader.GetDateTime(6);
-                        obj.AdmissionAnalysis = reader.GetBoolean(7);
-                        obj.Parent = reader.GetString(8);
+                        obj.Parent = reader.GetString(7);
+                        obj.AdmissionAnalysis = reader.GetBoolean(8);
                         obj.Ekg = reader.GetString(9);
                         obj.Doctor = reader.GetString(10);
                         obj.Patient = reader.GetString(11);

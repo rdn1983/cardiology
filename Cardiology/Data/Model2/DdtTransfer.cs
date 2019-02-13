@@ -22,11 +22,11 @@ namespace Cardiology.Data.Model2
 
         public string Doctor { get; set; }
 
-        public string Patient { get; set; }
+        public int Type { get; set; }
 
         public string Contacts { get; set; }
 
-        public int Type { get; set; }
+        public string Patient { get; set; }
 
     }
 }

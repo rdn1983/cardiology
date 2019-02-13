@@ -32,15 +32,15 @@ namespace Cardiology.Data.Model2
 
         public string Leukocytes { get; set; }
 
-        public string Color { get; set; }
-
         public bool AdmissionAnalysis { get; set; }
+
+        public string Color { get; set; }
 
         public bool DischargeAnalysis { get; set; }
 
-        public string Glucose { get; set; }
-
         public string Protein { get; set; }
+
+        public string Glucose { get; set; }
 
     }
 }

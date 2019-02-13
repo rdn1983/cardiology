@@ -20,15 +20,15 @@ namespace Cardiology.Data.PostgreSQL
             IList<DdvDoctor> list = new List<DdvDoctor>();
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = "SELECT r_object_id, dss_full_name, dss_middle_name, dss_first_name, r_modify_date, dss_short_name, r_creation_date, dss_last_name FROM ddv_doctor";
+                String sql = "SELECT dss_full_name, r_object_id, dss_middle_name, dss_first_name, r_modify_date, dss_short_name, r_creation_date, dss_last_name FROM ddv_doctor";
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
                     while (reader.Read())
                     {
                         DdvDoctor obj = new DdvDoctor();
-                        obj.ObjectId = reader.GetString(1);
-                        obj.FullName = reader.GetString(2);
+                        obj.FullName = reader.GetString(1);
+                        obj.ObjectId = reader.GetString(2);
                         obj.MiddleName = reader.GetString(3);
                         obj.FirstName = reader.GetString(4);
                         obj.ModifyDate = reader.GetDateTime(5);
@@ -40,7 +40,7 @@ namespace Cardiology.Data.PostgreSQL
                 }
             }
             return list;
-        }    
+        }
 
         public IList<DdvDoctor> GetByGroupName(string groupName)
         {
@@ -73,15 +73,15 @@ namespace Cardiology.Data.PostgreSQL
         {
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = String.Format("SELECT r_object_id, dss_full_name, dss_middle_name, dss_first_name, r_modify_date, dss_short_name, r_creation_date, dss_last_name FROM ddv_doctor WHERE r_object_id = '{0}'", id);
+                String sql = String.Format("SELECT dss_full_name, r_object_id, dss_middle_name, dss_first_name, r_modify_date, dss_short_name, r_creation_date, dss_last_name FROM ddv_doctor WHERE r_object_id = '{0}'", id);
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
                     if (reader.Read())
                     {
                         DdvDoctor obj = new DdvDoctor();
-                        obj.ObjectId = reader.GetString(1);
-                        obj.FullName = reader.GetString(2);
+                        obj.FullName = reader.GetString(1);
+                        obj.ObjectId = reader.GetString(2);
                         obj.MiddleName = reader.GetString(3);
                         obj.FirstName = reader.GetString(4);
                         obj.ModifyDate = reader.GetDateTime(5);

@@ -20,7 +20,7 @@ namespace Cardiology.Data.PostgreSQL
             IList<DdvActiveHospitalPatients> list = new List<DdvActiveHospitalPatients>();
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = "SELECT dsid_patient_id, dsb_active, dsid_hospital_session, dss_doc_name, dss_diagnosis, dss_patient_name, dss_room_cell, dsid_doctor_id, dsdt_admission_date, dss_med_code FROM ddv_active_hospital_patients";
+                String sql = "SELECT dsid_patient_id, dsb_active, dsid_hospital_session, dss_doc_name, dss_diagnosis, dss_patient_name, dss_room_cell, dsid_doctor_id, dss_med_code, dsdt_admission_date FROM ddv_active_hospital_patients";
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -35,8 +35,8 @@ namespace Cardiology.Data.PostgreSQL
                         obj.PatientName = reader.GetString(6);
                         obj.RoomCell = reader.GetString(7);
                         obj.DoctorId = reader.GetString(8);
-                        obj.AdmissionDate = reader.GetDateTime(9);
-                        obj.MedCode = reader.GetString(10);
+                        obj.MedCode = reader.GetString(9);
+                        obj.AdmissionDate = reader.GetDateTime(10);
                         list.Add(obj);
                     }
                 }
@@ -77,7 +77,7 @@ namespace Cardiology.Data.PostgreSQL
         {
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = String.Format("SELECT dsid_patient_id, dsb_active, dsid_hospital_session, dss_doc_name, dss_diagnosis, dss_patient_name, dss_room_cell, dsid_doctor_id, dsdt_admission_date, dss_med_code FROM ddv_active_hospital_patients WHERE r_object_id = '{0}'", id);
+                String sql = String.Format("SELECT dsid_patient_id, dsb_active, dsid_hospital_session, dss_doc_name, dss_diagnosis, dss_patient_name, dss_room_cell, dsid_doctor_id, dss_med_code, dsdt_admission_date FROM ddv_active_hospital_patients WHERE r_object_id = '{0}'", id);
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -92,8 +92,8 @@ namespace Cardiology.Data.PostgreSQL
                         obj.PatientName = reader.GetString(6);
                         obj.RoomCell = reader.GetString(7);
                         obj.DoctorId = reader.GetString(8);
-                        obj.AdmissionDate = reader.GetDateTime(9);
-                        obj.MedCode = reader.GetString(10);
+                        obj.MedCode = reader.GetString(9);
+                        obj.AdmissionDate = reader.GetDateTime(10);
                         return obj;
                     }
                 }

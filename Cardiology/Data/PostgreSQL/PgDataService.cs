@@ -4,13 +4,14 @@ namespace Cardiology.Data.PostgreSQL
 {
     class PgDataService : IDbDataService
     {
+        private readonly IDbConnectionFactory connectionFactory;
         private readonly IDdtReleasePatientService ddtReleasePatientService;
         private readonly IDdtIssuedMedicineListService ddtIssuedMedicineListService;
         private readonly IDdtIssuedActionService ddtIssuedActionService;
         private readonly IDdtValuesService ddtValuesService;
         private readonly IDdtInspectionService ddtInspectionService;
         private readonly IDdtOncologicMarkersService ddtOncologicMarkersService;
-        private readonly IDdtConsiliumMemberLevelService ddtConsiliumMemberLevelService;
+        private readonly IDdvPatientService ddvPatientService;
         private readonly IDdtHormonesService ddtHormonesService;
         private readonly IDdtHolterService ddtHolterService;
         private readonly IDdtJournalService ddtJournalService;
@@ -19,20 +20,23 @@ namespace Cardiology.Data.PostgreSQL
         private readonly IDdtPatientService ddtPatientService;
         private readonly IDdtBloodAnalysisService ddtBloodAnalysisService;
         private readonly IDdtXrayService ddtXrayService;
+        private readonly IDdtConsiliumGroupLevelService ddtConsiliumGroupLevelService;
         private readonly IDdtEkgService ddtEkgService;
         private readonly IDdtSerologyService ddtSerologyService;
         private readonly IDdtEpicrisisService ddtEpicrisisService;
         private readonly IDdtDoctorService ddtDoctorService;
+        private readonly IDdtConsiliumGroupMemberService ddtConsiliumGroupMemberService;
         private readonly IDdtAnamnesisService ddtAnamnesisService;
-        private readonly IDdtEgdsService ddtEgdsService;
         private readonly IDdvDoctorService ddvDoctorService;
+        private readonly IDdtEgdsService ddtEgdsService;
         private readonly IDdtSpecialistConclusionService ddtSpecialistConclusionService;
         private readonly IDdtHistoryService ddtHistoryService;
-        private readonly IDdtUrineAnalysisService ddtUrineAnalysisService;
         private readonly IDdvActiveHospitalPatientsService ddvActiveHospitalPatientsService;
+        private readonly IDdtUrineAnalysisService ddtUrineAnalysisService;
         private readonly IDdtKagService ddtKagService;
         private readonly IDdtHospitalService ddtHospitalService;
         private readonly IDdtTransferService ddtTransferService;
+        private readonly IDdtConsiliumGroupService ddtConsiliumGroupService;
         private readonly IDdtAlcoProtocolService ddtAlcoProtocolService;
         private readonly IDdvHistoryService ddvHistoryService;
         private readonly IDdtCureTypeService ddtCureTypeService;
@@ -46,13 +50,15 @@ namespace Cardiology.Data.PostgreSQL
         private readonly IDdtVariousSpecConclusonService ddtVariousSpecConclusonService;
 
         public PgDataService(IDbConnectionFactory connectionFactory) {
+            this.connectionFactory = connectionFactory;
+
             ddtReleasePatientService = new PgDdtReleasePatientService(connectionFactory);
             ddtIssuedMedicineListService = new PgDdtIssuedMedicineListService(connectionFactory);
             ddtIssuedActionService = new PgDdtIssuedActionService(connectionFactory);
             ddtValuesService = new PgDdtValuesService(connectionFactory);
             ddtInspectionService = new PgDdtInspectionService(connectionFactory);
             ddtOncologicMarkersService = new PgDdtOncologicMarkersService(connectionFactory);
-            ddtConsiliumMemberLevelService = new PgDdtConsiliumMemberLevelService(connectionFactory);
+            ddvPatientService = new PgDdvPatientService(connectionFactory);
             ddtHormonesService = new PgDdtHormonesService(connectionFactory);
             ddtHolterService = new PgDdtHolterService(connectionFactory);
             ddtJournalService = new PgDdtJournalService(connectionFactory);
@@ -61,20 +67,23 @@ namespace Cardiology.Data.PostgreSQL
             ddtPatientService = new PgDdtPatientService(connectionFactory);
             ddtBloodAnalysisService = new PgDdtBloodAnalysisService(connectionFactory);
             ddtXrayService = new PgDdtXrayService(connectionFactory);
+            ddtConsiliumGroupLevelService = new PgDdtConsiliumGroupLevelService(connectionFactory);
             ddtEkgService = new PgDdtEkgService(connectionFactory);
             ddtSerologyService = new PgDdtSerologyService(connectionFactory);
             ddtEpicrisisService = new PgDdtEpicrisisService(connectionFactory);
             ddtDoctorService = new PgDdtDoctorService(connectionFactory);
+            ddtConsiliumGroupMemberService = new PgDdtConsiliumGroupMemberService(connectionFactory);
             ddtAnamnesisService = new PgDdtAnamnesisService(connectionFactory);
-            ddtEgdsService = new PgDdtEgdsService(connectionFactory);
             ddvDoctorService = new PgDdvDoctorService(connectionFactory);
+            ddtEgdsService = new PgDdtEgdsService(connectionFactory);
             ddtSpecialistConclusionService = new PgDdtSpecialistConclusionService(connectionFactory);
             ddtHistoryService = new PgDdtHistoryService(connectionFactory);
-            ddtUrineAnalysisService = new PgDdtUrineAnalysisService(connectionFactory);
             ddvActiveHospitalPatientsService = new PgDdvActiveHospitalPatientsService(connectionFactory);
+            ddtUrineAnalysisService = new PgDdtUrineAnalysisService(connectionFactory);
             ddtKagService = new PgDdtKagService(connectionFactory);
             ddtHospitalService = new PgDdtHospitalService(connectionFactory);
             ddtTransferService = new PgDdtTransferService(connectionFactory);
+            ddtConsiliumGroupService = new PgDdtConsiliumGroupService(connectionFactory);
             ddtAlcoProtocolService = new PgDdtAlcoProtocolService(connectionFactory);
             ddvHistoryService = new PgDdvHistoryService(connectionFactory);
             ddtCureTypeService = new PgDdtCureTypeService(connectionFactory);
@@ -118,9 +127,9 @@ namespace Cardiology.Data.PostgreSQL
             return ddtOncologicMarkersService;
         }
 
-        public IDdtConsiliumMemberLevelService GetDdtConsiliumMemberLevelService()
+        public IDdvPatientService GetDdvPatientService()
         {
-            return ddtConsiliumMemberLevelService;
+            return ddvPatientService;
         }
 
         public IDdtHormonesService GetDdtHormonesService()
@@ -163,6 +172,11 @@ namespace Cardiology.Data.PostgreSQL
             return ddtXrayService;
         }
 
+        public IDdtConsiliumGroupLevelService GetDdtConsiliumGroupLevelService()
+        {
+            return ddtConsiliumGroupLevelService;
+        }
+
         public IDdtEkgService GetDdtEkgService()
         {
             return ddtEkgService;
@@ -183,19 +197,24 @@ namespace Cardiology.Data.PostgreSQL
             return ddtDoctorService;
         }
 
+        public IDdtConsiliumGroupMemberService GetDdtConsiliumGroupMemberService()
+        {
+            return ddtConsiliumGroupMemberService;
+        }
+
         public IDdtAnamnesisService GetDdtAnamnesisService()
         {
             return ddtAnamnesisService;
         }
 
-        public IDdtEgdsService GetDdtEgdsService()
-        {
-            return ddtEgdsService;
-        }
-
         public IDdvDoctorService GetDdvDoctorService()
         {
             return ddvDoctorService;
+        }
+
+        public IDdtEgdsService GetDdtEgdsService()
+        {
+            return ddtEgdsService;
         }
 
         public IDdtSpecialistConclusionService GetDdtSpecialistConclusionService()
@@ -208,14 +227,14 @@ namespace Cardiology.Data.PostgreSQL
             return ddtHistoryService;
         }
 
-        public IDdtUrineAnalysisService GetDdtUrineAnalysisService()
-        {
-            return ddtUrineAnalysisService;
-        }
-
         public IDdvActiveHospitalPatientsService GetDdvActiveHospitalPatientsService()
         {
             return ddvActiveHospitalPatientsService;
+        }
+
+        public IDdtUrineAnalysisService GetDdtUrineAnalysisService()
+        {
+            return ddtUrineAnalysisService;
         }
 
         public IDdtKagService GetDdtKagService()
@@ -231,6 +250,11 @@ namespace Cardiology.Data.PostgreSQL
         public IDdtTransferService GetDdtTransferService()
         {
             return ddtTransferService;
+        }
+
+        public IDdtConsiliumGroupService GetDdtConsiliumGroupService()
+        {
+            return ddtConsiliumGroupService;
         }
 
         public IDdtAlcoProtocolService GetDdtAlcoProtocolService()

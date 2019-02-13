@@ -8,11 +8,11 @@ namespace Cardiology.Data.Model2
 
         public string Pribor { get; set; }
 
-        public string Breathe { get; set; }
+        public string Conclusion { get; set; }
 
         public string Mimics { get; set; }
 
-        public string Conclusion { get; set; }
+        public string Breathe { get; set; }
 
         public string Tremble { get; set; }
 
@@ -28,9 +28,9 @@ namespace Cardiology.Data.Model2
 
         public string Pulse { get; set; }
 
-        public string TouchNose { get; set; }
-
         public bool Template { get; set; }
+
+        public string TouchNose { get; set; }
 
         public string Docs { get; set; }
 
@@ -54,9 +54,9 @@ namespace Cardiology.Data.Model2
 
         public string Walk { get; set; }
 
-        public string Look { get; set; }
-
         public string Nistagm { get; set; }
+
+        public string Look { get; set; }
 
         public string Trub { get; set; }
 

@@ -6,9 +6,9 @@ namespace Cardiology.Data.Model2
     {
         public string ObjectId { get; set; }
 
-        public bool DismissedLess30d { get; set; }
-
         public DateTime OurEnddate { get; set; }
+
+        public bool DismissedLess30d { get; set; }
 
         public string OurSicklistNum { get; set; }
 

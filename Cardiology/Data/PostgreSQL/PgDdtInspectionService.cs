@@ -20,7 +20,7 @@ namespace Cardiology.Data.PostgreSQL
             IList<DdtInspection> list = new List<DdtInspection>();
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = "SELECT dsid_hospitality_session, r_object_id, dsdt_inspection_date, r_modify_date, dss_diagnosis, dss_kateter_placement, r_creation_date, dss_complaints, dss_inspection, dsid_doctor, dsid_patient, dss_inspection_result FROM ddt_inspection";
+                String sql = "SELECT dsid_hospitality_session, r_object_id, dsdt_inspection_date, r_modify_date, dss_diagnosis, dss_kateter_placement, r_creation_date, dss_complaints, dss_inspection, dsid_doctor, dss_inspection_result, dsid_patient FROM ddt_inspection";
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -37,8 +37,8 @@ namespace Cardiology.Data.PostgreSQL
                         obj.Complaints = reader.GetString(8);
                         obj.Inspection = reader.GetString(9);
                         obj.Doctor = reader.GetString(10);
-                        obj.Patient = reader.GetString(11);
-                        obj.InspectionResult = reader.GetString(12);
+                        obj.InspectionResult = reader.GetString(11);
+                        obj.Patient = reader.GetString(12);
                         list.Add(obj);
                     }
                 }
@@ -50,7 +50,7 @@ namespace Cardiology.Data.PostgreSQL
         {
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = String.Format("SELECT dsid_hospitality_session, r_object_id, dsdt_inspection_date, r_modify_date, dss_diagnosis, dss_kateter_placement, r_creation_date, dss_complaints, dss_inspection, dsid_doctor, dsid_patient, dss_inspection_result FROM ddt_inspection WHERE r_object_id = '{0}'", id);
+                String sql = String.Format("SELECT dsid_hospitality_session, r_object_id, dsdt_inspection_date, r_modify_date, dss_diagnosis, dss_kateter_placement, r_creation_date, dss_complaints, dss_inspection, dsid_doctor, dss_inspection_result, dsid_patient FROM ddt_inspection WHERE r_object_id = '{0}'", id);
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -67,8 +67,8 @@ namespace Cardiology.Data.PostgreSQL
                         obj.Complaints = reader.GetString(8);
                         obj.Inspection = reader.GetString(9);
                         obj.Doctor = reader.GetString(10);
-                        obj.Patient = reader.GetString(11);
-                        obj.InspectionResult = reader.GetString(12);
+                        obj.InspectionResult = reader.GetString(11);
+                        obj.Patient = reader.GetString(12);
                         return obj;
                     }
                 }

@@ -20,15 +20,15 @@ namespace Cardiology.Data.PostgreSQL
             IList<DdtCoagulogram> list = new List<DdtCoagulogram>();
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = "SELECT dsid_hospitality_session, dss_ddimer, r_object_id, dsdt_analysis_date, r_modify_date, dss_mcho, r_creation_date, dss_achtv, dsid_doctor, dsid_patient FROM ddt_coagulogram";
+                String sql = "SELECT dss_ddimer, dsid_hospitality_session, r_object_id, dsdt_analysis_date, r_modify_date, dss_mcho, r_creation_date, dss_achtv, dsid_doctor, dsid_patient FROM ddt_coagulogram";
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
                     while (reader.Read())
                     {
                         DdtCoagulogram obj = new DdtCoagulogram();
-                        obj.HospitalitySession = reader.GetString(1);
-                        obj.Ddimer = reader.GetString(2);
+                        obj.Ddimer = reader.GetString(1);
+                        obj.HospitalitySession = reader.GetString(2);
                         obj.ObjectId = reader.GetString(3);
                         obj.AnalysisDate = reader.GetDateTime(4);
                         obj.ModifyDate = reader.GetDateTime(5);
@@ -48,15 +48,15 @@ namespace Cardiology.Data.PostgreSQL
         {
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = String.Format("SELECT dsid_hospitality_session, dss_ddimer, r_object_id, dsdt_analysis_date, r_modify_date, dss_mcho, r_creation_date, dss_achtv, dsid_doctor, dsid_patient FROM ddt_coagulogram WHERE r_object_id = '{0}'", id);
+                String sql = String.Format("SELECT dss_ddimer, dsid_hospitality_session, r_object_id, dsdt_analysis_date, r_modify_date, dss_mcho, r_creation_date, dss_achtv, dsid_doctor, dsid_patient FROM ddt_coagulogram WHERE r_object_id = '{0}'", id);
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
                     if (reader.Read())
                     {
                         DdtCoagulogram obj = new DdtCoagulogram();
-                        obj.HospitalitySession = reader.GetString(1);
-                        obj.Ddimer = reader.GetString(2);
+                        obj.Ddimer = reader.GetString(1);
+                        obj.HospitalitySession = reader.GetString(2);
                         obj.ObjectId = reader.GetString(3);
                         obj.AnalysisDate = reader.GetDateTime(4);
                         obj.ModifyDate = reader.GetDateTime(5);

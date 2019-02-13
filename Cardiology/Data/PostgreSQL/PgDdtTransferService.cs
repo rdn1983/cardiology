@@ -20,7 +20,7 @@ namespace Cardiology.Data.PostgreSQL
             IList<DdtTransfer> list = new List<DdtTransfer>();
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = "SELECT dsid_hospitality_session, r_object_id, dsdt_end_date, r_modify_date, dss_destination, r_creation_date, dss_transfer_justification, dsdt_start_date, dsid_doctor, dsid_patient, dss_contacts, dsi_type FROM ddt_transfer";
+                String sql = "SELECT dsid_hospitality_session, r_object_id, dsdt_end_date, r_modify_date, dss_destination, r_creation_date, dss_transfer_justification, dsdt_start_date, dsid_doctor, dsi_type, dss_contacts, dsid_patient FROM ddt_transfer";
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -36,9 +36,9 @@ namespace Cardiology.Data.PostgreSQL
                         obj.TransferJustification = reader.GetString(7);
                         obj.StartDate = reader.GetDateTime(8);
                         obj.Doctor = reader.GetString(9);
-                        obj.Patient = reader.GetString(10);
+                        obj.Type = reader.GetInt16(10);
                         obj.Contacts = reader.GetString(11);
-                        obj.Type = reader.GetInt16(12);
+                        obj.Patient = reader.GetString(12);
                         list.Add(obj);
                     }
                 }
@@ -50,7 +50,7 @@ namespace Cardiology.Data.PostgreSQL
         {
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = String.Format("SELECT dsid_hospitality_session, r_object_id, dsdt_end_date, r_modify_date, dss_destination, r_creation_date, dss_transfer_justification, dsdt_start_date, dsid_doctor, dsid_patient, dss_contacts, dsi_type FROM ddt_transfer WHERE r_object_id = '{0}'", id);
+                String sql = String.Format("SELECT dsid_hospitality_session, r_object_id, dsdt_end_date, r_modify_date, dss_destination, r_creation_date, dss_transfer_justification, dsdt_start_date, dsid_doctor, dsi_type, dss_contacts, dsid_patient FROM ddt_transfer WHERE r_object_id = '{0}'", id);
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -66,9 +66,9 @@ namespace Cardiology.Data.PostgreSQL
                         obj.TransferJustification = reader.GetString(7);
                         obj.StartDate = reader.GetDateTime(8);
                         obj.Doctor = reader.GetString(9);
-                        obj.Patient = reader.GetString(10);
+                        obj.Type = reader.GetInt16(10);
                         obj.Contacts = reader.GetString(11);
-                        obj.Type = reader.GetInt16(12);
+                        obj.Patient = reader.GetString(12);
                         return obj;
                     }
                 }

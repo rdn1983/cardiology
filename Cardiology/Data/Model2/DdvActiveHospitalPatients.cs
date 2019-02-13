@@ -20,9 +20,9 @@ namespace Cardiology.Data.Model2
 
         public string DoctorId { get; set; }
 
-        public DateTime AdmissionDate { get; set; }
-
         public string MedCode { get; set; }
+
+        public DateTime AdmissionDate { get; set; }
 
     }
 }

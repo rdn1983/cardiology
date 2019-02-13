@@ -16,9 +16,9 @@ namespace Cardiology.Data.Model2
 
         public DateTime CreationDate { get; set; }
 
-        public bool AdmissionAnalysis { get; set; }
-
         public string Parent { get; set; }
+
+        public bool AdmissionAnalysis { get; set; }
 
         public string Ekg { get; set; }
 

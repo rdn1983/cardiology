@@ -4,18 +4,16 @@ using System.IO;
 using System.Windows.Forms;
 using Cardiology.Commons;
 using Cardiology.Data;
-using Cardiology.Data.Model;
 using Cardiology.Data.Model2;
-using DdtPatient = Cardiology.Data.Model2.DdtPatient;
 
 namespace Cardiology.UI.Forms
 {
     public partial class ReanimDEAD : Form
     {
         private readonly IDbDataService service;
-        private DdtPatient patient;
+        private DdvPatient patient;
 
-        public ReanimDEAD(IDbDataService service, DdtPatient patient)
+        public ReanimDEAD(IDbDataService service, DdvPatient patient)
         {
             this.service = service;
             this.patient = patient;
@@ -52,14 +50,16 @@ namespace Cardiology.UI.Forms
 
             Dictionary<string, string> values = new Dictionary<string, string>();
             values.Add(@"{date}", deathDateTxt.Text);
+
             values.Add(@"{time}", deathTimeCtrl.Text);
-            DdtDoctors doc = (DdtDoctors)doctorsBox.SelectedItem;
-            values.Add(@"{doctor.who.short}", doc == null ? "" : doc.DssInitials);
+
+            DdvDoctor doc = (DdvDoctor)doctorsBox.SelectedItem;
+            values.Add(@"{doctor.who.short}", doc == null ? "" : doc.ShortName);
             values.Add(@"{doctor.appointment_name}", "");
-            values.Add(@"{patient.full_name}", patient.DssFullName);
+            values.Add(@"{patient.full_name}", patient.ShortName);
             values.Add(@"{patient.birthdate}", "");
             values.Add(@"{patient.sex}", "");
-            values.Add(@"{patient.medcode}", patient.DssMedCode);
+            values.Add(@"{patient.medcode}", patient.MedCode);
             values.Add(@"{doctor.who}", doctorsBox.Text);
             TemplatesUtils.fillTemplateAndShow(templatePath, values);
         }
@@ -77,8 +77,9 @@ namespace Cardiology.UI.Forms
             Dictionary<string, string> values = new Dictionary<string, string>();
             values.Add(@"{death.date}", deathDateTxt.Text);
             values.Add(@"{death.time}", deathTimeCtrl.Text);
-            DdtDoctors doc = (DdtDoctors)doctorsBox.SelectedItem;
-            values.Add(@"{doctor.who.short}", doc == null ? "" : doc.DssInitials);
+
+            DdvDoctor doc = (DdvDoctor)doctorsBox.SelectedItem;
+            values.Add(@"{doctor.who.short}", doc == null ? "" : doc.ShortName);
 
             DateTime deathTime = CommonUtils.ConstructDateWIthTime(deathDateTxt.Value, deathTimeCtrl.Value);
             for (int i = 0; i < 10; i++)

@@ -20,7 +20,7 @@ namespace Cardiology.Data.PostgreSQL
             IList<DdtHospital> list = new List<DdtHospital>();
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = "SELECT r_object_id, dsid_duty_doctor, dss_diagnosis, r_creation_date, dsi_release_type, dsdt_admission_date, dsid_patient, dsid_curing_doctor, dsb_active, r_modify_date, dsb_reject_cure, dss_room_cell, dsb_death, dsid_dir_cardio_reanim_doctor, dsid_substitution_doctor, dsid_anesthetist_doctor FROM ddt_hospital";
+                String sql = "SELECT r_object_id, dss_diagnosis, dsid_duty_doctor, r_creation_date, dsi_release_type, dsdt_admission_date, dsid_patient, dsid_curing_doctor, dsb_active, r_modify_date, dsb_reject_cure, dss_room_cell, dsb_death, dsid_dir_cardio_reanim_doctor, dsid_substitution_doctor, dsid_anesthetist_doctor FROM ddt_hospital";
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -28,8 +28,8 @@ namespace Cardiology.Data.PostgreSQL
                     {
                         DdtHospital obj = new DdtHospital();
                         obj.ObjectId = reader.GetString(1);
-                        obj.DutyDoctor = reader.GetString(2);
-                        obj.Diagnosis = reader.GetString(3);
+                        obj.Diagnosis = reader.GetString(2);
+                        obj.DutyDoctor = reader.GetString(3);
                         obj.CreationDate = reader.GetDateTime(4);
                         obj.ReleaseType = reader.GetInt16(5);
                         obj.AdmissionDate = reader.GetDateTime(6);
@@ -54,7 +54,7 @@ namespace Cardiology.Data.PostgreSQL
         {
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = String.Format("SELECT r_object_id, dsid_duty_doctor, dss_diagnosis, r_creation_date, dsi_release_type, dsdt_admission_date, dsid_patient, dsid_curing_doctor, dsb_active, r_modify_date, dsb_reject_cure, dss_room_cell, dsb_death, dsid_dir_cardio_reanim_doctor, dsid_substitution_doctor, dsid_anesthetist_doctor FROM ddt_hospital WHERE r_object_id = '{0}'", id);
+                String sql = String.Format("SELECT r_object_id, dss_diagnosis, dsid_duty_doctor, r_creation_date, dsi_release_type, dsdt_admission_date, dsid_patient, dsid_curing_doctor, dsb_active, r_modify_date, dsb_reject_cure, dss_room_cell, dsb_death, dsid_dir_cardio_reanim_doctor, dsid_substitution_doctor, dsid_anesthetist_doctor FROM ddt_hospital WHERE r_object_id = '{0}'", id);
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -62,8 +62,8 @@ namespace Cardiology.Data.PostgreSQL
                     {
                         DdtHospital obj = new DdtHospital();
                         obj.ObjectId = reader.GetString(1);
-                        obj.DutyDoctor = reader.GetString(2);
-                        obj.Diagnosis = reader.GetString(3);
+                        obj.Diagnosis = reader.GetString(2);
+                        obj.DutyDoctor = reader.GetString(3);
                         obj.CreationDate = reader.GetDateTime(4);
                         obj.ReleaseType = reader.GetInt16(5);
                         obj.AdmissionDate = reader.GetDateTime(6);

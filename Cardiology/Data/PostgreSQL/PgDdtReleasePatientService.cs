@@ -20,7 +20,7 @@ namespace Cardiology.Data.PostgreSQL
             IList<DdtReleasePatient> list = new List<DdtReleasePatient>();
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = "SELECT r_object_id, dsb_dismissed_less30d, dsdt_our_enddate, dss_our_sicklist_num, dss_year_disabilities, dsdt_our_startdate, r_creation_date, dss_disability_num, dsid_doctor, dsid_patient, dsid_hospitality_session, dss_profession, dsdt_extr_enddate, dsdt_extr_startdate, r_modify_date, dsb_pensioneer, dsb_is_working, dsb_sicklist_need, dsb_extr_opened_sicklist, dss_occupational_hazard, dsdt_okr_release_date, dss_extr_sicklist_num FROM ddt_release_patient";
+                String sql = "SELECT r_object_id, dsdt_our_enddate, dsb_dismissed_less30d, dss_our_sicklist_num, dss_year_disabilities, dsdt_our_startdate, r_creation_date, dss_disability_num, dsid_doctor, dsid_patient, dsid_hospitality_session, dss_profession, dsdt_extr_enddate, dsdt_extr_startdate, r_modify_date, dsb_pensioneer, dsb_is_working, dsb_sicklist_need, dsb_extr_opened_sicklist, dss_occupational_hazard, dsdt_okr_release_date, dss_extr_sicklist_num FROM ddt_release_patient";
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -28,8 +28,8 @@ namespace Cardiology.Data.PostgreSQL
                     {
                         DdtReleasePatient obj = new DdtReleasePatient();
                         obj.ObjectId = reader.GetString(1);
-                        obj.DismissedLess30d = reader.GetBoolean(2);
-                        obj.OurEnddate = reader.GetDateTime(3);
+                        obj.OurEnddate = reader.GetDateTime(2);
+                        obj.DismissedLess30d = reader.GetBoolean(3);
                         obj.OurSicklistNum = reader.GetString(4);
                         obj.YearDisabilities = reader.GetString(5);
                         obj.OurStartdate = reader.GetDateTime(6);
@@ -60,7 +60,7 @@ namespace Cardiology.Data.PostgreSQL
         {
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = String.Format("SELECT r_object_id, dsb_dismissed_less30d, dsdt_our_enddate, dss_our_sicklist_num, dss_year_disabilities, dsdt_our_startdate, r_creation_date, dss_disability_num, dsid_doctor, dsid_patient, dsid_hospitality_session, dss_profession, dsdt_extr_enddate, dsdt_extr_startdate, r_modify_date, dsb_pensioneer, dsb_is_working, dsb_sicklist_need, dsb_extr_opened_sicklist, dss_occupational_hazard, dsdt_okr_release_date, dss_extr_sicklist_num FROM ddt_release_patient WHERE r_object_id = '{0}'", id);
+                String sql = String.Format("SELECT r_object_id, dsdt_our_enddate, dsb_dismissed_less30d, dss_our_sicklist_num, dss_year_disabilities, dsdt_our_startdate, r_creation_date, dss_disability_num, dsid_doctor, dsid_patient, dsid_hospitality_session, dss_profession, dsdt_extr_enddate, dsdt_extr_startdate, r_modify_date, dsb_pensioneer, dsb_is_working, dsb_sicklist_need, dsb_extr_opened_sicklist, dss_occupational_hazard, dsdt_okr_release_date, dss_extr_sicklist_num FROM ddt_release_patient WHERE r_object_id = '{0}'", id);
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -68,8 +68,8 @@ namespace Cardiology.Data.PostgreSQL
                     {
                         DdtReleasePatient obj = new DdtReleasePatient();
                         obj.ObjectId = reader.GetString(1);
-                        obj.DismissedLess30d = reader.GetBoolean(2);
-                        obj.OurEnddate = reader.GetDateTime(3);
+                        obj.OurEnddate = reader.GetDateTime(2);
+                        obj.DismissedLess30d = reader.GetBoolean(3);
                         obj.OurSicklistNum = reader.GetString(4);
                         obj.YearDisabilities = reader.GetString(5);
                         obj.OurStartdate = reader.GetDateTime(6);

@@ -95,7 +95,7 @@ namespace Cardiology.UI.Forms
                 string value = cell.Value.ToString();
 
                 DdtHospital hospitalSession = service.GetDdtHospitalService().GetById(value);
-                DdtPatient patient = service.GetDdtPatientService().GetById(hospitalSession.Patient);
+                DdvPatient patient = service.GetDdvPatientService().GetById(hospitalSession.Patient);
                 ReanimDEAD form = new ReanimDEAD(service, patient);
                 form.ShowDialog();
             }
@@ -110,10 +110,10 @@ namespace Cardiology.UI.Forms
                 DataGridViewRow row = (DataGridViewRow)it.Current;
                 DataGridViewCell cell = row.Cells[0];
                 string value = cell.Value.ToString();
-                DataService service = new DataService();
-                DdtHospital hospitalSession = service.queryObjectById<DdtHospital>(value);
-                DdtPatient patient = service.queryObjectById<DdtPatient>(hospitalSession.DsidPatient);
-                ReanimDEAD form = new ReanimDEAD(patient);
+
+                DdtHospital hospitalSession = service.GetDdtHospitalService().GetById(value);
+                DdvPatient patient = service.GetDdvPatientService().GetById(hospitalSession.Patient);
+                ReanimDEAD form = new ReanimDEAD(service, patient);
                 form.ShowDialog();
             }
         }
@@ -140,7 +140,7 @@ namespace Cardiology.UI.Forms
                 DataGridViewCell cell = row.Cells[0];
                 string value = cell.Value.ToString();
 
-                DdtHospital hospitalSession = new DataService().queryObjectById<DdtHospital>(value);
+                DdtHospital hospitalSession = service.GetDdtHospitalService().GetById(value);
                 PatientsHistory form = new PatientsHistory(service, hospitalSession);
                 form.ShowDialog();
             }

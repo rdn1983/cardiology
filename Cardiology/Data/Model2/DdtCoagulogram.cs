@@ -4,9 +4,9 @@ namespace Cardiology.Data.Model2
 {
     public class DdtCoagulogram
     {
-        public string HospitalitySession { get; set; }
-
         public string Ddimer { get; set; }
+
+        public string HospitalitySession { get; set; }
 
         public string ObjectId { get; set; }
 

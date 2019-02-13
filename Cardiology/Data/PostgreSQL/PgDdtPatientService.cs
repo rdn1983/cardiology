@@ -20,7 +20,7 @@ namespace Cardiology.Data.PostgreSQL
             IList<DdtPatient> list = new List<DdtPatient>();
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = "SELECT r_object_id, dss_address, dss_middle_name, dss_passport_num, dss_first_name, dsd_weight, r_creation_date, dss_snils, dss_last_name, dss_passport_date, r_modify_date, dss_phone, dss_oms, dss_passport_serial, dsdt_birthdate, dsb_sd, dss_med_code, dss_passport_issue_place, dsd_high FROM ddt_patient";
+                String sql = "SELECT r_object_id, dss_address, dss_middle_name, dss_passport_num, dss_first_name, dsd_weight, r_creation_date, dss_snils, dss_last_name, dss_passport_date, dss_phone, r_modify_date, dss_oms, dss_passport_serial, dsdt_birthdate, dsb_sd, dss_med_code, dss_passport_issue_place, dsd_high FROM ddt_patient";
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -37,8 +37,8 @@ namespace Cardiology.Data.PostgreSQL
                         obj.Snils = reader.GetString(8);
                         obj.LastName = reader.GetString(9);
                         obj.PassportDate = reader.GetDateTime(10);
-                        obj.ModifyDate = reader.GetDateTime(11);
-                        obj.Phone = reader.GetString(12);
+                        obj.Phone = reader.GetString(11);
+                        obj.ModifyDate = reader.GetDateTime(12);
                         obj.Oms = reader.GetString(13);
                         obj.PassportSerial = reader.GetString(14);
                         obj.Birthdate = reader.GetDateTime(15);
@@ -57,7 +57,7 @@ namespace Cardiology.Data.PostgreSQL
         {
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = String.Format("SELECT r_object_id, dss_address, dss_middle_name, dss_passport_num, dss_first_name, dsd_weight, r_creation_date, dss_snils, dss_last_name, dss_passport_date, r_modify_date, dss_phone, dss_oms, dss_passport_serial, dsdt_birthdate, dsb_sd, dss_med_code, dss_passport_issue_place, dsd_high FROM ddt_patient WHERE r_object_id = '{0}'", id);
+                String sql = String.Format("SELECT r_object_id, dss_address, dss_middle_name, dss_passport_num, dss_first_name, dsd_weight, r_creation_date, dss_snils, dss_last_name, dss_passport_date, dss_phone, r_modify_date, dss_oms, dss_passport_serial, dsdt_birthdate, dsb_sd, dss_med_code, dss_passport_issue_place, dsd_high FROM ddt_patient WHERE r_object_id = '{0}'", id);
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -74,8 +74,8 @@ namespace Cardiology.Data.PostgreSQL
                         obj.Snils = reader.GetString(8);
                         obj.LastName = reader.GetString(9);
                         obj.PassportDate = reader.GetDateTime(10);
-                        obj.ModifyDate = reader.GetDateTime(11);
-                        obj.Phone = reader.GetString(12);
+                        obj.Phone = reader.GetString(11);
+                        obj.ModifyDate = reader.GetDateTime(12);
                         obj.Oms = reader.GetString(13);
                         obj.PassportSerial = reader.GetString(14);
                         obj.Birthdate = reader.GetDateTime(15);

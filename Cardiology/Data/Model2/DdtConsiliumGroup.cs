@@ -2,11 +2,9 @@ using System;
 
 namespace Cardiology.Data.Model2
 {
-    public class DmGroup
+    public class DdtConsiliumGroup
     {
         public string ObjectId { get; set; }
-
-        public string Description { get; set; }
 
         public DateTime ModifyDate { get; set; }
 

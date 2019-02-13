@@ -6,30 +6,30 @@ using Cardiology.Data.Commons;
 
 namespace Cardiology.Data.PostgreSQL
 {
-    public class PgDdtConsiliumMemberLevelService : IDdtConsiliumMemberLevelService
+    public class PgDdtConsiliumGroupLevelService : IDdtConsiliumGroupLevelService
     {
         private readonly IDbConnectionFactory connectionFactory;
 
-        public PgDdtConsiliumMemberLevelService(IDbConnectionFactory connectionFactory)
+        public PgDdtConsiliumGroupLevelService(IDbConnectionFactory connectionFactory)
         {
             this.connectionFactory = connectionFactory;
         }
 
-        public IList<DdtConsiliumMemberLevel> GetAll()
+        public IList<DdtConsiliumGroupLevel> GetAll()
         {
-            IList<DdtConsiliumMemberLevel> list = new List<DdtConsiliumMemberLevel>();
+            IList<DdtConsiliumGroupLevel> list = new List<DdtConsiliumGroupLevel>();
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = "SELECT r_object_id, dsi_level, dss_group_name FROM ddt_consilium_member_level";
+                String sql = "SELECT r_object_id, dsi_level, dsid_group FROM ddt_consilium_group_level";
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
                     while (reader.Read())
                     {
-                        DdtConsiliumMemberLevel obj = new DdtConsiliumMemberLevel();
+                        DdtConsiliumGroupLevel obj = new DdtConsiliumGroupLevel();
                         obj.ObjectId = reader.GetString(1);
                         obj.Level = reader.GetInt16(2);
-                        obj.GroupName = reader.GetString(3);
+                        obj.Group = reader.GetString(3);
                         list.Add(obj);
                     }
                 }
@@ -37,20 +37,20 @@ namespace Cardiology.Data.PostgreSQL
             return list;
         }
 
-        public DdtConsiliumMemberLevel GetById(string id)
+        public DdtConsiliumGroupLevel GetById(string id)
         {
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = String.Format("SELECT r_object_id, dsi_level, dss_group_name FROM ddt_consilium_member_level WHERE r_object_id = '{0}'", id);
+                String sql = String.Format("SELECT r_object_id, dsi_level, dsid_group FROM ddt_consilium_group_level WHERE r_object_id = '{0}'", id);
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
                     if (reader.Read())
                     {
-                        DdtConsiliumMemberLevel obj = new DdtConsiliumMemberLevel();
+                        DdtConsiliumGroupLevel obj = new DdtConsiliumGroupLevel();
                         obj.ObjectId = reader.GetString(1);
                         obj.Level = reader.GetInt16(2);
-                        obj.GroupName = reader.GetString(3);
+                        obj.Group = reader.GetString(3);
                         return obj;
                     }
                 }

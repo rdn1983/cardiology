@@ -81,7 +81,9 @@
     <Compile Include="Data\Commons\IDdtAnamnesisService.cs" />
     <Compile Include="Data\Commons\IDdtBloodAnalysisService.cs" />
     <Compile Include="Data\Commons\IDdtCoagulogramService.cs" />
-    <Compile Include="Data\Commons\IDdtConsiliumMemberLevelService.cs" />
+    <Compile Include="Data\Commons\IDdtConsiliumGroupLevelService.cs" />
+    <Compile Include="Data\Commons\IDdtConsiliumGroupMemberService.cs" />
+    <Compile Include="Data\Commons\IDdtConsiliumGroupService.cs" />
     <Compile Include="Data\Commons\IDdtConsiliumMemberService.cs" />
     <Compile Include="Data\Commons\IDdtConsiliumService.cs" />
     <Compile Include="Data\Commons\IDdtCureService.cs" />
@@ -115,6 +117,7 @@
     <Compile Include="Data\Commons\IDdvAllDiagnosisService.cs" />
     <Compile Include="Data\Commons\IDdvDoctorService.cs" />
     <Compile Include="Data\Commons\IDdvHistoryService.cs" />
+    <Compile Include="Data\Commons\IDdvPatientService.cs" />
     <Compile Include="Data\Commons\IDmGroupService.cs" />
     <Compile Include="Data\Commons\IDmGroupUsersService.cs" />
     <Compile Include="Data\IDbConnectionFactory.cs" />
@@ -124,8 +127,10 @@
     <Compile Include="Data\Model2\DdtBloodAnalysis.cs" />
     <Compile Include="Data\Model2\DdtCoagulogram.cs" />
     <Compile Include="Data\Model2\DdtConsilium.cs" />
+    <Compile Include="Data\Model2\DdtConsiliumGroup.cs" />
+    <Compile Include="Data\Model2\DdtConsiliumGroupLevel.cs" />
+    <Compile Include="Data\Model2\DdtConsiliumGroupMember.cs" />
     <Compile Include="Data\Model2\DdtConsiliumMember.cs" />
-    <Compile Include="Data\Model2\DdtConsiliumMemberLevel.cs" />
     <Compile Include="Data\Model2\DdtCure.cs" />
     <Compile Include="Data\Model2\DdtCureType.cs" />
     <Compile Include="Data\Model2\DdtDoctor.cs" />
@@ -157,6 +162,7 @@
     <Compile Include="Data\Model2\DdvAllDiagnosis.cs" />
     <Compile Include="Data\Model2\DdvDoctor.cs" />
     <Compile Include="Data\Model2\DdvHistory.cs" />
+    <Compile Include="Data\Model2\DdvPatient.cs" />
     <Compile Include="Data\Model2\DmGroup.cs" />
     <Compile Include="Data\Model2\DmGroupUsers.cs" />
     <Compile Include="Data\PostgreSQL\PgConnectionFactory.cs" />
@@ -165,7 +171,9 @@
     <Compile Include="Data\PostgreSQL\PgDdtAnamnesisService.cs" />
     <Compile Include="Data\PostgreSQL\PgDdtBloodAnalysisService.cs" />
     <Compile Include="Data\PostgreSQL\PgDdtCoagulogramService.cs" />
-    <Compile Include="Data\PostgreSQL\PgDdtConsiliumMemberLevelService.cs" />
+    <Compile Include="Data\PostgreSQL\PgDdtConsiliumGroupLevelService.cs" />
+    <Compile Include="Data\PostgreSQL\PgDdtConsiliumGroupMemberService.cs" />
+    <Compile Include="Data\PostgreSQL\PgDdtConsiliumGroupService.cs" />
     <Compile Include="Data\PostgreSQL\PgDdtConsiliumMemberService.cs" />
     <Compile Include="Data\PostgreSQL\PgDdtConsiliumService.cs" />
     <Compile Include="Data\PostgreSQL\PgDdtCureService.cs" />
@@ -199,6 +207,7 @@
     <Compile Include="Data\PostgreSQL\PgDdvAllDiagnosisService.cs" />
     <Compile Include="Data\PostgreSQL\PgDdvDoctorService.cs" />
     <Compile Include="Data\PostgreSQL\PgDdvHistoryService.cs" />
+    <Compile Include="Data\PostgreSQL\PgDdvPatientService.cs" />
     <Compile Include="Data\PostgreSQL\PgDmGroupService.cs" />
     <Compile Include="Data\PostgreSQL\PgDmGroupUsersService.cs" />
     <Compile Include="UI\ControlUtils.cs" />

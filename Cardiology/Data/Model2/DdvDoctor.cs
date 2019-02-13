@@ -4,9 +4,9 @@ namespace Cardiology.Data.Model2
 {
     public class DdvDoctor
     {
-        public string ObjectId { get; set; }
-
         public string FullName { get; set; }
+
+        public string ObjectId { get; set; }
 
         public string MiddleName { get; set; }
 

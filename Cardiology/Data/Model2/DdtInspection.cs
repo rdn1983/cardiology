@@ -24,9 +24,9 @@ namespace Cardiology.Data.Model2
 
         public string Doctor { get; set; }
 
-        public string Patient { get; set; }
-
         public string InspectionResult { get; set; }
+
+        public string Patient { get; set; }
 
     }
 }

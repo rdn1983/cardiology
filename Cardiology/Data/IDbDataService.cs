@@ -16,8 +16,6 @@ namespace Cardiology.Data
 
         IDdtOncologicMarkersService GetDdtOncologicMarkersService();
 
-        IDdtConsiliumMemberLevelService GetDdtConsiliumMemberLevelService();
-
         IDdtHormonesService GetDdtHormonesService();
 
         IDdtHolterService GetDdtHolterService();
@@ -29,6 +27,8 @@ namespace Cardiology.Data
         IDdtConsiliumService GetDdtConsiliumService();
 
         IDdtPatientService GetDdtPatientService();
+
+        IDdvPatientService GetDdvPatientService();
 
         IDdtBloodAnalysisService GetDdtBloodAnalysisService();
 

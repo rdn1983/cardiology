@@ -3,34 +3,35 @@ using Cardiology.Data;
 using Cardiology.Data.Model2;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using Cardiology.Data.Commons;
 
 namespace Cardiology.UI
 {
     class ControlUtils
     {
-        internal static void initDoctorsByGroupName(IDbDoctorService service, ComboBox control, string groupName)
+        internal static void InitDoctorsByGroupName(IDdvDoctorService service, ComboBox control, string groupName)
         {
             control.Items.Clear();
 
-            IList<DdtDoctorV2> list = service.GetDoctorsByGroupName(groupName);
+            IList<DdvDoctor> list = service.GetByGroupName(groupName);
             control.DataSource = list;
 
-            control.ValueMember = "Id";
-            control.DisplayMember = "Initials";
+            control.ValueMember = "ObjectId";
+            control.DisplayMember = "ShortName";
         }
 
-        internal static void initDoctors(IDbDoctorService service, ComboBox control, String defaultId)
+        internal static void InitDoctors(IDdvDoctorService service, ComboBox control, String defaultId)
         {
             control.Items.Clear();
 
-            IList<DdtDoctorV2> list = service.GetAll();
+            IList<DdvDoctor> list = service.GetAll();
 
             var selectIndex = 0;
             for (var index = 0; index < list.Count; index++)
             {
                 var obj = list[index];
 
-                if (obj.Id == defaultId)
+                if (obj.ObjectId == defaultId)
                 {
                     selectIndex = index;
                 }
@@ -38,8 +39,8 @@ namespace Cardiology.UI
             }
 
 
-            control.ValueMember = "Id";
-            control.DisplayMember = "Initials";
+            control.ValueMember = "ObjectId";
+            control.DisplayMember = "ShortName";
             control.SelectedIndex = selectIndex;
         }
     }

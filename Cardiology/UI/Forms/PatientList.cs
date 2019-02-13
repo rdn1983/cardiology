@@ -5,7 +5,6 @@ using System.Linq;
 using System.Windows.Forms;
 using Cardiology.Commons;
 using Cardiology.Data;
-using Cardiology.Data.Model;
 using Cardiology.Data.Model2;
 
 namespace Cardiology.UI.Forms
@@ -26,12 +25,12 @@ namespace Cardiology.UI.Forms
         private void loadPatientsGrid(bool idOnlyActive)
         {
             hospitalPatientsTbl.Rows.Clear();
-            IList<DdvActiveHospitalPatientV2> activePatients = service.GetPatientService().GetActive();
+            IList<DdvActiveHospitalPatients> activePatients = service.GetDdvActiveHospitalPatientsService().GetList(idOnlyActive);
             for (int i = 0; i < activePatients.Count(); i++)
             {
-                DdvActiveHospitalPatientV2 activePatient = activePatients[i];
+                DdvActiveHospitalPatients activePatient = activePatients[i];
                 hospitalPatientsTbl.Rows.Add(
-                    activePatient.SessionId, 
+                    activePatient.HospitalSession, 
                     activePatient.PatientName, 
                     activePatient.RoomCell, activePatient.AdmissionDate, activePatient.DocName, activePatient.Diagnosis);
             }
@@ -94,8 +93,8 @@ namespace Cardiology.UI.Forms
                 DataGridViewRow row = (DataGridViewRow)it.Current;
                 DataGridViewCell cell = row.Cells[0];
                 string value = cell.Value.ToString();
-                DataService service = new DataService();
-                DdtHospital hospitalSession = service.queryObjectById<DdtHospital>(value);
+
+                DdtHospital hospitalSession = service.GetDdtHospitalService().GetAll()<DdtHospital>(value);
                 DdtPatient patient = service.queryObjectById<DdtPatient>(hospitalSession.DsidPatient);
                 ReanimDEAD form = new ReanimDEAD(patient);
                 form.ShowDialog();

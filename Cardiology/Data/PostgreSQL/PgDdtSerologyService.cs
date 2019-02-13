@@ -1,0 +1,52 @@
+using System;
+using System.Data.Common;
+using System.Collections.Generic;
+using Cardiology.Data.Model2;
+using Cardiology.Data.Commons;
+
+namespace Cardiology.Data.PostgreSQL
+{
+    public class PgDdtSerologyService : IDdtSerologyService
+    {
+        private readonly IDbConnectionFactory connectionFactory;
+
+        public PgDdtSerologyService(IDbConnectionFactory connectionFactory)
+        {
+            this.connectionFactory = connectionFactory;
+        }
+
+        public IList<DdtSerology> GetAll()
+        {
+            IList<DdtSerology> list = new List<DdtSerology>();
+            using (dynamic connection = connectionFactory.GetConnection())
+            {
+                String sql = "SELECT r_object_id, dsdt_analysis_date, dss_blood_type, r_creation_date, dss_kell_ag, dss_phenotype, dsid_doctor, dss_rw, dsid_patient, dsid_hospitality_session, dss_hbs_ag, dss_anti_hcv, r_modify_date, dss_hiv, dss_rhesus_factor FROM ddt_serology";
+                Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
+                using (DbDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        DdtSerology obj = new DdtSerology();
+                        obj.ObjectId = reader.GetString(1);
+                        obj.AnalysisDate = reader.GetDateTime(2);
+                        obj.BloodType = reader.GetString(3);
+                        obj.CreationDate = reader.GetDateTime(4);
+                        obj.KellAg = reader.GetString(5);
+                        obj.Phenotype = reader.GetString(6);
+                        obj.Doctor = reader.GetString(7);
+                        obj.Rw = reader.GetString(8);
+                        obj.Patient = reader.GetString(9);
+                        obj.HospitalitySession = reader.GetString(10);
+                        obj.HbsAg = reader.GetString(11);
+                        obj.AntiHcv = reader.GetString(12);
+                        obj.ModifyDate = reader.GetDateTime(13);
+                        obj.Hiv = reader.GetString(14);
+                        obj.RhesusFactor = reader.GetString(15);
+                        list.Add(obj);
+                    }
+                }
+            }
+            return list;
+        }
+    }
+}

@@ -88,7 +88,7 @@ namespace Cardiology.UI.Forms
         private void InitDoctorComboBox()
         {
             String id = anamnesis == null ? hospitalSession.DsidCuringDoctor : anamnesis.DsidDoctor;
-            ControlUtils.initDoctors(this.service.GetDoctorService(), docBox, id);
+            ControlUtils.InitDoctors(this.service.GetDdvDoctorService(), docBox, id);
         }
 
         private void initAdmissionAnalysis(DataService service)

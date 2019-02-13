@@ -26,8 +26,8 @@ namespace Cardiology.UI.Forms
 
             CommonUtils.InitDoctorsComboboxValues(new DataService(), clinicalPharmacologistBox, "dsi_appointment_type=2");
             CommonUtils.InitDoctorsComboboxValues(new DataService(), nurseBox, null);
-            ControlUtils.initDoctorsByGroupName(service.GetDoctorService(), cardioReanimBox, "duty_cardioreanim");
-            ControlUtils.initDoctorsByGroupName(service.GetDoctorService(), directorBox, "io_cardio_reanim");
+            ControlUtils.InitDoctorsByGroupName(service.GetDdvDoctorService(), cardioReanimBox, "duty_cardioreanim");
+            ControlUtils.InitDoctorsByGroupName(service.GetDdvDoctorService(), directorBox, "io_cardio_reanim");
             initIssuedCure(new DataService());
 
             DdtPatient patient = new DataService().queryObjectById<DdtPatient>(hospitalitySession.DsidPatient);

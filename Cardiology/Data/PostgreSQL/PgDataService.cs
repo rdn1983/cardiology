@@ -1,4 +1,6 @@
 using Cardiology.Data.Commons;
+using System;
+using System.Data.Common;
 
 namespace Cardiology.Data.PostgreSQL
 {
@@ -310,6 +312,16 @@ namespace Cardiology.Data.PostgreSQL
         public IDdtVariousSpecConclusonService GetDdtVariousSpecConclusonService()
         {
             return ddtVariousSpecConclusonService;
+        }
+
+        public void Delete(string type, string id)
+        {
+            using (dynamic connection = connectionFactory.GetConnection())
+            {
+                String sql = "delete from " + type + " WHERE r_object_id = '" + id + "'";
+                Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
+                command.ExecuteScalar();
+            }
         }
     }
 }

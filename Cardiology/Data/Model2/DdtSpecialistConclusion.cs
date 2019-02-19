@@ -4,6 +4,8 @@ namespace Cardiology.Data.Model2
 {
     public class DdtSpecialistConclusion
     {
+        public static readonly string NAME = "ddt_specialist_conclusion";
+
         public string ObjectId { get; set; }
 
         public DateTime AnalysisDate { get; set; }

@@ -4,6 +4,8 @@ namespace Cardiology.Data.Model2
 {
     public class DdtHormones
     {
+        public static readonly string NAME = "ddt_hormones";
+
         public string HospitalitySession { get; set; }
 
         public string ObjectId { get; set; }

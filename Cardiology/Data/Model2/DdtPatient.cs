@@ -4,6 +4,8 @@ namespace Cardiology.Data.Model2
 {
     public class DdtPatient
     {
+        public static readonly string NAME = "ddt_patient";
+
         public string ObjectId { get; set; }
 
         public string Address { get; set; }

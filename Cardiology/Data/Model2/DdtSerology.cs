@@ -4,6 +4,8 @@ namespace Cardiology.Data.Model2
 {
     public class DdtSerology
     {
+        public static readonly string NAME = "ddt_serology";
+
         public string ObjectId { get; set; }
 
         public DateTime AnalysisDate { get; set; }

@@ -39,30 +39,30 @@ namespace Cardiology.UI.Forms
                     diagnosisTxt.Text = epicrisis.DssDiagnosis;
                     epicrisisDateTxt.Value = epicrisis.DsdtEpicrisisDate;
 
-                    List<DdtEkg> ekg = service.queryObjectsCollection<DdtEkg>(@"SELECT * FROM " + DdtEkg.TABLE_NAME + " where dsid_parent='" + epicrisis.ObjectId + "'");
+                    List<DdtEkg> ekg = service.queryObjectsCollection<DdtEkg>(@"SELECT * FROM " + DdtEkg.NAME + " where dsid_parent='" + epicrisis.ObjectId + "'");
                     foreach(DdtEkg e in ekg)
                     {
-                        analysisGrid.Rows.Add(e.ObjectId, DdtEkg.TABLE_NAME, "Анализы: ЭКГ", "", "");
+                        analysisGrid.Rows.Add(e.ObjectId, DdtEkg.NAME, "Анализы: ЭКГ", "", "");
                     }
-                    List<DdtEgds> egds = service.queryObjectsCollection<DdtEgds>(@"SELECT * FROM " + DdtEgds.TABLE_NAME + " where dsid_parent='" + epicrisis.ObjectId + "'");
+                    List<DdtEgds> egds = service.queryObjectsCollection<DdtEgds>(@"SELECT * FROM " + DdtEgds.NAME + " where dsid_parent='" + epicrisis.ObjectId + "'");
                     foreach (DdtEgds e in egds)
                     {
-                        analysisGrid.Rows.Add(e.ObjectId, DdtEgds.TABLE_NAME, "Анализы: ЭГДС", "", "");
+                        analysisGrid.Rows.Add(e.ObjectId, DdtEgds.NAME, "Анализы: ЭГДС", "", "");
                     }
-                    List<DdtUzi> uzi = service.queryObjectsCollection<DdtUzi>(@"SELECT * FROM " + DdtUzi.TABLE_NAME + " where dsid_parent='" + epicrisis.ObjectId + "'");
+                    List<DdtUzi> uzi = service.queryObjectsCollection<DdtUzi>(@"SELECT * FROM " + DdtUzi.NAME + " where dsid_parent='" + epicrisis.ObjectId + "'");
                     foreach (DdtUzi e in uzi)
                     {
-                        analysisGrid.Rows.Add(e.ObjectId, DdtUzi.TABLE_NAME, "Анализы: УЗИ", "", "");
+                        analysisGrid.Rows.Add(e.ObjectId, DdtUzi.NAME, "Анализы: УЗИ", "", "");
                     }
-                    List<DdtXRay> zray = service.queryObjectsCollection<DdtXRay>(@"SELECT * FROM " + DdtXRay.TABLE_NAME + " where dsid_parent='" + epicrisis.ObjectId + "'");
+                    List<DdtXRay> zray = service.queryObjectsCollection<DdtXRay>(@"SELECT * FROM " + DdtXRay.NAME + " where dsid_parent='" + epicrisis.ObjectId + "'");
                     foreach (DdtXRay e in zray)
                     {
-                        analysisGrid.Rows.Add(e.ObjectId, DdtXRay.TABLE_NAME, "Анализы: Рентген", "", "");
+                        analysisGrid.Rows.Add(e.ObjectId, DdtXRay.NAME, "Анализы: Рентген", "", "");
                     }
-                    List<DdtBloodAnalysis> blood = service.queryObjectsCollection<DdtBloodAnalysis>(@"SELECT * FROM " + DdtBloodAnalysis.TABLE_NAME + " where dsid_parent='" + epicrisis.ObjectId + "'");
+                    List<DdtBloodAnalysis> blood = service.queryObjectsCollection<DdtBloodAnalysis>(@"SELECT * FROM " + DdtBloodAnalysis.NAME + " where dsid_parent='" + epicrisis.ObjectId + "'");
                     foreach (DdtBloodAnalysis e in blood)
                     {
-                        analysisGrid.Rows.Add(e.ObjectId, DdtBloodAnalysis.TABLE_NAME, "Анализы: Кровь", "", "");
+                        analysisGrid.Rows.Add(e.ObjectId, DdtBloodAnalysis.NAME, "Анализы: Кровь", "", "");
                     }
                 }
             } else
@@ -106,7 +106,7 @@ namespace Cardiology.UI.Forms
         private void print_Click(object sender, EventArgs e)
         {
             saveObject();
-            ITemplateProcessor processor = TemplateProcessorManager.getProcessorByObjectType(DdtEpicrisis.TABLE_NAME);
+            ITemplateProcessor processor = TemplateProcessorManager.getProcessorByObjectType(DdtEpicrisis.NAME);
             string path = processor.processTemplate(hospitalitySession.ObjectId, objectId, new Dictionary<string, string>());
             TemplatesUtils.showDocument(path);
             Close();
@@ -126,7 +126,7 @@ namespace Cardiology.UI.Forms
             obj.DsdtEpicrisisDate = epicrisisDateTxt.Value;
             obj.DssDiagnosis = diagnosisTxt.Text;
             obj.DsiEpicrisisType = (int)DdtEpicrisisDsiType.BEFORE_OPERATION;
-            objectId = service.updateOrCreateIfNeedObject<DdtEpicrisis>(obj, DdtEpicrisis.TABLE_NAME, objectId);
+            objectId = service.updateOrCreateIfNeedObject<DdtEpicrisis>(obj, DdtEpicrisis.NAME, objectId);
             obj.ObjectId = objectId;
 
             DataGridViewRowCollection rows = analysisGrid.Rows;

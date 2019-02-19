@@ -154,8 +154,7 @@ namespace Cardiology.UI.Forms
                 DataGridViewRow row = (DataGridViewRow)it.Current;
                 DataGridViewCell cell = row.Cells[0];
                 string value = cell.Value.ToString();
-                DataService service = new DataService();
-                DdtHospital hospitalSession = service.queryObjectById<DdtHospital>(value);
+                DdtHospital hospitalSession = service.GetDdtHospitalService().GetById(value);
                 ReleasePatient dialog = new ReleasePatient(hospitalSession, null);
                 dialog.ShowDialog();
             }
@@ -262,8 +261,7 @@ namespace Cardiology.UI.Forms
                 DataGridViewRow row = (DataGridViewRow)it.Current;
                 DataGridViewCell cell = row.Cells[0];
                 string value = cell.Value.ToString();
-                DataService service = new DataService();
-                DdtAlcoProtocol protocol = service.queryObject<DdtAlcoProtocol>(@"SELECT * FROM ddt_alco_protocol WHERE dsid_hospitality_session='" + value + "'");
+                DdtAlcoProtocol protocol = service.GetDdtAlcoProtocolService().GetByHospitalSession(value);
                 Dictionary<string, string> values = new Dictionary<string, string>();
                 values.Add("{patient.behavior}", protocol == null ? "неустойчивое" : protocol.Behavior);
                 values.Add("{patient.bio}", protocol == null ? "1,81 ‰" : protocol.Bio);
@@ -487,9 +485,8 @@ namespace Cardiology.UI.Forms
                 string value = cell.Value.ToString();
                 Dictionary<string, string> values = new Dictionary<string, string>();
                 values.Add("{time}", DateTime.Now.ToShortTimeString());
-                DataService service = new DataService();
-                DdtHospital hospitalSession = service.queryObjectById<DdtHospital>(value);
-                DdtPatient patient = service.queryObjectById<DdtPatient>(hospitalSession.Patient);
+                DdtHospital hospitalSession = service.GetDdtHospitalService().GetById(value);
+                DdtPatient patient = service.GetDdtPatientService().GetById(hospitalSession.Patient);
                 string passportInfo = patient.PassportSerial + " " + patient.PassportNum + " выдан "
                     + patient.PassportDate.ToShortDateString() + " " + patient.PassportIssuePlace;
                 values.Add("{patient.passport}", passportInfo);
@@ -510,8 +507,7 @@ namespace Cardiology.UI.Forms
             {
                 DataGridViewRow row = (DataGridViewRow)it.Current;
                 DataGridViewCell cell = row.Cells[0];
-                DataService service = new DataService();
-                DdtHospital hospitalSession = service.queryObjectById<DdtHospital>(cell.Value.ToString());
+                DdtHospital hospitalSession = service.GetDdtHospitalService().GetById(cell.Value.ToString());
                 PatientAdmission admissionPatient = new PatientAdmission(this.service, hospitalSession);
                 admissionPatient.ShowDialog();
 
@@ -526,17 +522,15 @@ namespace Cardiology.UI.Forms
             {
                 DataGridViewRow row = (DataGridViewRow)it.Current;
                 DataGridViewCell cell = row.Cells[0];
-                DataService service = new DataService();
-                String lastListId = service.querySingleString("SELECT r_object_id FROM " + DdtIssuedMedicineList.TABLE_NAME +
-                    " WHERE dsid_hospitality_session='" + cell.Value + "' ORDER BY dsdt_issuing_date DESC");
-                if (string.IsNullOrEmpty(lastListId))
+                DdtIssuedMedicineList issuedMedicineList = service.GetDdtIssuedMedicineListService().GetListByHospitalId(cell.Value.ToString());
+                if (string.IsNullOrEmpty(issuedMedicineList.ObjectId))
                 {
                     MessageBox.Show("Для пациента еще не создано ни одного листа назначений", "Предупреждение", MessageBoxButtons.OK);
                 }
                 else
                 {
-                    DdtHospital hospitalSession = service.queryObjectById<DdtHospital>(cell.Value.ToString());
-                    IssuedMedicine form = new IssuedMedicine(this.service, hospitalSession, lastListId);
+                    DdtHospital hospitalSession = service.GetDdtHospitalService().GetById(cell.Value.ToString());
+                    IssuedMedicine form = new IssuedMedicine(this.service, hospitalSession, issuedMedicineList.ObjectId);
                     form.ShowDialog();
                 }
             }

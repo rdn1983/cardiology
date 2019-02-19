@@ -53,7 +53,7 @@ namespace Cardiology.UI.Controls
             if (!string.IsNullOrEmpty(objectId))
             {
                 DataService service = new DataService();
-                service.queryDelete(DdtIssuedAction.TABLE_NAME, "r_object_id", objectId, true);
+                service.queryDelete(DdtIssuedAction.NAME, "r_object_id", objectId, true);
             }
             if (parent != null)
             {

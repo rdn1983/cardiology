@@ -4,6 +4,8 @@ namespace Cardiology.Data.Model2
 {
     public class DdtUzi
     {
+        public static readonly string NAME = "ddt_uzi";
+
         public string ObjectId { get; set; }
 
         public DateTime AnalysisDate { get; set; }

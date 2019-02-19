@@ -22,7 +22,7 @@ namespace Cardiology.UI.Controls
             {
                 medListId = medList.ObjectId;
                 clearMedicine();
-                List<DdtIssuedMedicine> med = service.queryObjectsCollectionByAttrCond<DdtIssuedMedicine>(DdtIssuedMedicine.TABLE_NAME, "dsid_med_list", medList.ObjectId, true);
+                List<DdtIssuedMedicine> med = service.queryObjectsCollectionByAttrCond<DdtIssuedMedicine>(DdtIssuedMedicine.NAME, "dsid_med_list", medList.ObjectId, true);
                 for (int i = 0; i < med.Count; i++)
                 {
                     IssuedMedicineControl control = new IssuedMedicineControl(service, getNextIndex(), this);

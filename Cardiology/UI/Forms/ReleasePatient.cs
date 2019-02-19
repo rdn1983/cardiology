@@ -43,11 +43,11 @@ namespace Cardiology.UI.Forms
         {
             DataService service = new DataService();
 
-            service.insertObject<DdtReleasePatient>(releasePatientInfo, DdtReleasePatient.TABLE_NAME);
+            service.insertObject<DdtReleasePatient>(releasePatientInfo, DdtReleasePatient.NAME);
 
             hospitalitySession.DsbActive = false;
             hospitalitySession.DsbRejectCure = refusedBtn.Checked;
-            service.updateObject<DdtHospital>(hospitalitySession, DdtHospital.TABLE_NAME, "r_object_id", hospitalitySession.ObjectId);
+            service.updateObject<DdtHospital>(hospitalitySession, DdtHospital.NAME, "r_object_id", hospitalitySession.ObjectId);
 
             DdtEpicrisis epicrisis = service.queryObjectById<DdtEpicrisis>(epicrisisId);
             if (epicrisis == null)
@@ -60,7 +60,7 @@ namespace Cardiology.UI.Forms
             epicrisis.DssDiagnosis = hospitalitySession.DssDiagnosis;
             epicrisis.DsdtEpicrisisDate = DateTime.Now;
             epicrisis.DsiEpicrisisType = deathBtn.Checked ? (int)DdtEpicrisisDsiType.DEATH : transferBtn.Checked ? (int)DdtEpicrisisDsiType.TRANSFER : (int)DdtEpicrisisDsiType.RELEASE;
-            service.updateOrCreateIfNeedObject<DdtEpicrisis>(epicrisis, DdtEpicrisis.TABLE_NAME, epicrisisId);
+            service.updateOrCreateIfNeedObject<DdtEpicrisis>(epicrisis, DdtEpicrisis.NAME, epicrisisId);
 
             if (transferBtn.Checked)
             {

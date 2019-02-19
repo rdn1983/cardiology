@@ -8,5 +8,8 @@ namespace Cardiology.Data.Commons
         IList<DdvHistory> GetAll();
 
         DdvHistory GetById(string id);
+
+        IList<DdvHistory> GetHistoryByHospitalSession(string hospitalSessionId);
+        
     }
 }

@@ -4,6 +4,8 @@ namespace Cardiology.Data.Model2
 {
     public class DdtBloodAnalysis
     {
+        public static readonly string NAME = "ddt_blood_analysis";
+
         public string ObjectId { get; set; }
 
         public string Alt { get; set; }

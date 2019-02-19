@@ -49,7 +49,7 @@ namespace Cardiology.UI.Controls
                 {
                     holter.DssParentType = parentType;
                 }
-                objectId = service.updateOrCreateIfNeedObject<DdtHolter>(holter, DdtHolter.TABLE_NAME, holter.ObjectId);
+                objectId = service.updateOrCreateIfNeedObject<DdtHolter>(holter, DdtHolter.NAME, holter.ObjectId);
                 hasChanges = false;
                 isNew = false;
                 hasChanges = false;

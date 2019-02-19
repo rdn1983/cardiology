@@ -48,7 +48,7 @@ namespace Cardiology.UI.Controls
                 coagulgramm.DsidHospitalitySession = hospitalitySession.ObjectId;
                 coagulgramm.DsidDoctor = hospitalitySession.DsidCuringDoctor;
                 coagulgramm.DsidPatient = hospitalitySession.DsidPatient;
-                objectId = service.updateOrCreateIfNeedObject<DdtCoagulogram>(coagulgramm, DdtCoagulogram.TABLE_NAME, coagulgramm.ObjectId);
+                objectId = service.updateOrCreateIfNeedObject<DdtCoagulogram>(coagulgramm, DdtCoagulogram.NAME, coagulgramm.ObjectId);
                 hasChanges = false;
                 isNew = false;
             }

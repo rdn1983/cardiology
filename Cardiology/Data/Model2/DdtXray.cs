@@ -4,6 +4,8 @@ namespace Cardiology.Data.Model2
 {
     public class DdtXray
     {
+        public static readonly string NAME = "ddt_xray";
+
         public string ObjectId { get; set; }
 
         public DateTime AnalysisDate { get; set; }

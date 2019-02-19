@@ -58,7 +58,7 @@ namespace Cardiology.Commons
                 hospitalitySession + "' AND dss_parent_type='ddt_anamnesis'");
             if (medList != null)
             {
-                List<DdtIssuedMedicine> med = service.queryObjectsCollectionByAttrCond<DdtIssuedMedicine>(DdtIssuedMedicine.TABLE_NAME, "dsid_med_list", medList.ObjectId, true);
+                List<DdtIssuedMedicine> med = service.queryObjectsCollectionByAttrCond<DdtIssuedMedicine>(DdtIssuedMedicine.NAME, "dsid_med_list", medList.ObjectId, true);
                 for (int i = 0; i < med.Count; i++)
                 {
                     DdtCure cure = service.queryObjectById<DdtCure>(med[i].DsidCure);
@@ -72,7 +72,7 @@ namespace Cardiology.Commons
             values.Add("{issued_medicine}", builder.ToString());
 
             StringBuilder actionsBuilder = new StringBuilder();
-            List<DdtIssuedAction> actions = service.queryObjectsCollectionByAttrCond<DdtIssuedAction>(DdtIssuedAction.TABLE_NAME, "dsid_parent_id", objectId, true);
+            List<DdtIssuedAction> actions = service.queryObjectsCollectionByAttrCond<DdtIssuedAction>(DdtIssuedAction.NAME, "dsid_parent_id", objectId, true);
             for (int i = 0; i < actions.Count; i++)
             {
                 actionsBuilder.Append(i + 1).Append(". ");

@@ -4,6 +4,8 @@ namespace Cardiology.Data.Model2
 {
     public class DdtIssuedMedicineList
     {
+        public static readonly string NAME = "ddt_issued_medicine_list";
+
         public string ObjectId { get; set; }
 
         public string HasKag { get; set; }

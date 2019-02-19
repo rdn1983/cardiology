@@ -4,6 +4,8 @@ namespace Cardiology.Data.Model2
 {
     public class DdtVariousSpecConcluson
     {
+        public static readonly string NAME = "ddt_various_spec_concluson";
+
         public string AdditionalInfo0 { get; set; }
 
         public string ObjectId { get; set; }

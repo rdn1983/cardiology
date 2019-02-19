@@ -48,7 +48,7 @@ namespace Cardiology.UI.Forms
                     diagnosisTxt0.Text = consilium.DssDiagnosis;
                     decisionTxt.Text = consilium.DssDecision;
                     List<DdtConsiliumMember> members = service.queryObjectsCollectionByAttrCond<DdtConsiliumMember>
-                        (DdtConsiliumMember.TABLE_NAME, "dsid_consilium", consilium.ObjectId, true);
+                        (DdtConsiliumMember.NAME, "dsid_consilium", consilium.ObjectId, true);
                     InitMembers(service, members);
                 }
             }
@@ -61,7 +61,7 @@ namespace Cardiology.UI.Forms
                 }
 
                 List<DdtConsiliumMember> members = service.queryObjectsCollectionByAttrCond<DdtConsiliumMember>
-                   (DdtConsiliumMember.TABLE_NAME, "dss_template_name", "default_consilium", true);
+                   (DdtConsiliumMember.NAME, "dss_template_name", "default_consilium", true);
                 InitMembers(service, members);
             }
 
@@ -78,7 +78,7 @@ namespace Cardiology.UI.Forms
 
                 ComboBox cbApp = (ComboBox)CommonUtils.FindControl(doctorsContainer, "appointmentTxt" + i);
                 cbApp.SelectedIndexChanged += new System.EventHandler(this.appointmentTxt0_SelectedIndexChanged);
-                DmGroup gr = service.queryObjectByAttrCond<DmGroup>(DmGroup.TABLE_NAME, "dss_name", members[i].DssGroupName, true);
+                DmGroup gr = service.queryObjectByAttrCond<DmGroup>(DmGroup.NAME, "dss_name", members[i].DssGroupName, true);
                 if (gr != null)
                 {
                     cbApp.SelectedIndex = cbApp.FindStringExact(gr.DssDescription);
@@ -154,7 +154,7 @@ namespace Cardiology.UI.Forms
             }
             DataService service = new DataService();
             hospitalitySession.DssDiagnosis = getSafeStringValue(diagnosisTxt1);
-            service.updateObject<DdtHospital>(hospitalitySession, DdtHospital.TABLE_NAME, "r_object_id", hospitalitySession.ObjectId);
+            service.updateObject<DdtHospital>(hospitalitySession, DdtHospital.NAME, "r_object_id", hospitalitySession.ObjectId);
 
             DdtConsilium consilium = null;
             if (!string.IsNullOrEmpty(consiliumId))
@@ -174,7 +174,7 @@ namespace Cardiology.UI.Forms
             consilium.DssDutyAdminName = getSafeStringValue(adminTxt);
             consilium.DssDynamics = getSafeStringValue(dynamicsTxt);
             consilium.DssGoal = getSafeStringValue(goalTxt);
-            consiliumId = service.updateOrCreateIfNeedObject<DdtConsilium>(consilium, DdtConsilium.TABLE_NAME, consilium.ObjectId);
+            consiliumId = service.updateOrCreateIfNeedObject<DdtConsilium>(consilium, DdtConsilium.NAME, consilium.ObjectId);
 
             foreach (Control doctorInfoPnl in doctorsContainer.Controls)
             {
@@ -203,12 +203,12 @@ namespace Cardiology.UI.Forms
                 member.DssGroupName = group.DssName;
                 Control docCtrl = CommonUtils.FindControl(doctorsContainer, "doctorWho" + indx);
                 member.DssDoctorName = getSafeStringValue(docCtrl);
-                objectIdCtrl.Text = service.updateOrCreateIfNeedObject<DdtConsiliumMember>(member, DdtConsiliumMember.TABLE_NAME, member.ObjectId);
+                objectIdCtrl.Text = service.updateOrCreateIfNeedObject<DdtConsiliumMember>(member, DdtConsiliumMember.NAME, member.ObjectId);
             }
 
             foreach (String memberId in membersToRemove)
             {
-                service.queryDelete(DdtConsiliumMember.TABLE_NAME, "r_object_id", memberId, true);
+                service.queryDelete(DdtConsiliumMember.NAME, "r_object_id", memberId, true);
             }
             return true;
         }
@@ -229,7 +229,7 @@ namespace Cardiology.UI.Forms
             DataService service = new DataService();
             if (save())
             {
-                ITemplateProcessor processor = TemplateProcessorManager.getProcessorByObjectType(DdtConsilium.TABLE_NAME);
+                ITemplateProcessor processor = TemplateProcessorManager.getProcessorByObjectType(DdtConsilium.NAME);
                 if (processor != null)
                 {
                     string path = processor.processTemplate(hospitalitySession.ObjectId, consiliumId, new Dictionary<string, string>());

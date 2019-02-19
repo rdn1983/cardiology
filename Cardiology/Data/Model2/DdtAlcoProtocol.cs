@@ -4,6 +4,8 @@ namespace Cardiology.Data.Model2
 {
     public class DdtAlcoProtocol
     {
+        public static readonly string NAME = "ddt_alco_protocol";
+
         public string ObjectId { get; set; }
 
         public string Pribor { get; set; }

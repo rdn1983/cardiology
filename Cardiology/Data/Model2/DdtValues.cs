@@ -4,6 +4,8 @@ namespace Cardiology.Data.Model2
 {
     public class DdtValues
     {
+        public static readonly string NAME = "ddt_values";
+
         public string ObjectId { get; set; }
 
         public DateTime ModifyDate { get; set; }

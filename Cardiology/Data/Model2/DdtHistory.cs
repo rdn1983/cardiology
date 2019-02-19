@@ -4,6 +4,8 @@ namespace Cardiology.Data.Model2
 {
     public class DdtHistory
     {
+        public static readonly string NAME = "ddt_history";
+
         public string ObjectId { get; set; }
 
         public string OperationId { get; set; }

@@ -54,7 +54,7 @@ namespace Cardiology.UI.Controls
                 {
                     urine.DssParentType = parentType;
                 }
-                objectId = service.updateOrCreateIfNeedObject<DdtUrineAnalysis>(urine, DdtUrineAnalysis.TABLE_NAME, urine.ObjectId);
+                objectId = service.updateOrCreateIfNeedObject<DdtUrineAnalysis>(urine, DdtUrineAnalysis.NAME, urine.ObjectId);
                 hasChanges = false;
                 isNew = false;
             }

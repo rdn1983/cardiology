@@ -4,6 +4,8 @@ namespace Cardiology.Data.Model2
 {
     public class DdtReleasePatient
     {
+        public static readonly string NAME = "ddt_release_patient";
+
         public string ObjectId { get; set; }
 
         public DateTime OurEnddate { get; set; }

@@ -8,5 +8,7 @@ namespace Cardiology.Data.Commons
         IList<DdtAlcoProtocol> GetAll();
 
         DdtAlcoProtocol GetById(string id);
+
+        DdtAlcoProtocol GetByHospitalSession(string hospitalSessionId);
     }
 }

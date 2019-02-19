@@ -105,7 +105,7 @@ namespace Cardiology.UI.Forms
                 save();
                 DataService service = new DataService();
                 List<string> paths = new List<string>();
-                ITemplateProcessor processor = TemplateProcessorManager.getProcessorByObjectType(DdtJournal.TABLE_NAME);
+                ITemplateProcessor processor = TemplateProcessorManager.getProcessorByObjectType(DdtJournal.NAME);
                 foreach (string id in journalIds)
                 {
                     DdtJournal journal = service.queryObjectById<DdtJournal>(id);

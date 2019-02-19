@@ -51,7 +51,7 @@ namespace Cardiology.UI.Controls
                 {
                     specConslusion.DssParentType = parentType;
                 }
-                objectId = service.updateOrCreateIfNeedObject<DdtSpecialistConclusion>(specConslusion, DdtSpecialistConclusion.TABLE_NAME, specConslusion.ObjectId);
+                objectId = service.updateOrCreateIfNeedObject<DdtSpecialistConclusion>(specConslusion, DdtSpecialistConclusion.NAME, specConslusion.ObjectId);
                 isNew = false;
                 hasChanges = false;
             }

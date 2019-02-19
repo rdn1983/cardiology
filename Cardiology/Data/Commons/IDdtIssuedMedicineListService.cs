@@ -12,5 +12,7 @@ namespace Cardiology.Data.Commons
         void Save(DdtIssuedMedicineList obj);
 
         DdtIssuedMedicineList GetListByHospitalId(string parentType, string id);
+
+        DdtIssuedMedicineList GetListByHospitalId(string id);
     }
 }

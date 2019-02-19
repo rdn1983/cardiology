@@ -136,7 +136,7 @@ namespace Cardiology.UI.Controls
             conclusion.DssSpecialistType = "Дежурный кардиореаниматолог";
             conclusion.DsbAdditionalBool = isReleaseJournal;
             DataService service = new DataService();
-            objId = service.updateOrCreateIfNeedObject<DdtVariousSpecConcluson>(conclusion, DdtVariousSpecConcluson.TABLE_NAME, conclusion.ObjectId);
+            objId = service.updateOrCreateIfNeedObject<DdtVariousSpecConcluson>(conclusion, DdtVariousSpecConcluson.NAME, conclusion.ObjectId);
             isNew = false;
             hasChanges = false;
         }

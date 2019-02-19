@@ -58,7 +58,7 @@ namespace Cardiology.UI.Controls
                     kag.DssParentType = parentType;
                 }
 
-                objectId = service.updateOrCreateIfNeedObject<DdtKag>(kag, DdtKag.TABLE_NAME, kag.ObjectId);
+                objectId = service.updateOrCreateIfNeedObject<DdtKag>(kag, DdtKag.NAME, kag.ObjectId);
                 isNew = false;
                 hasChanges = false;
             }

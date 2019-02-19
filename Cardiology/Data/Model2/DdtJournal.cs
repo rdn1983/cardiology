@@ -4,6 +4,8 @@ namespace Cardiology.Data.Model2
 {
     public class DdtJournal
     {
+        public static readonly string NAME = "ddt_journal";
+
         public string ObjectId { get; set; }
 
         public string Diagnosis { get; set; }

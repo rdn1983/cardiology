@@ -57,7 +57,7 @@ namespace Cardiology.UI.Controls
             journal.DsidPatient = hospitalitySession.DsidPatient;
             journal.DsidDoctor = string.IsNullOrEmpty(journal.DsidDoctor) ? hospitalitySession.DsidCuringDoctor : journal.DsidDoctor;
            
-            objectId = service.updateOrCreateIfNeedObject<DdtJournal>(journal, DdtJournal.TABLE_NAME, journal.ObjectId);
+            objectId = service.updateOrCreateIfNeedObject<DdtJournal>(journal, DdtJournal.NAME, journal.ObjectId);
             hasChanges = false;
             isNew = false;
         }

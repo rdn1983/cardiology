@@ -59,7 +59,7 @@ namespace Cardiology.UI.Controls
                     kag.DssParentType = parentType;
                 }
 
-                objectId = service.updateOrCreateIfNeedObject<DdtOncologicMarkers>(kag, DdtOncologicMarkers.TABLE_NAME, kag.ObjectId);
+                objectId = service.updateOrCreateIfNeedObject<DdtOncologicMarkers>(kag, DdtOncologicMarkers.NAME, kag.ObjectId);
                 isNew = false;
                 hasChanges = false;
             }

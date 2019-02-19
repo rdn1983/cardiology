@@ -4,6 +4,7 @@ using Word = Microsoft.Office.Interop.Word;
 using System.IO;
 using Cardiology.Data;
 using Cardiology.Data.Model2;
+using Cardiology.Data.PostgreSQL;
 
 namespace Cardiology.Commons
 {
@@ -15,29 +16,30 @@ namespace Cardiology.Commons
 
         public static void fillBlankTemplate(string templateFileName, string hospitalSessionId, Dictionary<string, string> values)
         {
-            DataService service = new DataService();
+
             DdtHospital hospitalSession = service.queryObjectById<DdtHospital>(hospitalSessionId);
             if (hospitalSession != null)
             {
-                DdvDoctor doc = service.queryObjectById<DdvDoctor>(hospitalSession.DsidCuringDoctor);
-                DdtPatient patient = service.queryObjectById<DdtPatient>(hospitalSession.DsidPatient);
-                values.Add(@"{doctor.who.short}", doc.DssInitials);
-                values.Add(@"{patient.initials}", patient.DssInitials);
-                values.Add(@"{patient.birthdate}", patient.DsdtBirthdate.ToShortDateString());
-                values.Add(@"{patient.diagnosis}", hospitalSession.DssDiagnosis);
-                values.Add(@"{patient.age}", DateTime.Now.Year - patient.DsdtBirthdate.Year + "");
-                values.Add(@"{admission.date}", hospitalSession.DsdtAdmissionDate.ToShortDateString());
-                values.Add(@"{patient.historycard}", patient.DssMedCode);
-                values.Add(@"{doctor.who}", doc.DssFullName);
-                values.Add(@"{patient.fullname}", patient.DssFullName);
+                DdvDoctor doc = service.queryObjectById<DdvDoctor>(hospitalSession.CuringDoctor);
+                DdvPatient patient = service.queryObjectById<DdvPatient>(hospitalSession.CuringDoctor);
+
+                values.Add(@"{doctor.who.short}", doc.ShortName);
+                values.Add(@"{patient.initials}", patient.ShortName);
+                values.Add(@"{patient.birthdate}", patient.Birthdate.ToShortDateString());
+                values.Add(@"{patient.diagnosis}", hospitalSession.Diagnosis);
+                values.Add(@"{patient.age}", DateTime.Now.Year - patient.Birthdate.Year + "");
+                values.Add(@"{admission.date}", hospitalSession.AdmissionDate.ToShortDateString());
+                values.Add(@"{patient.historycard}", patient.MedCode);
+                values.Add(@"{doctor.who}", doc.FullName);
+                values.Add(@"{patient.fullname}", patient.FirstName);
                 values.Add(@"{date}", DateTime.Now.ToShortDateString());
 
-                doc = service.queryObject<DdvDoctor>(@"SELECT * FROM " + DdvDoctor.TABLE_NAME +" where dss_login IN " +
+                doc = service.queryObject<DdvDoctor>(@"SELECT * FROM " + DdvDoctor + " where dss_login IN " +
                     "(select dss_user_name FROM dm_group_users WHERE dss_group_name ='io_cardio_reanim')");
-                values.Add(@"{doctor.io.department}", doc.DssInitials);
-                doc = service.queryObject<DdvDoctor>(@"SELECT * FROM " + DdvDoctor.TABLE_NAME + " where dss_login IN " +
+                values.Add(@"{doctor.io.department}", doc.ShortName);
+                doc = service.queryObject<DdvDoctor>(@"SELECT * FROM " + DdvDoctor.NAME + " where dss_login IN " +
                     "(select dss_user_name FROM dm_group_users WHERE dss_group_name ='io_therapy')");
-                values.Add(@"{doctor.io.hospital}", doc.DssInitials);
+                values.Add(@"{doctor.io.hospital}", doc.ShortName);
             }
             TemplatesUtils.fillTemplateAndShow(Directory.GetCurrentDirectory() + "\\Templates\\" + templateFileName, values);
         }
@@ -47,8 +49,8 @@ namespace Cardiology.Commons
         {
             DataService service = new DataService();
             DdtHospital hospitalSession = service.queryObjectById<DdtHospital>(hospitalSessionId);
-            DdvDoctor doc = service.queryObjectById<DdvDoctor>(hospitalSession.DsidCuringDoctor);
-            DdtPatient patient = service.queryObjectById<DdtPatient>(hospitalSession.DsidPatient);
+            DdvDoctor doc = service.queryObjectById<DdvDoctor>(hospitalSession.CuringDoctor);
+            DdvPatient patient = service.queryObjectById<DdvPatient>(hospitalSession.CuringDoctor);
             values.Add(@"{doctor.who.short}", doc.DssInitials);
             values.Add(@"{patient.initials}", patient.DssInitials);
             values.Add(@"{patient.birthdate}", patient.DsdtBirthdate.ToShortDateString());

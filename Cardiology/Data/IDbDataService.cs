@@ -83,5 +83,7 @@ namespace Cardiology.Data
         IDdtUziService GetDdtUziService();
 
         IDdtVariousSpecConclusonService GetDdtVariousSpecConclusonService();
+
+        void Delete(string type, string id);
     }
 }

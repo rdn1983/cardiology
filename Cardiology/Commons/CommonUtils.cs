@@ -207,11 +207,11 @@ namespace Cardiology.Commons
 
         internal static DdtJournal ResolveKagJournal(DataService service, DateTime incpectionDate, string sessionId)
         {
-            string startDateQuery = @"SELECT dsdt_inspection_date FROM " + DdtInspection.TABLE_NAME + " WHERE dsid_hospitality_session='" + sessionId + "'" +
+            string startDateQuery = @"SELECT dsdt_inspection_date FROM " + DdtInspection.NAME + " WHERE dsid_hospitality_session='" + sessionId + "'" +
                 " AND dsdt_inspection_date<to_timestamp('" + incpectionDate.ToShortDateString() + " " + incpectionDate.ToLongTimeString() + "', 'DD.MM.YYYY HH24:MI:SS') ORDER BY dsdt_inspection_date DESC";
             DateTime startDate = service.querySingleDateTime(startDateQuery);
 
-            return service.queryObject<DdtJournal>(@"SELECT * FROM " + DdtJournal.TABLE_NAME +
+            return service.queryObject<DdtJournal>(@"SELECT * FROM " + DdtJournal.NAME +
                 " WHERE dsid_hospitality_session='" + sessionId + "'" +
                     " AND dsi_journal_type=" + (int)DdtJournalDsiType.AFTER_KAG +
                     (startDate != default(DateTime) ? (" AND dsdt_admission_date>=to_timestamp('" + startDate.ToShortDateString() + " " + startDate.ToLongTimeString() + "', 'dd.mm.yyyy HH24:mi:ss')") : "") +

@@ -371,7 +371,7 @@ namespace Cardiology.UI.Forms
                    hospitalitySession.ObjectId + "' AND medlist.dsid_parent_id=ins.r_object_id ORDER BY dsdt_inspection_date DESC");
             if (!string.IsNullOrEmpty(meListId))
             {
-                List<DdtCure> cures = service.queryObjectsCollection<DdtCure>(@"SELECT cures.* FROM " + DdtCure.TABLE_NAME + " cures, " + DdtIssuedMedicine.TABLE_NAME +
+                List<DdtCure> cures = service.queryObjectsCollection<DdtCure>(@"SELECT cures.* FROM " + DdtCure.NAME + " cures, " + DdtIssuedMedicine.NAME +
                     " meds WHERE meds.dsid_med_list='" + meListId + "' AND meds.dsid_cure=cures.r_object_id");
                 issuedMedicineContainer.RefreshData(service, cures);
             }
@@ -384,7 +384,7 @@ namespace Cardiology.UI.Forms
                    hospitalitySession.ObjectId + "'   ORDER BY dsdt_issuing_date DESC");
             if (!string.IsNullOrEmpty(meListId))
             {
-                List<DdtCure> cures = service.queryObjectsCollection<DdtCure>(@"SELECT cures.* FROM " + DdtCure.TABLE_NAME + " cures, " + DdtIssuedMedicine.TABLE_NAME +
+                List<DdtCure> cures = service.queryObjectsCollection<DdtCure>(@"SELECT cures.* FROM " + DdtCure.NAME + " cures, " + DdtIssuedMedicine.NAME +
                     " meds WHERE meds.dsid_med_list='" + meListId + "' AND meds.dsid_cure=cures.r_object_id");
                 issuedMedicineContainer.RefreshData(service, cures);
             }

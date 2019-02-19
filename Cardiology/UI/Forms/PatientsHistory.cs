@@ -30,8 +30,7 @@ namespace Cardiology.UI.Forms
         private void LoadPatientsHistoryGrid()
         {
             patientHistoryGrid.Rows.Clear();
-            string query = @"SELECT * FROM ddv_history WHERE dsid_hospitality_session='" + hospitalitySession.ObjectId + "' order by dsdt_operation_date";
-            List<DdvHistory> allHspitalPatients = service.queryObjectsCollection<DdvHistory>(query);
+            IList<DdvHistory> allHspitalPatients = service.GetDdvHistoryService().GetHistoryByHospitalSession(hospitalitySession.ObjectId);
             for (int i = 0; i < allHspitalPatients.Count(); i++)
             {
                 DdvHistory h = allHspitalPatients[i];
@@ -124,15 +123,15 @@ namespace Cardiology.UI.Forms
             }
             Form form = null;
 
-            if (DdtAnamnesis.TABLE_NAME.Equals(firstType))
+            if (DdtAnamnesis.NAME.Equals(firstType))
             {
                 form = new FirstInspection(service, hospitalitySession);
             }
-            else if (DdtJournal.TABLE_NAME.Equals(firstType))
+            else if (DdtJournal.NAME.Equals(firstType))
             {
                 DataService service = new DataService();
-                DdtJournal jourmal = service.queryObjectById<DdtJournal>(firstId);
-                if (jourmal.DsiJournalType == (int)DdtJournalDsiType.AFTER_KAG)
+                DdtJournal journal = service.queryObjectById<DdtJournal>(firstId);
+                if (journal.JournalType == (int)DdtJournalDsiType.AFTER_KAG)
                 {
                     form = new JournalAfterKAG(hospitalitySession, firstId);
                 }
@@ -141,36 +140,36 @@ namespace Cardiology.UI.Forms
                     form = new JournalBeforeKag(hospitalitySession, ids, -1);
                 }
             }
-            else if (DdtIssuedMedicineList.TABLE_NAME.Equals(firstType))
+            else if (DdtIssuedMedicineList.NAME.Equals(firstType))
             {
                 form = new IssuedMedicine(this.service, hospitalitySession, firstId);
             }
-            else if (DdtEgds.TABLE_NAME.Equals(firstType) || DdtXRay.TABLE_NAME.Equals(firstType)
-                || DdtUrineAnalysis.TABLE_NAME.Equals(firstType) || DdtEkg.TABLE_NAME.Equals(firstType)
-                || DdtSpecialistConclusion.TABLE_NAME.Equals(firstType) || DdtUzi.TABLE_NAME.Equals(firstType)
-                || DdtKag.TABLE_NAME.Equals(firstType) || DdtHolter.TABLE_NAME.Equals(firstType)
-                || DdtBloodAnalysis.TABLE_NAME.Equals(firstType) || DdtHormones.TABLE_NAME.Equals(firstType)
-                || DdtCoagulogram.TABLE_NAME.Equals(firstType) || DdtOncologicMarkers.TABLE_NAME.Equals(firstType))
+            else if (DdtEgds.NAME.Equals(firstType) || DdtXray.NAME.Equals(firstType)
+                || DdtUrineAnalysis.NAME.Equals(firstType) || DdtEkg.NAME.Equals(firstType)
+                || DdtSpecialistConclusion.NAME.Equals(firstType) || DdtUzi.NAME.Equals(firstType)
+                || DdtKag.NAME.Equals(firstType) || DdtHolter.NAME.Equals(firstType)
+                || DdtBloodAnalysis.NAME.Equals(firstType) || DdtHormones.NAME.Equals(firstType)
+                || DdtCoagulogram.NAME.Equals(firstType) || DdtOncologicMarkers.NAME.Equals(firstType))
             {
                 form = new AnalysisContainer(hospitalitySession, firstType, firstId);
             }
-            else if (DdtConsilium.TABLE_NAME.Equals(firstType))
+            else if (DdtConsilium.NAME.Equals(firstType))
             {
                 form = new Consilium(service, hospitalitySession, firstId);
             }
-            else if (DdtSerology.TABLE_NAME.Equals(firstType))
+            else if (DdtSerology.NAME.Equals(firstType))
             {
                 form = new Serology(service, hospitalitySession);
             }
-            else if (DdtInspection.TABLE_NAME.Equals(firstType))
+            else if (DdtInspection.NAME.Equals(firstType))
             {
                 form = new Inspection(hospitalitySession, firstId);
             }
-            else if (DdtEpicrisis.TABLE_NAME.Equals(firstType))
+            else if (DdtEpicrisis.NAME.Equals(firstType))
             {
                 form = new PreoperativeEpicrisiscs(hospitalitySession, firstId);
             }
-            else if (DdtHospital.TABLE_NAME.Equals(firstType))
+            else if (DdtHospital.NAME.Equals(firstType))
             {
                 form = new PatientAdmission(service, hospitalitySession);
             }
@@ -183,49 +182,49 @@ namespace Cardiology.UI.Forms
 
         private void ekgItem_Click(object sender, EventArgs e)
         {
-            AnalysisContainer container = new AnalysisContainer(hospitalitySession, DdtEkg.TABLE_NAME, null);
+            AnalysisContainer container = new AnalysisContainer(hospitalitySession, DdtEkg.NAME, null);
             container.ShowDialog();
         }
 
         private void bloodItem_Click(object sender, EventArgs e)
         {
-            AnalysisContainer container = new AnalysisContainer(hospitalitySession, DdtBloodAnalysis.TABLE_NAME, null);
+            AnalysisContainer container = new AnalysisContainer(hospitalitySession, DdtBloodAnalysis.NAME, null);
             container.ShowDialog();
         }
 
         private void urineItem_Click(object sender, EventArgs e)
         {
-            AnalysisContainer container = new AnalysisContainer(hospitalitySession, DdtUrineAnalysis.TABLE_NAME, null);
+            AnalysisContainer container = new AnalysisContainer(hospitalitySession, DdtUrineAnalysis.NAME, null);
             container.ShowDialog();
         }
 
         private void holterItem_Click(object sender, EventArgs e)
         {
-            AnalysisContainer container = new AnalysisContainer(hospitalitySession, DdtHolter.TABLE_NAME, null);
+            AnalysisContainer container = new AnalysisContainer(hospitalitySession, DdtHolter.NAME, null);
             container.ShowDialog();
         }
 
         private void kagItem_Click(object sender, EventArgs e)
         {
-            AnalysisContainer container = new AnalysisContainer(hospitalitySession, DdtKag.TABLE_NAME, null);
+            AnalysisContainer container = new AnalysisContainer(hospitalitySession, DdtKag.NAME, null);
             container.ShowDialog();
         }
 
         private void egdsItem_Click(object sender, EventArgs e)
         {
-            AnalysisContainer container = new AnalysisContainer(hospitalitySession, DdtEgds.TABLE_NAME, null);
+            AnalysisContainer container = new AnalysisContainer(hospitalitySession, DdtEgds.NAME, null);
             container.ShowDialog();
         }
 
         private void specialistItem_Click(object sender, EventArgs e)
         {
-            AnalysisContainer container = new AnalysisContainer(hospitalitySession, DdtSpecialistConclusion.TABLE_NAME, null);
+            AnalysisContainer container = new AnalysisContainer(hospitalitySession, DdtSpecialistConclusion.NAME, null);
             container.ShowDialog();
         }
 
         private void uziItem_Click(object sender, EventArgs e)
         {
-            AnalysisContainer container = new AnalysisContainer(hospitalitySession, DdtUzi.TABLE_NAME, null);
+            AnalysisContainer container = new AnalysisContainer(hospitalitySession, DdtUzi.NAME, null);
             container.ShowDialog();
         }
 
@@ -271,11 +270,10 @@ namespace Cardiology.UI.Forms
                 DataGridViewCell cell = row.Cells[3];
                 string idsValue = cell.Value.ToString();
                 string typeValue = row.Cells[2].Value.ToString();
-                if (!DdtHospital.TABLE_NAME.Equals(typeValue))
+                if (!DdtHospital.NAME.Equals(typeValue))
                 {
-                    DataService service = new DataService();
-                    service.delete(@"delete from " + typeValue + " WHERE r_object_id='" + idsValue + "'");
-                    service.delete(@"delete from ddt_history  WHERE dsid_operation_id='" + idsValue + "'");
+                    service.Delete(typeValue, idsValue);
+                    service.GetDdtHistoryService().DeleteHistoryById(idsValue);
                     LoadPatientsHistoryGrid();
                 }
             }
@@ -289,13 +287,13 @@ namespace Cardiology.UI.Forms
 
         private void hormonesItem_Click(object sender, EventArgs e)
         {
-            AnalysisContainer container = new AnalysisContainer(hospitalitySession, DdtHormones.TABLE_NAME, null);
+            AnalysisContainer container = new AnalysisContainer(hospitalitySession, DdtHormones.NAME, null);
             container.ShowDialog();
         }
 
         private void koagulogrammItem_Click(object sender, EventArgs e)
         {
-            AnalysisContainer container = new AnalysisContainer(hospitalitySession, DdtCoagulogram.TABLE_NAME, null);
+            AnalysisContainer container = new AnalysisContainer(hospitalitySession, DdtCoagulogram.NAME, null);
             container.ShowDialog();
         }
 
@@ -307,13 +305,13 @@ namespace Cardiology.UI.Forms
 
         private void xrayMenuItem_Click(object sender, EventArgs e)
         {
-            AnalysisContainer container = new AnalysisContainer(hospitalitySession, DdtXRay.TABLE_NAME, null);
+            AnalysisContainer container = new AnalysisContainer(hospitalitySession, DdtXray.NAME, null);
             container.ShowDialog();
         }
 
         private void oncologicMarkersItem_Click(object sender, EventArgs e)
         {
-            AnalysisContainer container = new AnalysisContainer(hospitalitySession, DdtOncologicMarkers.TABLE_NAME, null);
+            AnalysisContainer container = new AnalysisContainer(hospitalitySession, DdtOncologicMarkers.NAME, null);
             container.ShowDialog();
         }
     }

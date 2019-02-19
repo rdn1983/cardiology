@@ -26,7 +26,7 @@ namespace Cardiology.UI.Forms
             selectedIds = new List<string>();
 
             InitializeComponent();
-            bool isHorizontalStyle = DdtEkg.TABLE_NAME.Equals(typeName) || DdtEgds.TABLE_NAME.Equals(typeName) || DdtHolter.TABLE_NAME.Equals(typeName);
+            bool isHorizontalStyle = DdtEkg.NAME.Equals(typeName) || DdtEgds.NAME.Equals(typeName) || DdtHolter.NAME.Equals(typeName);
             combainingContainer.GrowStyle = isHorizontalStyle ? TableLayoutPanelGrowStyle.AddRows : TableLayoutPanelGrowStyle.AddColumns;
             combainingContainer.RowStyles.Clear();
             combainingContainer.RowStyles.Add(new RowStyle(SizeType.AutoSize));
@@ -36,8 +36,8 @@ namespace Cardiology.UI.Forms
 
         private void initControls()
         {
-            bool needAdmissionAnalysis = DdtUrineAnalysis.TABLE_NAME.Equals(typeName) || DdtBloodAnalysis.TABLE_NAME.Equals(typeName)
-                || DdtEgds.TABLE_NAME.Equals(typeName) || DdtEkg.TABLE_NAME.Equals(typeName);
+            bool needAdmissionAnalysis = DdtUrineAnalysis.NAME.Equals(typeName) || DdtBloodAnalysis.NAME.Equals(typeName)
+                || DdtEgds.NAME.Equals(typeName) || DdtEkg.NAME.Equals(typeName);
             DataService service = new DataService();
             if (needAdmissionAnalysis)
             {
@@ -54,53 +54,53 @@ namespace Cardiology.UI.Forms
         {
             selectedIds.Add(objectId);
 
-            if (DdtBloodAnalysis.TABLE_NAME.Equals(typeName))
+            if (DdtBloodAnalysis.NAME.Equals(typeName))
             {
                 combainingContainer.Controls.Add(new BloodAnalysisControl(objectId, objectId != null && !objectId.Equals(currentId)));
             }
-            else if (DdtUrineAnalysis.TABLE_NAME.Equals(typeName))
+            else if (DdtUrineAnalysis.NAME.Equals(typeName))
             {
                 combainingContainer.Controls.Add(new UrineAnalysisControl(objectId, objectId != null && !objectId.Equals(currentId)));
             }
-            else if (DdtEkg.TABLE_NAME.Equals(typeName))
+            else if (DdtEkg.NAME.Equals(typeName))
             {
                 EkgAnalysisControlcs ekg = new EkgAnalysisControlcs(objectId, objectId != null && !objectId.Equals(currentId));
                 combainingContainer.Controls.Add(ekg);
                 Console.WriteLine(ekg.Size);
             }
-            else if (DdtKag.TABLE_NAME.Equals(typeName))
+            else if (DdtKag.NAME.Equals(typeName))
             {
                 combainingContainer.Controls.Add(new KagAnalysisControl(objectId, objectId != null && !objectId.Equals(currentId), hospitalitySession.ObjectId));
             }
-            else if (DdtEgds.TABLE_NAME.Equals(typeName))
+            else if (DdtEgds.NAME.Equals(typeName))
             {
                 combainingContainer.Controls.Add(new EgdsAnalysisControl(objectId, objectId != null && !objectId.Equals(currentId)));
             }
-            else if (DdtXRay.TABLE_NAME.Equals(typeName))
+            else if (DdtXRay.NAME.Equals(typeName))
             {
                 combainingContainer.Controls.Add(new XRayControl(objectId, objectId != null && !objectId.Equals(currentId)));
             }
-            else if (DdtHolter.TABLE_NAME.Equals(typeName))
+            else if (DdtHolter.NAME.Equals(typeName))
             {
                 combainingContainer.Controls.Add(new HolterControl(objectId, objectId != null && !objectId.Equals(currentId)));
             }
-            else if (DdtUzi.TABLE_NAME.Equals(typeName))
+            else if (DdtUzi.NAME.Equals(typeName))
             {
                 combainingContainer.Controls.Add(new UziAnalysisControl(objectId, objectId != null && !objectId.Equals(currentId)));
             }
-            else if (DdtSpecialistConclusion.TABLE_NAME.Equals(typeName))
+            else if (DdtSpecialistConclusion.NAME.Equals(typeName))
             {
                 combainingContainer.Controls.Add(new SpecialistConclusionControl(objectId, objectId != null && !objectId.Equals(currentId)));
             }
-            else if (DdtHormones.TABLE_NAME.Equals(typeName))
+            else if (DdtHormones.NAME.Equals(typeName))
             {
                 combainingContainer.Controls.Add(new HormonesControl(objectId, objectId != null && !objectId.Equals(currentId)));
             }
-            else if (DdtCoagulogram.TABLE_NAME.Equals(typeName))
+            else if (DdtCoagulogram.NAME.Equals(typeName))
             {
                 combainingContainer.Controls.Add(new CoagulogrammControl(objectId, objectId != null && !objectId.Equals(currentId)));
             }
-            else if (DdtOncologicMarkers.TABLE_NAME.Equals(typeName))
+            else if (DdtOncologicMarkers.NAME.Equals(typeName))
             {
                 combainingContainer.Controls.Add(new OncologicMarkersControl(objectId, objectId != null && !objectId.Equals(currentId), hospitalitySession.ObjectId));
             }
@@ -108,51 +108,51 @@ namespace Cardiology.UI.Forms
 
         private void initTitle()
         {
-            if (DdtBloodAnalysis.TABLE_NAME.Equals(typeName))
+            if (DdtBloodAnalysis.NAME.Equals(typeName))
             {
                 this.Text = "Клинический анализ крови";
             }
-            else if (DdtUrineAnalysis.TABLE_NAME.Equals(typeName))
+            else if (DdtUrineAnalysis.NAME.Equals(typeName))
             {
                 this.Text = "Анализ мочи";
             }
-            else if (DdtKag.TABLE_NAME.Equals(typeName))
+            else if (DdtKag.NAME.Equals(typeName))
             {
                 this.Text = "КАГ";
             }
-            else if (DdtEkg.TABLE_NAME.Equals(typeName))
+            else if (DdtEkg.NAME.Equals(typeName))
             {
                 this.Text = "ЭКГ";
             }
-            else if (DdtEgds.TABLE_NAME.Equals(typeName))
+            else if (DdtEgds.NAME.Equals(typeName))
             {
                 this.Text = "ЭГДС";
             }
-            else if (DdtUzi.TABLE_NAME.Equals(typeName))
+            else if (DdtUzi.NAME.Equals(typeName))
             {
                 this.Text = "УЗИ";
             }
-            else if (DdtXRay.TABLE_NAME.Equals(typeName))
+            else if (DdtXRay.NAME.Equals(typeName))
             {
                 this.Text = "Рентген/КТ";
             }
-            else if (DdtHolter.TABLE_NAME.Equals(typeName))
+            else if (DdtHolter.NAME.Equals(typeName))
             {
                 this.Text = "Холтер/СМАД";
             }
-            else if (DdtSpecialistConclusion.TABLE_NAME.Equals(typeName))
+            else if (DdtSpecialistConclusion.NAME.Equals(typeName))
             {
                 this.Text = "Заключение специалистов";
             }
-            else if (DdtCoagulogram.TABLE_NAME.Equals(typeName))
+            else if (DdtCoagulogram.NAME.Equals(typeName))
             {
                 this.Text = "Коагулограмма";
             }
-            else if (DdtHormones.TABLE_NAME.Equals(typeName))
+            else if (DdtHormones.NAME.Equals(typeName))
             {
                 this.Text = "Гормоны";
             }
-            else if (DdtHormones.TABLE_NAME.Equals(typeName))
+            else if (DdtHormones.NAME.Equals(typeName))
             {
                 this.Text = "Онкомаркеры";
             }

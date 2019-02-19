@@ -55,7 +55,7 @@ namespace Cardiology.UI.Controls
                 {
                     xRay.DssParentType = parentType;
                 }
-                objectId = service.updateOrCreateIfNeedObject<DdtXRay>(xRay, DdtXRay.TABLE_NAME, xRay.ObjectId);
+                objectId = service.updateOrCreateIfNeedObject<DdtXRay>(xRay, DdtXRay.NAME, xRay.ObjectId);
                 isNew = false;
                 hasChanges = false;
             }

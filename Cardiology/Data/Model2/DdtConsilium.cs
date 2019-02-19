@@ -4,7 +4,7 @@ namespace Cardiology.Data.Model2
 {
     public class DdtConsilium
     {
-        public static readonly string TABLE_NAME = "ddt_consilium";
+        public static readonly string NAME = "ddt_consilium";
 
         public string HospitalitySession { get; set; }
 

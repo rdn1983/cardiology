@@ -4,6 +4,8 @@ namespace Cardiology.Data.Model2
 {
     public class DdtEgds
     {
+        public static string NAME = "ddt_egds";
+
         public string HospitalitySession { get; set; }
 
         public string ObjectId { get; set; }

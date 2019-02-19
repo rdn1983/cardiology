@@ -4,6 +4,8 @@ namespace Cardiology.Data.Model2
 {
     public class DdtCoagulogram
     {
+        public static readonly string NAME = "ddt_coagulogram";
+
         public string Ddimer { get; set; }
 
         public string HospitalitySession { get; set; }

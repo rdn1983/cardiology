@@ -77,7 +77,7 @@ namespace Cardiology.UI.Controls
                 {
                     ekg.DssParentType = parentType;
                 }
-                objectId = service.updateOrCreateIfNeedObject<DdtEkg>(ekg, DdtEkg.TABLE_NAME, ekg.ObjectId);
+                objectId = service.updateOrCreateIfNeedObject<DdtEkg>(ekg, DdtEkg.NAME, ekg.ObjectId);
                 isNew = false;
                 hasChanges = false;
             }

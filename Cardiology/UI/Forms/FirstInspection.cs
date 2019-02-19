@@ -93,21 +93,21 @@ namespace Cardiology.UI.Forms
 
         private void InitAdmissionAnalysis()
         {
-            DdtUrineAnalysis firstAnalysis = service.queryObject<DdtUrineAnalysis>("SELECT * FROM " + DdtUrineAnalysis.TABLE_NAME + " WHERE " +
+            DdtUrineAnalysis firstAnalysis = service.queryObject<DdtUrineAnalysis>("SELECT * FROM " + DdtUrineAnalysis.NAME + " WHERE " +
                 "dsid_hospitality_session = '" + hospitalSession.ObjectId + "' AND dsid_parent='" + anamnesis?.ObjectId + "'");
             urineAnalysisControl.refreshObject(firstAnalysis);
 
-            DdtEgds firstEgdsAnalysis = service.queryObject<DdtEgds>("SELECT * FROM " + DdtEgds.TABLE_NAME + " WHERE " +
+            DdtEgds firstEgdsAnalysis = service.queryObject<DdtEgds>("SELECT * FROM " + DdtEgds.NAME + " WHERE " +
                 "dsid_hospitality_session = '" + hospitalSession.ObjectId + "' AND dsid_parent='" + anamnesis?.ObjectId + "'");
 
             egdsAnalysisControl1.refreshObject(firstEgdsAnalysis);
 
-            DdtBloodAnalysis blood = service.queryObject<DdtBloodAnalysis>("SELECT * FROM " + DdtBloodAnalysis.TABLE_NAME + " WHERE " +
+            DdtBloodAnalysis blood = service.queryObject<DdtBloodAnalysis>("SELECT * FROM " + DdtBloodAnalysis.NAME + " WHERE " +
                 "dsid_hospitality_session = '" + hospitalSession.ObjectId + "' AND dsid_parent='" + anamnesis?.ObjectId + "'");
 
             bloodAnalysisControl.refreshObject(blood);
 
-            DdtEkg ekg = service.queryObject<DdtEkg>("SELECT * FROM " + DdtEkg.TABLE_NAME + " WHERE " +
+            DdtEkg ekg = service.queryObject<DdtEkg>("SELECT * FROM " + DdtEkg.NAME + " WHERE " +
                 "dsid_hospitality_session = '" + hospitalSession.ObjectId + "' AND dsid_parent='" + anamnesis?.ObjectId + "'");
             ekgAnalysisControlcs.refreshObject(ekg);
         }
@@ -208,13 +208,13 @@ namespace Cardiology.UI.Forms
             saveIssuedMedicine(service);
             saveIssuedAction(service);
 
-            ekgAnalysisControlcs.saveObject(hospitalSession, anamnesis.ObjectId, DdtAnamnesis.TABLE_NAME);
-            urineAnalysisControl.saveObject(hospitalSession, anamnesis.ObjectId, DdtAnamnesis.TABLE_NAME);
-            bloodAnalysisControl.saveObject(hospitalSession, anamnesis.ObjectId, DdtAnamnesis.TABLE_NAME);
-            egdsAnalysisControl1.saveObject(hospitalSession, anamnesis.ObjectId, DdtAnamnesis.TABLE_NAME);
+            ekgAnalysisControlcs.saveObject(hospitalSession, anamnesis.ObjectId, DdtAnamnesis.NAME);
+            urineAnalysisControl.saveObject(hospitalSession, anamnesis.ObjectId, DdtAnamnesis.NAME);
+            bloodAnalysisControl.saveObject(hospitalSession, anamnesis.ObjectId, DdtAnamnesis.NAME);
+            egdsAnalysisControl1.saveObject(hospitalSession, anamnesis.ObjectId, DdtAnamnesis.NAME);
 
             hospitalSession.DssDiagnosis = diagnosisTxt.Text;
-            service.updateObject<DdtHospital>(hospitalSession, DdtHospital.TABLE_NAME, "r_object_id", hospitalSession.ObjectId);
+            service.updateObject<DdtHospital>(hospitalSession, DdtHospital.NAME, "r_object_id", hospitalSession.ObjectId);
             return true;
         }
 
@@ -249,7 +249,7 @@ namespace Cardiology.UI.Forms
             anamnesis.DssOperationCause = getSafeStringValue(operationCauseTxt);
             anamnesis.DssJustification = getSafeStringValue(justificationTxt);
 
-            string id = service.updateOrCreateIfNeedObject<DdtAnamnesis>(anamnesis, DdtAnamnesis.TABLE_NAME, anamnesis.ObjectId);
+            string id = service.updateOrCreateIfNeedObject<DdtAnamnesis>(anamnesis, DdtAnamnesis.NAME, anamnesis.ObjectId);
             anamnesis.ObjectId = id;
         }
 
@@ -281,13 +281,13 @@ namespace Cardiology.UI.Forms
                     medList.DsdtIssuingDate = DateTime.Now;
                 }
                 medList.DssTemplateName = templateName;
-                string id = service.updateOrCreateIfNeedObject<DdtIssuedMedicineList>(medList, DdtIssuedMedicineList.TABLE_NAME, medList.ObjectId);
+                string id = service.updateOrCreateIfNeedObject<DdtIssuedMedicineList>(medList, DdtIssuedMedicineList.NAME, medList.ObjectId);
                 medList.ObjectId = id;
                 foreach (DdtIssuedMedicine med in meds2)
                 {
                     med.DsidMedList = medList.ObjectId;
 
-                    service.updateOrCreateIfNeedObject<DdtIssuedMedicine>(med, DdtIssuedMedicine.TABLE_NAME, med.ObjectId);
+                    service.updateOrCreateIfNeedObject<DdtIssuedMedicine>(med, DdtIssuedMedicine.NAME, med.ObjectId);
                 }
             }
 
@@ -310,7 +310,7 @@ namespace Cardiology.UI.Forms
                         med.DsdtIssuingDate = DateTime.Now;
                     }
 
-                    med.ObjectId = service.updateOrCreateIfNeedObject<DdtIssuedAction>(med, DdtIssuedAction.TABLE_NAME, med.ObjectId);
+                    med.ObjectId = service.updateOrCreateIfNeedObject<DdtIssuedAction>(med, DdtIssuedAction.NAME, med.ObjectId);
                 }
                 issuedActionContainer.init(service, meds);
             }
@@ -378,7 +378,7 @@ namespace Cardiology.UI.Forms
                 hospitalSession.ObjectId + "' AND dss_parent_type='ddt_anamnesis'");
             if (medList != null)
             {
-                service.update(@"DELETE FROM " + DdtIssuedMedicine.TABLE_NAME + " WHERE dsid_med_list='" + medList.ObjectId + "'");
+                service.update(@"DELETE FROM " + DdtIssuedMedicine.NAME + " WHERE dsid_med_list='" + medList.ObjectId + "'");
             }
         }
 
@@ -683,7 +683,7 @@ namespace Cardiology.UI.Forms
         {
             if (save())
             {
-                ITemplateProcessor te = TemplateProcessorManager.getProcessorByObjectType(DdtAnamnesis.TABLE_NAME);
+                ITemplateProcessor te = TemplateProcessorManager.getProcessorByObjectType(DdtAnamnesis.NAME);
                 if (te != null)
                 {
                     string path = te.processTemplate(hospitalSession.ObjectId, anamnesis.ObjectId, null);

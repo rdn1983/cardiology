@@ -4,6 +4,8 @@ namespace Cardiology.Data.Model2
 {
     public class DdtOncologicMarkers
     {
+        public static readonly string NAME = "ddt_oncologic_markers";
+
         public string ObjectId { get; set; }
 
         public DateTime AnalysisDate { get; set; }

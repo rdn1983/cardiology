@@ -52,7 +52,7 @@ namespace Cardiology.UI.Controls
                 {
                     uziObj.DssParentType = parentType;
                 }
-                objectId = service.updateOrCreateIfNeedObject<DdtUzi>(uziObj, DdtUzi.TABLE_NAME, uziObj.ObjectId);
+                objectId = service.updateOrCreateIfNeedObject<DdtUzi>(uziObj, DdtUzi.NAME, uziObj.ObjectId);
                 isNew = false;
                 hasChanges = false;
             }

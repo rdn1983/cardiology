@@ -8,5 +8,7 @@ namespace Cardiology.Data.Commons
         IList<DdtHistory> GetAll();
 
         DdtHistory GetById(string id);
+
+        void DeleteHistoryById(string operationId);
     }
 }

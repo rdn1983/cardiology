@@ -130,5 +130,40 @@ namespace Cardiology.Data.PostgreSQL
             }
             return null;
         }
+
+        public DdtIssuedMedicineList GetListByHospitalId(string id)
+        {
+            using (dynamic connection = connectionFactory.GetConnection())
+            {
+                String sql = String.Format("SELECT r_object_id, dss_has_kag, dsid_parent_id, dsid_pharmacologist, dss_diagnosis, r_creation_date, dsid_director, dsid_doctor, dsid_patient, dsid_hospitality_session, dsid_nurse, r_modify_date, dss_parent_type, dss_template_name, dsdt_issuing_date, dsb_skip_print FROM ddt_issued_medicine_list WHERE dsid_hospitality_session='{0}", id);
+                Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
+                using (DbDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        DdtIssuedMedicineList obj = new DdtIssuedMedicineList();
+                        obj.ObjectId = reader.GetString(1);
+                        obj.HasKag = reader.GetString(2);
+                        obj.ParentId = reader.GetString(3);
+                        obj.Pharmacologist = reader.GetString(4);
+                        obj.Diagnosis = reader.GetString(5);
+                        obj.CreationDate = reader.GetDateTime(6);
+                        obj.Director = reader.GetString(7);
+                        obj.Doctor = reader.GetString(8);
+                        obj.Patient = reader.GetString(9);
+                        obj.HospitalitySession = reader.GetString(10);
+                        obj.Nurse = reader.GetString(11);
+                        obj.ModifyDate = reader.GetDateTime(12);
+                        obj.ParentType = reader.GetString(13);
+                        obj.TemplateName = reader.GetString(14);
+                        obj.IssuingDate = reader.GetDateTime(15);
+                        obj.SkipPrint = reader.GetBoolean(16);
+
+                        return obj;
+                    }
+                }
+            }
+            return null;
+        }
     }
 }

@@ -47,7 +47,7 @@ namespace Cardiology.UI.Controls
                 hormones.DsidHospitalitySession = hospitalitySession.ObjectId;
                 hormones.DsidDoctor = hospitalitySession.DsidCuringDoctor;
                 hormones.DsidPatient = hospitalitySession.DsidPatient;
-                objectId = service.updateOrCreateIfNeedObject<DdtHormones>(hormones, DdtHormones.TABLE_NAME, hormones.ObjectId);
+                objectId = service.updateOrCreateIfNeedObject<DdtHormones>(hormones, DdtHormones.NAME, hormones.ObjectId);
                 isNew = false;
                 hasChanges = false;
             }

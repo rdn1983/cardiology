@@ -77,7 +77,7 @@ namespace Cardiology.UI.Controls
                 bloodObj.DsidPatient = hospitalitySession.DsidPatient;
                 bloodObj.DssParentType = parentType == null ? bloodObj.DssParentType : parentType;
                 bloodObj.DsidParent = parentId == null ? bloodObj.DsidParent : parentId;
-                objectId = service.updateOrCreateIfNeedObject<DdtBloodAnalysis>(bloodObj, DdtBloodAnalysis.TABLE_NAME, bloodObj.ObjectId);
+                objectId = service.updateOrCreateIfNeedObject<DdtBloodAnalysis>(bloodObj, DdtBloodAnalysis.NAME, bloodObj.ObjectId);
                 hasChanges = false;
                 isNew = false;
             }

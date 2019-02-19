@@ -4,6 +4,8 @@ namespace Cardiology.Data.Model2
 {
     public class DdtIssuedAction
     {
+        public static readonly string NAME = "ddt_issued_action";
+
         public string HospitalitySession { get; set; }
 
         public string ObjectId { get; set; }

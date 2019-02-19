@@ -14,7 +14,7 @@ namespace Cardiology.Commons
 
         public bool accept(string templateType)
         {
-            return DdtInspection.TABLE_NAME.Equals(templateType);
+            return DdtInspection.NAME.Equals(templateType);
         }
 
         public string processTemplate(string hospitalitySession, string objectId, Dictionary<string, string> aditionalValues)
@@ -58,7 +58,7 @@ namespace Cardiology.Commons
 
         private void putSpecialistData(Dictionary<string, string> values, DataService service, string objId)
         {
-            List<DdtSpecialistConclusion> lspecobj = service.queryObjectsCollection<DdtSpecialistConclusion>(@"SELECT * FROM " + DdtSpecialistConclusion.TABLE_NAME +
+            List<DdtSpecialistConclusion> lspecobj = service.queryObjectsCollection<DdtSpecialistConclusion>(@"SELECT * FROM " + DdtSpecialistConclusion.NAME +
                 " WHERE dsid_parent='" + objId + "'");
             StringBuilder specBld = new StringBuilder();
             foreach (DdtSpecialistConclusion obj in lspecobj)
@@ -90,12 +90,12 @@ namespace Cardiology.Commons
         private void putKagData(Dictionary<string, string> values, DataService service, string sessionId)
         {
             StringBuilder bld = new StringBuilder();
-            DdtJournal kagJournal = service.queryObject<DdtJournal>(@"SELECT * FROM " + DdtJournal.TABLE_NAME +
+            DdtJournal kagJournal = service.queryObject<DdtJournal>(@"SELECT * FROM " + DdtJournal.NAME +
                    " WHERE dsid_hospitality_session='" + sessionId + "' AND dsi_journal_type=" + (int)DdtJournalDsiType.AFTER_KAG +
                    " ORDER BY dsdt_admission_date desc");
             if (kagJournal != null)
             {
-                DdtKag kag = service.queryObjectByAttrCond<DdtKag>(DdtKag.TABLE_NAME, "dsid_parent", kagJournal.ObjectId, true);
+                DdtKag kag = service.queryObjectByAttrCond<DdtKag>(DdtKag.NAME, "dsid_parent", kagJournal.ObjectId, true);
                 if (kag != null)
                 {
                     bld.Append("Пациент в экстренном порядке проведена КАГ. Коронарография от ")
@@ -109,7 +109,7 @@ namespace Cardiology.Commons
 
         private void putHolterData(Dictionary<string, string> values, DataService service, string objId)
         {
-            List<DdtHolter> lholterobj = service.queryObjectsCollection<DdtHolter>(@"SELECT * FROM " + DdtHolter.TABLE_NAME + " WHERE dsid_parent='" + objId + "'");
+            List<DdtHolter> lholterobj = service.queryObjectsCollection<DdtHolter>(@"SELECT * FROM " + DdtHolter.NAME + " WHERE dsid_parent='" + objId + "'");
             StringBuilder holterBld = new StringBuilder();
             foreach (DdtHolter obj in lholterobj)
             {
@@ -133,7 +133,7 @@ namespace Cardiology.Commons
 
         private void putUziData(Dictionary<string, string> values, DataService service, string objId)
         {
-            List<DdtUzi> uzies = service.queryObjectsCollection<DdtUzi>(@"SELECT * from " + DdtUzi.TABLE_NAME + " WHERE dsid_parent='" + objId + "'");
+            List<DdtUzi> uzies = service.queryObjectsCollection<DdtUzi>(@"SELECT * from " + DdtUzi.NAME + " WHERE dsid_parent='" + objId + "'");
             StringBuilder uziBld = new StringBuilder();
             foreach (DdtUzi uzObj in uzies)
             {
@@ -165,7 +165,7 @@ namespace Cardiology.Commons
 
         private void putBloodData(Dictionary<string, string> values, DataService service, string objId)
         {
-            List<DdtBloodAnalysis> bloods = service.queryObjectsCollection<DdtBloodAnalysis>(@"SELECT * FROM " + DdtBloodAnalysis.TABLE_NAME +
+            List<DdtBloodAnalysis> bloods = service.queryObjectsCollection<DdtBloodAnalysis>(@"SELECT * FROM " + DdtBloodAnalysis.NAME +
                 " WHERE dsid_parent='" + objId + "'");
             StringBuilder bloodBld = new StringBuilder();
             foreach (DdtBloodAnalysis drop in bloods)

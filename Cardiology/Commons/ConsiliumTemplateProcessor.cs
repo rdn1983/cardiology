@@ -35,7 +35,7 @@ namespace Cardiology.Commons
             values.Add(@"{doctor.who}", getDoctorInString(service, obj.Doctor));
             values.Add(@"{consilium.goal}", obj.Goal);
             DdtPatient patient = service.queryObjectById<DdtPatient>(obj.Patient);
-            values.Add(@"{patient.initials}", patient.DssInitials);
+            values.Add(@"{patient.initials}", patient.);
             values.Add(@"{patient.age}", (DateTime.Now.Year - patient.Birthdate.Year) + "");
             values.Add(@"{patient.diagnosis}", obj.Diagnosis);
             values.Add(@"{consilium.decision}", obj.Decision);
@@ -63,7 +63,9 @@ namespace Cardiology.Commons
 
             foreach (DdtConsiliumMember mm in members)
             {
-                DdtConsiliumMemberLevel groupLevel = service.queryObjectByAttrCond<DdtConsiliumMemberLevel>(DdtConsiliumMemberLevel.TABLE_NAME, "dss_group_name", mm.DssGroupName, true);
+                DdtConsiliumGroupLevel
+
+                DdtConsiliumGroupMem groupLevel = service.queryObjectByAttrCond<DdtConsiliumMemberLevel>(DdtConsiliumMemberLevel.TABLE_NAME, "dss_group_name", mm.DssGroupName, true);
                 DmGroup group = service.queryObjectByAttrCond<DmGroup>(DmGroup.TABLE_NAME, "dss_name", mm.DssGroupName, true);
                 if (!sortedMembers.ContainsKey(groupLevel.DsiLevel + " " + group.DssDescription + " " + mm.DssDoctorName)) {
                     sortedMembers.Add(groupLevel.DsiLevel + " " + group.DssDescription + " " + mm.DoctorName, group.Description + " " + mm.DoctorName);

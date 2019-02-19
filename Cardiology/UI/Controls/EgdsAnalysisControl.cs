@@ -50,7 +50,7 @@ namespace Cardiology.UI.Controls
                 {
                     egds.DssParentType = parentType;
                 }
-                objectId = service.updateOrCreateIfNeedObject<DdtEgds>(egds, DdtEgds.TABLE_NAME, egds.ObjectId);
+                objectId = service.updateOrCreateIfNeedObject<DdtEgds>(egds, DdtEgds.NAME, egds.ObjectId);
                 hasChanges = false;
                 isNew = false;
             }

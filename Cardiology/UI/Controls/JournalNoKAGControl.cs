@@ -51,7 +51,7 @@ namespace Cardiology.UI.Controls
             CommonUtils.InitRangedItems(chddTxt, 14, 26);
             warningLbl.Visible = false;
 
-            DataService service = new DataService();
+
             CommonUtils.InitDoctorsComboboxValues(service, docBox, " dss_login in (select dss_user_name from dm_group_users where dss_group_name = 'duty_cardioreanim') ");
             CommonUtils.SetDoctorsComboboxDefaultValue(service, docBox, dsidCuringDoctor);
 
@@ -61,7 +61,7 @@ namespace Cardiology.UI.Controls
 
         public void saveObject(DdtHospital hospitalitySession, string parentId, string parentType)
         {
-            DataService service = new DataService();
+
 
             if (string.IsNullOrEmpty(journalTxt.Text) || !(isDirty() || isNew))
             {
@@ -120,7 +120,7 @@ namespace Cardiology.UI.Controls
 
         public object getObject()
         {
-            DataService service = new DataService();
+
             DdtJournal journal = service.queryObjectById<DdtJournal>(objectId);
             if (journal == null)
             {
@@ -150,7 +150,7 @@ namespace Cardiology.UI.Controls
             if (obj != null && obj is DdtJournal)
             {
                 DdtJournal journal = (DdtJournal)obj;
-                DataService service = new DataService();
+    
                 complaintsTxt.Text = journal.DssComplaints;
                 adTxt.Text = journal.DssAd;
                 chddTxt.Text = journal.DssChdd;

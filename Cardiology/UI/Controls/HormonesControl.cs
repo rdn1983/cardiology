@@ -24,7 +24,7 @@ namespace Cardiology.UI.Controls
 
         private void initControls()
         {
-            DataService service = new DataService();
+
             DdtHormones hormones = service.queryObjectById<DdtHormones>(objectId);
             refreshObject(hormones);
             admissionDateTxt.Enabled = isEditable;
@@ -42,7 +42,7 @@ namespace Cardiology.UI.Controls
         {
             if (isEditable && (isNew && getIsValid() || isDirty()))
             {
-                DataService service = new DataService();
+    
                 DdtHormones hormones = (DdtHormones) getObject();
                 hormones.DsidHospitalitySession = hospitalitySession.ObjectId;
                 hormones.DsidDoctor = hospitalitySession.DsidCuringDoctor;
@@ -65,7 +65,7 @@ namespace Cardiology.UI.Controls
 
         public object getObject()
         {
-            DataService service = new DataService();
+
             DdtHormones hormones = service.queryObjectById<DdtHormones>(objectId);
             if (hormones == null)
             {

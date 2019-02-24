@@ -20,7 +20,7 @@ namespace Cardiology.UI.Forms
             releasePatientInfo.DsidDoctor = hospitalitySession.DsidDutyDoctor;
             releasePatientInfo.DsidPatient = hospitalitySession.DsidPatient;
             InitializeComponent();
-            DataService service = new DataService();
+
             DdtPatient patient = service.queryObjectById<DdtPatient>(hospitalitySession.DsidPatient);
             if (patient != null)
             {
@@ -41,7 +41,7 @@ namespace Cardiology.UI.Forms
 
         private void releasePatientBtn_Click(object sender, EventArgs e)
         {
-            DataService service = new DataService();
+
 
             service.insertObject<DdtReleasePatient>(releasePatientInfo, DdtReleasePatient.NAME);
 

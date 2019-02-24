@@ -202,7 +202,7 @@ namespace Cardiology.UI.Forms
             {
                 return false;
             }
-            DataService service = new DataService();
+
 
             saveAnamnesis(service);
             saveIssuedMedicine(service);
@@ -433,7 +433,7 @@ namespace Cardiology.UI.Forms
             {
                 acceptTemplate = true;
                 clearSelection();
-                DataService service = new DataService();
+    
                 DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + OKSUP_TYPE + "'");
                 InitializeAnamnesis(template);
                 initIssuedActions(template);
@@ -449,7 +449,7 @@ namespace Cardiology.UI.Forms
             {
                 acceptTemplate = true;
                 clearSelection();
-                DataService service = new DataService();
+    
                 DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + OKSDOWN_TYPE + "'");
                 InitializeAnamnesis(template);
                 initIssuedActions(template);
@@ -465,7 +465,7 @@ namespace Cardiology.UI.Forms
             {
                 acceptTemplate = true;
                 clearSelection();
-                DataService service = new DataService();
+    
                 DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + KAG_TYPE + "'");
                 InitializeAnamnesis(template);
                 initIssuedActions(template);
@@ -481,7 +481,7 @@ namespace Cardiology.UI.Forms
             {
                 acceptTemplate = true;
                 clearSelection();
-                DataService service = new DataService();
+    
                 DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + AORTA_TYPE + "'");
                 InitializeAnamnesis(template);
                 initIssuedActions(template);
@@ -497,7 +497,7 @@ namespace Cardiology.UI.Forms
             {
                 acceptTemplate = true;
                 clearSelection();
-                DataService service = new DataService();
+    
                 DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + GB_TYPE + "'");
                 InitializeAnamnesis(template);
                 initIssuedActions(template);
@@ -513,7 +513,7 @@ namespace Cardiology.UI.Forms
             {
                 acceptTemplate = true;
                 clearSelection();
-                DataService service = new DataService();
+    
                 DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + PIKS_TYPE + "'");
                 InitializeAnamnesis(template);
                 initIssuedActions(template);
@@ -529,7 +529,7 @@ namespace Cardiology.UI.Forms
             {
                 acceptTemplate = true;
                 clearSelection();
-                DataService service = new DataService();
+    
                 DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + PIKVIK_TYPE + "'");
                 InitializeAnamnesis(template);
                 initIssuedActions(template);
@@ -546,7 +546,7 @@ namespace Cardiology.UI.Forms
             {
                 acceptTemplate = true;
                 clearSelection();
-                DataService service = new DataService();
+    
                 DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + DEP_TYPE + "'");
                 InitializeAnamnesis(template);
                 initIssuedActions(template);
@@ -562,7 +562,7 @@ namespace Cardiology.UI.Forms
             {
                 acceptTemplate = true;
                 clearSelection();
-                DataService service = new DataService();
+    
                 DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + DEATH_TYPE + "'");
                 InitializeAnamnesis(template);
                 initIssuedActions(template);

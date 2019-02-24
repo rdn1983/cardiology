@@ -14,7 +14,7 @@ namespace Cardiology.UI.Controls
             InitializeComponent();
         }
 
-        internal void init(DataService service, List<DdtIssuedAction> allAction)
+        internal void init(IDbDataService service, List<DdtIssuedAction> allAction)
         {
             if (allAction != null)
             {
@@ -31,7 +31,7 @@ namespace Cardiology.UI.Controls
 
         internal List<DdtIssuedAction> getIssuedMedicines()
         {
-            DataService service = new DataService();
+
             List<DdtIssuedAction> result = new List<DdtIssuedAction>();
             for (int i = 0; i < sizedContainer.Controls.Count; i++)
             {

@@ -50,7 +50,7 @@ namespace Cardiology.UI.Controls
 
         internal List<DdtIssuedMedicine> getIssuedMedicines()
         {
-            DataService service = new DataService();
+
             List<DdtIssuedMedicine> result = new List<DdtIssuedMedicine>();
             for (int i = 0; i < sizedContainer.Controls.Count; i++)
             {

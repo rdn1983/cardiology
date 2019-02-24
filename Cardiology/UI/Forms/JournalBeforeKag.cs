@@ -40,7 +40,7 @@ namespace Cardiology.UI.Forms
                 return;
             }
 
-            DataService service = new DataService();
+
             DdtPatient patient = service.queryObjectById<DdtPatient>(hospitalitySession.DsidPatient);
             if (patient != null)
             {
@@ -103,7 +103,7 @@ namespace Cardiology.UI.Forms
             if (validate())
             {
                 save();
-                DataService service = new DataService();
+    
                 List<string> paths = new List<string>();
                 ITemplateProcessor processor = TemplateProcessorManager.getProcessorByObjectType(DdtJournal.NAME);
                 foreach (string id in journalIds)

@@ -224,7 +224,7 @@ namespace Cardiology.UI.Forms
 
         private void printBtn_Click(object sender, EventArgs e)
         {
-            DataService service = new DataService();
+
             if (save())
             {
                 ITemplateProcessor processor = TemplateProcessorManager.getProcessorByObjectType(DdtConsilium.NAME);

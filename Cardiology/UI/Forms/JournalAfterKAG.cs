@@ -30,7 +30,7 @@ namespace Cardiology.UI.Forms
             CommonUtils.InitRangedItems(chddSurgeryTxt, 14, 26);
 
             afterKagDiagnosisTxt.Text = hospitalitySession.DssDiagnosis;
-            DataService service = new DataService();
+
 
             CommonUtils.InitDoctorsComboboxValues(service, journalDocBox, "");
             releaseJournalCtrl.initDateTime(CommonUtils.ConstructDateWIthTime(admissionDateTxt.Value, DateTime.Parse("8:05:00")));
@@ -101,7 +101,7 @@ namespace Cardiology.UI.Forms
             releaseJournalCtrl.initDateTime(CommonUtils.ConstructDateWIthTime(dt, DateTime.Parse("8:05:00")));
         }
 
-        private void initCardioConslusions(DataService service)
+        private void initCardioConslusions(IDbDataService service)
         {
             List<DdtVariousSpecConcluson> cardioConclusions = service.queryObjectsCollection<DdtVariousSpecConcluson>
                         ("Select * from " + DdtVariousSpecConcluson.NAME + " WHERE dsid_parent='" + journalId +
@@ -150,7 +150,7 @@ namespace Cardiology.UI.Forms
 
         public bool save()
         {
-            DataService service = new DataService();
+
             service.updateObject<DdtHospital>(hospitalitySession, DdtHospital.NAME, "r_object_id", hospitalitySession.ObjectId);
 
             DdtJournal journal = null;
@@ -210,7 +210,7 @@ namespace Cardiology.UI.Forms
         {
             if (save())
             {
-                DataService service = new DataService();
+    
                 DdtJournal journal = service.queryObjectById<DdtJournal>(journalId);
                 if (journal != null)
                 {
@@ -233,7 +233,7 @@ namespace Cardiology.UI.Forms
                 List<string> ids = selector.returnValues();
                 if (ids.Count > 0)
                 {
-                    DataService service = new DataService();
+        
                     DdtKag kag = service.queryObjectById<DdtKag>(ids[0]);
                     initKag(kag);
                 }
@@ -244,7 +244,7 @@ namespace Cardiology.UI.Forms
         {
             if (!string.IsNullOrEmpty(kagId))
             {
-                DataService service = new DataService();
+    
                 DdtKag kag = service.queryObjectById<DdtKag>(kagId);
                 if (kag != null)
                 {

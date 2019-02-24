@@ -38,7 +38,6 @@ namespace Cardiology.UI.Controls
             CommonUtils.InitRangedItems(defferedChddTxt, 14, 26);
             warningLbl.Visible = false;
 
-            DataService service = new DataService();
             CommonUtils.InitDoctorsComboboxValues(service, docBox, null);
             DdtJournal journal = service.queryObjectById<DdtJournal>(objectId);
             refreshObject(journal);
@@ -51,7 +50,6 @@ namespace Cardiology.UI.Controls
                 return;
             }
 
-            DataService service = new DataService();
             DdtJournal journal = (DdtJournal)getObject();
             journal.DsidHospitalitySession = hospitalitySession.ObjectId;
             journal.DsidPatient = hospitalitySession.DsidPatient;
@@ -155,7 +153,6 @@ namespace Cardiology.UI.Controls
 
         public object getObject()
         {
-            DataService service = new DataService();
             DdtJournal journal = service.queryObjectById<DdtJournal>(objectId);
             if (journal == null)
             {
@@ -184,7 +181,7 @@ namespace Cardiology.UI.Controls
             if (obj != null && obj is DdtJournal)
             {
                 DdtJournal journal = (DdtJournal)obj;
-                DataService service = new DataService();
+   
                 deferredJournalTxt.Text = journal.DssJournal;
                 deferredAdTxt.Text = journal.DssAd;
                 defferedChddTxt.Text = journal.DssChdd;

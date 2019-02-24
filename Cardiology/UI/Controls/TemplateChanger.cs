@@ -25,7 +25,7 @@ namespace Cardiology.UI.Controls
 
         private void pikvikItem_Click(object sender, EventArgs e)
         {
-            DataService service = new DataService();
+
             string value = service.querySingleString(@"SELECT " + attrName + " FROM ddt_anamnesis WHERE " +
                 "dsb_template=true AND dss_template_name='pikvik'");
             listener?.Invoke(value);
@@ -36,7 +36,7 @@ namespace Cardiology.UI.Controls
 
         private void aorticItem_Click(object sender, EventArgs e)
         {
-            DataService service = new DataService();
+
             string value = service.querySingleString(@"SELECT " + attrName + " FROM ddt_anamnesis WHERE " +
                 "dsb_template=true AND dss_template_name='aorta'");
             listener?.Invoke(value);
@@ -47,7 +47,7 @@ namespace Cardiology.UI.Controls
 
         private void deathItem_Click(object sender, EventArgs e)
         {
-            DataService service = new DataService();
+
             string value = service.querySingleString(@"SELECT " + attrName + " FROM ddt_anamnesis WHERE " +
                 "dsb_template=true AND dss_template_name='death'");
             listener?.Invoke(value);
@@ -58,7 +58,7 @@ namespace Cardiology.UI.Controls
 
         private void depItem_Click(object sender, EventArgs e)
         {
-            DataService service = new DataService();
+
             string value = service.querySingleString(@"SELECT " + attrName + " FROM ddt_anamnesis WHERE " +
                 "dsb_template=true AND dss_template_name='dep'");
             listener?.Invoke(value);
@@ -69,7 +69,7 @@ namespace Cardiology.UI.Controls
 
         private void gbItem_Click(object sender, EventArgs e)
         {
-            DataService service = new DataService();
+
             string value = service.querySingleString(@"SELECT " + attrName + " FROM ddt_anamnesis WHERE " +
                 "dsb_template=true AND dss_template_name='gb'");
             listener?.Invoke(value);
@@ -80,7 +80,7 @@ namespace Cardiology.UI.Controls
 
         private void kagItem_Click(object sender, EventArgs e)
         {
-            DataService service = new DataService();
+
             string value = service.querySingleString(@"SELECT " + attrName + " FROM ddt_anamnesis WHERE " +
                 "dsb_template=true AND dss_template_name='kag'");
             listener?.Invoke(value);
@@ -91,7 +91,7 @@ namespace Cardiology.UI.Controls
 
         private void oksDownItem_Click(object sender, EventArgs e)
         {
-            DataService service = new DataService();
+
             string value = service.querySingleString(@"SELECT " + attrName + " FROM ddt_anamnesis WHERE " +
                 "dsb_template=true AND dss_template_name='oksdown'");
             listener?.Invoke(value);
@@ -102,7 +102,7 @@ namespace Cardiology.UI.Controls
 
         private void oksUpItem_Click(object sender, EventArgs e)
         {
-            DataService service = new DataService();
+
             string value = service.querySingleString(@"SELECT " + attrName + " FROM ddt_anamnesis WHERE " +
                 "dsb_template=true AND dss_template_name='oksup'");
             listener?.Invoke(value);
@@ -113,7 +113,7 @@ namespace Cardiology.UI.Controls
 
         private void piksItem_Click(object sender, EventArgs e)
         {
-            DataService service = new DataService();
+
             string value = service.querySingleString(@"SELECT " + attrName + " FROM ddt_anamnesis WHERE " +
                 "dsb_template=true AND dss_template_name='piks'");
             listener?.Invoke(value);

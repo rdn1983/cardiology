@@ -24,7 +24,7 @@ namespace Cardiology.UI.Controls
 
         private void initControls()
         {
-            DataService service = new DataService();
+
             DdtSpecialistConclusion specConclusion = service.queryObjectById<DdtSpecialistConclusion>(objectId);
             refreshObject(specConclusion);
             neurologTxt.ReadOnly = !isEditable;
@@ -38,7 +38,7 @@ namespace Cardiology.UI.Controls
         {
             if (isEditable && (isNew && getIsValid()|| isDirty()))
             {
-                DataService service = new DataService();
+    
                 DdtSpecialistConclusion specConslusion = (DdtSpecialistConclusion) getObject();
                 specConslusion.DsidHospitalitySession = hospitalitySession.ObjectId;
                 specConslusion.DsidDoctor = hospitalitySession.DsidCuringDoctor;
@@ -75,7 +75,7 @@ namespace Cardiology.UI.Controls
 
         public object getObject()
         {
-            DataService service = new DataService();
+
             DdtSpecialistConclusion specConslusion = service.queryObjectById<DdtSpecialistConclusion>(objectId);
             if (specConslusion == null)
             {

@@ -24,7 +24,7 @@ namespace Cardiology.UI.Controls
 
         private void initControls()
         {
-            DataService service = new DataService();
+
             DdtXRay xRay = service.queryObjectById<DdtXRay>(objectId);
             refreshObject(xRay);
             chestXRayTxt.Enabled = isEditable;
@@ -42,7 +42,7 @@ namespace Cardiology.UI.Controls
         {
             if (isEditable && (isNew && getIsValid()|| isDirty()))
             {
-                DataService service = new DataService();
+    
                 DdtXRay xRay = (DdtXRay) getObject();
                 xRay.DsidHospitalitySession = hospitalitySession.ObjectId;
                 xRay.DsidDoctor = hospitalitySession.DsidCuringDoctor;
@@ -74,7 +74,7 @@ namespace Cardiology.UI.Controls
 
         public object getObject()
         {
-            DataService service = new DataService();
+
             DdtXRay xRay = service.queryObjectById<DdtXRay>(objectId);
             if (xRay == null)
             {

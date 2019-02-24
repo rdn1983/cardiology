@@ -27,7 +27,7 @@ namespace Cardiology.UI.Controls
 
         private void initControls()
         {
-            DataService service = new DataService();
+
             DdtOncologicMarkers markers = service.queryObjectById<DdtOncologicMarkers>(objectId);
             refreshObject(markers);
             ceaTxt.Enabled = isEditable;
@@ -45,7 +45,7 @@ namespace Cardiology.UI.Controls
         {
             if (isEditable && (isNew || isDirty()))
             {
-                DataService service = new DataService();
+    
                 DdtOncologicMarkers kag = (DdtOncologicMarkers)getObject();
                 kag.DsidHospitalitySession = hospitalitySession.ObjectId;
                 kag.DsidDoctor = hospitalitySession.DsidCuringDoctor;
@@ -84,7 +84,7 @@ namespace Cardiology.UI.Controls
 
         public object getObject()
         {
-            DataService service = new DataService();
+
             DdtOncologicMarkers markerObj = service.queryObjectById<DdtOncologicMarkers>(objectId);
             if (markerObj == null)
             {

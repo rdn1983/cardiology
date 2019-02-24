@@ -21,7 +21,7 @@ namespace Cardiology.UI.Forms
 
         private void initializeDoctorsBox()
         {
-            DataService service = new DataService();
+
             List<DdvDoctor> doctors = service.queryObjectsCollection<DdvDoctor>(@"select * from ddt_doctors");
             foreach (var obj in doctors)
             {

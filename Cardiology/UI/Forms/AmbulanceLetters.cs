@@ -10,11 +10,11 @@ namespace Cardiology.UI.Forms
     {
         private DdtHospital hospitalitySession;
 
-        public AmbulanceLetters(DdtHospital hospitalitySession)
+        public AmbulanceLetters(IDbDataService service, DdtHospital hospitalitySession)
         {
             this.hospitalitySession = hospitalitySession;
             InitializeComponent();
-            CommonUtils.InitDoctorsComboboxValues(new DataService(), doctorsBox, "");
+            CommonUtils.InitDoctorsComboboxValues(service, doctorsBox, "");
         }
 
         private void gbUdinaBtn_Click(object sender, System.EventArgs e)

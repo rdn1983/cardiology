@@ -19,7 +19,7 @@ namespace Cardiology.UI.Forms
 
         private void initProtocol()
         {
-            DataService service = new DataService();
+
             DdtPatient patient = service.queryObjectById<DdtPatient>(hospitalitySession.DsidPatient);
             if (patient != null)
             {
@@ -57,7 +57,7 @@ namespace Cardiology.UI.Forms
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
-            DataService service = new DataService();
+
             DdtAlcoProtocol protocol = service.queryObject<DdtAlcoProtocol>(@"SELECT * FROM ddt_alco_protocol where dsid_hospitality_session='" + hospitalitySession.ObjectId + "'");
             if (protocol == null)
             {

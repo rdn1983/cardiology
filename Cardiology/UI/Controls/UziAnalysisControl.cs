@@ -24,7 +24,7 @@ namespace Cardiology.UI.Controls
 
         private void initControls()
         {
-            DataService service = new DataService();
+
             DdtUzi uzi = service.queryObjectById<DdtUzi>(objectId);
             refreshObject(uzi);
             ehoKgTxt.Enabled = isEditable;
@@ -39,7 +39,7 @@ namespace Cardiology.UI.Controls
         {
             if (isEditable && (isNew && getIsValid() || isDirty()))
             {
-                DataService service = new DataService();
+    
                 DdtUzi uziObj = (DdtUzi) getObject();
                 uziObj.DsidHospitalitySession = hospitalitySession.ObjectId;
                 uziObj.DsidDoctor = hospitalitySession.DsidCuringDoctor;
@@ -82,7 +82,7 @@ namespace Cardiology.UI.Controls
 
         public object getObject()
         {
-            DataService service = new DataService();
+
             DdtUzi uziObj = service.queryObjectById<DdtUzi>(objectId);
             if (uziObj == null)
             {

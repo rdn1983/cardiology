@@ -34,7 +34,6 @@ namespace Cardiology.UI.Controls
 
         private void initControls()
         {
-            DataService service = new DataService();
             DdtEkg ekg = service.queryObjectById<DdtEkg>(objectId);
             refreshObject(ekg);
             regularEkgTxt.Enabled = isEditable;
@@ -49,7 +48,6 @@ namespace Cardiology.UI.Controls
 
         public object getObject()
         {
-            DataService service = new DataService();
             DdtEkg ekg = service.queryObjectById<DdtEkg>(objectId);
             if (ekg == null)
             {
@@ -64,7 +62,7 @@ namespace Cardiology.UI.Controls
         {
             if (isEditable && (isNew && !string.IsNullOrEmpty(regularEkgTxt.Text) || isDirty()))
             {
-                DataService service = new DataService();
+    
                 DdtEkg ekg = (DdtEkg)getObject();
                 ekg.DsidHospitalitySession = hospitalitySession.ObjectId;
                 ekg.DsidDoctor = hospitalitySession.DsidCuringDoctor;

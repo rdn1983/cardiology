@@ -38,7 +38,7 @@ namespace Cardiology.UI.Forms
         {
             bool needAdmissionAnalysis = DdtUrineAnalysis.NAME.Equals(typeName) || DdtBloodAnalysis.NAME.Equals(typeName)
                 || DdtEgds.NAME.Equals(typeName) || DdtEkg.NAME.Equals(typeName);
-            DataService service = new DataService();
+
             if (needAdmissionAnalysis)
             {
                 string firstAnalysisId = service.querySingleString(string.Format(FIRST_ANALYSIS_QRY_TEMPLATE, typeName, hospitalitySession.ObjectId));
@@ -156,7 +156,7 @@ namespace Cardiology.UI.Forms
             {
                 this.Text = "Онкомаркеры";
             }
-            DataService service = new DataService();
+
             DdtPatient patient = service.queryObjectById<DdtPatient>(hospitalitySession.DsidPatient);
             if (patient != null)
             {

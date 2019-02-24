@@ -129,7 +129,7 @@ namespace Cardiology.UI.Forms
             }
             else if (DdtJournal.NAME.Equals(firstType))
             {
-                DataService service = new DataService();
+    
                 DdtJournal journal = service.queryObjectById<DdtJournal>(firstId);
                 if (journal.JournalType == (int)DdtJournalDsiType.AFTER_KAG)
                 {

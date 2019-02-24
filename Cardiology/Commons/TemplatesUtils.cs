@@ -47,7 +47,6 @@ namespace Cardiology.Commons
 
         public static void fillAmbulanceLetterTemplate(string templateFileName, string hospitalSessionId, Dictionary<string, string> values)
         {
-            DataService service = new DataService();
             DdtHospital hospitalSession = service.queryObjectById<DdtHospital>(hospitalSessionId);
             DdvDoctor doc = service.queryObjectById<DdvDoctor>(hospitalSession.CuringDoctor);
             DdvPatient patient = service.queryObjectById<DdvPatient>(hospitalSession.CuringDoctor);

@@ -27,7 +27,7 @@ namespace Cardiology.UI.Forms
         {
             if (!string.IsNullOrEmpty(objectId))
             {
-                DataService service = new DataService();
+    
                 DdtPatient patient = service.queryObjectById<DdtPatient>(hospitalitySession.DsidPatient);
                 if (patient != null)
                 {
@@ -93,7 +93,7 @@ namespace Cardiology.UI.Forms
             selector.ShowDialog("ddv_history", queryCnd, "dss_operation_name", "dsid_operation_id", null);
             if (selector.isSuccess())
             {
-                DataService service = new DataService();
+    
                 List<string> diagnosies = selector.returnValues();
                 foreach (string v in diagnosies)
                 {
@@ -114,7 +114,7 @@ namespace Cardiology.UI.Forms
 
         private void saveObject()
         {
-            DataService service = new DataService();
+
             DdtEpicrisis obj = service.queryObjectById<DdtEpicrisis>(objectId);
             if (obj == null)
             {

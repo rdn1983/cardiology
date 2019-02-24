@@ -28,7 +28,6 @@ namespace Cardiology.UI.Controls
 
         private void initControls()
         {
-            DataService service = new DataService();
             DdtBloodAnalysis blood = service.queryObjectById<DdtBloodAnalysis>(objectId);
             refreshObject(blood);
             regularAltTxt.Enabled = isEditable;
@@ -70,7 +69,6 @@ namespace Cardiology.UI.Controls
             
                 if (isEditable && (isDirty() || isNew && getIsValid()))
             {
-                DataService service = new DataService();
                 DdtBloodAnalysis bloodObj = (DdtBloodAnalysis)getObject();
                 bloodObj.DsidHospitalitySession = hospitalitySession.ObjectId;
                 bloodObj.DsidDoctor = hospitalitySession.DsidCuringDoctor;
@@ -103,7 +101,6 @@ namespace Cardiology.UI.Controls
 
         public object getObject()
         {
-            DataService service = new DataService();
             DdtBloodAnalysis bloodObj = service.queryObjectById<DdtBloodAnalysis>(objectId);
             if (bloodObj == null)
             {

@@ -32,7 +32,7 @@ namespace Cardiology.UI.Controls
             return index;
         }
 
-        internal DdtIssuedAction getObject(DataService service)
+        internal DdtIssuedAction getObject(IDbDataService service)
         {
             if (!string.IsNullOrEmpty(issuedActionTxt.Text))
             {
@@ -52,7 +52,7 @@ namespace Cardiology.UI.Controls
         {
             if (!string.IsNullOrEmpty(objectId))
             {
-                DataService service = new DataService();
+    
                 service.queryDelete(DdtIssuedAction.NAME, "r_object_id", objectId, true);
             }
             if (parent != null)

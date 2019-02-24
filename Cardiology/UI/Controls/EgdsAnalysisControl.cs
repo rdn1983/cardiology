@@ -25,7 +25,6 @@ namespace Cardiology.UI.Controls
 
         private void initControls()
         {
-            DataService service = new DataService();
             DdtEgds egds = service.queryObjectById<DdtEgds>(objectId);
             refreshObject(egds);
             regularEgdsTxt.Enabled = isEditable;
@@ -36,7 +35,7 @@ namespace Cardiology.UI.Controls
         {
             if (isEditable && (isDirty() || isNew && getIsValid()))
             {
-                DataService service = new DataService();
+   
                 DdtEgds egds = (DdtEgds)getObject();
                 egds.HospitalitySession= hospitalitySession.ObjectId;
                 egds.Doctor = hospitalitySession.CuringDoctor;
@@ -72,7 +71,6 @@ namespace Cardiology.UI.Controls
 
         public object getObject()
         {
-            DataService service = new DataService();
             DdtEgds egds = service.queryObjectById<DdtEgds>(objectId);
             if (egds == null)
             {

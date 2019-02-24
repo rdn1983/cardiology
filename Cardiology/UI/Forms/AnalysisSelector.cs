@@ -31,7 +31,7 @@ namespace Cardiology.UI.Forms
 
         private void initControls(string typeName, string condition, string labelAttr, string valueAttr, List<string> exceptedIds)
         {
-            DataService service = new DataService();
+
             StringBuilder dqlBuilder = new StringBuilder();
             dqlBuilder.Append("SELECT ").Append(labelAttr).Append(",").Append(valueAttr).Append(" FROM ").Append(typeName);
             if (exceptedIds != null && exceptedIds.Count > 0)

@@ -29,7 +29,6 @@ namespace Cardiology.Commons
             {
                 values = new Dictionary<string, string>();
             }
-            DataService service = new DataService();
             DdtEpicrisis obj = service.queryObjectById<DdtEpicrisis>(objectId);
             values.Add("{diagnosis}", obj.Diagnosis);
             values.Add("{date}", obj.EpicrisisDate.ToShortDateString());

@@ -27,7 +27,7 @@ namespace Cardiology.UI.Controls
 
         private void initControls()
         {
-            DataService service = new DataService();
+
             DdtUrineAnalysis urineAnalysis = service.queryObjectById<DdtUrineAnalysis>(objectId);
             refreshObject(urineAnalysis);
             dateUrineAnalysis.Enabled = isEditable;
@@ -41,7 +41,7 @@ namespace Cardiology.UI.Controls
         {
             if (isEditable && (isNew && getIsValid() || isDirty()))
             {
-                DataService service = new DataService();
+    
                 DdtUrineAnalysis urine = (DdtUrineAnalysis)getObject();
                 urine.DsidHospitalitySession = hospitalitySession.ObjectId;
                 urine.DsidDoctor = hospitalitySession.DsidCuringDoctor;
@@ -78,7 +78,7 @@ namespace Cardiology.UI.Controls
 
         public object getObject()
         {
-            DataService service = new DataService();
+
             DdtUrineAnalysis urine = service.queryObjectById<DdtUrineAnalysis>(objectId);
             if (urine == null)
             {

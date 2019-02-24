@@ -27,7 +27,6 @@ namespace Cardiology.Commons
             {
                 values = new Dictionary<string, string>();
             }
-            DataService service = new DataService();
             DdtAnamnesis anamnesis = service.queryObjectById<DdtAnamnesis>(objectId);
             values.Add("{allergy}", anamnesis.DssAnamnesisAllergy);
             values.Add("{complaints}", anamnesis.DssComplaints);

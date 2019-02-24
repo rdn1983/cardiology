@@ -26,7 +26,6 @@ namespace Cardiology.Commons
             {
                 values = new Dictionary<string, string>();
             }
-            DataService service = new DataService();
             DdtJournal journal = service.queryObjectById<DdtJournal>(objectId);
             DdvDoctor doc = service.queryObjectById<DdvDoctor>(journal.DsidDoctor);
             values.Add("{doctor.initials}", doc == null ? "" : doc.DssInitials);
@@ -52,7 +51,7 @@ namespace Cardiology.Commons
         }
 
 
-        private List<string> collectKagJournalPaths(DataService service, DdtJournal journal, DdvDoctor doc, Dictionary<string, string> values)
+        private List<string> collectKagJournalPaths(IDbDataService service, DdtJournal journal, DdvDoctor doc, Dictionary<string, string> values)
         {
             List<string> partsPaths = new List<string>();
 

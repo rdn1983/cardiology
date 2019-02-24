@@ -22,7 +22,7 @@ namespace Cardiology.UI.Controls
             this.index = index;
             this.parent = parent;
 
-            CommonUtils.InitCureTypeComboboxValues(new DataService(), medicineTypeTxt0);
+            CommonUtils.InitCureTypeComboboxValues(service, medicineTypeTxt0);
         }
 
         internal int getIndex()
@@ -87,7 +87,7 @@ namespace Cardiology.UI.Controls
         {
             ComboBox box = (ComboBox)sender;
             DdtCureType selectedVal = (DdtCureType)box.SelectedItem;
-            CommonUtils.InitCureComboboxValuesByTypeId(new DataService(), issuedMedicineTxt0, selectedVal.ObjectId);
+            CommonUtils.InitCureComboboxValuesByTypeId(service, issuedMedicineTxt0, selectedVal.ObjectId);
         }
     }
 }

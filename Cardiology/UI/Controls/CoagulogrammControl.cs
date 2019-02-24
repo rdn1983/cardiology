@@ -43,7 +43,6 @@ namespace Cardiology.UI.Controls
         {
             if (isEditable && (isDirty() || isNew && getIsValid()))
             {
-                DataService service = new DataService();
                 DdtCoagulogram coagulgramm = (DdtCoagulogram)getObject();
                 coagulgramm.DsidHospitalitySession = hospitalitySession.ObjectId;
                 coagulgramm.DsidDoctor = hospitalitySession.DsidCuringDoctor;
@@ -76,7 +75,6 @@ namespace Cardiology.UI.Controls
 
         public object getObject()
         {
-            DataService service = new DataService();
             DdtCoagulogram coagulgramm = service.queryObjectById<DdtCoagulogram>(objectId);
             if (coagulgramm == null)
             {

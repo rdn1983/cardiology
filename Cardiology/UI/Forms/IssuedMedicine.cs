@@ -150,7 +150,7 @@ namespace Cardiology.UI.Forms
 
         private void UpdateMedicineFromTemplate(string template)
         {
-            DataService service = new DataService();
+
             List<DdtCure> medicineTemplates = service.queryObjectsCollection<DdtCure>(@"Select cure.* from ddt_values vv, ddt_cure cure 
                             where vv.dss_name like '" + template + "%' AND vv.dss_value=cure.dss_name");
             issuedMedicineContainer.RefreshData(this.service, medicineTemplates);
@@ -379,7 +379,7 @@ namespace Cardiology.UI.Forms
 
         private void copyYesterdayMedBtn_Click(object sender, EventArgs e)
         {
-            DataService service = new DataService();
+
             String meListId = service.querySingleString(@"SELECT * FROM ddt_issued_medicine_list  WHERE dsid_hospitality_session='" +
                    hospitalitySession.ObjectId + "'   ORDER BY dsdt_issuing_date DESC");
             if (!string.IsNullOrEmpty(meListId))

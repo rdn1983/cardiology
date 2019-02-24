@@ -26,7 +26,7 @@ namespace Cardiology.UI.Forms
         private void initControls(string inspectionObjId)
         {
             kagContainer.Visible = false;
-            DataService service = new DataService();
+
             DdtPatient patient = service.queryObjectById<DdtPatient>(hospitalitySession.DsidPatient);
             if (patient != null)
             {
@@ -69,7 +69,7 @@ namespace Cardiology.UI.Forms
             initKag(service, kagJournal);
         }
 
-        private void initAnalysis(DataService service)
+        private void initAnalysis(IDbDataService service)
         {
             if (inspectionObj != null)
             {
@@ -119,7 +119,7 @@ namespace Cardiology.UI.Forms
             }
         }
 
-        private void initKag(DataService service, DdtJournal kagJournal)
+        private void initKag(IDbDataService service, DdtJournal kagJournal)
         {
             bool hasKag = false;
             if (kagJournal != null)
@@ -166,7 +166,7 @@ namespace Cardiology.UI.Forms
                 return false;
             }
 
-            DataService service = new DataService();
+
             saveInspectionObj(service);
             saveAnalysis(service);
             return true;
@@ -177,7 +177,7 @@ namespace Cardiology.UI.Forms
             return true;
         }
 
-        private void saveInspectionObj(DataService service)
+        private void saveInspectionObj(IDbDataService service)
         {
             if (inspectionObj == null)
             {
@@ -199,7 +199,7 @@ namespace Cardiology.UI.Forms
 
 
 
-        private void saveAnalysis(DataService service)
+        private void saveAnalysis(IDbDataService service)
         {
             saveTab("uziTab", "УЗИ");
             saveTab("bloodTab", "АНализы крови");
@@ -340,7 +340,7 @@ namespace Cardiology.UI.Forms
 
         private void inspectionDate_ValueChanged(object sender, EventArgs e)
         {
-            DataService service = new DataService();
+
             DateTime startDate = CommonUtils.ConstructDateWIthTime(inspectionDate.Value, inspectionTime.Value);
 
             DdtJournal kagJournal = CommonUtils.ResolveKagJournal(service, startDate, hospitalitySession.ObjectId);

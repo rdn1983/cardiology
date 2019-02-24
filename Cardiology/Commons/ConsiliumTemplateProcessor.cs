@@ -26,6 +26,7 @@ namespace Cardiology.Commons
             {
                 values = new Dictionary<string, string>();
             }
+            DataService service = new DataService();
             DdtConsilium obj = service.queryObjectById<DdtConsilium>(objectId);
             values.Add(@"{consilium.date}", DateTime.Now.ToString("dd.MM.yyyy"));
             values.Add(@"{consilium.time}", DateTime.Now.ToString("HH:mm"));

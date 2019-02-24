@@ -8,5 +8,10 @@ namespace Cardiology.Data.Commons
         IList<DdtAnamnesis> GetAll();
 
         DdtAnamnesis GetById(string id);
+
+        DdtAnamnesis GetByHospitalSessionId(string hospitalSessionId);
+
+        DdtAnamnesis GetByTemplateName(string templateName);
+        
     }
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using Cardiology.Data.Model2;
+using Cardiology.Data.PostgreSQL;
 
 namespace Cardiology.Commons
 {

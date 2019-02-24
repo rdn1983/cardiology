@@ -45,37 +45,37 @@ namespace Cardiology.UI.Forms
 
         private void kateterItem_Click(object sender, EventArgs e)
         {
-            UserFromVena form = new UserFromVena();
+            UserFromVena form = new UserFromVena(service);
             form.ShowDialog();
         }
 
         private void trombolisisItem_Click(object sender, EventArgs e)
         {
-            UserFormTrombolizis form = new UserFormTrombolizis(null);
+            UserFormTrombolizis form = new UserFormTrombolizis(service, null);
             form.ShowDialog();
         }
 
         private void veksItem_Click(object sender, EventArgs e)
         {
-            UserFormVEKS form = new UserFormVEKS();
+            UserFormVEKS form = new UserFormVEKS(service);
             form.ShowDialog();
         }
 
         private void toracatezosItem_Click(object sender, EventArgs e)
         {
-            UserFormTorCent form = new UserFormTorCent();
+            UserFormTorCent form = new UserFormTorCent(service);
             form.ShowDialog();
         }
 
         private void eitItem_Click(object sender, EventArgs e)
         {
-            UserFormEIT form = new UserFormEIT();
+            UserFormEIT form = new UserFormEIT(service);
             form.ShowDialog();
         }
 
         private void intubationItem_Click(object sender, EventArgs e)
         {
-            UserFormIntubation form = new UserFormIntubation();
+            UserFormIntubation form = new UserFormIntubation(service);
             form.ShowDialog();
         }
 
@@ -155,7 +155,7 @@ namespace Cardiology.UI.Forms
                 DataGridViewCell cell = row.Cells[0];
                 string value = cell.Value.ToString();
                 DdtHospital hospitalSession = service.GetDdtHospitalService().GetById(value);
-                ReleasePatient dialog = new ReleasePatient(hospitalSession, null);
+                ReleasePatient dialog = new ReleasePatient(service, hospitalSession, null);
                 dialog.ShowDialog();
             }
         }
@@ -330,7 +330,7 @@ namespace Cardiology.UI.Forms
                 DataGridViewRow row = (DataGridViewRow)it.Current;
                 DataGridViewCell cell = row.Cells[0];
                 string value = cell.Value.ToString();
-                DdtHospital hospitalSession = new DataService().queryObjectById<DdtHospital>(value);
+                DdtHospital hospitalSession = service.GetDdtHospitalService().GetById(value);
                 AmbulanceLetters form = new AmbulanceLetters(hospitalSession);
                 form.ShowDialog();
             }

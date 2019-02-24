@@ -10,17 +10,18 @@ namespace Cardiology.UI.Forms
 {
     public partial class UserFromVena : Form
     {
+        private readonly IDbDataService service;
 
-        public UserFromVena()
+        public UserFromVena(IDbDataService service)
         {
+            this.service = service;
             InitializeComponent();
             InitializeDoctorsBox();
         }
 
         private void InitializeDoctorsBox()
         {
-
-            List<DdvDoctor> doctors = service.queryObjectsCollection<DdvDoctor>(@"select * from ddt_doctors");
+            IList<DdvDoctor> doctors = service.GetDdvDoctorService().GetAll();
             for (int i = 0; i < doctors.Count; i++)
             {
                 doctorsBox.Items.Add(doctors[i]);

@@ -14,7 +14,7 @@ namespace Cardiology.UI.Controls
             InitializeComponent();
         }
 
-        internal void init(IDbDataService service, List<DdtIssuedAction> allAction)
+        internal void init(IDbDataService service, IList<DdtIssuedAction> allAction)
         {
             if (allAction != null)
             {

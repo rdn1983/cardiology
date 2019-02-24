@@ -7,24 +7,25 @@ namespace Cardiology.UI.Forms
 {
     public partial class ReleasePatient : Form
     {
+        private readonly IDbDataService service;
         private DdtReleasePatient releasePatientInfo;
         private DdtHospital hospitalitySession;
         private string epicrisisId;
 
-        public ReleasePatient(DdtHospital hospitalitySession, string epicrisisId)
+        public ReleasePatient(IDbDataService service, DdtHospital hospitalitySession, string epicrisisId)
         {
+            this.service = service;
             this.epicrisisId = epicrisisId;
             this.hospitalitySession = hospitalitySession;
             releasePatientInfo = new DdtReleasePatient();
-            releasePatientInfo.DsidHospitalitySession = hospitalitySession.ObjectId;
-            releasePatientInfo.DsidDoctor = hospitalitySession.DsidDutyDoctor;
-            releasePatientInfo.DsidPatient = hospitalitySession.DsidPatient;
+            releasePatientInfo.HospitalitySession = hospitalitySession.ObjectId;
+            releasePatientInfo.Doctor = hospitalitySession.DutyDoctor;
+            releasePatientInfo.Patient = hospitalitySession.Patient;
             InitializeComponent();
-
-            DdtPatient patient = service.queryObjectById<DdtPatient>(hospitalitySession.DsidPatient);
+            DdvPatient patient = service.GetDdvPatientService().GetById(hospitalitySession.Patient);
             if (patient != null)
             {
-                Text += " " + patient.DssInitials;
+                Text += " " + patient.ShortName;
             }
         }
 
@@ -34,7 +35,7 @@ namespace Cardiology.UI.Forms
             PatientWorkInfo form = new PatientWorkInfo(releasePatientInfo);
             form.ShowDialog();
             releasePatientInfo = form.ReleasePatientInfo;
-            sickListNumTxt.Text = releasePatientInfo.DssOurSicklistNum;
+            sickListNumTxt.Text = releasePatientInfo.OurSicklistNum;
             //sickListStartDateTxt.Value = releasePatientInfo.DsdtOurStartDate;
             //sickListEndDateTxt.Value = releasePatientInfo.DsdtOurEndDate;
         }
@@ -43,23 +44,21 @@ namespace Cardiology.UI.Forms
         {
 
 
-            service.insertObject<DdtReleasePatient>(releasePatientInfo, DdtReleasePatient.NAME);
-
-            hospitalitySession.DsbActive = false;
-            hospitalitySession.DsbRejectCure = refusedBtn.Checked;
+            hospitalitySession.Active = false;
+            hospitalitySession.RejectCure = refusedBtn.Checked;
             service.updateObject<DdtHospital>(hospitalitySession, DdtHospital.NAME, "r_object_id", hospitalitySession.ObjectId);
 
-            DdtEpicrisis epicrisis = service.queryObjectById<DdtEpicrisis>(epicrisisId);
+            DdtEpicrisis epicrisis = service.GetDdtEpicrisisService().GetById(epicrisisId);
             if (epicrisis == null)
             {
                 epicrisis = new DdtEpicrisis();
-                epicrisis.DsidDoctor = hospitalitySession.DsidCuringDoctor;
-                epicrisis.DsidHospitalitySession = hospitalitySession.ObjectId;
-                epicrisis.DsidPatient = hospitalitySession.DsidPatient;
+                epicrisis.Doctor = hospitalitySession.CuringDoctor;
+                epicrisis.HospitalitySession = hospitalitySession.ObjectId;
+                epicrisis.Patient = hospitalitySession.Patient;
             }
-            epicrisis.DssDiagnosis = hospitalitySession.DssDiagnosis;
-            epicrisis.DsdtEpicrisisDate = DateTime.Now;
-            epicrisis.DsiEpicrisisType = deathBtn.Checked ? (int)DdtEpicrisisDsiType.DEATH : transferBtn.Checked ? (int)DdtEpicrisisDsiType.TRANSFER : (int)DdtEpicrisisDsiType.RELEASE;
+            epicrisis.Diagnosis = hospitalitySession.Diagnosis;
+            epicrisis.EpicrisisDate = DateTime.Now;
+            epicrisis.EpicrisisType = deathBtn.Checked ? (int)DdtEpicrisisDsiType.DEATH : transferBtn.Checked ? (int)DdtEpicrisisDsiType.TRANSFER : (int)DdtEpicrisisDsiType.RELEASE;
             service.updateOrCreateIfNeedObject<DdtEpicrisis>(epicrisis, DdtEpicrisis.NAME, epicrisisId);
 
             if (transferBtn.Checked)

@@ -10,16 +10,18 @@ namespace Cardiology.UI.Forms
 {
     public partial class UserFormVEKS : Form
     {
-        public UserFormVEKS()
+        private readonly IDbDataService service;
+
+        public UserFormVEKS(IDbDataService service)
         {
+            this.service = service;
             InitializeComponent();
             initializeDoctorsBox();
         }
 
         private void initializeDoctorsBox()
         {
-
-            List<DdvDoctor> doctors = service.queryObjectsCollection<DdvDoctor>(@"select * from ddt_doctors");
+            IList<DdvDoctor> doctors = service.GetDdvDoctorService().GetAll();
             for (int i = 0; i < doctors.Count; i++)
             {
                 doctorsBox.Items.Add(doctors[i]);

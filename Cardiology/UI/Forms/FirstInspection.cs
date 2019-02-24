@@ -54,7 +54,7 @@ namespace Cardiology.UI.Forms
             InitializeComponent();
             SilentSaver.setForm(this);
 
-            anamnesis = new DataService().queryObject<DdtAnamnesis>(@"select * from ddt_anamnesis WHERE dsid_hospitality_session='" + hospitalSession.ObjectId + "'");
+            anamnesis = service.GetDdtAnamnesisService().GetByHospitalSessionId(hospitalSession.ObjectId);
 
             InitializeAnamnesis(anamnesis);
             initIssuedMedicine();
@@ -67,16 +67,16 @@ namespace Cardiology.UI.Forms
 
         private void InitPatientInfo()
         {
-            DdtPatient patient = service.queryObjectById<DdtPatient>(hospitalSession.DsidPatient);
+            DdvPatient patient = service.GetDdvPatientService().GetById(hospitalSession.Patient);
             if (patient != null)
             {
-                patientInitialsLbl.Text = patient.DssInitials;
+                patientInitialsLbl.Text = patient.ShortName;
                 if (anamnesis == null)
                 {
                     List<DdtCure> medicineTemplates = service.queryObjectsCollection<DdtCure>(@"Select cure.* from ddt_values vv, ddt_cure cure 
                             where vv.dss_name like 'sd' AND vv.dss_value=cure.dss_name");
                     issuedMedicineContainer.RefreshData(service, medicineTemplates);
-                    if (patient.DsbSd)
+                    if (patient.Sd)
                     {
                         accompanyingIllnessesTxt.Text += "Сахарный диабет 2 типа, среднетяжелого течения, субкомпенсация. \n";
                         diagnosisTxt.Text += "Сахарный диабет 2 типа, среднетяжелого течения, субкомпенсация. \n";
@@ -87,7 +87,7 @@ namespace Cardiology.UI.Forms
 
         private void InitDoctorComboBox()
         {
-            String id = anamnesis == null ? hospitalSession.DsidCuringDoctor : anamnesis.DsidDoctor;
+            String id = anamnesis == null ? hospitalSession.CuringDoctor : anamnesis.Doctor;
             ControlUtils.InitDoctors(this.service.GetDdvDoctorService(), docBox, id);
         }
 
@@ -114,7 +114,7 @@ namespace Cardiology.UI.Forms
 
         private void InitDiagnosis()
         {
-            diagnosisTxt.Text = hospitalSession.DssDiagnosis;
+            diagnosisTxt.Text = hospitalSession.Diagnosis;
         }
 
         private void InitializeAnamnesis(DdtAnamnesis anamnesis)
@@ -122,37 +122,37 @@ namespace Cardiology.UI.Forms
             if (anamnesis != null)
             {
                 acceptTemplate = true;
-                if (!anamnesis.DsbTemplate)
+                if (!anamnesis.Template)
                 {
-                    accompanyingIllnessesTxt.Text = anamnesis.DssAccompayingIll;
-                    anamnesisVitaeTxt.Text = anamnesis.DssAnamnesisVitae;
-                    pastSurgeriesTxt.Text = anamnesis.DssPastSurgeries;
+                    accompanyingIllnessesTxt.Text = anamnesis.AccompanyingIllnesses;
+                    anamnesisVitaeTxt.Text = anamnesis.AnamnesisVitae;
+                    pastSurgeriesTxt.Text = anamnesis.PastSurgeries;
                 }
-                digestiveSystemTxt.Text = anamnesis.DssDigestiveSystem;
-                urinarySystemTxt.Text = anamnesis.DssUrinarySystem;
-                justificationTxt.Text = anamnesis.DssDiagnosisJustifies;
-                anamnesisMorbiTxt.Text = anamnesis.DssAnamnesisMorbi;
-                complaintsTxt.Text = anamnesis.DssComplaints;
-                drugsTxt.Text = anamnesis.DssDrugs;
-                stPresensTxt.Text = anamnesis.DssStPresens;
-                cardiovascularSystemTxt.Text = anamnesis.DssCardioVascular;
-                respiratorySystemTxt.Text = anamnesis.DssRespiratorySystem;
-                nervousSystemTxt.Text = anamnesis.DssNervousSystem;
-                anamnesisEpidTxt.Text = anamnesis.DssAnamnesisEpid;
-                diagnosisTxt.Text = anamnesis.DssDiagnosis;
-                anamnesisAllergyTxt.Text = anamnesis.DssAnamnesisAllergy;
-                operationCauseTxt.Text = anamnesis.DssOperationCause;
+                digestiveSystemTxt.Text = anamnesis.DigestiveSystem;
+                urinarySystemTxt.Text = anamnesis.UrinarySystem;
+                justificationTxt.Text = anamnesis.DiagnosisJustification;
+                anamnesisMorbiTxt.Text = anamnesis.AnamnesisMorbi;
+                complaintsTxt.Text = anamnesis.Complaints;
+                drugsTxt.Text = anamnesis.DrugsIntoxication;
+                stPresensTxt.Text = anamnesis.StPresens;
+                cardiovascularSystemTxt.Text = anamnesis.CardiovascularSystem;
+                respiratorySystemTxt.Text = anamnesis.RespiratorySystem;
+                nervousSystemTxt.Text = anamnesis.NervousSystem;
+                anamnesisEpidTxt.Text = anamnesis.AnamnesisEpid;
+                diagnosisTxt.Text = anamnesis.Diagnosis;
+                anamnesisAllergyTxt.Text = anamnesis.AnamnesisAllergy;
+                operationCauseTxt.Text = anamnesis.OperationCause;
             }
         }
 
         private void initIssuedMedicine()
         {
-            DdtIssuedMedicineList medList = service.queryObject<DdtIssuedMedicineList>(@"SELECT * FROM ddt_issued_medicine_list WHERE dsid_hospitality_session='" +
-                hospitalSession.ObjectId + "' AND dss_parent_type='ddt_anamnesis'");
+            DdtIssuedMedicineList medList =
+                service.GetDdtIssuedMedicineListService().GetListByHospitalId(hospitalSession.ObjectId);
             if (medList != null)
             {
                 issuedMedicineContainer.Init(service, medList);
-                templateName = medList.DssTemplateName;
+                templateName = medList.TemplateName;
             }
         }
 
@@ -160,7 +160,8 @@ namespace Cardiology.UI.Forms
         {
             if (parent != null)
             {
-                List<DdtIssuedAction> allActions = service.queryObjectsCollection<DdtIssuedAction>(@"SELECT * FROM ddt_issued_action WHERE dsid_parent_id='" + parent.ObjectId + "'");
+                IList<DdtIssuedAction> allActions =
+                    service.GetDdtIssuedActionService().GetListByParentId(parent.ObjectId);
                 issuedActionContainer.init(service, allActions);
             }
         }
@@ -247,7 +248,7 @@ namespace Cardiology.UI.Forms
             anamnesis.UrinarySystem = getSafeStringValue(urinarySystemTxt);
             anamnesis.Diagnosis = getSafeStringValue(diagnosisTxt);
             anamnesis.OperationCause = getSafeStringValue(operationCauseTxt);
-            anamnesis.Justification = getSafeStringValue(justificationTxt);
+            anamnesis.DiagnosisJustification = getSafeStringValue(justificationTxt);
 
             string id = service.updateOrCreateIfNeedObject<DdtAnamnesis>(anamnesis, DdtAnamnesis.NAME, anamnesis.ObjectId);
             anamnesis.ObjectId = id;
@@ -273,12 +274,12 @@ namespace Cardiology.UI.Forms
                 if (medList == null)
                 {
                     medList = new DdtIssuedMedicineList();
-                    medList.DsidDoctor = hospitalSession.DsidDutyDoctor;
-                    medList.DsidHospitalitySession = hospitalSession.ObjectId;
-                    medList.DsidPatient = hospitalSession.DsidPatient;
-                    medList.DssParentType = "ddt_anamnesis";
-                    medList.DsidParentId = anamnesis.ObjectId;
-                    medList.DsdtIssuingDate = DateTime.Now;
+                    medList.Doctor = hospitalSession.DsidDutyDoctor;
+                    medList.HospitalitySession = hospitalSession.ObjectId;
+                    medList.Patient = hospitalSession.Patient;
+                    medList.ParentType = "ddt_anamnesis";
+                    medList.ParentId = anamnesis.ObjectId;
+                    medList.IssuingDate = DateTime.Now;
                 }
                 medList.DssTemplateName = templateName;
                 string id = service.updateOrCreateIfNeedObject<DdtIssuedMedicineList>(medList, DdtIssuedMedicineList.NAME, medList.ObjectId);
@@ -301,13 +302,13 @@ namespace Cardiology.UI.Forms
             {
                 foreach (DdtIssuedAction med in meds)
                 {
-                    if (string.IsNullOrEmpty(med.ObjectId) || string.IsNullOrEmpty(med.DsidDoctor))
+                    if (string.IsNullOrEmpty(med.ObjectId) || string.IsNullOrEmpty(med.Doctor))
                     {
-                        med.DsidParentId = anamnesis.ObjectId;
-                        med.DsidDoctor = hospitalSession.DsidCuringDoctor;
-                        med.DsidPatient = hospitalSession.DsidPatient;
-                        med.DsidHospitalitySession = hospitalSession.ObjectId;
-                        med.DsdtIssuingDate = DateTime.Now;
+                        med.ParentId = anamnesis.ObjectId;
+                        med.Doctor = hospitalSession.DsidCuringDoctor;
+                        med.Patient = hospitalSession.Patient;
+                        med.HospitalitySession = hospitalSession.ObjectId;
+                        med.IssuingDate = DateTime.Now;
                     }
 
                     med.ObjectId = service.updateOrCreateIfNeedObject<DdtIssuedAction>(med, DdtIssuedAction.NAME, med.ObjectId);
@@ -433,8 +434,8 @@ namespace Cardiology.UI.Forms
             {
                 acceptTemplate = true;
                 clearSelection();
-    
-                DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + OKSUP_TYPE + "'");
+
+                DdtAnamnesis template = service.GetDdtAnamnesisService().GetByTemplateName(OKSUP_TYPE);
                 InitializeAnamnesis(template);
                 initIssuedActions(template);
                 templateName = "oks.medicine.";
@@ -450,7 +451,7 @@ namespace Cardiology.UI.Forms
                 acceptTemplate = true;
                 clearSelection();
     
-                DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + OKSDOWN_TYPE + "'");
+                DdtAnamnesis template = service.GetDdtAnamnesisService().GetByTemplateName(OKSDOWN_TYPE);
                 InitializeAnamnesis(template);
                 initIssuedActions(template);
                 templateName = "okslongs.medicine.";
@@ -465,8 +466,8 @@ namespace Cardiology.UI.Forms
             {
                 acceptTemplate = true;
                 clearSelection();
-    
-                DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + KAG_TYPE + "'");
+
+                DdtAnamnesis template = service.GetDdtAnamnesisService().GetByTemplateName(KAG_TYPE);
                 InitializeAnamnesis(template);
                 initIssuedActions(template);
                 templateName = "kag.medicine.";
@@ -481,8 +482,8 @@ namespace Cardiology.UI.Forms
             {
                 acceptTemplate = true;
                 clearSelection();
-    
-                DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + AORTA_TYPE + "'");
+
+                DdtAnamnesis template = service.GetDdtAnamnesisService().GetByTemplateName(AORTA_TYPE);
                 InitializeAnamnesis(template);
                 initIssuedActions(template);
                 templateName = "aorta.medicine.";
@@ -497,8 +498,8 @@ namespace Cardiology.UI.Forms
             {
                 acceptTemplate = true;
                 clearSelection();
-    
-                DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + GB_TYPE + "'");
+
+                DdtAnamnesis template = service.GetDdtAnamnesisService().GetByTemplateName(GB_TYPE);
                 InitializeAnamnesis(template);
                 initIssuedActions(template);
                 templateName = "gb.medicine.";
@@ -513,8 +514,8 @@ namespace Cardiology.UI.Forms
             {
                 acceptTemplate = true;
                 clearSelection();
-    
-                DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + PIKS_TYPE + "'");
+
+                DdtAnamnesis template = service.GetDdtAnamnesisService().GetByTemplateName(PIKS_TYPE);
                 InitializeAnamnesis(template);
                 initIssuedActions(template);
                 templateName = "nk.medicine.";
@@ -529,8 +530,8 @@ namespace Cardiology.UI.Forms
             {
                 acceptTemplate = true;
                 clearSelection();
-    
-                DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + PIKVIK_TYPE + "'");
+
+                DdtAnamnesis template = service.GetDdtAnamnesisService().GetByTemplateName(PIKVIK_TYPE);
                 InitializeAnamnesis(template);
                 initIssuedActions(template);
                 templateName = "hobl.medicine.";
@@ -546,8 +547,8 @@ namespace Cardiology.UI.Forms
             {
                 acceptTemplate = true;
                 clearSelection();
-    
-                DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + DEP_TYPE + "'");
+
+                DdtAnamnesis template = service.GetDdtAnamnesisService().GetByTemplateName(DEP_TYPE);
                 InitializeAnamnesis(template);
                 initIssuedActions(template);
                 templateName = "dep.medicine.";
@@ -562,8 +563,8 @@ namespace Cardiology.UI.Forms
             {
                 acceptTemplate = true;
                 clearSelection();
-    
-                DdtAnamnesis template = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsb_template=true AND dss_template_name='" + DEATH_TYPE + "'");
+
+                DdtAnamnesis template = service.GetDdtAnamnesisService().GetByTemplateName(DEATH_TYPE);
                 InitializeAnamnesis(template);
                 initIssuedActions(template);
                 templateName = "death.medicine.";

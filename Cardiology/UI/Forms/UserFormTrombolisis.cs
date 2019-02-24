@@ -10,10 +10,12 @@ namespace Cardiology.UI.Forms
 {
     public partial class UserFormTrombolizis : Form
     {
+        private readonly IDbDataService service;
         private DdtPatient patient;
 
-        public UserFormTrombolizis(DdtPatient patient)
+        public UserFormTrombolizis(IDbDataService service, DdtPatient patient)
         {
+            this.service = service;
             this.patient = patient;
             InitializeComponent();
             initializeDoctorsBox();
@@ -21,8 +23,7 @@ namespace Cardiology.UI.Forms
 
         private void initializeDoctorsBox()
         {
-
-            List<DdvDoctor> doctors = service.queryObjectsCollection<DdvDoctor>(@"select * from ddt_doctors");
+            IList<DdvDoctor> doctors = service.GetDdvDoctorService().GetAll();
             foreach (var obj in doctors)
             {
                 doctorOkrCB.Items.Add(obj);

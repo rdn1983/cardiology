@@ -48,7 +48,7 @@ namespace Cardiology.UI.Forms
 
         private void issuingMedicineMenuItem_Click(object sender, EventArgs e)
         {
-            IssuedMedicine form = new IssuedMedicine(this.service, hospitalitySession, null);
+            IssuedMedicine form = new IssuedMedicine(service, hospitalitySession, null);
             form.ShowDialog();
         }
 
@@ -129,8 +129,7 @@ namespace Cardiology.UI.Forms
             }
             else if (DdtJournal.NAME.Equals(firstType))
             {
-    
-                DdtJournal journal = service.queryObjectById<DdtJournal>(firstId);
+                DdtJournal journal = service.GetDdtJournalService().GetById(firstId);
                 if (journal.JournalType == (int)DdtJournalDsiType.AFTER_KAG)
                 {
                     form = new JournalAfterKAG(hospitalitySession, firstId);

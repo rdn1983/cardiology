@@ -12,7 +12,7 @@ namespace Cardiology.Commons
         private const string TemplateFileName = "consilium_template.doc";
         public bool accept(string templateType)
         {
-            return DdtConsilium.TABLE_NAME.Equals(templateType);
+            return DdtConsilium.NAME.Equals(templateType);
         }
 
         public string processTemplate(string hospitalitySession, string objectId, Dictionary<string, string> aditionalValues)
@@ -26,7 +26,6 @@ namespace Cardiology.Commons
             {
                 values = new Dictionary<string, string>();
             }
-            DataService service = new DataService();
             DdtConsilium obj = service.queryObjectById<DdtConsilium>(objectId);
             values.Add(@"{consilium.date}", DateTime.Now.ToString("dd.MM.yyyy"));
             values.Add(@"{consilium.time}", DateTime.Now.ToString("HH:mm"));
@@ -34,8 +33,9 @@ namespace Cardiology.Commons
             values.Add(@"{admin}", obj?.DutyAdminName);
             values.Add(@"{doctor.who}", getDoctorInString(service, obj.Doctor));
             values.Add(@"{consilium.goal}", obj.Goal);
-            DdtPatient patient = service.queryObjectById<DdtPatient>(obj.Patient);
-            values.Add(@"{patient.initials}", patient.);
+
+            DdvPatient patient = service.queryObjectById<DdtPatient>(obj.Patient);
+            values.Add(@"{patient.initials}", patient.ShortName);
             values.Add(@"{patient.age}", (DateTime.Now.Year - patient.Birthdate.Year) + "");
             values.Add(@"{patient.diagnosis}", obj.Diagnosis);
             values.Add(@"{consilium.decision}", obj.Decision);
@@ -47,15 +47,15 @@ namespace Cardiology.Commons
             return TemplatesUtils.fillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + TemplateFileName, values);
         }
 
-        private string getDoctorInString(DataService service, String doctorId)
+        private string getDoctorInString(IDbDataService service, String doctorId)
         {
             DdvDoctor doc = service.queryObjectById<DdvDoctor>(doctorId);
             return doc.ShortName;
         }
 
-        private string getMembersInString(DataService service, string consiliumId)
+        private string getMembersInString(IDbDataService service, string consiliumId)
         {
-            List<DdtConsiliumMember> members = service.queryObjectsCollection<DdtConsiliumMember>(@"SELECT * FROM " + DdtConsiliumMember.TABLE_NAME +
+            List<DdtConsiliumMember> members = service.queryObjectsCollection<DdtConsiliumMember>(@"SELECT * FROM " + DdtConsiliumMember.NAME +
                 " WHERE dsid_consilium ='" + consiliumId + "'");
 
             Dictionary<int, String> memberToOrder = new Dictionary<int, String>();
@@ -63,12 +63,10 @@ namespace Cardiology.Commons
 
             foreach (DdtConsiliumMember mm in members)
             {
-                DdtConsiliumGroupLevel
-
-                DdtConsiliumGroupMem groupLevel = service.queryObjectByAttrCond<DdtConsiliumMemberLevel>(DdtConsiliumMemberLevel.TABLE_NAME, "dss_group_name", mm.DssGroupName, true);
-                DmGroup group = service.queryObjectByAttrCond<DmGroup>(DmGroup.TABLE_NAME, "dss_name", mm.DssGroupName, true);
-                if (!sortedMembers.ContainsKey(groupLevel.DsiLevel + " " + group.DssDescription + " " + mm.DssDoctorName)) {
-                    sortedMembers.Add(groupLevel.DsiLevel + " " + group.DssDescription + " " + mm.DoctorName, group.Description + " " + mm.DoctorName);
+                DdtConsiliumGroupMem groupLevel = service.queryObjectByAttrCond<DdtConsiliumMemberLevel>(DdtConsiliumMemberLevel.NAME, "dss_group_name", mm.DssGroupName, true);
+                DmGroup group = service.queryObjectByAttrCond<DmGroup>(DmGroup.NAME, "dss_name", mm.DssGroupName, true);
+                if (!sortedMembers.ContainsKey(groupLevel.DsiLevel + " " + group.Description + " " + mm.DssDoctorName)) {
+                    sortedMembers.Add(groupLevel.DsiLevel + " " + group.Description + " " + mm.DoctorName, group.Description + " " + mm.DoctorName);
                 }
             }
 
@@ -84,9 +82,9 @@ namespace Cardiology.Commons
             return str.ToString();
         }
 
-        private void putBloodData(Dictionary<string, string> values, DataService service, string objId)
+        private void putBloodData(Dictionary<string, string> values, IDbDataService service, string objId)
         {
-            DdtBloodAnalysis bloods = service.queryObject<DdtBloodAnalysis>(@"SELECT * FROM " + DdtBloodAnalysis.TABLE_NAME +
+            DdtBloodAnalysis bloods = service.queryObject<DdtBloodAnalysis>(@"SELECT * FROM " + DdtBloodAnalysis.NAME +
                  " WHERE dsid_hospitality_session='" + objId + "' order by r_creation_date desc");
             StringBuilder bloodBld = new StringBuilder();
             if (bloods != null)
@@ -118,9 +116,9 @@ namespace Cardiology.Commons
             values.Add("{analysis.blood}", bloodBld.ToString());
         }
 
-        private void putEkgData(Dictionary<string, string> values, DataService service, string objId)
+        private void putEkgData(Dictionary<string, string> values, IDbDataService service, string objId)
         {
-            DdtEkg ekg = service.queryObject<DdtEkg>(@"Select * from " + DdtEkg.TABLE_NAME +
+            DdtEkg ekg = service.queryObject<DdtEkg>(@"Select * from " + DdtEkg.NAME +
                 " WHERE dsid_hospitality_session='" + objId + "' order by r_creation_date desc");
             StringBuilder ekgBld = new StringBuilder();
             if (ekg != null)

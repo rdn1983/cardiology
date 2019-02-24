@@ -1,5 +1,4 @@
 ﻿using System.Windows.Forms;
-using Cardiology.Commons;
 using Cardiology.Data;
 using Cardiology.Data.Model2;
 
@@ -39,18 +38,18 @@ namespace Cardiology.UI.Controls
             {
                 DataService service = new DataService();
                 DdtEgds egds = (DdtEgds)getObject();
-                egds.DsidHospitalitySession = hospitalitySession.ObjectId;
-                egds.DsidDoctor = hospitalitySession.DsidCuringDoctor;
-                egds.DsidPatient = hospitalitySession.DsidPatient;
+                egds.HospitalitySession= hospitalitySession.ObjectId;
+                egds.Doctor = hospitalitySession.CuringDoctor;
+                egds.Patient = hospitalitySession.Patient;
                 if (parentId != null)
                 {
-                    egds.DsidParent = parentId;
+                    egds.Parent = parentId;
                 }
                 if (parentType != null)
                 {
-                    egds.DssParentType = parentType;
+                    egds.ParentType = parentType;
                 }
-                objectId = service.updateOrCreateIfNeedObject<DdtEgds>(egds, DdtEgds.NAME, egds.ObjectId);
+                objectId = service.updateOrCreateIfNeedObject(egds, DdtEgds.NAME, egds.ObjectId);
                 hasChanges = false;
                 isNew = false;
             }

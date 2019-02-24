@@ -2,7 +2,7 @@ using System;
 
 namespace Cardiology.Data.Model2
 {
-    public class DdtXray
+    public class DdtXRay
     {
         public static readonly string NAME = "ddt_xray";
 

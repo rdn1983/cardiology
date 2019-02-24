@@ -144,7 +144,7 @@ namespace Cardiology.UI.Forms
             {
                 form = new IssuedMedicine(this.service, hospitalitySession, firstId);
             }
-            else if (DdtEgds.NAME.Equals(firstType) || DdtXray.NAME.Equals(firstType)
+            else if (DdtEgds.NAME.Equals(firstType) || DdtXRay.NAME.Equals(firstType)
                 || DdtUrineAnalysis.NAME.Equals(firstType) || DdtEkg.NAME.Equals(firstType)
                 || DdtSpecialistConclusion.NAME.Equals(firstType) || DdtUzi.NAME.Equals(firstType)
                 || DdtKag.NAME.Equals(firstType) || DdtHolter.NAME.Equals(firstType)
@@ -305,7 +305,7 @@ namespace Cardiology.UI.Forms
 
         private void xrayMenuItem_Click(object sender, EventArgs e)
         {
-            AnalysisContainer container = new AnalysisContainer(hospitalitySession, DdtXray.NAME, null);
+            AnalysisContainer container = new AnalysisContainer(hospitalitySession, DdtXRay.NAME, null);
             container.ShowDialog();
         }
 

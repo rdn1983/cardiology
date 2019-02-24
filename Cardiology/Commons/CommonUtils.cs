@@ -18,7 +18,7 @@ namespace Cardiology.Commons
             return !string.IsNullOrEmpty(str) ? String.Intern("'" + str + "'") : "''";
         }
 
-        internal static void InitDoctorsComboboxValues(DataService service, ComboBox cb, string whereCnd)
+        internal static void InitDoctorsComboboxValues(IDbDataService service, ComboBox cb, string whereCnd)
         {
             cb.Items.Clear();
             string query = @"SELECT * FROM ddt_doctors " + (string.IsNullOrEmpty(whereCnd) ? "" : (" WHERE " + whereCnd));
@@ -28,7 +28,7 @@ namespace Cardiology.Commons
             cb.DisplayMember = "DssInitials";
         }
 
-        internal static void InitDoctorsByGroupComboboxValues(DataService service, ComboBox cb, string groupName)
+        internal static void InitDoctorsByGroupComboboxValues(IDbDataService service, ComboBox cb, string groupName)
         {
             cb.Items.Clear();
             string query = @"SELECT doc.* FROM ddt_doctors doc , dm_group_users gr WHERE gr.dss_group_name='" + groupName + "' AND gr.dss_user_name=doc.dss_login";
@@ -38,7 +38,7 @@ namespace Cardiology.Commons
             cb.DisplayMember = "DssInitials";
         }
 
-        internal static void InitCureComboboxValuesByTypeId(DataService service, ComboBox cb, string cureTypeId)
+        internal static void InitCureComboboxValuesByTypeId(IDbDataService service, ComboBox cb, string cureTypeId)
         {
             cb.Items.Clear();
             string query = @"SELECT * FROM ddt_cure WHERE dsid_cure_type= '" + cureTypeId + "'";
@@ -48,7 +48,7 @@ namespace Cardiology.Commons
             cb.DisplayMember = "DssName";
         }
 
-        internal static void InitCureTypeComboboxValues(DataService service, ComboBox cb)
+        internal static void InitCureTypeComboboxValues(IDbDataService service, ComboBox cb)
         {
             cb.Items.Clear();
             string query = @"SELECT * FROM ddt_cure_type";
@@ -58,13 +58,12 @@ namespace Cardiology.Commons
             cb.DisplayMember = "DssName";
         }
 
-        internal static void SetDoctorsComboboxDefaultValue(DataService service, ComboBox cb, string dsidCuringDoctor)
+        internal static void SetDoctorsComboboxDefaultValue(IDbDataService service, ComboBox cb, string dsidCuringDoctor)
         {
             if (!string.IsNullOrEmpty(dsidCuringDoctor))
             {
-                string query = @"SELECT * FROM ddt_doctors WHERE r_object_id = '" + dsidCuringDoctor + "'";
                 DdvDoctor doctor = service.queryObjectById<DdvDoctor>(dsidCuringDoctor);
-                cb.SelectedIndex = cb.FindStringExact(doctor.DssInitials);
+                cb.SelectedIndex = cb.FindStringExact(doctor.ShortName);
             }
         }
 
@@ -205,7 +204,7 @@ namespace Cardiology.Commons
             return null;
         }
 
-        internal static DdtJournal ResolveKagJournal(DataService service, DateTime incpectionDate, string sessionId)
+        internal static DdtJournal ResolveKagJournal(IDbDataService service, DateTime incpectionDate, string sessionId)
         {
             string startDateQuery = @"SELECT dsdt_inspection_date FROM " + DdtInspection.NAME + " WHERE dsid_hospitality_session='" + sessionId + "'" +
                 " AND dsdt_inspection_date<to_timestamp('" + incpectionDate.ToShortDateString() + " " + incpectionDate.ToLongTimeString() + "', 'DD.MM.YYYY HH24:MI:SS') ORDER BY dsdt_inspection_date DESC";

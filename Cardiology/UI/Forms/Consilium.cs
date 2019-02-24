@@ -26,7 +26,6 @@ namespace Cardiology.UI.Forms
 
         private void InitControls()
         {
-            DataService service = new DataService();
             curingDoc = service.queryObjectById<DdvDoctor>(hospitalitySession?.DsidCuringDoctor);
             CommonUtils.InitDoctorsComboboxValues(service, adminTxt, " dsi_appointment_type=3");
             ControlUtils.InitGroupsComboboxValues(this.service.GetDmGroupService(), appointmentTxt0);
@@ -67,7 +66,7 @@ namespace Cardiology.UI.Forms
 
         }
 
-        private void InitMembers(DataService service, List<DdtConsiliumMember> members)
+        private void InitMembers(IDbDataService service, List<DdtConsiliumMember> members)
         {
             for (int i = 0; i < members.Count; i++)
             {
@@ -152,7 +151,6 @@ namespace Cardiology.UI.Forms
             {
                 return false;
             }
-            DataService service = new DataService();
             hospitalitySession.DssDiagnosis = getSafeStringValue(diagnosisTxt1);
             service.updateObject<DdtHospital>(hospitalitySession, DdtHospital.NAME, "r_object_id", hospitalitySession.ObjectId);
 

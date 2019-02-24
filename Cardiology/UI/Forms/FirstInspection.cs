@@ -213,47 +213,47 @@ namespace Cardiology.UI.Forms
             bloodAnalysisControl.saveObject(hospitalSession, anamnesis.ObjectId, DdtAnamnesis.NAME);
             egdsAnalysisControl1.saveObject(hospitalSession, anamnesis.ObjectId, DdtAnamnesis.NAME);
 
-            hospitalSession.DssDiagnosis = diagnosisTxt.Text;
+            hospitalSession.Diagnosis = diagnosisTxt.Text;
             service.updateObject<DdtHospital>(hospitalSession, DdtHospital.NAME, "r_object_id", hospitalSession.ObjectId);
             return true;
         }
 
-        private void saveAnamnesis(DataService service)
+        private void saveAnamnesis(IDbDataService service)
         {
             if (anamnesis == null)
             {
                 anamnesis = new DdtAnamnesis();
-                anamnesis.DsidHospitalitySession = hospitalSession.ObjectId;
-                anamnesis.DsidPatient = hospitalSession.DsidPatient;
-                anamnesis.DsdtInspectionDate = DateTime.Now;
+                anamnesis.HospitalitySession = hospitalSession.ObjectId;
+                anamnesis.Patient = hospitalSession.Patient;
+                anamnesis.InspectionDate = DateTime.Now;
             }
             DdvDoctor doc = getSafeObjectValueUni<DdvDoctor>(docBox, new getValue<DdvDoctor>((ctrl) => (DdvDoctor)((ComboBox)ctrl).SelectedItem));
-            anamnesis.DsidDoctor = doc.ObjectId;
+            anamnesis.Doctor = doc.ObjectId;
 
-            anamnesis.DssAccompayingIll = getSafeStringValue(accompanyingIllnessesTxt);
-            anamnesis.DssAnamnesisAllergy = getSafeStringValue(anamnesisAllergyTxt);
-            anamnesis.DssAnamnesisEpid = getSafeStringValue(anamnesisEpidTxt);
-            anamnesis.DssAnamnesisMorbi = getSafeStringValue(anamnesisMorbiTxt);
-            anamnesis.DssAnamnesisVitae = getSafeStringValue(anamnesisVitaeTxt);
-            anamnesis.DssCardioVascular = getSafeStringValue(cardiovascularSystemTxt);
-            anamnesis.DssComplaints = getSafeStringValue(complaintsTxt);
-            anamnesis.DssDiagnosisJustifies = getSafeStringValue(justificationTxt);
-            anamnesis.DssDigestiveSystem = getSafeStringValue(digestiveSystemTxt);
-            anamnesis.DssDrugs = getSafeStringValue(drugsTxt);
-            anamnesis.DssNervousSystem = getSafeStringValue(nervousSystemTxt);
-            anamnesis.DssPastSurgeries = getSafeStringValue(pastSurgeriesTxt);
-            anamnesis.DssRespiratorySystem = getSafeStringValue(respiratorySystemTxt);
-            anamnesis.DssStPresens = getSafeStringValue(stPresensTxt);
-            anamnesis.DssUrinarySystem = getSafeStringValue(urinarySystemTxt);
-            anamnesis.DssDiagnosis = getSafeStringValue(diagnosisTxt);
-            anamnesis.DssOperationCause = getSafeStringValue(operationCauseTxt);
-            anamnesis.DssJustification = getSafeStringValue(justificationTxt);
+            anamnesis.AccompanyingIllnesses = getSafeStringValue(accompanyingIllnessesTxt);
+            anamnesis.AnamnesisAllergy = getSafeStringValue(anamnesisAllergyTxt);
+            anamnesis.AnamnesisEpid = getSafeStringValue(anamnesisEpidTxt);
+            anamnesis.AnamnesisMorbi = getSafeStringValue(anamnesisMorbiTxt);
+            anamnesis.AnamnesisVitae = getSafeStringValue(anamnesisVitaeTxt);
+            anamnesis.CardiovascularSystem = getSafeStringValue(cardiovascularSystemTxt);
+            anamnesis.Complaints = getSafeStringValue(complaintsTxt);
+            anamnesis.DiagnosisJustification = getSafeStringValue(justificationTxt);
+            anamnesis.DigestiveSystem = getSafeStringValue(digestiveSystemTxt);
+            anamnesis.DrugsIntoxication = getSafeStringValue(drugsTxt);
+            anamnesis.NervousSystem = getSafeStringValue(nervousSystemTxt);
+            anamnesis.PastSurgeries = getSafeStringValue(pastSurgeriesTxt);
+            anamnesis.RespiratorySystem = getSafeStringValue(respiratorySystemTxt);
+            anamnesis.StPresens = getSafeStringValue(stPresensTxt);
+            anamnesis.UrinarySystem = getSafeStringValue(urinarySystemTxt);
+            anamnesis.Diagnosis = getSafeStringValue(diagnosisTxt);
+            anamnesis.OperationCause = getSafeStringValue(operationCauseTxt);
+            anamnesis.Justification = getSafeStringValue(justificationTxt);
 
             string id = service.updateOrCreateIfNeedObject<DdtAnamnesis>(anamnesis, DdtAnamnesis.NAME, anamnesis.ObjectId);
             anamnesis.ObjectId = id;
         }
 
-        private void saveIssuedMedicine(DataService service)
+        private void saveIssuedMedicine(IDbDataService service)
         {
             List<DdtIssuedMedicine> meds = getSafeObjectValueUni(issuedMedicineContainer,
                 new getValue<List<DdtIssuedMedicine>>((ctrl) => ((IssuedMedicineContainer)ctrl).getIssuedMedicines()));
@@ -261,7 +261,7 @@ namespace Cardiology.UI.Forms
             List<DdtIssuedMedicine> meds2 = new List<DdtIssuedMedicine>();
             foreach (DdtIssuedMedicine med in meds)
             {
-                if(med.DsidCure != null) {
+                if(med.Cure != null) {
                     meds2.Add(med);
                 }                
             }
@@ -293,7 +293,7 @@ namespace Cardiology.UI.Forms
 
         }
 
-        private void saveIssuedAction(DataService service)
+        private void saveIssuedAction(IDbDataService service)
         {
             List<DdtIssuedAction> meds = getSafeObjectValueUni(issuedActionContainer,
                new getValue<List<DdtIssuedAction>>((ctrl) => ((IssuedActionContainer)ctrl).getIssuedMedicines()));
@@ -365,14 +365,13 @@ namespace Cardiology.UI.Forms
 
         private void updatemedicineFromTemplate(string template)
         {
-            DataService service = new DataService();
             List<DdtCure> medicineTemplates = service.queryObjectsCollection<DdtCure>(@"Select cure.* from ddt_values vv, ddt_cure cure 
                             where vv.dss_name like '" + template + "%' AND vv.dss_value=cure.dss_name");
             clearOldMedList(service);
             issuedMedicineContainer.RefreshData(service, medicineTemplates);
         }
 
-        private void clearOldMedList(DataService service)
+        private void clearOldMedList(IDbDataService service)
         {
             DdtIssuedMedicineList medList = service.queryObject<DdtIssuedMedicineList>(@"SELECT * FROM ddt_issued_medicine_list WHERE dsid_hospitality_session='" +
                 hospitalSession.ObjectId + "' AND dss_parent_type='ddt_anamnesis'");

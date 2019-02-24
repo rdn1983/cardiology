@@ -15,7 +15,7 @@ namespace Cardiology.Commons
 
         public bool accept(string templateType)
         {
-            return DdtEpicrisis.TABLE_NAME.Equals(templateType);
+            return DdtEpicrisis.NAME.Equals(templateType);
         }
 
         public string processTemplate(string hospitalitySession, string objectId, Dictionary<string, string> aditionalValues)
@@ -31,17 +31,17 @@ namespace Cardiology.Commons
             }
             DataService service = new DataService();
             DdtEpicrisis obj = service.queryObjectById<DdtEpicrisis>(objectId);
-            values.Add("{diagnosis}", obj.DssDiagnosis);
-            values.Add("{date}", obj.DsdtEpicrisisDate.ToShortDateString());
+            values.Add("{diagnosis}", obj.Diagnosis);
+            values.Add("{date}", obj.EpicrisisDate.ToShortDateString());
 
-            DdtPatient patient = service.queryObjectById<DdtPatient>(obj.DsidPatient);
+            DdtPatient patient = service.queryObjectById<DdtPatient>(obj.Pa);
             values.Add("{patient.initials}", patient == null ? "" : patient.DssInitials);
             values.Add("{patient.age}", patient == null ? "" : (DateTime.Now.Year - patient.DsdtBirthdate.Year) + "");
 
             DdtHospital hospital = service.queryObjectById<DdtHospital>(hospitalitySession);
             values.Add("{patient.admission_date}", hospital.DsdtAdmissionDate.ToShortDateString());
 
-            DdtAnamnesis anamnesis = service.queryObjectByAttrCond<DdtAnamnesis>(DdtAnamnesis.TABLE_NAME, "dsid_hospitality_session", hospital.ObjectId, true);
+            DdtAnamnesis anamnesis = service.queryObjectByAttrCond<DdtAnamnesis>(DdtAnamnesis.NAME, "dsid_hospitality_session", hospital.ObjectId, true);
             values.Add("{complaints}", anamnesis == null ? " " : anamnesis.DssComplaints);
             values.Add("{anamnesis}", anamnesis == null ? " " : anamnesis.DssAnamnesisMorbi);
 
@@ -52,35 +52,35 @@ namespace Cardiology.Commons
             inspectonBld.Append(compileValue("Органы пищеварения", anamnesis?.DssDigestiveSystem));
             values.Add("{inspection}", anamnesis == null ? " " : inspectonBld.ToString());
 
-            DdtSerology serology = service.queryObjectByAttrCond<DdtSerology>(DdtSerology.TABLE_NAME, "dsid_hospitality_session", hospital.ObjectId, true);
+            DdtSerology serology = service.queryObjectByAttrCond<DdtSerology>(DdtSerology.NAME, "dsid_hospitality_session", hospital.ObjectId, true);
             StringBuilder serologyBld = new StringBuilder();
             if (serology != null)
             {
-                serologyBld.Append(compileValue("Группа крови", serology.DssBloodType));
-                serologyBld.Append(compileValue("Резус-фактор", serology.DssRhesusFactor));
-                serologyBld.Append(compileValue("RW", serology.DssRw));
+                serologyBld.Append(compileValue("Группа крови", serology.BloodType));
+                serologyBld.Append(compileValue("Резус-фактор", serology.RhesusFactor));
+                serologyBld.Append(compileValue("RW", serology.Rw));
             }
             values.Add("{serology}", serology == null ? " " : serologyBld.ToString());
 
             DdtEkg ekg = service.queryObject<DdtEkg>(@"SELECT * FROM ddt_ekg where dsid_parent='" + obj.ObjectId + "'");
-            values.Add("{analysis.ekg}", ekg == null ? " " : "ЭКГ:" + ekg.DssEkg);
+            values.Add("{analysis.ekg}", ekg == null ? " " : "ЭКГ:" + ekg.Ekg);
             DdtXRay xray = service.queryObject<DdtXRay>(@"SELECT * FROM ddt_xray where dsid_parent='" + obj.ObjectId + "'");
-            values.Add("{analysis.xray}", xray == null ? " " : "Рентген:" + xray.DssChestXray);
+            values.Add("{analysis.xray}", xray == null ? " " : "Рентген:" + xray.ChestXray);
             DdtEgds egds = service.queryObject<DdtEgds>(@"SELECT * FROM ddt_egds where dsid_parent='" + obj.ObjectId + "'");
-            values.Add("{analysis.egds}", egds == null ? " " : "ЭГДС:" + egds.DssEgds);
+            values.Add("{analysis.egds}", egds == null ? " " : "ЭГДС:" + egds.Egds);
             DdtBloodAnalysis blood = service.queryObject<DdtBloodAnalysis>(@"SELECT * FROM ddt_blood_analysis where dsid_parent='" + obj.ObjectId + "'");
             StringBuilder bloodStr = new StringBuilder();
             if (blood != null)
             {
-                bloodStr.Append(compileValue("АЛТ", blood.DsdAlt));
-                bloodStr.Append(compileValue("Креатинин", blood.DsdCreatinine));
-                bloodStr.Append(compileValue("АСТ", blood.DsdAst));
-                bloodStr.Append(compileValue("Холестерин", blood.DsdCholesterolr));
-                bloodStr.Append(compileValue("Гемоглобин", blood.DsdHemoglobin));
-                bloodStr.Append(compileValue("Лейкоциты", blood.DsdLeucocytes));
-                bloodStr.Append(compileValue("Амилаза", blood.DsdAmylase));
-                bloodStr.Append(compileValue("Бил. Общ.", blood.DsdBil));
-                bloodStr.Append(compileValue("Хлор", blood.DsdChlorine));
+                bloodStr.Append(compileValue("АЛТ", blood.Alt));
+                bloodStr.Append(compileValue("Креатинин", blood.Creatinine));
+                bloodStr.Append(compileValue("АСТ", blood.Ast));
+                bloodStr.Append(compileValue("Холестерин", blood.Cholesterol));
+                bloodStr.Append(compileValue("Гемоглобин", blood.Hemoglobin));
+                bloodStr.Append(compileValue("Лейкоциты", blood.Leucocytes));
+                bloodStr.Append(compileValue("Амилаза", blood.Amylase));
+                bloodStr.Append(compileValue("Бил. Общ.", blood.Bil));
+                bloodStr.Append(compileValue("Хлор", blood.Chlorine));
                 bloodStr.Append(compileValue("Железо", blood.DsdIron));
                 bloodStr.Append(compileValue("КФК", blood.DsdKfk));
                 bloodStr.Append(compileValue("КФК-МВ", blood.DsdKfkMv));
@@ -114,7 +114,7 @@ namespace Cardiology.Commons
 
             if (obj.EpicrisisType == (int)DdtEpicrisisDsiType.TRANSFER)
             {
-                DdtTransfer transfer = service.queryObject<DdtTransfer>(@"Select * from " + DdtTransfer.TABLE_NAME +
+                DdtTransfer transfer = service.queryObject<DdtTransfer>(@"Select * from " + DdtTransfer.NAME +
                     " WHERE dsid_hospitality_session='" + hospitalitySession + "'");
                 if (transfer != null)
                 {

@@ -28,7 +28,6 @@ namespace Cardiology.Commons
             {
                 values = new Dictionary<string, string>();
             }
-            DataService service = new DataService();
             DdtInspection obj = service.queryObjectById<DdtInspection>(objectId);
             values.Add("{date}", obj.DsdtInspectionDate.ToShortDateString());
             values.Add("{time}", obj.DsdtInspectionDate.ToShortTimeString());
@@ -56,7 +55,7 @@ namespace Cardiology.Commons
         }
 
 
-        private void putSpecialistData(Dictionary<string, string> values, DataService service, string objId)
+        private void putSpecialistData(Dictionary<string, string> values, IDbDataService service, string objId)
         {
             List<DdtSpecialistConclusion> lspecobj = service.queryObjectsCollection<DdtSpecialistConclusion>(@"SELECT * FROM " + DdtSpecialistConclusion.NAME +
                 " WHERE dsid_parent='" + objId + "'");
@@ -87,7 +86,7 @@ namespace Cardiology.Commons
             values.Add("{spec}", specBld.ToString() + (lspecobj.Count > 0 ? "\n" : ""));
         }
 
-        private void putKagData(Dictionary<string, string> values, DataService service, string sessionId)
+        private void putKagData(Dictionary<string, string> values, IDbDataService service, string sessionId)
         {
             StringBuilder bld = new StringBuilder();
             DdtJournal kagJournal = service.queryObject<DdtJournal>(@"SELECT * FROM " + DdtJournal.NAME +
@@ -107,7 +106,7 @@ namespace Cardiology.Commons
             values.Add("{kag}", bld.ToString());
         }
 
-        private void putHolterData(Dictionary<string, string> values, DataService service, string objId)
+        private void putHolterData(Dictionary<string, string> values, IDbDataService service, string objId)
         {
             List<DdtHolter> lholterobj = service.queryObjectsCollection<DdtHolter>(@"SELECT * FROM " + DdtHolter.NAME + " WHERE dsid_parent='" + objId + "'");
             StringBuilder holterBld = new StringBuilder();
@@ -119,7 +118,7 @@ namespace Cardiology.Commons
             values.Add("{holter}", holterBld.ToString() + (lholterobj.Count > 0 ? "\n" : ""));
         }
 
-        private void putEkgData(Dictionary<string, string> values, DataService service, string objId)
+        private void putEkgData(Dictionary<string, string> values, IDbDataService service, string objId)
         {
             List<DdtEkg> ekg = service.queryObjectsCollection<DdtEkg>(@"SELECT * from ddt_ekg WHERE dsid_parent='" + objId + "'");
             StringBuilder ekgBld = new StringBuilder();
@@ -131,7 +130,7 @@ namespace Cardiology.Commons
             values.Add("{ekg}", ekgBld.ToString() + (ekg.Count > 0 ? "\n" : ""));
         }
 
-        private void putUziData(Dictionary<string, string> values, DataService service, string objId)
+        private void putUziData(Dictionary<string, string> values, IDbDataService service, string objId)
         {
             List<DdtUzi> uzies = service.queryObjectsCollection<DdtUzi>(@"SELECT * from " + DdtUzi.NAME + " WHERE dsid_parent='" + objId + "'");
             StringBuilder uziBld = new StringBuilder();
@@ -163,7 +162,7 @@ namespace Cardiology.Commons
             values.Add("{uzi}", uziBld.ToString() + (uzies.Count > 0 ? "\n" : ""));
         }
 
-        private void putBloodData(Dictionary<string, string> values, DataService service, string objId)
+        private void putBloodData(Dictionary<string, string> values, IDbDataService service, string objId)
         {
             List<DdtBloodAnalysis> bloods = service.queryObjectsCollection<DdtBloodAnalysis>(@"SELECT * FROM " + DdtBloodAnalysis.NAME +
                 " WHERE dsid_parent='" + objId + "'");

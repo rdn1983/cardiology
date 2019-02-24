@@ -5,8 +5,8 @@ namespace Cardiology.Data.Commons
 {
     public interface IDdtXrayService
     {
-        IList<DdtXray> GetAll();
+        IList<DdtXRay> GetAll();
 
-        DdtXray GetById(string id);
+        DdtXRay GetById(string id);
     }
 }

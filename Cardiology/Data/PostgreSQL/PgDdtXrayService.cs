@@ -15,9 +15,9 @@ namespace Cardiology.Data.PostgreSQL
             this.connectionFactory = connectionFactory;
         }
 
-        public IList<DdtXray> GetAll()
+        public IList<DdtXRay> GetAll()
         {
-            IList<DdtXray> list = new List<DdtXray>();
+            IList<DdtXRay> list = new List<DdtXRay>();
             using (dynamic connection = connectionFactory.GetConnection())
             {
                 String sql = "SELECT r_object_id, dsdt_analysis_date, dss_mskt, r_creation_date, dss_kt, dsid_parent, dss_chest_xray, dsid_doctor, dsid_patient, dsid_hospitality_session, r_modify_date, dss_parent_type, dss_mrt, dss_control_radiography, dsdt_kt_date FROM ddt_xray";
@@ -26,7 +26,7 @@ namespace Cardiology.Data.PostgreSQL
                 {
                     while (reader.Read())
                     {
-                        DdtXray obj = new DdtXray();
+                        DdtXRay obj = new DdtXRay();
                         obj.ObjectId = reader.GetString(1);
                         obj.AnalysisDate = reader.GetDateTime(2);
                         obj.Mskt = reader.GetString(3);
@@ -49,7 +49,7 @@ namespace Cardiology.Data.PostgreSQL
             return list;
         }
 
-        public DdtXray GetById(string id)
+        public DdtXRay GetById(string id)
         {
             using (dynamic connection = connectionFactory.GetConnection())
             {
@@ -59,7 +59,7 @@ namespace Cardiology.Data.PostgreSQL
                 {
                     if (reader.Read())
                     {
-                        DdtXray obj = new DdtXray();
+                        DdtXRay obj = new DdtXRay();
                         obj.ObjectId = reader.GetString(1);
                         obj.AnalysisDate = reader.GetDateTime(2);
                         obj.Mskt = reader.GetString(3);

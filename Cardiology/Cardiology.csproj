@@ -157,7 +157,7 @@
     <Compile Include="Data\Model2\DdtUzi.cs" />
     <Compile Include="Data\Model2\DdtValues.cs" />
     <Compile Include="Data\Model2\DdtVariousSpecConcluson.cs" />
-    <Compile Include="Data\Model2\DdtXray.cs" />
+    <Compile Include="Data\Model2\DdtXRay.cs" />
     <Compile Include="Data\Model2\DdvActiveHospitalPatients.cs" />
     <Compile Include="Data\Model2\DdvAllDiagnosis.cs" />
     <Compile Include="Data\Model2\DdvDoctor.cs" />
@@ -377,7 +377,6 @@
       <DependentUpon>PulseTableCOntainer.cs</DependentUpon>
     </Compile>
     <Compile Include="Data\TableAttribute.cs" />
-    <Compile Include="Data\DataService.cs" />
     <Compile Include="UI\Forms\JournalBeforeKag.cs">
       <SubType>Form</SubType>
     </Compile>

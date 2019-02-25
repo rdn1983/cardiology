@@ -20,10 +20,10 @@ namespace Cardiology.UI.Forms
         private void initProtocol()
         {
 
-            DdtPatient patient = service.queryObjectById<DdtPatient>(hospitalitySession.DsidPatient);
+            DdtPatient patient = service.queryObjectById<DdtPatient>(hospitalitySession.Patient);
             if (patient != null)
             {
-                Text += " " + patient.DssInitials;
+                Text += " " + patient.ShortName;
             }
             DdtAlcoProtocol protocol = service.queryObject<DdtAlcoProtocol>(@"SELECT * FROM ddt_alco_protocol where dsid_hospitality_session='" + hospitalitySession.ObjectId + "'");
             if (protocol != null)

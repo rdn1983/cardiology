@@ -49,7 +49,7 @@ namespace Cardiology.UI.Controls
             regularSodiumTxt.Enabled = isEditable;
             regularSrbTxt.Enabled = isEditable;
             regularBloodDateTxt.Enabled = isEditable;
-            regularBloodPnl.Text = blood == null ? "Анализы текущие" : "Анализы промежуточные за " + blood.RCreationDate.ToShortDateString();
+            regularBloodPnl.Text = blood == null ? "Анализы текущие" : "Анализы промежуточные за " + blood.CreationDate.ToShortDateString();
         }
 
         private void OnlyDigits_KeyPress(object sender, KeyPressEventArgs e)
@@ -70,11 +70,11 @@ namespace Cardiology.UI.Controls
                 if (isEditable && (isDirty() || isNew && getIsValid()))
             {
                 DdtBloodAnalysis bloodObj = (DdtBloodAnalysis)getObject();
-                bloodObj.DsidHospitalitySession = hospitalitySession.ObjectId;
-                bloodObj.DsidDoctor = hospitalitySession.DsidCuringDoctor;
-                bloodObj.DsidPatient = hospitalitySession.DsidPatient;
-                bloodObj.DssParentType = parentType == null ? bloodObj.DssParentType : parentType;
-                bloodObj.DsidParent = parentId == null ? bloodObj.DsidParent : parentId;
+                bloodObj.HospitalitySession = hospitalitySession.ObjectId;
+                bloodObj.Doctor = hospitalitySession.CuringDoctor;
+                bloodObj.Patient = hospitalitySession.Patient;
+                bloodObj.ParentType = parentType == null ? bloodObj.ParentType : parentType;
+                bloodObj.Parent = parentId == null ? bloodObj.Parent : parentId;
                 objectId = service.updateOrCreateIfNeedObject<DdtBloodAnalysis>(bloodObj, DdtBloodAnalysis.NAME, bloodObj.ObjectId);
                 hasChanges = false;
                 isNew = false;
@@ -106,25 +106,25 @@ namespace Cardiology.UI.Controls
             {
                 bloodObj = new DdtBloodAnalysis();
             }
-            bloodObj.DsdtAnalysisDate = regularBloodDateTxt.Value;
-            bloodObj.DsdAlt = regularAltTxt.Text;
-            bloodObj.DsdAmylase = regularAmilazaTzt.Text;
-            bloodObj.DsdAst = regularAstTxt.Text;
-            bloodObj.DsdBil = regularBilTxt.Text;
-            bloodObj.DsdChlorine = regularChloriumTxt.Text;
-            bloodObj.DsdCholesterolr = regularCholesterolTxt.Text;
-            bloodObj.DsdCreatinine = regularKreatininTxt.Text;
-            bloodObj.DsdHemoglobin = regularHemoglobinTxt.Text;
-            bloodObj.DsdIron = regularIronTxt.Text;
-            bloodObj.DsdKfk = regularKfkTxt.Text;
-            bloodObj.DsdKfkMv = regularKfkMvTxt.Text;
-            bloodObj.DsdLeucocytes = regularBloodLeucoTxt.Text;
-            bloodObj.DsdPlatelets = regularTrombocytesTxt.Text;
-            bloodObj.DsdPotassium = regularPotassiumTxt.Text;
-            bloodObj.DsdProtein = regularProreinTxt.Text;
-            bloodObj.DsdSchf = regularSchfTxt.Text;
-            bloodObj.DsdSodium = regularSodiumTxt.Text;
-            bloodObj.DsdSrp = regularSrbTxt.Text;
+            bloodObj.AnalysisDate = regularBloodDateTxt.Value;
+            bloodObj.Alt = regularAltTxt.Text;
+            bloodObj.Amylase = regularAmilazaTzt.Text;
+            bloodObj.Ast = regularAstTxt.Text;
+            bloodObj.Bil = regularBilTxt.Text;
+            bloodObj.Chlorine = regularChloriumTxt.Text;
+            bloodObj.Cholesterol = regularCholesterolTxt.Text;
+            bloodObj.Creatinine = regularKreatininTxt.Text;
+            bloodObj.Hemoglobin = regularHemoglobinTxt.Text;
+            bloodObj.Iron = regularIronTxt.Text;
+            bloodObj.Kfk = regularKfkTxt.Text;
+            bloodObj.KfkMv = regularKfkMvTxt.Text;
+            bloodObj.Leucocytes = regularBloodLeucoTxt.Text;
+            bloodObj.Platelets = regularTrombocytesTxt.Text;
+            bloodObj.Potassium = regularPotassiumTxt.Text;
+            bloodObj.Protein = regularProreinTxt.Text;
+            bloodObj.Schf = regularSchfTxt.Text;
+            bloodObj.Sodium = regularSodiumTxt.Text;
+            bloodObj.Srp = regularSrbTxt.Text;
             return bloodObj;
         }
 
@@ -133,28 +133,28 @@ namespace Cardiology.UI.Controls
             if (obj != null && obj is DdtBloodAnalysis)
             {
                 DdtBloodAnalysis blood = (DdtBloodAnalysis)obj;
-                if (blood.DsdtAnalysisDate > DateTime.MinValue)
+                if (blood.AnalysisDate > DateTime.MinValue)
                 {
-                    regularBloodDateTxt.Value = blood.DsdtAnalysisDate;
+                    regularBloodDateTxt.Value = blood.AnalysisDate;
                 }
-                regularAltTxt.Text = blood.DsdAlt;
-                regularAmilazaTzt.Text = blood.DsdAmylase;
-                regularAstTxt.Text = blood.DsdAst;
-                regularBilTxt.Text = blood.DsdBil;
-                regularChloriumTxt.Text = blood.DsdChlorine;
-                regularCholesterolTxt.Text = blood.DsdCholesterolr;
-                regularKreatininTxt.Text = blood.DsdCreatinine;
-                regularHemoglobinTxt.Text = blood.DsdHemoglobin;
-                regularIronTxt.Text = blood.DsdIron;
-                regularKfkTxt.Text = blood.DsdKfk;
-                regularKfkMvTxt.Text = blood.DsdKfkMv;
-                regularBloodLeucoTxt.Text = blood.DsdLeucocytes;
-                regularTrombocytesTxt.Text = blood.DsdPlatelets;
-                regularPotassiumTxt.Text = blood.DsdPotassium;
-                regularProreinTxt.Text = blood.DsdProtein;
-                regularSchfTxt.Text = blood.DsdSchf;
-                regularSodiumTxt.Text = blood.DsdSodium;
-                regularSrbTxt.Text = blood.DsdSrp;
+                regularAltTxt.Text = blood.Alt;
+                regularAmilazaTzt.Text = blood.Amylase;
+                regularAstTxt.Text = blood.Ast;
+                regularBilTxt.Text = blood.Bil;
+                regularChloriumTxt.Text = blood.Chlorine;
+                regularCholesterolTxt.Text = blood.Cholesterol;
+                regularKreatininTxt.Text = blood.Creatinine;
+                regularHemoglobinTxt.Text = blood.Hemoglobin;
+                regularIronTxt.Text = blood.Iron;
+                regularKfkTxt.Text = blood.Kfk;
+                regularKfkMvTxt.Text = blood.KfkMv;
+                regularBloodLeucoTxt.Text = blood.Leucocytes;
+                regularTrombocytesTxt.Text = blood.Platelets;
+                regularPotassiumTxt.Text = blood.Potassium;
+                regularProreinTxt.Text = blood.Protein;
+                regularSchfTxt.Text = blood.Schf;
+                regularSodiumTxt.Text = blood.Sodium;
+                regularSrbTxt.Text = blood.Srp;
                 objectId = blood.ObjectId;
                 isNew = string.IsNullOrEmpty(blood.ObjectId);
                 hasChanges = false;

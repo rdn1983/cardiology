@@ -44,9 +44,9 @@ namespace Cardiology.UI.Controls
             {
     
                 DdtHormones hormones = (DdtHormones) getObject();
-                hormones.DsidHospitalitySession = hospitalitySession.ObjectId;
-                hormones.DsidDoctor = hospitalitySession.DsidCuringDoctor;
-                hormones.DsidPatient = hospitalitySession.DsidPatient;
+                hormones.HospitalitySession = hospitalitySession.ObjectId;
+                hormones.Doctor = hospitalitySession.CuringDoctor;
+                hormones.Patient = hospitalitySession.Patient;
                 objectId = service.updateOrCreateIfNeedObject<DdtHormones>(hormones, DdtHormones.NAME, hormones.ObjectId);
                 isNew = false;
                 hasChanges = false;
@@ -71,10 +71,10 @@ namespace Cardiology.UI.Controls
             {
                 hormones = new DdtHormones();
             }
-            hormones.DsdtAnalysisDate = admissionDateTxt.Value;
-            hormones.DssT3 = t3Txt.Text;
-            hormones.DssT4 = t4Txt.Text;
-            hormones.DssTtg = ttgTxt.Text;
+            hormones.AnalysisDate = admissionDateTxt.Value;
+            hormones.T3 = t3Txt.Text;
+            hormones.T4 = t4Txt.Text;
+            hormones.Ttg = ttgTxt.Text;
             return hormones;
         }
 
@@ -83,11 +83,11 @@ namespace Cardiology.UI.Controls
             if (obj != null && obj is DdtHormones)
             {
                 DdtHormones hormones = (DdtHormones)obj;
-                admissionDateTxt.Value = hormones.DsdtAnalysisDate;
-                t4Txt.Text = hormones.DssT4;
-                ttgTxt.Text = hormones.DssTtg;
-                t3Txt.Text = hormones.DssT3;
-                hormonesPnl.Text = "Гормоны за " + hormones.DsdtAnalysisDate.ToShortDateString();
+                admissionDateTxt.Value = hormones.AnalysisDate;
+                t4Txt.Text = hormones.T4;
+                ttgTxt.Text = hormones.Ttg;
+                t3Txt.Text = hormones.T3;
+                hormonesPnl.Text = "Гормоны за " + hormones.AnalysisDate.ToShortDateString();
                 objectId = hormones.ObjectId;
                 isNew = string.IsNullOrEmpty(objectId);
                 hasChanges = false;

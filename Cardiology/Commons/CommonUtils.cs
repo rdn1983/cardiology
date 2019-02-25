@@ -25,7 +25,7 @@ namespace Cardiology.Commons
             List<DdvDoctor> doctors = service.queryObjectsCollection<DdvDoctor>(query);
             cb.Items.AddRange(doctors.ToArray());
             cb.ValueMember = "ObjectId";
-            cb.DisplayMember = "DssInitials";
+            cb.DisplayMember = "ShortName";
         }
 
         internal static void InitDoctorsByGroupComboboxValues(IDbDataService service, ComboBox cb, string groupName)
@@ -35,7 +35,7 @@ namespace Cardiology.Commons
             List<DdvDoctor> doctors = service.queryObjectsCollection<DdvDoctor>(query);
             cb.Items.AddRange(doctors.ToArray());
             cb.ValueMember = "ObjectId";
-            cb.DisplayMember = "DssInitials";
+            cb.DisplayMember = "ShortName";
         }
 
         internal static void InitCureComboboxValuesByTypeId(IDbDataService service, ComboBox cb, string cureTypeId)

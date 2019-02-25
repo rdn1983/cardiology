@@ -76,8 +76,8 @@ namespace Cardiology.UI.Controls
             {
                 egds = new DdtEgds();
             }
-            egds.DsdtAnalysisDate = analysisDate.Value;
-            egds.DssEgds = regularEgdsTxt.Text;
+            egds.AnalysisDate = analysisDate.Value;
+            egds.Egds = regularEgdsTxt.Text;
             return egds;
         }
 
@@ -86,9 +86,9 @@ namespace Cardiology.UI.Controls
             if (obj != null && obj is DdtEgds)
             {
                 DdtEgds egds = (DdtEgds)obj;
-                regularEgdsTxt.Text = egds.DssEgds;
-                analysisTitleLbl.Text = "ЭГДС за " + egds.DsdtAnalysisDate.ToShortDateString();
-                analysisDate.Value = egds.DsdtAnalysisDate;
+                regularEgdsTxt.Text = egds.Egds;
+                analysisTitleLbl.Text = "ЭГДС за " + egds.AnalysisDate.ToShortDateString();
+                analysisDate.Value = egds.AnalysisDate;
                 objectId = egds.ObjectId;
                 isNew = string.IsNullOrEmpty(objectId);
                 hasChanges = false;

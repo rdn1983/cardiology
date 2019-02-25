@@ -50,18 +50,18 @@ namespace Cardiology.UI.Controls
             if (obj != null && obj is DdtVariousSpecConcluson)
             {
                 DdtVariousSpecConcluson journal = (DdtVariousSpecConcluson)obj;
-                initDateTime(journal.DsdtAdmissionDate);
-                journalTxt.Text = journal.DssSpecialistConclusion;
-                chddTxt.Text = journal.DssAdditionalInfo1;
-                adTxt.Text = journal.DssAdditionalInfo3;
-                chssTxt.Text = journal.DssAdditionalInfo2;
-                goodRhytmBtn0.Checked = "синусовый ритм".Equals(journal.DssAdditionalInfo4);
-                badRhytmBtn0.Checked = !"синусовый ритм".Equals(journal.DssAdditionalInfo4);
-                monitorTxt0.Text = journal.DssAdditionalInfo4;
+                initDateTime(journal.AdmissionDate);
+                journalTxt.Text = journal.SpecialistConclusion;
+                chddTxt.Text = journal.AdditionalInfo1;
+                adTxt.Text = journal.AdditionalInfo3;
+                chssTxt.Text = journal.AdditionalInfo2;
+                goodRhytmBtn0.Checked = "синусовый ритм".Equals(journal.AdditionalInfo4);
+                badRhytmBtn0.Checked = !"синусовый ритм".Equals(journal.AdditionalInfo4);
+                monitorTxt0.Text = journal.AdditionalInfo4;
                 objId = journal.ObjectId;
                 isNew = string.IsNullOrEmpty(objId);
                 hasChanges = false;
-                isReleaseJournal = journal.DsbAdditionalBool;
+                isReleaseJournal = journal.AdditionalBool;
             } else
             {
                 string journalText = string.Intern(JournalShuffleUtils.shuffleJournalText());
@@ -85,13 +85,13 @@ namespace Cardiology.UI.Controls
                 result = new DdtVariousSpecConcluson();
             }
             result.ObjectId = objId;
-            result.DsdtAdmissionDate = CommonUtils.ConstructDateWIthTime(inspectionDate0.Value, inspectionTime0.Value);
-            result.DssSpecialistConclusion = journalTxt.Text;
-            result.DssAdditionalInfo1 = chddTxt.Text;
-            result.DssAdditionalInfo2 = chssTxt.Text;
-            result.DssAdditionalInfo3 = adTxt.Text;
-            result.DssAdditionalInfo4 = monitorTxt0.Text;
-            result.DsbAdditionalBool = isReleaseJournal;
+            result.AdmissionDate = CommonUtils.ConstructDateWIthTime(inspectionDate0.Value, inspectionTime0.Value);
+            result.SpecialistConclusion = journalTxt.Text;
+            result.AdditionalInfo1 = chddTxt.Text;
+            result.AdditionalInfo2 = chssTxt.Text;
+            result.AdditionalInfo3 = adTxt.Text;
+            result.AdditionalInfo4 = monitorTxt0.Text;
+            result.AdditionalBool = isReleaseJournal;
             return result;
         }
 
@@ -131,10 +131,10 @@ namespace Cardiology.UI.Controls
         public void saveObject(DdtHospital hospitalitySession, string parentId, string parentType)
         {
             DdtVariousSpecConcluson conclusion = (DdtVariousSpecConcluson)getObject();
-            conclusion.DssParentType = parentType;
-            conclusion.DsidParent = parentId;
-            conclusion.DssSpecialistType = "Дежурный кардиореаниматолог";
-            conclusion.DsbAdditionalBool = isReleaseJournal;
+            conclusion.ParentType = parentType;
+            conclusion.Parent = parentId;
+            conclusion.SpecialistType = "Дежурный кардиореаниматолог";
+            conclusion.AdditionalBool = isReleaseJournal;
 
             objId = service.updateOrCreateIfNeedObject<DdtVariousSpecConcluson>(conclusion, DdtVariousSpecConcluson.NAME, conclusion.ObjectId);
             isNew = false;

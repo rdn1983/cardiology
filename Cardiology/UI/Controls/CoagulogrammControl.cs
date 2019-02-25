@@ -44,9 +44,9 @@ namespace Cardiology.UI.Controls
             if (isEditable && (isDirty() || isNew && getIsValid()))
             {
                 DdtCoagulogram coagulgramm = (DdtCoagulogram)getObject();
-                coagulgramm.DsidHospitalitySession = hospitalitySession.ObjectId;
-                coagulgramm.DsidDoctor = hospitalitySession.DsidCuringDoctor;
-                coagulgramm.DsidPatient = hospitalitySession.DsidPatient;
+                coagulgramm.HospitalitySession = hospitalitySession.ObjectId;
+                coagulgramm.Doctor = hospitalitySession.CuringDoctor;
+                coagulgramm.Patient = hospitalitySession.Patient;
                 objectId = service.updateOrCreateIfNeedObject<DdtCoagulogram>(coagulgramm, DdtCoagulogram.NAME, coagulgramm.ObjectId);
                 hasChanges = false;
                 isNew = false;
@@ -80,10 +80,10 @@ namespace Cardiology.UI.Controls
             {
                 coagulgramm = new DdtCoagulogram();
             }
-            coagulgramm.DsdtAnalysisDate = admissionDateTxt.Value;
-            coagulgramm.DssAchtv = achtvTxt.Text;
-            coagulgramm.DssDdimer = ddimerTxt.Text;
-            coagulgramm.DssMcho = mchoTxt.Text;
+            coagulgramm.AnalysisDate = admissionDateTxt.Value;
+            coagulgramm.Achtv = achtvTxt.Text;
+            coagulgramm.Ddimer = ddimerTxt.Text;
+            coagulgramm.Mcho = mchoTxt.Text;
             return coagulgramm;
         }
 
@@ -92,11 +92,11 @@ namespace Cardiology.UI.Controls
             if (obj != null && obj is DdtCoagulogram)
             {
                 DdtCoagulogram coagulogramm = (DdtCoagulogram)obj;
-                admissionDateTxt.Value = coagulogramm.DsdtAnalysisDate;
-                achtvTxt.Text = coagulogramm.DssAchtv;
-                ddimerTxt.Text = coagulogramm.DssDdimer;
-                mchoTxt.Text = coagulogramm.DssMcho;
-                coagulogramPnl.Text = "Коагулограмма за " + coagulogramm.DsdtAnalysisDate.ToShortDateString();
+                admissionDateTxt.Value = coagulogramm.AnalysisDate;
+                achtvTxt.Text = coagulogramm.Achtv;
+                ddimerTxt.Text = coagulogramm.Ddimer;
+                mchoTxt.Text = coagulogramm.Mcho;
+                coagulogramPnl.Text = "Коагулограмма за " + coagulogramm.AnalysisDate.ToShortDateString();
                 objectId = coagulogramm.ObjectId;
                 isNew = string.IsNullOrEmpty(objectId);
                 hasChanges = false;

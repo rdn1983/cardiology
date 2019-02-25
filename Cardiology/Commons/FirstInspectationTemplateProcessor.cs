@@ -28,28 +28,28 @@ namespace Cardiology.Commons
                 values = new Dictionary<string, string>();
             }
             DdtAnamnesis anamnesis = service.queryObjectById<DdtAnamnesis>(objectId);
-            values.Add("{allergy}", anamnesis.DssAnamnesisAllergy);
-            values.Add("{complaints}", anamnesis.DssComplaints);
-            values.Add("{anamnesis}", anamnesis.DssAnamnesisMorbi);
-            values.Add("{chronicle}", anamnesis.DssAccompayingIll);
-            values.Add("{epid}", anamnesis.DssAnamnesisEpid);
-            values.Add("{alco}", anamnesis.DssDrugs);
-            values.Add("{st_presens}", anamnesis.DssStPresens);
-            values.Add("{respiratory_system}", anamnesis.DssRespiratorySystem);
-            values.Add("{cardiovascular}", anamnesis.DssCardioVascular);
-            values.Add("{digestive_system}", anamnesis.DssDigestiveSystem);
-            values.Add("{urinary_system}", anamnesis.DssUrinarySystem);
-            values.Add("{nervous_system}", anamnesis.DssNervousSystem);
-            values.Add("{past_surgeries}", anamnesis.DssPastSurgeries);
-            values.Add("{operation_cause}", anamnesis.DssOperationCause);
-            values.Add("{diagnosis}", anamnesis.DssDiagnosis);
-            values.Add("{justification}", anamnesis.DssJustification);
+            values.Add("{allergy}", anamnesis.AnamnesisAllergy);
+            values.Add("{complaints}", anamnesis.Complaints);
+            values.Add("{anamnesis}", anamnesis.AnamnesisMorbi);
+            values.Add("{chronicle}", anamnesis.AccompanyingIllnesses);
+            values.Add("{epid}", anamnesis.AnamnesisEpid);
+            values.Add("{alco}", anamnesis.DrugsIntoxication);
+            values.Add("{st_presens}", anamnesis.StPresens);
+            values.Add("{respiratory_system}", anamnesis.RespiratorySystem);
+            values.Add("{cardiovascular}", anamnesis.CardiovascularSystem);
+            values.Add("{digestive_system}", anamnesis.DigestiveSystem);
+            values.Add("{urinary_system}", anamnesis.UrinarySystem);
+            values.Add("{nervous_system}", anamnesis.NervousSystem);
+            values.Add("{past_surgeries}", anamnesis.PastSurgeries);
+            values.Add("{operation_cause}", anamnesis.OperationCause);
+            values.Add("{diagnosis}", anamnesis.Diagnosis);
+            values.Add("{justification}", anamnesis.DiagnosisJustification);
 
-            DdvDoctor doc = service.queryObjectById<DdvDoctor>(anamnesis.DsidDoctor);
-            values.Add("{cardio}", doc.DssInitials);
+            DdvDoctor doc = service.queryObjectById<DdvDoctor>(anamnesis.Doctor);
+            values.Add("{cardio}", doc.ShortName);
 
             DdtEkg ekg = service.queryObject<DdtEkg>(@"SELECT * from ddt_ekg WHERE dsid_hospitality_session='' and dsb_admission_analysis=true");
-            values.Add("{analysis.ekg}", ekg == null ? "" : ekg.DssEkg);
+            values.Add("{analysis.ekg}", ekg == null ? "" : ekg.Ekg);
 
             StringBuilder builder = new StringBuilder();
 
@@ -60,10 +60,10 @@ namespace Cardiology.Commons
                 List<DdtIssuedMedicine> med = service.queryObjectsCollectionByAttrCond<DdtIssuedMedicine>(DdtIssuedMedicine.NAME, "dsid_med_list", medList.ObjectId, true);
                 for (int i = 0; i < med.Count; i++)
                 {
-                    DdtCure cure = service.queryObjectById<DdtCure>(med[i].DsidCure);
+                    DdtCure cure = service.queryObjectById<DdtCure>(med[i].Cure);
                     if (cure != null)
                     {
-                        builder.Append(cure.DssName).Append('\n');
+                        builder.Append(cure.Name).Append('\n');
                     }
 
                 }
@@ -75,12 +75,12 @@ namespace Cardiology.Commons
             for (int i = 0; i < actions.Count; i++)
             {
                 actionsBuilder.Append(i + 1).Append(". ");
-                actionsBuilder.Append(actions[i].DssAction).Append('\n');
+                actionsBuilder.Append(actions[i].Action).Append('\n');
             }
             values.Add("{issued_actions}", actionsBuilder.ToString());
 
             DdtHospital hospital = service.queryObject<DdtHospital>(@"SELECT * FROM ddt_hospital WHERE r_object_id='" + hospitalitySession + "'");
-            values.Add("{date}", hospital.DsdtAdmissionDate.ToShortDateString() + " " + hospital.DsdtAdmissionDate.ToShortTimeString());
+            values.Add("{date}", hospital.AdmissionDate.ToShortDateString() + " " + hospital.AdmissionDate.ToShortTimeString());
 
             return TemplatesUtils.fillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + TEMPLATE_FILE_NAME, values);
         }

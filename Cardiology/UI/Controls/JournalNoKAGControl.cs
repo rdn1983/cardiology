@@ -72,7 +72,7 @@ namespace Cardiology.UI.Controls
             DdvDoctor selectedDoc = (DdvDoctor)docBox.SelectedItem;
             journal.DsidDoctor = selectedDoc == null ? hospitalitySession.DsidCuringDoctor : selectedDoc.ObjectId;
             journal.DsidHospitalitySession = hospitalitySession.ObjectId;
-            journal.DsidPatient = hospitalitySession.DsidPatient;
+            journal.Patient = hospitalitySession.Patient;
 
             objectId = service.updateOrCreateIfNeedObject<DdtJournal>(journal, DdtJournal.NAME, journal.ObjectId);
             hasChanges = false;
@@ -165,7 +165,7 @@ namespace Cardiology.UI.Controls
                 badRhytmBtn.Checked = !journal.DsbGoodRhytm;
 
                 DdvDoctor doc = service.queryObjectById<DdvDoctor>(journal.DsidDoctor);
-                docBox.SelectedIndex = docBox.FindStringExact(doc.DssInitials);
+                docBox.SelectedIndex = docBox.FindStringExact(doc.ShortName);
                 objectId = journal.ObjectId;
                 isNew = string.IsNullOrEmpty(objectId);
                 hasChanges = false;

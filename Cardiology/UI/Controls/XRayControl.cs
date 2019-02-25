@@ -46,7 +46,7 @@ namespace Cardiology.UI.Controls
                 DdtXRay xRay = (DdtXRay) getObject();
                 xRay.DsidHospitalitySession = hospitalitySession.ObjectId;
                 xRay.DsidDoctor = hospitalitySession.DsidCuringDoctor;
-                xRay.DsidPatient = hospitalitySession.DsidPatient;
+                xRay.Patient = hospitalitySession.Patient;
                 if (parentId != null)
                 {
                     xRay.DsidParent = parentId;

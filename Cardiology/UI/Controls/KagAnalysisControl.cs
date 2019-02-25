@@ -48,7 +48,7 @@ namespace Cardiology.UI.Controls
                 DdtKag kag = (DdtKag)getObject();
                 kag.DsidHospitalitySession = hospitalitySession.ObjectId;
                 kag.DsidDoctor = hospitalitySession.DsidCuringDoctor;
-                kag.DsidPatient = hospitalitySession.DsidPatient;
+                kag.Patient = hospitalitySession.Patient;
                 if (parentId != null)
                 {
                     kag.DsidParent = parentId;

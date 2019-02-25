@@ -28,15 +28,15 @@ namespace Cardiology.UI.Forms
             if (!string.IsNullOrEmpty(objectId))
             {
     
-                DdtPatient patient = service.queryObjectById<DdtPatient>(hospitalitySession.DsidPatient);
+                DdtPatient patient = service.queryObjectById<DdtPatient>(hospitalitySession.Patient);
                 if (patient != null)
                 {
-                    Text += " " + patient.DssInitials;
+                    Text += " " + patient.ShortName;
                 }
                 DdtEpicrisis epicrisis = service.queryObjectById<DdtEpicrisis>(objectId);
                 if (epicrisis != null)
                 {
-                    diagnosisTxt.Text = epicrisis.DssDiagnosis;
+                    diagnosisTxt.Text = epicrisis.Diagnosis;
                     epicrisisDateTxt.Value = epicrisis.DsdtEpicrisisDate;
 
                     List<DdtEkg> ekg = service.queryObjectsCollection<DdtEkg>(@"SELECT * FROM " + DdtEkg.NAME + " where dsid_parent='" + epicrisis.ObjectId + "'");
@@ -67,7 +67,7 @@ namespace Cardiology.UI.Forms
                 }
             } else
             {
-                diagnosisTxt.Text = hospitalitySession.DssDiagnosis;
+                diagnosisTxt.Text = hospitalitySession.Diagnosis;
             }
         }
 
@@ -119,13 +119,13 @@ namespace Cardiology.UI.Forms
             if (obj == null)
             {
                 obj = new DdtEpicrisis();
-                obj.DsidDoctor = hospitalitySession.DsidCuringDoctor;
-                obj.DsidHospitalitySession = hospitalitySession.ObjectId;
-                obj.DsidPatient = hospitalitySession.DsidPatient;
+                obj.Doctor = hospitalitySession.CuringDoctor;
+                obj.HospitalitySession = hospitalitySession.ObjectId;
+                obj.Patient = hospitalitySession.Patient;
             }
-            obj.DsdtEpicrisisDate = epicrisisDateTxt.Value;
-            obj.DssDiagnosis = diagnosisTxt.Text;
-            obj.DsiEpicrisisType = (int)DdtEpicrisisDsiType.BEFORE_OPERATION;
+            obj.EpicrisisDate = epicrisisDateTxt.Value;
+            obj.Diagnosis = diagnosisTxt.Text;
+            obj.EpicrisisType = (int)DdtEpicrisisDsiType.BEFORE_OPERATION;
             objectId = service.updateOrCreateIfNeedObject<DdtEpicrisis>(obj, DdtEpicrisis.NAME, objectId);
             obj.ObjectId = objectId;
 

@@ -29,16 +29,16 @@ namespace Cardiology.UI.Forms
             CommonUtils.InitRangedItems(chssSurgeryTxt, 40, 200);
             CommonUtils.InitRangedItems(chddSurgeryTxt, 14, 26);
 
-            afterKagDiagnosisTxt.Text = hospitalitySession.DssDiagnosis;
+            afterKagDiagnosisTxt.Text = hospitalitySession.Diagnosis;
 
 
             CommonUtils.InitDoctorsComboboxValues(service, journalDocBox, "");
             releaseJournalCtrl.initDateTime(CommonUtils.ConstructDateWIthTime(admissionDateTxt.Value, DateTime.Parse("8:05:00")));
 
-            DdtPatient patient = service.queryObjectById<DdtPatient>(hospitalitySession.DsidPatient);
+            DdtPatient patient = service.queryObjectById<DdtPatient>(hospitalitySession.Patient);
             if (patient != null)
             {
-                Text += " " + patient.DssInitials;
+                Text += " " + patient.ShortName;
             }
 
             if (!string.IsNullOrEmpty(journalId))
@@ -46,22 +46,22 @@ namespace Cardiology.UI.Forms
                 DdtJournal journal = service.queryObjectById<DdtJournal>(journalId);
                 if (journal != null)
                 {
-                    surgeryInspectationTxt.Text = journal.DssJournal;
-                    chssSurgeryTxt.Text = journal.DssChss;
-                    chddSurgeryTxt.Text = journal.DssChdd;
-                    adSurgeryTxt.Text = journal.DssAd;
-                    admissionTimeTxt.Value = journal.DsdtAdmissionDate;
-                    admissionDateTxt.Value = journal.DsdtAdmissionDate;
-                    ekgTxt0.Text = journal.DssEkg;
-                    afterKagDiagnosisTxt.Text = journal.DssDiagnosis;
+                    surgeryInspectationTxt.Text = journal.Journal;
+                    chssSurgeryTxt.Text = journal.Chss;
+                    chddSurgeryTxt.Text = journal.Chdd;
+                    adSurgeryTxt.Text = journal.Ad;
+                    admissionTimeTxt.Value = journal.AdmissionDate;
+                    admissionDateTxt.Value = journal.AdmissionDate;
+                    ekgTxt0.Text = journal.Ekg;
+                    afterKagDiagnosisTxt.Text = journal.Diagnosis;
 
-                    DdvDoctor doctors = service.queryObjectById<DdvDoctor>(journal.DsidDoctor);
-                    journalDocBox.SelectedIndex = journalDocBox.FindStringExact(doctors.DssInitials);
+                    DdvDoctor doctors = service.queryObjectById<DdvDoctor>(journal.Doctor);
+                    journalDocBox.SelectedIndex = journalDocBox.FindStringExact(doctors.ShortName);
 
                     DdtKag kag = service.queryObjectByAttrCond<DdtKag>(DdtKag.NAME, "dsid_parent", journal.ObjectId, true);
                     if (kag != null)
                     {
-                        kagDiagnosisTxt.Text = kag.DssKagAction;
+                        kagDiagnosisTxt.Text = kag.KagAction;
                         kagId = kag.ObjectId;
                     }
 
@@ -74,20 +74,20 @@ namespace Cardiology.UI.Forms
                 DdtKag kag = service.queryObject<DdtKag>(@"SELECT * FROM ddt_kag WHERE dsid_hospitality_session='" + hospitalitySession.ObjectId + "' ORDER BY dsdt_analysis_date ASC");
                 initKag(kag);
 
-                DdvDoctor doctors = service.queryObjectById<DdvDoctor>(hospitalitySession.DsidCuringDoctor);
-                journalDocBox.SelectedIndex = journalDocBox.FindStringExact(doctors.DssInitials);
+                DdvDoctor doctors = service.queryObjectById<DdvDoctor>(hospitalitySession.CuringDoctor);
+                journalDocBox.SelectedIndex = journalDocBox.FindStringExact(doctors.ShortName);
             }
         }
 
         private void initKag(DdtKag kag)
         {
-            DateTime dt = hospitalitySession.DsdtAdmissionDate.AddHours(1);
+            DateTime dt = hospitalitySession.AdmissionDate.AddHours(1);
             if (kag != null)
             {
-                kagDiagnosisTxt.Text = kag.DssKagAction;
-                if (kag.DsdtEndTime != default(DateTime))
+                kagDiagnosisTxt.Text = kag.KagAction;
+                if (kag.EndTime != default(DateTime))
                 {
-                    dt = kag.DsdtEndTime.AddMinutes(15);
+                    dt = kag.EndTime.AddMinutes(15);
                 }
                 kagId = kag.ObjectId;
             }
@@ -161,20 +161,20 @@ namespace Cardiology.UI.Forms
             else
             {
                 journal = new DdtJournal();
-                journal.DsiJournalType = 1;
-                journal.DsidDoctor = hospitalitySession.DsidCuringDoctor;
-                journal.DsidHospitalitySession = hospitalitySession.ObjectId;
-                journal.DsidPatient = hospitalitySession.DsidPatient;
-                journal.DsiJournalType = (int)DdtJournalDsiType.AFTER_KAG;
-                journal.DssComplaints = "Жалоб на момент осмотра не предъявляет.";
+                journal.JournalType = 1;
+                journal.Doctor = hospitalitySession.CuringDoctor;
+                journal.HospitalitySession = hospitalitySession.ObjectId;
+                journal.Patient = hospitalitySession.Patient;
+                journal.JournalType = (int)DdtJournalDsiType.AFTER_KAG;
+                journal.Complaints = "Жалоб на момент осмотра не предъявляет.";
             }
-            journal.DssDiagnosis = afterKagDiagnosisTxt.Text;
-            journal.DssJournal = surgeryInspectationTxt.Text;
-            journal.DssChdd = chddSurgeryTxt.Text;
-            journal.DssChss = chssSurgeryTxt.Text;
-            journal.DssAd = adSurgeryTxt.Text;
-            journal.DssEkg = ekgTxt0.Text;
-            journal.DsdtAdmissionDate = CommonUtils.ConstructDateWIthTime(admissionDateTxt.Value, admissionTimeTxt.Value);
+            journal.Diagnosis = afterKagDiagnosisTxt.Text;
+            journal.Journal = surgeryInspectationTxt.Text;
+            journal.Chdd = chddSurgeryTxt.Text;
+            journal.Chss = chssSurgeryTxt.Text;
+            journal.Ad = adSurgeryTxt.Text;
+            journal.Ekg = ekgTxt0.Text;
+            journal.AdmissionDate = CommonUtils.ConstructDateWIthTime(admissionDateTxt.Value, admissionTimeTxt.Value);
             journalId = service.updateOrCreateIfNeedObject<DdtJournal>(journal, DdtJournal.NAME, journal.ObjectId);
 
             if (!string.IsNullOrEmpty(kagDiagnosisTxt.Text))
@@ -183,16 +183,16 @@ namespace Cardiology.UI.Forms
                 if (kag == null)
                 {
                     kag = new DdtKag();
-                    kag.DsidDoctor = hospitalitySession.DsidCuringDoctor;
-                    kag.DsidHospitalitySession = hospitalitySession.ObjectId;
-                    kag.DsidPatient = hospitalitySession.DsidPatient;
+                    kag.Doctor = hospitalitySession.CuringDoctor;
+                    kag.HospitalitySession = hospitalitySession.ObjectId;
+                    kag.Patient = hospitalitySession.Patient;
                     DateTime admissionDateTime = CommonUtils.ConstructDateWIthTime(admissionDateTxt.Value, admissionTimeTxt.Value);
-                    kag.DsdtAnalysisDate = admissionDateTime.AddMinutes(-75);
-                    kag.DsdtStartTime = admissionDateTime.AddMinutes(-75); ;
-                    kag.DsdtEndTime = admissionDateTime.AddMinutes(-15); ;
+                    kag.AnalysisDate = admissionDateTime.AddMinutes(-75);
+                    kag.StartTime = admissionDateTime.AddMinutes(-75); ;
+                    kag.EndTime = admissionDateTime.AddMinutes(-15); ;
                 }
-                kag.DsidParent = journalId;
-                kag.DssKagAction = kagDiagnosisTxt.Text;
+                kag.Parent = journalId;
+                kag.KagAction = kagDiagnosisTxt.Text;
                 kagId = service.updateOrCreateIfNeedObject<DdtKag>(kag, DdtKag.NAME, kag.ObjectId);
             }
 
@@ -248,7 +248,7 @@ namespace Cardiology.UI.Forms
                 DdtKag kag = service.queryObjectById<DdtKag>(kagId);
                 if (kag != null)
                 {
-                    kag.DsidParent = null;
+                    kag.Parent = null;
                     service.updateObject<DdtKag>(kag, DdtKag.NAME, "r_object_id", kag.ObjectId);
                 }
             }

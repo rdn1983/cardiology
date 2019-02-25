@@ -43,7 +43,7 @@ namespace Cardiology.UI.Controls
                 DdtUzi uziObj = (DdtUzi) getObject();
                 uziObj.DsidHospitalitySession = hospitalitySession.ObjectId;
                 uziObj.DsidDoctor = hospitalitySession.DsidCuringDoctor;
-                uziObj.DsidPatient = hospitalitySession.DsidPatient;
+                uziObj.Patient = hospitalitySession.Patient;
                 if (parentId != null)
                 {
                     uziObj.DsidParent = parentId;

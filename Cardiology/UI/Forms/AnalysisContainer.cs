@@ -157,10 +157,10 @@ namespace Cardiology.UI.Forms
                 this.Text = "Онкомаркеры";
             }
 
-            DdtPatient patient = service.queryObjectById<DdtPatient>(hospitalitySession.DsidPatient);
+            DdtPatient patient = service.queryObjectById<DdtPatient>(hospitalitySession.Patient);
             if (patient != null)
             {
-                this.Text += " " + patient.DssInitials;
+                this.Text += " " + patient.ShortName;
             }
         }
 

@@ -51,9 +51,9 @@ namespace Cardiology.UI.Controls
             }
 
             DdtJournal journal = (DdtJournal)getObject();
-            journal.DsidHospitalitySession = hospitalitySession.ObjectId;
-            journal.DsidPatient = hospitalitySession.DsidPatient;
-            journal.DsidDoctor = string.IsNullOrEmpty(journal.DsidDoctor) ? hospitalitySession.DsidCuringDoctor : journal.DsidDoctor;
+            journal.HospitalitySession = hospitalitySession.ObjectId;
+            journal.Patient = hospitalitySession.Patient;
+            journal.Doctor = string.IsNullOrEmpty(journal.Doctor) ? hospitalitySession.CuringDoctor : journal.Doctor;
            
             objectId = service.updateOrCreateIfNeedObject<DdtJournal>(journal, DdtJournal.NAME, journal.ObjectId);
             hasChanges = false;
@@ -157,20 +157,20 @@ namespace Cardiology.UI.Controls
             if (journal == null)
             {
                 journal = new DdtJournal();
-                journal.DsiJournalType = (int)DdtJournalDsiType.PENDING_JUSTIFICATION;
+                journal.JournalType = (int)DdtJournalDsiType.PENDING_JUSTIFICATION;
             }
 
-            journal.DssAd = deferredAdTxt.Text;
-            journal.DssChdd = defferedChddTxt.Text;
-            journal.DssChss = deferredChssTxt.Text;
-            journal.DssJournal = deferredJournalTxt.Text;
-            journal.DssMonitor = deferredMonitorTxt.Text;
-            journal.DsdtAdmissionDate = CommonUtils.ConstructDateWIthTime(deferredStartDate.Value, deferredStartTime.Value);
+            journal.Ad = deferredAdTxt.Text;
+            journal.Chdd = defferedChddTxt.Text;
+            journal.Chss = deferredChssTxt.Text;
+            journal.Journal = deferredJournalTxt.Text;
+            journal.Monitor = deferredMonitorTxt.Text;
+            journal.AdmissionDate = CommonUtils.ConstructDateWIthTime(deferredStartDate.Value, deferredStartTime.Value);
 
             DdvDoctor selectedDoc = (DdvDoctor)docBox.SelectedItem;
             if (selectedDoc != null)
             {
-                journal.DsidDoctor = selectedDoc.ObjectId;
+                journal.Doctor = selectedDoc.ObjectId;
             }
 
             return journal;
@@ -182,17 +182,17 @@ namespace Cardiology.UI.Controls
             {
                 DdtJournal journal = (DdtJournal)obj;
    
-                deferredJournalTxt.Text = journal.DssJournal;
-                deferredAdTxt.Text = journal.DssAd;
-                defferedChddTxt.Text = journal.DssChdd;
-                deferredChssTxt.Text = journal.DssChss;
-                deferredMonitorTxt.Text = journal.DssMonitor;
+                deferredJournalTxt.Text = journal.Journal;
+                deferredAdTxt.Text = journal.Ad;
+                defferedChddTxt.Text = journal.Chdd;
+                deferredChssTxt.Text = journal.Chss;
+                deferredMonitorTxt.Text = journal.Monitor;
 
-                deferredStartDate.Value = journal.DsdtAdmissionDate;
-                deferredStartTime.Value = journal.DsdtAdmissionDate;
+                deferredStartDate.Value = journal.AdmissionDate;
+                deferredStartTime.Value = journal.AdmissionDate;
 
-                DdvDoctor doc = service.queryObjectById<DdvDoctor>(journal.DsidDoctor);
-                docBox.SelectedIndex = docBox.FindStringExact(doc.DssInitials);
+                DdvDoctor doc = service.queryObjectById<DdvDoctor>(journal.Doctor);
+                docBox.SelectedIndex = docBox.FindStringExact(doc.ShortName);
                 objectId = journal.ObjectId;
                 isNew = string.IsNullOrEmpty(objectId);
                 hasChanges = false;

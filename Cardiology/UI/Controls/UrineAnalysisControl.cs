@@ -45,7 +45,7 @@ namespace Cardiology.UI.Controls
                 DdtUrineAnalysis urine = (DdtUrineAnalysis)getObject();
                 urine.DsidHospitalitySession = hospitalitySession.ObjectId;
                 urine.DsidDoctor = hospitalitySession.DsidCuringDoctor;
-                urine.DsidPatient = hospitalitySession.DsidPatient;
+                urine.Patient = hospitalitySession.Patient;
                 if (parentId != null)
                 {
                     urine.DsidParent = parentId;

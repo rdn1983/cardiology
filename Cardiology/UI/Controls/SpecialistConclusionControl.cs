@@ -42,7 +42,7 @@ namespace Cardiology.UI.Controls
                 DdtSpecialistConclusion specConslusion = (DdtSpecialistConclusion) getObject();
                 specConslusion.DsidHospitalitySession = hospitalitySession.ObjectId;
                 specConslusion.DsidDoctor = hospitalitySession.DsidCuringDoctor;
-                specConslusion.DsidPatient = hospitalitySession.DsidPatient;
+                specConslusion.Patient = hospitalitySession.Patient;
                 if (parentId != null)
                 {
                     specConslusion.DsidParent = parentId;

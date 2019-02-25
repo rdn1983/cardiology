@@ -41,10 +41,10 @@ namespace Cardiology.UI.Forms
             }
 
 
-            DdtPatient patient = service.queryObjectById<DdtPatient>(hospitalitySession.DsidPatient);
+            DdtPatient patient = service.queryObjectById<DdtPatient>(hospitalitySession.Patient);
             if (patient != null)
             {
-                Text += " " + patient.DssInitials;
+                Text += " " + patient.ShortName;
             }
 
             List<DdtJournal> journals = service.queryObjectsCollection<DdtJournal>(@"Select * FROM ddt_journal WHERE r_object_id IN ('" +

@@ -22,7 +22,7 @@ namespace Cardiology.UI.Controls
         {
             if (obj != null)
             {
-                issuedActionTxt.Text = obj.DssAction;
+                issuedActionTxt.Text = obj.Action;
                 objectId = obj.ObjectId;
             }
         }
@@ -37,7 +37,7 @@ namespace Cardiology.UI.Controls
             if (!string.IsNullOrEmpty(issuedActionTxt.Text))
             {
                 DdtIssuedAction result = service.queryObjectById<DdtIssuedAction>(objectId) ?? new DdtIssuedAction();
-                result.DssAction = issuedActionTxt.Text;
+                result.Action = issuedActionTxt.Text;
                 return result;
             }
             return null;

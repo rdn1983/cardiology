@@ -29,27 +29,27 @@ namespace Cardiology.Commons
                 values = new Dictionary<string, string>();
             }
             DdtInspection obj = service.queryObjectById<DdtInspection>(objectId);
-            values.Add("{date}", obj.DsdtInspectionDate.ToShortDateString());
-            values.Add("{time}", obj.DsdtInspectionDate.ToShortTimeString());
-            values.Add("{patient.diagnosis}", obj.DssDiagnosis);
-            values.Add("{complaints}", obj.DssComplaints);
-            values.Add("{inspection}", obj.DssInspection);
-            values.Add("{kateter}", obj.DssKateterPlacement);
-            values.Add("{result}", obj.DssInspectionResult);
+            values.Add("{date}", obj.InspectionDate.ToShortDateString());
+            values.Add("{time}", obj.InspectionDate.ToShortTimeString());
+            values.Add("{patient.diagnosis}", obj.Diagnosis);
+            values.Add("{complaints}", obj.Complaints);
+            values.Add("{inspection}", obj.Inspection);
+            values.Add("{kateter}", obj.KateterPlacement);
+            values.Add("{result}", obj.InspectionResult);
 
-            DdtPatient patient = service.queryObjectById<DdtPatient>(obj.DsidPatient);
-            values.Add("{patient.initials}", patient == null ? "" : patient.DssInitials);
-            values.Add("{patient.age}", patient == null ? "" : (DateTime.Now.Year - patient.DsdtBirthdate.Year) + "");
+            DdtPatient patient = service.queryObjectById<DdtPatient>(obj.Patient);
+            values.Add("{patient.initials}", patient == null ? "" : patient.ShortName);
+            values.Add("{patient.age}", patient == null ? "" : (DateTime.Now.Year - patient.Birthdate.Year) + "");
 
-            DdvDoctor doc = service.queryObjectById<DdvDoctor>(obj.DsidDoctor);
-            values.Add("{doctor.who.short}", doc == null ? "" : doc.DssInitials);
+            DdvDoctor doc = service.queryObjectById<DdvDoctor>(obj.Doctor);
+            values.Add("{doctor.who.short}", doc == null ? "" : doc.ShortName);
 
             putBloodData(values, service, obj.ObjectId);
             putEkgData(values, service, obj.ObjectId);
             putHolterData(values, service, obj.ObjectId);
             putSpecialistData(values, service, obj.ObjectId);
             putUziData(values, service, obj.ObjectId);
-            putKagData(values, service, obj.DsidHospitalitySession);
+            putKagData(values, service, obj.HospitalitySession);
 
             return TemplatesUtils.fillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + TEMPLATE_FILE_NAME, values);
         }

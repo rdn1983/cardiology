@@ -27,19 +27,19 @@ namespace Cardiology.UI.Forms
         {
             kagContainer.Visible = false;
 
-            DdtPatient patient = service.queryObjectById<DdtPatient>(hospitalitySession.DsidPatient);
+            DdtPatient patient = service.queryObjectById<DdtPatient>(hospitalitySession.Patient);
             if (patient != null)
             {
-                Text += " " + patient.DssInitials;
+                Text += " " + patient.ShortName;
             }
             inspectionObj = service.queryObjectById<DdtInspection>(inspectionObjId);
-            DateTime startDate = inspectionObj == null ? DateTime.Now : inspectionObj.DsdtInspectionDate;
+            DateTime startDate = inspectionObj == null ? DateTime.Now : inspectionObj.InspectionDate;
             DdtJournal kagJournal = CommonUtils.ResolveKagJournal(service, startDate, hospitalitySession.ObjectId);
 
             if (inspectionObj != null)
             {
                 complaintsTxt.Text = inspectionObj.DssComplaints;
-                diagnosisTxt.Text = inspectionObj.DssDiagnosis;
+                diagnosisTxt.Text = inspectionObj.Diagnosis;
                 inspectionTxt.Text = inspectionObj.DssInspection;
                 resultTxt.Text = inspectionObj.DssInspectionResult;
                 kateterPlacementTxt.Text = inspectionObj.DssKateterPlacement;
@@ -50,7 +50,7 @@ namespace Cardiology.UI.Forms
             {
                 if (kagJournal != null)
                 {
-                    diagnosisTxt.Text = kagJournal.DssDiagnosis;
+                    diagnosisTxt.Text = kagJournal.Diagnosis;
                     DdtVariousSpecConcluson releaseConclusion = service.queryObject<DdtVariousSpecConcluson>("SELECt * FROM " + DdtVariousSpecConcluson.NAME +
                        " WHERE dsid_parent='" + kagJournal.ObjectId + "' AND dsb_additional_bool=true");
                     if (releaseConclusion != null)
@@ -60,7 +60,7 @@ namespace Cardiology.UI.Forms
                 }
                 else
                 {
-                    diagnosisTxt.Text = hospitalitySession.DssDiagnosis;
+                    diagnosisTxt.Text = hospitalitySession.Diagnosis;
                 }
 
 
@@ -184,15 +184,15 @@ namespace Cardiology.UI.Forms
                 inspectionObj = new DdtInspection();
                 inspectionObj.DsidDoctor = hospitalitySession.DsidCuringDoctor;
                 inspectionObj.DsidHospitalitySession = hospitalitySession.ObjectId;
-                inspectionObj.DsidPatient = hospitalitySession.DsidPatient;
+                inspectionObj.Patient = hospitalitySession.Patient;
             }
 
             inspectionObj.DssComplaints = getSafeStringValue(complaintsTxt);
-            inspectionObj.DssDiagnosis = getSafeStringValue(diagnosisTxt);
+            inspectionObj.Diagnosis = getSafeStringValue(diagnosisTxt);
             inspectionObj.DssInspection = getSafeStringValue(inspectionTxt);
             inspectionObj.DssInspectionResult = getSafeStringValue(resultTxt);
             inspectionObj.DssKateterPlacement = getSafeStringValue(kateterPlacementTxt);
-            inspectionObj.DsdtInspectionDate = CommonUtils.ConstructDateWIthTime(inspectionDate.Value, inspectionTime.Value);
+            inspectionObj.InspectionDate = CommonUtils.ConstructDateWIthTime(inspectionDate.Value, inspectionTime.Value);
             string id = service.updateOrCreateIfNeedObject<DdtInspection>(inspectionObj, DdtInspection.NAME, inspectionObj.ObjectId);
             inspectionObj.ObjectId = id;
         }

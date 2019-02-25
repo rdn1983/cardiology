@@ -34,22 +34,22 @@ namespace Cardiology.Commons
             values.Add("{diagnosis}", obj.Diagnosis);
             values.Add("{date}", obj.EpicrisisDate.ToShortDateString());
 
-            DdtPatient patient = service.queryObjectById<DdtPatient>(obj.Pa);
-            values.Add("{patient.initials}", patient == null ? "" : patient.DssInitials);
-            values.Add("{patient.age}", patient == null ? "" : (DateTime.Now.Year - patient.DsdtBirthdate.Year) + "");
+            DdtPatient patient = service.queryObjectById<DdtPatient>(obj.Patient);
+            values.Add("{patient.initials}", patient == null ? "" : patient.ShortName);
+            values.Add("{patient.age}", patient == null ? "" : (DateTime.Now.Year - patient.Birthdate.Year) + "");
 
             DdtHospital hospital = service.queryObjectById<DdtHospital>(hospitalitySession);
-            values.Add("{patient.admission_date}", hospital.DsdtAdmissionDate.ToShortDateString());
+            values.Add("{patient.admission_date}", hospital.AdmissionDate.ToShortDateString());
 
             DdtAnamnesis anamnesis = service.queryObjectByAttrCond<DdtAnamnesis>(DdtAnamnesis.NAME, "dsid_hospitality_session", hospital.ObjectId, true);
-            values.Add("{complaints}", anamnesis == null ? " " : anamnesis.DssComplaints);
-            values.Add("{anamnesis}", anamnesis == null ? " " : anamnesis.DssAnamnesisMorbi);
+            values.Add("{complaints}", anamnesis == null ? " " : anamnesis.Complaints);
+            values.Add("{anamnesis}", anamnesis == null ? " " : anamnesis.AnamnesisMorbi);
 
             StringBuilder inspectonBld = new StringBuilder();
-            inspectonBld.Append(compileValue("St.Presens", anamnesis?.DssStPresens));
-            inspectonBld.Append(compileValue("Органы дыхания", anamnesis?.DssRespiratorySystem));
-            inspectonBld.Append(compileValue("Сердечно-сосудистая система", anamnesis?.DssCardioVascular));
-            inspectonBld.Append(compileValue("Органы пищеварения", anamnesis?.DssDigestiveSystem));
+            inspectonBld.Append(compileValue("St.Presens", anamnesis?.StPresens));
+            inspectonBld.Append(compileValue("Органы дыхания", anamnesis?.RespiratorySystem));
+            inspectonBld.Append(compileValue("Сердечно-сосудистая система", anamnesis?.CardioVascular));
+            inspectonBld.Append(compileValue("Органы пищеварения", anamnesis?.DigestiveSystem));
             values.Add("{inspection}", anamnesis == null ? " " : inspectonBld.ToString());
 
             DdtSerology serology = service.queryObjectByAttrCond<DdtSerology>(DdtSerology.NAME, "dsid_hospitality_session", hospital.ObjectId, true);
@@ -81,22 +81,22 @@ namespace Cardiology.Commons
                 bloodStr.Append(compileValue("Амилаза", blood.Amylase));
                 bloodStr.Append(compileValue("Бил. Общ.", blood.Bil));
                 bloodStr.Append(compileValue("Хлор", blood.Chlorine));
-                bloodStr.Append(compileValue("Железо", blood.DsdIron));
-                bloodStr.Append(compileValue("КФК", blood.DsdKfk));
-                bloodStr.Append(compileValue("КФК-МВ", blood.DsdKfkMv));
-                bloodStr.Append(compileValue("Тромбоциты", blood.DsdPlatelets));
-                bloodStr.Append(compileValue("Калий", blood.DsdPotassium));
-                bloodStr.Append(compileValue("Белок", blood.DsdProtein));
-                bloodStr.Append(compileValue("ЩФ", blood.DsdSchf));
-                bloodStr.Append(compileValue("Натрий", blood.DsdSodium));
-                bloodStr.Append(compileValue("СРБ", blood.DsdSrp));
+                bloodStr.Append(compileValue("Железо", blood.Iron));
+                bloodStr.Append(compileValue("КФК", blood.Kfk));
+                bloodStr.Append(compileValue("КФК-МВ", blood.KfkMv));
+                bloodStr.Append(compileValue("Тромбоциты", blood.Platelets));
+                bloodStr.Append(compileValue("Калий", blood.Potassium));
+                bloodStr.Append(compileValue("Белок", blood.Protein));
+                bloodStr.Append(compileValue("ЩФ", blood.Schf));
+                bloodStr.Append(compileValue("Натрий", blood.Sodium));
+                bloodStr.Append(compileValue("СРБ", blood.Srp));
             }
             if (serology != null)
             {
-                bloodStr.Append(compileValue("KELL-ag", serology.DssKellAg));
-                bloodStr.Append(compileValue("HBs ag", serology.DssHbsAg));
-                bloodStr.Append(compileValue("Anti HCV крови", serology.DssAntiHcv));
-                bloodStr.Append(compileValue("HIV", serology.DssHiv));
+                bloodStr.Append(compileValue("KELL-ag", serology.KellAg));
+                bloodStr.Append(compileValue("HBs ag", serology.HbsAg));
+                bloodStr.Append(compileValue("Anti HCV крови", serology.AntiHcv));
+                bloodStr.Append(compileValue("HIV", serology.Hiv));
             }
                 values.Add("{analysis.blood}", blood == null ? " " : "Анализы крови:" + bloodStr);
             values.Add("{analysis.urine}", " ");

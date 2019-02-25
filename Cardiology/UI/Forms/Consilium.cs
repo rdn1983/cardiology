@@ -30,12 +30,12 @@ namespace Cardiology.UI.Forms
             CommonUtils.InitDoctorsComboboxValues(service, adminTxt, " dsi_appointment_type=3");
             ControlUtils.InitGroupsComboboxValues(this.service.GetDmGroupService(), appointmentTxt0);
             ControlUtils.InitDoctorsByGroupName(this.service.GetDdvDoctorService(), doctorWho0, null);
-            DdtPatient patient = service.queryObjectById<DdtPatient>(hospitalitySession.DsidPatient);
+            DdtPatient patient = service.queryObjectById<DdtPatient>(hospitalitySession.Patient);
             if (patient != null)
             {
-                Text += " " + patient.DssInitials;
+                Text += " " + patient.ShortName;
             }
-            diagnosisTxt0.Text = hospitalitySession.DssDiagnosis;
+            diagnosisTxt0.Text = hospitalitySession.Diagnosis;
             if (!string.IsNullOrEmpty(consiliumId))
             {
                 DdtConsilium consilium = service.queryObjectById<DdtConsilium>(consiliumId);
@@ -44,7 +44,7 @@ namespace Cardiology.UI.Forms
                     goalTxt.Text = consilium.DssGoal;
                     dynamicsTxt.Text = consilium.DssDynamics;
                     adminTxt.SelectedIndex = adminTxt.FindStringExact(consilium.DssDutyAdminName);
-                    diagnosisTxt0.Text = consilium.DssDiagnosis;
+                    diagnosisTxt0.Text = consilium.Diagnosis;
                     decisionTxt.Text = consilium.DssDecision;
                     List<DdtConsiliumMember> members = service.queryObjectsCollectionByAttrCond<DdtConsiliumMember>
                         (DdtConsiliumMember.NAME, "dsid_consilium", consilium.ObjectId, true);
@@ -56,7 +56,7 @@ namespace Cardiology.UI.Forms
                 DdtAnamnesis anamnesis = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsid_hospitality_session='" + hospitalitySession.ObjectId + "'");
                 if (anamnesis != null)
                 {
-                    diagnosisTxt0.Text = anamnesis.DssDiagnosis;
+                    diagnosisTxt0.Text = anamnesis.Diagnosis;
                 }
 
                 List<DdtConsiliumMember> members = service.queryObjectsCollectionByAttrCond<DdtConsiliumMember>
@@ -151,7 +151,7 @@ namespace Cardiology.UI.Forms
             {
                 return false;
             }
-            hospitalitySession.DssDiagnosis = getSafeStringValue(diagnosisTxt1);
+            hospitalitySession.Diagnosis = getSafeStringValue(diagnosisTxt1);
             service.updateObject<DdtHospital>(hospitalitySession, DdtHospital.NAME, "r_object_id", hospitalitySession.ObjectId);
 
             DdtConsilium consilium = null;
@@ -164,11 +164,11 @@ namespace Cardiology.UI.Forms
                 consilium = new DdtConsilium();
                 consilium.DsdtConsiliumDate = DateTime.Now;
                 consilium.DsidHospitalitySession = hospitalitySession.ObjectId;
-                consilium.DsidPatient = hospitalitySession.DsidPatient;
+                consilium.Patient = hospitalitySession.Patient;
                 consilium.DsidDoctor = hospitalitySession.DsidCuringDoctor;
             }
             consilium.DssDecision = getSafeStringValue(decisionTxt);
-            consilium.DssDiagnosis = getSafeStringValue(diagnosisTxt0);
+            consilium.Diagnosis = getSafeStringValue(diagnosisTxt0);
             consilium.DssDutyAdminName = getSafeStringValue(adminTxt);
             consilium.DssDynamics = getSafeStringValue(dynamicsTxt);
             consilium.DssGoal = getSafeStringValue(goalTxt);
@@ -249,7 +249,7 @@ namespace Cardiology.UI.Forms
                 CommonUtils.InitDoctorsByGroupComboboxValues(new DataService(), c, group.DssName);
                 if ("duty_cardioreanim".Equals(group.DssName))
                 {
-                    c.SelectedIndex = c.FindStringExact(curingDoc?.DssInitials);
+                    c.SelectedIndex = c.FindStringExact(curingDoc?.ShortName);
                 }
             }
         }

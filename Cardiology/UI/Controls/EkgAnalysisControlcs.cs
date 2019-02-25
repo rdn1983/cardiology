@@ -53,8 +53,8 @@ namespace Cardiology.UI.Controls
             {
                 ekg = new DdtEkg();
             }
-            ekg.DsdtAnalysisDate = analysisDate.Value;
-            ekg.DssEkg = regularEkgTxt.Text;
+            ekg.AnalysisDate = analysisDate.Value;
+            ekg.Ekg = regularEkgTxt.Text;
             return ekg;
         }
 
@@ -64,16 +64,16 @@ namespace Cardiology.UI.Controls
             {
     
                 DdtEkg ekg = (DdtEkg)getObject();
-                ekg.DsidHospitalitySession = hospitalitySession.ObjectId;
-                ekg.DsidDoctor = hospitalitySession.DsidCuringDoctor;
-                ekg.DsidPatient = hospitalitySession.DsidPatient;
+                ekg.HospitalitySession = hospitalitySession.ObjectId;
+                ekg.Doctor = hospitalitySession.CuringDoctor;
+                ekg.Patient = hospitalitySession.Patient;
                 if (parentId != null)
                 {
-                    ekg.DsidParent = parentId;
+                    ekg.Parent = parentId;
                 }
                 if (parentType != null)
                 {
-                    ekg.DssParentType = parentType;
+                    ekg.ParentType = parentType;
                 }
                 objectId = service.updateOrCreateIfNeedObject<DdtEkg>(ekg, DdtEkg.NAME, ekg.ObjectId);
                 isNew = false;
@@ -106,10 +106,10 @@ namespace Cardiology.UI.Controls
             if (obj != null && obj is DdtEkg)
             {
                 DdtEkg ekg = (DdtEkg)obj;
-                readonlyEkgTxt.Text = ekg.DssEkg;
-                regularEkgTxt.Text = ekg.DssEkg;
-                analysisDate.Value = ekg.DsdtAnalysisDate;
-                readonlyEkgBox.Text = "ЭКГ за " + ekg.DsdtAnalysisDate.ToShortDateString();
+                readonlyEkgTxt.Text = ekg.Ekg;
+                regularEkgTxt.Text = ekg.Ekg;
+                analysisDate.Value = ekg.AnalysisDate;
+                readonlyEkgBox.Text = "ЭКГ за " + ekg.AnalysisDate.ToShortDateString();
                 objectId = ekg.ObjectId;
                 isNew = string.IsNullOrEmpty(objectId);
                 hasChanges = false;

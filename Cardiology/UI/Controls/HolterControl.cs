@@ -38,16 +38,16 @@ namespace Cardiology.UI.Controls
             {
     
                 DdtHolter holter = (DdtHolter) getObject();
-                holter.DsidHospitalitySession = hospitalitySession.ObjectId;
-                holter.DsidDoctor = hospitalitySession.DsidCuringDoctor;
-                holter.DsidPatient = hospitalitySession.DsidPatient;
+                holter.HospitalitySession = hospitalitySession.ObjectId;
+                holter.Doctor = hospitalitySession.CuringDoctor;
+                holter.Patient = hospitalitySession.Patient;
                 if (parentId != null)
                 {
-                    holter.DsidParent = parentId;
+                    holter.Parent = parentId;
                 }
                 if (parentType != null)
                 {
-                    holter.DssParentType = parentType;
+                    holter.ParentType = parentType;
                 }
                 objectId = service.updateOrCreateIfNeedObject<DdtHolter>(holter, DdtHolter.NAME, holter.ObjectId);
                 hasChanges = false;
@@ -79,9 +79,9 @@ namespace Cardiology.UI.Controls
             {
                 holter = new DdtHolter();
             }
-            holter.DsdtAnalysisDate = analysisDate.Value;
-            holter.DssHolter = holterTxt.Text;
-            holter.DssMonitoringAd = monitoringAdTxt.Text;
+            holter.AnalysisDate = analysisDate.Value;
+            holter.Holter = holterTxt.Text;
+            holter.MonitoringAd = monitoringAdTxt.Text;
             return holter;
         }
 
@@ -90,10 +90,10 @@ namespace Cardiology.UI.Controls
             if (obj != null && obj is DdtHolter)
             {
                 DdtHolter holter = (DdtHolter)obj;
-                holterTxt.Text = holter.DssHolter;
-                monitoringAdTxt.Text = holter.DssMonitoringAd;
-                title.Text = "Анализы за " + holter.DsdtAnalysisDate.ToShortDateString();
-                analysisDate.Value = holter.DsdtAnalysisDate;
+                holterTxt.Text = holter.Holter;
+                monitoringAdTxt.Text = holter.MonitoringAd;
+                title.Text = "Анализы за " + holter.AnalysisDate.ToShortDateString();
+                analysisDate.Value = holter.AnalysisDate;
                 objectId = holter.ObjectId;
                 isNew = string.IsNullOrEmpty(objectId);
             }

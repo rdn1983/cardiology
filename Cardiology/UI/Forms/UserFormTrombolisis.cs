@@ -47,7 +47,7 @@ namespace Cardiology.UI.Forms
             {
                 values.Add(@"{patient.full_name}", patient.DssFullName);
                 values.Add(@"{patient.med_code}", patient.DssMedCode);
-                values.Add(@"{patient.initials}", patient.DssInitials);
+                values.Add(@"{patient.initials}", patient.ShortName);
             }
             values.Add(@"{date}", dateCtrl.Text);
             values.Add(@"{time}", timeCtrl.Text);

@@ -37,7 +37,7 @@ namespace Cardiology.UI.Forms
                 if (epicrisis != null)
                 {
                     diagnosisTxt.Text = epicrisis.Diagnosis;
-                    epicrisisDateTxt.Value = epicrisis.DsdtEpicrisisDate;
+                    epicrisisDateTxt.Value = epicrisis.EpicrisisDate;
 
                     List<DdtEkg> ekg = service.queryObjectsCollection<DdtEkg>(@"SELECT * FROM " + DdtEkg.NAME + " where dsid_parent='" + epicrisis.ObjectId + "'");
                     foreach(DdtEkg e in ekg)
@@ -98,7 +98,7 @@ namespace Cardiology.UI.Forms
                 foreach (string v in diagnosies)
                 {
                     DdvHistory history = service.queryObject<DdvHistory>(@"SELECT * FROM ddv_history WHERE dsid_operation_id='" + v + "'");
-                    analysisGrid.Rows.Add(history.DsidOperationId, history.DssOperationType, history.DssOperationName, "", "");
+                    analysisGrid.Rows.Add(history.OperationId, history.OperationType, history.OperationName, "", "");
                 }
             }
         }

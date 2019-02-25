@@ -44,16 +44,16 @@ namespace Cardiology.UI.Controls
             {
     
                 DdtXRay xRay = (DdtXRay) getObject();
-                xRay.DsidHospitalitySession = hospitalitySession.ObjectId;
-                xRay.DsidDoctor = hospitalitySession.DsidCuringDoctor;
+                xRay.HospitalitySession = hospitalitySession.ObjectId;
+                xRay.Doctor = hospitalitySession.CuringDoctor;
                 xRay.Patient = hospitalitySession.Patient;
                 if (parentId != null)
                 {
-                    xRay.DsidParent = parentId;
+                    xRay.Parent = parentId;
                 }
                 if (parentType != null)
                 {
-                    xRay.DssParentType = parentType;
+                    xRay.ParentType = parentType;
                 }
                 objectId = service.updateOrCreateIfNeedObject<DdtXRay>(xRay, DdtXRay.NAME, xRay.ObjectId);
                 isNew = false;

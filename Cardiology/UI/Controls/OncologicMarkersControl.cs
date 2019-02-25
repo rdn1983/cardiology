@@ -47,16 +47,16 @@ namespace Cardiology.UI.Controls
             {
     
                 DdtOncologicMarkers kag = (DdtOncologicMarkers)getObject();
-                kag.DsidHospitalitySession = hospitalitySession.ObjectId;
-                kag.DsidDoctor = hospitalitySession.DsidCuringDoctor;
+                kag.HospitalitySession = hospitalitySession.ObjectId;
+                kag.Doctor = hospitalitySession.CuringDoctor;
                 kag.Patient = hospitalitySession.Patient;
                 if (parentId != null)
                 {
-                    kag.DsidParent = parentId;
+                    kag.Parent = parentId;
                 }
                 if (parentType != null)
                 {
-                    kag.DssParentType = parentType;
+                    kag.ParentType = parentType;
                 }
 
                 objectId = service.updateOrCreateIfNeedObject<DdtOncologicMarkers>(kag, DdtOncologicMarkers.NAME, kag.ObjectId);
@@ -90,15 +90,15 @@ namespace Cardiology.UI.Controls
             {
                 markerObj = new DdtOncologicMarkers();
             }
-            markerObj.DssCea = ceaTxt.Text;
-            markerObj.DssPsaCommon = psaCommonTxt.Text;
-            markerObj.DssPsaFree = psaFreeTxt.Text;
-            markerObj.DssCa125 = ca125Txt.Text;
-            markerObj.DssCa153 = ca153Txt.Text;
-            markerObj.DssCa199 = ca199Txt.Text;
-            markerObj.DssHgch = hgchTxt.Text;
-            markerObj.DssAfr = afrTxt.Text;
-            markerObj.DsdtAnalysisDate = CommonUtils.ConstructDateWIthTime(admissionDateTxt.Value, admissionTimeTxt.Value);
+            markerObj.Cea = ceaTxt.Text;
+            markerObj.PsaCommon = psaCommonTxt.Text;
+            markerObj.PsaFree = psaFreeTxt.Text;
+            markerObj.Ca125 = ca125Txt.Text;
+            markerObj.Ca153 = ca153Txt.Text;
+            markerObj.Ca199 = ca199Txt.Text;
+            markerObj.Hgch = hgchTxt.Text;
+            markerObj.Afr = afrTxt.Text;
+            markerObj.AnalysisDate = CommonUtils.ConstructDateWIthTime(admissionDateTxt.Value, admissionTimeTxt.Value);
             return markerObj;
         }
 
@@ -107,18 +107,18 @@ namespace Cardiology.UI.Controls
             if (obj != null && obj is DdtOncologicMarkers)
             {
                 DdtOncologicMarkers marker = (DdtOncologicMarkers)obj;
-                ceaTxt.Text = marker.DssCea;
-                psaCommonTxt.Text = marker.DssPsaCommon;
-                psaFreeTxt.Text = marker.DssPsaFree;
-                ca125Txt.Text = marker.DssCa125;
-                ca153Txt.Text = marker.DssCa153;
-                ca199Txt.Text = marker.DssCa199;
-                hgchTxt.Text = marker.DssHgch;
-                afrTxt.Text = marker.DssAfr;
-                DateTime startTime = marker.DsdtAnalysisDate == default(DateTime) ? DateTime.Now : marker.DsdtAnalysisDate;
+                ceaTxt.Text = marker.Cea;
+                psaCommonTxt.Text = marker.PsaCommon;
+                psaFreeTxt.Text = marker.PsaFree;
+                ca125Txt.Text = marker.Ca125;
+                ca153Txt.Text = marker.Ca153;
+                ca199Txt.Text = marker.Ca199;
+                hgchTxt.Text = marker.Hgch;
+                afrTxt.Text = marker.Afr;
+                DateTime startTime = marker.AnalysisDate == default(DateTime) ? DateTime.Now : marker.AnalysisDate;
                 admissionDateTxt.Value = startTime;
                 admissionTimeTxt.Value = startTime;
-                cntr.Text = "Онкомаркеры за " + marker.RCreationDate.ToShortDateString();
+                cntr.Text = "Онкомаркеры за " + marker.CreationDate.ToShortDateString();
                 objectId = marker.ObjectId;
                 isNew = string.IsNullOrEmpty(objectId);
                 hasChanges = false;

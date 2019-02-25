@@ -26,7 +26,7 @@ namespace Cardiology.UI.Forms
 
         private void InitControls()
         {
-            curingDoc = service.queryObjectById<DdvDoctor>(hospitalitySession?.DsidCuringDoctor);
+            curingDoc = service.queryObjectById<DdvDoctor>(hospitalitySession?.CuringDoctor);
             CommonUtils.InitDoctorsComboboxValues(service, adminTxt, " dsi_appointment_type=3");
             ControlUtils.InitGroupsComboboxValues(this.service.GetDmGroupService(), appointmentTxt0);
             ControlUtils.InitDoctorsByGroupName(this.service.GetDdvDoctorService(), doctorWho0, null);
@@ -41,11 +41,11 @@ namespace Cardiology.UI.Forms
                 DdtConsilium consilium = service.queryObjectById<DdtConsilium>(consiliumId);
                 if (consilium != null)
                 {
-                    goalTxt.Text = consilium.DssGoal;
-                    dynamicsTxt.Text = consilium.DssDynamics;
-                    adminTxt.SelectedIndex = adminTxt.FindStringExact(consilium.DssDutyAdminName);
+                    goalTxt.Text = consilium.Goal;
+                    dynamicsTxt.Text = consilium.Dynamics;
+                    adminTxt.SelectedIndex = adminTxt.FindStringExact(consilium.DutyAdminName);
                     diagnosisTxt0.Text = consilium.Diagnosis;
-                    decisionTxt.Text = consilium.DssDecision;
+                    decisionTxt.Text = consilium.Decision;
                     List<DdtConsiliumMember> members = service.queryObjectsCollectionByAttrCond<DdtConsiliumMember>
                         (DdtConsiliumMember.NAME, "dsid_consilium", consilium.ObjectId, true);
                     InitMembers(service, members);
@@ -162,16 +162,16 @@ namespace Cardiology.UI.Forms
             else
             {
                 consilium = new DdtConsilium();
-                consilium.DsdtConsiliumDate = DateTime.Now;
-                consilium.DsidHospitalitySession = hospitalitySession.ObjectId;
+                consilium.ConsiliumDate = DateTime.Now;
+                consilium.HospitalitySession = hospitalitySession.ObjectId;
                 consilium.Patient = hospitalitySession.Patient;
-                consilium.DsidDoctor = hospitalitySession.DsidCuringDoctor;
+                consilium.Doctor = hospitalitySession.CuringDoctor;
             }
-            consilium.DssDecision = getSafeStringValue(decisionTxt);
+            consilium.Decision = getSafeStringValue(decisionTxt);
             consilium.Diagnosis = getSafeStringValue(diagnosisTxt0);
-            consilium.DssDutyAdminName = getSafeStringValue(adminTxt);
-            consilium.DssDynamics = getSafeStringValue(dynamicsTxt);
-            consilium.DssGoal = getSafeStringValue(goalTxt);
+            consilium.DutyAdminName = getSafeStringValue(adminTxt);
+            consilium.Dynamics = getSafeStringValue(dynamicsTxt);
+            consilium.Goal = getSafeStringValue(goalTxt);
             consiliumId = service.updateOrCreateIfNeedObject<DdtConsilium>(consilium, DdtConsilium.NAME, consilium.ObjectId);
 
             foreach (Control doctorInfoPnl in doctorsContainer.Controls)

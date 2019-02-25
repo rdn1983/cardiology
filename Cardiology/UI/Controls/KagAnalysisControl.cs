@@ -46,16 +46,16 @@ namespace Cardiology.UI.Controls
             {
     
                 DdtKag kag = (DdtKag)getObject();
-                kag.DsidHospitalitySession = hospitalitySession.ObjectId;
-                kag.DsidDoctor = hospitalitySession.DsidCuringDoctor;
+                kag.HospitalitySession = hospitalitySession.ObjectId;
+                kag.Doctor = hospitalitySession.CuringDoctor;
                 kag.Patient = hospitalitySession.Patient;
                 if (parentId != null)
                 {
-                    kag.DsidParent = parentId;
+                    kag.Parent = parentId;
                 }
                 if (parentType != null)
                 {
-                    kag.DssParentType = parentType;
+                    kag.ParentType = parentType;
                 }
 
                 objectId = service.updateOrCreateIfNeedObject<DdtKag>(kag, DdtKag.NAME, kag.ObjectId);
@@ -87,12 +87,12 @@ namespace Cardiology.UI.Controls
             {
                 kag = new DdtKag();
             }
-            kag.DssKagManipulation = kagManipulationTxt.Text;
-            kag.DssResults = kagResultsTxt.Text;
-            kag.DssKagAction = kagActionsTxt.Text;
-            kag.DsdtStartTime = CommonUtils.ConstructDateWIthTime(kagDate.Value, kagStartTime.Value);
-            kag.DsdtAnalysisDate = CommonUtils.ConstructDateWIthTime(kagDate.Value, kagStartTime.Value);
-            kag.DsdtEndTime = CommonUtils.ConstructDateWIthTime(kagDate.Value, kagEndTime.Value);
+            kag.KagManipulation = kagManipulationTxt.Text;
+            kag.Results = kagResultsTxt.Text;
+            kag.KagAction = kagActionsTxt.Text;
+            kag.StartTime = CommonUtils.ConstructDateWIthTime(kagDate.Value, kagStartTime.Value);
+            kag.AnalysisDate = CommonUtils.ConstructDateWIthTime(kagDate.Value, kagStartTime.Value);
+            kag.EndTime = CommonUtils.ConstructDateWIthTime(kagDate.Value, kagEndTime.Value);
             return kag;
         }
 
@@ -101,14 +101,14 @@ namespace Cardiology.UI.Controls
             if (obj != null && obj is DdtKag)
             {
                 DdtKag kag = (DdtKag)obj;
-                kagResultsTxt.Text = kag.DssResults;
-                kagManipulationTxt.Text = kag.DssKagManipulation;
-                kagActionsTxt.Text = kag.DssKagAction;
-                DateTime startTime = kag.DsdtStartTime == default(DateTime) ? DateTime.Now : kag.DsdtStartTime;
+                kagResultsTxt.Text = kag.Results;
+                kagManipulationTxt.Text = kag.KagManipulation;
+                kagActionsTxt.Text = kag.KagAction;
+                DateTime startTime = kag.StartTime == default(DateTime) ? DateTime.Now : kag.StartTime;
                 kagDate.Value = startTime;
                 kagStartTime.Value = startTime;
-                kagEndTime.Value = kag.DsdtEndTime == default(DateTime) ? startTime.AddHours(1) : kag.DsdtEndTime;
-                title.Text = "Анализы за " + kag.RCreationDate.ToShortDateString();
+                kagEndTime.Value = kag.EndTime == default(DateTime) ? startTime.AddHours(1) : kag.EndTime;
+                title.Text = "Анализы за " + kag.CreationDate.ToShortDateString();
                 objectId = kag.ObjectId;
                 isNew = string.IsNullOrEmpty(objectId);
                 hasChanges = false;
@@ -117,7 +117,7 @@ namespace Cardiology.UI.Controls
             {
     
                 DdtHospital hospitalitySession = service.queryObjectById<DdtHospital>(hospitalSessionId);
-                DateTime admissionDate = hospitalitySession.DsdtAdmissionDate;
+                DateTime admissionDate = hospitalitySession.AdmissionDate;
                 kagDate.Value = admissionDate;
                 kagStartTime.Value = admissionDate.AddMinutes(30);
                 kagEndTime.Value = kagStartTime.Value.AddHours(1);

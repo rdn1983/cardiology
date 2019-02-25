@@ -38,11 +38,11 @@ namespace Cardiology.UI.Forms
 
             if (inspectionObj != null)
             {
-                complaintsTxt.Text = inspectionObj.DssComplaints;
+                complaintsTxt.Text = inspectionObj.Complaints;
                 diagnosisTxt.Text = inspectionObj.Diagnosis;
-                inspectionTxt.Text = inspectionObj.DssInspection;
-                resultTxt.Text = inspectionObj.DssInspectionResult;
-                kateterPlacementTxt.Text = inspectionObj.DssKateterPlacement;
+                inspectionTxt.Text = inspectionObj.Inspection;
+                resultTxt.Text = inspectionObj.InspectionResult;
+                kateterPlacementTxt.Text = inspectionObj.KateterPlacement;
 
                 initAnalysis(service);
             }
@@ -55,7 +55,7 @@ namespace Cardiology.UI.Forms
                        " WHERE dsid_parent='" + kagJournal.ObjectId + "' AND dsb_additional_bool=true");
                     if (releaseConclusion != null)
                     {
-                        inspectionTxt.Text = releaseConclusion.DssSpecialistConclusion;
+                        inspectionTxt.Text = releaseConclusion.SpecialistConclusion;
                     }
                 }
                 else
@@ -182,16 +182,16 @@ namespace Cardiology.UI.Forms
             if (inspectionObj == null)
             {
                 inspectionObj = new DdtInspection();
-                inspectionObj.DsidDoctor = hospitalitySession.DsidCuringDoctor;
-                inspectionObj.DsidHospitalitySession = hospitalitySession.ObjectId;
+                inspectionObj.Doctor = hospitalitySession.CuringDoctor;
+                inspectionObj.HospitalitySession = hospitalitySession.ObjectId;
                 inspectionObj.Patient = hospitalitySession.Patient;
             }
 
-            inspectionObj.DssComplaints = getSafeStringValue(complaintsTxt);
+            inspectionObj.Complaints = getSafeStringValue(complaintsTxt);
             inspectionObj.Diagnosis = getSafeStringValue(diagnosisTxt);
-            inspectionObj.DssInspection = getSafeStringValue(inspectionTxt);
-            inspectionObj.DssInspectionResult = getSafeStringValue(resultTxt);
-            inspectionObj.DssKateterPlacement = getSafeStringValue(kateterPlacementTxt);
+            inspectionObj.Inspection = getSafeStringValue(inspectionTxt);
+            inspectionObj.InspectionResult = getSafeStringValue(resultTxt);
+            inspectionObj.KateterPlacement = getSafeStringValue(kateterPlacementTxt);
             inspectionObj.InspectionDate = CommonUtils.ConstructDateWIthTime(inspectionDate.Value, inspectionTime.Value);
             string id = service.updateOrCreateIfNeedObject<DdtInspection>(inspectionObj, DdtInspection.NAME, inspectionObj.ObjectId);
             inspectionObj.ObjectId = id;

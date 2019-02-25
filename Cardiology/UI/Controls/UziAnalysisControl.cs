@@ -41,16 +41,16 @@ namespace Cardiology.UI.Controls
             {
     
                 DdtUzi uziObj = (DdtUzi) getObject();
-                uziObj.DsidHospitalitySession = hospitalitySession.ObjectId;
-                uziObj.DsidDoctor = hospitalitySession.DsidCuringDoctor;
+                uziObj.HospitalitySession = hospitalitySession.ObjectId;
+                uziObj.Doctor = hospitalitySession.CuringDoctor;
                 uziObj.Patient = hospitalitySession.Patient;
                 if (parentId != null)
                 {
-                    uziObj.DsidParent = parentId;
+                    uziObj.Parent = parentId;
                 }
                 if (parentType != null)
                 {
-                    uziObj.DssParentType = parentType;
+                    uziObj.ParentType = parentType;
                 }
                 objectId = service.updateOrCreateIfNeedObject<DdtUzi>(uziObj, DdtUzi.NAME, uziObj.ObjectId);
                 isNew = false;
@@ -88,12 +88,12 @@ namespace Cardiology.UI.Controls
             {
                 uziObj = new DdtUzi();
             }
-            uziObj.DsdtAnalysisDate = analysisDate.Value;
-            uziObj.DssEhoKg = ehoKgTxt.Text;
-            uziObj.DssUzdBca = uzdTxt.Text;
-            uziObj.DssCds = cdsTxt.Text;
-            uziObj.DssUziObp = uziObpTxt.Text;
-            uziObj.DssPleursUzi = pleursUziTxt.Text;
+            uziObj.AnalysisDate = analysisDate.Value;
+            uziObj.EhoKg = ehoKgTxt.Text;
+            uziObj.UzdBca = uzdTxt.Text;
+            uziObj.Cds = cdsTxt.Text;
+            uziObj.UziObp = uziObpTxt.Text;
+            uziObj.PleursUzi = pleursUziTxt.Text;
             return uziObj;
         }
 
@@ -102,13 +102,13 @@ namespace Cardiology.UI.Controls
             if (obj != null && obj is DdtUzi)
             {
                 DdtUzi uzi = (DdtUzi)obj;
-                ehoKgTxt.Text = uzi.DssEhoKg;
-                uzdTxt.Text = uzi.DssUzdBca;
-                cdsTxt.Text = uzi.DssCds;
-                uziObpTxt.Text = uzi.DssUziObp;
-                pleursUziTxt.Text = uzi.DssPleursUzi;
-                title.Text = "УЗИ за " + uzi.DsdtAnalysisDate.ToShortDateString();
-                analysisDate.Value = uzi.DsdtAnalysisDate;
+                ehoKgTxt.Text = uzi.EhoKg;
+                uzdTxt.Text = uzi.UzdBca;
+                cdsTxt.Text = uzi.Cds;
+                uziObpTxt.Text = uzi.UziObp;
+                pleursUziTxt.Text = uzi.PleursUzi;
+                title.Text = "УЗИ за " + uzi.AnalysisDate.ToShortDateString();
+                analysisDate.Value = uzi.AnalysisDate;
                 objectId = uzi.ObjectId;
                 isNew = string.IsNullOrEmpty(objectId);
                 hasChanges = false;

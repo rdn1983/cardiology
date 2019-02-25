@@ -24,23 +24,23 @@ namespace Cardiology.UI.Forms
         {
             if (releasePatientInfo != null)
             {
-                releasePatientInfo.DssDisabilityNum = disabilityTxt.Text;
-                releasePatientInfo.DssExtrSixklistNum = oldSickListNumTxt.Text;
-                releasePatientInfo.DssOccupationalHazard = occupationalHazardTxt.Text;
-                releasePatientInfo.DssOurSicklistNum = ourSickListNumTxt.Text;
-                releasePatientInfo.DssProfession = professionTxt.Text;
-                releasePatientInfo.DssYearDisabilities = yearDisabilitiesTxt.Text;
+                releasePatientInfo.DisabilityNum = disabilityTxt.Text;
+                releasePatientInfo.ExtrSicklistNum = oldSickListNumTxt.Text;
+                releasePatientInfo.OccupationalHazard = occupationalHazardTxt.Text;
+                releasePatientInfo.OurSicklistNum = ourSickListNumTxt.Text;
+                releasePatientInfo.Profession = professionTxt.Text;
+                releasePatientInfo.YearDisabilities = yearDisabilitiesTxt.Text;
 
-                releasePatientInfo.DsbDicmissedLess30D = dismissedBtn.Checked;
-                releasePatientInfo.DsbExtrOpenedSicklist = hasSickListBtn.Checked;
-                releasePatientInfo.DsbIsWorking = worksBtn.Checked;
-                releasePatientInfo.DsbPensioneer = pensionerBtn.Checked;
-                releasePatientInfo.DsbSicklistNeed = sickListNeedBtn.Checked;
+                releasePatientInfo.DismissedLess30d = dismissedBtn.Checked;
+                releasePatientInfo.ExtrOpenedSicklist = hasSickListBtn.Checked;
+                releasePatientInfo.IsWorking = worksBtn.Checked;
+                releasePatientInfo.Pensioneer = pensionerBtn.Checked;
+                releasePatientInfo.SicklistNeed = sickListNeedBtn.Checked;
 
-                releasePatientInfo.DsdtExtrEndDate = oldSickListStartDateTxt.Value;
-                releasePatientInfo.DsdtExtrStartDate = oldSickListEndDateTxt.Value;
-                releasePatientInfo.DsdtOurEndDate = ourSickLIstEndDateTxt.Value;
-                releasePatientInfo.DsdtOurStartDate = ourSickListStartDateTxt.Value;
+                releasePatientInfo.ExtrEnddate = oldSickListStartDateTxt.Value;
+                releasePatientInfo.ExtrStartdate = oldSickListEndDateTxt.Value;
+                releasePatientInfo.OurEnddate = ourSickLIstEndDateTxt.Value;
+                releasePatientInfo.OurStartdate = ourSickListStartDateTxt.Value;
                 Close();
             }
         }

@@ -43,16 +43,16 @@ namespace Cardiology.UI.Controls
             {
     
                 DdtUrineAnalysis urine = (DdtUrineAnalysis)getObject();
-                urine.DsidHospitalitySession = hospitalitySession.ObjectId;
-                urine.DsidDoctor = hospitalitySession.DsidCuringDoctor;
+                urine.HospitalitySession = hospitalitySession.ObjectId;
+                urine.Doctor = hospitalitySession.CuringDoctor;
                 urine.Patient = hospitalitySession.Patient;
                 if (parentId != null)
                 {
-                    urine.DsidParent = parentId;
+                    urine.Parent = parentId;
                 }
                 if (parentType != null)
                 {
-                    urine.DssParentType = parentType;
+                    urine.ParentType = parentType;
                 }
                 objectId = service.updateOrCreateIfNeedObject<DdtUrineAnalysis>(urine, DdtUrineAnalysis.NAME, urine.ObjectId);
                 hasChanges = false;
@@ -84,11 +84,11 @@ namespace Cardiology.UI.Controls
             {
                 urine = new DdtUrineAnalysis();
             }
-            urine.DsdtAnalysisDate = dateUrineAnalysis.Value;
-            urine.DssColor = colorTxt.Text;
-            urine.DssLeukocytes = leukocytesTxt.Text;
-            urine.DssErythrocytes = erythrocytesTxt.Text;
-            urine.DssProtein = proteinTxt.Text;
+            urine.AnalysisDate = dateUrineAnalysis.Value;
+            urine.Color = colorTxt.Text;
+            urine.Leukocytes = leukocytesTxt.Text;
+            urine.Erythrocytes = erythrocytesTxt.Text;
+            urine.Protein = proteinTxt.Text;
             return urine;
         }
 
@@ -97,12 +97,12 @@ namespace Cardiology.UI.Controls
             if (obj != null && obj is DdtUrineAnalysis)
             {
                 DdtUrineAnalysis urineAnalysis = (DdtUrineAnalysis)obj;
-                dateUrineAnalysis.Value = urineAnalysis.DsdtAnalysisDate;
-                colorTxt.Text = urineAnalysis.DssColor;
-                erythrocytesTxt.Text = urineAnalysis.DssErythrocytes;
-                leukocytesTxt.Text = urineAnalysis.DssLeukocytes;
-                proteinTxt.Text = urineAnalysis.DssProtein;
-                regularAnalysisBox.Text = "Анализы за " + urineAnalysis.DsdtAnalysisDate.ToShortDateString();
+                dateUrineAnalysis.Value = urineAnalysis.AnalysisDate;
+                colorTxt.Text = urineAnalysis.Color;
+                erythrocytesTxt.Text = urineAnalysis.Erythrocytes;
+                leukocytesTxt.Text = urineAnalysis.Leukocytes;
+                proteinTxt.Text = urineAnalysis.Protein;
+                regularAnalysisBox.Text = "Анализы за " + urineAnalysis.AnalysisDate.ToShortDateString();
                 objectId = urineAnalysis.ObjectId;
                 isNew = string.IsNullOrEmpty(urineAnalysis.ObjectId);
                 hasChanges = false;

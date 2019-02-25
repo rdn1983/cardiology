@@ -62,22 +62,22 @@ namespace Cardiology.Commons
             StringBuilder specBld = new StringBuilder();
             foreach (DdtSpecialistConclusion obj in lspecobj)
             {
-                specBld.Append(obj.DsdtAnalysisDate.ToShortDateString());
-                if (!string.IsNullOrEmpty(obj.DssEndocrinologist))
+                specBld.Append(obj.AnalysisDate.ToShortDateString());
+                if (!string.IsNullOrEmpty(obj.Endocrinologist))
                 {
-                    specBld.Append("Эндокринолог ").Append(obj.DssEndocrinologist).Append('\n');
+                    specBld.Append("Эндокринолог ").Append(obj.Endocrinologist).Append('\n');
                 }
-                if (!string.IsNullOrEmpty(obj.DssNeurolog))
+                if (!string.IsNullOrEmpty(obj.Neurolog))
                 {
-                    specBld.Append("Невролог ").Append(obj.DssNeurolog).Append('\n');
+                    specBld.Append("Невролог ").Append(obj.Neurolog).Append('\n');
                 }
-                if (!string.IsNullOrEmpty(obj.DssNeuroSurgeon))
+                if (!string.IsNullOrEmpty(obj.NeuroSurgeon))
                 {
-                    specBld.Append("Нейрохирург ").Append(obj.DssNeuroSurgeon).Append('\n');
+                    specBld.Append("Нейрохирург ").Append(obj.NeuroSurgeon).Append('\n');
                 }
-                if (!string.IsNullOrEmpty(obj.DssSurgeon))
+                if (!string.IsNullOrEmpty(obj.Surgeon))
                 {
-                    specBld.Append("Хирург ").Append(obj.DssSurgeon).Append('\n');
+                    specBld.Append("Хирург ").Append(obj.Surgeon).Append('\n');
                 }
 
                 specBld.Append('\n');
@@ -169,14 +169,14 @@ namespace Cardiology.Commons
             StringBuilder bloodBld = new StringBuilder();
             foreach (DdtBloodAnalysis drop in bloods)
             {
-                bloodBld.Append(drop.DsdtAnalysisDate.ToShortDateString()).Append(" ");
-                bloodBld.Append("креатинин").Append(" ").Append(drop.DsdCreatinine).Append(" ");
-                bloodBld.Append("АЛТ").Append(" ").Append(drop.DsdAlt).Append(" ");
-                bloodBld.Append("АСТ").Append(" ").Append(drop.DsdAst).Append(" ");
-                bloodBld.Append("КФК").Append(" ").Append(drop.DsdKfk).Append(" ");
-                bloodBld.Append("КФК МВ").Append(" ").Append(drop.DsdKfkMv).Append(" ");
-                bloodBld.Append("гемоглобин").Append(" ").Append(drop.DsdProtein).Append(" ");
-                bloodBld.Append("лейкоциты").Append(" ").Append(drop.DsdLeucocytes).Append(" ");
+                bloodBld.Append(drop.AnalysisDate.ToShortDateString()).Append(" ");
+                bloodBld.Append("креатинин").Append(" ").Append(drop.Creatinine).Append(" ");
+                bloodBld.Append("АЛТ").Append(" ").Append(drop.Alt).Append(" ");
+                bloodBld.Append("АСТ").Append(" ").Append(drop.Ast).Append(" ");
+                bloodBld.Append("КФК").Append(" ").Append(drop.Kfk).Append(" ");
+                bloodBld.Append("КФК МВ").Append(" ").Append(drop.KfkMv).Append(" ");
+                bloodBld.Append("гемоглобин").Append(" ").Append(drop.Protein).Append(" ");
+                bloodBld.Append("лейкоциты").Append(" ").Append(drop.Leucocytes).Append(" ");
                 bloodBld.Append('\n');
             }
             values.Add("{on_blood}", bloods.Count > 0 ? "В анализах крови:" : "");

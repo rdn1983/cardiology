@@ -40,16 +40,16 @@ namespace Cardiology.UI.Controls
             {
     
                 DdtSpecialistConclusion specConslusion = (DdtSpecialistConclusion) getObject();
-                specConslusion.DsidHospitalitySession = hospitalitySession.ObjectId;
-                specConslusion.DsidDoctor = hospitalitySession.DsidCuringDoctor;
+                specConslusion.HospitalitySession = hospitalitySession.ObjectId;
+                specConslusion.Doctor = hospitalitySession.CuringDoctor;
                 specConslusion.Patient = hospitalitySession.Patient;
                 if (parentId != null)
                 {
-                    specConslusion.DsidParent = parentId;
+                    specConslusion.Parent = parentId;
                 }
                 if (parentType != null)
                 {
-                    specConslusion.DssParentType = parentType;
+                    specConslusion.ParentType = parentType;
                 }
                 objectId = service.updateOrCreateIfNeedObject<DdtSpecialistConclusion>(specConslusion, DdtSpecialistConclusion.NAME, specConslusion.ObjectId);
                 isNew = false;
@@ -81,11 +81,11 @@ namespace Cardiology.UI.Controls
             {
                 specConslusion = new DdtSpecialistConclusion();
             }
-            specConslusion.DssNeurolog = neurologTxt.Text;
-            specConslusion.DssSurgeon = surgeonTxt.Text;
-            specConslusion.DssNeuroSurgeon = neuroSurgeonTxt.Text;
-            specConslusion.DssEndocrinologist = endocrinologistTx.Text;
-            specConslusion.DsdtAnalysisDate = analysisDate.Value;
+            specConslusion.Neurolog = neurologTxt.Text;
+            specConslusion.Surgeon = surgeonTxt.Text;
+            specConslusion.NeuroSurgeon = neuroSurgeonTxt.Text;
+            specConslusion.Endocrinologist = endocrinologistTx.Text;
+            specConslusion.AnalysisDate = analysisDate.Value;
             return specConslusion;
         }
 
@@ -94,12 +94,12 @@ namespace Cardiology.UI.Controls
             if (obj != null && obj is DdtSpecialistConclusion)
             {
                 DdtSpecialistConclusion specConclusion = (DdtSpecialistConclusion)obj;
-                neurologTxt.Text = specConclusion.DssNeurolog;
-                surgeonTxt.Text = specConclusion.DssSurgeon;
-                neuroSurgeonTxt.Text = specConclusion.DssNeuroSurgeon;
-                endocrinologistTx.Text = specConclusion.DssEndocrinologist;
-                title.Text = "Заключения специалистов за " + specConclusion.DsdtAnalysisDate.ToShortDateString();
-                analysisDate.Value = specConclusion.DsdtAnalysisDate;
+                neurologTxt.Text = specConclusion.Neurolog;
+                surgeonTxt.Text = specConclusion.Surgeon;
+                neuroSurgeonTxt.Text = specConclusion.NeuroSurgeon;
+                endocrinologistTx.Text = specConclusion.Endocrinologist;
+                title.Text = "Заключения специалистов за " + specConclusion.AnalysisDate.ToShortDateString();
+                analysisDate.Value = specConclusion.AnalysisDate;
                 objectId = specConclusion.ObjectId;
                 isNew = string.IsNullOrEmpty(objectId);
                 hasChanges = false;

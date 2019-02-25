@@ -5,6 +5,7 @@ using System.IO;
 using Cardiology.Data;
 using Cardiology.Data.Model2;
 using Cardiology.Data.PostgreSQL;
+using NLog;
 
 namespace Cardiology.Commons
 {
@@ -218,6 +219,8 @@ namespace Cardiology.Commons
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.StackTrace);
+
                 if (wordDocument != null)
                 {
                     wordDocument.Close();

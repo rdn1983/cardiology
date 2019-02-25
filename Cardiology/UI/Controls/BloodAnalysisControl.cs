@@ -73,8 +73,8 @@ namespace Cardiology.UI.Controls
                 bloodObj.HospitalitySession = hospitalitySession.ObjectId;
                 bloodObj.Doctor = hospitalitySession.CuringDoctor;
                 bloodObj.Patient = hospitalitySession.Patient;
-                bloodObj.ParentType = parentType == null ? bloodObj.ParentType : parentType;
-                bloodObj.Parent = parentId == null ? bloodObj.Parent : parentId;
+                bloodObj.ParentType = parentType ?? bloodObj.ParentType;
+                bloodObj.Parent = parentId ?? bloodObj.Parent;
                 objectId = service.updateOrCreateIfNeedObject<DdtBloodAnalysis>(bloodObj, DdtBloodAnalysis.NAME, bloodObj.ObjectId);
                 hasChanges = false;
                 isNew = false;

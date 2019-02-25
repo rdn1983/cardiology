@@ -27,21 +27,21 @@ namespace Cardiology.Commons
                 values = new Dictionary<string, string>();
             }
             DdtJournal journal = service.queryObjectById<DdtJournal>(objectId);
-            DdvDoctor doc = service.queryObjectById<DdvDoctor>(journal.DsidDoctor);
+            DdvDoctor doc = service.queryObjectById<DdvDoctor>(journal.Doctor);
             values.Add("{doctor.initials}", doc == null ? "" : doc.ShortName);
 
             List<string> partsPaths = new List<string>();
-            if (journal.DsiJournalType == (int)DdtJournalDsiType.AFTER_KAG)
+            if (journal.JournalType == (int)DdtJournalDsiType.AFTER_KAG)
             {
                 partsPaths.AddRange(collectKagJournalPaths(service, journal, doc, values));
             }
             else
             {
-                values.Add("{time}", journal.DsdtAdmissionDate.ToShortTimeString());
+                values.Add("{time}", journal.AdmissionDate.ToShortTimeString());
                 values.Add("{title}", " ");
-                values.Add("{complaints}", journal.DssComplaints);
-                values.Add("{journal}", journal.DssJournal);
-                values.Add("{monitor}", journal.DssMonitor);
+                values.Add("{complaints}", journal.Complaints);
+                values.Add("{journal}", journal.Journal);
+                values.Add("{monitor}", journal.Monitor);
                 values.Add("{kag_diagnosis}", " ");
                 values.Add("{diagnosis}", " ");
                 string mainPart = TemplatesUtils.fillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + TEMPLATE_FILE_NAME, values);

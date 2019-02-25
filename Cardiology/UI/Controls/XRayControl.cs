@@ -80,11 +80,11 @@ namespace Cardiology.UI.Controls
             {
                 xRay = new DdtXRay();
             }
-            xRay.DssChestXray = chestXRayTxt.Text;
-            xRay.DssControlRadiography = controlRadiographyTxt.Text;
-            xRay.DssKt = ktTxt.Text;
-            xRay.DssMrt = mrtTxt.Text;
-            xRay.DsdtAnalysisDate = CommonUtils.ConstructDateWIthTime(ktDateTxt.Value, ktTimeTxt.Value);
+            xRay.ChestXray = chestXRayTxt.Text;
+            xRay.ControlRadiography = controlRadiographyTxt.Text;
+            xRay.Kt = ktTxt.Text;
+            xRay.Mrt = mrtTxt.Text;
+            xRay.AnalysisDate = CommonUtils.ConstructDateWIthTime(ktDateTxt.Value, ktTimeTxt.Value);
             return xRay;
         }
 
@@ -93,12 +93,12 @@ namespace Cardiology.UI.Controls
             if (obj != null && obj is DdtXRay)
             {
                 DdtXRay xRay = (DdtXRay) obj;
-                ktDateTxt.Value = xRay.DsdtAnalysisDate;
-                ktTimeTxt.Value = xRay.DsdtAnalysisDate;
-                chestXRayTxt.Text = xRay.DssChestXray;
-                controlRadiographyTxt.Text = xRay.DssControlRadiography;
-                ktTxt.Text = xRay.DssKt;
-                mrtTxt.Text = xRay.DssMrt;
+                ktDateTxt.Value = xRay.AnalysisDate;
+                ktTimeTxt.Value = xRay.AnalysisDate;
+                chestXRayTxt.Text = xRay.ChestXray;
+                controlRadiographyTxt.Text = xRay.ControlRadiography;
+                ktTxt.Text = xRay.Kt;
+                mrtTxt.Text = xRay.Mrt;
                 objectId = xRay.ObjectId;
                 isNew = string.IsNullOrEmpty(objectId);
                 hasChanges = false;

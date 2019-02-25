@@ -12,10 +12,10 @@ namespace Cardiology.UI.Forms
 
         private const string KATETER_MANIPULATION_TITLE = "Катетеризация подключичной, яремной вены пациента:";
 
-        private DdtPatient patient;
+        private DdvPatient patient;
         private int manipulationType;
 
-        public ProtocolsManipulation(DdtPatient patient, int manipulationType)
+        public ProtocolsManipulation(DdvPatient patient, int manipulationType)
         {
             this.patient = patient;
             this.manipulationType = manipulationType;
@@ -42,7 +42,7 @@ namespace Cardiology.UI.Forms
             switch (manipulationType)
             {
                 case KATETER_MANIPULATION:
-                    titleLbl.Text = KATETER_MANIPULATION_TITLE + patient.DssFullName;
+                    titleLbl.Text = KATETER_MANIPULATION_TITLE + patient.FullName;
                     veinsKateterInfo.Visible = true;
                     break;
             }

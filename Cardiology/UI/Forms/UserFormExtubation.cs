@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 using Cardiology.Commons;
+using Cardiology.Data;
 
 namespace Cardiology.UI.Forms
 {
     public partial class UserFormExtubation : Form
     {
-        public UserFormExtubation()
+        private readonly IDbDataService service;
+        public UserFormExtubation(IDbDataService service)
         {
+            this.service = service;
             InitializeComponent();
         }
 

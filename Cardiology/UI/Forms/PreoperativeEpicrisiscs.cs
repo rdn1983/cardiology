@@ -28,7 +28,7 @@ namespace Cardiology.UI.Forms
             if (!string.IsNullOrEmpty(objectId))
             {
     
-                DdtPatient patient = service.queryObjectById<DdtPatient>(hospitalitySession.Patient);
+                DdvPatient patient = service.queryObjectById<DdvPatient>(hospitalitySession.Patient);
                 if (patient != null)
                 {
                     Text += " " + patient.ShortName;

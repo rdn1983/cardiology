@@ -77,10 +77,10 @@ namespace Cardiology.UI.Forms
 
                 ComboBox cbApp = (ComboBox)CommonUtils.FindControl(doctorsContainer, "appointmentTxt" + i);
                 cbApp.SelectedIndexChanged += new System.EventHandler(this.appointmentTxt0_SelectedIndexChanged);
-                DmGroup gr = service.queryObjectByAttrCond<DmGroup>(DmGroup.NAME, "dss_name", members[i].DssGroupName, true);
+                DmGroup gr = service.queryObjectByAttrCond<DmGroup>(DmGroup.NAME, "dss_name", members[i].GroupName, true);
                 if (gr != null)
                 {
-                    cbApp.SelectedIndex = cbApp.FindStringExact(gr.DssDescription);
+                    cbApp.SelectedIndex = cbApp.FindStringExact(gr.Description);
                     ComboBox cb = (ComboBox)CommonUtils.FindControl(doctorsContainer, "doctorWho" + i);
                     cb.SelectedIndex = cb.FindStringExact(members[i].DssDoctorName);
                 }
@@ -198,7 +198,7 @@ namespace Cardiology.UI.Forms
                     member.DsidConsilium = consiliumId;
                 }
                 DmGroup group = getSafeObjectValueUni<DmGroup>(appointment, new getValue<DmGroup>((ctrl) => ((DmGroup)((ComboBox)ctrl).SelectedItem)));
-                member.DssGroupName = group.DssName;
+                member.DssGroupName = group.Name;
                 Control docCtrl = CommonUtils.FindControl(doctorsContainer, "doctorWho" + indx);
                 member.DssDoctorName = getSafeStringValue(docCtrl);
                 objectIdCtrl.Text = service.updateOrCreateIfNeedObject<DdtConsiliumMember>(member, DdtConsiliumMember.NAME, member.ObjectId);
@@ -246,8 +246,8 @@ namespace Cardiology.UI.Forms
                 int indxPlace = CommonUtils.GetFirstDigitIndex(ctrlName);
                 int index = Convert.ToInt32(String.Intern(ctrlName.Substring(indxPlace)));
                 ComboBox c = (ComboBox)CommonUtils.FindControl(doctorsContainer, "doctorWho" + index);
-                CommonUtils.InitDoctorsByGroupComboboxValues(new DataService(), c, group.DssName);
-                if ("duty_cardioreanim".Equals(group.DssName))
+                CommonUtils.InitDoctorsByGroupComboboxValues(new DataService(), c, group.Name);
+                if ("duty_cardioreanim".Equals(group.Name))
                 {
                     c.SelectedIndex = c.FindStringExact(curingDoc?.ShortName);
                 }

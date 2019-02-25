@@ -114,8 +114,7 @@ namespace Cardiology.Commons
             Control result = null;
             if (sourceCtrl.GetType() == typeof(Label))
             {
-                result = new Label();
-                result.Visible = sourceCtrl.Visible;
+                result = new Label {Visible = sourceCtrl.Visible};
                 if (sourceCtrl.Visible)
                 {
                     result.Text = sourceCtrl.Text;
@@ -123,14 +122,11 @@ namespace Cardiology.Commons
             }
             if (sourceCtrl.GetType() == typeof(TextBox))
             {
-                result = new TextBox();
-                result.Visible = sourceCtrl.Visible;
+                result = new TextBox {Visible = sourceCtrl.Visible};
             }
             if (sourceCtrl.GetType() == typeof(CheckBox))
             {
-                result = new CheckBox();
-                result.Visible = sourceCtrl.Visible;
-                result.Text = sourceCtrl.Text;
+                result = new CheckBox {Visible = sourceCtrl.Visible, Text = sourceCtrl.Text};
             }
             if (sourceCtrl.GetType() == typeof(Panel))
             {

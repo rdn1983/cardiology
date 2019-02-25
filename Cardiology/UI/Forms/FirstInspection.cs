@@ -305,7 +305,7 @@ namespace Cardiology.UI.Forms
                     if (string.IsNullOrEmpty(med.ObjectId) || string.IsNullOrEmpty(med.Doctor))
                     {
                         med.ParentId = anamnesis.ObjectId;
-                        med.Doctor = hospitalSession.DsidCuringDoctor;
+                        med.Doctor = hospitalSession.CuringDoctor;
                         med.Patient = hospitalSession.Patient;
                         med.HospitalitySession = hospitalSession.ObjectId;
                         med.IssuingDate = DateTime.Now;

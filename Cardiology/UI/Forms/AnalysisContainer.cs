@@ -157,7 +157,7 @@ namespace Cardiology.UI.Forms
                 this.Text = "Онкомаркеры";
             }
 
-            DdtPatient patient = service.queryObjectById<DdtPatient>(hospitalitySession.Patient);
+            DdvPatient patient = service.queryObjectById<DdvPatient>(hospitalitySession.Patient);
             if (patient != null)
             {
                 this.Text += " " + patient.ShortName;

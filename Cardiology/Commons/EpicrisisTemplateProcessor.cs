@@ -46,19 +46,19 @@ namespace Cardiology.Commons
             values.Add("{anamnesis}", anamnesis == null ? " " : anamnesis.AnamnesisMorbi);
 
             StringBuilder inspectonBld = new StringBuilder();
-            inspectonBld.Append(compileValue("St.Presens", anamnesis?.StPresens));
-            inspectonBld.Append(compileValue("Органы дыхания", anamnesis?.RespiratorySystem));
-            inspectonBld.Append(compileValue("Сердечно-сосудистая система", anamnesis?.CardioVascular));
-            inspectonBld.Append(compileValue("Органы пищеварения", anamnesis?.DigestiveSystem));
+            inspectonBld.Append(CompileValue("St.Presens", anamnesis?.StPresens));
+            inspectonBld.Append(CompileValue("Органы дыхания", anamnesis?.RespiratorySystem));
+            inspectonBld.Append(CompileValue("Сердечно-сосудистая система", anamnesis?.CardiovascularSystem));
+            inspectonBld.Append(CompileValue("Органы пищеварения", anamnesis?.DigestiveSystem));
             values.Add("{inspection}", anamnesis == null ? " " : inspectonBld.ToString());
 
             DdtSerology serology = service.queryObjectByAttrCond<DdtSerology>(DdtSerology.NAME, "dsid_hospitality_session", hospital.ObjectId, true);
             StringBuilder serologyBld = new StringBuilder();
             if (serology != null)
             {
-                serologyBld.Append(compileValue("Группа крови", serology.BloodType));
-                serologyBld.Append(compileValue("Резус-фактор", serology.RhesusFactor));
-                serologyBld.Append(compileValue("RW", serology.Rw));
+                serologyBld.Append(CompileValue("Группа крови", serology.BloodType));
+                serologyBld.Append(CompileValue("Резус-фактор", serology.RhesusFactor));
+                serologyBld.Append(CompileValue("RW", serology.Rw));
             }
             values.Add("{serology}", serology == null ? " " : serologyBld.ToString());
 
@@ -72,31 +72,31 @@ namespace Cardiology.Commons
             StringBuilder bloodStr = new StringBuilder();
             if (blood != null)
             {
-                bloodStr.Append(compileValue("АЛТ", blood.Alt));
-                bloodStr.Append(compileValue("Креатинин", blood.Creatinine));
-                bloodStr.Append(compileValue("АСТ", blood.Ast));
-                bloodStr.Append(compileValue("Холестерин", blood.Cholesterol));
-                bloodStr.Append(compileValue("Гемоглобин", blood.Hemoglobin));
-                bloodStr.Append(compileValue("Лейкоциты", blood.Leucocytes));
-                bloodStr.Append(compileValue("Амилаза", blood.Amylase));
-                bloodStr.Append(compileValue("Бил. Общ.", blood.Bil));
-                bloodStr.Append(compileValue("Хлор", blood.Chlorine));
-                bloodStr.Append(compileValue("Железо", blood.Iron));
-                bloodStr.Append(compileValue("КФК", blood.Kfk));
-                bloodStr.Append(compileValue("КФК-МВ", blood.KfkMv));
-                bloodStr.Append(compileValue("Тромбоциты", blood.Platelets));
-                bloodStr.Append(compileValue("Калий", blood.Potassium));
-                bloodStr.Append(compileValue("Белок", blood.Protein));
-                bloodStr.Append(compileValue("ЩФ", blood.Schf));
-                bloodStr.Append(compileValue("Натрий", blood.Sodium));
-                bloodStr.Append(compileValue("СРБ", blood.Srp));
+                bloodStr.Append(CompileValue("АЛТ", blood.Alt));
+                bloodStr.Append(CompileValue("Креатинин", blood.Creatinine));
+                bloodStr.Append(CompileValue("АСТ", blood.Ast));
+                bloodStr.Append(CompileValue("Холестерин", blood.Cholesterol));
+                bloodStr.Append(CompileValue("Гемоглобин", blood.Hemoglobin));
+                bloodStr.Append(CompileValue("Лейкоциты", blood.Leucocytes));
+                bloodStr.Append(CompileValue("Амилаза", blood.Amylase));
+                bloodStr.Append(CompileValue("Бил. Общ.", blood.Bil));
+                bloodStr.Append(CompileValue("Хлор", blood.Chlorine));
+                bloodStr.Append(CompileValue("Железо", blood.Iron));
+                bloodStr.Append(CompileValue("КФК", blood.Kfk));
+                bloodStr.Append(CompileValue("КФК-МВ", blood.KfkMv));
+                bloodStr.Append(CompileValue("Тромбоциты", blood.Platelets));
+                bloodStr.Append(CompileValue("Калий", blood.Potassium));
+                bloodStr.Append(CompileValue("Белок", blood.Protein));
+                bloodStr.Append(CompileValue("ЩФ", blood.Schf));
+                bloodStr.Append(CompileValue("Натрий", blood.Sodium));
+                bloodStr.Append(CompileValue("СРБ", blood.Srp));
             }
             if (serology != null)
             {
-                bloodStr.Append(compileValue("KELL-ag", serology.KellAg));
-                bloodStr.Append(compileValue("HBs ag", serology.HbsAg));
-                bloodStr.Append(compileValue("Anti HCV крови", serology.AntiHcv));
-                bloodStr.Append(compileValue("HIV", serology.Hiv));
+                bloodStr.Append(CompileValue("KELL-ag", serology.KellAg));
+                bloodStr.Append(CompileValue("HBs ag", serology.HbsAg));
+                bloodStr.Append(CompileValue("Anti HCV крови", serology.AntiHcv));
+                bloodStr.Append(CompileValue("HIV", serology.Hiv));
             }
                 values.Add("{analysis.blood}", blood == null ? " " : "Анализы крови:" + bloodStr);
             values.Add("{analysis.urine}", " ");
@@ -104,11 +104,11 @@ namespace Cardiology.Commons
             StringBuilder uziStr = new StringBuilder();
             if (uzi != null)
             {
-                uziStr.Append(compileValue("ЦДС", uzi.Cds));
-                uziStr.Append(compileValue(" ЭХО КГ", uzi.EhoKg));
-                uziStr.Append(compileValue(" УЗИ Плевр", uzi.PleursUzi));
-                uziStr.Append(compileValue(" УЗД БЦА", uzi.UzdBca));
-                uziStr.Append(compileValue(" УЗи ОБП", uzi.UziObp));
+                uziStr.Append(CompileValue("ЦДС", uzi.Cds));
+                uziStr.Append(CompileValue(" ЭХО КГ", uzi.EhoKg));
+                uziStr.Append(CompileValue(" УЗИ Плевр", uzi.PleursUzi));
+                uziStr.Append(CompileValue(" УЗД БЦА", uzi.UzdBca));
+                uziStr.Append(CompileValue(" УЗи ОБП", uzi.UziObp));
             }
             values.Add("{analysis.uzi}", uzi == null ? " " : uziStr.ToString());
 
@@ -135,7 +135,7 @@ namespace Cardiology.Commons
             return TemplatesUtils.fillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + getTemplateName(obj), values);
         }
 
-        private string compileValue(string title, string value)
+        private string CompileValue(string title, string value)
         {
             if (!string.IsNullOrEmpty(value))
             {

@@ -30,9 +30,9 @@ namespace Cardiology.Commons
             DdtConsilium obj = service.queryObjectById<DdtConsilium>(objectId);
             values.Add(@"{consilium.date}", DateTime.Now.ToString("dd.MM.yyyy"));
             values.Add(@"{consilium.time}", DateTime.Now.ToString("HH:mm"));
-            values.Add(@"{consilium.members}", getMembersInString(service, objectId));
+            values.Add(@"{consilium.members}", GetMembersInString(service, objectId));
             values.Add(@"{admin}", obj?.DutyAdminName);
-            values.Add(@"{doctor.who}", getDoctorInString(service, obj.Doctor));
+            values.Add(@"{doctor.who}", GetDoctorInString(service, obj.Doctor));
             values.Add(@"{consilium.goal}", obj.Goal);
 
             DdvPatient patient = service.queryObjectById<DdtPatient>(obj.Patient);
@@ -42,19 +42,19 @@ namespace Cardiology.Commons
             values.Add(@"{consilium.decision}", obj.Decision);
             values.Add(@"{journal}", obj.Dynamics);
 
-            putEkgData(values, service, hospitalitySession);
-            putBloodData(values, service, hospitalitySession);
+            PutEkgData(values, service, hospitalitySession);
+            PutBloodData(values, service, hospitalitySession);
 
             return TemplatesUtils.fillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + TemplateFileName, values);
         }
 
-        private string getDoctorInString(IDbDataService service, String doctorId)
+        private string GetDoctorInString(IDbDataService service, String doctorId)
         {
             DdvDoctor doc = service.queryObjectById<DdvDoctor>(doctorId);
             return doc.ShortName;
         }
 
-        private string getMembersInString(IDbDataService service, string consiliumId)
+        private string GetMembersInString(IDbDataService service, string consiliumId)
         {
             List<DdtConsiliumMember> members = service.queryObjectsCollection<DdtConsiliumMember>(@"SELECT * FROM " + DdtConsiliumMember.NAME +
                 " WHERE dsid_consilium ='" + consiliumId + "'");
@@ -83,7 +83,7 @@ namespace Cardiology.Commons
             return str.ToString();
         }
 
-        private void putBloodData(Dictionary<string, string> values, IDbDataService service, string objId)
+        private void PutBloodData(Dictionary<string, string> values, IDbDataService service, string objId)
         {
             DdtBloodAnalysis bloods = service.queryObject<DdtBloodAnalysis>(@"SELECT * FROM " + DdtBloodAnalysis.NAME +
                  " WHERE dsid_hospitality_session='" + objId + "' order by r_creation_date desc");
@@ -117,7 +117,7 @@ namespace Cardiology.Commons
             values.Add("{analysis.blood}", bloodBld.ToString());
         }
 
-        private void putEkgData(Dictionary<string, string> values, IDbDataService service, string objId)
+        private void PutEkgData(Dictionary<string, string> values, IDbDataService service, string objId)
         {
             DdtEkg ekg = service.queryObject<DdtEkg>(@"Select * from " + DdtEkg.NAME +
                 " WHERE dsid_hospitality_session='" + objId + "' order by r_creation_date desc");

@@ -98,9 +98,9 @@ namespace Cardiology.Commons
                 if (kag != null)
                 {
                     bld.Append("Пациент в экстренном порядке проведена КАГ. Коронарография от ")
-                        .Append(kag.DsdtAnalysisDate.ToShortDateString())
+                        .Append(kag.AnalysisDate.ToShortDateString())
                         .Append(":")
-                        .Append(kag.DssKagAction);
+                        .Append(kag.KagAction);
                 }
             }
             values.Add("{kag}", bld.ToString());
@@ -112,7 +112,7 @@ namespace Cardiology.Commons
             StringBuilder holterBld = new StringBuilder();
             foreach (DdtHolter obj in lholterobj)
             {
-                holterBld.Append(obj.DsdtAnalysisDate.ToShortDateString()).Append(" ").Append(obj.DssHolter).Append('\n');
+                holterBld.Append(obj.AnalysisDate.ToShortDateString()).Append(" ").Append(obj.Holter).Append('\n');
             }
             values.Add("{on_holter}", lholterobj.Count > 0 ? "Холтер:" : "");
             values.Add("{holter}", holterBld.ToString() + (lholterobj.Count > 0 ? "\n" : ""));
@@ -124,7 +124,7 @@ namespace Cardiology.Commons
             StringBuilder ekgBld = new StringBuilder();
             foreach (DdtEkg ekk in ekg)
             {
-                ekgBld.Append(ekk.DsdtAnalysisDate.ToShortDateString()).Append(" ").Append(ekk.DssEkg).Append('\n');
+                ekgBld.Append(ekk.AnalysisDate.ToShortDateString()).Append(" ").Append(ekk.Ekg).Append('\n');
             }
             values.Add("{on_ekg}", ekg.Count > 0 ? "ЭКГ:" : "");
             values.Add("{ekg}", ekgBld.ToString() + (ekg.Count > 0 ? "\n" : ""));
@@ -136,26 +136,26 @@ namespace Cardiology.Commons
             StringBuilder uziBld = new StringBuilder();
             foreach (DdtUzi uzObj in uzies)
             {
-                uziBld.Append(uzObj.DsdtAnalysisDate.ToShortDateString()).Append(" ");
-                if (!string.IsNullOrEmpty(uzObj.DssCds))
+                uziBld.Append(uzObj.AnalysisDate.ToShortDateString()).Append(" ");
+                if (!string.IsNullOrEmpty(uzObj.Cds))
                 {
-                    uziBld.Append("ЧДС ").Append(uzObj.DssCds).Append('\n');
+                    uziBld.Append("ЧДС ").Append(uzObj.Cds).Append('\n');
                 }
-                if (!string.IsNullOrEmpty(uzObj.DssEhoKg))
+                if (!string.IsNullOrEmpty(uzObj.EhoKg))
                 {
-                    uziBld.Append("ЭХО КГ ").Append(uzObj.DssEhoKg).Append('\n');
+                    uziBld.Append("ЭХО КГ ").Append(uzObj.EhoKg).Append('\n');
                 }
-                if (!string.IsNullOrEmpty(uzObj.DssPleursUzi))
+                if (!string.IsNullOrEmpty(uzObj.PleursUzi))
                 {
-                    uziBld.Append("УЗИ плевр ").Append(uzObj.DssPleursUzi).Append('\n');
+                    uziBld.Append("УЗИ плевр ").Append(uzObj.PleursUzi).Append('\n');
                 }
-                if (!string.IsNullOrEmpty(uzObj.DssUzdBca))
+                if (!string.IsNullOrEmpty(uzObj.UzdBca))
                 {
-                    uziBld.Append("УЗи БЦА ").Append(uzObj.DssUzdBca).Append('\n');
+                    uziBld.Append("УЗи БЦА ").Append(uzObj.UzdBca).Append('\n');
                 }
-                if (!string.IsNullOrEmpty(uzObj.DssUziObp))
+                if (!string.IsNullOrEmpty(uzObj.UziObp))
                 {
-                    uziBld.Append("УЗИ ОБП ").Append(uzObj.DssUziObp).Append('\n');
+                    uziBld.Append("УЗИ ОБП ").Append(uzObj.UziObp).Append('\n');
                 }
             }
             values.Add("{on_uzi}", uzies.Count > 0 ? "На УЗИ:" : "");

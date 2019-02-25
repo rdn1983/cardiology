@@ -28,30 +28,30 @@ namespace Cardiology.UI.Forms
             DdtAlcoProtocol protocol = service.queryObject<DdtAlcoProtocol>(@"SELECT * FROM ddt_alco_protocol where dsid_hospitality_session='" + hospitalitySession.ObjectId + "'");
             if (protocol != null)
             {
-                behaviorTxt.Text = protocol.DssBehavior;
-                bioTxt.Text = protocol.DssBio;
-                breatheTxt.Text = protocol.DssBreathe;
-                conclusionTxt.Text = protocol.DssConclusion;
-                docsTxt.Text = protocol.DssDocs;
-                drunkTxt.Text = protocol.DssDrunk;
-                eyesTxt.Text = protocol.DssEyes;
-                illnessTxt.Text = protocol.DssIllness;
-                lookTxt.Text = protocol.DssLook;
-                mimicsTxt.Text = protocol.DssMimics;
-                motionTxt.Text = protocol.DssMotions;
-                nistagmTxt.Text = protocol.DssNistagm;
-                orientationTxt.Text = protocol.DssOrientation;
-                pressureTxt.Text = protocol.DssPressure;
-                priborTxt.Text = protocol.DssPribor;
-                pulseTxt.Text = protocol.DssPulse;
-                skinTxt.Text = protocol.DssSkin;
-                smellTxt.Text = protocol.DssSmell;
-                speechTxt.Text = protocol.DssSpeech;
-                touchNoseTxt.Text = protocol.DssTouchNose;
-                trembleTxt.Text = protocol.DssTremble;
-                trubTxt.Text = protocol.DssTrub;
-                walkTxt.Text = protocol.DssWalk;
-                causeTxt.Text = protocol.DssCause;
+                behaviorTxt.Text = protocol.Behavior;
+                bioTxt.Text = protocol.Bio;
+                breatheTxt.Text = protocol.Breathe;
+                conclusionTxt.Text = protocol.Conclusion;
+                docsTxt.Text = protocol.Docs;
+                drunkTxt.Text = protocol.Drunk;
+                eyesTxt.Text = protocol.Eyes;
+                illnessTxt.Text = protocol.Illness;
+                lookTxt.Text = protocol.Look;
+                mimicsTxt.Text = protocol.Mimics;
+                motionTxt.Text = protocol.Motions;
+                nistagmTxt.Text = protocol.Nistagm;
+                orientationTxt.Text = protocol.Orientation;
+                pressureTxt.Text = protocol.Pressure;
+                priborTxt.Text = protocol.Pribor;
+                pulseTxt.Text = protocol.Pulse;
+                skinTxt.Text = protocol.Skin;
+                smellTxt.Text = protocol.Smell;
+                speechTxt.Text = protocol.Speech;
+                touchNoseTxt.Text = protocol.TouchNose;
+                trembleTxt.Text = protocol.Tremble;
+                trubTxt.Text = protocol.Trub;
+                walkTxt.Text = protocol.Walk;
+                causeTxt.Text = protocol.Cause;
             }
         }
 
@@ -62,34 +62,34 @@ namespace Cardiology.UI.Forms
             if (protocol == null)
             {
                 protocol = new DdtAlcoProtocol();
-                protocol.DsidHospitalitySession = hospitalitySession.ObjectId;
-                protocol.DsbTemplate = false;
+                protocol.HospitalitySession = hospitalitySession.ObjectId;
+                protocol.Template = false;
             }
 
-            protocol.DssBehavior = behaviorTxt.Text;
-            protocol.DssBio = bioTxt.Text;
-            protocol.DssBreathe = breatheTxt.Text;
-            protocol.DssConclusion = conclusionTxt.Text;
-            protocol.DssDocs = docsTxt.Text;
-            protocol.DssDrunk = drunkTxt.Text;
-            protocol.DssEyes = eyesTxt.Text;
-            protocol.DssIllness = illnessTxt.Text;
-            protocol.DssLook = lookTxt.Text;
-            protocol.DssMimics = mimicsTxt.Text;
-            protocol.DssMotions = motionTxt.Text;
-            protocol.DssNistagm = nistagmTxt.Text;
-            protocol.DssOrientation = orientationTxt.Text;
-            protocol.DssPressure = pressureTxt.Text;
-            protocol.DssPribor = priborTxt.Text;
-            protocol.DssPulse = pulseTxt.Text;
-            protocol.DssSkin = skinTxt.Text;
-            protocol.DssSmell = smellTxt.Text;
-            protocol.DssSpeech = speechTxt.Text;
-            protocol.DssTouchNose = touchNoseTxt.Text;
-            protocol.DssTremble = trembleTxt.Text;
-            protocol.DssTrub = trubTxt.Text;
-            protocol.DssWalk = walkTxt.Text;
-            protocol.DssCause = causeTxt.Text;
+            protocol.Behavior = behaviorTxt.Text;
+            protocol.Bio = bioTxt.Text;
+            protocol.Breathe = breatheTxt.Text;
+            protocol.Conclusion = conclusionTxt.Text;
+            protocol.Docs = docsTxt.Text;
+            protocol.Drunk = drunkTxt.Text;
+            protocol.Eyes = eyesTxt.Text;
+            protocol.Illness = illnessTxt.Text;
+            protocol.Look = lookTxt.Text;
+            protocol.Mimics = mimicsTxt.Text;
+            protocol.Motions = motionTxt.Text;
+            protocol.Nistagm = nistagmTxt.Text;
+            protocol.Orientation = orientationTxt.Text;
+            protocol.Pressure = pressureTxt.Text;
+            protocol.Pribor = priborTxt.Text;
+            protocol.Pulse = pulseTxt.Text;
+            protocol.Skin = skinTxt.Text;
+            protocol.Smell = smellTxt.Text;
+            protocol.Speech = speechTxt.Text;
+            protocol.TouchNose = touchNoseTxt.Text;
+            protocol.Tremble = trembleTxt.Text;
+            protocol.Trub = trubTxt.Text;
+            protocol.Walk = walkTxt.Text;
+            protocol.Cause = causeTxt.Text;
 
             service.updateOrCreateIfNeedObject<DdtAlcoProtocol>(protocol, DdtAlcoProtocol.NAME, protocol.ObjectId);
             Close();

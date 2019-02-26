@@ -4,6 +4,8 @@ namespace Cardiology.Data.Model2
 {
     public class DdvDoctor
     {
+        public const string NAME = "ddv_doctor";
+
         public string FullName { get; set; }
 
         public string ObjectId { get; set; }

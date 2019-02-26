@@ -75,5 +75,10 @@ namespace Cardiology.Data.PostgreSQL
             }
             return null;
         }
+
+        public string Save(DdtConsilium obj)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

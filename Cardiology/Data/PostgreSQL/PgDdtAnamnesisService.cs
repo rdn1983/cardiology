@@ -195,5 +195,10 @@ namespace Cardiology.Data.PostgreSQL
             }
             return null;
         }
+
+        public string Save(DdtAnamnesis obj)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -10,20 +10,22 @@ namespace Cardiology.UI.Forms
 {
     public partial class PreoperativeEpicrisiscs : Form
     {
+        private readonly IDbDataService service;
         private DdtHospital hospitalitySession;
         private string objectId;
         private AnalysisSelector selector;
 
-        public PreoperativeEpicrisiscs(DdtHospital hospitalitySession, string objectId)
+        public PreoperativeEpicrisiscs(DdtHospital hospitalitySession, string objectId, IDbDataService service)
         {
             this.hospitalitySession = hospitalitySession;
             this.objectId = objectId;
+            this.service = service;
             selector = new AnalysisSelector();
             InitializeComponent();
-            initControls();
+            InitControls();
         }
 
-        private void initControls()
+        private void InitControls()
         {
             if (!string.IsNullOrEmpty(objectId))
             {
@@ -108,7 +110,7 @@ namespace Cardiology.UI.Forms
             saveObject();
             ITemplateProcessor processor = TemplateProcessorManager.getProcessorByObjectType(DdtEpicrisis.NAME);
             string path = processor.processTemplate(hospitalitySession.ObjectId, objectId, new Dictionary<string, string>());
-            TemplatesUtils.showDocument(path);
+            TemplatesUtils.ShowDocument(path);
             Close();
         }
 

@@ -8,5 +8,7 @@ namespace Cardiology.Data.Commons
         IList<DdtKag> GetAll();
 
         DdtKag GetById(string id);
+
+        string Save(DdtKag obj);
     }
 }

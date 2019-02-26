@@ -430,7 +430,7 @@ namespace Cardiology.UI.Forms
                 values.Add(@"{issued_medicine_" + i + "}", value);
             }
             string templatePath = Directory.GetCurrentDirectory() + "\\Templates\\issued_medicine_template.doc";
-            TemplatesUtils.fillTemplateAndShow(templatePath, values);
+            TemplatesUtils.FillTemplateAndShow(templatePath, values);
         }
 
         private void kagMedBtn_Click(object sender, EventArgs e)

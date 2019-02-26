@@ -79,5 +79,10 @@ namespace Cardiology.Data.PostgreSQL
             }
             return null;
         }
+
+        public string Save(DdtKag obj)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

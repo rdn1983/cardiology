@@ -62,7 +62,7 @@ namespace Cardiology.Commons
         {
             if (!string.IsNullOrEmpty(dsidCuringDoctor))
             {
-                DdvDoctor doctor = service.queryObjectById<DdvDoctor>(dsidCuringDoctor);
+                DdvDoctor doctor = service.GetDdvDoctorService().GetById(dsidCuringDoctor);
                 cb.SelectedIndex = cb.FindStringExact(doctor.ShortName);
             }
         }

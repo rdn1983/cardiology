@@ -193,7 +193,7 @@ namespace Cardiology.UI.Forms
             inspectionObj.InspectionResult = getSafeStringValue(resultTxt);
             inspectionObj.KateterPlacement = getSafeStringValue(kateterPlacementTxt);
             inspectionObj.InspectionDate = CommonUtils.ConstructDateWIthTime(inspectionDate.Value, inspectionTime.Value);
-            string id = service.updateOrCreateIfNeedObject<DdtInspection>(inspectionObj, DdtInspection.NAME, inspectionObj.ObjectId);
+            string id = service.GetDdtInspectionService().Save(inspectionObj);
             inspectionObj.ObjectId = id;
         }
 
@@ -316,7 +316,7 @@ namespace Cardiology.UI.Forms
             if (tp != null)
             {
                 string filled = tp.processTemplate(hospitalitySession.ObjectId, inspectionObj.ObjectId, new Dictionary<string, string>());
-                TemplatesUtils.showDocument(filled);
+                TemplatesUtils.ShowDocument(filled);
             }
         }
 

@@ -46,7 +46,7 @@ namespace Cardiology.UI.Forms
 
             hospitalitySession.Active = false;
             hospitalitySession.RejectCure = refusedBtn.Checked;
-            service.updateObject<DdtHospital>(hospitalitySession, DdtHospital.NAME, "r_object_id", hospitalitySession.ObjectId);
+            service.GetDdtHospitalService().Save(hospitalitySession);
 
             DdtEpicrisis epicrisis = service.GetDdtEpicrisisService().GetById(epicrisisId);
             if (epicrisis == null)
@@ -59,7 +59,7 @@ namespace Cardiology.UI.Forms
             epicrisis.Diagnosis = hospitalitySession.Diagnosis;
             epicrisis.EpicrisisDate = DateTime.Now;
             epicrisis.EpicrisisType = deathBtn.Checked ? (int)DdtEpicrisisDsiType.DEATH : transferBtn.Checked ? (int)DdtEpicrisisDsiType.TRANSFER : (int)DdtEpicrisisDsiType.RELEASE;
-            service.updateOrCreateIfNeedObject<DdtEpicrisis>(epicrisis, DdtEpicrisis.NAME, epicrisisId);
+            service.GetDdtEpicrisisService().Save(epicrisis);
 
             if (transferBtn.Checked)
             {

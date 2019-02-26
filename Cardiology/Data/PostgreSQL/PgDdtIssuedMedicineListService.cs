@@ -84,7 +84,7 @@ namespace Cardiology.Data.PostgreSQL
             return null;
         }
 
-        public void Save(DdtIssuedMedicineList obj)
+        public string Save(DdtIssuedMedicineList obj)
         {
             if (string.IsNullOrEmpty(obj.ObjectId))
             {

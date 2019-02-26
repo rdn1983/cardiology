@@ -256,8 +256,8 @@ namespace Cardiology.UI.Forms
                     Console.WriteLine();
                 }
             }
-            string resultPath = TemplatesUtils.mergeFiles(paths.ToArray(), false);
-            TemplatesUtils.showDocument(resultPath);
+            string resultPath = TemplatesUtils.MergeFiles(paths.ToArray(), false);
+            TemplatesUtils.ShowDocument(resultPath);
         }
 
         private void deleteMenu_Click(object sender, EventArgs e)

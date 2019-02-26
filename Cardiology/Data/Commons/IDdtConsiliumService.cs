@@ -8,5 +8,7 @@ namespace Cardiology.Data.Commons
         IList<DdtConsilium> GetAll();
 
         DdtConsilium GetById(string id);
+
+        string Save(DdtConsilium obj);
     }
 }

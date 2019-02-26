@@ -20,7 +20,7 @@ namespace Cardiology.UI.Forms
         private void initProtocol()
         {
 
-            DdtPatient patient = service.queryObjectById<DdtPatient>(hospitalitySession.Patient);
+            DdvPatient patient = service.queryObjectById<DdtPatient>(hospitalitySession.Patient);
             if (patient != null)
             {
                 Text += " " + patient.ShortName;

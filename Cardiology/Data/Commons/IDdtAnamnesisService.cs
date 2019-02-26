@@ -12,6 +12,8 @@ namespace Cardiology.Data.Commons
         DdtAnamnesis GetByHospitalSessionId(string hospitalSessionId);
 
         DdtAnamnesis GetByTemplateName(string templateName);
-        
+
+        string Save(DdtAnamnesis obj);
+
     }
 }

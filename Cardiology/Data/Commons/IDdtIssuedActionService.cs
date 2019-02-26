@@ -10,5 +10,7 @@ namespace Cardiology.Data.Commons
         DdtIssuedAction GetById(string id);
 
         IList<DdtIssuedAction> GetListByParentId(string parentId);
+
+        string Save(DdtIssuedAction obj);
     }
 }

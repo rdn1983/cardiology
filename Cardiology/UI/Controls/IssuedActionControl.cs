@@ -36,7 +36,7 @@ namespace Cardiology.UI.Controls
         {
             if (!string.IsNullOrEmpty(issuedActionTxt.Text))
             {
-                DdtIssuedAction result = service.queryObjectById<DdtIssuedAction>(objectId) ?? new DdtIssuedAction();
+                DdtIssuedAction result = service.GetDdtIssuedActionService().GetById(objectId) ?? new DdtIssuedAction();
                 result.Action = issuedActionTxt.Text;
                 return result;
             }

@@ -4,8 +4,6 @@ using Word = Microsoft.Office.Interop.Word;
 using System.IO;
 using Cardiology.Data;
 using Cardiology.Data.Model2;
-using Cardiology.Data.PostgreSQL;
-using NLog;
 
 namespace Cardiology.Commons
 {
@@ -15,14 +13,14 @@ namespace Cardiology.Commons
         {
         }
 
-        public static void fillBlankTemplate(string templateFileName, string hospitalSessionId, Dictionary<string, string> values)
+        public static void fillBlankTemplate(IDbDataService service, string templateFileName, string hospitalSessionId, Dictionary<string, string> values)
         {
 
-            DdtHospital hospitalSession = service.queryObjectById<DdtHospital>(hospitalSessionId);
+            DdtHospital hospitalSession = service.GetDdtHospitalService().GetById(hospitalSessionId);
             if (hospitalSession != null)
             {
-                DdvDoctor doc = service.queryObjectById<DdvDoctor>(hospitalSession.CuringDoctor);
-                DdvPatient patient = service.queryObjectById<DdvPatient>(hospitalSession.CuringDoctor);
+                DdvDoctor doc = service.GetDdvDoctorService().GetById(hospitalSession.CuringDoctor);
+                DdvPatient patient = service.GetDdvPatientService().GetById(hospitalSession.CuringDoctor);
 
                 values.Add(@"{doctor.who.short}", doc.ShortName);
                 values.Add(@"{patient.initials}", patient.ShortName);
@@ -35,22 +33,22 @@ namespace Cardiology.Commons
                 values.Add(@"{patient.fullname}", patient.FirstName);
                 values.Add(@"{date}", DateTime.Now.ToShortDateString());
 
-                doc = service.queryObject<DdvDoctor>(@"SELECT * FROM " + DdvDoctor + " where dss_login IN " +
+                doc = service.queryObject<DdvDoctor>(@"SELECT * FROM " + DdvDoctor.NAME + " where dss_login IN " +
                     "(select dss_user_name FROM dm_group_users WHERE dss_group_name ='io_cardio_reanim')");
                 values.Add(@"{doctor.io.department}", doc.ShortName);
                 doc = service.queryObject<DdvDoctor>(@"SELECT * FROM " + DdvDoctor.NAME + " where dss_login IN " +
                     "(select dss_user_name FROM dm_group_users WHERE dss_group_name ='io_therapy')");
                 values.Add(@"{doctor.io.hospital}", doc.ShortName);
             }
-            TemplatesUtils.fillTemplateAndShow(Directory.GetCurrentDirectory() + "\\Templates\\" + templateFileName, values);
+            TemplatesUtils.FillTemplateAndShow(Directory.GetCurrentDirectory() + "\\Templates\\" + templateFileName, values);
         }
 
 
-        public static void fillAmbulanceLetterTemplate(string templateFileName, string hospitalSessionId, Dictionary<string, string> values)
+        public static void fillAmbulanceLetterTemplate(IDbDataService service, string templateFileName, string hospitalSessionId, Dictionary<string, string> values)
         {
-            DdtHospital hospitalSession = service.queryObjectById<DdtHospital>(hospitalSessionId);
-            DdvDoctor doc = service.queryObjectById<DdvDoctor>(hospitalSession.CuringDoctor);
-            DdvPatient patient = service.queryObjectById<DdvPatient>(hospitalSession.CuringDoctor);
+            DdtHospital hospitalSession = service.GetDdtHospitalService().GetById(hospitalSessionId);
+            DdvDoctor doc = service.GetDdvDoctorService().GetById(hospitalSession.CuringDoctor);
+            DdvPatient patient = service.GetDdvPatientService().GetById(hospitalSession.CuringDoctor);
             values.Add(@"{doctor.who.short}", doc.ShortName);
             values.Add(@"{patient.initials}", patient.ShortName);
             values.Add(@"{patient.birthdate}", patient.Birthdate.ToShortDateString());
@@ -61,10 +59,10 @@ namespace Cardiology.Commons
             values.Add(@"{doctor.who}", doc.FullName);
             values.Add(@"{patient.fullname}", patient.FullName);
             values.Add(@"{date}", DateTime.Now.ToShortDateString());
-            TemplatesUtils.fillTemplateAndShow(Directory.GetCurrentDirectory() + "\\Templates\\" + templateFileName, values);
+            TemplatesUtils.FillTemplateAndShow(Directory.GetCurrentDirectory() + "\\Templates\\" + templateFileName, values);
         }
 
-        public static string fillTemplate(string templatePath, Dictionary<string, string> mappedValues)
+        public static string FillTemplate(string templatePath, Dictionary<string, string> mappedValues)
         {
             Word.Document doc = null;
             Word.Application app = null;
@@ -125,19 +123,19 @@ namespace Cardiology.Commons
 
         }
 
-        public static string fillTemplateAndShow(string templatePath, Dictionary<string, string> mappedValues)
+        public static string FillTemplateAndShow(string templatePath, Dictionary<string, string> mappedValues)
         {
-            string filledTemplate = fillTemplate(templatePath, mappedValues);
+            string filledTemplate = FillTemplate(templatePath, mappedValues);
             if (!string.IsNullOrEmpty(filledTemplate))
             {
-                showDocument(filledTemplate);
+                ShowDocument(filledTemplate);
             }
 
             return filledTemplate;
         }
 
 
-        public static string mergeFiles(string[] filesToMerge, bool insertPageBreaks)
+        public static string MergeFiles(string[] filesToMerge, bool insertPageBreaks)
         {
             object missing = System.Type.Missing;
             object pageBreak = Word.WdBreakType.wdPageBreak;
@@ -191,22 +189,7 @@ namespace Cardiology.Commons
             return null;
         }
 
-        public static void processTemplateAndMerge(string hospitalSession, string[] types, string[] objectIds)
-        {
-            List<string> filledTemplatesPaths = new List<string>();
-            for (int i = 0; i < types.Length; i++)
-            {
-                ITemplateProcessor processor = TemplateProcessorManager.getProcessorByObjectType(types[i]);
-                if (processor != null)
-                {
-                    filledTemplatesPaths.Add(processor.processTemplate(hospitalSession, objectIds[i], null));
-                }
-            }
-
-            string resultPath = mergeFiles(filledTemplatesPaths.ToArray(), false);
-        }
-
-        public static void showDocument(string path)
+        public static void ShowDocument(string path)
         {
             Word._Application wordApplication = null;
             Word._Document wordDocument = null;

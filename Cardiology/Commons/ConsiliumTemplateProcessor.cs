@@ -15,7 +15,7 @@ namespace Cardiology.Commons
             return DdtConsilium.NAME.Equals(templateType);
         }
 
-        public string processTemplate(string hospitalitySession, string objectId, Dictionary<string, string> aditionalValues)
+        public string processTemplate(IDbDataService service, string hospitalitySession, string objectId, Dictionary<string, string> aditionalValues)
         {
             Dictionary<string, string> values = null;
             if (aditionalValues != null)
@@ -26,8 +26,8 @@ namespace Cardiology.Commons
             {
                 values = new Dictionary<string, string>();
             }
-            DataService service = new DataService();
-            DdtConsilium obj = service.queryObjectById<DdtConsilium>(objectId);
+
+            DdtConsilium obj = service.GetDdtConsiliumService().GetById(objectId);
             values.Add(@"{consilium.date}", DateTime.Now.ToString("dd.MM.yyyy"));
             values.Add(@"{consilium.time}", DateTime.Now.ToString("HH:mm"));
             values.Add(@"{consilium.members}", GetMembersInString(service, objectId));
@@ -35,7 +35,7 @@ namespace Cardiology.Commons
             values.Add(@"{doctor.who}", GetDoctorInString(service, obj.Doctor));
             values.Add(@"{consilium.goal}", obj.Goal);
 
-            DdvPatient patient = service.queryObjectById<DdtPatient>(obj.Patient);
+            DdvPatient patient = service.GetDdvPatientService().GetById(obj.Patient);
             values.Add(@"{patient.initials}", patient.ShortName);
             values.Add(@"{patient.age}", (DateTime.Now.Year - patient.Birthdate.Year) + "");
             values.Add(@"{patient.diagnosis}", obj.Diagnosis);
@@ -45,12 +45,12 @@ namespace Cardiology.Commons
             PutEkgData(values, service, hospitalitySession);
             PutBloodData(values, service, hospitalitySession);
 
-            return TemplatesUtils.fillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + TemplateFileName, values);
+            return TemplatesUtils.FillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + TemplateFileName, values);
         }
 
         private string GetDoctorInString(IDbDataService service, String doctorId)
         {
-            DdvDoctor doc = service.queryObjectById<DdvDoctor>(doctorId);
+            DdvDoctor doc = service.GetDdvDoctorService().GetById(doctorId);
             return doc.ShortName;
         }
 

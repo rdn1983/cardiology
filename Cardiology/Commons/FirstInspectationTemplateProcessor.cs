@@ -16,7 +16,7 @@ namespace Cardiology.Commons
             return "ddt_anamnesis".Equals(templateType);
         }
 
-        public string processTemplate(string hospitalitySession, string objectId, Dictionary<string, string> aditionalValues)
+        public string processTemplate(IDbDataService service, string hospitalitySession, string objectId, Dictionary<string, string> aditionalValues)
         {
             Dictionary<string, string> values = null;
             if (aditionalValues != null)
@@ -27,7 +27,7 @@ namespace Cardiology.Commons
             {
                 values = new Dictionary<string, string>();
             }
-            DdtAnamnesis anamnesis = service.queryObjectById<DdtAnamnesis>(objectId);
+            DdtAnamnesis anamnesis = service.GetDdtAnamnesisService().GetById(objectId);
             values.Add("{allergy}", anamnesis.AnamnesisAllergy);
             values.Add("{complaints}", anamnesis.Complaints);
             values.Add("{anamnesis}", anamnesis.AnamnesisMorbi);
@@ -45,7 +45,7 @@ namespace Cardiology.Commons
             values.Add("{diagnosis}", anamnesis.Diagnosis);
             values.Add("{justification}", anamnesis.DiagnosisJustification);
 
-            DdvDoctor doc = service.queryObjectById<DdvDoctor>(anamnesis.Doctor);
+            DdvDoctor doc = service.GetDdvDoctorService().GetById(anamnesis.Doctor);
             values.Add("{cardio}", doc.ShortName);
 
             DdtEkg ekg = service.queryObject<DdtEkg>(@"SELECT * from ddt_ekg WHERE dsid_hospitality_session='' and dsb_admission_analysis=true");
@@ -60,7 +60,7 @@ namespace Cardiology.Commons
                 List<DdtIssuedMedicine> med = service.queryObjectsCollectionByAttrCond<DdtIssuedMedicine>(DdtIssuedMedicine.NAME, "dsid_med_list", medList.ObjectId, true);
                 for (int i = 0; i < med.Count; i++)
                 {
-                    DdtCure cure = service.queryObjectById<DdtCure>(med[i].Cure);
+                    DdtCure cure = service.GetDdtCureService().GetById(med[i].Cure);
                     if (cure != null)
                     {
                         builder.Append(cure.Name).Append('\n');
@@ -82,7 +82,7 @@ namespace Cardiology.Commons
             DdtHospital hospital = service.queryObject<DdtHospital>(@"SELECT * FROM ddt_hospital WHERE r_object_id='" + hospitalitySession + "'");
             values.Add("{date}", hospital.AdmissionDate.ToShortDateString() + " " + hospital.AdmissionDate.ToShortTimeString());
 
-            return TemplatesUtils.fillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + TEMPLATE_FILE_NAME, values);
+            return TemplatesUtils.FillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + TEMPLATE_FILE_NAME, values);
         }
     }
 }

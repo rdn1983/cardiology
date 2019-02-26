@@ -9,27 +9,29 @@ namespace Cardiology.UI.Controls
 {
     public partial class KagAnalysisControl : UserControl, IDocbaseControl
     {
+        private readonly IDbDataService service;
         private string objectId;
         private string hospitalSessionId;
         private bool isEditable;
         private bool hasChanges;
         private bool isNew;
 
-        public KagAnalysisControl(string objectId, bool additional, string hospitalSessionId)
+        public KagAnalysisControl(string objectId, bool additional, string hospitalSessionId, IDbDataService service)
         {
             this.objectId = objectId;
             this.hospitalSessionId = hospitalSessionId;
+            this.service = service;
             this.isEditable = !additional;
             InitializeComponent();
-            initControls();
+            InitControls();
             hasChanges = false;
             isNew = string.IsNullOrEmpty(objectId);
         }
 
-        private void initControls()
+        private void InitControls()
         {
 
-            DdtKag kag = service.queryObjectById<DdtKag>(objectId);
+            DdtKag kag = service.GetDdtKagService().GetById(objectId);
             refreshObject(kag);
             kagResultsTxt.Enabled = isEditable;
             kagManipulationTxt.Enabled = isEditable;
@@ -58,7 +60,7 @@ namespace Cardiology.UI.Controls
                     kag.ParentType = parentType;
                 }
 
-                objectId = service.updateOrCreateIfNeedObject<DdtKag>(kag, DdtKag.NAME, kag.ObjectId);
+                objectId = service.GetDdtKagService().Save(kag);
                 isNew = false;
                 hasChanges = false;
             }
@@ -82,7 +84,7 @@ namespace Cardiology.UI.Controls
         public object getObject()
         {
 
-            DdtKag kag = service.queryObjectById<DdtKag>(objectId);
+            DdtKag kag = service.GetDdtKagService().GetById(objectId);
             if (kag == null)
             {
                 kag = new DdtKag();
@@ -116,7 +118,7 @@ namespace Cardiology.UI.Controls
             else
             {
     
-                DdtHospital hospitalitySession = service.queryObjectById<DdtHospital>(hospitalSessionId);
+                DdtHospital hospitalitySession = service.GetDdtHospitalService().GetById(hospitalSessionId);
                 DateTime admissionDate = hospitalitySession.AdmissionDate;
                 kagDate.Value = admissionDate;
                 kagStartTime.Value = admissionDate.AddMinutes(30);

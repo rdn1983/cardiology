@@ -41,7 +41,7 @@ namespace Cardiology.UI.Forms
             }
 
 
-            DdtPatient patient = service.queryObjectById<DdtPatient>(hospitalitySession.Patient);
+            DdvPatient patient = service.queryObjectById<DdvPatient>(hospitalitySession.Patient);
             if (patient != null)
             {
                 Text += " " + patient.ShortName;
@@ -115,8 +115,8 @@ namespace Cardiology.UI.Forms
                         paths.Add(path);
                     }
                 }
-                string result = TemplatesUtils.mergeFiles(paths.ToArray(), false);
-                TemplatesUtils.showDocument(result);
+                string result = TemplatesUtils.MergeFiles(paths.ToArray(), false);
+                TemplatesUtils.ShowDocument(result);
             }
         }
 

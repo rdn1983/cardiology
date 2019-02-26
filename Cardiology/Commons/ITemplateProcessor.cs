@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Cardiology.Data;
 
 namespace Cardiology.Commons
 {
@@ -8,6 +9,6 @@ namespace Cardiology.Commons
         bool accept(string templateType);
 
         /*return path to filled template*/
-        string processTemplate(string hospitalitySession, string objectId, Dictionary<string, string> aditionalValues);
+        string processTemplate(IDbDataService service, string hospitalitySession, string objectId, Dictionary<string, string> aditionalValues);
     }
 }

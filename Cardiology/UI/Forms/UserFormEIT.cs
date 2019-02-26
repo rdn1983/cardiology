@@ -50,7 +50,7 @@ namespace Cardiology.UI.Forms
             Dictionary<string, string> values = new Dictionary<string, string>();
             values.Add(@"{body}", bodyArea.Text);
             values.Add(@"{doctor.who}", doctorsBox.Text);
-            TemplatesUtils.fillTemplateAndShow(templatePath, values);
+            TemplatesUtils.FillTemplateAndShow(templatePath, values);
         }
     }
 }

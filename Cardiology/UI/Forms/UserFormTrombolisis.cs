@@ -52,7 +52,7 @@ namespace Cardiology.UI.Forms
             values.Add(@"{date}", dateCtrl.Text);
             values.Add(@"{time}", timeCtrl.Text);
             values.Add(@"{doctor.who}", doctorOkrCB.Text);
-            TemplatesUtils.fillTemplateAndShow(templatePath, values);
+            TemplatesUtils.FillTemplateAndShow(templatePath, values);
         }
     }
 }

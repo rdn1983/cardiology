@@ -19,7 +19,7 @@ namespace Cardiology.Commons
             return DdtEpicrisis.NAME.Equals(templateType);
         }
 
-        public string processTemplate(string hospitalitySession, string objectId, Dictionary<string, string> aditionalValues)
+        public string processTemplate(IDbDataService service, string hospitalitySession, string objectId, Dictionary<string, string> aditionalValues)
         {
             Dictionary<string, string> values = null;
             if (aditionalValues != null)
@@ -30,15 +30,15 @@ namespace Cardiology.Commons
             {
                 values = new Dictionary<string, string>();
             }
-            DdtEpicrisis obj = service.queryObjectById<DdtEpicrisis>(objectId);
+            DdtEpicrisis obj = service.GetDdtEpicrisisService().GetById(objectId);
             values.Add("{diagnosis}", obj.Diagnosis);
             values.Add("{date}", obj.EpicrisisDate.ToShortDateString());
 
-            DdtPatient patient = service.queryObjectById<DdtPatient>(obj.Patient);
+            DdvPatient patient = service.GetDdvPatientService().GetById(obj.Patient);
             values.Add("{patient.initials}", patient == null ? "" : patient.ShortName);
             values.Add("{patient.age}", patient == null ? "" : (DateTime.Now.Year - patient.Birthdate.Year) + "");
 
-            DdtHospital hospital = service.queryObjectById<DdtHospital>(hospitalitySession);
+            DdtHospital hospital = service.GetDdtHospitalService().GetById(hospitalitySession);
             values.Add("{patient.admission_date}", hospital.AdmissionDate.ToShortDateString());
 
             DdtAnamnesis anamnesis = service.queryObjectByAttrCond<DdtAnamnesis>(DdtAnamnesis.NAME, "dsid_hospitality_session", hospital.ObjectId, true);
@@ -129,10 +129,10 @@ namespace Cardiology.Commons
                 values.Add("{conclusion}", " ");
             }
 
-            DdvDoctor doc = service.queryObjectById<DdvDoctor>(obj.Doctor);
+            DdvDoctor doc = service.GetDdvDoctorService().GetById(obj.Doctor);
             values.Add("{doctor.who.short}", doc.ShortName);
 
-            return TemplatesUtils.fillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + getTemplateName(obj), values);
+            return TemplatesUtils.FillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + getTemplateName(obj), values);
         }
 
         private string CompileValue(string title, string value)

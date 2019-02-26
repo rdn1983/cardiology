@@ -216,7 +216,7 @@ namespace Cardiology.UI.Forms
                 {
                     ITemplateProcessor processor = TemplateProcessorManager.getProcessorByObjectType(DdtJournal.NAME);
                     string path = processor.processTemplate(hospitalitySession.ObjectId, journal.ObjectId, null);
-                    TemplatesUtils.showDocument(path);
+                    TemplatesUtils.ShowDocument(path);
                 }
             }
         }

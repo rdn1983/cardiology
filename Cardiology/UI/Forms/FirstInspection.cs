@@ -250,7 +250,7 @@ namespace Cardiology.UI.Forms
             anamnesis.OperationCause = getSafeStringValue(operationCauseTxt);
             anamnesis.DiagnosisJustification = getSafeStringValue(justificationTxt);
 
-            string id = service.updateOrCreateIfNeedObject<DdtAnamnesis>(anamnesis, DdtAnamnesis.NAME, anamnesis.ObjectId);
+            string id = service.GetDdtAnamnesisService().Save(anamnesis);
             anamnesis.ObjectId = id;
         }
 
@@ -274,21 +274,21 @@ namespace Cardiology.UI.Forms
                 if (medList == null)
                 {
                     medList = new DdtIssuedMedicineList();
-                    medList.Doctor = hospitalSession.DsidDutyDoctor;
+                    medList.Doctor = hospitalSession.DutyDoctor;
                     medList.HospitalitySession = hospitalSession.ObjectId;
                     medList.Patient = hospitalSession.Patient;
                     medList.ParentType = "ddt_anamnesis";
                     medList.ParentId = anamnesis.ObjectId;
                     medList.IssuingDate = DateTime.Now;
                 }
-                medList.DssTemplateName = templateName;
-                string id = service.updateOrCreateIfNeedObject<DdtIssuedMedicineList>(medList, DdtIssuedMedicineList.NAME, medList.ObjectId);
+                medList.TemplateName = templateName;
+                string id = service.GetDdtIssuedMedicineListService().Save(medList);
                 medList.ObjectId = id;
                 foreach (DdtIssuedMedicine med in meds2)
                 {
-                    med.DsidMedList = medList.ObjectId;
+                    med.MedList = medList.ObjectId;
 
-                    service.updateOrCreateIfNeedObject<DdtIssuedMedicine>(med, DdtIssuedMedicine.NAME, med.ObjectId);
+                    service.GetDdtIssuedMedicineService().Save(med);
                 }
             }
 
@@ -311,7 +311,7 @@ namespace Cardiology.UI.Forms
                         med.IssuingDate = DateTime.Now;
                     }
 
-                    med.ObjectId = service.updateOrCreateIfNeedObject<DdtIssuedAction>(med, DdtIssuedAction.NAME, med.ObjectId);
+                    med.ObjectId = service.GetDdtIssuedActionService().Save(med);
                 }
                 issuedActionContainer.init(service, meds);
             }
@@ -687,7 +687,7 @@ namespace Cardiology.UI.Forms
                 if (te != null)
                 {
                     string path = te.processTemplate(hospitalSession.ObjectId, anamnesis.ObjectId, null);
-                    TemplatesUtils.showDocument(path);
+                    TemplatesUtils.ShowDocument(path);
                 }
             }
 

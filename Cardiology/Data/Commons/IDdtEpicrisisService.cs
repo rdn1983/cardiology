@@ -8,5 +8,7 @@ namespace Cardiology.Data.Commons
         IList<DdtEpicrisis> GetAll();
 
         DdtEpicrisis GetById(string id);
+
+        void Save(DdtEpicrisis obj);
     }
 }

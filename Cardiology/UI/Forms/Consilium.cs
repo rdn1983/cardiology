@@ -17,6 +17,7 @@ namespace Cardiology.UI.Forms
 
         public Consilium(IDbDataService service, DdtHospital hospitalitySession, string consiliumId)
         {
+            this.service = service;
             this.hospitalitySession = hospitalitySession;
             this.consiliumId = consiliumId;
             InitializeComponent();
@@ -26,11 +27,11 @@ namespace Cardiology.UI.Forms
 
         private void InitControls()
         {
-            curingDoc = service.queryObjectById<DdvDoctor>(hospitalitySession?.CuringDoctor);
+            curingDoc = service.GetDdvDoctorService().GetById(hospitalitySession?.CuringDoctor);
             CommonUtils.InitDoctorsComboboxValues(service, adminTxt, " dsi_appointment_type=3");
             ControlUtils.InitGroupsComboboxValues(this.service.GetDmGroupService(), appointmentTxt0);
             ControlUtils.InitDoctorsByGroupName(this.service.GetDdvDoctorService(), doctorWho0, null);
-            DdtPatient patient = service.queryObjectById<DdtPatient>(hospitalitySession.Patient);
+            DdvPatient patient = service.GetDdvPatientService().GetById(hospitalitySession.Patient);
             if (patient != null)
             {
                 Text += " " + patient.ShortName;
@@ -38,7 +39,7 @@ namespace Cardiology.UI.Forms
             diagnosisTxt0.Text = hospitalitySession.Diagnosis;
             if (!string.IsNullOrEmpty(consiliumId))
             {
-                DdtConsilium consilium = service.queryObjectById<DdtConsilium>(consiliumId);
+                DdtConsilium consilium = service.GetDdtConsiliumService().GetById(consiliumId);
                 if (consilium != null)
                 {
                     goalTxt.Text = consilium.Goal;
@@ -152,27 +153,29 @@ namespace Cardiology.UI.Forms
                 return false;
             }
             hospitalitySession.Diagnosis = getSafeStringValue(diagnosisTxt1);
-            service.updateObject<DdtHospital>(hospitalitySession, DdtHospital.NAME, "r_object_id", hospitalitySession.ObjectId);
+            service.GetDdtHospitalService().Save(hospitalitySession);
 
             DdtConsilium consilium = null;
             if (!string.IsNullOrEmpty(consiliumId))
             {
-                consilium = service.queryObjectById<DdtConsilium>(consiliumId);
+                consilium = service.GetDdtConsiliumService().GetById(consiliumId);
             }
             else
             {
-                consilium = new DdtConsilium();
-                consilium.ConsiliumDate = DateTime.Now;
-                consilium.HospitalitySession = hospitalitySession.ObjectId;
-                consilium.Patient = hospitalitySession.Patient;
-                consilium.Doctor = hospitalitySession.CuringDoctor;
+                consilium = new DdtConsilium
+                {
+                    ConsiliumDate = DateTime.Now,
+                    HospitalitySession = hospitalitySession.ObjectId,
+                    Patient = hospitalitySession.Patient,
+                    Doctor = hospitalitySession.CuringDoctor
+                };
             }
             consilium.Decision = getSafeStringValue(decisionTxt);
             consilium.Diagnosis = getSafeStringValue(diagnosisTxt0);
             consilium.DutyAdminName = getSafeStringValue(adminTxt);
             consilium.Dynamics = getSafeStringValue(dynamicsTxt);
             consilium.Goal = getSafeStringValue(goalTxt);
-            consiliumId = service.updateOrCreateIfNeedObject<DdtConsilium>(consilium, DdtConsilium.NAME, consilium.ObjectId);
+            consiliumId = service.GetDdtConsiliumService().Save(consilium);
 
             foreach (Control doctorInfoPnl in doctorsContainer.Controls)
             {
@@ -185,7 +188,7 @@ namespace Cardiology.UI.Forms
                 ComboBox appointment = (ComboBox)CommonUtils.FindControl(doctorsContainer, "appointmentTxt" + indx);
                 if (!string.IsNullOrEmpty(objectIdCtrl.Text))
                 {
-                    member = service.queryObjectById<DdtConsiliumMember>(objectIdCtrl.Text);
+                    member = service.GetDdtConsiliumMemberService().GetById(objectIdCtrl.Text);
                 }
                 else
                 {
@@ -195,13 +198,13 @@ namespace Cardiology.UI.Forms
                     }
 
                     member = new DdtConsiliumMember();
-                    member.DsidConsilium = consiliumId;
+                    member.Consilium = consiliumId;
                 }
                 DmGroup group = getSafeObjectValueUni<DmGroup>(appointment, new getValue<DmGroup>((ctrl) => ((DmGroup)((ComboBox)ctrl).SelectedItem)));
                 member.DssGroupName = group.Name;
                 Control docCtrl = CommonUtils.FindControl(doctorsContainer, "doctorWho" + indx);
                 member.DssDoctorName = getSafeStringValue(docCtrl);
-                objectIdCtrl.Text = service.updateOrCreateIfNeedObject<DdtConsiliumMember>(member, DdtConsiliumMember.NAME, member.ObjectId);
+                objectIdCtrl.Text = service.GetDdtConsiliumMemberService().Save(member);
             }
 
             foreach (String memberId in membersToRemove)
@@ -231,7 +234,7 @@ namespace Cardiology.UI.Forms
                 if (processor != null)
                 {
                     string path = processor.processTemplate(hospitalitySession.ObjectId, consiliumId, new Dictionary<string, string>());
-                    TemplatesUtils.showDocument(path);
+                    TemplatesUtils.ShowDocument(path);
                 }
             }
         }

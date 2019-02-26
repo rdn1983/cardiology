@@ -8,5 +8,7 @@ namespace Cardiology.Data.Commons
         IList<DdtInspection> GetAll();
 
         DdtInspection GetById(string id);
+
+        string Save(DdtInspection obj);
     }
 }

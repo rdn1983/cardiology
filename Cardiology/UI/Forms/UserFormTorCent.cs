@@ -57,7 +57,7 @@ namespace Cardiology.UI.Forms
             values.Add(@"{arg3}", arg3.Text);
             values.Add(@"{arg4}", arg4.Text);
             values.Add(@"{doctor.who}", doctorsBox.Text);
-            TemplatesUtils.fillTemplateAndShow(templatePath, values);
+            TemplatesUtils.FillTemplateAndShow(templatePath, values);
         }
     }
     

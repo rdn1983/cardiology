@@ -61,7 +61,7 @@ namespace Cardiology.UI.Forms
             values.Add(@"{patient.sex}", "");
             values.Add(@"{patient.medcode}", patient.MedCode);
             values.Add(@"{doctor.who}", doctorsBox.Text);
-            TemplatesUtils.fillTemplateAndShow(templatePath, values);
+            TemplatesUtils.FillTemplateAndShow(templatePath, values);
         }
 
         private void reanimOperationBtn_Click(object sender, EventArgs e)
@@ -88,7 +88,7 @@ namespace Cardiology.UI.Forms
                 values.Add(@"{time" + i + "}", deathTime.ToShortTimeString());
 
             }
-            TemplatesUtils.fillTemplateAndShow(templatePath, values);
+            TemplatesUtils.FillTemplateAndShow(templatePath, values);
         }
     }
 }

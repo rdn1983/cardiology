@@ -15,7 +15,7 @@ namespace Cardiology.Commons
             return DdtJournal.NAME.Equals(templateType);
         }
 
-        public string processTemplate(string hospitalitySession, string objectId, Dictionary<string, string> aditionalValues)
+        public string processTemplate(IDbDataService service, string hospitalitySession, string objectId, Dictionary<string, string> aditionalValues)
         {
             Dictionary<string, string> values = null;
             if (aditionalValues != null)
@@ -26,8 +26,8 @@ namespace Cardiology.Commons
             {
                 values = new Dictionary<string, string>();
             }
-            DdtJournal journal = service.queryObjectById<DdtJournal>(objectId);
-            DdvDoctor doc = service.queryObjectById<DdvDoctor>(journal.Doctor);
+            DdtJournal journal = service.GetDdtJournalService().GetById(objectId);
+            DdvDoctor doc = service.GetDdvDoctorService().GetById(journal.Doctor);
             values.Add("{doctor.initials}", doc == null ? "" : doc.ShortName);
 
             List<string> partsPaths = new List<string>();
@@ -44,10 +44,10 @@ namespace Cardiology.Commons
                 values.Add("{monitor}", journal.Monitor);
                 values.Add("{kag_diagnosis}", " ");
                 values.Add("{diagnosis}", " ");
-                string mainPart = TemplatesUtils.fillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + TEMPLATE_FILE_NAME, values);
+                string mainPart = TemplatesUtils.FillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + TEMPLATE_FILE_NAME, values);
                 partsPaths.Add(mainPart);
             }
-            return TemplatesUtils.mergeFiles(partsPaths.ToArray(), false);
+            return TemplatesUtils.MergeFiles(partsPaths.ToArray(), false);
         }
 
 
@@ -71,7 +71,7 @@ namespace Cardiology.Commons
                 values.Add("{monitor}", kagMainPart.AdditionalInfo4);
                 values.Add("{kag_diagnosis}", kag == null ? " " : "У пациента по данным КАГ выявлено:" + kag.KagAction + "\n");
                 values.Add("{diagnosis}", "Таким образом, у пациента:" + journal.Diagnosis);
-                partsPaths.Add(TemplatesUtils.fillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + TEMPLATE_FILE_NAME, values));
+                partsPaths.Add(TemplatesUtils.FillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + TEMPLATE_FILE_NAME, values));
                 cardioConclusions.Remove(kagMainPart);
             }
 
@@ -84,7 +84,7 @@ namespace Cardiology.Commons
             surgeryValues.Add("{kag_diagnosis}", " ");
             surgeryValues.Add("{diagnosis}", " ");
             surgeryValues.Add("{doctor.initials}", doc == null ? "" : doc.ShortName);
-            partsPaths.Add(TemplatesUtils.fillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + TEMPLATE_FILE_NAME, surgeryValues));
+            partsPaths.Add(TemplatesUtils.FillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + TEMPLATE_FILE_NAME, surgeryValues));
 
             foreach (DdtVariousSpecConcluson conclusion in cardioConclusions)
             {
@@ -98,7 +98,7 @@ namespace Cardiology.Commons
                 conclusionValues.Add("{kag_diagnosis}", " ");
                 conclusionValues.Add("{diagnosis}", " ");
 
-                partsPaths.Add(TemplatesUtils.fillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + TEMPLATE_FILE_NAME, conclusionValues));
+                partsPaths.Add(TemplatesUtils.FillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + TEMPLATE_FILE_NAME, conclusionValues));
             }
 
             DdtVariousSpecConcluson releaseConclusion = service.queryObject<DdtVariousSpecConcluson>("Select * from " + DdtVariousSpecConcluson.NAME +
@@ -114,7 +114,7 @@ namespace Cardiology.Commons
                 conclusionValues.Add("{doctor.initials}", doc == null ? "" : doc.ShortName);
                 conclusionValues.Add("{kag_diagnosis}", kag == null ? " " : "У пациента по данным КАГ выявлено:" + kag.KagAction + "\n");
                 conclusionValues.Add("{diagnosis}", "Таким образом, у пациента:" + journal.Diagnosis);
-                partsPaths.Add(TemplatesUtils.fillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + TEMPLATE_FILE_NAME, conclusionValues));
+                partsPaths.Add(TemplatesUtils.FillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + TEMPLATE_FILE_NAME, conclusionValues));
             }
             return partsPaths;
         }

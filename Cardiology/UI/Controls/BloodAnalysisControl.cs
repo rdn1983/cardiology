@@ -21,12 +21,12 @@ namespace Cardiology.UI.Controls
             this.objectId = objectId;
             this.isEditable = !additional;
             InitializeComponent();
-            initControls();
+            InitControls();
             hasChanges = false;
             isNew = string.IsNullOrEmpty(objectId);
         }
 
-        private void initControls()
+        private void InitControls()
         {
             DdtBloodAnalysis blood = service.queryObjectById<DdtBloodAnalysis>(objectId);
             refreshObject(blood);

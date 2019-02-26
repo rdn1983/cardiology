@@ -120,7 +120,7 @@ namespace Cardiology.UI.Forms
             }
             patient.Birthdate = DateTime.ParseExact(patientBirthDate.Text.Trim(), "dd.MM.yyyy", CultureInfo.InvariantCulture);
 
-            String patientId = service.updateOrCreateIfNeedObject(patient, DdtPatient.NAME, patient.ObjectId);
+            String patientId = service.GetDdtPatientService().Save(patient);
 
             if (hospital == null)
             {
@@ -141,7 +141,7 @@ namespace Cardiology.UI.Forms
             hospital.AnesthetistDoctor = anesthetistDoctor.ObjectId;
 
             hospital.RoomCell = roomTxt.Text + "/" + bedTxt.Text;
-            service.updateOrCreateIfNeedObject(hospital, DdtHospital.NAME, hospital.ObjectId);
+            service.GetDdtHospitalService().Save(hospital);
             //todo перенести в статусную строку
             Close();
         }

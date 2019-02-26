@@ -17,7 +17,7 @@ namespace Cardiology.Commons
             return DdtInspection.NAME.Equals(templateType);
         }
 
-        public string processTemplate(string hospitalitySession, string objectId, Dictionary<string, string> aditionalValues)
+        public string processTemplate(IDbDataService service, string hospitalitySession, string objectId, Dictionary<string, string> aditionalValues)
         {
             Dictionary<string, string> values = null;
             if (aditionalValues != null)
@@ -28,7 +28,7 @@ namespace Cardiology.Commons
             {
                 values = new Dictionary<string, string>();
             }
-            DdtInspection obj = service.queryObjectById<DdtInspection>(objectId);
+            DdtInspection obj = service.GetDdtInspectionService().GetById(objectId);
             values.Add("{date}", obj.InspectionDate.ToShortDateString());
             values.Add("{time}", obj.InspectionDate.ToShortTimeString());
             values.Add("{patient.diagnosis}", obj.Diagnosis);
@@ -37,11 +37,11 @@ namespace Cardiology.Commons
             values.Add("{kateter}", obj.KateterPlacement);
             values.Add("{result}", obj.InspectionResult);
 
-            DdtPatient patient = service.queryObjectById<DdtPatient>(obj.Patient);
+            DdvPatient patient = service.GetDdvPatientService().GetById(obj.Patient);
             values.Add("{patient.initials}", patient == null ? "" : patient.ShortName);
             values.Add("{patient.age}", patient == null ? "" : (DateTime.Now.Year - patient.Birthdate.Year) + "");
 
-            DdvDoctor doc = service.queryObjectById<DdvDoctor>(obj.Doctor);
+            DdvDoctor doc = service.GetDdvDoctorService().GetById(obj.Doctor);
             values.Add("{doctor.who.short}", doc == null ? "" : doc.ShortName);
 
             putBloodData(values, service, obj.ObjectId);
@@ -51,7 +51,7 @@ namespace Cardiology.Commons
             putUziData(values, service, obj.ObjectId);
             putKagData(values, service, obj.HospitalitySession);
 
-            return TemplatesUtils.fillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + TEMPLATE_FILE_NAME, values);
+            return TemplatesUtils.FillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + TEMPLATE_FILE_NAME, values);
         }
 
 

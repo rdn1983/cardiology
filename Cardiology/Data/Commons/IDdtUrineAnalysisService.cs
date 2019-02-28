@@ -8,5 +8,7 @@ namespace Cardiology.Data.Commons
         IList<DdtUrineAnalysis> GetAll();
 
         DdtUrineAnalysis GetById(string id);
+
+        DdtUrineAnalysis GetByHospitalSessionAndParentId(string hospitalSession, string parentId);
     }
 }

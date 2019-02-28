@@ -16,7 +16,7 @@ namespace Cardiology.UI.Controls
         private bool hasChanges;
         private bool isNew;
 
-        public KagAnalysisControl(string objectId, bool additional, string hospitalSessionId, IDbDataService service)
+        public KagAnalysisControl(IDbDataService service, string objectId, bool additional, string hospitalSessionId)
         {
             this.objectId = objectId;
             this.hospitalSessionId = hospitalSessionId;
@@ -151,20 +151,20 @@ namespace Cardiology.UI.Controls
         private void procedureConsentBlank_Click(object sender, EventArgs e)
         {
             Dictionary<string, string> values = new Dictionary<string, string>();
-            TemplatesUtils.fillBlankTemplate("blank_kag_template.doc", hospitalSessionId, values);
+            TemplatesUtils.fillBlankTemplate(service, "blank_kag_template.doc", hospitalSessionId, values);
         }
 
         private void dataProcessingBlank_Click(object sender, EventArgs e)
         {
             Dictionary<string, string> values = new Dictionary<string, string>();
-            TemplatesUtils.fillBlankTemplate("blank_common_consent_template.doc", hospitalSessionId, values);
+            TemplatesUtils.fillBlankTemplate(service, "blank_common_consent_template.doc", hospitalSessionId, values);
         }
 
         private void anesthesiaBlank_Click(object sender, EventArgs e)
         {
             Dictionary<string, string> values = new Dictionary<string, string>();
             values.Add("{time}", DateTime.Now.ToShortTimeString());
-            TemplatesUtils.fillBlankTemplate("blank_anastesia_template.doc", hospitalSessionId, values);
+            TemplatesUtils.fillBlankTemplate(service, "blank_anastesia_template.doc", hospitalSessionId, values);
         }
 
         private void kagDate_ValueChanged(object sender, EventArgs e)

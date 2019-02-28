@@ -10,13 +10,15 @@ namespace Cardiology.UI.Forms
 {
     public partial class Inspection : Form, IAutoSaveForm
     {
+        private readonly IDbDataService service;
         private DdtHospital hospitalitySession;
         private DdtInspection inspectionObj;
         private static AnalysisSelector selector;
         private string kagId;
 
-        public Inspection(DdtHospital hospitalitySession, string id)
+        public Inspection(IDbDataService service, DdtHospital hospitalitySession, string id)
         {
+            this.service = service;
             this.hospitalitySession = hospitalitySession;
             SilentSaver.setForm(this);
             InitializeComponent();
@@ -27,12 +29,13 @@ namespace Cardiology.UI.Forms
         {
             kagContainer.Visible = false;
 
-            DdtPatient patient = service.queryObjectById<DdtPatient>(hospitalitySession.Patient);
+            DdvPatient patient = service.GetDdvPatientService().GetById(hospitalitySession.Patient);
             if (patient != null)
             {
                 Text += " " + patient.ShortName;
             }
-            inspectionObj = service.queryObjectById<DdtInspection>(inspectionObjId);
+
+            inspectionObj = service.GetDdtInspectionService().GetById(inspectionObjId);
             DateTime startDate = inspectionObj == null ? DateTime.Now : inspectionObj.InspectionDate;
             DdtJournal kagJournal = CommonUtils.ResolveKagJournal(service, startDate, hospitalitySession.ObjectId);
 
@@ -315,7 +318,7 @@ namespace Cardiology.UI.Forms
             ITemplateProcessor tp = TemplateProcessorManager.getProcessorByObjectType(DdtInspection.NAME);
             if (tp != null)
             {
-                string filled = tp.processTemplate(hospitalitySession.ObjectId, inspectionObj.ObjectId, new Dictionary<string, string>());
+                string filled = tp.processTemplate(service, hospitalitySession.ObjectId, inspectionObj.ObjectId, new Dictionary<string, string>());
                 TemplatesUtils.ShowDocument(filled);
             }
         }

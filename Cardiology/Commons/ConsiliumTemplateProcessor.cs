@@ -85,8 +85,7 @@ namespace Cardiology.Commons
 
         private void PutBloodData(Dictionary<string, string> values, IDbDataService service, string objId)
         {
-            DdtBloodAnalysis bloods = service.queryObject<DdtBloodAnalysis>(@"SELECT * FROM " + DdtBloodAnalysis.NAME +
-                 " WHERE dsid_hospitality_session='" + objId + "' order by r_creation_date desc");
+            DdtBloodAnalysis bloods = service.GetDdtBloodAnalysisService().GetByHospitalSession(objId);
             StringBuilder bloodBld = new StringBuilder();
             if (bloods != null)
             {
@@ -119,8 +118,7 @@ namespace Cardiology.Commons
 
         private void PutEkgData(Dictionary<string, string> values, IDbDataService service, string objId)
         {
-            DdtEkg ekg = service.queryObject<DdtEkg>(@"Select * from " + DdtEkg.NAME +
-                " WHERE dsid_hospitality_session='" + objId + "' order by r_creation_date desc");
+            DdtEkg ekg = service.GetDdtEkgService().GetByHospitalSession(objId);
             StringBuilder ekgBld = new StringBuilder();
             if (ekg != null)
             {

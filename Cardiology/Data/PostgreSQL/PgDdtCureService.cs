@@ -85,5 +85,29 @@ namespace Cardiology.Data.PostgreSQL
             }
             return list;
         }
+
+        public IList<DdtCure> GetListByTemplate(string templateName)
+        {
+            IList<DdtCure> list = new List<DdtCure>();
+            using (dynamic connection = connectionFactory.GetConnection())
+            {
+                String sql = String.Format("Select cure.* from ddt_values vv, ddt_cure cure where vv.dss_name like '{0}' AND vv.dss_value = cure.dss_name", templateName);
+                Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
+                using (DbDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        DdtCure obj = new DdtCure();
+                        obj.ObjectId = reader.GetString(1);
+                        obj.ModifyDate = reader.GetDateTime(2);
+                        obj.CreationDate = reader.GetDateTime(3);
+                        obj.Name = reader.GetString(4);
+                        obj.CureType = reader.GetString(5);
+                        list.Add(obj);
+                    }
+                }
+            }
+            return list;
+        }
     }
 }

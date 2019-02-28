@@ -73,8 +73,7 @@ namespace Cardiology.UI.Forms
                 patientInitialsLbl.Text = patient.ShortName;
                 if (anamnesis == null)
                 {
-                    List<DdtCure> medicineTemplates = service.queryObjectsCollection<DdtCure>(@"Select cure.* from ddt_values vv, ddt_cure cure 
-                            where vv.dss_name like 'sd' AND vv.dss_value=cure.dss_name");
+                    IList<DdtCure> medicineTemplates = service.GetDdtCureService().GetListByTemplate("sd");
                     issuedMedicineContainer.RefreshData(service, medicineTemplates);
                     if (patient.Sd)
                     {
@@ -93,22 +92,17 @@ namespace Cardiology.UI.Forms
 
         private void InitAdmissionAnalysis()
         {
-            DdtUrineAnalysis firstAnalysis = service.queryObject<DdtUrineAnalysis>("SELECT * FROM " + DdtUrineAnalysis.NAME + " WHERE " +
-                "dsid_hospitality_session = '" + hospitalSession.ObjectId + "' AND dsid_parent='" + anamnesis?.ObjectId + "'");
+            DdtUrineAnalysis firstAnalysis = service.GetDdtUrineAnalysisService().GetByHospitalSessionAndParentId(hospitalSession.ObjectId, anamnesis?.ObjectId);
             urineAnalysisControl.refreshObject(firstAnalysis);
 
-            DdtEgds firstEgdsAnalysis = service.queryObject<DdtEgds>("SELECT * FROM " + DdtEgds.NAME + " WHERE " +
-                "dsid_hospitality_session = '" + hospitalSession.ObjectId + "' AND dsid_parent='" + anamnesis?.ObjectId + "'");
-
+            DdtEgds firstEgdsAnalysis = service.GetDdtEgdsService().GetByHospitalSessionAndParentId(hospitalSession.ObjectId, anamnesis?.ObjectId);
             egdsAnalysisControl1.refreshObject(firstEgdsAnalysis);
 
-            DdtBloodAnalysis blood = service.queryObject<DdtBloodAnalysis>("SELECT * FROM " + DdtBloodAnalysis.NAME + " WHERE " +
-                "dsid_hospitality_session = '" + hospitalSession.ObjectId + "' AND dsid_parent='" + anamnesis?.ObjectId + "'");
-
+            DdtBloodAnalysis blood = service.GetDdtBloodAnalysisService()
+                .GetByHospitalSessionAndParentId(hospitalSession.ObjectId, anamnesis?.ObjectId);
             bloodAnalysisControl.refreshObject(blood);
 
-            DdtEkg ekg = service.queryObject<DdtEkg>("SELECT * FROM " + DdtEkg.NAME + " WHERE " +
-                "dsid_hospitality_session = '" + hospitalSession.ObjectId + "' AND dsid_parent='" + anamnesis?.ObjectId + "'");
+            DdtEkg ekg = service.GetDdtEkgService().GetByHospitalSessionAndParentId(hospitalSession.ObjectId, anamnesis?.ObjectId);
             ekgAnalysisControlcs.refreshObject(ekg);
         }
 
@@ -215,7 +209,7 @@ namespace Cardiology.UI.Forms
             egdsAnalysisControl1.saveObject(hospitalSession, anamnesis.ObjectId, DdtAnamnesis.NAME);
 
             hospitalSession.Diagnosis = diagnosisTxt.Text;
-            service.updateObject<DdtHospital>(hospitalSession, DdtHospital.NAME, "r_object_id", hospitalSession.ObjectId);
+            service.GetDdtHospitalService().Save(hospitalSession);
             return true;
         }
 
@@ -269,8 +263,7 @@ namespace Cardiology.UI.Forms
 
             if (meds2.Count > 0)
             {
-                DdtIssuedMedicineList medList = service.queryObject<DdtIssuedMedicineList>(@"SELECT * FROM ddt_issued_medicine_list WHERE dsid_hospitality_session='" +
-                  hospitalSession.ObjectId + "' AND dss_parent_type='ddt_anamnesis'");
+                DdtIssuedMedicineList medList = service.GetDdtIssuedMedicineListService().GetListByHospitalId(hospitalSession.ObjectId);
                 if (medList == null)
                 {
                     medList = new DdtIssuedMedicineList();
@@ -366,19 +359,17 @@ namespace Cardiology.UI.Forms
 
         private void updatemedicineFromTemplate(string template)
         {
-            List<DdtCure> medicineTemplates = service.queryObjectsCollection<DdtCure>(@"Select cure.* from ddt_values vv, ddt_cure cure 
-                            where vv.dss_name like '" + template + "%' AND vv.dss_value=cure.dss_name");
+            IList<DdtCure> medicineTemplates = service.GetDdtCureService().GetListByTemplate(template);
             clearOldMedList(service);
             issuedMedicineContainer.RefreshData(service, medicineTemplates);
         }
 
         private void clearOldMedList(IDbDataService service)
         {
-            DdtIssuedMedicineList medList = service.queryObject<DdtIssuedMedicineList>(@"SELECT * FROM ddt_issued_medicine_list WHERE dsid_hospitality_session='" +
-                hospitalSession.ObjectId + "' AND dss_parent_type='ddt_anamnesis'");
+            DdtIssuedMedicineList medList = service.GetDdtIssuedMedicineListService().GetListByHospitalId(hospitalSession.ObjectId);
             if (medList != null)
             {
-                service.update(@"DELETE FROM " + DdtIssuedMedicine.NAME + " WHERE dsid_med_list='" + medList.ObjectId + "'");
+                service.Delete(DdtIssuedMedicine.NAME,medList.ObjectId);
             }
         }
 
@@ -396,7 +387,7 @@ namespace Cardiology.UI.Forms
             MouseEventArgs mouseArgs = e as MouseEventArgs;
             if (isSureChangeTemplate())
             {
-                templateChanger.Show(mouseArgs.X, mouseArgs.Y, btn, "dss_complaints", (value) => complaintsTxt.Text = (string)value);
+                templateChanger.Show(mouseArgs.X, mouseArgs.Y, btn, service, "dss_complaints", (value) => complaintsTxt.Text = (string)value);
             }
         }
 
@@ -406,7 +397,7 @@ namespace Cardiology.UI.Forms
             MouseEventArgs mouseArgs = e as MouseEventArgs;
             if (isSureChangeTemplate())
             {
-                templateChanger.Show(mouseArgs.X, mouseArgs.Y, btn, "dss_anamnesis_morbi", (value) => anamnesisMorbiTxt.Text = (string)value);
+                templateChanger.Show(mouseArgs.X, mouseArgs.Y, btn, service, "dss_anamnesis_morbi", (value) => anamnesisMorbiTxt.Text = (string)value);
             }
         }
 
@@ -686,7 +677,7 @@ namespace Cardiology.UI.Forms
                 ITemplateProcessor te = TemplateProcessorManager.getProcessorByObjectType(DdtAnamnesis.NAME);
                 if (te != null)
                 {
-                    string path = te.processTemplate(hospitalSession.ObjectId, anamnesis.ObjectId, null);
+                    string path = te.processTemplate(service, hospitalSession.ObjectId, anamnesis.ObjectId, null);
                     TemplatesUtils.ShowDocument(path);
                 }
             }
@@ -699,7 +690,7 @@ namespace Cardiology.UI.Forms
             MouseEventArgs mouseArgs = e as MouseEventArgs;
             if (isSureChangeTemplate())
             {
-                templateChanger.Show(mouseArgs.X, mouseArgs.Y, btn, "dss_st_presens", (value) => stPresensTxt.Text = (string)value);
+                templateChanger.Show(mouseArgs.X, mouseArgs.Y, btn, service, "dss_st_presens", (value) => stPresensTxt.Text = (string)value);
             }
         }
 
@@ -709,7 +700,7 @@ namespace Cardiology.UI.Forms
             MouseEventArgs mouseArgs = e as MouseEventArgs;
             if (isSureChangeTemplate())
             {
-                templateChanger.Show(mouseArgs.X, mouseArgs.Y, btn, "dss_diagnosis", (value) => diagnosisTxt.Text = (string)value);
+                templateChanger.Show(mouseArgs.X, mouseArgs.Y, btn, service, "dss_diagnosis", (value) => diagnosisTxt.Text = (string)value);
             }
         }
 
@@ -719,7 +710,7 @@ namespace Cardiology.UI.Forms
             MouseEventArgs mouseArgs = e as MouseEventArgs;
             if (isSureChangeTemplate())
             {
-                templateChanger.Show(mouseArgs.X, mouseArgs.Y, btn, "dss_template_name", (value) =>
+                templateChanger.Show(mouseArgs.X, mouseArgs.Y, btn, service, "dss_template_name", (value) =>
                 {
                     if (value != null)
                     {

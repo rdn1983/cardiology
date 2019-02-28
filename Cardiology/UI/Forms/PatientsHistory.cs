@@ -54,7 +54,7 @@ namespace Cardiology.UI.Forms
 
         private void morningInspectationMenuItem_Click(object sender, EventArgs e)
         {
-            Inspection form = new Inspection(hospitalitySession, null);
+            Inspection form = new Inspection(service, hospitalitySession, null);
             form.ShowDialog();
         }
 
@@ -162,11 +162,11 @@ namespace Cardiology.UI.Forms
             }
             else if (DdtInspection.NAME.Equals(firstType))
             {
-                form = new Inspection(hospitalitySession, firstId);
+                form = new Inspection(service, hospitalitySession, firstId);
             }
             else if (DdtEpicrisis.NAME.Equals(firstType))
             {
-                form = new PreoperativeEpicrisiscs(hospitalitySession, firstId);
+                form = new PreoperativeEpicrisiscs(service, hospitalitySession, firstId);
             }
             else if (DdtHospital.NAME.Equals(firstType))
             {
@@ -250,7 +250,7 @@ namespace Cardiology.UI.Forms
                     ITemplateProcessor te = TemplateProcessorManager.getProcessorByObjectType((string)row.Cells[2].Value);
                     if (te != null)
                     {
-                        string pathFile = te.processTemplate(hospitalitySession.ObjectId, (string)row.Cells[3].Value, null);
+                        string pathFile = te.processTemplate(service, hospitalitySession.ObjectId, (string)row.Cells[3].Value, null);
                         paths.Add(pathFile);
                     }
                     Console.WriteLine();
@@ -298,7 +298,7 @@ namespace Cardiology.UI.Forms
 
         private void beforeOperationItem_Click(object sender, EventArgs e)
         {
-            PreoperativeEpicrisiscs container = new PreoperativeEpicrisiscs(hospitalitySession, null);
+            PreoperativeEpicrisiscs container = new PreoperativeEpicrisiscs(service, hospitalitySession, null);
             container.ShowDialog();
         }
 

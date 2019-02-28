@@ -39,6 +39,30 @@ namespace Cardiology.Data.PostgreSQL
             return list;
         }
 
+        public IList<DdtConsiliumMember> GetMembersByConsiliumId(string consiliumId)
+        {
+            IList<DdtConsiliumMember> list = new List<DdtConsiliumMember>();
+            using (dynamic connection = connectionFactory.GetConnection())
+            {
+                String sql = String.Format("SELECT r_object_id, r_modify_date, dsid_consilium, r_creation_date, dsid_doctor FROM ddt_consilium_member WHERE dsid_consilium = '{0}'", consiliumId);
+                Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
+                using (DbDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        DdtConsiliumMember obj = new DdtConsiliumMember();
+                        obj.ObjectId = reader.GetString(1);
+                        obj.ModifyDate = reader.GetDateTime(2);
+                        obj.Consilium = reader.GetString(3);
+                        obj.CreationDate = reader.GetDateTime(4);
+                        obj.Doctor = reader.GetString(5);
+                        list.Add(obj);
+                    }
+                }
+            }
+            return list;
+        }
+
         public DdtConsiliumMember GetById(string id)
         {
             using (dynamic connection = connectionFactory.GetConnection())

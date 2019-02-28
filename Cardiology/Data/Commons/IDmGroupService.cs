@@ -8,5 +8,7 @@ namespace Cardiology.Data.Commons
         IList<DmGroup> GetAll();
 
         DmGroup GetById(string id);
+
+        DmGroup GetGroupByName(string groupName);
     }
 }

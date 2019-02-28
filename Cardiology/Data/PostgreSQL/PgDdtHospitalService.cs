@@ -3,6 +3,8 @@ using System.Data.Common;
 using System.Collections.Generic;
 using Cardiology.Data.Model2;
 using Cardiology.Data.Commons;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace Cardiology.Data.PostgreSQL
 {
@@ -84,9 +86,87 @@ namespace Cardiology.Data.PostgreSQL
             return null;
         }
 
-        public void Save(DdtHospital obj)
+
+        public void Save(DdtHospital hospital)
         {
-            throw new NotImplementedException();
+            using (dynamic connection = connectionFactory.GetConnection())
+            {
+                if (GetById(hospital.ObjectId) != null)
+                {
+                    string sqlStatement = "UPDATE ddt_hospital SET " +
+                                          "dss_diagnosis = @Diagnosis," +
+                                          "dsid_duty_doctor = @DutyDoctor," +
+                                          "r_creation_date = @CreationDate," +
+                                          "dsi_release_type = @ReleaseType," +
+                                          "dsdt_admission_date = @AdmissionDate," +
+                                          "dsid_patient = @Patient," +
+                                          "dsid_curing_doctor = @CuringDoctor," +
+                                          "dsb_active = @Active," +
+                                          "r_modify_date = @ModifyDate," +
+                                          "dsb_reject_cure = @RejectCure," +
+                                          "dss_room_cell = @RoomCell," +
+                                          "dsb_death = @Death," +
+                                          "dsid_dir_cardio_reanim_doctor = @DirCardioReanimDoctor," +
+                                          "dsid_substitution_doctor = @SubstitutionDoctor," +
+                                          "dsid_anesthetist_doctor = @AnesthetistDoctor" +
+                                          "WHERE r_object_id = @ObjectId ";
+
+                    using (SqlCommand cmd = new SqlCommand(sqlStatement, connection))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Parameters.AddWithValue("@Diagnosis", hospital.Diagnosis);
+                        cmd.Parameters.AddWithValue("@DutyDoctor", hospital.DutyDoctor);
+                        cmd.Parameters.AddWithValue("@CreationDate", hospital.CreationDate);
+                        cmd.Parameters.AddWithValue("@ReleaseType", hospital.ReleaseType);
+                        cmd.Parameters.AddWithValue("@AdmissionDate", hospital.AdmissionDate);
+                        cmd.Parameters.AddWithValue("@Patient", hospital.Patient);
+                        cmd.Parameters.AddWithValue("@CuringDoctor", hospital.CuringDoctor);
+                        cmd.Parameters.AddWithValue("@Active", hospital.Active);
+                        cmd.Parameters.AddWithValue("@ModifyDate", hospital.ModifyDate);
+                        cmd.Parameters.AddWithValue("@RejectCure", hospital.RejectCure);
+                        cmd.Parameters.AddWithValue("@RoomCell", hospital.RoomCell);
+                        cmd.Parameters.AddWithValue("@Death", hospital.Death);
+                        cmd.Parameters.AddWithValue("@DirCardioReanimDoctor", hospital.DirCardioReanimDoctor);
+                        cmd.Parameters.AddWithValue("@SubstitutionDoctor", hospital.SubstitutionDoctor);
+                        cmd.Parameters.AddWithValue("@AnesthetistDoctor", hospital.AnesthetistDoctor);
+                        cmd.Parameters.AddWithValue("@ObjectId", hospital.ObjectId);
+
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                else
+                {
+                    string sqlStatement = "INSERT INTO ddt_hospital(dss_diagnosis, dsid_duty_doctor, r_creation_date, dsi_release_type, " +
+                                          "dsdt_admission_date, dsid_patient, dsid_curing_doctor, dsb_active, r_modify_date, dsb_reject_cure, " +
+                                          "dss_room_cell, dsb_death, dsid_dir_cardio_reanim_doctor, dsid_substitution_doctor, dsid_anesthetist_doctor) " +
+
+                                          "VALUES(@Diagnosis, @DutyDoctor, @CreationDate, @ReleaseType, @AdmissionDate, @Patient, @CuringDoctor," +
+                                          "@Active, @ModifyDate, @RejectCure, @RoomCell, @RoomCell, @Death, @DirCardioReanimDoctor, @SubstitutionDoctor," +
+                                          "@AnesthetistDoctor)";
+
+                    using (SqlCommand cmd = new SqlCommand(sqlStatement, connection))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Parameters.AddWithValue("@Diagnosis", hospital.Diagnosis);
+                        cmd.Parameters.AddWithValue("@DutyDoctor", hospital.DutyDoctor);
+                        cmd.Parameters.AddWithValue("@CreationDate", hospital.CreationDate);
+                        cmd.Parameters.AddWithValue("@ReleaseType", hospital.ReleaseType);
+                        cmd.Parameters.AddWithValue("@AdmissionDate", hospital.AdmissionDate);
+                        cmd.Parameters.AddWithValue("@Patient", hospital.Patient);
+                        cmd.Parameters.AddWithValue("@CuringDoctor", hospital.CuringDoctor);
+                        cmd.Parameters.AddWithValue("@Active", hospital.Active);
+                        cmd.Parameters.AddWithValue("@ModifyDate", hospital.ModifyDate);
+                        cmd.Parameters.AddWithValue("@RejectCure", hospital.RejectCure);
+                        cmd.Parameters.AddWithValue("@RoomCell", hospital.RoomCell);
+                        cmd.Parameters.AddWithValue("@Death", hospital.Death);
+                        cmd.Parameters.AddWithValue("@DirCardioReanimDoctor", hospital.DirCardioReanimDoctor);
+                        cmd.Parameters.AddWithValue("@SubstitutionDoctor", hospital.SubstitutionDoctor);
+                        cmd.Parameters.AddWithValue("@AnesthetistDoctor", hospital.AnesthetistDoctor);
+
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
         }
     }
 }

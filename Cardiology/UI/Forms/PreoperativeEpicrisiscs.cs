@@ -15,7 +15,7 @@ namespace Cardiology.UI.Forms
         private string objectId;
         private AnalysisSelector selector;
 
-        public PreoperativeEpicrisiscs(DdtHospital hospitalitySession, string objectId, IDbDataService service)
+        public PreoperativeEpicrisiscs(IDbDataService service, DdtHospital hospitalitySession, string objectId)
         {
             this.hospitalitySession = hospitalitySession;
             this.objectId = objectId;

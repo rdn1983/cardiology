@@ -8,5 +8,9 @@ namespace Cardiology.Data.Commons
         IList<DdtEkg> GetAll();
 
         DdtEkg GetById(string id);
+
+        DdtEkg GetByHospitalSessionAndParentId(string hospitalSession, string parentId);
+
+        DdtEkg GetByHospitalSession(string hospitalSession);
     }
 }

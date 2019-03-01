@@ -13,5 +13,7 @@ namespace Cardiology.Data.Commons
         DdtValues GetByNameLike(String name);
 
         IList<DdtValues> GetListByNameLike(string name);
+
+        string Save(DdtValues obj);
     }
 }

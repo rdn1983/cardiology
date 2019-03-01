@@ -32,7 +32,7 @@ namespace Cardiology.UI.Forms
             ControlUtils.InitDoctorsByGroupName(service.GetDdvDoctorService(), dutyCardioBox, "duty_cardioreanim");
             ControlUtils.InitDoctorsByGroupName(service.GetDdvDoctorService(), cardioDocBox, "duty_rhdmil");
             ControlUtils.InitDoctorsByGroupName(service.GetDdvDoctorService(), subDoctorBox, "io_rhmdil");
-            CommonUtils.InitDoctorsComboboxValues(new DataService(), anesthetistComboBox, null);
+            CommonUtils.InitDoctorsComboboxValues(service, anesthetistComboBox, null);
         }
 
         private void initControls()

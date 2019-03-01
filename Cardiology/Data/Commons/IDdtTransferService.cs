@@ -8,5 +8,9 @@ namespace Cardiology.Data.Commons
         IList<DdtTransfer> GetAll();
 
         DdtTransfer GetById(string id);
+
+        DdtTransfer GetByHospitalSession(string hospitalSession);
+
+        string Save(DdtTransfer obj);
     }
 }

@@ -12,5 +12,7 @@ namespace Cardiology.Data.Commons
         IList<DdtCure> GetListByMedicineListId(string id);
 
         IList<DdtCure> GetListByTemplate(string templateName);
+
+        string Save(DdtCure obj);
     }
 }

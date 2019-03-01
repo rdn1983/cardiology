@@ -7,13 +7,15 @@ namespace Cardiology.UI.Controls
 {
     public partial class UziAnalysisControl : UserControl, IDocbaseControl
     {
+        private readonly IDbDataService service;
         private string objectId;
         private bool isEditable;
         private bool hasChanges;
         private bool isNew;
 
-        public UziAnalysisControl(string objectId, bool additional)
+        public UziAnalysisControl(IDbDataService service, string objectId, bool additional)
         {
+            this.service = service;
             this.objectId = objectId;
             this.isEditable = !additional;
             InitializeComponent();
@@ -25,7 +27,7 @@ namespace Cardiology.UI.Controls
         private void initControls()
         {
 
-            DdtUzi uzi = service.queryObjectById<DdtUzi>(objectId);
+            DdtUzi uzi = service.GetDdtUziService().GetById(objectId);
             refreshObject(uzi);
             ehoKgTxt.Enabled = isEditable;
             uzdTxt.Enabled = isEditable;
@@ -52,7 +54,8 @@ namespace Cardiology.UI.Controls
                 {
                     uziObj.ParentType = parentType;
                 }
-                objectId = service.updateOrCreateIfNeedObject<DdtUzi>(uziObj, DdtUzi.NAME, uziObj.ObjectId);
+
+                objectId = service.GetDdtUziService().Save(uziObj);
                 isNew = false;
                 hasChanges = false;
             }
@@ -83,7 +86,7 @@ namespace Cardiology.UI.Controls
         public object getObject()
         {
 
-            DdtUzi uziObj = service.queryObjectById<DdtUzi>(objectId);
+            DdtUzi uziObj = service.GetDdtUziService().GetById(objectId);
             if (uziObj == null)
             {
                 uziObj = new DdtUzi();

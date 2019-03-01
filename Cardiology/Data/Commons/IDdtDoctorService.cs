@@ -8,5 +8,7 @@ namespace Cardiology.Data.Commons
         IList<DdtDoctor> GetAll();
 
         DdtDoctor GetById(string id);
+
+        string Save(DdtDoctor obj);
     }
 }

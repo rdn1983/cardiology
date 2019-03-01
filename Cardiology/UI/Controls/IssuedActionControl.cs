@@ -8,11 +8,13 @@ namespace Cardiology.UI.Controls
     public partial class IssuedActionControl : UserControl
     {
         private string objectId;
+        private readonly IDbDataService service;
         private int index;
         private IssuedActionContainer parent;
 
-        public IssuedActionControl(int index, IssuedActionContainer obj)
+        public IssuedActionControl(IDbDataService service, int index, IssuedActionContainer obj)
         {
+            this.service = service;
             this.index = index;
             this.parent = obj;
             InitializeComponent();
@@ -53,7 +55,7 @@ namespace Cardiology.UI.Controls
             if (!string.IsNullOrEmpty(objectId))
             {
     
-                service.queryDelete(DdtIssuedAction.NAME, "r_object_id", objectId, true);
+                service.Delete(DdtIssuedAction.NAME, objectId);
             }
             if (parent != null)
             {

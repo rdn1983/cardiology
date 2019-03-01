@@ -11,12 +11,13 @@ namespace Cardiology.UI.Forms
         public const int KATETER_MANIPULATION = 0;
 
         private const string KATETER_MANIPULATION_TITLE = "Катетеризация подключичной, яремной вены пациента:";
-
+        private readonly IDbDataService service;
         private DdvPatient patient;
         private int manipulationType;
 
-        public ProtocolsManipulation(DdvPatient patient, int manipulationType)
+        public ProtocolsManipulation(IDbDataService service, DdvPatient patient, int manipulationType)
         {
+            this.service = service;
             this.patient = patient;
             this.manipulationType = manipulationType;
             InitializeComponent();
@@ -27,7 +28,7 @@ namespace Cardiology.UI.Forms
         private void initializeDoctorsBox()
         {
 
-            List<DdvDoctor> doctors = service.queryObjectsCollection<DdvDoctor>(@"select * from ddt_doctors");
+            IList<DdvDoctor> doctors = service.GetDdvDoctorService().GetAll();
             for (int i = 0; i < doctors.Count; i++)
             {
                 doctorsBox.Items.Add(doctors[i]);

@@ -19,14 +19,16 @@ namespace Cardiology.UI.Controls
         private const string RELEASE_JOURNAL_POSTFIX = "Пациент передан дежурному врачу. ";
 
         private const int CONTROL_HEIGHT = 108;
+        private readonly IDbDataService service;
         private string objId;
         private bool hasChanges;
         private bool isNew;
         private bool isReleaseJournal;
         private PulseTableCOntainer pulseSelector;
 
-        public JournalKAGControl(string objId, bool isRelease)
+        public JournalKAGControl(IDbDataService service, string objId, bool isRelease)
         {
+            this.service = service;
             this.objId = objId;
             this.isReleaseJournal = isRelease;
             InitializeComponent();

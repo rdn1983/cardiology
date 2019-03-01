@@ -8,14 +8,16 @@ namespace Cardiology.UI.Controls
 {
     public partial class JournalNoKAGControl : UserControl, IDocbaseControl
     {
+        private readonly IDbDataService service;
         private string objectId;
         private string dsidCuringDoctor;
         private int journalType;
         private bool hasChanges;
         private bool isNew;
 
-        public JournalNoKAGControl(string objectId, int journalType, string dsidCuringDoctor)
+        public JournalNoKAGControl(IDbDataService service, string objectId, int journalType, string dsidCuringDoctor)
         {
+            this.service = service;
             this.objectId = objectId;
             this.journalType = journalType;
             this.dsidCuringDoctor = dsidCuringDoctor;
@@ -55,7 +57,7 @@ namespace Cardiology.UI.Controls
             CommonUtils.InitDoctorsComboboxValues(service, docBox, " dss_login in (select dss_user_name from dm_group_users where dss_group_name = 'duty_cardioreanim') ");
             CommonUtils.SetDoctorsComboboxDefaultValue(service, docBox, dsidCuringDoctor);
 
-            DdtJournal journal = service.queryObjectById<DdtJournal>(objectId);
+            DdtJournal journal = service.GetDdtJournalService().GetById(objectId);
             refreshObject(journal);
         }
 
@@ -74,7 +76,7 @@ namespace Cardiology.UI.Controls
             journal.HospitalitySession = hospitalitySession.ObjectId;
             journal.Patient = hospitalitySession.Patient;
 
-            objectId = service.updateOrCreateIfNeedObject<DdtJournal>(journal, DdtJournal.NAME, journal.ObjectId);
+            objectId = service.GetDdtJournalService().Save(journal);
             hasChanges = false;
             isNew = false;
         }
@@ -121,7 +123,7 @@ namespace Cardiology.UI.Controls
         public object getObject()
         {
 
-            DdtJournal journal = service.queryObjectById<DdtJournal>(objectId);
+            DdtJournal journal = service.GetDdtJournalService().GetById(objectId);
             if (journal == null)
             {
                 journal = new DdtJournal();
@@ -164,7 +166,7 @@ namespace Cardiology.UI.Controls
                 goodRhytmBtn.Checked = journal.GoodRhythm;
                 badRhytmBtn.Checked = !journal.GoodRhythm;
 
-                DdvDoctor doc = service.queryObjectById<DdvDoctor>(journal.Doctor);
+                DdvDoctor doc = service.GetDdvDoctorService().GetById(journal.Doctor);
                 docBox.SelectedIndex = docBox.FindStringExact(doc.ShortName);
                 objectId = journal.ObjectId;
                 isNew = string.IsNullOrEmpty(objectId);

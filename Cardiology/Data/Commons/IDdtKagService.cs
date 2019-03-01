@@ -9,6 +9,10 @@ namespace Cardiology.Data.Commons
 
         DdtKag GetById(string id);
 
+        DdtKag GetByParentId(string parentId);
+
+        DdtKag GetByHospitalSession(string hospitalSession);
+
         string Save(DdtKag obj);
     }
 }

@@ -21,7 +21,7 @@ namespace Cardiology.UI.Controls
                 clearMedicine();
                 foreach (DdtIssuedAction issuedAction in allAction)
                 {
-                    IssuedActionControl ctrl = new IssuedActionControl(getNextIndex(), this);
+                    IssuedActionControl ctrl = new IssuedActionControl(service, getNextIndex(), this);
                     ctrl.init(issuedAction);
                     sizedContainer.Controls.Add(ctrl);
                 }
@@ -29,7 +29,7 @@ namespace Cardiology.UI.Controls
 
         }
 
-        internal List<DdtIssuedAction> getIssuedMedicines()
+        internal List<DdtIssuedAction> getIssuedMedicines(IDbDataService service)
         {
 
             List<DdtIssuedAction> result = new List<DdtIssuedAction>();
@@ -56,7 +56,7 @@ namespace Cardiology.UI.Controls
 
         internal void addMedicineBox()
         {
-            IssuedActionControl ctrl = new IssuedActionControl(getNextIndex(), this);
+            IssuedActionControl ctrl = new IssuedActionControl(service, getNextIndex(), this);
             sizedContainer.Controls.Add(ctrl);
         }
 

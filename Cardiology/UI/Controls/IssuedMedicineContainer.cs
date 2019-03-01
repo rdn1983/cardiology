@@ -22,7 +22,7 @@ namespace Cardiology.UI.Controls
             {
                 medListId = medList.ObjectId;
                 clearMedicine();
-                List<DdtIssuedMedicine> med = service.queryObjectsCollectionByAttrCond<DdtIssuedMedicine>(DdtIssuedMedicine.NAME, "dsid_med_list", medList.ObjectId, true);
+                IList<DdtIssuedMedicine> med = service.GetDdtIssuedMedicineService().GetListByMedicineListId(medList.ObjectId);
                 for (int i = 0; i < med.Count; i++)
                 {
                     IssuedMedicineControl control = new IssuedMedicineControl(service, getNextIndex(), this);
@@ -75,7 +75,7 @@ namespace Cardiology.UI.Controls
 
         internal void addMedicineBox()
         {
-            IssuedMedicineControl ctrl = new IssuedMedicineControl(getNextIndex(), this);
+            IssuedMedicineControl ctrl = new IssuedMedicineControl(service, getNextIndex(), this);
             sizedContainer.Controls.Add(ctrl);
         }
 

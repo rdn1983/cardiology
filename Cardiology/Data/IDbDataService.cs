@@ -40,8 +40,6 @@ namespace Cardiology.Data
 
         IDdtEpicrisisService GetDdtEpicrisisService();
 
-        IDdvDoctorervice GetDdvDoctorervice();
-
         IDdtAnamnesisService GetDdtAnamnesisService();
 
         IDdtEgdsService GetDdtEgdsService();

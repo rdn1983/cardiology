@@ -8,5 +8,7 @@ namespace Cardiology.Data.Commons
         IList<DdtXRay> GetAll();
 
         DdtXRay GetById(string id);
+
+        string Save(DdtXRay obj);
     }
 }

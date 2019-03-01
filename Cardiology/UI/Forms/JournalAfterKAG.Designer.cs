@@ -53,7 +53,7 @@ namespace Cardiology.UI.Forms
             this.dutyCardioInspectationPnl = new System.Windows.Forms.GroupBox();
             this.dutyCardioContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.finalDiaryBox = new System.Windows.Forms.Panel();
-            this.releaseJournalCtrl = new JournalKAGControl(null, true);
+            this.releaseJournalCtrl = new JournalKAGControl(null, null, true);
             this.ekgTxt0 = new System.Windows.Forms.TextBox();
             this.addCardioInspetions = new System.Windows.Forms.Button();
             this.ekgLbl0 = new System.Windows.Forms.Label();

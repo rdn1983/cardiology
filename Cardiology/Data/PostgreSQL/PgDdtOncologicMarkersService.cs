@@ -85,5 +85,10 @@ namespace Cardiology.Data.PostgreSQL
             }
             return null;
         }
+
+        public string Save(DdtOncologicMarkers obj)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -7,13 +7,15 @@ namespace Cardiology.UI.Controls
 {
     public partial class XRayControl : UserControl, IDocbaseControl
     {
+        private readonly IDbDataService service;
         private string objectId;
         private bool isEditable;
         private bool hasChanges;
         private bool isNew;
 
-        public XRayControl(string objectId, bool additional)
+        public XRayControl(IDbDataService service, string objectId, bool additional)
         {
+            this.service = service;
             this.objectId = objectId;
             this.isEditable = !additional;
             InitializeComponent();
@@ -25,7 +27,7 @@ namespace Cardiology.UI.Controls
         private void initControls()
         {
 
-            DdtXRay xRay = service.queryObjectById<DdtXRay>(objectId);
+            DdtXRay xRay = service.GetDdtXrayService().GetById(objectId);
             refreshObject(xRay);
             chestXRayTxt.Enabled = isEditable;
             controlRadiographyTxt.Enabled = isEditable;
@@ -55,7 +57,8 @@ namespace Cardiology.UI.Controls
                 {
                     xRay.ParentType = parentType;
                 }
-                objectId = service.updateOrCreateIfNeedObject<DdtXRay>(xRay, DdtXRay.NAME, xRay.ObjectId);
+
+                objectId = service.GetDdtXrayService().Save(xRay);
                 isNew = false;
                 hasChanges = false;
             }
@@ -75,7 +78,7 @@ namespace Cardiology.UI.Controls
         public object getObject()
         {
 
-            DdtXRay xRay = service.queryObjectById<DdtXRay>(objectId);
+            DdtXRay xRay = service.GetDdtXrayService().GetById(objectId);
             if (xRay == null)
             {
                 xRay = new DdtXRay();

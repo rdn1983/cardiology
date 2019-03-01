@@ -52,7 +52,7 @@ namespace Cardiology.Commons
         {
             cb.Items.Clear();
             string query = @"SELECT * FROM ddt_cure_type";
-            List<DdtCureType> cureList = service.queryObjectsCollection<DdtCureType>(query);
+            IList<DdtCureType> cureList = service.GetDdtCureTypeService().GetAll();
             cb.Items.AddRange(cureList.ToArray());
             cb.ValueMember = "DsiType";
             cb.DisplayMember = "DssName";

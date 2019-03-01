@@ -7,15 +7,17 @@ namespace Cardiology.UI.Controls
 {
     public partial class CoagulogrammControl : UserControl, IDocbaseControl
     {
+        private readonly IDbDataService service;
         private string objectId;
         private bool isEditable;
         private bool hasChanges;
         private bool isNew;
 
-        public CoagulogrammControl() : this(null, false) { }
+        public CoagulogrammControl() : this(null, null, false) { }
 
-        public CoagulogrammControl(string objectId, bool isAddit)
+        public CoagulogrammControl(IDbDataService service, string objectId, bool isAddit)
         {
+            this.service = service;
             this.objectId = objectId;
             this.isEditable = !isAddit;
             InitializeComponent();
@@ -47,7 +49,7 @@ namespace Cardiology.UI.Controls
                 coagulgramm.HospitalitySession = hospitalitySession.ObjectId;
                 coagulgramm.Doctor = hospitalitySession.CuringDoctor;
                 coagulgramm.Patient = hospitalitySession.Patient;
-                objectId = service.updateOrCreateIfNeedObject<DdtCoagulogram>(coagulgramm, DdtCoagulogram.NAME, coagulgramm.ObjectId);
+                objectId = service.GetDdtCoagulogramService().Save(coagulgramm);
                 hasChanges = false;
                 isNew = false;
             }
@@ -75,7 +77,7 @@ namespace Cardiology.UI.Controls
 
         public object getObject()
         {
-            DdtCoagulogram coagulgramm = service.queryObjectById<DdtCoagulogram>(objectId);
+            DdtCoagulogram coagulgramm = service.GetDdtCoagulogramService().GetById(objectId);
             if (coagulgramm == null)
             {
                 coagulgramm = new DdtCoagulogram();

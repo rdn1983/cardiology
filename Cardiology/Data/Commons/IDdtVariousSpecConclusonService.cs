@@ -7,6 +7,12 @@ namespace Cardiology.Data.Commons
     {
         IList<DdtVariousSpecConcluson> GetAll();
 
+        IList<DdtVariousSpecConcluson> GetListByParentId(string parentId);
+
         DdtVariousSpecConcluson GetById(string id);
+
+        DdtVariousSpecConcluson GetByParentId(string id);
+
+        string Save(DdtVariousSpecConcluson obj);
     }
 }

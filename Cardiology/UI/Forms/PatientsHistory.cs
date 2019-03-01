@@ -60,19 +60,19 @@ namespace Cardiology.UI.Forms
 
         private void journalBeforeKAGMeniItem_Click(object sender, EventArgs e)
         {
-            JournalBeforeKag form = new JournalBeforeKag(hospitalitySession, null, (int)DdtJournalDsiType.BEFORE_KAG);
+            JournalBeforeKag form = new JournalBeforeKag(service, hospitalitySession, null, (int)DdtJournalDsiType.BEFORE_KAG);
             form.ShowDialog();
         }
 
         private void journalAfterKAGMnuItem_Click(object sender, EventArgs e)
         {
-            JournalAfterKAG form = new JournalAfterKAG(hospitalitySession, null);
+            JournalAfterKAG form = new JournalAfterKAG(service, hospitalitySession, null);
             form.ShowDialog();
         }
 
         private void journalWithoutKAGMenuItem_Click(object sender, EventArgs e)
         {
-            JournalBeforeKag form = new JournalBeforeKag(hospitalitySession, null, (int)DdtJournalDsiType.WITHOUT_KAG);
+            JournalBeforeKag form = new JournalBeforeKag(service, hospitalitySession, null, (int)DdtJournalDsiType.WITHOUT_KAG);
             form.ShowDialog();
         }
 
@@ -132,11 +132,11 @@ namespace Cardiology.UI.Forms
                 DdtJournal journal = service.GetDdtJournalService().GetById(firstId);
                 if (journal.JournalType == (int)DdtJournalDsiType.AFTER_KAG)
                 {
-                    form = new JournalAfterKAG(hospitalitySession, firstId);
+                    form = new JournalAfterKAG(service, hospitalitySession, firstId);
                 }
                 else
                 {
-                    form = new JournalBeforeKag(hospitalitySession, ids, -1);
+                    form = new JournalBeforeKag(service, hospitalitySession, ids, -1);
                 }
             }
             else if (DdtIssuedMedicineList.NAME.Equals(firstType))
@@ -150,7 +150,7 @@ namespace Cardiology.UI.Forms
                 || DdtBloodAnalysis.NAME.Equals(firstType) || DdtHormones.NAME.Equals(firstType)
                 || DdtCoagulogram.NAME.Equals(firstType) || DdtOncologicMarkers.NAME.Equals(firstType))
             {
-                form = new AnalysisContainer(hospitalitySession, firstType, firstId);
+                form = new AnalysisContainer(service, hospitalitySession, firstType, firstId);
             }
             else if (DdtConsilium.NAME.Equals(firstType))
             {
@@ -181,49 +181,49 @@ namespace Cardiology.UI.Forms
 
         private void ekgItem_Click(object sender, EventArgs e)
         {
-            AnalysisContainer container = new AnalysisContainer(hospitalitySession, DdtEkg.NAME, null);
+            AnalysisContainer container = new AnalysisContainer(service, hospitalitySession, DdtEkg.NAME, null);
             container.ShowDialog();
         }
 
         private void bloodItem_Click(object sender, EventArgs e)
         {
-            AnalysisContainer container = new AnalysisContainer(hospitalitySession, DdtBloodAnalysis.NAME, null);
+            AnalysisContainer container = new AnalysisContainer(service, hospitalitySession, DdtBloodAnalysis.NAME, null);
             container.ShowDialog();
         }
 
         private void urineItem_Click(object sender, EventArgs e)
         {
-            AnalysisContainer container = new AnalysisContainer(hospitalitySession, DdtUrineAnalysis.NAME, null);
+            AnalysisContainer container = new AnalysisContainer(service, hospitalitySession, DdtUrineAnalysis.NAME, null);
             container.ShowDialog();
         }
 
         private void holterItem_Click(object sender, EventArgs e)
         {
-            AnalysisContainer container = new AnalysisContainer(hospitalitySession, DdtHolter.NAME, null);
+            AnalysisContainer container = new AnalysisContainer(service, hospitalitySession, DdtHolter.NAME, null);
             container.ShowDialog();
         }
 
         private void kagItem_Click(object sender, EventArgs e)
         {
-            AnalysisContainer container = new AnalysisContainer(hospitalitySession, DdtKag.NAME, null);
+            AnalysisContainer container = new AnalysisContainer(service, hospitalitySession, DdtKag.NAME, null);
             container.ShowDialog();
         }
 
         private void egdsItem_Click(object sender, EventArgs e)
         {
-            AnalysisContainer container = new AnalysisContainer(hospitalitySession, DdtEgds.NAME, null);
+            AnalysisContainer container = new AnalysisContainer(service, hospitalitySession, DdtEgds.NAME, null);
             container.ShowDialog();
         }
 
         private void specialistItem_Click(object sender, EventArgs e)
         {
-            AnalysisContainer container = new AnalysisContainer(hospitalitySession, DdtSpecialistConclusion.NAME, null);
+            AnalysisContainer container = new AnalysisContainer(service, hospitalitySession, DdtSpecialistConclusion.NAME, null);
             container.ShowDialog();
         }
 
         private void uziItem_Click(object sender, EventArgs e)
         {
-            AnalysisContainer container = new AnalysisContainer(hospitalitySession, DdtUzi.NAME, null);
+            AnalysisContainer container = new AnalysisContainer(service, hospitalitySession, DdtUzi.NAME, null);
             container.ShowDialog();
         }
 
@@ -286,13 +286,13 @@ namespace Cardiology.UI.Forms
 
         private void hormonesItem_Click(object sender, EventArgs e)
         {
-            AnalysisContainer container = new AnalysisContainer(hospitalitySession, DdtHormones.NAME, null);
+            AnalysisContainer container = new AnalysisContainer(service, hospitalitySession, DdtHormones.NAME, null);
             container.ShowDialog();
         }
 
         private void koagulogrammItem_Click(object sender, EventArgs e)
         {
-            AnalysisContainer container = new AnalysisContainer(hospitalitySession, DdtCoagulogram.NAME, null);
+            AnalysisContainer container = new AnalysisContainer(service, hospitalitySession, DdtCoagulogram.NAME, null);
             container.ShowDialog();
         }
 
@@ -304,13 +304,13 @@ namespace Cardiology.UI.Forms
 
         private void xrayMenuItem_Click(object sender, EventArgs e)
         {
-            AnalysisContainer container = new AnalysisContainer(hospitalitySession, DdtXRay.NAME, null);
+            AnalysisContainer container = new AnalysisContainer(service, hospitalitySession, DdtXRay.NAME, null);
             container.ShowDialog();
         }
 
         private void oncologicMarkersItem_Click(object sender, EventArgs e)
         {
-            AnalysisContainer container = new AnalysisContainer(hospitalitySession, DdtOncologicMarkers.NAME, null);
+            AnalysisContainer container = new AnalysisContainer(service, hospitalitySession, DdtOncologicMarkers.NAME, null);
             container.ShowDialog();
         }
     }

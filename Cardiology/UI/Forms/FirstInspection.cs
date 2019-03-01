@@ -666,7 +666,7 @@ namespace Cardiology.UI.Forms
 
         private void alcoholProtocolBtn_Click(object sender, EventArgs e)
         {
-            AlcoIntoxication form = new AlcoIntoxication(hospitalSession);
+            AlcoIntoxication form = new AlcoIntoxication(service, hospitalSession);
             form.ShowDialog();
         }
 

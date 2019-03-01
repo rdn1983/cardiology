@@ -7,11 +7,13 @@ namespace Cardiology.UI.Forms
 {
     public partial class AlcoIntoxication : Form
     {
+        private readonly IDbDataService service;
         private DdtHospital hospitalitySession;
 
 
-        public AlcoIntoxication(DdtHospital hospitalitySession)
+        public AlcoIntoxication(IDbDataService service, DdtHospital hospitalitySession)
         {
+            this.service = service;
             this.hospitalitySession = hospitalitySession;
             InitializeComponent();
             initProtocol();
@@ -20,12 +22,13 @@ namespace Cardiology.UI.Forms
         private void initProtocol()
         {
 
-            DdvPatient patient = service.queryObjectById<DdtPatient>(hospitalitySession.Patient);
+            DdvPatient patient = service.GetDdvPatientService().GetById(hospitalitySession.Patient);
             if (patient != null)
             {
                 Text += " " + patient.ShortName;
             }
-            DdtAlcoProtocol protocol = service.queryObject<DdtAlcoProtocol>(@"SELECT * FROM ddt_alco_protocol where dsid_hospitality_session='" + hospitalitySession.ObjectId + "'");
+
+            DdtAlcoProtocol protocol = service.GetDdtAlcoProtocolService().GetByHospitalSession(hospitalitySession.ObjectId);
             if (protocol != null)
             {
                 behaviorTxt.Text = protocol.Behavior;
@@ -58,7 +61,7 @@ namespace Cardiology.UI.Forms
         private void saveBtn_Click(object sender, EventArgs e)
         {
 
-            DdtAlcoProtocol protocol = service.queryObject<DdtAlcoProtocol>(@"SELECT * FROM ddt_alco_protocol where dsid_hospitality_session='" + hospitalitySession.ObjectId + "'");
+            DdtAlcoProtocol protocol = service.GetDdtAlcoProtocolService().GetByHospitalSession(hospitalitySession.ObjectId);
             if (protocol == null)
             {
                 protocol = new DdtAlcoProtocol();
@@ -91,7 +94,7 @@ namespace Cardiology.UI.Forms
             protocol.Walk = walkTxt.Text;
             protocol.Cause = causeTxt.Text;
 
-            service.updateOrCreateIfNeedObject<DdtAlcoProtocol>(protocol, DdtAlcoProtocol.NAME, protocol.ObjectId);
+            service.GetDdtAlcoProtocolService().Save(protocol);
             Close();
         }
     }

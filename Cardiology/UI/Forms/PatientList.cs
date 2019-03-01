@@ -81,7 +81,7 @@ namespace Cardiology.UI.Forms
 
         private void ekstubationItem_Click(object sender, EventArgs e)
         {
-            UserFormExtubation form = new UserFormExtubation();
+            UserFormExtubation form = new UserFormExtubation(service);
             form.ShowDialog();
         }
 
@@ -169,7 +169,7 @@ namespace Cardiology.UI.Forms
                 DataGridViewCell cell = row.Cells[0];
                 string value = cell.Value.ToString();
                 Dictionary<string, string> values = new Dictionary<string, string>();
-                TemplatesUtils.fillBlankTemplate("blank_common_consent_template.doc", value, values);
+                TemplatesUtils.fillBlankTemplate(service, "blank_common_consent_template.doc", value, values);
             }
         }
 
@@ -182,7 +182,7 @@ namespace Cardiology.UI.Forms
                 DataGridViewCell cell = row.Cells[0];
                 string value = cell.Value.ToString();
                 Dictionary<string, string> values = new Dictionary<string, string>();
-                TemplatesUtils.fillBlankTemplate("blank_aid_aggrement_template.doc", value, values);
+                TemplatesUtils.fillBlankTemplate(service, "blank_aid_aggrement_template.doc", value, values);
             }
         }
 
@@ -195,7 +195,7 @@ namespace Cardiology.UI.Forms
                 DataGridViewCell cell = row.Cells[0];
                 string value = cell.Value.ToString();
                 Dictionary<string, string> values = new Dictionary<string, string>();
-                TemplatesUtils.fillBlankTemplate("blank_stent_template.doc", value, values);
+                TemplatesUtils.fillBlankTemplate(service, "blank_stent_template.doc", value, values);
             }
         }
 
@@ -208,7 +208,7 @@ namespace Cardiology.UI.Forms
                 DataGridViewCell cell = row.Cells[0];
                 string value = cell.Value.ToString();
                 Dictionary<string, string> values = new Dictionary<string, string>();
-                TemplatesUtils.fillBlankTemplate("blank_kag_template.doc", value, values);
+                TemplatesUtils.fillBlankTemplate(service, "blank_kag_template.doc", value, values);
             }
         }
 
@@ -221,7 +221,7 @@ namespace Cardiology.UI.Forms
                 DataGridViewCell cell = row.Cells[0];
                 string value = cell.Value.ToString();
                 Dictionary<string, string> values = new Dictionary<string, string>();
-                TemplatesUtils.fillBlankTemplate("blank_refusal_medical_injure.doc", value, values);
+                TemplatesUtils.fillBlankTemplate(service, "blank_refusal_medical_injure.doc", value, values);
             }
         }
 
@@ -234,7 +234,7 @@ namespace Cardiology.UI.Forms
                 DataGridViewCell cell = row.Cells[0];
                 string value = cell.Value.ToString();
                 Dictionary<string, string> values = new Dictionary<string, string>();
-                TemplatesUtils.fillBlankTemplate("blank_refusal_of_treatment_template.doc", value, values);
+                TemplatesUtils.fillBlankTemplate(service, "blank_refusal_of_treatment_template.doc", value, values);
             }
         }
 
@@ -248,7 +248,7 @@ namespace Cardiology.UI.Forms
                 string value = cell.Value.ToString();
                 Dictionary<string, string> values = new Dictionary<string, string>();
 
-                TemplatesUtils.fillBlankTemplate("blank_justification_costly_cure_template.doc", value, values);
+                TemplatesUtils.fillBlankTemplate(service, "blank_justification_costly_cure_template.doc", value, values);
             }
 
         }
@@ -292,7 +292,7 @@ namespace Cardiology.UI.Forms
                 values.Add("{analysis.date}", DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToShortTimeString());
                 values.Add("{patient.work}", " ");
                 values.Add("{reason}", " ");
-                TemplatesUtils.fillBlankTemplate("blank_alco_examination_template.doc", value, values);
+                TemplatesUtils.fillBlankTemplate(service, "blank_alco_examination_template.doc", value, values);
             }
         }
 
@@ -305,7 +305,7 @@ namespace Cardiology.UI.Forms
                 DataGridViewCell cell = row.Cells[0];
                 string value = cell.Value.ToString();
                 Dictionary<string, string> values = new Dictionary<string, string>();
-                TemplatesUtils.fillBlankTemplate("blank_kek_template.doc", value, values);
+                TemplatesUtils.fillBlankTemplate(service, "blank_kek_template.doc", value, values);
             }
         }
 
@@ -318,7 +318,7 @@ namespace Cardiology.UI.Forms
                 DataGridViewCell cell = row.Cells[0];
                 string value = cell.Value.ToString();
                 Dictionary<string, string> values = new Dictionary<string, string>();
-                TemplatesUtils.fillBlankTemplate("blank_narko_template.doc", value, values);
+                TemplatesUtils.fillBlankTemplate(service, "blank_narko_template.doc", value, values);
             }
         }
 
@@ -331,7 +331,7 @@ namespace Cardiology.UI.Forms
                 DataGridViewCell cell = row.Cells[0];
                 string value = cell.Value.ToString();
                 DdtHospital hospitalSession = service.GetDdtHospitalService().GetById(value);
-                AmbulanceLetters form = new AmbulanceLetters(hospitalSession);
+                AmbulanceLetters form = new AmbulanceLetters(service, hospitalSession);
                 form.ShowDialog();
             }
         }
@@ -345,7 +345,7 @@ namespace Cardiology.UI.Forms
                 DataGridViewCell cell = row.Cells[0];
                 string value = cell.Value.ToString();
                 Dictionary<string, string> values = new Dictionary<string, string>();
-                TemplatesUtils.fillBlankTemplate("blank_trunsfusion_approval_template.doc", value, values);
+                TemplatesUtils.fillBlankTemplate(service, "blank_trunsfusion_approval_template.doc", value, values);
             }
         }
 
@@ -358,7 +358,7 @@ namespace Cardiology.UI.Forms
                 DataGridViewCell cell = row.Cells[0];
                 string value = cell.Value.ToString();
                 Dictionary<string, string> values = new Dictionary<string, string>();
-                TemplatesUtils.fillBlankTemplate("blank_registered_transfusion_template.doc", value, values);
+                TemplatesUtils.fillBlankTemplate(service, "blank_registered_transfusion_template.doc", value, values);
             }
         }
 
@@ -371,7 +371,7 @@ namespace Cardiology.UI.Forms
                 DataGridViewCell cell = row.Cells[0];
                 string value = cell.Value.ToString();
                 Dictionary<string, string> values = new Dictionary<string, string>();
-                TemplatesUtils.fillBlankTemplate("blank_trunsfusion_claim_template.doc", value, values);
+                TemplatesUtils.fillBlankTemplate(service, "blank_trunsfusion_claim_template.doc", value, values);
             }
         }
 
@@ -384,7 +384,7 @@ namespace Cardiology.UI.Forms
                 DataGridViewCell cell = row.Cells[0];
                 string value = cell.Value.ToString();
                 Dictionary<string, string> values = new Dictionary<string, string>();
-                TemplatesUtils.fillBlankTemplate("blank_skat_template.doc", value, values);
+                TemplatesUtils.fillBlankTemplate(service, "blank_skat_template.doc", value, values);
             }
         }
 
@@ -397,7 +397,7 @@ namespace Cardiology.UI.Forms
                 DataGridViewCell cell = row.Cells[0];
                 string value = cell.Value.ToString();
                 Dictionary<string, string> values = new Dictionary<string, string>();
-                TemplatesUtils.fillBlankTemplate("blank_transfer_template.doc", value, values);
+                TemplatesUtils.fillBlankTemplate(service, "blank_transfer_template.doc", value, values);
             }
         }
 
@@ -410,7 +410,7 @@ namespace Cardiology.UI.Forms
                 DataGridViewCell cell = row.Cells[0];
                 string value = cell.Value.ToString();
                 Dictionary<string, string> values = new Dictionary<string, string>();
-                TemplatesUtils.fillBlankTemplate("blank_aid_template.doc", value, values);
+                TemplatesUtils.fillBlankTemplate(service, "blank_aid_template.doc", value, values);
             }
         }
 
@@ -423,7 +423,7 @@ namespace Cardiology.UI.Forms
                 DataGridViewCell cell = row.Cells[0];
                 string value = cell.Value.ToString();
                 Dictionary<string, string> values = new Dictionary<string, string>();
-                TemplatesUtils.fillBlankTemplate("blank_hospitality_refusal_template.doc", value, values);
+                TemplatesUtils.fillBlankTemplate(service, "blank_hospitality_refusal_template.doc", value, values);
             }
         }
 
@@ -436,7 +436,7 @@ namespace Cardiology.UI.Forms
                 DataGridViewCell cell = row.Cells[0];
                 string value = cell.Value.ToString();
                 Dictionary<string, string> values = new Dictionary<string, string>();
-                TemplatesUtils.fillBlankTemplate("blank_yes_manipulation_template.doc", value, values);
+                TemplatesUtils.fillBlankTemplate(service, "blank_yes_manipulation_template.doc", value, values);
             }
         }
 
@@ -450,7 +450,7 @@ namespace Cardiology.UI.Forms
                 string value = cell.Value.ToString();
                 Dictionary<string, string> values = new Dictionary<string, string>();
                 values.Add("{time}", DateTime.Now.ToShortTimeString());
-                TemplatesUtils.fillBlankTemplate("blank_echo_template.doc", value, values);
+                TemplatesUtils.fillBlankTemplate(service, "blank_echo_template.doc", value, values);
             }
         }
 
@@ -464,14 +464,14 @@ namespace Cardiology.UI.Forms
                 string value = cell.Value.ToString();
                 Dictionary<string, string> values = new Dictionary<string, string>();
                 values.Add("{time}", DateTime.Now.ToShortTimeString());
-                TemplatesUtils.fillBlankTemplate("blank_anastesia_template.doc", value, values);
+                TemplatesUtils.fillBlankTemplate(service, "blank_anastesia_template.doc", value, values);
             }
         }
 
         private void refusalDeadInspectionItem_Click(object sender, EventArgs e)
         {
             Dictionary<string, string> values = new Dictionary<string, string>();
-            TemplatesUtils.fillBlankTemplate("blank_refusal_dead_inspection_template.doc", null, values);
+            TemplatesUtils.fillBlankTemplate(service, "blank_refusal_dead_inspection_template.doc", null, values);
         }
 
         private void deadConstatationItem_Click(object sender, EventArgs e)
@@ -490,7 +490,7 @@ namespace Cardiology.UI.Forms
                 string passportInfo = patient.PassportSerial + " " + patient.PassportNum + " выдан "
                     + patient.PassportDate.ToShortDateString() + " " + patient.PassportIssuePlace;
                 values.Add("{patient.passport}", passportInfo);
-                TemplatesUtils.fillBlankTemplate("blank_dead_constatation_template.doc", value, values);
+                TemplatesUtils.fillBlankTemplate(service, "blank_dead_constatation_template.doc", value, values);
             }
         }
 

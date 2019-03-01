@@ -13,10 +13,12 @@ namespace Cardiology.UI.Forms
     {
         private int journalType;
         private List<string> journalIds;
+        private readonly IDbDataService service;
         private DdtHospital hospitalitySession;
 
-        public JournalBeforeKag(DdtHospital hospitalitySession, List<string> journalIds, int journalType)
+        public JournalBeforeKag(IDbDataService service, DdtHospital hospitalitySession, List<string> journalIds, int journalType)
         {
+            this.service = service;
             this.hospitalitySession = hospitalitySession;
             this.journalIds = journalIds == null ? new List<string>() : journalIds;
             this.journalType = journalType;
@@ -41,7 +43,7 @@ namespace Cardiology.UI.Forms
             }
 
 
-            DdvPatient patient = service.queryObjectById<DdvPatient>(hospitalitySession.Patient);
+            DdvPatient patient = service.GetDdvPatientService().GetById(hospitalitySession.Patient);
             if (patient != null)
             {
                 Text += " " + patient.ShortName;
@@ -51,7 +53,7 @@ namespace Cardiology.UI.Forms
                 journalIds.Aggregate((a, b) => a + "','" + b) + "') ORDER BY dsdt_admission_date ASC");
             foreach (DdtJournal j in journals)
             {
-                journalContainer.Controls.Add(new JournalNoKAGControl(j.ObjectId, j.JournalType, null));
+                journalContainer.Controls.Add(new JournalNoKAGControl(service, j.ObjectId, j.JournalType, null));
             }
         }
 
@@ -108,10 +110,10 @@ namespace Cardiology.UI.Forms
                 ITemplateProcessor processor = TemplateProcessorManager.getProcessorByObjectType(DdtJournal.NAME);
                 foreach (string id in journalIds)
                 {
-                    DdtJournal journal = service.queryObjectById<DdtJournal>(id);
+                    DdtJournal journal = service.GetDdtJournalService().GetById(id);
                     if (journal != null)
                     {
-                        string path = processor.processTemplate(hospitalitySession.ObjectId, journal.ObjectId, null);
+                        string path = processor.processTemplate(service, hospitalitySession.ObjectId, journal.ObjectId, null);
                         paths.Add(path);
                     }
                 }
@@ -127,7 +129,7 @@ namespace Cardiology.UI.Forms
 
         private void createJournalMenu_Click(object sender, EventArgs e)
         {
-            JournalNoKAGControl nextJournal = new JournalNoKAGControl(null, (int)DdtJournalDsiType.BEFORE_KAG, hospitalitySession.CuringDoctor);
+            JournalNoKAGControl nextJournal = new JournalNoKAGControl(service, null, (int)DdtJournalDsiType.BEFORE_KAG, hospitalitySession.CuringDoctor);
             if (journalContainer.Controls.Count > 0)
             {
                 JournalNoKAGControl lastJournal = (JournalNoKAGControl)journalContainer.Controls[journalContainer.Controls.Count - 1];
@@ -140,7 +142,7 @@ namespace Cardiology.UI.Forms
 
         private void createDefferedJournalMenu_Click(object sender, EventArgs e)
         {
-            JournalNoKAGControl goodJournalBefore = new JournalNoKAGControl(null, (int)DdtJournalDsiType.BEFORE_KAG, hospitalitySession.CuringDoctor);
+            JournalNoKAGControl goodJournalBefore = new JournalNoKAGControl(service, null, (int)DdtJournalDsiType.BEFORE_KAG, hospitalitySession.CuringDoctor);
             if (journalContainer.Controls.Count > 0)
             {
                 JournalNoKAGControl lastJournal = (JournalNoKAGControl)journalContainer.Controls[journalContainer.Controls.Count - 1];
@@ -151,13 +153,13 @@ namespace Cardiology.UI.Forms
             }
             journalContainer.Controls.Add(goodJournalBefore);
 
-            JournalNoKAGControl badJournal = new JournalNoKAGControl(null, (int)DdtJournalDsiType.PENDING_JUSTIFICATION, hospitalitySession.CuringDoctor);
+            JournalNoKAGControl badJournal = new JournalNoKAGControl(service, null, (int)DdtJournalDsiType.PENDING_JUSTIFICATION, hospitalitySession.CuringDoctor);
             badJournal.initTime(goodJournalBefore.getJournalDateTime().AddHours(1));
             badJournal.initDocName(goodJournalBefore.getDocName());
             badJournal.initRhytm(goodJournalBefore.isGoodRhytm());
             journalContainer.Controls.Add(badJournal);
 
-            JournalNoKAGControl goodJournal = new JournalNoKAGControl(null, (int)DdtJournalDsiType.AFTER_PENDING, hospitalitySession.CuringDoctor);
+            JournalNoKAGControl goodJournal = new JournalNoKAGControl(service, null, (int)DdtJournalDsiType.AFTER_PENDING, hospitalitySession.CuringDoctor);
             goodJournal.initTime(badJournal.getJournalDateTime().AddMinutes(15));
             goodJournal.initDocName(badJournal.getDocName());
             goodJournal.initRhytm(badJournal.isGoodRhytm());

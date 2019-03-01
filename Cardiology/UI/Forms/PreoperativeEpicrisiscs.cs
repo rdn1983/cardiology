@@ -30,28 +30,30 @@ namespace Cardiology.UI.Forms
             if (!string.IsNullOrEmpty(objectId))
             {
     
-                DdvPatient patient = service.queryObjectById<DdvPatient>(hospitalitySession.Patient);
+                DdvPatient patient = service.GetDdvPatientService().GetById(hospitalitySession.Patient);
                 if (patient != null)
                 {
                     Text += " " + patient.ShortName;
                 }
-                DdtEpicrisis epicrisis = service.queryObjectById<DdtEpicrisis>(objectId);
+                DdtEpicrisis epicrisis = service.GetDdtEpicrisisService().GetById(objectId);
                 if (epicrisis != null)
                 {
                     diagnosisTxt.Text = epicrisis.Diagnosis;
                     epicrisisDateTxt.Value = epicrisis.EpicrisisDate;
 
-                    List<DdtEkg> ekg = service.queryObjectsCollection<DdtEkg>(@"SELECT * FROM " + DdtEkg.NAME + " where dsid_parent='" + epicrisis.ObjectId + "'");
+                    IList<DdtEkg> ekg = service.GetDdtEkgService().GetListByParentId(epicrisis.ObjectId);
                     foreach(DdtEkg e in ekg)
                     {
                         analysisGrid.Rows.Add(e.ObjectId, DdtEkg.NAME, "Анализы: ЭКГ", "", "");
                     }
-                    List<DdtEgds> egds = service.queryObjectsCollection<DdtEgds>(@"SELECT * FROM " + DdtEgds.NAME + " where dsid_parent='" + epicrisis.ObjectId + "'");
+
+                    IList<DdtEgds> egds = service.GetDdtEgdsService().GetListByParentId(epicrisis.ObjectId);
                     foreach (DdtEgds e in egds)
                     {
                         analysisGrid.Rows.Add(e.ObjectId, DdtEgds.NAME, "Анализы: ЭГДС", "", "");
                     }
-                    List<DdtUzi> uzi = service.queryObjectsCollection<DdtUzi>(@"SELECT * FROM " + DdtUzi.NAME + " where dsid_parent='" + epicrisis.ObjectId + "'");
+
+                    IList<DdtUzi> uzi = service.GetDdtUziService().GetListByParentId(epicrisis.ObjectId);
                     foreach (DdtUzi e in uzi)
                     {
                         analysisGrid.Rows.Add(e.ObjectId, DdtUzi.NAME, "Анализы: УЗИ", "", "");
@@ -109,7 +111,7 @@ namespace Cardiology.UI.Forms
         {
             saveObject();
             ITemplateProcessor processor = TemplateProcessorManager.getProcessorByObjectType(DdtEpicrisis.NAME);
-            string path = processor.processTemplate(hospitalitySession.ObjectId, objectId, new Dictionary<string, string>());
+            string path = processor.processTemplate(service, hospitalitySession.ObjectId, objectId, new Dictionary<string, string>());
             TemplatesUtils.ShowDocument(path);
             Close();
         }
@@ -117,7 +119,7 @@ namespace Cardiology.UI.Forms
         private void saveObject()
         {
 
-            DdtEpicrisis obj = service.queryObjectById<DdtEpicrisis>(objectId);
+            DdtEpicrisis obj = service.GetDdtEpicrisisService().GetById(objectId);
             if (obj == null)
             {
                 obj = new DdtEpicrisis();
@@ -128,7 +130,7 @@ namespace Cardiology.UI.Forms
             obj.EpicrisisDate = epicrisisDateTxt.Value;
             obj.Diagnosis = diagnosisTxt.Text;
             obj.EpicrisisType = (int)DdtEpicrisisDsiType.BEFORE_OPERATION;
-            objectId = service.updateOrCreateIfNeedObject<DdtEpicrisis>(obj, DdtEpicrisis.NAME, objectId);
+            objectId = service.GetDdtEpicrisisService().Save(obj);
             obj.ObjectId = objectId;
 
             DataGridViewRowCollection rows = analysisGrid.Rows;

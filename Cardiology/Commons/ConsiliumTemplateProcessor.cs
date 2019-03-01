@@ -56,16 +56,16 @@ namespace Cardiology.Commons
 
         private string GetMembersInString(IDbDataService service, string consiliumId)
         {
-            List<DdtConsiliumMember> members = service.queryObjectsCollection<DdtConsiliumMember>(@"SELECT * FROM " + DdtConsiliumMember.NAME +
-                " WHERE dsid_consilium ='" + consiliumId + "'");
+            IList<DdtConsiliumMember> members = service.GetDdtConsiliumMemberService().GetMembersByConsiliumId(consiliumId);
 
             Dictionary<int, String> memberToOrder = new Dictionary<int, String>();
             SortedDictionary<String, String> sortedMembers = new SortedDictionary<String, String>();
 
             foreach (DdtConsiliumMember mm in members)
             {
-                DdtConsiliumGroupMem groupLevel = service.queryObjectByAttrCond<DdtConsiliumMemberLevel>(DdtConsiliumMemberLevel.NAME, "dss_group_name", mm.DssGroupName, true);
-                DmGroup group = service.queryObjectByAttrCond<DmGroup>(DmGroup.NAME, "dss_name", mm.DssGroupName, true);
+                DdtConsiliumGroupMember groupLevel = service.queryObjectByAttrCond<DdtConsiliumMemberLevel>(DdtConsiliumMemberLevel.NAME, "dss_group_name", mm.DssGroupName, true);
+                DmGroup group = service.GetDmGroupService().GetGroupByName(mm.DssGroupName);
+                    queryObjectByAttrCond<DmGroup>(DmGroup.NAME, "dss_name", mm.DssGroupName, true);
                 if (!sortedMembers.ContainsKey(groupLevel.DsiLevel + " " + group.Description + " " + mm.DssDoctorName)) {
                     sortedMembers.Add(groupLevel.DsiLevel + " " + group.Description + " " + mm.DoctorName, group.Description + " " + mm.DoctorName);
                 }

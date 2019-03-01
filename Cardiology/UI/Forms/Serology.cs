@@ -17,7 +17,7 @@ namespace Cardiology.UI.Forms
             this.service = service;
             this.hospitalitySession = hospitalitySession;
 
-            serology = new DataService().queryObject<DdtSerology>(@"select * from ddt_serology where dsid_hospitality_session='" + hospitalitySession.ObjectId + "'");
+            serology = service.GetDdtSerologyService().GetByHospitalSession(hospitalitySession.ObjectId);
             InitializeComponent();
             InitBoxes();
         }

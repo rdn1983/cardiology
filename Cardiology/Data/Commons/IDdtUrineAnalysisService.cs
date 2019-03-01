@@ -10,5 +10,7 @@ namespace Cardiology.Data.Commons
         DdtUrineAnalysis GetById(string id);
 
         DdtUrineAnalysis GetByHospitalSessionAndParentId(string hospitalSession, string parentId);
+
+        string Save(DdtUrineAnalysis obj);
     }
 }

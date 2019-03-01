@@ -156,5 +156,10 @@ namespace Cardiology.Data.PostgreSQL
             }
             return null;
         }
+
+        public string Save(DdtAlcoProtocol obj)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

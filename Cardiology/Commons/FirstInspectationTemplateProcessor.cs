@@ -57,7 +57,7 @@ namespace Cardiology.Commons
                 hospitalitySession + "' AND dss_parent_type='ddt_anamnesis'");
             if (medList != null)
             {
-                List<DdtIssuedMedicine> med = service.queryObjectsCollectionByAttrCond<DdtIssuedMedicine>(DdtIssuedMedicine.NAME, "dsid_med_list", medList.ObjectId, true);
+                IList<DdtIssuedMedicine> med = service.GetDdtIssuedMedicineService().GetListByMedicineListId(medList.ObjectId);
                 for (int i = 0; i < med.Count; i++)
                 {
                     DdtCure cure = service.GetDdtCureService().GetById(med[i].Cure);
@@ -71,7 +71,7 @@ namespace Cardiology.Commons
             values.Add("{issued_medicine}", builder.ToString());
 
             StringBuilder actionsBuilder = new StringBuilder();
-            List<DdtIssuedAction> actions = service.queryObjectsCollectionByAttrCond<DdtIssuedAction>(DdtIssuedAction.NAME, "dsid_parent_id", objectId, true);
+            IList<DdtIssuedAction> actions = service.GetDdtIssuedActionService().GetListByParentId(objectId);
             for (int i = 0; i < actions.Count; i++)
             {
                 actionsBuilder.Append(i + 1).Append(". ");
@@ -79,7 +79,7 @@ namespace Cardiology.Commons
             }
             values.Add("{issued_actions}", actionsBuilder.ToString());
 
-            DdtHospital hospital = service.queryObject<DdtHospital>(@"SELECT * FROM ddt_hospital WHERE r_object_id='" + hospitalitySession + "'");
+            DdtHospital hospital = service.GetDdtHospitalService().GetById(hospitalitySession);
             values.Add("{date}", hospital.AdmissionDate.ToShortDateString() + " " + hospital.AdmissionDate.ToShortTimeString());
 
             return TemplatesUtils.FillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + TEMPLATE_FILE_NAME, values);

@@ -7,16 +7,18 @@ namespace Cardiology.UI.Controls
 {
     public partial class UrineAnalysisControl : UserControl, IDocbaseControl
     {
+        private readonly IDbDataService service;
         private string objectId;
         private bool isEditable;
         private bool hasChanges;
         private bool isNew;
 
-        public UrineAnalysisControl() : this(null, false)
+        public UrineAnalysisControl() : this(null, null, false)
         { }
 
-        public UrineAnalysisControl(string objectId, bool additional)
+        public UrineAnalysisControl(IDbDataService service, string objectId, bool additional)
         {
+            this.service = service;
             this.objectId = objectId;
             this.isEditable = !additional;
             InitializeComponent();
@@ -28,7 +30,7 @@ namespace Cardiology.UI.Controls
         private void initControls()
         {
 
-            DdtUrineAnalysis urineAnalysis = service.queryObjectById<DdtUrineAnalysis>(objectId);
+            DdtUrineAnalysis urineAnalysis = service.GetDdtUrineAnalysisService().GetById(objectId);
             refreshObject(urineAnalysis);
             dateUrineAnalysis.Enabled = isEditable;
             colorTxt.ReadOnly = !isEditable;
@@ -54,7 +56,8 @@ namespace Cardiology.UI.Controls
                 {
                     urine.ParentType = parentType;
                 }
-                objectId = service.updateOrCreateIfNeedObject<DdtUrineAnalysis>(urine, DdtUrineAnalysis.NAME, urine.ObjectId);
+
+                objectId = service.GetDdtUrineAnalysisService().Save(urine);
                 hasChanges = false;
                 isNew = false;
             }
@@ -79,7 +82,7 @@ namespace Cardiology.UI.Controls
         public object getObject()
         {
 
-            DdtUrineAnalysis urine = service.queryObjectById<DdtUrineAnalysis>(objectId);
+            DdtUrineAnalysis urine = service.GetDdtUrineAnalysisService().GetById(objectId);
             if (urine == null)
             {
                 urine = new DdtUrineAnalysis();

@@ -7,8 +7,12 @@ namespace Cardiology.Data.Commons
     {
         IList<DdtEgds> GetAll();
 
+        IList<DdtEgds> GetListByParentId(string parentId);
+
         DdtEgds GetById(string id);
 
         DdtEgds GetByHospitalSessionAndParentId(string hospitalSession, string parentId);
+
+        string Save(DdtEgds obj);
     }
 }

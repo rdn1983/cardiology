@@ -9,6 +9,6 @@ namespace Cardiology.Data.Commons
 
         DdtEpicrisis GetById(string id);
 
-        void Save(DdtEpicrisis obj);
+        string Save(DdtEpicrisis obj);
     }
 }

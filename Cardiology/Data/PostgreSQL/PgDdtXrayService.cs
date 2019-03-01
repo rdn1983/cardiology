@@ -81,5 +81,10 @@ namespace Cardiology.Data.PostgreSQL
             }
             return null;
         }
+
+        public string Save(DdtXRay obj)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

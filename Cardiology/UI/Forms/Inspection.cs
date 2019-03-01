@@ -54,8 +54,7 @@ namespace Cardiology.UI.Forms
                 if (kagJournal != null)
                 {
                     diagnosisTxt.Text = kagJournal.Diagnosis;
-                    DdtVariousSpecConcluson releaseConclusion = service.queryObject<DdtVariousSpecConcluson>("SELECt * FROM " + DdtVariousSpecConcluson.NAME +
-                       " WHERE dsid_parent='" + kagJournal.ObjectId + "' AND dsb_additional_bool=true");
+                    DdtVariousSpecConcluson releaseConclusion = service.GetDdtVariousSpecConclusonService().GetByParentId(kagJournal.ObjectId);
                     if (releaseConclusion != null)
                     {
                         inspectionTxt.Text = releaseConclusion.SpecialistConclusion;
@@ -76,47 +75,45 @@ namespace Cardiology.UI.Forms
         {
             if (inspectionObj != null)
             {
-                List<DdtEkg> ekgAnalysis = service.queryObjectsCollection<DdtEkg>(@"SELECT * FROM " + DdtEkg.NAME + " WHERE dsid_parent='" + inspectionObj.ObjectId + "'");
+                IList<DdtEkg> ekgAnalysis = service.GetDdtEkgService().GetListByParentId(inspectionObj.ObjectId);
                 foreach (DdtEkg ekgObj in ekgAnalysis)
                 {
                     TableLayoutPanel container = getTabContainer("ekgTab", "ЭКГ", false);
-                    EkgAnalysisControlcs ekg = new EkgAnalysisControlcs(ekgObj.ObjectId, false);
+                    EkgAnalysisControlcs ekg = new EkgAnalysisControlcs(service, ekgObj.ObjectId, false);
                     container.Controls.Add(ekg);
                 }
 
-                List<DdtSpecialistConclusion> specs = service.queryObjectsCollection<DdtSpecialistConclusion>(@"SELECT * FROM " +
-                    DdtSpecialistConclusion.NAME + " WHERE dsid_parent='" + inspectionObj.ObjectId + "'");
+                IList<DdtSpecialistConclusion> specs = service.GetDdtSpecialistConclusionService().GetListByParentId(inspectionObj.ObjectId);
                 foreach (DdtSpecialistConclusion obj in specs)
                 {
                     TableLayoutPanel container = getTabContainer("specsTab", "Заключения специалистов", true);
-                    SpecialistConclusionControl specControl = new SpecialistConclusionControl(obj.ObjectId, false);
+                    SpecialistConclusionControl specControl = new SpecialistConclusionControl(service, obj.ObjectId, false);
                     container.Controls.Add(specControl);
                 }
 
-                List<DdtHolter> holters = service.queryObjectsCollection<DdtHolter>(@"SELECT * FROM " + DdtHolter.NAME +
-                    " WHERE dsid_parent='" + inspectionObj.ObjectId + "'");
+                IList<DdtHolter> holters = service.GetDdtHolterService().GetListByParentId(inspectionObj.ObjectId);
+                    
                 foreach (DdtHolter obj in holters)
                 {
                     TableLayoutPanel container = getTabContainer("holterTab", "Холтер", true);
-                    HolterControl holt = new HolterControl(obj.ObjectId, false);
+                    HolterControl holt = new HolterControl(service, obj.ObjectId, false);
                     container.Controls.Add(holt);
                 }
 
-                List<DdtBloodAnalysis> bloods = service.queryObjectsCollection<DdtBloodAnalysis>(@"SELECT * FROM " +
-                    DdtBloodAnalysis.NAME + " WHERE dsid_parent='" + inspectionObj.ObjectId + "'");
+                IList<DdtBloodAnalysis> bloods = service.GetDdtBloodAnalysisService().GetListByParenId(inspectionObj.ObjectId);
                 foreach (DdtBloodAnalysis obj in bloods)
                 {
                     TableLayoutPanel container = getTabContainer("bloodTab", "Анализы крови", true);
-                    BloodAnalysisControl blood = new BloodAnalysisControl(obj.ObjectId, false);
+                    BloodAnalysisControl blood = new BloodAnalysisControl(service, obj.ObjectId, false);
                     container.Controls.Add(blood);
                 }
 
-                List<DdtUzi> uzis = service.queryObjectsCollection<DdtUzi>(@"SELECT * FROM " + DdtUzi.NAME +
-                    " WHERE dsid_parent='" + inspectionObj.ObjectId + "'");
+                IList<DdtUzi> uzis = service.GetDdtUziService().GetListByParentId(inspectionObj.ObjectId);
+                    
                 foreach (DdtUzi obj in uzis)
                 {
                     TableLayoutPanel container = getTabContainer("uziTab", "УЗИ", false);
-                    UziAnalysisControl control = new UziAnalysisControl(obj.ObjectId, false);
+                    UziAnalysisControl control = new UziAnalysisControl(service, obj.ObjectId, false);
                     container.Controls.Add(control);
                 }
             }
@@ -127,12 +124,12 @@ namespace Cardiology.UI.Forms
             bool hasKag = false;
             if (kagJournal != null)
             {
-                DdtKag kag = service.queryObjectByAttrCond<DdtKag>(DdtKag.NAME, "dsid_parent", kagJournal.ObjectId, true);
+                DdtKag kag = service.GetDdtKagService().GetByParentId(kagJournal.ObjectId);
                 if (kag != null)
                 {
                     kagId = kag.ObjectId;
                     TableLayoutPanel container = getTabContainer("kagTab", "КАГ", true);
-                    KagAnalysisControl specControl = new KagAnalysisControl(kag.ObjectId, false, hospitalitySession.ObjectId);
+                    KagAnalysisControl specControl = new KagAnalysisControl(service, kag.ObjectId, false, hospitalitySession.ObjectId);
                     container.Controls.Clear();
                     container.Controls.Add(specControl);
                     kagContainer.Visible = true;
@@ -274,21 +271,21 @@ namespace Cardiology.UI.Forms
         private void uziItem_Click(object sender, EventArgs e)
         {
             TableLayoutPanel container = getTabContainer("uziTab", "УЗИ", false);
-            UziAnalysisControl control = new UziAnalysisControl(null, false);
+            UziAnalysisControl control = new UziAnalysisControl(service, null, false);
             container.Controls.Add(control);
         }
 
         private void bloodItem_Click(object sender, EventArgs e)
         {
             TableLayoutPanel container = getTabContainer("bloodTab", "Анализы крови", true);
-            BloodAnalysisControl blood = new BloodAnalysisControl(null, false);
+            BloodAnalysisControl blood = new BloodAnalysisControl(service, null, false);
             container.Controls.Add(blood);
         }
 
         private void ekgItem_Click(object sender, EventArgs e)
         {
             TableLayoutPanel container = getTabContainer("ekgTab", "ЭКГ", false);
-            EkgAnalysisControlcs ekg = new EkgAnalysisControlcs(null, false);
+            EkgAnalysisControlcs ekg = new EkgAnalysisControlcs(service, null, false);
             container.Controls.Add(ekg);
         }
 
@@ -300,14 +297,14 @@ namespace Cardiology.UI.Forms
         private void holterItem_Click(object sender, EventArgs e)
         {
             TableLayoutPanel container = getTabContainer("holterTab", "Холтер", true);
-            HolterControl ekg = new HolterControl(null, false);
+            HolterControl ekg = new HolterControl(service, null, false);
             container.Controls.Add(ekg);
         }
 
         private void specialistItem_Click(object sender, EventArgs e)
         {
             TableLayoutPanel container = getTabContainer("specsTab", "Заключения специалистов", true);
-            SpecialistConclusionControl ekg = new SpecialistConclusionControl(null, false);
+            SpecialistConclusionControl ekg = new SpecialistConclusionControl(service, null, false);
             container.Controls.Add(ekg);
         }
 

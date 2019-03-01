@@ -41,7 +41,7 @@ namespace Cardiology.Commons
             DdtHospital hospital = service.GetDdtHospitalService().GetById(hospitalitySession);
             values.Add("{patient.admission_date}", hospital.AdmissionDate.ToShortDateString());
 
-            DdtAnamnesis anamnesis = service.queryObjectByAttrCond<DdtAnamnesis>(DdtAnamnesis.NAME, "dsid_hospitality_session", hospital.ObjectId, true);
+            DdtAnamnesis anamnesis = service.GetDdtAnamnesisService().GetByHospitalSessionId(hospital.ObjectId);
             values.Add("{complaints}", anamnesis == null ? " " : anamnesis.Complaints);
             values.Add("{anamnesis}", anamnesis == null ? " " : anamnesis.AnamnesisMorbi);
 
@@ -52,7 +52,7 @@ namespace Cardiology.Commons
             inspectonBld.Append(CompileValue("Органы пищеварения", anamnesis?.DigestiveSystem));
             values.Add("{inspection}", anamnesis == null ? " " : inspectonBld.ToString());
 
-            DdtSerology serology = service.queryObjectByAttrCond<DdtSerology>(DdtSerology.NAME, "dsid_hospitality_session", hospital.ObjectId, true);
+            DdtSerology serology = service.GetDdtSerologyService().GetByHospitalSession(hospital.ObjectId);
             StringBuilder serologyBld = new StringBuilder();
             if (serology != null)
             {
@@ -114,8 +114,7 @@ namespace Cardiology.Commons
 
             if (obj.EpicrisisType == (int)DdtEpicrisisDsiType.TRANSFER)
             {
-                DdtTransfer transfer = service.queryObject<DdtTransfer>(@"Select * from " + DdtTransfer.NAME +
-                    " WHERE dsid_hospitality_session='" + hospitalitySession + "'");
+                DdtTransfer transfer = service.GetDdtTransferService().GetByHospitalSession(hospitalitySession);
                 if (transfer != null)
                 {
                     values.Add("{destination}", transfer.Destination);

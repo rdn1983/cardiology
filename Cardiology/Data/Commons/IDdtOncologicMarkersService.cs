@@ -8,5 +8,7 @@ namespace Cardiology.Data.Commons
         IList<DdtOncologicMarkers> GetAll();
 
         DdtOncologicMarkers GetById(string id);
+
+        string Save(DdtOncologicMarkers obj);
     }
 }

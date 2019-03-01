@@ -8,5 +8,7 @@ namespace Cardiology.Data.Commons
         IList<DdtHormones> GetAll();
 
         DdtHormones GetById(string id);
+
+        string Save(DdtHormones obj);
     }
 }

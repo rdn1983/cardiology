@@ -8,5 +8,9 @@ namespace Cardiology.Data.Commons
         IList<DdtSpecialistConclusion> GetAll();
 
         DdtSpecialistConclusion GetById(string id);
+
+        IList<DdtSpecialistConclusion> GetListByParentId(string parentId);
+
+        string Save(DdtSpecialistConclusion obj);
     }
 }

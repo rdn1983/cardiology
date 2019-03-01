@@ -70,7 +70,7 @@ namespace Cardiology.Data.PostgreSQL
             return null;
         }
 
-        public void Save(DdtEpicrisis obj)
+        public string Save(DdtEpicrisis obj)
         {
             throw new NotImplementedException();
         }

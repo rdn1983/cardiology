@@ -9,6 +9,8 @@ namespace Cardiology.Data.Commons
 
         DdtSerology GetById(string id);
 
+        DdtSerology GetByHospitalSession(string hospitalSession);
+
         void Save(DdtSerology obj);
     }
 }

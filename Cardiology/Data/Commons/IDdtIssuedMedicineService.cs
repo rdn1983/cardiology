@@ -7,6 +7,8 @@ namespace Cardiology.Data.Commons
     {
         IList<DdtIssuedMedicine> GetAll();
 
+        IList<DdtIssuedMedicine> GetListByMedicineListId(string medicineListId);
+
         DdtIssuedMedicine GetById(string id);
 
         void Save(DdtIssuedMedicine obj);

@@ -43,11 +43,12 @@ namespace Cardiology.UI.Forms
             string templatePath = Directory.GetCurrentDirectory() + "\\Templates\\trombolisis_template.doc";
 
             Dictionary<string, string> values = new Dictionary<string, string>();
+            DdvPatient patientView = service.GetDdvPatientService().GetById(patient.ObjectId);
             if (patient!=null)
             {
-                values.Add(@"{patient.full_name}", patient.DssFullName);
-                values.Add(@"{patient.med_code}", patient.DssMedCode);
-                values.Add(@"{patient.initials}", patient.ShortName);
+                values.Add(@"{patient.full_name}", patientView.FullName);
+                values.Add(@"{patient.med_code}", patient.MedCode);
+                values.Add(@"{patient.initials}", patientView.ShortName);
             }
             values.Add(@"{date}", dateCtrl.Text);
             values.Add(@"{time}", timeCtrl.Text);

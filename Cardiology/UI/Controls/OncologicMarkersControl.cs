@@ -8,14 +8,16 @@ namespace Cardiology.UI.Controls
 {
     public partial class OncologicMarkersControl : UserControl, IDocbaseControl
     {
+        private readonly IDbDataService service;
         private string objectId;
         private string hospitalSessionId;
         private bool isEditable;
         private bool hasChanges;
         private bool isNew;
 
-        public OncologicMarkersControl(string objectId, bool additional, string hospitalSessionId)
+        public OncologicMarkersControl(IDbDataService service, string objectId, bool additional, string hospitalSessionId)
         {
+            this.service = service;
             this.objectId = objectId;
             this.hospitalSessionId = hospitalSessionId;
             this.isEditable = !additional;
@@ -28,7 +30,7 @@ namespace Cardiology.UI.Controls
         private void initControls()
         {
 
-            DdtOncologicMarkers markers = service.queryObjectById<DdtOncologicMarkers>(objectId);
+            DdtOncologicMarkers markers = service.GetDdtOncologicMarkersService().GetById(objectId);
             refreshObject(markers);
             ceaTxt.Enabled = isEditable;
             psaCommonTxt.Enabled = isEditable;
@@ -46,20 +48,20 @@ namespace Cardiology.UI.Controls
             if (isEditable && (isNew || isDirty()))
             {
     
-                DdtOncologicMarkers kag = (DdtOncologicMarkers)getObject();
-                kag.HospitalitySession = hospitalitySession.ObjectId;
-                kag.Doctor = hospitalitySession.CuringDoctor;
-                kag.Patient = hospitalitySession.Patient;
+                DdtOncologicMarkers oncologicMarkers = (DdtOncologicMarkers)getObject();
+                oncologicMarkers.HospitalitySession = hospitalitySession.ObjectId;
+                oncologicMarkers.Doctor = hospitalitySession.CuringDoctor;
+                oncologicMarkers.Patient = hospitalitySession.Patient;
                 if (parentId != null)
                 {
-                    kag.Parent = parentId;
+                    oncologicMarkers.Parent = parentId;
                 }
                 if (parentType != null)
                 {
-                    kag.ParentType = parentType;
+                    oncologicMarkers.ParentType = parentType;
                 }
 
-                objectId = service.updateOrCreateIfNeedObject<DdtOncologicMarkers>(kag, DdtOncologicMarkers.NAME, kag.ObjectId);
+                objectId = service.GetDdtOncologicMarkersService().Save(oncologicMarkers);
                 isNew = false;
                 hasChanges = false;
             }
@@ -85,7 +87,7 @@ namespace Cardiology.UI.Controls
         public object getObject()
         {
 
-            DdtOncologicMarkers markerObj = service.queryObjectById<DdtOncologicMarkers>(objectId);
+            DdtOncologicMarkers markerObj = service.GetDdtOncologicMarkersService().GetById(objectId);
             if (markerObj == null)
             {
                 markerObj = new DdtOncologicMarkers();

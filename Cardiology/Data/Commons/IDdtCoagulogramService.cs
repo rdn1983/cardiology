@@ -8,5 +8,7 @@ namespace Cardiology.Data.Commons
         IList<DdtCoagulogram> GetAll();
 
         DdtCoagulogram GetById(string id);
+
+        string Save(DdtCoagulogram obj);
     }
 }

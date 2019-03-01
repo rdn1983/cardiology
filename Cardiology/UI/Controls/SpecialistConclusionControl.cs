@@ -7,13 +7,15 @@ namespace Cardiology.UI.Controls
 {
     public partial class SpecialistConclusionControl : UserControl, IDocbaseControl
     {
+        private readonly IDbDataService service;
         private string objectId;
         private bool isEditable;
         private bool hasChanges;
         private bool isNew;
 
-        public SpecialistConclusionControl(string objectId, bool additional)
+        public SpecialistConclusionControl(IDbDataService service, string objectId, bool additional)
         {
+            this.service = service;
             this.objectId = objectId;
             this.isEditable = !additional;
             InitializeComponent();
@@ -25,7 +27,7 @@ namespace Cardiology.UI.Controls
         private void initControls()
         {
 
-            DdtSpecialistConclusion specConclusion = service.queryObjectById<DdtSpecialistConclusion>(objectId);
+            DdtSpecialistConclusion specConclusion = service.GetDdtSpecialistConclusionService().GetById(objectId);
             refreshObject(specConclusion);
             neurologTxt.ReadOnly = !isEditable;
             surgeonTxt.ReadOnly = !isEditable;
@@ -51,7 +53,8 @@ namespace Cardiology.UI.Controls
                 {
                     specConslusion.ParentType = parentType;
                 }
-                objectId = service.updateOrCreateIfNeedObject<DdtSpecialistConclusion>(specConslusion, DdtSpecialistConclusion.NAME, specConslusion.ObjectId);
+
+                objectId = service.GetDdtSpecialistConclusionService().Save(specConslusion);
                 isNew = false;
                 hasChanges = false;
             }
@@ -76,7 +79,7 @@ namespace Cardiology.UI.Controls
         public object getObject()
         {
 
-            DdtSpecialistConclusion specConslusion = service.queryObjectById<DdtSpecialistConclusion>(objectId);
+            DdtSpecialistConclusion specConslusion = service.GetDdtSpecialistConclusionService().GetById(objectId);
             if (specConslusion == null)
             {
                 specConslusion = new DdtSpecialistConclusion();

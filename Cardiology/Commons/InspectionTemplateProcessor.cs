@@ -108,7 +108,7 @@ namespace Cardiology.Commons
 
         private void putHolterData(Dictionary<string, string> values, IDbDataService service, string objId)
         {
-            List<DdtHolter> lholterobj = service.queryObjectsCollection<DdtHolter>(@"SELECT * FROM " + DdtHolter.NAME + " WHERE dsid_parent='" + objId + "'");
+            IList<DdtHolter> lholterobj = service.GetDdtHolterService().GetListByParentId(objId);
             StringBuilder holterBld = new StringBuilder();
             foreach (DdtHolter obj in lholterobj)
             {

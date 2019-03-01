@@ -14,12 +14,14 @@ namespace Cardiology.UI.Forms
         private string typeName;
         private List<string> selectedIds;
         private string currentId;
+        private readonly IDbDataService service;
         private DdtHospital hospitalitySession;
 
         private static AnalysisSelector selector;
 
-        public AnalysisContainer(DdtHospital hospitalitySession, string typeName, string objectId)
+        public AnalysisContainer(IDbDataService service, DdtHospital hospitalitySession, string typeName, string objectId)
         {
+            this.service = service;
             this.hospitalitySession = hospitalitySession;
             this.typeName = typeName;
             this.currentId = objectId;
@@ -56,53 +58,53 @@ namespace Cardiology.UI.Forms
 
             if (DdtBloodAnalysis.NAME.Equals(typeName))
             {
-                combainingContainer.Controls.Add(new BloodAnalysisControl(objectId, objectId != null && !objectId.Equals(currentId)));
+                combainingContainer.Controls.Add(new BloodAnalysisControl(service, objectId, objectId != null && !objectId.Equals(currentId)));
             }
             else if (DdtUrineAnalysis.NAME.Equals(typeName))
             {
-                combainingContainer.Controls.Add(new UrineAnalysisControl(objectId, objectId != null && !objectId.Equals(currentId)));
+                combainingContainer.Controls.Add(new UrineAnalysisControl(service, objectId, objectId != null && !objectId.Equals(currentId)));
             }
             else if (DdtEkg.NAME.Equals(typeName))
             {
-                EkgAnalysisControlcs ekg = new EkgAnalysisControlcs(objectId, objectId != null && !objectId.Equals(currentId));
+                EkgAnalysisControlcs ekg = new EkgAnalysisControlcs(service, objectId, objectId != null && !objectId.Equals(currentId));
                 combainingContainer.Controls.Add(ekg);
                 Console.WriteLine(ekg.Size);
             }
             else if (DdtKag.NAME.Equals(typeName))
             {
-                combainingContainer.Controls.Add(new KagAnalysisControl(objectId, objectId != null && !objectId.Equals(currentId), hospitalitySession.ObjectId));
+                combainingContainer.Controls.Add(new KagAnalysisControl(service, objectId, objectId != null && !objectId.Equals(currentId), hospitalitySession.ObjectId));
             }
             else if (DdtEgds.NAME.Equals(typeName))
             {
-                combainingContainer.Controls.Add(new EgdsAnalysisControl(objectId, objectId != null && !objectId.Equals(currentId)));
+                combainingContainer.Controls.Add(new EgdsAnalysisControl(service, objectId, objectId != null && !objectId.Equals(currentId)));
             }
             else if (DdtXRay.NAME.Equals(typeName))
             {
-                combainingContainer.Controls.Add(new XRayControl(objectId, objectId != null && !objectId.Equals(currentId)));
+                combainingContainer.Controls.Add(new XRayControl(service, objectId, objectId != null && !objectId.Equals(currentId)));
             }
             else if (DdtHolter.NAME.Equals(typeName))
             {
-                combainingContainer.Controls.Add(new HolterControl(objectId, objectId != null && !objectId.Equals(currentId)));
+                combainingContainer.Controls.Add(new HolterControl(service, objectId, objectId != null && !objectId.Equals(currentId)));
             }
             else if (DdtUzi.NAME.Equals(typeName))
             {
-                combainingContainer.Controls.Add(new UziAnalysisControl(objectId, objectId != null && !objectId.Equals(currentId)));
+                combainingContainer.Controls.Add(new UziAnalysisControl(service, objectId, objectId != null && !objectId.Equals(currentId)));
             }
             else if (DdtSpecialistConclusion.NAME.Equals(typeName))
             {
-                combainingContainer.Controls.Add(new SpecialistConclusionControl(objectId, objectId != null && !objectId.Equals(currentId)));
+                combainingContainer.Controls.Add(new SpecialistConclusionControl(service, objectId, objectId != null && !objectId.Equals(currentId)));
             }
             else if (DdtHormones.NAME.Equals(typeName))
             {
-                combainingContainer.Controls.Add(new HormonesControl(objectId, objectId != null && !objectId.Equals(currentId)));
+                combainingContainer.Controls.Add(new HormonesControl(service, objectId, objectId != null && !objectId.Equals(currentId)));
             }
             else if (DdtCoagulogram.NAME.Equals(typeName))
             {
-                combainingContainer.Controls.Add(new CoagulogrammControl(objectId, objectId != null && !objectId.Equals(currentId)));
+                combainingContainer.Controls.Add(new CoagulogrammControl(service, objectId, objectId != null && !objectId.Equals(currentId)));
             }
             else if (DdtOncologicMarkers.NAME.Equals(typeName))
             {
-                combainingContainer.Controls.Add(new OncologicMarkersControl(objectId, objectId != null && !objectId.Equals(currentId), hospitalitySession.ObjectId));
+                combainingContainer.Controls.Add(new OncologicMarkersControl(service, objectId, objectId != null && !objectId.Equals(currentId), hospitalitySession.ObjectId));
             }
         }
 
@@ -157,7 +159,8 @@ namespace Cardiology.UI.Forms
                 this.Text = "Онкомаркеры";
             }
 
-            DdvPatient patient = service.queryObjectById<DdvPatient>(hospitalitySession.Patient);
+            DdtHospital hospital = service.GetDdtHospitalService().GetById(hospitalitySession.ObjectId);
+            DdvPatient patient = service.GetDdvPatientService().GetById(hospital.Patient);
             if (patient != null)
             {
                 this.Text += " " + patient.ShortName;

@@ -8,12 +8,14 @@ namespace Cardiology.UI.Controls
 {
     public partial class DefferedJournalControl : UserControl, IDocbaseControl
     {
+        private readonly IDbDataService service;
         private string objectId;
         private bool hasChanges;
         private bool isNew;
 
-        public DefferedJournalControl(string objectId)
+        public DefferedJournalControl(IDbDataService service, string objectId)
         {
+            this.service = service;
             this.objectId = objectId;
             InitializeComponent();
             initControls();
@@ -39,7 +41,7 @@ namespace Cardiology.UI.Controls
             warningLbl.Visible = false;
 
             CommonUtils.InitDoctorsComboboxValues(service, docBox, null);
-            DdtJournal journal = service.queryObjectById<DdtJournal>(objectId);
+            DdtJournal journal = service.GetDdtJournalService().GetById(objectId);
             refreshObject(journal);
         }
 
@@ -54,8 +56,8 @@ namespace Cardiology.UI.Controls
             journal.HospitalitySession = hospitalitySession.ObjectId;
             journal.Patient = hospitalitySession.Patient;
             journal.Doctor = string.IsNullOrEmpty(journal.Doctor) ? hospitalitySession.CuringDoctor : journal.Doctor;
-           
-            objectId = service.updateOrCreateIfNeedObject<DdtJournal>(journal, DdtJournal.NAME, journal.ObjectId);
+
+            objectId = service.GetDdtJournalService().Save(journal);
             hasChanges = false;
             isNew = false;
         }
@@ -153,7 +155,7 @@ namespace Cardiology.UI.Controls
 
         public object getObject()
         {
-            DdtJournal journal = service.queryObjectById<DdtJournal>(objectId);
+            DdtJournal journal = service.GetDdtJournalService().GetById(objectId);
             if (journal == null)
             {
                 journal = new DdtJournal();
@@ -191,7 +193,7 @@ namespace Cardiology.UI.Controls
                 deferredStartDate.Value = journal.AdmissionDate;
                 deferredStartTime.Value = journal.AdmissionDate;
 
-                DdvDoctor doc = service.queryObjectById<DdvDoctor>(journal.Doctor);
+                DdvDoctor doc = service.GetDdvDoctorService().GetById(journal.Doctor);
                 docBox.SelectedIndex = docBox.FindStringExact(doc.ShortName);
                 objectId = journal.ObjectId;
                 isNew = string.IsNullOrEmpty(objectId);

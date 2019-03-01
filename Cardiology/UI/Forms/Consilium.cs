@@ -78,12 +78,13 @@ namespace Cardiology.UI.Forms
 
                 ComboBox cbApp = (ComboBox)CommonUtils.FindControl(doctorsContainer, "appointmentTxt" + i);
                 cbApp.SelectedIndexChanged += new System.EventHandler(this.appointmentTxt0_SelectedIndexChanged);
-                DmGroup gr = service.queryObjectByAttrCond<DmGroup>(DmGroup.NAME, "dss_name", members[i].GroupName, true);
+                //todo
+                DmGroup gr = service.GetDmGroupService().GetGroupByName(members[i].GroupName);
                 if (gr != null)
                 {
                     cbApp.SelectedIndex = cbApp.FindStringExact(gr.Description);
                     ComboBox cb = (ComboBox)CommonUtils.FindControl(doctorsContainer, "doctorWho" + i);
-                    cb.SelectedIndex = cb.FindStringExact(members[i].DssDoctorName);
+                    cb.SelectedIndex = cb.FindStringExact(members[i].Doctor);
                 }
                 if (!members[i].DsbTemplate)
                 {
@@ -209,7 +210,7 @@ namespace Cardiology.UI.Forms
 
             foreach (String memberId in membersToRemove)
             {
-                service.queryDelete(DdtConsiliumMember.NAME, "r_object_id", memberId, true);
+                service.Delete(DdtConsiliumMember.NAME, memberId);
             }
             return true;
         }
@@ -233,7 +234,7 @@ namespace Cardiology.UI.Forms
                 ITemplateProcessor processor = TemplateProcessorManager.getProcessorByObjectType(DdtConsilium.NAME);
                 if (processor != null)
                 {
-                    string path = processor.processTemplate(hospitalitySession.ObjectId, consiliumId, new Dictionary<string, string>());
+                    string path = processor.processTemplate(service, hospitalitySession.ObjectId, consiliumId, new Dictionary<string, string>());
                     TemplatesUtils.ShowDocument(path);
                 }
             }
@@ -249,7 +250,7 @@ namespace Cardiology.UI.Forms
                 int indxPlace = CommonUtils.GetFirstDigitIndex(ctrlName);
                 int index = Convert.ToInt32(String.Intern(ctrlName.Substring(indxPlace)));
                 ComboBox c = (ComboBox)CommonUtils.FindControl(doctorsContainer, "doctorWho" + index);
-                CommonUtils.InitDoctorsByGroupComboboxValues(new DataService(), c, group.Name);
+                CommonUtils.InitDoctorsByGroupComboboxValues(service, c, group.Name);
                 if ("duty_cardioreanim".Equals(group.Name))
                 {
                     c.SelectedIndex = c.FindStringExact(curingDoc?.ShortName);

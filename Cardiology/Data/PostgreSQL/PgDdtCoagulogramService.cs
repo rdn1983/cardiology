@@ -71,5 +71,10 @@ namespace Cardiology.Data.PostgreSQL
             }
             return null;
         }
+
+        public string Save(DdtCoagulogram obj)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

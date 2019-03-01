@@ -71,5 +71,10 @@ namespace Cardiology.Data.PostgreSQL
             }
             return null;
         }
+
+        public string Save(DdtHormones obj)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

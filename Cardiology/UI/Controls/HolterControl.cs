@@ -7,13 +7,15 @@ namespace Cardiology.UI.Controls
 {
     public partial class HolterControl : UserControl, IDocbaseControl
     {
+        private readonly IDbDataService service;
         private string objectId;
         private bool isEditable;
         private bool hasChanges;
         private bool isNew;
 
-        public HolterControl(string objectId, bool additional)
+        public HolterControl(IDbDataService service, string objectId, bool additional)
         {
+            this.service = service;
             this.objectId = objectId;
             this.isEditable = !additional;
             InitializeComponent();
@@ -25,7 +27,7 @@ namespace Cardiology.UI.Controls
         private void initControls()
         {
 
-            DdtHolter holter = service.queryObjectById<DdtHolter>(objectId);
+            DdtHolter holter = service.GetDdtHolterService().GetById(objectId);
             refreshObject(holter);
             holterTxt.Enabled = isEditable;
             monitoringAdTxt.Enabled = isEditable;
@@ -49,7 +51,8 @@ namespace Cardiology.UI.Controls
                 {
                     holter.ParentType = parentType;
                 }
-                objectId = service.updateOrCreateIfNeedObject<DdtHolter>(holter, DdtHolter.NAME, holter.ObjectId);
+
+                objectId = service.GetDdtHolterService().Save(holter);
                 hasChanges = false;
                 isNew = false;
                 hasChanges = false;
@@ -74,7 +77,7 @@ namespace Cardiology.UI.Controls
         public object getObject()
         {
 
-            DdtHolter holter = service.queryObjectById<DdtHolter>(objectId);
+            DdtHolter holter = service.GetDdtHolterService().GetById(objectId);
             if (holter == null)
             {
                 holter = new DdtHolter();

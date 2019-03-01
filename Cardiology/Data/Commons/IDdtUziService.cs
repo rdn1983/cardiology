@@ -8,5 +8,9 @@ namespace Cardiology.Data.Commons
         IList<DdtUzi> GetAll();
 
         DdtUzi GetById(string id);
+
+        IList<DdtUzi> GetListByParentId(string parentId);
+
+        string Save(DdtUzi obj);
     }
 }

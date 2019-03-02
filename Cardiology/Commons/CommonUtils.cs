@@ -51,11 +51,13 @@ namespace Cardiology.Commons
         internal static void InitCureTypeComboboxValues(IDbDataService service, ComboBox cb)
         {
             cb.Items.Clear();
-            string query = @"SELECT * FROM ddt_cure_type";
             IList<DdtCureType> cureList = service.GetDdtCureTypeService().GetAll();
-            cb.Items.AddRange(cureList.ToArray());
-            cb.ValueMember = "DsiType";
-            cb.DisplayMember = "DssName";
+            foreach(DdtCureType obj in cureList)
+            {
+                cb.Items.Add(obj);
+            }
+            cb.ValueMember = "ObjectId";
+            cb.DisplayMember = "Name";
         }
 
         internal static void SetDoctorsComboboxDefaultValue(IDbDataService service, ComboBox cb, string dsidCuringDoctor)

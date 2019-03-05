@@ -33,10 +33,10 @@ namespace Cardiology.Commons
                 values.Add(@"{patient.fullname}", patient.FirstName);
                 values.Add(@"{date}", DateTime.Now.ToShortDateString());
 
-                doc = service.queryObject<DdvDoctor>(@"SELECT * FROM " + DdvDoctor.NAME + " where dss_login IN " +
+                doc = service.GetDdvDoctorService().GetObject(@"SELECT * FROM " + DdvDoctor.NAME + " where dss_login IN " +
                     "(select dss_user_name FROM dm_group_users WHERE dss_group_name ='io_cardio_reanim')");
                 values.Add(@"{doctor.io.department}", doc.ShortName);
-                doc = service.queryObject<DdvDoctor>(@"SELECT * FROM " + DdvDoctor.NAME + " where dss_login IN " +
+                doc = service.GetDdvDoctorService().GetObject(@"SELECT * FROM " + DdvDoctor.NAME + " where dss_login IN " +
                     "(select dss_user_name FROM dm_group_users WHERE dss_group_name ='io_therapy')");
                 values.Add(@"{doctor.io.hospital}", doc.ShortName);
             }

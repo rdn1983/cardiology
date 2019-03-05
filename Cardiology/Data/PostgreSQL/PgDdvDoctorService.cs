@@ -120,5 +120,30 @@ namespace Cardiology.Data.PostgreSQL
             }
             return null;
         }
+
+        public DdvDoctor GetObject(string sql)
+        {
+            using (dynamic connection = connectionFactory.GetConnection())
+            {
+                Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
+                using (DbDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        DdvDoctor obj = new DdvDoctor();
+                        obj.FullName = reader.GetString(1);
+                        obj.ObjectId = reader.GetString(2);
+                        obj.MiddleName = reader.GetString(3);
+                        obj.FirstName = reader.GetString(4);
+                        obj.ModifyDate = reader.GetDateTime(5);
+                        obj.ShortName = reader.GetString(6);
+                        obj.CreationDate = reader.GetDateTime(7);
+                        obj.LastName = reader.GetString(8);
+                        return obj;
+                    }
+                }
+            }
+            return null;
+        }
     }
 }

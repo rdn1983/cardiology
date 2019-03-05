@@ -13,5 +13,7 @@ namespace Cardiology.Data.Commons
         List<DdvDoctor> GetByQuery(string sql);
 
         DdvDoctor GetById(string id);
+
+        DdvDoctor GetObject(string sql);
     }
 }

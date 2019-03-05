@@ -9,6 +9,8 @@ namespace Cardiology.Data.Commons
 
         List<DdtJournal> GetByQuery(string sql);
 
+        DdtJournal GetObject(string sql);
+
         DdtJournal GetById(string id);
 
         DdtJournal GetByHospitalSessionAndJournalType(string hospitalSession, int jornalType);

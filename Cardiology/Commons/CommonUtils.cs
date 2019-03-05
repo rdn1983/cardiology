@@ -208,7 +208,7 @@ namespace Cardiology.Commons
                 " AND dsdt_inspection_date<to_timestamp('" + incpectionDate.ToShortDateString() + " " + incpectionDate.ToLongTimeString() + "', 'DD.MM.YYYY HH24:MI:SS') ORDER BY dsdt_inspection_date DESC";
             DateTime startDate = service.GetTime(startDateQuery);
 
-            return service.queryObject<DdtJournal>(@"SELECT * FROM " + DdtJournal.NAME +
+            return service.GetDdtJournalService().GetObject(@"SELECT * FROM " + DdtJournal.NAME +
                 " WHERE dsid_hospitality_session='" + sessionId + "'" +
                     " AND dsi_journal_type=" + (int)DdtJournalDsiType.AFTER_KAG +
                     (startDate != default(DateTime) ? (" AND dsdt_admission_date>=to_timestamp('" + startDate.ToShortDateString() + " " + startDate.ToLongTimeString() + "', 'dd.mm.yyyy HH24:mi:ss')") : "") +

@@ -59,8 +59,8 @@ namespace Cardiology.UI.Forms
                     diagnosisTxt0.Text = anamnesis.Diagnosis;
                 }
 
-                List<DdtConsiliumMember> members = service.queryObjectsCollectionByAttrCond<DdtConsiliumMember>
-                   (DdtConsiliumMember.NAME, "dss_template_name", "default_consilium", true);
+                List<DdtConsiliumMember> members = service.GetDdtConsiliumMemberService()
+                    .GetByQuery("SELECT * FROM ddt_consilium_member WHERE dss_template_name = 'default_consilium'");
                 InitMembers(service, members);
             }
 

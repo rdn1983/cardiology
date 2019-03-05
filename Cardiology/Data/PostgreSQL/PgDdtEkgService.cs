@@ -163,6 +163,36 @@ namespace Cardiology.Data.PostgreSQL
             return null;
         }
 
+        public DdtEkg GetByParentId(string parentId)
+        {
+            using (dynamic connection = connectionFactory.GetConnection())
+            {
+                String sql = String.Format("SELECT dsid_hospitality_session, r_object_id, dsdt_analysis_date, r_modify_date, dss_parent_type, r_creation_date, dsid_parent, dsb_admission_analysis, dss_ekg, dsid_doctor, dsid_patient " +
+                                           "FROM ddt_ekg WHERE dsid_hospitality_session = '{0}'", parentId);
+                Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
+                using (DbDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        DdtEkg obj = new DdtEkg();
+                        obj.HospitalitySession = reader.GetString(1);
+                        obj.ObjectId = reader.GetString(2);
+                        obj.AnalysisDate = reader.GetDateTime(3);
+                        obj.ModifyDate = reader.GetDateTime(4);
+                        obj.ParentType = reader.GetString(5);
+                        obj.CreationDate = reader.GetDateTime(6);
+                        obj.Parent = reader.GetString(7);
+                        obj.AdmissionAnalysis = reader.GetBoolean(8);
+                        obj.Ekg = reader.GetString(9);
+                        obj.Doctor = reader.GetString(10);
+                        obj.Patient = reader.GetString(11);
+                        return obj;
+                    }
+                }
+            }
+            return null;
+        }
+
         public DdtEkg GetByHospitalSession(string hospitalSession)
         {
             using (dynamic connection = connectionFactory.GetConnection())
@@ -193,9 +223,41 @@ namespace Cardiology.Data.PostgreSQL
             return null;
         }
 
+        public DdtEkg GetByHospitalSessionAndAdmission(string hospitalSession, bool admissionAnalysis)
+        {
+            using (dynamic connection = connectionFactory.GetConnection())
+            {
+                String sql = String.Format("SELECT dsid_hospitality_session, r_object_id, dsdt_analysis_date, r_modify_date, dss_parent_type, r_creation_date, dsid_parent, dsb_admission_analysis, dss_ekg, dsid_doctor, dsid_patient " +
+                                           "FROM ddt_ekg WHERE dsid_hospitality_session = '{0}' and dsb_admission_analysis='{1}' ", hospitalSession, admissionAnalysis);
+                Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
+                using (DbDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        DdtEkg obj = new DdtEkg();
+                        obj.HospitalitySession = reader.GetString(1);
+                        obj.ObjectId = reader.GetString(2);
+                        obj.AnalysisDate = reader.GetDateTime(3);
+                        obj.ModifyDate = reader.GetDateTime(4);
+                        obj.ParentType = reader.GetString(5);
+                        obj.CreationDate = reader.GetDateTime(6);
+                        obj.Parent = reader.GetString(7);
+                        obj.AdmissionAnalysis = reader.GetBoolean(8);
+                        obj.Ekg = reader.GetString(9);
+                        obj.Doctor = reader.GetString(10);
+                        obj.Patient = reader.GetString(11);
+                        return obj;
+                    }
+                }
+            }
+            return null;
+        }
+
         public string Save(DdtEkg obj)
         {
             throw new NotImplementedException();
         }
+
+        
     }
 }

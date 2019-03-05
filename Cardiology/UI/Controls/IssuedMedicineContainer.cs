@@ -48,7 +48,7 @@ namespace Cardiology.UI.Controls
 
         }
 
-        internal List<DdtIssuedMedicine> getIssuedMedicines()
+        internal List<DdtIssuedMedicine> getIssuedMedicines(IDbDataService service)
         {
 
             List<DdtIssuedMedicine> result = new List<DdtIssuedMedicine>();
@@ -73,7 +73,7 @@ namespace Cardiology.UI.Controls
             sizedContainer.Controls.Clear();
         }
 
-        internal void addMedicineBox()
+        internal void addMedicineBox(IDbDataService service)
         {
             IssuedMedicineControl ctrl = new IssuedMedicineControl(service, getNextIndex(), this);
             sizedContainer.Controls.Add(ctrl);

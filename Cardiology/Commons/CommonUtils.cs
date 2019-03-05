@@ -2,6 +2,7 @@
 using NLog;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Cardiology.Data.Model2;
@@ -22,7 +23,7 @@ namespace Cardiology.Commons
         {
             cb.Items.Clear();
             string query = @"SELECT * FROM ddt_doctors " + (string.IsNullOrEmpty(whereCnd) ? "" : (" WHERE " + whereCnd));
-            List<DdvDoctor> doctors = service.GetDdvDoctorService().GetByQuery(query);
+            List<DdvDoctor> doctors = service.queryObjectsCollection<DdvDoctor>(query);
             cb.Items.AddRange(doctors.ToArray());
             cb.ValueMember = "ObjectId";
             cb.DisplayMember = "ShortName";
@@ -32,7 +33,7 @@ namespace Cardiology.Commons
         {
             cb.Items.Clear();
             string query = @"SELECT doc.* FROM ddt_doctors doc , dm_group_users gr WHERE gr.dss_group_name='" + groupName + "' AND gr.dss_user_name=doc.dss_login";
-            List<DdvDoctor> doctors = service.GetDdvDoctorService().GetByQuery(query);
+            List<DdvDoctor> doctors = service.queryObjectsCollection<DdvDoctor>(query);
             cb.Items.AddRange(doctors.ToArray());
             cb.ValueMember = "ObjectId";
             cb.DisplayMember = "ShortName";
@@ -41,8 +42,7 @@ namespace Cardiology.Commons
         internal static void InitCureComboboxValuesByTypeId(IDbDataService service, ComboBox cb, string cureTypeId)
         {
             cb.Items.Clear();
-            string query = @"SELECT * FROM ddt_cure WHERE dsid_cure_type= '" + cureTypeId + "'";
-            List<DdtCure> cureList = service.GetDdtCureService().GetByQuery(query);
+            IList<DdtCure> cureList = service.GetDdtCureService().GetListByCureTypeId(cureTypeId);
             cb.Items.AddRange(cureList.ToArray());
             cb.ValueMember = "ObjectId";
             cb.DisplayMember = "DssName";

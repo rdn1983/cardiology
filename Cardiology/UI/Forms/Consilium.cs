@@ -47,14 +47,13 @@ namespace Cardiology.UI.Forms
                     adminTxt.SelectedIndex = adminTxt.FindStringExact(consilium.DutyAdminName);
                     diagnosisTxt0.Text = consilium.Diagnosis;
                     decisionTxt.Text = consilium.Decision;
-                    List<DdtConsiliumMember> members = service.queryObjectsCollectionByAttrCond<DdtConsiliumMember>
-                        (DdtConsiliumMember.NAME, "dsid_consilium", consilium.ObjectId, true);
+                    IList<DdtConsiliumMember> members = service.GetDdtConsiliumMemberService().GetMembersByConsiliumId(consilium.ObjectId);
                     InitMembers(service, members);
                 }
             }
             else
             {
-                DdtAnamnesis anamnesis = service.queryObject<DdtAnamnesis>(@"SELECT * FROM ddt_anamnesis WHERE dsid_hospitality_session='" + hospitalitySession.ObjectId + "'");
+                DdtAnamnesis anamnesis = service.GetDdtAnamnesisService().GetByHospitalSessionId(hospitalitySession.ObjectId);
                 if (anamnesis != null)
                 {
                     diagnosisTxt0.Text = anamnesis.Diagnosis;
@@ -67,7 +66,7 @@ namespace Cardiology.UI.Forms
 
         }
 
-        private void InitMembers(IDbDataService service, List<DdtConsiliumMember> members)
+        private void InitMembers(IDbDataService service, IList<DdtConsiliumMember> members)
         {
             for (int i = 0; i < members.Count; i++)
             {

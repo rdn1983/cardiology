@@ -225,7 +225,7 @@ namespace Cardiology.UI.Forms
         {
             if (selector == null)
             {
-                selector = new AnalysisSelector();
+                selector = new AnalysisSelector(service);
             }
             selector.ShowDialog(DdtKag.NAME, "dsid_hospitality_session='" + hospitalitySession.ObjectId + "'", "r_creation_date", "r_object_id", new List<string> { "" });
             if (selector.isSuccess())

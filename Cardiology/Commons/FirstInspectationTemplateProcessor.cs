@@ -48,13 +48,14 @@ namespace Cardiology.Commons
             DdvDoctor doc = service.GetDdvDoctorService().GetById(anamnesis.Doctor);
             values.Add("{cardio}", doc.ShortName);
 
-            DdtEkg ekg = service.queryObject<DdtEkg>(@"SELECT * from ddt_ekg WHERE dsid_hospitality_session='' and dsb_admission_analysis=true");
+            DdtEkg ekg = service.GetDdtEkgService().GetByHospitalSessionAndAdmission("", true);
+
             values.Add("{analysis.ekg}", ekg == null ? "" : ekg.Ekg);
 
             StringBuilder builder = new StringBuilder();
 
-            DdtIssuedMedicineList medList = service.queryObject<DdtIssuedMedicineList>(@"SELECT * FROM ddt_issued_medicine_list WHERE dsid_hospitality_session='" +
-                hospitalitySession + "' AND dss_parent_type='ddt_anamnesis'");
+            DdtIssuedMedicineList medList = service.GetDdtIssuedMedicineListService().GetListByHospitalIdAndParentType(hospitalitySession, DdtAnamnesis.NAME);
+
             if (medList != null)
             {
                 IList<DdtIssuedMedicine> med = service.GetDdtIssuedMedicineService().GetListByMedicineListId(medList.ObjectId);

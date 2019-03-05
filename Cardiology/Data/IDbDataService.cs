@@ -79,6 +79,8 @@ namespace Cardiology.Data
 
         IDdtConsiliumMemberService GetDdtConsiliumMemberService();
 
+        IDdtConsiliumGroupMemberService GetDdtConsiliumGroupMemberService();
+
         IDdtUziService GetDdtUziService();
 
         IDdtVariousSpecConclusonService GetDdtVariousSpecConclusonService();

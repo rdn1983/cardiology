@@ -96,11 +96,11 @@ namespace Cardiology.Data.PostgreSQL
             }
         }
 
-        public DdtIssuedMedicineList GetListByHospitalId(string parentType, string id)
+        public DdtIssuedMedicineList GetListByHospitalIdAndParentType(string parentType, string hospitalSession)
         {
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = String.Format("SELECT r_object_id, dss_has_kag, dsid_parent_id, dsid_pharmacologist, dss_diagnosis, r_creation_date, dsid_director, dsid_doctor, dsid_patient, dsid_hospitality_session, dsid_nurse, r_modify_date, dss_parent_type, dss_template_name, dsdt_issuing_date, dsb_skip_print FROM ddt_issued_medicine_list WHERE dsid_hospitality_session='{0} AND dss_parent_type = '{1}'", id, parentType);
+                String sql = String.Format("SELECT r_object_id, dss_has_kag, dsid_parent_id, dsid_pharmacologist, dss_diagnosis, r_creation_date, dsid_director, dsid_doctor, dsid_patient, dsid_hospitality_session, dsid_nurse, r_modify_date, dss_parent_type, dss_template_name, dsdt_issuing_date, dsb_skip_print FROM ddt_issued_medicine_list WHERE dsid_hospitality_session='{0} AND dss_parent_type = '{1}'", hospitalSession, parentType);
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {

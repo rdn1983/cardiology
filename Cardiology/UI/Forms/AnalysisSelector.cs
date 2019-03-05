@@ -11,9 +11,11 @@ namespace Cardiology.UI.Forms
         private List<string> selectedIds;
         private List<string> selectedLabels;
         private bool success;
+        private IDbDataService service;
 
-        public AnalysisSelector()
+        public AnalysisSelector(IDbDataService service)
         {
+            service = this.service;
             selectedIds = new List<string>();
             selectedLabels = new List<string>();
             InitializeComponent();
@@ -25,11 +27,11 @@ namespace Cardiology.UI.Forms
             selectedIds.Clear();
             selectedLabels.Clear();
             selectionContainer.Items.Clear();
-            initControls(typeName, condition, labelAttr, valueAttr, exceptedIds);
+            initControls(service, typeName, condition, labelAttr, valueAttr, exceptedIds);
             ShowDialog();
         }
 
-        private void initControls(string typeName, string condition, string labelAttr, string valueAttr, List<string> exceptedIds)
+        private void initControls(IDbDataService service, string typeName, string condition, string labelAttr, string valueAttr, List<string> exceptedIds)
         {
 
             StringBuilder dqlBuilder = new StringBuilder();

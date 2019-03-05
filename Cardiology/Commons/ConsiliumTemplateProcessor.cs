@@ -63,7 +63,8 @@ namespace Cardiology.Commons
 
             foreach (DdtConsiliumMember mm in members)
             {
-                DdtConsiliumGroupMember groupLevel = service.queryObjectByAttrCond<DdtConsiliumMemberLevel>(DdtConsiliumMemberLevel.NAME, "dss_group_name", mm.DssGroupName, true);
+                DdtConsiliumGroupMember groupLevel = service.GetDdtConsiliumGroupMemberService().GetByGroupName(mm.Consilium);
+
                 DmGroup group = service.GetDmGroupService().GetGroupByName(mm.DssGroupName);
                     queryObjectByAttrCond<DmGroup>(DmGroup.NAME, "dss_name", mm.DssGroupName, true);
                 if (!sortedMembers.ContainsKey(groupLevel.DsiLevel + " " + group.Description + " " + mm.DssDoctorName)) {

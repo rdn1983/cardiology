@@ -151,7 +151,7 @@ namespace Cardiology.UI.Forms
         private void UpdateMedicineFromTemplate(string template)
         {
 
-            List<DdtCure> medicineTemplates = service.queryObjectsCollection<DdtCure>(@"Select cure.* from ddt_values vv, ddt_cure cure 
+            List<DdtCure> medicineTemplates = service.GetDdtCureService().GetByQuery(@"Select cure.* from ddt_values vv, ddt_cure cure 
                             where vv.dss_name like '" + template + "%' AND vv.dss_value=cure.dss_name");
             issuedMedicineContainer.RefreshData(this.service, medicineTemplates);
         }
@@ -367,7 +367,7 @@ namespace Cardiology.UI.Forms
 
         private void copyJournalMedBtn_Click(object sender, EventArgs e)
         {
-            String meListId = service.GetString(@"SELECT medlist.* FROM ddt_issued_medicine_list medlist, ddt_inspection ins WHERE ins.dsid_hospitality_session='" +
+            String medListId = service.GetString(@"SELECT medlist.* FROM ddt_issued_medicine_list medlist, ddt_inspection ins WHERE ins.dsid_hospitality_session='" +
                    hospitalitySession.ObjectId + "' AND medlist.dsid_parent_id=ins.r_object_id ORDER BY dsdt_inspection_date DESC");
             if (!string.IsNullOrEmpty(medListId))
             {
@@ -379,11 +379,11 @@ namespace Cardiology.UI.Forms
         private void copyYesterdayMedBtn_Click(object sender, EventArgs e)
         {
 
-            String meListId = service.GetString(@"SELECT * FROM ddt_issued_medicine_list  WHERE dsid_hospitality_session='" +
+            String medListId = service.GetString(@"SELECT * FROM ddt_issued_medicine_list  WHERE dsid_hospitality_session='" +
                    hospitalitySession.ObjectId + "'   ORDER BY dsdt_issuing_date DESC");
             if (!string.IsNullOrEmpty(medListId))
             {
-                List<DdtCure> cures = service.queryObjectsCollection<DdtCure>(@"SELECT cures.* FROM " + DdtCure.NAME + " cures, " + DdtIssuedMedicine.NAME +
+                List<DdtCure> cures = service.GetDdtCureService().GetByQuery(@"SELECT cures.* FROM " + DdtCure.NAME + " cures, " + DdtIssuedMedicine.NAME +
                     " meds WHERE meds.dsid_med_list='" + medListId + "' AND meds.dsid_cure=cures.r_object_id");
                 issuedMedicineContainer.RefreshData(service, cures);
             }

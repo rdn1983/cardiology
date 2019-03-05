@@ -2,6 +2,7 @@
 using NLog;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Cardiology.Data.Model2;
@@ -41,8 +42,7 @@ namespace Cardiology.Commons
         internal static void InitCureComboboxValuesByTypeId(IDbDataService service, ComboBox cb, string cureTypeId)
         {
             cb.Items.Clear();
-            string query = @"SELECT * FROM ddt_cure WHERE dsid_cure_type= '" + cureTypeId + "'";
-            List<DdtCure> cureList = service.queryObjectsCollection<DdtCure>(query);
+            IList<DdtCure> cureList = service.GetDdtCureService().GetListByCureTypeId(cureTypeId);
             cb.Items.AddRange(cureList.ToArray());
             cb.ValueMember = "ObjectId";
             cb.DisplayMember = "DssName";

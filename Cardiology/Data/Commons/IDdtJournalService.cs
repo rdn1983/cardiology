@@ -9,6 +9,8 @@ namespace Cardiology.Data.Commons
 
         DdtJournal GetById(string id);
 
+        DdtJournal GetByHospitalSessionAndJournalType(string hospitalSession, int jornalType);
+
         string Save(DdtJournal obj);
     }
 }

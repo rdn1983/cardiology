@@ -251,7 +251,7 @@ namespace Cardiology.UI.Forms
         private void saveIssuedMedicine(IDbDataService service)
         {
             List<DdtIssuedMedicine> meds = getSafeObjectValueUni(issuedMedicineContainer,
-                new getValue<List<DdtIssuedMedicine>>((ctrl) => ((IssuedMedicineContainer)ctrl).getIssuedMedicines()));
+                new getValue<List<DdtIssuedMedicine>>((ctrl) => ((IssuedMedicineContainer)ctrl).getIssuedMedicines(service)));
 
             List<DdtIssuedMedicine> meds2 = new List<DdtIssuedMedicine>();
             foreach (DdtIssuedMedicine med in meds)
@@ -290,7 +290,7 @@ namespace Cardiology.UI.Forms
         private void saveIssuedAction(IDbDataService service)
         {
             List<DdtIssuedAction> meds = getSafeObjectValueUni(issuedActionContainer,
-               new getValue<List<DdtIssuedAction>>((ctrl) => ((IssuedActionContainer)ctrl).getIssuedMedicines()));
+               new getValue<List<DdtIssuedAction>>((ctrl) => ((IssuedActionContainer)ctrl).getIssuedMedicines(service)));
             if (meds.Count > 0)
             {
                 foreach (DdtIssuedAction med in meds)
@@ -661,7 +661,7 @@ namespace Cardiology.UI.Forms
 
         private void AddIssuedMedicine_Click(object sender, EventArgs e)
         {
-            issuedMedicineContainer.addMedicineBox();
+            issuedMedicineContainer.addMedicineBox(service);
         }
 
         private void alcoholProtocolBtn_Click(object sender, EventArgs e)
@@ -747,7 +747,7 @@ namespace Cardiology.UI.Forms
 
         private void addIssuedAction_Click(object sender, EventArgs e)
         {
-            issuedActionContainer.addMedicineBox();
+            issuedActionContainer.addMedicineBox(service);
         }
 
         private void FirstInspection_FormClosing(object sender, FormClosingEventArgs e)

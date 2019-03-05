@@ -167,7 +167,7 @@ namespace Cardiology.UI.Forms
 
         private void saveIssuedMedicine()
         {
-            List<DdtIssuedMedicine> meds = issuedMedicineContainer.getIssuedMedicines();
+            List<DdtIssuedMedicine> meds = issuedMedicineContainer.getIssuedMedicines(service);
             if (meds.Count > 0)
             {
                 DdtIssuedMedicineList medList = service.GetDdtIssuedMedicineListService().GetById(issuedMedId);
@@ -281,7 +281,7 @@ namespace Cardiology.UI.Forms
 
         private void addCureBtn_Click(object sender, EventArgs e)
         {
-            issuedMedicineContainer.addMedicineBox();
+            issuedMedicineContainer.addMedicineBox(service);
         }
 
         private void oksTemplateMed_Click(object sender, EventArgs e)
@@ -357,7 +357,7 @@ namespace Cardiology.UI.Forms
 
         private void copyFirstMedicineBtn_Click(object sender, EventArgs e)
         {
-            DdtIssuedMedicineList medList = service.GetDdtIssuedMedicineListService().GetListByHospitalId("ddt_anamnesis", hospitalitySession.ObjectId);
+            DdtIssuedMedicineList medList = service.GetDdtIssuedMedicineListService().GetListByHospitalIdAndParentType(DdtAnamnesis.NAME, hospitalitySession.ObjectId);
             if (medList != null)
             {
                 IList<DdtCure> cures = service.GetDdtCureService().GetListByMedicineListId(medList.ObjectId);
@@ -369,10 +369,9 @@ namespace Cardiology.UI.Forms
         {
             String meListId = service.GetString(@"SELECT medlist.* FROM ddt_issued_medicine_list medlist, ddt_inspection ins WHERE ins.dsid_hospitality_session='" +
                    hospitalitySession.ObjectId + "' AND medlist.dsid_parent_id=ins.r_object_id ORDER BY dsdt_inspection_date DESC");
-            if (!string.IsNullOrEmpty(meListId))
+            if (!string.IsNullOrEmpty(medListId))
             {
-                List<DdtCure> cures = service.queryObjectsCollection<DdtCure>(@"SELECT cures.* FROM " + DdtCure.NAME + " cures, " + DdtIssuedMedicine.NAME +
-                    " meds WHERE meds.dsid_med_list='" + meListId + "' AND meds.dsid_cure=cures.r_object_id");
+                IList<DdtCure> cures = service.GetDdtCureService().GetListByMedicineListId(medListId);
                 issuedMedicineContainer.RefreshData(service, cures);
             }
         }
@@ -382,10 +381,10 @@ namespace Cardiology.UI.Forms
 
             String meListId = service.GetString(@"SELECT * FROM ddt_issued_medicine_list  WHERE dsid_hospitality_session='" +
                    hospitalitySession.ObjectId + "'   ORDER BY dsdt_issuing_date DESC");
-            if (!string.IsNullOrEmpty(meListId))
+            if (!string.IsNullOrEmpty(medListId))
             {
                 List<DdtCure> cures = service.queryObjectsCollection<DdtCure>(@"SELECT cures.* FROM " + DdtCure.NAME + " cures, " + DdtIssuedMedicine.NAME +
-                    " meds WHERE meds.dsid_med_list='" + meListId + "' AND meds.dsid_cure=cures.r_object_id");
+                    " meds WHERE meds.dsid_med_list='" + medListId + "' AND meds.dsid_cure=cures.r_object_id");
                 issuedMedicineContainer.RefreshData(service, cures);
             }
         }
@@ -418,7 +417,7 @@ namespace Cardiology.UI.Forms
             values.Add(@"{diet}", "НКД");
             values.Add(@"{date}", DateTime.Now.ToShortDateString());
             //todo переписать,к огда будет время. Сделать добавление в таблицу строчек автоматом
-            List<DdtIssuedMedicine> med = issuedMedicineContainer.getIssuedMedicines();
+            List<DdtIssuedMedicine> med = issuedMedicineContainer.getIssuedMedicines(service);
             for (int i = 0; i < 19; i++)
             {
                 string value = "";

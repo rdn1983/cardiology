@@ -20,7 +20,7 @@ namespace Cardiology.UI.Forms
             this.hospitalitySession = hospitalitySession;
             this.objectId = objectId;
             this.service = service;
-            selector = new AnalysisSelector();
+            selector = new AnalysisSelector(service);
             InitializeComponent();
             InitControls();
         }
@@ -58,12 +58,14 @@ namespace Cardiology.UI.Forms
                     {
                         analysisGrid.Rows.Add(e.ObjectId, DdtUzi.NAME, "Анализы: УЗИ", "", "");
                     }
-                    List<DdtXRay> zray = service.queryObjectsCollection<DdtXRay>(@"SELECT * FROM " + DdtXRay.NAME + " where dsid_parent='" + epicrisis.ObjectId + "'");
+
+                    IList<DdtXRay> zray = service.GetDdtXrayService().GetListByParentId(epicrisis.ObjectId);
                     foreach (DdtXRay e in zray)
                     {
                         analysisGrid.Rows.Add(e.ObjectId, DdtXRay.NAME, "Анализы: Рентген", "", "");
                     }
-                    List<DdtBloodAnalysis> blood = service.queryObjectsCollection<DdtBloodAnalysis>(@"SELECT * FROM " + DdtBloodAnalysis.NAME + " where dsid_parent='" + epicrisis.ObjectId + "'");
+
+                    IList<DdtBloodAnalysis> blood = service.GetDdtBloodAnalysisService().GetListByParenId(epicrisis.ObjectId);
                     foreach (DdtBloodAnalysis e in blood)
                     {
                         analysisGrid.Rows.Add(e.ObjectId, DdtBloodAnalysis.NAME, "Анализы: Кровь", "", "");
@@ -101,7 +103,7 @@ namespace Cardiology.UI.Forms
                 List<string> diagnosies = selector.returnValues();
                 foreach (string v in diagnosies)
                 {
-                    DdvHistory history = service.queryObject<DdvHistory>(@"SELECT * FROM ddv_history WHERE dsid_operation_id='" + v + "'");
+                    DdvHistory history = service.GetDdvHistoryService().GetHistoryByOperationId(v);
                     analysisGrid.Rows.Add(history.OperationId, history.OperationType, history.OperationName, "", "");
                 }
             }

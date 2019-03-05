@@ -54,7 +54,7 @@ namespace Cardiology.UI.Controls
             sizedContainer.Controls.Clear();
         }
 
-        internal void addMedicineBox()
+        internal void addMedicineBox(IDbDataService service)
         {
             IssuedActionControl ctrl = new IssuedActionControl(service, getNextIndex(), this);
             sizedContainer.Controls.Add(ctrl);

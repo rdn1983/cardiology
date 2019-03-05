@@ -62,13 +62,13 @@ namespace Cardiology.Commons
             }
             values.Add("{serology}", serology == null ? " " : serologyBld.ToString());
 
-            DdtEkg ekg = service.queryObject<DdtEkg>(@"SELECT * FROM ddt_ekg where dsid_parent='" + obj.ObjectId + "'");
+            DdtEkg ekg = service.GetDdtEkgService().GetByParentId(obj.ObjectId);
             values.Add("{analysis.ekg}", ekg == null ? " " : "ЭКГ:" + ekg.Ekg);
-            DdtXRay xray = service.queryObject<DdtXRay>(@"SELECT * FROM ddt_xray where dsid_parent='" + obj.ObjectId + "'");
+            DdtXRay xray = service.GetDdtXrayService().GetByParentId(obj.ObjectId);
             values.Add("{analysis.xray}", xray == null ? " " : "Рентген:" + xray.ChestXray);
-            DdtEgds egds = service.queryObject<DdtEgds>(@"SELECT * FROM ddt_egds where dsid_parent='" + obj.ObjectId + "'");
+            DdtEgds egds = service.GetDdtEgdsService().GetByParentId(obj.ObjectId);
             values.Add("{analysis.egds}", egds == null ? " " : "ЭГДС:" + egds.Egds);
-            DdtBloodAnalysis blood = service.queryObject<DdtBloodAnalysis>(@"SELECT * FROM ddt_blood_analysis where dsid_parent='" + obj.ObjectId + "'");
+            DdtBloodAnalysis blood = service.GetDdtBloodAnalysisService().GetByParentId(obj.ObjectId);
             StringBuilder bloodStr = new StringBuilder();
             if (blood != null)
             {
@@ -100,7 +100,7 @@ namespace Cardiology.Commons
             }
                 values.Add("{analysis.blood}", blood == null ? " " : "Анализы крови:" + bloodStr);
             values.Add("{analysis.urine}", " ");
-            DdtUzi uzi = service.queryObject<DdtUzi>(@"SELECT * FROM ddt_uzi where dsid_parent='" + obj.ObjectId + "'");
+            DdtUzi uzi = service.GetDdtUziService().GetByParentId(obj.ObjectId);
             StringBuilder uziStr = new StringBuilder();
             if (uzi != null)
             {

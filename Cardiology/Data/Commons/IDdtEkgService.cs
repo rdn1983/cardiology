@@ -13,7 +13,11 @@ namespace Cardiology.Data.Commons
 
         DdtEkg GetByHospitalSessionAndParentId(string hospitalSession, string parentId);
 
+        DdtEkg GetByParentId(string parentId);
+
         DdtEkg GetByHospitalSession(string hospitalSession);
+
+        DdtEkg GetByHospitalSessionAndAdmission(string hospitalSession, bool admissionAnalysis);
 
         string Save(DdtEkg obj);
     }

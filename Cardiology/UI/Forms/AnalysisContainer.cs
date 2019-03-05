@@ -171,7 +171,7 @@ namespace Cardiology.UI.Forms
         {
             if (selector == null)
             {
-                selector = new AnalysisSelector();
+                selector = new AnalysisSelector(service);
             }
             selector.ShowDialog(typeName, "dsid_hospitality_session='" + hospitalitySession.ObjectId + "'", "dsdt_analysis_date", "r_object_id", selectedIds);
             if (selector.isSuccess())

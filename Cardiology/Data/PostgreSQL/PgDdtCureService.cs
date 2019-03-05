@@ -86,6 +86,30 @@ namespace Cardiology.Data.PostgreSQL
             return list;
         }
 
+        public IList<DdtCure> GetListByCureTypeId(string cureTypeId)
+        {
+            IList<DdtCure> list = new List<DdtCure>();
+            using (dynamic connection = connectionFactory.GetConnection())
+            {
+                String sql = String.Format("SELECT r_object_id, r_modify_date, r_creation_date, dss_name, dsid_cure_type FROM ddt_cure WHERE dsid_cure_type = '{0}'", cureTypeId);
+                Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
+                using (DbDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        DdtCure obj = new DdtCure();
+                        obj.ObjectId = reader.GetString(1);
+                        obj.ModifyDate = reader.GetDateTime(2);
+                        obj.CreationDate = reader.GetDateTime(3);
+                        obj.Name = reader.GetString(4);
+                        obj.CureType = reader.GetString(5);
+                        list.Add(obj);
+                    }
+                }
+            }
+            return list;
+        }
+
         public IList<DdtCure> GetListByTemplate(string templateName)
         {
             IList<DdtCure> list = new List<DdtCure>();

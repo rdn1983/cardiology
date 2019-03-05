@@ -57,8 +57,7 @@ namespace Cardiology.Commons
 
         private void putSpecialistData(Dictionary<string, string> values, IDbDataService service, string objId)
         {
-            List<DdtSpecialistConclusion> lspecobj = service.queryObjectsCollection<DdtSpecialistConclusion>(@"SELECT * FROM " + DdtSpecialistConclusion.NAME +
-                " WHERE dsid_parent='" + objId + "'");
+            IList<DdtSpecialistConclusion> lspecobj = service.GetDdtSpecialistConclusionService().GetListByParentId(objId);
             StringBuilder specBld = new StringBuilder();
             foreach (DdtSpecialistConclusion obj in lspecobj)
             {
@@ -89,12 +88,11 @@ namespace Cardiology.Commons
         private void putKagData(Dictionary<string, string> values, IDbDataService service, string sessionId)
         {
             StringBuilder bld = new StringBuilder();
-            DdtJournal kagJournal = service.queryObject<DdtJournal>(@"SELECT * FROM " + DdtJournal.NAME +
-                   " WHERE dsid_hospitality_session='" + sessionId + "' AND dsi_journal_type=" + (int)DdtJournalDsiType.AFTER_KAG +
-                   " ORDER BY dsdt_admission_date desc");
+            DdtJournal kagJournal = service.GetDdtJournalService()
+                .GetByHospitalSessionAndJournalType(sessionId, (int) DdtJournalDsiType.AFTER_KAG);
             if (kagJournal != null)
             {
-                DdtKag kag = service.queryObjectByAttrCond<DdtKag>(DdtKag.NAME, "dsid_parent", kagJournal.ObjectId, true);
+                DdtKag kag = service.GetDdtKagService().GetByParentId(kagJournal.ObjectId);
                 if (kag != null)
                 {
                     bld.Append("Пациент в экстренном порядке проведена КАГ. Коронарография от ")
@@ -120,7 +118,7 @@ namespace Cardiology.Commons
 
         private void putEkgData(Dictionary<string, string> values, IDbDataService service, string objId)
         {
-            List<DdtEkg> ekg = service.queryObjectsCollection<DdtEkg>(@"SELECT * from ddt_ekg WHERE dsid_parent='" + objId + "'");
+            IList<DdtEkg> ekg = service.GetDdtEkgService().GetListByParentId(objId);
             StringBuilder ekgBld = new StringBuilder();
             foreach (DdtEkg ekk in ekg)
             {
@@ -132,7 +130,7 @@ namespace Cardiology.Commons
 
         private void putUziData(Dictionary<string, string> values, IDbDataService service, string objId)
         {
-            List<DdtUzi> uzies = service.queryObjectsCollection<DdtUzi>(@"SELECT * from " + DdtUzi.NAME + " WHERE dsid_parent='" + objId + "'");
+            IList<DdtUzi> uzies = service.GetDdtUziService().GetListByParentId(objId);
             StringBuilder uziBld = new StringBuilder();
             foreach (DdtUzi uzObj in uzies)
             {
@@ -164,8 +162,7 @@ namespace Cardiology.Commons
 
         private void putBloodData(Dictionary<string, string> values, IDbDataService service, string objId)
         {
-            List<DdtBloodAnalysis> bloods = service.queryObjectsCollection<DdtBloodAnalysis>(@"SELECT * FROM " + DdtBloodAnalysis.NAME +
-                " WHERE dsid_parent='" + objId + "'");
+            IList<DdtBloodAnalysis> bloods = service.GetDdtBloodAnalysisService().GetListByParenId(objId);
             StringBuilder bloodBld = new StringBuilder();
             foreach (DdtBloodAnalysis drop in bloods)
             {

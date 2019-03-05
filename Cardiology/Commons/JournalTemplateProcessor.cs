@@ -55,9 +55,9 @@ namespace Cardiology.Commons
         {
             List<string> partsPaths = new List<string>();
 
-            List<DdtVariousSpecConcluson> cardioConclusions = service.queryObjectsCollection<DdtVariousSpecConcluson>("Select * from " +
-                DdtVariousSpecConcluson.NAME + " WHERE dsid_parent='" + journal.ObjectId + "' AND dsb_additional_bool=false order by dsdt_admission_date");
-            DdtKag kag = service.queryObjectByAttrCond<DdtKag>(DdtKag.NAME, "dsid_parent", journal.ObjectId, true);
+            IList<DdtVariousSpecConcluson> cardioConclusions = service.GetDdtVariousSpecConclusonService().GetListByParentId(journal.ObjectId);
+
+            DdtKag kag = service.GetDdtKagService().GetByParentId(journal.ObjectId);
 
             DateTime journalDate = journal.AdmissionDate;
             if (cardioConclusions.Count > 0)
@@ -101,8 +101,7 @@ namespace Cardiology.Commons
                 partsPaths.Add(TemplatesUtils.FillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + TEMPLATE_FILE_NAME, conclusionValues));
             }
 
-            DdtVariousSpecConcluson releaseConclusion = service.queryObject<DdtVariousSpecConcluson>("Select * from " + DdtVariousSpecConcluson.NAME +
-                " WHERE dsid_parent='" + journal.ObjectId + "' AND dsb_additional_bool=true");
+            DdtVariousSpecConcluson releaseConclusion = service.GetDdtVariousSpecConclusonService().GetByParentId(journal.ObjectId);
             if (releaseConclusion != null)
             {
                 Dictionary<string, string> conclusionValues = new Dictionary<string, string>();

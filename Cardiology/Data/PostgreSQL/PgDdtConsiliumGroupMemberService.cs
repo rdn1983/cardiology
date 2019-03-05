@@ -64,6 +64,30 @@ namespace Cardiology.Data.PostgreSQL
             return null;
         }
 
+        public DdtConsiliumGroupMember GetByGroupName(string groupName)
+        {
+            using (dynamic connection = connectionFactory.GetConnection())
+            {
+                String sql = String.Format("SELECT r_object_id, r_modify_date, r_creation_date, dss_name, dsid_doctor, dsid_group FROM ddt_consilium_group_member WHERE dss_name = '{0}'", groupName);
+                Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
+                using (DbDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        DdtConsiliumGroupMember obj = new DdtConsiliumGroupMember();
+                        obj.ObjectId = reader.GetString(1);
+                        obj.ModifyDate = reader.GetDateTime(2);
+                        obj.CreationDate = reader.GetDateTime(3);
+                        obj.Name = reader.GetString(4);
+                        obj.Doctor = reader.GetString(5);
+                        obj.Group = reader.GetString(6);
+                        return obj;
+                    }
+                }
+            }
+            return null;
+        }
+
         public string Save(DdtConsiliumGroupMember obj)
         {
             throw new NotImplementedException();

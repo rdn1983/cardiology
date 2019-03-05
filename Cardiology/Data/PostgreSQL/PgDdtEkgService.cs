@@ -75,6 +75,35 @@ namespace Cardiology.Data.PostgreSQL
             return list;
         }
 
+        public List<DdtEkg> GetByQuery(string sql)
+        {
+            List<DdtEkg> list = new List<DdtEkg>();
+            using (dynamic connection = connectionFactory.GetConnection())
+            {
+                Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
+                using (DbDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        DdtEkg obj = new DdtEkg();
+                        obj.HospitalitySession = reader.GetString(1);
+                        obj.ObjectId = reader.GetString(2);
+                        obj.AnalysisDate = reader.GetDateTime(3);
+                        obj.ModifyDate = reader.GetDateTime(4);
+                        obj.ParentType = reader.GetString(5);
+                        obj.CreationDate = reader.GetDateTime(6);
+                        obj.Parent = reader.GetString(7);
+                        obj.AdmissionAnalysis = reader.GetBoolean(8);
+                        obj.Ekg = reader.GetString(9);
+                        obj.Doctor = reader.GetString(10);
+                        obj.Patient = reader.GetString(11);
+                        list.Add(obj);
+                    }
+                }
+            }
+            return list;
+        }
+
         public DdtEkg GetById(string id)
         {
             using (dynamic connection = connectionFactory.GetConnection())

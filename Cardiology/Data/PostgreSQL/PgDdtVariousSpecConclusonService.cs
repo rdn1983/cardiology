@@ -83,6 +83,39 @@ namespace Cardiology.Data.PostgreSQL
             return list;
         }
 
+        public List<DdtVariousSpecConcluson> GetByQuery(string sql)
+        {
+            List<DdtVariousSpecConcluson> list = new List<DdtVariousSpecConcluson>();
+            using (dynamic connection = connectionFactory.GetConnection())
+            {
+                Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
+                using (DbDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        DdtVariousSpecConcluson obj = new DdtVariousSpecConcluson();
+                        obj.AdditionalInfo0 = reader.GetString(1);
+                        obj.ObjectId = reader.GetString(2);
+                        obj.Visible = reader.GetBoolean(3);
+                        obj.SpecialistType = reader.GetString(4);
+                        obj.AdditionalInfo2 = reader.GetString(5);
+                        obj.AdditionalInfo1 = reader.GetString(6);
+                        obj.CreationDate = reader.GetDateTime(7);
+                        obj.Parent = reader.GetString(8);
+                        obj.AdmissionDate = reader.GetDateTime(9);
+                        obj.AdditionalInfo4 = reader.GetString(10);
+                        obj.AdditionalInfo3 = reader.GetString(11);
+                        obj.SpecialistConclusion = reader.GetString(12);
+                        obj.ModifyDate = reader.GetDateTime(13);
+                        obj.ParentType = reader.GetString(14);
+                        obj.AdditionalBool = reader.GetBoolean(15);
+                        list.Add(obj);
+                    }
+                }
+            }
+            return list;
+        }
+
         public DdtVariousSpecConcluson GetById(string id)
         {
             using (dynamic connection = connectionFactory.GetConnection())

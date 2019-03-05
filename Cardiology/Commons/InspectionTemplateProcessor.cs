@@ -57,7 +57,7 @@ namespace Cardiology.Commons
 
         private void putSpecialistData(Dictionary<string, string> values, IDbDataService service, string objId)
         {
-            List<DdtSpecialistConclusion> lspecobj = service.queryObjectsCollection<DdtSpecialistConclusion>(@"SELECT * FROM " + DdtSpecialistConclusion.NAME +
+            List<DdtSpecialistConclusion> lspecobj = service.GetDdtSpecialistConclusionService().GetByQuery(@"SELECT * FROM " + DdtSpecialistConclusion.NAME +
                 " WHERE dsid_parent='" + objId + "'");
             StringBuilder specBld = new StringBuilder();
             foreach (DdtSpecialistConclusion obj in lspecobj)
@@ -120,7 +120,7 @@ namespace Cardiology.Commons
 
         private void putEkgData(Dictionary<string, string> values, IDbDataService service, string objId)
         {
-            List<DdtEkg> ekg = service.queryObjectsCollection<DdtEkg>(@"SELECT * from ddt_ekg WHERE dsid_parent='" + objId + "'");
+            List<DdtEkg> ekg = service.GetDdtEkgService().GetByQuery(@"SELECT * from ddt_ekg WHERE dsid_parent='" + objId + "'");
             StringBuilder ekgBld = new StringBuilder();
             foreach (DdtEkg ekk in ekg)
             {
@@ -132,7 +132,7 @@ namespace Cardiology.Commons
 
         private void putUziData(Dictionary<string, string> values, IDbDataService service, string objId)
         {
-            List<DdtUzi> uzies = service.queryObjectsCollection<DdtUzi>(@"SELECT * from " + DdtUzi.NAME + " WHERE dsid_parent='" + objId + "'");
+            List<DdtUzi> uzies = service.GetDdtUziService().GetByQuery(@"SELECT * from " + DdtUzi.NAME + " WHERE dsid_parent='" + objId + "'");
             StringBuilder uziBld = new StringBuilder();
             foreach (DdtUzi uzObj in uzies)
             {
@@ -164,7 +164,7 @@ namespace Cardiology.Commons
 
         private void putBloodData(Dictionary<string, string> values, IDbDataService service, string objId)
         {
-            List<DdtBloodAnalysis> bloods = service.queryObjectsCollection<DdtBloodAnalysis>(@"SELECT * FROM " + DdtBloodAnalysis.NAME +
+            List<DdtBloodAnalysis> bloods = service.GetDdtBloodAnalysisService().GetByQuery(@"SELECT * FROM " + DdtBloodAnalysis.NAME +
                 " WHERE dsid_parent='" + objId + "'");
             StringBuilder bloodBld = new StringBuilder();
             foreach (DdtBloodAnalysis drop in bloods)

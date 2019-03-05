@@ -9,6 +9,8 @@ namespace Cardiology.Data.Commons
 
         IList<DdtVariousSpecConcluson> GetListByParentId(string parentId);
 
+        List<DdtVariousSpecConcluson> GetByQuery(string sql);
+
         DdtVariousSpecConcluson GetById(string id);
 
         DdtVariousSpecConcluson GetByParentId(string id);

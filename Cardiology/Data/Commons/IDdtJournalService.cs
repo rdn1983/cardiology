@@ -7,6 +7,8 @@ namespace Cardiology.Data.Commons
     {
         IList<DdtJournal> GetAll();
 
+        List<DdtJournal> GetByQuery(string sql);
+
         DdtJournal GetById(string id);
 
         string Save(DdtJournal obj);

@@ -9,6 +9,8 @@ namespace Cardiology.Data.Commons
 
         DdtXRay GetById(string id);
 
+        List<DdtXRay> GetByQuery(string sql);
+
         string Save(DdtXRay obj);
     }
 }

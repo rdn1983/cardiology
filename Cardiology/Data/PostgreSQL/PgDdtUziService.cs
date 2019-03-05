@@ -113,6 +113,38 @@ namespace Cardiology.Data.PostgreSQL
             return list;
         }
 
+        public List<DdtUzi> GetByQuery(string sql)
+        {
+            List<DdtUzi> list = new List<DdtUzi>();
+            using (dynamic connection = connectionFactory.GetConnection())
+            {
+                Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
+                using (DbDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        DdtUzi obj = new DdtUzi();
+                        obj.ObjectId = reader.GetString(1);
+                        obj.AnalysisDate = reader.GetDateTime(2);
+                        obj.EhoKg = reader.GetString(3);
+                        obj.CreationDate = reader.GetDateTime(4);
+                        obj.PleursUzi = reader.GetString(5);
+                        obj.Parent = reader.GetString(6);
+                        obj.Doctor = reader.GetString(7);
+                        obj.Patient = reader.GetString(8);
+                        obj.HospitalitySession = reader.GetString(9);
+                        obj.UzdBca = reader.GetString(10);
+                        obj.ModifyDate = reader.GetDateTime(11);
+                        obj.ParentType = reader.GetString(12);
+                        obj.Cds = reader.GetString(13);
+                        obj.UziObp = reader.GetString(14);
+                        list.Add(obj);
+                    }
+                }
+            }
+            return list;
+        }
+
         public string Save(DdtUzi obj)
         {
             throw new NotImplementedException();

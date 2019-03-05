@@ -49,7 +49,7 @@ namespace Cardiology.UI.Forms
                 Text += " " + patient.ShortName;
             }
 
-            List<DdtJournal> journals = service.queryObjectsCollection<DdtJournal>(@"Select * FROM ddt_journal WHERE r_object_id IN ('" +
+            List<DdtJournal> journals = service.GetDdtJournalService().GetByQuery(@"Select * FROM ddt_journal WHERE r_object_id IN ('" +
                 journalIds.Aggregate((a, b) => a + "','" + b) + "') ORDER BY dsdt_admission_date ASC");
             foreach (DdtJournal j in journals)
             {

@@ -15,6 +15,8 @@ namespace Cardiology.Data.Commons
 
         IList<DdtBloodAnalysis> GetListByParenId(string parentId);
 
+        List<DdtBloodAnalysis> GetByQuery(string sql);
+
         string Save(DdtBloodAnalysis obj);
     }
 }

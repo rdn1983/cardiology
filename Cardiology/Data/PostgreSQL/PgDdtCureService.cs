@@ -110,6 +110,29 @@ namespace Cardiology.Data.PostgreSQL
             return list;
         }
 
+        public List<DdtCure> GetByQuery(string sql)
+        {
+            List<DdtCure> list = new List<DdtCure>();
+            using (dynamic connection = connectionFactory.GetConnection())
+            {
+                Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
+                using (DbDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        DdtCure obj = new DdtCure();
+                        obj.ObjectId = reader.GetString(1);
+                        obj.ModifyDate = reader.GetDateTime(2);
+                        obj.CreationDate = reader.GetDateTime(3);
+                        obj.Name = reader.GetString(4);
+                        obj.CureType = reader.GetString(5);
+                        list.Add(obj);
+                    }
+                }
+            }
+            return list;
+        }
+
         public string Save(DdtCure obj)
         {
             throw new NotImplementedException();

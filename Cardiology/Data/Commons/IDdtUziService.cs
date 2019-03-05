@@ -11,6 +11,8 @@ namespace Cardiology.Data.Commons
 
         IList<DdtUzi> GetListByParentId(string parentId);
 
+        List<DdtUzi> GetByQuery(string sql);
+
         string Save(DdtUzi obj);
     }
 }

@@ -55,7 +55,7 @@ namespace Cardiology.Commons
         {
             List<string> partsPaths = new List<string>();
 
-            List<DdtVariousSpecConcluson> cardioConclusions = service.queryObjectsCollection<DdtVariousSpecConcluson>("Select * from " +
+            List<DdtVariousSpecConcluson> cardioConclusions = service.GetDdtVariousSpecConclusonService().GetByQuery("Select * from " +
                 DdtVariousSpecConcluson.NAME + " WHERE dsid_parent='" + journal.ObjectId + "' AND dsb_additional_bool=false order by dsdt_admission_date");
             DdtKag kag = service.queryObjectByAttrCond<DdtKag>(DdtKag.NAME, "dsid_parent", journal.ObjectId, true);
 

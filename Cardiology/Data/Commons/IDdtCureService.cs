@@ -13,6 +13,8 @@ namespace Cardiology.Data.Commons
 
         IList<DdtCure> GetListByTemplate(string templateName);
 
+        List<DdtCure> GetByQuery(string sql);
+
         string Save(DdtCure obj);
     }
 }

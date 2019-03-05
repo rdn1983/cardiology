@@ -82,6 +82,39 @@ namespace Cardiology.Data.PostgreSQL
             return null;
         }
 
+        public List<DdtXRay> GetByQuery(string sql)
+        {
+            List<DdtXRay> list = new List<DdtXRay>();
+            using (dynamic connection = connectionFactory.GetConnection())
+            {
+                Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
+                using (DbDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        DdtXRay obj = new DdtXRay();
+                        obj.ObjectId = reader.GetString(1);
+                        obj.AnalysisDate = reader.GetDateTime(2);
+                        obj.Mskt = reader.GetString(3);
+                        obj.CreationDate = reader.GetDateTime(4);
+                        obj.Kt = reader.GetString(5);
+                        obj.Parent = reader.GetString(6);
+                        obj.ChestXray = reader.GetString(7);
+                        obj.Doctor = reader.GetString(8);
+                        obj.Patient = reader.GetString(9);
+                        obj.HospitalitySession = reader.GetString(10);
+                        obj.ModifyDate = reader.GetDateTime(11);
+                        obj.ParentType = reader.GetString(12);
+                        obj.Mrt = reader.GetString(13);
+                        obj.ControlRadiography = reader.GetString(14);
+                        obj.KtDate = reader.GetDateTime(15);
+                        list.Add(obj);
+                    }
+                }
+            }
+            return list;
+        }
+
         public string Save(DdtXRay obj)
         {
             throw new NotImplementedException();

@@ -58,12 +58,12 @@ namespace Cardiology.UI.Forms
                     {
                         analysisGrid.Rows.Add(e.ObjectId, DdtUzi.NAME, "Анализы: УЗИ", "", "");
                     }
-                    List<DdtXRay> zray = service.queryObjectsCollection<DdtXRay>(@"SELECT * FROM " + DdtXRay.NAME + " where dsid_parent='" + epicrisis.ObjectId + "'");
+                    List<DdtXRay> zray = service.GetDdtXrayService().GetByQuery(@"SELECT * FROM " + DdtXRay.NAME + " where dsid_parent='" + epicrisis.ObjectId + "'");
                     foreach (DdtXRay e in zray)
                     {
                         analysisGrid.Rows.Add(e.ObjectId, DdtXRay.NAME, "Анализы: Рентген", "", "");
                     }
-                    List<DdtBloodAnalysis> blood = service.queryObjectsCollection<DdtBloodAnalysis>(@"SELECT * FROM " + DdtBloodAnalysis.NAME + " where dsid_parent='" + epicrisis.ObjectId + "'");
+                    List<DdtBloodAnalysis> blood = service.GetDdtBloodAnalysisService().GetByQuery(@"SELECT * FROM " + DdtBloodAnalysis.NAME + " where dsid_parent='" + epicrisis.ObjectId + "'");
                     foreach (DdtBloodAnalysis e in blood)
                     {
                         analysisGrid.Rows.Add(e.ObjectId, DdtBloodAnalysis.NAME, "Анализы: Кровь", "", "");

@@ -367,7 +367,7 @@ namespace Cardiology.UI.Forms
 
         private void copyJournalMedBtn_Click(object sender, EventArgs e)
         {
-            String meListId = service.querySingleString(@"SELECT medlist.* FROM ddt_issued_medicine_list medlist, ddt_inspection ins WHERE ins.dsid_hospitality_session='" +
+            String meListId = service.GetString(@"SELECT medlist.* FROM ddt_issued_medicine_list medlist, ddt_inspection ins WHERE ins.dsid_hospitality_session='" +
                    hospitalitySession.ObjectId + "' AND medlist.dsid_parent_id=ins.r_object_id ORDER BY dsdt_inspection_date DESC");
             if (!string.IsNullOrEmpty(meListId))
             {
@@ -380,7 +380,7 @@ namespace Cardiology.UI.Forms
         private void copyYesterdayMedBtn_Click(object sender, EventArgs e)
         {
 
-            String meListId = service.querySingleString(@"SELECT * FROM ddt_issued_medicine_list  WHERE dsid_hospitality_session='" +
+            String meListId = service.GetString(@"SELECT * FROM ddt_issued_medicine_list  WHERE dsid_hospitality_session='" +
                    hospitalitySession.ObjectId + "'   ORDER BY dsdt_issuing_date DESC");
             if (!string.IsNullOrEmpty(meListId))
             {

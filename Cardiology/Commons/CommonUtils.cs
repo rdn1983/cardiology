@@ -206,7 +206,7 @@ namespace Cardiology.Commons
         {
             string startDateQuery = @"SELECT dsdt_inspection_date FROM " + DdtInspection.NAME + " WHERE dsid_hospitality_session='" + sessionId + "'" +
                 " AND dsdt_inspection_date<to_timestamp('" + incpectionDate.ToShortDateString() + " " + incpectionDate.ToLongTimeString() + "', 'DD.MM.YYYY HH24:MI:SS') ORDER BY dsdt_inspection_date DESC";
-            DateTime startDate = service.querySingleDateTime(startDateQuery);
+            DateTime startDate = service.GetTime(startDateQuery);
 
             return service.queryObject<DdtJournal>(@"SELECT * FROM " + DdtJournal.NAME +
                 " WHERE dsid_hospitality_session='" + sessionId + "'" +

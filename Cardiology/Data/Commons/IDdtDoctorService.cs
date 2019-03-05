@@ -3,7 +3,7 @@ using Cardiology.Data.Model2;
 
 namespace Cardiology.Data.Commons
 {
-    public interface IDdvDoctorervice
+    public interface IDdtDoctorService
     {
         IList<DdtDoctor> GetAll();
 

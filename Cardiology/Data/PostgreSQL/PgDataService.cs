@@ -26,7 +26,7 @@ namespace Cardiology.Data.PostgreSQL
         private readonly IDdtEkgService ddtEkgService;
         private readonly IDdtSerologyService ddtSerologyService;
         private readonly IDdtEpicrisisService ddtEpicrisisService;
-        private readonly IDdvDoctorervice DdvDoctorervice;
+        private readonly IDdtDoctorService dssDdtDoctorService;
         private readonly IDdtConsiliumGroupMemberService ddtConsiliumGroupMemberService;
         private readonly IDdtAnamnesisService ddtAnamnesisService;
         private readonly IDdvDoctorService ddvDoctorService;
@@ -73,7 +73,7 @@ namespace Cardiology.Data.PostgreSQL
             ddtEkgService = new PgDdtEkgService(connectionFactory);
             ddtSerologyService = new PgDdtSerologyService(connectionFactory);
             ddtEpicrisisService = new PgDdtEpicrisisService(connectionFactory);
-            DdvDoctorervice = new PgDdvDoctorervice(connectionFactory);
+            dssDdtDoctorService = new PgDdtDoctorService(connectionFactory);
             ddtConsiliumGroupMemberService = new PgDdtConsiliumGroupMemberService(connectionFactory);
             ddtAnamnesisService = new PgDdtAnamnesisService(connectionFactory);
             ddvDoctorService = new PgDdvDoctorService(connectionFactory);
@@ -194,9 +194,9 @@ namespace Cardiology.Data.PostgreSQL
             return ddtEpicrisisService;
         }
 
-        public IDdvDoctorervice GetDdvDoctorervice()
+        public IDdtDoctorService GetDdtDoctorService()
         {
-            return DdvDoctorervice;
+            return dssDdtDoctorService;
         }
 
         public IDdtConsiliumGroupMemberService GetDdtConsiliumGroupMemberService()
@@ -314,11 +314,55 @@ namespace Cardiology.Data.PostgreSQL
             return ddtVariousSpecConclusonService;
         }
 
+        public string GetString(string sql)
+        {
+            using (dynamic connection = connectionFactory.GetConnection())
+            {
+                Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
+                using (DbDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        return reader.GetString(1);
+                    }
+                }
+
+                return null;
+            }
+        }
+
+        public DateTime GetTime(string sql)
+        {
+            using (dynamic connection = connectionFactory.GetConnection())
+            {
+                Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
+                using (DbDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        return reader.GetDateTime(1);
+                    }
+                }
+
+                return default(DateTime);
+            }
+        }
+
+
         public void Delete(string type, string id)
         {
             using (dynamic connection = connectionFactory.GetConnection())
             {
                 String sql = "delete from " + type + " WHERE r_object_id = '" + id + "'";
+                Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
+                command.ExecuteScalar();
+            }
+        }
+
+        public void Execute(string sql)
+        {
+            using (dynamic connection = connectionFactory.GetConnection())
+            {
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 command.ExecuteScalar();
             }

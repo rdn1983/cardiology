@@ -1,4 +1,5 @@
-﻿using Cardiology.Data.Commons;
+﻿using System;
+using Cardiology.Data.Commons;
 
 namespace Cardiology.Data
 {
@@ -82,6 +83,12 @@ namespace Cardiology.Data
 
         IDdtVariousSpecConclusonService GetDdtVariousSpecConclusonService();
 
+        string GetString(string sql);
+
+        DateTime GetTime(string sql);
+
         void Delete(string type, string id);
+
+        void Execute(string sql);
     }
 }

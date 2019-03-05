@@ -43,7 +43,7 @@ namespace Cardiology.UI.Controls
             CommonUtils.InitRangedItems(chddTxt, 14, 26);
 
 
-            DdtVariousSpecConcluson obj = service.queryObjectById<DdtVariousSpecConcluson>(objId);
+            DdtVariousSpecConcluson obj = service.GetDdtVariousSpecConclusonService().GetById(objId);
             refreshObject(obj);
         }
 
@@ -81,7 +81,7 @@ namespace Cardiology.UI.Controls
         public object getObject()
         {
 
-            DdtVariousSpecConcluson result = service.queryObjectById<DdtVariousSpecConcluson>(objId);
+            DdtVariousSpecConcluson result = service.GetDdtVariousSpecConclusonService().GetById(objId);
             if (result == null)
             {
                 result = new DdtVariousSpecConcluson();
@@ -138,7 +138,7 @@ namespace Cardiology.UI.Controls
             conclusion.SpecialistType = "Дежурный кардиореаниматолог";
             conclusion.AdditionalBool = isReleaseJournal;
 
-            objId = service.updateOrCreateIfNeedObject<DdtVariousSpecConcluson>(conclusion, DdtVariousSpecConcluson.NAME, conclusion.ObjectId);
+            objId = service.GetDdtVariousSpecConclusonService().Save(conclusion);
             isNew = false;
             hasChanges = false;
         }

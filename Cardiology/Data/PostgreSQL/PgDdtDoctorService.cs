@@ -6,11 +6,11 @@ using Cardiology.Data.Commons;
 
 namespace Cardiology.Data.PostgreSQL
 {
-    public class PgDdvDoctorervice : IDdvDoctorervice
+    public class PgDdtDoctorService : IDdtDoctorService
     {
         private readonly IDbConnectionFactory connectionFactory;
 
-        public PgDdvDoctorervice(IDbConnectionFactory connectionFactory)
+        public PgDdtDoctorService(IDbConnectionFactory connectionFactory)
         {
             this.connectionFactory = connectionFactory;
         }

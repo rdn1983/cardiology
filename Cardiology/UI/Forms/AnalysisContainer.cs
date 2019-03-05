@@ -43,7 +43,7 @@ namespace Cardiology.UI.Forms
 
             if (needAdmissionAnalysis)
             {
-                string firstAnalysisId = service.querySingleString(string.Format(FIRST_ANALYSIS_QRY_TEMPLATE, typeName, hospitalitySession.ObjectId));
+                string firstAnalysisId = service.GetString(string.Format(FIRST_ANALYSIS_QRY_TEMPLATE, typeName, hospitalitySession.ObjectId));
                 if (firstAnalysisId != null && !firstAnalysisId.Equals(currentId))
                 {
                     createControl(firstAnalysisId);

@@ -5,7 +5,7 @@ CREATE TABLE dm_group_users(
 
   dss_group_name varchar (64) NOT NULL REFERENCES dm_group (dss_name) ON DELETE CASCADE ON UPDATE CASCADE,
   dsid_doctor_id varchar (100) NOT NULL REFERENCES ddt_doctor (r_object_id) ON DELETE CASCADE ON UPDATE CASCADE,
-  UNIQUE (dss_group_name, dss_user_name)
+  UNIQUE (dss_group_name, dsid_doctor_id)
 );
 
 CREATE TRIGGER dm_group_users_trg_modify_date BEFORE INSERT OR UPDATE

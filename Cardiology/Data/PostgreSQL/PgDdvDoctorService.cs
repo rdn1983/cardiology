@@ -20,21 +20,21 @@ namespace Cardiology.Data.PostgreSQL
             IList<DdvDoctor> list = new List<DdvDoctor>();
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = "SELECT dss_full_name, r_object_id, dss_middle_name, dss_first_name, r_modify_date, dss_short_name, r_creation_date, dss_last_name FROM ddv_doctor";
+                String sql = "SELECT r_object_id, dss_full_name, dss_middle_name, dss_first_name, r_modify_date, dss_short_name, r_creation_date, dss_last_name FROM ddv_doctor";
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
                     while (reader.Read())
                     {
                         DdvDoctor obj = new DdvDoctor();
+                        obj.ObjectId = reader.GetString(0);
                         obj.FullName = reader.GetString(1);
-                        obj.ObjectId = reader.GetString(2);
-                        obj.MiddleName = reader.GetString(3);
-                        obj.FirstName = reader.GetString(4);
-                        obj.ModifyDate = reader.GetDateTime(5);
-                        obj.ShortName = reader.GetString(6);
-                        obj.CreationDate = reader.GetDateTime(7);
-                        obj.LastName = reader.GetString(8);
+                        obj.MiddleName = reader.GetString(2);
+                        obj.FirstName = reader.GetString(3);
+                        obj.ModifyDate = reader.GetDateTime(4);
+                        obj.ShortName = reader.GetString(5);
+                        obj.CreationDate = reader.GetDateTime(6);
+                        obj.LastName = reader.GetString(7);
                         list.Add(obj);
                     }
                 }
@@ -54,14 +54,14 @@ namespace Cardiology.Data.PostgreSQL
                     while (reader.Read())
                     {
                         DdvDoctor obj = new DdvDoctor();
-                        obj.ObjectId = reader.GetString(1);
-                        obj.FullName = reader.GetString(2);
-                        obj.MiddleName = reader.GetString(3);
-                        obj.FirstName = reader.GetString(4);
-                        obj.ModifyDate = reader.GetDateTime(5);
-                        obj.ShortName = reader.GetString(6);
-                        obj.CreationDate = reader.GetDateTime(7);
-                        obj.LastName = reader.GetString(8);
+                        obj.ObjectId = reader.GetString(0);
+                        obj.FullName = reader.GetString(1);
+                        obj.MiddleName = reader.GetString(2);
+                        obj.FirstName = reader.GetString(3);
+                        obj.ModifyDate = reader.GetDateTime(4);
+                        obj.ShortName = reader.GetString(5);
+                        obj.CreationDate = reader.GetDateTime(6);
+                        obj.LastName = reader.GetString(7);
                         list.Add(obj);
                     }
                 }
@@ -80,14 +80,14 @@ namespace Cardiology.Data.PostgreSQL
                     while (reader.Read())
                     {
                         DdvDoctor obj = new DdvDoctor();
-                        obj.ObjectId = reader.GetString(1);
-                        obj.FullName = reader.GetString(2);
-                        obj.MiddleName = reader.GetString(3);
-                        obj.FirstName = reader.GetString(4);
-                        obj.ModifyDate = reader.GetDateTime(5);
-                        obj.ShortName = reader.GetString(6);
-                        obj.CreationDate = reader.GetDateTime(7);
-                        obj.LastName = reader.GetString(8);
+                        obj.ObjectId = reader.GetString(0);
+                        obj.FullName = reader.GetString(1);
+                        obj.MiddleName = reader.GetString(2);
+                        obj.FirstName = reader.GetString(3);
+                        obj.ModifyDate = reader.GetDateTime(4);
+                        obj.ShortName = reader.GetString(5);
+                        obj.CreationDate = reader.GetDateTime(6);
+                        obj.LastName = reader.GetString(7);
                         list.Add(obj);
                     }
                 }

@@ -30,22 +30,26 @@ namespace Cardiology.Data.PostgreSQL
                     while (reader.Read())
                     {
                         DdtHospital obj = new DdtHospital();
-                        obj.ObjectId = reader.GetString(1);
-                        obj.Diagnosis = reader.GetString(2);
-                        obj.DutyDoctor = reader.GetString(3);
-                        obj.CreationDate = reader.GetDateTime(4);
-                        obj.ReleaseType = reader.GetInt16(5);
-                        obj.AdmissionDate = reader.GetDateTime(6);
-                        obj.Patient = reader.GetString(7);
-                        obj.CuringDoctor = reader.GetString(8);
-                        obj.Active = reader.GetBoolean(9);
-                        obj.ModifyDate = reader.GetDateTime(10);
-                        obj.RejectCure = reader.GetBoolean(11);
-                        obj.RoomCell = reader.GetString(12);
-                        obj.Death = reader.GetBoolean(13);
-                        obj.DirCardioReanimDoctor = reader.GetString(14);
-                        obj.SubstitutionDoctor = reader.GetString(15);
-                        obj.AnesthetistDoctor = reader.GetString(16);
+                        obj.ObjectId = reader.GetString(0);
+                        if (!reader.IsDBNull(1))
+                        {
+                            obj.Diagnosis = reader.GetString(1);
+                        }
+
+                        obj.DutyDoctor = reader.GetString(2);
+                        obj.CreationDate = reader.GetDateTime(3);
+                        obj.ReleaseType = reader.GetInt16(4);
+                        obj.AdmissionDate = reader.GetDateTime(5);
+                        obj.Patient = reader.GetString(6);
+                        obj.CuringDoctor = reader.GetString(7);
+                        obj.Active = reader.GetBoolean(8);
+                        obj.ModifyDate = reader.GetDateTime(9);
+                        obj.RejectCure = reader.GetBoolean(10);
+                        obj.RoomCell = reader.GetString(11);
+                        obj.Death = reader.GetBoolean(12);
+                        obj.DirCardioReanimDoctor = reader.GetString(13);
+                        obj.SubstitutionDoctor = reader.GetString(14);
+                        obj.AnesthetistDoctor = reader.GetString(15);
                         list.Add(obj);
                     }
                 }
@@ -64,22 +68,26 @@ namespace Cardiology.Data.PostgreSQL
                     if (reader.Read())
                     {
                         DdtHospital obj = new DdtHospital();
-                        obj.ObjectId = reader.GetString(1);
-                        obj.Diagnosis = reader.GetString(2);
-                        obj.DutyDoctor = reader.GetString(3);
-                        obj.CreationDate = reader.GetDateTime(4);
-                        obj.ReleaseType = reader.GetInt16(5);
-                        obj.AdmissionDate = reader.GetDateTime(6);
-                        obj.Patient = reader.GetString(7);
-                        obj.CuringDoctor = reader.GetString(8);
-                        obj.Active = reader.GetBoolean(9);
-                        obj.ModifyDate = reader.GetDateTime(10);
-                        obj.RejectCure = reader.GetBoolean(11);
-                        obj.RoomCell = reader.GetString(12);
-                        obj.Death = reader.GetBoolean(13);
-                        obj.DirCardioReanimDoctor = reader.GetString(14);
-                        obj.SubstitutionDoctor = reader.GetString(15);
-                        obj.AnesthetistDoctor = reader.GetString(16);
+                        obj.ObjectId = reader.GetString(0);
+                        if (!reader.IsDBNull(1))
+                        {
+                            obj.Diagnosis = reader.GetString(1);
+                        }
+
+                        obj.DutyDoctor = reader.GetString(2);
+                        obj.CreationDate = reader.GetDateTime(3);
+                        obj.ReleaseType = reader.GetInt16(4);
+                        obj.AdmissionDate = reader.GetDateTime(5);
+                        obj.Patient = reader.GetString(6);
+                        obj.CuringDoctor = reader.GetString(7);
+                        obj.Active = reader.GetBoolean(8);
+                        obj.ModifyDate = reader.GetDateTime(9);
+                        obj.RejectCure = reader.GetBoolean(10);
+                        obj.RoomCell = reader.GetString(11);
+                        obj.Death = reader.GetBoolean(12);
+                        obj.DirCardioReanimDoctor = reader.GetString(13);
+                        obj.SubstitutionDoctor = reader.GetString(14);
+                        obj.AnesthetistDoctor = reader.GetString(15);
                         return obj;
                     }
                 }

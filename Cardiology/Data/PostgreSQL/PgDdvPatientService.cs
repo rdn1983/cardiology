@@ -27,27 +27,27 @@ namespace Cardiology.Data.PostgreSQL
                     while (reader.Read())
                     {
                         DdvPatient obj = new DdvPatient();
-                        obj.Address = reader.GetString(1);
-                        obj.ObjectId = reader.GetString(2);
-                        obj.FullName = reader.GetString(3);
-                        obj.MiddleName = reader.GetString(4);
-                        obj.PassportNum = reader.GetString(5);
-                        obj.FirstName = reader.GetString(6);
-                        obj.Weight = reader.GetFloat(7);
-                        obj.Snils = reader.GetString(8);
-                        obj.CreationDate = reader.GetDateTime(9);
-                        obj.LastName = reader.GetString(10);
-                        obj.PassportDate = reader.GetDateTime(11);
-                        obj.ModifyDate = reader.GetDateTime(12);
-                        obj.Phone = reader.GetString(13);
-                        obj.PassportSerial = reader.GetString(14);
-                        obj.Oms = reader.GetString(15);
-                        obj.ShortName = reader.GetString(16);
-                        obj.Birthdate = reader.GetDateTime(17);
-                        obj.Sd = reader.GetBoolean(18);
-                        obj.MedCode = reader.GetString(19);
-                        obj.PassportIssuePlace = reader.GetString(20);
-                        obj.High = reader.GetFloat(21);
+                        obj.Address = reader.GetString(0);
+                        obj.ObjectId = reader.GetString(1);
+                        obj.FullName = reader.GetString(2);
+                        obj.MiddleName = reader.GetString(3);
+                        obj.PassportNum = reader.GetString(4);
+                        obj.FirstName = reader.GetString(5);
+                        obj.Weight = reader.GetFloat(6);
+                        obj.Snils = reader.GetString(7);
+                        obj.CreationDate = reader.GetDateTime(8);
+                        obj.LastName = reader.GetString(9);
+                        obj.PassportDate = reader.GetDateTime(10);
+                        obj.ModifyDate = reader.GetDateTime(11);
+                        obj.Phone = reader.GetString(12);
+                        obj.PassportSerial = reader.GetString(13);
+                        obj.Oms = reader.GetString(14);
+                        obj.ShortName = reader.GetString(15);
+                        obj.Birthdate = reader.GetDateTime(16);
+                        obj.Sd = reader.GetBoolean(17);
+                        obj.MedCode = reader.GetString(18);
+                        obj.PassportIssuePlace = reader.GetString(19);
+                        obj.High = reader.GetFloat(20);
                         list.Add(obj);
                     }
                 }
@@ -66,27 +66,27 @@ namespace Cardiology.Data.PostgreSQL
                     if (reader.Read())
                     {
                         DdvPatient obj = new DdvPatient();
-                        obj.Address = reader.GetString(1);
-                        obj.ObjectId = reader.GetString(2);
-                        obj.FullName = reader.GetString(3);
-                        obj.MiddleName = reader.GetString(4);
-                        obj.PassportNum = reader.GetString(5);
-                        obj.FirstName = reader.GetString(6);
-                        obj.Weight = reader.GetFloat(7);
-                        obj.Snils = reader.GetString(8);
-                        obj.CreationDate = reader.GetDateTime(9);
-                        obj.LastName = reader.GetString(10);
-                        obj.PassportDate = reader.GetDateTime(11);
-                        obj.ModifyDate = reader.GetDateTime(12);
-                        obj.Phone = reader.GetString(13);
-                        obj.PassportSerial = reader.GetString(14);
-                        obj.Oms = reader.GetString(15);
-                        obj.ShortName = reader.GetString(16);
-                        obj.Birthdate = reader.GetDateTime(17);
-                        obj.Sd = reader.GetBoolean(18);
-                        obj.MedCode = reader.GetString(19);
-                        obj.PassportIssuePlace = reader.GetString(20);
-                        obj.High = reader.GetFloat(21);
+                        obj.Address = reader.GetString(0);
+                        obj.ObjectId = reader.GetString(1);
+                        obj.FullName = reader.GetString(2);
+                        obj.MiddleName = reader.GetString(3);
+                        obj.PassportNum = reader.GetString(4);
+                        obj.FirstName = reader.GetString(5);
+                        obj.Weight = reader.GetFloat(6);
+                        obj.Snils = reader.GetString(7);
+                        obj.CreationDate = reader.GetDateTime(8);
+                        obj.LastName = reader.GetString(9);
+                        obj.PassportDate = reader.GetDateTime(10);
+                        obj.ModifyDate = reader.GetDateTime(11);
+                        obj.Phone = reader.GetString(12);
+                        obj.PassportSerial = reader.GetString(13);
+                        obj.Oms = reader.GetString(14);
+                        obj.ShortName = reader.GetString(15);
+                        obj.Birthdate = reader.GetDateTime(16);
+                        obj.Sd = reader.GetBoolean(17);
+                        obj.MedCode = reader.GetString(18);
+                        obj.PassportIssuePlace = reader.GetString(19);
+                        obj.High = reader.GetFloat(20);
                         return obj;
                     }
                 }
@@ -105,27 +105,27 @@ namespace Cardiology.Data.PostgreSQL
                     if (reader.Read())
                     {
                         DdvPatient obj = new DdvPatient();
-                        obj.Address = reader.GetString(1);
-                        obj.ObjectId = reader.GetString(2);
-                        obj.FullName = reader.GetString(3);
-                        obj.MiddleName = reader.GetString(4);
-                        obj.PassportNum = reader.GetString(5);
-                        obj.FirstName = reader.GetString(6);
-                        obj.Weight = reader.GetFloat(7);
-                        obj.Snils = reader.GetString(8);
-                        obj.CreationDate = reader.GetDateTime(9);
-                        obj.LastName = reader.GetString(10);
-                        obj.PassportDate = reader.GetDateTime(11);
-                        obj.ModifyDate = reader.GetDateTime(12);
-                        obj.Phone = reader.GetString(13);
-                        obj.PassportSerial = reader.GetString(14);
-                        obj.Oms = reader.GetString(15);
-                        obj.ShortName = reader.GetString(16);
-                        obj.Birthdate = reader.GetDateTime(17);
-                        obj.Sd = reader.GetBoolean(18);
-                        obj.MedCode = reader.GetString(19);
-                        obj.PassportIssuePlace = reader.GetString(20);
-                        obj.High = reader.GetFloat(21);
+                        obj.Address = reader.GetString(0);
+                        obj.ObjectId = reader.GetString(1);
+                        obj.FullName = reader.GetString(2);
+                        obj.MiddleName = reader.GetString(3);
+                        obj.PassportNum = reader.GetString(4);
+                        obj.FirstName = reader.GetString(5);
+                        obj.Weight = reader.GetFloat(6);
+                        obj.Snils = reader.GetString(7);
+                        obj.CreationDate = reader.GetDateTime(8);
+                        obj.LastName = reader.GetString(9);
+                        obj.PassportDate = reader.GetDateTime(10);
+                        obj.ModifyDate = reader.GetDateTime(11);
+                        obj.Phone = reader.GetString(12);
+                        obj.PassportSerial = reader.GetString(13);
+                        obj.Oms = reader.GetString(14);
+                        obj.ShortName = reader.GetString(15);
+                        obj.Birthdate = reader.GetDateTime(16);
+                        obj.Sd = reader.GetBoolean(17);
+                        obj.MedCode = reader.GetString(18);
+                        obj.PassportIssuePlace = reader.GetString(19);
+                        obj.High = reader.GetFloat(20);
                         return obj;
                     }
                 }

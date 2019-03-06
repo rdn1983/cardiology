@@ -1,6 +1,6 @@
-INSERT INTO ddt_consilium_group (dss_name) VALUES ('Отделение кардиореанимации');
-INSERT INTO ddt_consilium_group (dss_name) VALUES ('Отделение РХМДиЛ');
-INSERT INTO ddt_consilium_group (dss_name) VALUES ('Отделение анестезиологии');
-INSERT INTO ddt_consilium_group (dss_name) VALUES ('Дежурные администраторы');
-INSERT INTO ddt_consilium_group (dss_name) VALUES ('Зав. центра анестезиологии и реанимации');
-INSERT INTO ddt_consilium_group (dss_name) VALUES ('Зам. главного врача');
+INSERT INTO ddt_consilium_group (dss_name, dsi_level) VALUES ('Отделение кардиореанимации', 10);
+INSERT INTO ddt_consilium_group (dss_name, dsi_level) VALUES ('Отделение РХМДиЛ', 30);
+INSERT INTO ddt_consilium_group (dss_name, dsi_level) VALUES ('Отделение анестезиологии', 10);
+INSERT INTO ddt_consilium_group (dss_name, dsi_level) VALUES ('Дежурные администраторы', 60);
+INSERT INTO ddt_consilium_group (dss_name, dsi_level) VALUES ('Зав. центра анестезиологии и реанимации', 0);
+INSERT INTO ddt_consilium_group (dss_name, dsi_level) VALUES ('Зам. главного врача', 0);

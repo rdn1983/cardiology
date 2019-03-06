@@ -78,21 +78,21 @@ namespace Cardiology.UI.Forms
                 ComboBox cbApp = (ComboBox)CommonUtils.FindControl(doctorsContainer, "appointmentTxt" + i);
                 cbApp.SelectedIndexChanged += new System.EventHandler(this.appointmentTxt0_SelectedIndexChanged);
                 //todo
-                DmGroup gr = service.GetDmGroupService().GetGroupByName(members[i].GroupName);
-                if (gr != null)
+                DdtConsiliumGroupMember groupMember =
+                    service.GetDdtConsiliumGroupMemberService().GetByDoctorId(members[i].Doctor);
+                DdtConsiliumGroup group = service.GetDdtConsiliumGroupService().GetById(groupMember.Group);
+                if (group != null)
                 {
-                    cbApp.SelectedIndex = cbApp.FindStringExact(gr.Description);
+                    cbApp.SelectedIndex = cbApp.FindStringExact(group.Name);
                     ComboBox cb = (ComboBox)CommonUtils.FindControl(doctorsContainer, "doctorWho" + i);
                     cb.SelectedIndex = cb.FindStringExact(members[i].Doctor);
                 }
-                if (!members[i].DsbTemplate)
-                {
+
                     Control c = CommonUtils.FindControl(doctorsContainer, "objectIdLbl" + i);
                     c.Text = members[i].ObjectId;
                     Button b = (Button)CommonUtils.FindControl(doctorsContainer, "removeBtn" + i);
                     b.Visible = true;
                     b.Click += new System.EventHandler(this.removeBtn0_Click);
-                }
             }
         }
 
@@ -200,10 +200,12 @@ namespace Cardiology.UI.Forms
                     member = new DdtConsiliumMember();
                     member.Consilium = consiliumId;
                 }
-                DmGroup group = getSafeObjectValueUni<DmGroup>(appointment, new getValue<DmGroup>((ctrl) => ((DmGroup)((ComboBox)ctrl).SelectedItem)));
-                member.DssGroupName = group.Name;
+
+                DdtConsiliumGroup group = getSafeObjectValueUni<DdtConsiliumGroup>(appointment, (ctrl) => ((DdtConsiliumGroup)((ComboBox)ctrl).SelectedItem));
+                //member.DssGroupName = group.Name;
+
                 Control docCtrl = CommonUtils.FindControl(doctorsContainer, "doctorWho" + indx);
-                member.DssDoctorName = getSafeStringValue(docCtrl);
+                //member.DssDoctorName = getSafeStringValue(docCtrl);
                 objectIdCtrl.Text = service.GetDdtConsiliumMemberService().Save(member);
             }
 

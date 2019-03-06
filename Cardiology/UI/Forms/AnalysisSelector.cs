@@ -53,7 +53,7 @@ namespace Cardiology.UI.Forms
                 dqlBuilder.Append(condition);
             }
 
-            service.queryMappedValues(dqlBuilder.ToString(), labelAttr, valueAttr, (key,value) =>{
+            service.Select(dqlBuilder.ToString(), labelAttr, valueAttr, (key,value) =>{
                 ListViewItem ll = new ListViewItem(key);
                 ListViewItem.ListViewSubItem sub = new ListViewItem.ListViewSubItem(ll, value);
                 ll.SubItems.Add(sub);

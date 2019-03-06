@@ -3,7 +3,8 @@ CREATE TABLE ddt_consilium_group (
   r_creation_date TIMESTAMP DEFAULT NOW() NOT NULL,
   r_modify_date TIMESTAMP NOT NULL,
 
-  dss_name VARCHAR(1024) NOT NULL UNIQUE
+  dss_name VARCHAR(1024) NOT NULL UNIQUE,
+  dsi_level int NOT NULL
 );
 
 CREATE TRIGGER ddt_consilium_group_trg_modify_date BEFORE INSERT OR UPDATE
@@ -24,9 +25,3 @@ CREATE TABLE ddt_consilium_group_member (
 CREATE TRIGGER ddt_consilium_group_member_trg_modify_date BEFORE INSERT OR UPDATE
   ON ddt_consilium_group_member FOR EACH ROW
 EXECUTE PROCEDURE dmtrg_f_modify_date();
-
-CREATE TABLE ddt_consilium_group_level (
-  r_object_id varchar(16) PRIMARY KEY DEFAULT GetNextId(),
-  dsid_group VARCHAR(16) NOT NULL REFERENCES ddt_consilium_group(r_object_id) ON DELETE CASCADE,
-  dsi_level int
-);

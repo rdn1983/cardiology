@@ -14,5 +14,7 @@ namespace Cardiology.Data.Model2
 
         public string Name { get; set; }
 
+        public int Level { get; set; }
+
     }
 }

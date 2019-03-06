@@ -1,6 +1,9 @@
 using Cardiology.Data.Commons;
 using System;
+using System.Collections.Generic;
 using System.Data.Common;
+using Npgsql.Schema;
+using DbColumn = System.Data.Common.DbColumn;
 
 namespace Cardiology.Data.PostgreSQL
 {
@@ -22,7 +25,6 @@ namespace Cardiology.Data.PostgreSQL
         private readonly IDdtPatientService ddtPatientService;
         private readonly IDdtBloodAnalysisService ddtBloodAnalysisService;
         private readonly IDdtXrayService ddtXrayService;
-        private readonly IDdtConsiliumGroupLevelService ddtConsiliumGroupLevelService;
         private readonly IDdtEkgService ddtEkgService;
         private readonly IDdtSerologyService ddtSerologyService;
         private readonly IDdtEpicrisisService ddtEpicrisisService;
@@ -69,7 +71,6 @@ namespace Cardiology.Data.PostgreSQL
             ddtPatientService = new PgDdtPatientService(connectionFactory);
             ddtBloodAnalysisService = new PgDdtBloodAnalysisService(connectionFactory);
             ddtXrayService = new PgDdtXrayService(connectionFactory);
-            ddtConsiliumGroupLevelService = new PgDdtConsiliumGroupLevelService(connectionFactory);
             ddtEkgService = new PgDdtEkgService(connectionFactory);
             ddtSerologyService = new PgDdtSerologyService(connectionFactory);
             ddtEpicrisisService = new PgDdtEpicrisisService(connectionFactory);
@@ -172,11 +173,6 @@ namespace Cardiology.Data.PostgreSQL
         public IDdtXrayService GetDdtXrayService()
         {
             return ddtXrayService;
-        }
-
-        public IDdtConsiliumGroupLevelService GetDdtConsiliumGroupLevelService()
-        {
-            return ddtConsiliumGroupLevelService;
         }
 
         public IDdtEkgService GetDdtEkgService()
@@ -312,6 +308,69 @@ namespace Cardiology.Data.PostgreSQL
         public IDdtVariousSpecConclusonService GetDdtVariousSpecConclusonService()
         {
             return ddtVariousSpecConclusonService;
+        }
+
+        public void Select(string sql, string key, string value, OnKeyValue handler)
+        {
+            using (dynamic connection = connectionFactory.GetConnection())
+            {
+                Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
+                using (DbDataReader reader = command.ExecuteReader())
+                {
+                    System.Collections.ObjectModel.ReadOnlyCollection<DbColumn> columns = reader.GetColumnSchema();
+                    IEnumerator<DbColumn> colsNumerator = columns.GetEnumerator();
+
+                    while (reader.Read())
+                    {
+                        string attrKeyValue = null;
+                        string attrValValue = null;
+                        while (colsNumerator.MoveNext())
+                        {
+                            if (key.Equals(colsNumerator.Current.ColumnName))
+                            {
+                                int indx = columns.IndexOf(colsNumerator.Current);
+                                attrKeyValue = getWrappedValue(reader.GetValue(indx), reader.GetFieldType(indx));
+                            }
+                            else if (value.Equals(colsNumerator.Current.ColumnName))
+                            {
+                                int indx = columns.IndexOf(colsNumerator.Current);
+                                attrValValue = getWrappedValue(reader.GetValue(indx), reader.GetFieldType(indx));
+                            }
+                        }
+                        colsNumerator.Reset();
+
+                        if (attrKeyValue != null)
+                        {
+                            handler(attrKeyValue, attrValValue);
+                        }
+                    }
+
+
+                }
+            }
+        }
+
+
+
+        private string getWrappedValue(object value, Type fieldType)
+        {
+            if (fieldType == typeof(int) || fieldType == typeof(double))
+            {
+                return value + "";
+            }
+            else if (fieldType == typeof(string))
+            {
+                return "'" + value + "'";
+            }
+            else if (fieldType == typeof(DateTime))
+            {
+                return (@"to_timestamp('" + value + "', 'DD.MM.YYYY HH24:mi:ss')");
+            }
+            else
+            {
+                return value.ToString();
+            }
+
         }
 
         public string GetString(string sql)

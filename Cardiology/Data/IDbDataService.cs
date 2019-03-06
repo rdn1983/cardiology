@@ -61,6 +61,8 @@ namespace Cardiology.Data
 
         IDdtTransferService GetDdtTransferService();
 
+        IDdtConsiliumGroupService GetDdtConsiliumGroupService();
+
         IDdtAlcoProtocolService GetDdtAlcoProtocolService();
 
         IDdvHistoryService GetDdvHistoryService();
@@ -85,6 +87,8 @@ namespace Cardiology.Data
 
         IDdtVariousSpecConclusonService GetDdtVariousSpecConclusonService();
 
+        void Select(string sql, string key, string value, OnKeyValue handler);
+
         string GetString(string sql);
 
         DateTime GetTime(string sql);
@@ -93,4 +97,6 @@ namespace Cardiology.Data
 
         void Execute(string sql);
     }
+
+    public delegate void OnKeyValue(string key, string value);
 }

@@ -20,7 +20,7 @@ namespace Cardiology.Data.PostgreSQL
             IList<DdtConsiliumGroup> list = new List<DdtConsiliumGroup>();
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = "SELECT r_object_id, r_modify_date, r_creation_date, dss_name FROM ddt_consilium_group";
+                String sql = "SELECT r_object_id, r_modify_date, r_creation_date, dss_name, dsi_level FROM ddt_consilium_group";
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -31,6 +31,7 @@ namespace Cardiology.Data.PostgreSQL
                         obj.ModifyDate = reader.GetDateTime(2);
                         obj.CreationDate = reader.GetDateTime(3);
                         obj.Name = reader.GetString(4);
+                        obj.Level = reader.GetInt16(5);
                         list.Add(obj);
                     }
                 }
@@ -53,6 +54,7 @@ namespace Cardiology.Data.PostgreSQL
                         obj.ModifyDate = reader.GetDateTime(2);
                         obj.CreationDate = reader.GetDateTime(3);
                         obj.Name = reader.GetString(4);
+                        obj.Level = reader.GetInt16(5);
                         return obj;
                     }
                 }

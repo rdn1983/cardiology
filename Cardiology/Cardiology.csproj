@@ -81,7 +81,6 @@
     <Compile Include="Data\Commons\IDdtAnamnesisService.cs" />
     <Compile Include="Data\Commons\IDdtBloodAnalysisService.cs" />
     <Compile Include="Data\Commons\IDdtCoagulogramService.cs" />
-    <Compile Include="Data\Commons\IDdtConsiliumGroupLevelService.cs" />
     <Compile Include="Data\Commons\IDdtConsiliumGroupMemberService.cs" />
     <Compile Include="Data\Commons\IDdtConsiliumGroupService.cs" />
     <Compile Include="Data\Commons\IDdtConsiliumMemberService.cs" />
@@ -171,7 +170,6 @@
     <Compile Include="Data\PostgreSQL\PgDdtAnamnesisService.cs" />
     <Compile Include="Data\PostgreSQL\PgDdtBloodAnalysisService.cs" />
     <Compile Include="Data\PostgreSQL\PgDdtCoagulogramService.cs" />
-    <Compile Include="Data\PostgreSQL\PgDdtConsiliumGroupLevelService.cs" />
     <Compile Include="Data\PostgreSQL\PgDdtConsiliumGroupMemberService.cs" />
     <Compile Include="Data\PostgreSQL\PgDdtConsiliumGroupService.cs" />
     <Compile Include="Data\PostgreSQL\PgDdtConsiliumMemberService.cs" />

@@ -11,6 +11,8 @@ namespace Cardiology.Data.Commons
 
         DdtConsiliumGroupMember GetByGroupName(string groupName);
 
+        DdtConsiliumGroupMember GetByDoctorId(string id);
+
         string Save(DdtConsiliumGroupMember obj);
     }
 }

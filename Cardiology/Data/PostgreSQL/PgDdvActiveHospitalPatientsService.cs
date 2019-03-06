@@ -1,13 +1,16 @@
 using System;
 using System.Data.Common;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Cardiology.Data.Model2;
 using Cardiology.Data.Commons;
+using NLog;
 
 namespace Cardiology.Data.PostgreSQL
 {
     public class PgDdvActiveHospitalPatientsService : IDdvActiveHospitalPatientsService
     {
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
         private readonly IDbConnectionFactory connectionFactory;
 
         public PgDdvActiveHospitalPatientsService(IDbConnectionFactory connectionFactory)
@@ -27,16 +30,16 @@ namespace Cardiology.Data.PostgreSQL
                     while (reader.Read())
                     {
                         DdvActiveHospitalPatients obj = new DdvActiveHospitalPatients();
-                        obj.PatientId = reader.GetString(1);
-                        obj.Active = reader.GetBoolean(2);
-                        obj.HospitalSession = reader.GetString(3);
-                        obj.DocName = reader.GetString(4);
-                        obj.Diagnosis = reader.GetString(5);
-                        obj.PatientName = reader.GetString(6);
-                        obj.RoomCell = reader.GetString(7);
-                        obj.DoctorId = reader.GetString(8);
-                        obj.MedCode = reader.GetString(9);
-                        obj.AdmissionDate = reader.GetDateTime(10);
+                        obj.PatientId = reader.GetString(0);
+                        obj.Active = reader.GetBoolean(1);
+                        obj.HospitalSession = reader.GetString(2);
+                        obj.DocName = reader.GetString(3);
+                        obj.Diagnosis = reader.GetString(4);
+                        obj.PatientName = reader.GetString(5);
+                        obj.RoomCell = reader.GetString(6);
+                        obj.DoctorId = reader.GetString(7);
+                        obj.MedCode = reader.GetString(8);
+                        obj.AdmissionDate = reader.GetDateTime(9);
                         list.Add(obj);
                     }
                 }
@@ -46,31 +49,45 @@ namespace Cardiology.Data.PostgreSQL
 
         public IList<DdvActiveHospitalPatients> GetList(bool onlyActive)
         {
-            IList<DdvActiveHospitalPatients> list = new List<DdvActiveHospitalPatients>();
-            using (dynamic connection = connectionFactory.GetConnection())
+            try
             {
-                String sql = String.Format("SELECT dsid_patient_id, dsb_active, dsid_hospital_session, dss_doc_name, dss_diagnosis, dss_patient_name, dss_room_cell, dsid_doctor_id, dsdt_admission_date, dss_med_code FROM ddv_active_hospital_patients WHERE dsb_active = {0}", onlyActive);
-                Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
-                using (DbDataReader reader = command.ExecuteReader())
+                IList<DdvActiveHospitalPatients> list = new List<DdvActiveHospitalPatients>();
+                using (dynamic connection = connectionFactory.GetConnection())
                 {
-                    while (reader.Read())
+                    String sql = String.Format(
+                        "SELECT dsid_patient_id, dsb_active, dsid_hospital_session, dss_doc_name, dss_diagnosis, dss_patient_name, dss_room_cell, dsid_doctor_id, dsdt_admission_date, dss_med_code FROM ddv_active_hospital_patients WHERE dsb_active = {0}",
+                        onlyActive);
+                    Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
+                    using (DbDataReader reader = command.ExecuteReader())
                     {
-                        DdvActiveHospitalPatients obj = new DdvActiveHospitalPatients();
-                        obj.PatientId = reader.GetString(1);
-                        obj.Active = reader.GetBoolean(2);
-                        obj.HospitalSession = reader.GetString(3);
-                        obj.DocName = reader.GetString(4);
-                        obj.Diagnosis = reader.GetString(5);
-                        obj.PatientName = reader.GetString(6);
-                        obj.RoomCell = reader.GetString(7);
-                        obj.DoctorId = reader.GetString(8);
-                        obj.AdmissionDate = reader.GetDateTime(9);
-                        obj.MedCode = reader.GetString(10);
-                        list.Add(obj);
+                        while (reader.Read())
+                        {
+                            DdvActiveHospitalPatients obj = new DdvActiveHospitalPatients();
+                            obj.PatientId = reader.GetString(0);
+                            obj.Active = reader.GetBoolean(1);
+                            obj.HospitalSession = reader.GetString(2);
+                            obj.DocName = reader.GetString(3);
+
+                            if(!reader.IsDBNull(4)) { 
+                                obj.Diagnosis = reader.GetString(4);
+                            }
+                            obj.PatientName = reader.GetString(5);
+                            obj.RoomCell = reader.GetString(6);
+                            obj.DoctorId = reader.GetString(7);
+                            obj.AdmissionDate = reader.GetDateTime(8);
+                            obj.MedCode = reader.GetString(9);
+                            list.Add(obj);
+                        }
                     }
                 }
+
+                return list;
             }
-            return list;
+            catch (Exception ex)
+            {
+                Logger.Error(ex);
+                throw ex;
+            }
         }
 
         public DdvActiveHospitalPatients GetById(string id)
@@ -84,16 +101,16 @@ namespace Cardiology.Data.PostgreSQL
                     if (reader.Read())
                     {
                         DdvActiveHospitalPatients obj = new DdvActiveHospitalPatients();
-                        obj.PatientId = reader.GetString(1);
-                        obj.Active = reader.GetBoolean(2);
-                        obj.HospitalSession = reader.GetString(3);
-                        obj.DocName = reader.GetString(4);
-                        obj.Diagnosis = reader.GetString(5);
-                        obj.PatientName = reader.GetString(6);
-                        obj.RoomCell = reader.GetString(7);
-                        obj.DoctorId = reader.GetString(8);
-                        obj.MedCode = reader.GetString(9);
-                        obj.AdmissionDate = reader.GetDateTime(10);
+                        obj.PatientId = reader.GetString(0);
+                        obj.Active = reader.GetBoolean(1);
+                        obj.HospitalSession = reader.GetString(2);
+                        obj.DocName = reader.GetString(3);
+                        obj.Diagnosis = reader.GetString(4);
+                        obj.PatientName = reader.GetString(5);
+                        obj.RoomCell = reader.GetString(6);
+                        obj.DoctorId = reader.GetString(7);
+                        obj.MedCode = reader.GetString(8);
+                        obj.AdmissionDate = reader.GetDateTime(9);
                         return obj;
                     }
                 }

@@ -143,42 +143,7 @@ namespace Cardiology.Data.PostgreSQL
                 }
                 else
                 {
-                    string sql = @"INSERT INTO ddt_patient (
-	                                    dss_address, 
-	                                    dss_middle_name, 
-	                                    dss_passport_num, 
-	                                    dss_first_name, 
-	                                    dsd_weight, 
-	                                    dss_snils, 
-	                                    dss_last_name, 
-	                                    dss_passport_date, 
-	                                    dss_phone, 
-	                                    dss_oms,
-	                                    dss_passport_serial, 
-	                                    dsdt_birthdate, 
-	                                    dsb_sd, 
-	                                    dss_med_code, 
-	                                    dss_passport_issue_place, 
-	                                    dsd_high
-                                    ) VALUES (
-	                                    @address, 
-	                                    @middleName, 
-	                                    @passportNum, 
-	                                    @firstName, 
-	                                    @weight, 
-	                                    @snils, 
-	                                    @lastName 
-	                                    @passportDate, 
-	                                    @phone, 
-	                                    @oms, 
-	                                    @passportSerial, 
-	                                    @birthDate, 
-	                                    @sd, 
-	                                    @medCode, 
-	                                    @passportIssuePlace, 
-	                                    @hight 
-                                    )";
-
+                    string sql = @"INSERT INTO ddt_patient (dss_address, dss_middle_name, dss_passport_num, dss_first_name, dsd_weight, dss_snils, dss_last_name, dss_passport_date, dss_phone, dss_oms, dss_passport_serial, dsdt_birthdate, dsb_sd, dss_med_code, dss_passport_issue_place, dsd_high) VALUES (@address, @middleName, @passportNum, @firstName, @weight, @snils, @lastName, @passportDate, @phone, @oms, @passportSerial, @birthDate, @sd, @medCode, @passportIssuePlace, @hight)  RETURNING r_object_id";
                     using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
                     {
                         cmd.CommandType = CommandType.Text;
@@ -193,11 +158,11 @@ namespace Cardiology.Data.PostgreSQL
                         cmd.Parameters.AddWithValue("@phone", obj.Phone);
                         cmd.Parameters.AddWithValue("@oms", obj.Oms);
                         cmd.Parameters.AddWithValue("@passportSerial", obj.PassportSerial);
+                        cmd.Parameters.AddWithValue("@birthDate", obj.Birthdate);
                         cmd.Parameters.AddWithValue("@sd", obj.Sd);
                         cmd.Parameters.AddWithValue("@medCode", obj.MedCode);
                         cmd.Parameters.AddWithValue("@passportIssuePlace", obj.PassportIssuePlace);
                         cmd.Parameters.AddWithValue("@hight", obj.High);
-                        cmd.Parameters.AddWithValue("@ObjectId", obj.ObjectId);
 
                         obj.ObjectId = (string) cmd.ExecuteScalar();
                     }

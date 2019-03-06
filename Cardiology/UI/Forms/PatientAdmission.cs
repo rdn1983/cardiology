@@ -45,10 +45,9 @@ namespace Cardiology.UI.Forms
 
             DdvPatient patient = service.GetDdvPatientService().GetById(hospital.Patient);
             addressTxt.Text = patient.Address;
-            string[] fio = patient.FullName.Split(' ');
-            patientLastName.Text = fio[0];
-            patientFirstName.Text = fio[1];
-            patientSecondName.Text = fio[2];
+            patientLastName.Text = patient.LastName;
+            patientFirstName.Text = patient.FirstName;
+            patientSecondName.Text = patient.MiddleName;
             medCodeTxt.Text = patient.MedCode;
             phoneTxt.Text = patient.Phone;
             snilsTxt.Text = patient.Snils;
@@ -99,8 +98,9 @@ namespace Cardiology.UI.Forms
                 patient = new DdvPatient();
             }
             patient.Address = addressTxt.Text.Trim();
-            patient.ShortName = patientLastName.Text.Trim() + " " + patientFirstName.Text.Substring(0, 1) + "." + " " + patientSecondName.Text.Substring(0, 1) + ".";
-            patient.FullName = patientLastName.Text.Trim() + " " + patientFirstName.Text.Trim() + " " + patientSecondName.Text.Trim();
+            patient.LastName = patientLastName.Text.Trim();
+            patient.MiddleName = patientLastName.Text.Trim();
+            patient.FirstName = patientFirstName.Text.Trim();
             patient.MedCode = medCodeTxt.Text.Trim();
             patient.Phone = phoneTxt.Text;
             patient.Snils = snilsTxt.Text;

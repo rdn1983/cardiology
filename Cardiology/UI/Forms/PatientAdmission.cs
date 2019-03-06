@@ -28,11 +28,12 @@ namespace Cardiology.UI.Forms
 
         private void initDutyDoctors()
         {
-            ControlUtils.InitDoctorsByGroupName(service.GetDdvDoctorService(), directorCardioReanimBox, "io_cardio_reanim");
-            ControlUtils.InitDoctorsByGroupName(service.GetDdvDoctorService(), dutyCardioBox, "duty_cardioreanim");
-            ControlUtils.InitDoctorsByGroupName(service.GetDdvDoctorService(), cardioDocBox, "duty_rhdmil");
-            ControlUtils.InitDoctorsByGroupName(service.GetDdvDoctorService(), subDoctorBox, "io_rhmdil");
-            CommonUtils.InitDoctorsComboboxValues(service, anesthetistComboBox, null);
+
+            ControlUtils.InitDoctorsByGroupName(service.GetDdvDoctorService(), dutyCardioBox, "cardioreanimation_department");
+            ControlUtils.InitDoctorsByGroupName(service.GetDdvDoctorService(), directorCardioReanimBox, "cardioreanimation_department_head");           
+            ControlUtils.InitDoctorsByGroupName(service.GetDdvDoctorService(), cardioDocBox, "xray_department");
+            ControlUtils.InitDoctorsByGroupName(service.GetDdvDoctorService(), subDoctorBox, "xray_department_head");
+            ControlUtils.InitDoctorsByGroupName(service.GetDdvDoctorService(), anesthetistComboBox, "anesthesiology_department");
         }
 
         private void initControls()

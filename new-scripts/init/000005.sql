@@ -11,6 +11,8 @@ INSERT INTO dm_group_users (dss_group_name, dsid_doctor_id) VALUES('cardioreanim
 INSERT INTO dm_group_users (dss_group_name, dsid_doctor_id) VALUES('cardioreanimation_department', (SELECT r_object_id FROM ddt_doctor WHERE dss_last_name = 'Щербакова' AND dss_first_name = 'Светлана' AND dss_middle_name = 'Владимировна'));
 INSERT INTO dm_group_users (dss_group_name, dsid_doctor_id) VALUES('cardioreanimation_department', (SELECT r_object_id FROM ddt_doctor WHERE dss_last_name = 'Кустова' AND dss_first_name = 'Татьяна' AND dss_middle_name = 'Юрьевна'));
 INSERT INTO dm_group_users (dss_group_name, dsid_doctor_id) VALUES('cardioreanimation_department', (SELECT r_object_id FROM ddt_doctor WHERE dss_last_name = 'Роот' AND dss_first_name = 'Ирина' AND dss_middle_name = 'Сергеевна'));
+-- Зав. отделение кардиореанимации
+INSERT INTO dm_group_users (dss_group_name, dsid_doctor_id) VALUES('cardioreanimation_department_head', (SELECT r_object_id FROM ddt_doctor WHERE dss_last_name = 'Кошкина' AND dss_first_name = 'Екатерина' AND dss_middle_name = 'Виленовна'));
 -- Отделение РХМДиЛ 
 INSERT INTO dm_group_users (dss_group_name, dsid_doctor_id) VALUES('xray_department', (SELECT r_object_id FROM ddt_doctor WHERE dss_last_name = 'Самочатов' AND dss_first_name = 'Денис' AND dss_middle_name = 'Николаевич'));
 INSERT INTO dm_group_users (dss_group_name, dsid_doctor_id) VALUES('xray_department', (SELECT r_object_id FROM ddt_doctor WHERE dss_last_name = 'Комков' AND dss_first_name = 'Артем' AND dss_middle_name = 'Андреевич'));
@@ -19,6 +21,8 @@ INSERT INTO dm_group_users (dss_group_name, dsid_doctor_id) VALUES('xray_departm
 INSERT INTO dm_group_users (dss_group_name, dsid_doctor_id) VALUES('xray_department', (SELECT r_object_id FROM ddt_doctor WHERE dss_last_name = 'Мостовой' AND dss_first_name = 'Игорь' AND dss_middle_name = 'Владимирович'));
 INSERT INTO dm_group_users (dss_group_name, dsid_doctor_id) VALUES('xray_department', (SELECT r_object_id FROM ddt_doctor WHERE dss_last_name = 'Шестов' AND dss_first_name = 'Денис' AND dss_middle_name = 'Васильевич'));
 INSERT INTO dm_group_users (dss_group_name, dsid_doctor_id) VALUES('xray_department', (SELECT r_object_id FROM ddt_doctor WHERE dss_last_name = 'Худяков' AND dss_first_name = 'Яков' AND dss_middle_name = 'Андреевич'));
+-- Зав. отделение РХМДиЛ
+INSERT INTO dm_group_users (dss_group_name, dsid_doctor_id) VALUES('xray_department_head', (SELECT r_object_id FROM ddt_doctor WHERE dss_last_name = 'Самочатов' AND dss_first_name = 'Денис' AND dss_middle_name = 'Николаевич'));
 -- Отделение анестезиологии
 INSERT INTO dm_group_users (dss_group_name, dsid_doctor_id) VALUES('anesthesiology_department', (SELECT r_object_id FROM ddt_doctor WHERE dss_last_name = 'Костыря' AND dss_first_name = 'Юрий' AND dss_middle_name = 'Евгеньевич'));
 INSERT INTO dm_group_users (dss_group_name, dsid_doctor_id) VALUES('anesthesiology_department', (SELECT r_object_id FROM ddt_doctor WHERE dss_last_name = 'Данченко' AND dss_first_name = 'Олег' AND dss_middle_name = 'Иванович'));

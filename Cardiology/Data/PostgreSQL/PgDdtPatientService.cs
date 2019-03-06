@@ -1,6 +1,8 @@
 using System;
 using System.Data.Common;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using Cardiology.Data.Model2;
 using Cardiology.Data.Commons;
 
@@ -92,7 +94,117 @@ namespace Cardiology.Data.PostgreSQL
 
         public string Save(DdtPatient obj)
         {
-            throw new NotImplementedException();
+
+            using (dynamic connection = connectionFactory.GetConnection())
+            {
+                if (obj.ObjectId != null)
+                {
+                    string sql = @"UPDATE ddt_patient SET 
+                                            dss_address = @address, 
+                                            dss_middle_name = @middleName, 
+                                            dss_passport_num = @passportNum, 
+                                            dss_first_name = @firstName, 
+                                            dsd_weight = @weight, 
+                                            dss_snils = @snils, 
+                                            dss_last_name, = @lastName 
+                                            dss_passport_date = @passportDate, 
+                                            dss_phone = @phone, 
+                                            dss_oms = @oms, 
+                                            dss_passport_serial = @passportSerial, 
+                                            dsdt_birthdate = @birthDate, 
+                                            dsb_sd = @sd, 
+                                            dss_med_code = @medCode, 
+                                            dss_passport_issue_place = @passportIssuePlace, 
+                                            dsd_high = @hight 
+                                            WHERE r_object_id = @ObjectId";
+
+                    using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Parameters.AddWithValue("@address", obj.Address);
+                        cmd.Parameters.AddWithValue("@middleName", obj.MiddleName);
+                        cmd.Parameters.AddWithValue("@passportNum", obj.PassportNum);
+                        cmd.Parameters.AddWithValue("@firstName", obj.FirstName);
+                        cmd.Parameters.AddWithValue("@weight", obj.Weight);
+                        cmd.Parameters.AddWithValue("@snils", obj.Snils);
+                        cmd.Parameters.AddWithValue("@lastName", obj.LastName);
+                        cmd.Parameters.AddWithValue("@passportDate", obj.PassportDate);
+                        cmd.Parameters.AddWithValue("@phone", obj.Phone);
+                        cmd.Parameters.AddWithValue("@oms", obj.Oms);
+                        cmd.Parameters.AddWithValue("@passportSerial", obj.PassportSerial);
+                        cmd.Parameters.AddWithValue("@sd", obj.Sd);
+                        cmd.Parameters.AddWithValue("@medCode", obj.MedCode);
+                        cmd.Parameters.AddWithValue("@passportIssuePlace", obj.PassportIssuePlace);
+                        cmd.Parameters.AddWithValue("@hight", obj.High);
+                        cmd.Parameters.AddWithValue("@ObjectId", obj.ObjectId);
+
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                else
+                {
+                    string sql = @"INSERT INTO ddt_patient (
+	                                    dss_address, 
+	                                    dss_middle_name, 
+	                                    dss_passport_num, 
+	                                    dss_first_name, 
+	                                    dsd_weight, 
+	                                    dss_snils, 
+	                                    dss_last_name, 
+	                                    dss_passport_date, 
+	                                    dss_phone, 
+	                                    dss_oms,
+	                                    dss_passport_serial, 
+	                                    dsdt_birthdate, 
+	                                    dsb_sd, 
+	                                    dss_med_code, 
+	                                    dss_passport_issue_place, 
+	                                    dsd_high
+                                    ) VALUES (
+	                                    @address, 
+	                                    @middleName, 
+	                                    @passportNum, 
+	                                    @firstName, 
+	                                    @weight, 
+	                                    @snils, 
+	                                    @lastName 
+	                                    @passportDate, 
+	                                    @phone, 
+	                                    @oms, 
+	                                    @passportSerial, 
+	                                    @birthDate, 
+	                                    @sd, 
+	                                    @medCode, 
+	                                    @passportIssuePlace, 
+	                                    @hight 
+                                    )";
+
+                    using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Parameters.AddWithValue("@address", obj.Address);
+                        cmd.Parameters.AddWithValue("@middleName", obj.MiddleName);
+                        cmd.Parameters.AddWithValue("@passportNum", obj.PassportNum);
+                        cmd.Parameters.AddWithValue("@firstName", obj.FirstName);
+                        cmd.Parameters.AddWithValue("@weight", obj.Weight);
+                        cmd.Parameters.AddWithValue("@snils", obj.Snils);
+                        cmd.Parameters.AddWithValue("@lastName", obj.LastName);
+                        cmd.Parameters.AddWithValue("@passportDate", obj.PassportDate);
+                        cmd.Parameters.AddWithValue("@phone", obj.Phone);
+                        cmd.Parameters.AddWithValue("@oms", obj.Oms);
+                        cmd.Parameters.AddWithValue("@passportSerial", obj.PassportSerial);
+                        cmd.Parameters.AddWithValue("@sd", obj.Sd);
+                        cmd.Parameters.AddWithValue("@medCode", obj.MedCode);
+                        cmd.Parameters.AddWithValue("@passportIssuePlace", obj.PassportIssuePlace);
+                        cmd.Parameters.AddWithValue("@hight", obj.High);
+                        cmd.Parameters.AddWithValue("@ObjectId", obj.ObjectId);
+
+                        obj.ObjectId = (string) cmd.ExecuteScalar();
+                    }
+                }
+
+                return obj.ObjectId;
+            }
         }
     }
 }

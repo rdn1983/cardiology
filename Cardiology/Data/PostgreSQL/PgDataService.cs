@@ -426,15 +426,5 @@ namespace Cardiology.Data.PostgreSQL
                 command.ExecuteScalar();
             }
         }
-
-        public void Save(string type, string id)
-        {
-            using (dynamic connection = connectionFactory.GetConnection())
-            {
-                String sql = "delete from " + type + " WHERE r_object_id = '" + id + "'";
-                Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
-                command.ExecuteScalar();
-            }
-        }
     }
 }

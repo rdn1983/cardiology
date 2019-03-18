@@ -27,25 +27,25 @@ namespace Cardiology.Data.PostgreSQL
                     while (reader.Read())
                     {
                         DdtUrineAnalysis obj = new DdtUrineAnalysis();
-                        obj.Ketones = reader.GetString(1);
-                        obj.ObjectId = reader.GetString(2);
-                        obj.AnalysisDate = reader.GetDateTime(3);
-                        obj.SpecificGravity = reader.GetString(4);
-                        obj.Erythrocytes = reader.GetString(5);
-                        obj.CreationDate = reader.GetDateTime(6);
-                        obj.Parent = reader.GetString(7);
-                        obj.Doctor = reader.GetString(8);
-                        obj.Patient = reader.GetString(9);
-                        obj.HospitalitySession = reader.GetString(10);
-                        obj.Acidity = reader.GetString(11);
-                        obj.ModifyDate = reader.GetDateTime(12);
-                        obj.ParentType = reader.GetString(13);
-                        obj.Leukocytes = reader.GetString(14);
-                        obj.AdmissionAnalysis = reader.GetBoolean(15);
-                        obj.Color = reader.GetString(16);
-                        obj.DischargeAnalysis = reader.GetBoolean(17);
-                        obj.Protein = reader.GetString(18);
-                        obj.Glucose = reader.GetString(19);
+                        obj.Ketones = reader.IsDBNull(0) ? null : reader.GetString(0);
+                        obj.ObjectId = reader.IsDBNull(1) ? null : reader.GetString(1);
+                        obj.AnalysisDate = reader.IsDBNull(2) ? DateTime.MinValue : reader.GetDateTime(2);
+                        obj.SpecificGravity = reader.IsDBNull(3) ? null : reader.GetString(3);
+                        obj.Erythrocytes = reader.IsDBNull(4) ? null : reader.GetString(4);
+                        obj.CreationDate = reader.IsDBNull(5) ? DateTime.MinValue : reader.GetDateTime(5);
+                        obj.Parent = reader.IsDBNull(6) ? null : reader.GetString(6);
+                        obj.Doctor = reader.IsDBNull(7) ? null : reader.GetString(7);
+                        obj.Patient = reader.IsDBNull(8) ? null : reader.GetString(8);
+                        obj.HospitalitySession = reader.IsDBNull(9) ? null : reader.GetString(9);
+                        obj.Acidity = reader.IsDBNull(10) ? null : reader.GetString(10);
+                        obj.ModifyDate = reader.IsDBNull(11) ? DateTime.MinValue : reader.GetDateTime(11);
+                        obj.ParentType = reader.IsDBNull(12) ? null : reader.GetString(12);
+                        obj.Leukocytes = reader.IsDBNull(13) ? null : reader.GetString(13);
+                        obj.AdmissionAnalysis = reader.GetBoolean(14);
+                        obj.Color = reader.IsDBNull(15) ? null : reader.GetString(15);
+                        obj.DischargeAnalysis = reader.GetBoolean(16);
+                        obj.Protein = reader.IsDBNull(17) ? null : reader.GetString(17);
+                        obj.Glucose = reader.IsDBNull(18) ? null : reader.GetString(18);
                         list.Add(obj);
                     }
                 }
@@ -64,25 +64,25 @@ namespace Cardiology.Data.PostgreSQL
                     if (reader.Read())
                     {
                         DdtUrineAnalysis obj = new DdtUrineAnalysis();
-                        obj.Ketones = reader.GetString(1);
-                        obj.ObjectId = reader.GetString(2);
-                        obj.AnalysisDate = reader.GetDateTime(3);
-                        obj.SpecificGravity = reader.GetString(4);
-                        obj.Erythrocytes = reader.GetString(5);
-                        obj.CreationDate = reader.GetDateTime(6);
-                        obj.Parent = reader.GetString(7);
-                        obj.Doctor = reader.GetString(8);
-                        obj.Patient = reader.GetString(9);
-                        obj.HospitalitySession = reader.GetString(10);
-                        obj.Acidity = reader.GetString(11);
-                        obj.ModifyDate = reader.GetDateTime(12);
-                        obj.ParentType = reader.GetString(13);
-                        obj.Leukocytes = reader.GetString(14);
-                        obj.AdmissionAnalysis = reader.GetBoolean(15);
-                        obj.Color = reader.GetString(16);
-                        obj.DischargeAnalysis = reader.GetBoolean(17);
-                        obj.Protein = reader.GetString(18);
-                        obj.Glucose = reader.GetString(19);
+                        obj.Ketones = reader.IsDBNull(0) ? null : reader.GetString(0);
+                        obj.ObjectId = reader.IsDBNull(1) ? null : reader.GetString(1);
+                        obj.AnalysisDate = reader.IsDBNull(2) ? DateTime.MinValue : reader.GetDateTime(2);
+                        obj.SpecificGravity = reader.IsDBNull(3) ? null : reader.GetString(3);
+                        obj.Erythrocytes = reader.IsDBNull(4) ? null : reader.GetString(4);
+                        obj.CreationDate = reader.IsDBNull(5) ? DateTime.MinValue : reader.GetDateTime(5);
+                        obj.Parent = reader.IsDBNull(6) ? null : reader.GetString(6);
+                        obj.Doctor = reader.IsDBNull(7) ? null : reader.GetString(7);
+                        obj.Patient = reader.IsDBNull(8) ? null : reader.GetString(8);
+                        obj.HospitalitySession = reader.IsDBNull(9) ? null : reader.GetString(9);
+                        obj.Acidity = reader.IsDBNull(10) ? null : reader.GetString(10);
+                        obj.ModifyDate = reader.IsDBNull(11) ? DateTime.MinValue : reader.GetDateTime(11);
+                        obj.ParentType = reader.IsDBNull(12) ? null : reader.GetString(12);
+                        obj.Leukocytes = reader.IsDBNull(13) ? null : reader.GetString(13);
+                        obj.AdmissionAnalysis = reader.GetBoolean(14);
+                        obj.Color = reader.IsDBNull(15) ? null : reader.GetString(15);
+                        obj.DischargeAnalysis = reader.GetBoolean(16);
+                        obj.Protein = reader.IsDBNull(17) ? null : reader.GetString(17);
+                        obj.Glucose = reader.IsDBNull(18) ? null : reader.GetString(18);
                         return obj;
                     }
                 }
@@ -102,25 +102,25 @@ namespace Cardiology.Data.PostgreSQL
                     if (reader.Read())
                     {
                         DdtUrineAnalysis obj = new DdtUrineAnalysis();
-                        obj.Ketones = reader.GetString(1);
-                        obj.ObjectId = reader.GetString(2);
-                        obj.AnalysisDate = reader.GetDateTime(3);
-                        obj.SpecificGravity = reader.GetString(4);
-                        obj.Erythrocytes = reader.GetString(5);
-                        obj.CreationDate = reader.GetDateTime(6);
-                        obj.Parent = reader.GetString(7);
-                        obj.Doctor = reader.GetString(8);
-                        obj.Patient = reader.GetString(9);
-                        obj.HospitalitySession = reader.GetString(10);
-                        obj.Acidity = reader.GetString(11);
-                        obj.ModifyDate = reader.GetDateTime(12);
-                        obj.ParentType = reader.GetString(13);
-                        obj.Leukocytes = reader.GetString(14);
-                        obj.AdmissionAnalysis = reader.GetBoolean(15);
-                        obj.Color = reader.GetString(16);
-                        obj.DischargeAnalysis = reader.GetBoolean(17);
-                        obj.Protein = reader.GetString(18);
-                        obj.Glucose = reader.GetString(19);
+                        obj.Ketones = reader.IsDBNull(0) ? null : reader.GetString(0);
+                        obj.ObjectId = reader.IsDBNull(1) ? null : reader.GetString(1);
+                        obj.AnalysisDate = reader.IsDBNull(2) ? DateTime.MinValue : reader.GetDateTime(2);
+                        obj.SpecificGravity = reader.IsDBNull(3) ? null : reader.GetString(3);
+                        obj.Erythrocytes = reader.IsDBNull(4) ? null : reader.GetString(4);
+                        obj.CreationDate = reader.IsDBNull(5) ? DateTime.MinValue : reader.GetDateTime(5);
+                        obj.Parent = reader.IsDBNull(6) ? null : reader.GetString(6);
+                        obj.Doctor = reader.IsDBNull(7) ? null : reader.GetString(7);
+                        obj.Patient = reader.IsDBNull(8) ? null : reader.GetString(8);
+                        obj.HospitalitySession = reader.IsDBNull(9) ? null : reader.GetString(9);
+                        obj.Acidity = reader.IsDBNull(10) ? null : reader.GetString(10);
+                        obj.ModifyDate = reader.IsDBNull(11) ? DateTime.MinValue : reader.GetDateTime(11);
+                        obj.ParentType = reader.IsDBNull(12) ? null : reader.GetString(12);
+                        obj.Leukocytes = reader.IsDBNull(13) ? null : reader.GetString(13);
+                        obj.AdmissionAnalysis = reader.GetBoolean(14);
+                        obj.Color = reader.IsDBNull(15) ? null : reader.GetString(15);
+                        obj.DischargeAnalysis = reader.GetBoolean(16);
+                        obj.Protein = reader.IsDBNull(17) ? null : reader.GetString(17);
+                        obj.Glucose = reader.IsDBNull(18) ? null : reader.GetString(18);
                         return obj;
                     }
                 }

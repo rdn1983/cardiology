@@ -11,17 +11,15 @@ namespace Cardiology.UI.Controls
     {
         private static readonly Size FULL_SIZE = new Size(732, 409);
         private static readonly Size READONLY_SIZE = new Size(732, 83);
-        private readonly IDbDataService service;
         private string objectId;
         private bool isEditable;
         private bool hasChanges;
         private bool isNew;
 
-        public EkgAnalysisControlcs() : this(null, null, false) { }
+        public EkgAnalysisControlcs() : this(null, false) { }
 
-        public EkgAnalysisControlcs(IDbDataService service, string objectId, bool additional)
+        public EkgAnalysisControlcs(string objectId, bool additional)
         {
-            this.service = service;
             this.objectId = objectId;
             this.isEditable = !additional;
             this.Size = isEditable ? FULL_SIZE : READONLY_SIZE;
@@ -35,7 +33,7 @@ namespace Cardiology.UI.Controls
 
         private void initControls()
         {
-            DdtEkg ekg = service.GetDdtEkgService().GetById(objectId);
+            DdtEkg ekg = DbDataService.GetService().GetDdtEkgService().GetById(objectId);
             refreshObject(ekg);
             regularEkgTxt.Enabled = isEditable;
             readonlyEkgTxt.Enabled = isEditable;
@@ -49,7 +47,7 @@ namespace Cardiology.UI.Controls
 
         public object getObject()
         {
-            DdtEkg ekg = service.GetDdtEkgService().GetById(objectId);
+            DdtEkg ekg = DbDataService.GetService().GetDdtEkgService().GetById(objectId);
             if (ekg == null)
             {
                 ekg = new DdtEkg();
@@ -63,7 +61,7 @@ namespace Cardiology.UI.Controls
         {
             if (isEditable && (isNew && !string.IsNullOrEmpty(regularEkgTxt.Text) || isDirty()))
             {
-    
+
                 DdtEkg ekg = (DdtEkg)getObject();
                 ekg.HospitalitySession = hospitalitySession.ObjectId;
                 ekg.Doctor = hospitalitySession.CuringDoctor;
@@ -77,7 +75,7 @@ namespace Cardiology.UI.Controls
                     ekg.ParentType = parentType;
                 }
 
-                objectId = service.GetDdtEkgService().Save(ekg);
+                objectId = DbDataService.GetService().GetDdtEkgService().Save(ekg);
                 isNew = false;
                 hasChanges = false;
             }

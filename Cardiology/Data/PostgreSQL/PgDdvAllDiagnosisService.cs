@@ -27,10 +27,10 @@ namespace Cardiology.Data.PostgreSQL
                     while (reader.Read())
                     {
                         DdvAllDiagnosis obj = new DdvAllDiagnosis();
-                        obj.HospitalitySession = reader.GetString(1);
-                        obj.ObjectId = reader.GetString(2);
-                        obj.Type = reader.GetString(3);
-                        obj.Diagnosis = reader.GetString(4);
+                        obj.HospitalitySession = reader.IsDBNull(0) ? null : reader.GetString(0);
+                        obj.ObjectId = reader.IsDBNull(1) ? null : reader.GetString(1);
+                        obj.Type = reader.IsDBNull(2) ? null : reader.GetString(2);
+                        obj.Diagnosis = reader.IsDBNull(3) ? null : reader.GetString(3);
                         list.Add(obj);
                     }
                 }
@@ -49,10 +49,10 @@ namespace Cardiology.Data.PostgreSQL
                     if (reader.Read())
                     {
                         DdvAllDiagnosis obj = new DdvAllDiagnosis();
-                        obj.HospitalitySession = reader.GetString(1);
-                        obj.ObjectId = reader.GetString(2);
-                        obj.Type = reader.GetString(3);
-                        obj.Diagnosis = reader.GetString(4);
+                        obj.HospitalitySession = reader.IsDBNull(0) ? null : reader.GetString(0);
+                        obj.ObjectId = reader.IsDBNull(1) ? null : reader.GetString(1);
+                        obj.Type = reader.IsDBNull(2) ? null : reader.GetString(2);
+                        obj.Diagnosis = reader.IsDBNull(3) ? null : reader.GetString(3);
                         return obj;
                     }
                 }

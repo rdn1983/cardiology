@@ -145,7 +145,7 @@ namespace Cardiology.UI.Forms
                 service.GetDdtIssuedMedicineListService().GetListByHospitalId(hospitalSession.ObjectId);
             if (medList != null)
             {
-                issuedMedicineContainer.Init(service, medList);
+                issuedMedicineContainer.Init(medList);
                 templateName = medList.TemplateName;
             }
         }
@@ -156,7 +156,7 @@ namespace Cardiology.UI.Forms
             {
                 IList<DdtIssuedAction> allActions =
                     service.GetDdtIssuedActionService().GetListByParentId(parent.ObjectId);
-                issuedActionContainer.init(service, allActions);
+                issuedActionContainer.init(allActions);
             }
         }
 
@@ -256,9 +256,10 @@ namespace Cardiology.UI.Forms
             List<DdtIssuedMedicine> meds2 = new List<DdtIssuedMedicine>();
             foreach (DdtIssuedMedicine med in meds)
             {
-                if(med.Cure != null) {
+                if (med.Cure != null)
+                {
                     meds2.Add(med);
-                }                
+                }
             }
 
             if (meds2.Count > 0)
@@ -306,7 +307,7 @@ namespace Cardiology.UI.Forms
 
                     med.ObjectId = service.GetDdtIssuedActionService().Save(med);
                 }
-                issuedActionContainer.init(service, meds);
+                issuedActionContainer.init(meds);
             }
 
         }
@@ -369,7 +370,7 @@ namespace Cardiology.UI.Forms
             DdtIssuedMedicineList medList = service.GetDdtIssuedMedicineListService().GetListByHospitalId(hospitalSession.ObjectId);
             if (medList != null)
             {
-                service.Delete(DdtIssuedMedicine.NAME,medList.ObjectId);
+                service.Delete(DdtIssuedMedicine.NAME, medList.ObjectId);
             }
         }
 
@@ -387,7 +388,7 @@ namespace Cardiology.UI.Forms
             MouseEventArgs mouseArgs = e as MouseEventArgs;
             if (isSureChangeTemplate())
             {
-                templateChanger.Show(mouseArgs.X, mouseArgs.Y, btn, service, "dss_complaints", (value) => complaintsTxt.Text = (string)value);
+                templateChanger.Show(mouseArgs.X, mouseArgs.Y, btn, "dss_complaints", (value) => complaintsTxt.Text = (string)value);
             }
         }
 
@@ -397,7 +398,7 @@ namespace Cardiology.UI.Forms
             MouseEventArgs mouseArgs = e as MouseEventArgs;
             if (isSureChangeTemplate())
             {
-                templateChanger.Show(mouseArgs.X, mouseArgs.Y, btn, service, "dss_anamnesis_morbi", (value) => anamnesisMorbiTxt.Text = (string)value);
+                templateChanger.Show(mouseArgs.X, mouseArgs.Y, btn, "dss_anamnesis_morbi", (value) => anamnesisMorbiTxt.Text = (string)value);
             }
         }
 
@@ -441,7 +442,7 @@ namespace Cardiology.UI.Forms
             {
                 acceptTemplate = true;
                 clearSelection();
-    
+
                 DdtAnamnesis template = service.GetDdtAnamnesisService().GetByTemplateName(OKSDOWN_TYPE);
                 InitializeAnamnesis(template);
                 initIssuedActions(template);
@@ -690,7 +691,7 @@ namespace Cardiology.UI.Forms
             MouseEventArgs mouseArgs = e as MouseEventArgs;
             if (isSureChangeTemplate())
             {
-                templateChanger.Show(mouseArgs.X, mouseArgs.Y, btn, service, "dss_st_presens", (value) => stPresensTxt.Text = (string)value);
+                templateChanger.Show(mouseArgs.X, mouseArgs.Y, btn, "dss_st_presens", (value) => stPresensTxt.Text = (string)value);
             }
         }
 
@@ -700,7 +701,7 @@ namespace Cardiology.UI.Forms
             MouseEventArgs mouseArgs = e as MouseEventArgs;
             if (isSureChangeTemplate())
             {
-                templateChanger.Show(mouseArgs.X, mouseArgs.Y, btn, service, "dss_diagnosis", (value) => diagnosisTxt.Text = (string)value);
+                templateChanger.Show(mouseArgs.X, mouseArgs.Y, btn, "dss_diagnosis", (value) => diagnosisTxt.Text = (string)value);
             }
         }
 
@@ -710,13 +711,13 @@ namespace Cardiology.UI.Forms
             MouseEventArgs mouseArgs = e as MouseEventArgs;
             if (isSureChangeTemplate())
             {
-                templateChanger.Show(mouseArgs.X, mouseArgs.Y, btn, service, "dss_template_name", (value) =>
-                {
-                    if (value != null)
-                    {
-                        updatemedicineFromTemplate((string)value);
-                    }
-                });
+                templateChanger.Show(mouseArgs.X, mouseArgs.Y, btn, "dss_template_name", (value) =>
+               {
+                   if (value != null)
+                   {
+                       updatemedicineFromTemplate((string)value);
+                   }
+               });
 
             }
         }

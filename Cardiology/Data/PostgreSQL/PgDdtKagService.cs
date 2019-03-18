@@ -27,20 +27,20 @@ namespace Cardiology.Data.PostgreSQL
                     while (reader.Read())
                     {
                         DdtKag obj = new DdtKag();
-                        obj.ObjectId = reader.GetString(1);
-                        obj.AnalysisDate = reader.GetDateTime(2);
-                        obj.EndTime = reader.GetDateTime(3);
-                        obj.CreationDate = reader.GetDateTime(4);
-                        obj.Parent = reader.GetString(5);
-                        obj.KagManipulation = reader.GetString(6);
-                        obj.Doctor = reader.GetString(7);
-                        obj.Patient = reader.GetString(8);
-                        obj.HospitalitySession = reader.GetString(9);
-                        obj.StartTime = reader.GetDateTime(10);
-                        obj.ModifyDate = reader.GetDateTime(11);
-                        obj.ParentType = reader.GetString(12);
-                        obj.Results = reader.GetString(13);
-                        obj.KagAction = reader.GetString(14);
+                        obj.ObjectId = reader.IsDBNull(0) ? null : reader.GetString(0);
+                        obj.AnalysisDate = reader.IsDBNull(1) ? DateTime.MinValue : reader.GetDateTime(1);
+                        obj.EndTime = reader.IsDBNull(2) ? DateTime.MinValue : reader.GetDateTime(2);
+                        obj.CreationDate = reader.IsDBNull(3) ? DateTime.MinValue : reader.GetDateTime(3);
+                        obj.Parent = reader.IsDBNull(4) ? null : reader.GetString(4);
+                        obj.KagManipulation = reader.IsDBNull(5) ? null : reader.GetString(5);
+                        obj.Doctor = reader.IsDBNull(6) ? null : reader.GetString(6);
+                        obj.Patient = reader.IsDBNull(7) ? null : reader.GetString(7);
+                        obj.HospitalitySession = reader.IsDBNull(8) ? null : reader.GetString(8);
+                        obj.StartTime = reader.IsDBNull(9) ? DateTime.MinValue : reader.GetDateTime(9);
+                        obj.ModifyDate = reader.IsDBNull(10) ? DateTime.MinValue : reader.GetDateTime(10);
+                        obj.ParentType = reader.IsDBNull(11) ? null : reader.GetString(11);
+                        obj.Results = reader.IsDBNull(12) ? null : reader.GetString(12);
+                        obj.KagAction = reader.IsDBNull(13) ? null : reader.GetString(13);
                         list.Add(obj);
                     }
                 }
@@ -59,20 +59,20 @@ namespace Cardiology.Data.PostgreSQL
                     if (reader.Read())
                     {
                         DdtKag obj = new DdtKag();
-                        obj.ObjectId = reader.GetString(1);
-                        obj.AnalysisDate = reader.GetDateTime(2);
-                        obj.EndTime = reader.GetDateTime(3);
-                        obj.CreationDate = reader.GetDateTime(4);
-                        obj.Parent = reader.GetString(5);
-                        obj.KagManipulation = reader.GetString(6);
-                        obj.Doctor = reader.GetString(7);
-                        obj.Patient = reader.GetString(8);
-                        obj.HospitalitySession = reader.GetString(9);
-                        obj.StartTime = reader.GetDateTime(10);
-                        obj.ModifyDate = reader.GetDateTime(11);
-                        obj.ParentType = reader.GetString(12);
-                        obj.Results = reader.GetString(13);
-                        obj.KagAction = reader.GetString(14);
+                        obj.ObjectId = reader.IsDBNull(0) ? null : reader.GetString(0);
+                        obj.AnalysisDate = reader.IsDBNull(1) ? DateTime.MinValue : reader.GetDateTime(1);
+                        obj.EndTime = reader.IsDBNull(2) ? DateTime.MinValue : reader.GetDateTime(2);
+                        obj.CreationDate = reader.IsDBNull(3) ? DateTime.MinValue : reader.GetDateTime(3);
+                        obj.Parent = reader.IsDBNull(4) ? null : reader.GetString(4);
+                        obj.KagManipulation = reader.IsDBNull(5) ? null : reader.GetString(5);
+                        obj.Doctor = reader.IsDBNull(6) ? null : reader.GetString(6);
+                        obj.Patient = reader.IsDBNull(7) ? null : reader.GetString(7);
+                        obj.HospitalitySession = reader.IsDBNull(8) ? null : reader.GetString(8);
+                        obj.StartTime = reader.IsDBNull(9) ? DateTime.MinValue : reader.GetDateTime(9);
+                        obj.ModifyDate = reader.IsDBNull(10) ? DateTime.MinValue : reader.GetDateTime(10);
+                        obj.ParentType = reader.IsDBNull(11) ? null : reader.GetString(11);
+                        obj.Results = reader.IsDBNull(12) ? null : reader.GetString(12);
+                        obj.KagAction = reader.IsDBNull(13) ? null : reader.GetString(13);
                         return obj;
                     }
                 }
@@ -91,20 +91,20 @@ namespace Cardiology.Data.PostgreSQL
                     if (reader.Read())
                     {
                         DdtKag obj = new DdtKag();
-                        obj.ObjectId = reader.GetString(1);
-                        obj.AnalysisDate = reader.GetDateTime(2);
-                        obj.EndTime = reader.GetDateTime(3);
-                        obj.CreationDate = reader.GetDateTime(4);
-                        obj.Parent = reader.GetString(5);
-                        obj.KagManipulation = reader.GetString(6);
-                        obj.Doctor = reader.GetString(7);
-                        obj.Patient = reader.GetString(8);
-                        obj.HospitalitySession = reader.GetString(9);
-                        obj.StartTime = reader.GetDateTime(10);
-                        obj.ModifyDate = reader.GetDateTime(11);
-                        obj.ParentType = reader.GetString(12);
-                        obj.Results = reader.GetString(13);
-                        obj.KagAction = reader.GetString(14);
+                        obj.ObjectId = reader.IsDBNull(0) ? null : reader.GetString(0);
+                        obj.AnalysisDate = reader.IsDBNull(1) ? DateTime.MinValue : reader.GetDateTime(1);
+                        obj.EndTime = reader.IsDBNull(2) ? DateTime.MinValue : reader.GetDateTime(2);
+                        obj.CreationDate = reader.IsDBNull(3) ? DateTime.MinValue : reader.GetDateTime(3);
+                        obj.Parent = reader.IsDBNull(4) ? null : reader.GetString(4);
+                        obj.KagManipulation = reader.IsDBNull(5) ? null : reader.GetString(5);
+                        obj.Doctor = reader.IsDBNull(6) ? null : reader.GetString(6);
+                        obj.Patient = reader.IsDBNull(7) ? null : reader.GetString(7);
+                        obj.HospitalitySession = reader.IsDBNull(8) ? null : reader.GetString(8);
+                        obj.StartTime = reader.IsDBNull(9) ? DateTime.MinValue : reader.GetDateTime(9);
+                        obj.ModifyDate = reader.IsDBNull(10) ? DateTime.MinValue : reader.GetDateTime(10);
+                        obj.ParentType = reader.IsDBNull(11) ? null : reader.GetString(11);
+                        obj.Results = reader.IsDBNull(12) ? null : reader.GetString(12);
+                        obj.KagAction = reader.IsDBNull(13) ? null : reader.GetString(13);
                         return obj;
                     }
                 }
@@ -123,20 +123,20 @@ namespace Cardiology.Data.PostgreSQL
                     if (reader.Read())
                     {
                         DdtKag obj = new DdtKag();
-                        obj.ObjectId = reader.GetString(1);
-                        obj.AnalysisDate = reader.GetDateTime(2);
-                        obj.EndTime = reader.GetDateTime(3);
-                        obj.CreationDate = reader.GetDateTime(4);
-                        obj.Parent = reader.GetString(5);
-                        obj.KagManipulation = reader.GetString(6);
-                        obj.Doctor = reader.GetString(7);
-                        obj.Patient = reader.GetString(8);
-                        obj.HospitalitySession = reader.GetString(9);
-                        obj.StartTime = reader.GetDateTime(10);
-                        obj.ModifyDate = reader.GetDateTime(11);
-                        obj.ParentType = reader.GetString(12);
-                        obj.Results = reader.GetString(13);
-                        obj.KagAction = reader.GetString(14);
+                        obj.ObjectId = reader.IsDBNull(0) ? null : reader.GetString(0);
+                        obj.AnalysisDate = reader.IsDBNull(1) ? DateTime.MinValue : reader.GetDateTime(1);
+                        obj.EndTime = reader.IsDBNull(2) ? DateTime.MinValue : reader.GetDateTime(2);
+                        obj.CreationDate = reader.IsDBNull(3) ? DateTime.MinValue : reader.GetDateTime(3);
+                        obj.Parent = reader.IsDBNull(4) ? null : reader.GetString(4);
+                        obj.KagManipulation = reader.IsDBNull(5) ? null : reader.GetString(5);
+                        obj.Doctor = reader.IsDBNull(6) ? null : reader.GetString(6);
+                        obj.Patient = reader.IsDBNull(7) ? null : reader.GetString(7);
+                        obj.HospitalitySession = reader.IsDBNull(8) ? null : reader.GetString(8);
+                        obj.StartTime = reader.IsDBNull(9) ? DateTime.MinValue : reader.GetDateTime(9);
+                        obj.ModifyDate = reader.IsDBNull(10) ? DateTime.MinValue : reader.GetDateTime(10);
+                        obj.ParentType = reader.IsDBNull(11) ? null : reader.GetString(11);
+                        obj.Results = reader.IsDBNull(12) ? null : reader.GetString(12);
+                        obj.KagAction = reader.IsDBNull(13) ? null : reader.GetString(13);
                         return obj;
                     }
                 }

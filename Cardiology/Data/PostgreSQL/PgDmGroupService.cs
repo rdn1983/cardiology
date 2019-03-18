@@ -27,11 +27,11 @@ namespace Cardiology.Data.PostgreSQL
                     while (reader.Read())
                     {
                         DmGroup obj = new DmGroup();
-                        obj.ObjectId = reader.GetString(1);
-                        obj.Description = reader.GetString(2);
-                        obj.ModifyDate = reader.GetDateTime(3);
-                        obj.CreationDate = reader.GetDateTime(4);
-                        obj.Name = reader.GetString(5);
+                        obj.ObjectId = reader.IsDBNull(0) ? null : reader.GetString(0);
+                        obj.Description = reader.IsDBNull(1) ? null : reader.GetString(1);
+                        obj.ModifyDate = reader.IsDBNull(2) ? DateTime.MinValue : reader.GetDateTime(2);
+                        obj.CreationDate = reader.IsDBNull(3) ? DateTime.MinValue : reader.GetDateTime(3);
+                        obj.Name = reader.IsDBNull(4) ? null : reader.GetString(4);
                         list.Add(obj);
                     }
                 }
@@ -50,11 +50,11 @@ namespace Cardiology.Data.PostgreSQL
                     if (reader.Read())
                     {
                         DmGroup obj = new DmGroup();
-                        obj.ObjectId = reader.GetString(1);
-                        obj.Description = reader.GetString(2);
-                        obj.ModifyDate = reader.GetDateTime(3);
-                        obj.CreationDate = reader.GetDateTime(4);
-                        obj.Name = reader.GetString(5);
+                        obj.ObjectId = reader.IsDBNull(0) ? null : reader.GetString(0);
+                        obj.Description = reader.IsDBNull(1) ? null : reader.GetString(1);
+                        obj.ModifyDate = reader.IsDBNull(2) ? DateTime.MinValue : reader.GetDateTime(2);
+                        obj.CreationDate = reader.IsDBNull(3) ? DateTime.MinValue : reader.GetDateTime(3);
+                        obj.Name = reader.IsDBNull(4) ? null : reader.GetString(4);
                         return obj;
                     }
                 }
@@ -73,11 +73,11 @@ namespace Cardiology.Data.PostgreSQL
                     if (reader.Read())
                     {
                         DmGroup obj = new DmGroup();
-                        obj.ObjectId = reader.GetString(1);
-                        obj.Description = reader.GetString(2);
-                        obj.ModifyDate = reader.GetDateTime(3);
-                        obj.CreationDate = reader.GetDateTime(4);
-                        obj.Name = reader.GetString(5);
+                        obj.ObjectId = reader.IsDBNull(0) ? null : reader.GetString(0);
+                        obj.Description = reader.IsDBNull(1) ? null : reader.GetString(1);
+                        obj.ModifyDate = reader.IsDBNull(2) ? DateTime.MinValue : reader.GetDateTime(2);
+                        obj.CreationDate = reader.IsDBNull(3) ? DateTime.MinValue : reader.GetDateTime(3);
+                        obj.Name = reader.IsDBNull(4) ? null : reader.GetString(4);
                         return obj;
                     }
                 }

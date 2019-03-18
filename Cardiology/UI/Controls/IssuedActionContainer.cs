@@ -14,14 +14,14 @@ namespace Cardiology.UI.Controls
             InitializeComponent();
         }
 
-        internal void init(IDbDataService service, IList<DdtIssuedAction> allAction)
+        internal void init(IList<DdtIssuedAction> allAction)
         {
             if (allAction != null)
             {
                 clearMedicine();
                 foreach (DdtIssuedAction issuedAction in allAction)
                 {
-                    IssuedActionControl ctrl = new IssuedActionControl(service, getNextIndex(), this);
+                    IssuedActionControl ctrl = new IssuedActionControl(getNextIndex(), this);
                     ctrl.init(issuedAction);
                     sizedContainer.Controls.Add(ctrl);
                 }
@@ -56,7 +56,7 @@ namespace Cardiology.UI.Controls
 
         internal void addMedicineBox(IDbDataService service)
         {
-            IssuedActionControl ctrl = new IssuedActionControl(service, getNextIndex(), this);
+            IssuedActionControl ctrl = new IssuedActionControl(getNextIndex(), this);
             sizedContainer.Controls.Add(ctrl);
         }
 

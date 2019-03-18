@@ -27,19 +27,19 @@ namespace Cardiology.Data.PostgreSQL
                     while (reader.Read())
                     {
                         DdtSpecialistConclusion obj = new DdtSpecialistConclusion();
-                        obj.ObjectId = reader.GetString(1);
-                        obj.AnalysisDate = reader.GetDateTime(2);
-                        obj.CreationDate = reader.GetDateTime(3);
-                        obj.Parent = reader.GetString(4);
-                        obj.NeuroSurgeon = reader.GetString(5);
-                        obj.Doctor = reader.GetString(6);
-                        obj.Patient = reader.GetString(7);
-                        obj.Endocrinologist = reader.GetString(8);
-                        obj.HospitalitySession = reader.GetString(9);
-                        obj.ModifyDate = reader.GetDateTime(10);
-                        obj.ParentType = reader.GetString(11);
-                        obj.Neurolog = reader.GetString(12);
-                        obj.Surgeon = reader.GetString(13);
+                        obj.ObjectId = reader.IsDBNull(0) ? null : reader.GetString(0);
+                        obj.AnalysisDate = reader.IsDBNull(1) ? DateTime.MinValue : reader.GetDateTime(1);
+                        obj.CreationDate = reader.IsDBNull(2) ? DateTime.MinValue : reader.GetDateTime(2);
+                        obj.Parent = reader.IsDBNull(3) ? null : reader.GetString(3);
+                        obj.NeuroSurgeon = reader.IsDBNull(4) ? null : reader.GetString(4);
+                        obj.Doctor = reader.IsDBNull(5) ? null : reader.GetString(5);
+                        obj.Patient = reader.IsDBNull(6) ? null : reader.GetString(6);
+                        obj.Endocrinologist = reader.IsDBNull(7) ? null : reader.GetString(7);
+                        obj.HospitalitySession = reader.IsDBNull(8) ? null : reader.GetString(8);
+                        obj.ModifyDate = reader.IsDBNull(9) ? DateTime.MinValue : reader.GetDateTime(9);
+                        obj.ParentType = reader.IsDBNull(10) ? null : reader.GetString(10);
+                        obj.Neurolog = reader.IsDBNull(11) ? null : reader.GetString(11);
+                        obj.Surgeon = reader.IsDBNull(12) ? null : reader.GetString(12);
                         list.Add(obj);
                     }
                 }
@@ -59,19 +59,19 @@ namespace Cardiology.Data.PostgreSQL
                     while (reader.Read())
                     {
                         DdtSpecialistConclusion obj = new DdtSpecialistConclusion();
-                        obj.ObjectId = reader.GetString(1);
-                        obj.AnalysisDate = reader.GetDateTime(2);
-                        obj.CreationDate = reader.GetDateTime(3);
-                        obj.Parent = reader.GetString(4);
-                        obj.NeuroSurgeon = reader.GetString(5);
-                        obj.Doctor = reader.GetString(6);
-                        obj.Patient = reader.GetString(7);
-                        obj.Endocrinologist = reader.GetString(8);
-                        obj.HospitalitySession = reader.GetString(9);
-                        obj.ModifyDate = reader.GetDateTime(10);
-                        obj.ParentType = reader.GetString(11);
-                        obj.Neurolog = reader.GetString(12);
-                        obj.Surgeon = reader.GetString(13);
+                        obj.ObjectId = reader.IsDBNull(0) ? null : reader.GetString(0);
+                        obj.AnalysisDate = reader.IsDBNull(1) ? DateTime.MinValue : reader.GetDateTime(1);
+                        obj.CreationDate = reader.IsDBNull(2) ? DateTime.MinValue : reader.GetDateTime(2);
+                        obj.Parent = reader.IsDBNull(3) ? null : reader.GetString(3);
+                        obj.NeuroSurgeon = reader.IsDBNull(4) ? null : reader.GetString(4);
+                        obj.Doctor = reader.IsDBNull(5) ? null : reader.GetString(5);
+                        obj.Patient = reader.IsDBNull(6) ? null : reader.GetString(6);
+                        obj.Endocrinologist = reader.IsDBNull(7) ? null : reader.GetString(7);
+                        obj.HospitalitySession = reader.IsDBNull(8) ? null : reader.GetString(8);
+                        obj.ModifyDate = reader.IsDBNull(9) ? DateTime.MinValue : reader.GetDateTime(9);
+                        obj.ParentType = reader.IsDBNull(10) ? null : reader.GetString(10);
+                        obj.Neurolog = reader.IsDBNull(11) ? null : reader.GetString(11);
+                        obj.Surgeon = reader.IsDBNull(12) ? null : reader.GetString(12);
                         list.Add(obj);
                     }
                 }
@@ -90,19 +90,19 @@ namespace Cardiology.Data.PostgreSQL
                     while (reader.Read())
                     {
                         DdtSpecialistConclusion obj = new DdtSpecialistConclusion();
-                        obj.ObjectId = reader.GetString(1);
-                        obj.AnalysisDate = reader.GetDateTime(2);
-                        obj.CreationDate = reader.GetDateTime(3);
-                        obj.Parent = reader.GetString(4);
-                        obj.NeuroSurgeon = reader.GetString(5);
-                        obj.Doctor = reader.GetString(6);
-                        obj.Patient = reader.GetString(7);
-                        obj.Endocrinologist = reader.GetString(8);
-                        obj.HospitalitySession = reader.GetString(9);
-                        obj.ModifyDate = reader.GetDateTime(10);
-                        obj.ParentType = reader.GetString(11);
-                        obj.Neurolog = reader.GetString(12);
-                        obj.Surgeon = reader.GetString(13);
+                        obj.ObjectId = reader.IsDBNull(0) ? null : reader.GetString(0);
+                        obj.AnalysisDate = reader.IsDBNull(1) ? DateTime.MinValue : reader.GetDateTime(1);
+                        obj.CreationDate = reader.IsDBNull(2) ? DateTime.MinValue : reader.GetDateTime(2);
+                        obj.Parent = reader.IsDBNull(3) ? null : reader.GetString(3);
+                        obj.NeuroSurgeon = reader.IsDBNull(4) ? null : reader.GetString(4);
+                        obj.Doctor = reader.IsDBNull(5) ? null : reader.GetString(5);
+                        obj.Patient = reader.IsDBNull(6) ? null : reader.GetString(6);
+                        obj.Endocrinologist = reader.IsDBNull(7) ? null : reader.GetString(7);
+                        obj.HospitalitySession = reader.IsDBNull(8) ? null : reader.GetString(8);
+                        obj.ModifyDate = reader.IsDBNull(9) ? DateTime.MinValue : reader.GetDateTime(9);
+                        obj.ParentType = reader.IsDBNull(10) ? null : reader.GetString(10);
+                        obj.Neurolog = reader.IsDBNull(11) ? null : reader.GetString(11);
+                        obj.Surgeon = reader.IsDBNull(12) ? null : reader.GetString(12);
                         list.Add(obj);
                     }
                 }
@@ -121,19 +121,19 @@ namespace Cardiology.Data.PostgreSQL
                     if (reader.Read())
                     {
                         DdtSpecialistConclusion obj = new DdtSpecialistConclusion();
-                        obj.ObjectId = reader.GetString(1);
-                        obj.AnalysisDate = reader.GetDateTime(2);
-                        obj.CreationDate = reader.GetDateTime(3);
-                        obj.Parent = reader.GetString(4);
-                        obj.NeuroSurgeon = reader.GetString(5);
-                        obj.Doctor = reader.GetString(6);
-                        obj.Patient = reader.GetString(7);
-                        obj.Endocrinologist = reader.GetString(8);
-                        obj.HospitalitySession = reader.GetString(9);
-                        obj.ModifyDate = reader.GetDateTime(10);
-                        obj.ParentType = reader.GetString(11);
-                        obj.Neurolog = reader.GetString(12);
-                        obj.Surgeon = reader.GetString(13);
+                        obj.ObjectId = reader.IsDBNull(0) ? null : reader.GetString(0);
+                        obj.AnalysisDate = reader.IsDBNull(1) ? DateTime.MinValue : reader.GetDateTime(1);
+                        obj.CreationDate = reader.IsDBNull(2) ? DateTime.MinValue : reader.GetDateTime(2);
+                        obj.Parent = reader.IsDBNull(3) ? null : reader.GetString(3);
+                        obj.NeuroSurgeon = reader.IsDBNull(4) ? null : reader.GetString(4);
+                        obj.Doctor = reader.IsDBNull(5) ? null : reader.GetString(5);
+                        obj.Patient = reader.IsDBNull(6) ? null : reader.GetString(6);
+                        obj.Endocrinologist = reader.IsDBNull(7) ? null : reader.GetString(7);
+                        obj.HospitalitySession = reader.IsDBNull(8) ? null : reader.GetString(8);
+                        obj.ModifyDate = reader.IsDBNull(9) ? DateTime.MinValue : reader.GetDateTime(9);
+                        obj.ParentType = reader.IsDBNull(10) ? null : reader.GetString(10);
+                        obj.Neurolog = reader.IsDBNull(11) ? null : reader.GetString(11);
+                        obj.Surgeon = reader.IsDBNull(12) ? null : reader.GetString(12);
                         return obj;
                     }
                 }

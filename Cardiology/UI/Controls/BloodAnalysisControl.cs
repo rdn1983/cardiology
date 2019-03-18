@@ -7,19 +7,17 @@ namespace Cardiology.UI.Controls
 {
     public partial class BloodAnalysisControl : UserControl, IDocbaseControl
     {
-        private readonly IDbDataService service;
         private string objectId;
         private bool isEditable;
         private bool hasChanges;
         private bool isNew;
 
-        public BloodAnalysisControl() : this(null, null, false)
+        public BloodAnalysisControl() : this(null, false)
         {
         }
 
-        public BloodAnalysisControl(IDbDataService service, string objectId, bool additional)
+        public BloodAnalysisControl(string objectId, bool additional)
         {
-            this.service = service;
             this.objectId = objectId;
             this.isEditable = !additional;
             InitializeComponent();
@@ -30,7 +28,7 @@ namespace Cardiology.UI.Controls
 
         private void InitControls()
         {
-            DdtBloodAnalysis blood = service.GetDdtBloodAnalysisService().GetById(objectId);
+            DdtBloodAnalysis blood = DbDataService.GetService().GetDdtBloodAnalysisService().GetById(objectId);
             refreshObject(blood);
             regularAltTxt.Enabled = isEditable;
             regularAmilazaTzt.Enabled = isEditable;
@@ -77,7 +75,7 @@ namespace Cardiology.UI.Controls
                 bloodObj.Patient = hospitalitySession.Patient;
                 bloodObj.ParentType = parentType ?? bloodObj.ParentType;
                 bloodObj.Parent = parentId ?? bloodObj.Parent;
-                objectId = service.GetDdtBloodAnalysisService().Save(bloodObj);
+                objectId = DbDataService.GetService().GetDdtBloodAnalysisService().Save(bloodObj);
                 hasChanges = false;
                 isNew = false;
             }
@@ -103,7 +101,7 @@ namespace Cardiology.UI.Controls
 
         public object getObject()
         {
-            DdtBloodAnalysis bloodObj = service.GetDdtBloodAnalysisService().GetById(objectId);
+            DdtBloodAnalysis bloodObj = DbDataService.GetService().GetDdtBloodAnalysisService().GetById(objectId);
             if (bloodObj == null)
             {
                 bloodObj = new DdtBloodAnalysis();

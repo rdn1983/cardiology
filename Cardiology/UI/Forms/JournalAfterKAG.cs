@@ -111,7 +111,7 @@ namespace Cardiology.UI.Forms
             {
                 if (dutyCardioContainer.Controls.Count <= i)
                 {
-                    JournalKAGControl control = new JournalKAGControl(service, cardioConclusions[i].ObjectId, false);
+                    JournalKAGControl control = new JournalKAGControl(cardioConclusions[i].ObjectId, false);
                     //control.Anchor = AnchorStyles.Right;
                     dutyCardioContainer.Controls.Add(control);
                 }
@@ -126,7 +126,7 @@ namespace Cardiology.UI.Forms
 
         private void addCardioInspetions_Click(object sender, EventArgs e)
         {
-            JournalKAGControl control = new JournalKAGControl(service, null, false);
+            JournalKAGControl control = new JournalKAGControl(null, false);
             int indx = dutyCardioContainer.Controls.Count - 1;
             DateTime lastDate = DateTime.Now;
             if (indx >= 0)
@@ -225,7 +225,7 @@ namespace Cardiology.UI.Forms
         {
             if (selector == null)
             {
-                selector = new AnalysisSelector(service);
+                selector = new AnalysisSelector();
             }
             selector.ShowDialog(DdtKag.NAME, "dsid_hospitality_session='" + hospitalitySession.ObjectId + "'", "r_creation_date", "r_object_id", new List<string> { "" });
             if (selector.isSuccess())

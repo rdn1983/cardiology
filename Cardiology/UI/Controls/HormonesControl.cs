@@ -7,15 +7,13 @@ namespace Cardiology.UI.Controls
 {
     public partial class HormonesControl : UserControl, IDocbaseControl
     {
-        private readonly IDbDataService service;
         private string objectId;
         private bool isEditable;
         private bool hasChanges;
         private bool isNew;
 
-        public HormonesControl(IDbDataService service, string objectId, bool isAddit)
+        public HormonesControl(string objectId, bool isAddit)
         {
-            this.service = service;
             this.objectId = objectId;
             this.isEditable = !isAddit;
             InitializeComponent();
@@ -26,8 +24,7 @@ namespace Cardiology.UI.Controls
 
         private void initControls()
         {
-
-            DdtHormones hormones = service.GetDdtHormonesService().GetById(objectId);
+            DdtHormones hormones = DbDataService.GetService().GetDdtHormonesService().GetById(objectId);
             refreshObject(hormones);
             admissionDateTxt.Enabled = isEditable;
             t4Txt.Enabled = isEditable;
@@ -49,7 +46,7 @@ namespace Cardiology.UI.Controls
                 hormones.HospitalitySession = hospitalitySession.ObjectId;
                 hormones.Doctor = hospitalitySession.CuringDoctor;
                 hormones.Patient = hospitalitySession.Patient;
-                objectId = service.GetDdtHormonesService().Save(hormones);
+                objectId = DbDataService.GetService().GetDdtHormonesService().Save(hormones);
                 isNew = false;
                 hasChanges = false;
             }
@@ -68,7 +65,7 @@ namespace Cardiology.UI.Controls
         public object getObject()
         {
 
-            DdtHormones hormones = service.GetDdtHormonesService().GetById(objectId);
+            DdtHormones hormones = DbDataService.GetService().GetDdtHormonesService().GetById(objectId);
             if (hormones == null)
             {
                 hormones = new DdtHormones();

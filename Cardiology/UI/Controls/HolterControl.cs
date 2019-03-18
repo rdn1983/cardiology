@@ -7,15 +7,13 @@ namespace Cardiology.UI.Controls
 {
     public partial class HolterControl : UserControl, IDocbaseControl
     {
-        private readonly IDbDataService service;
         private string objectId;
         private bool isEditable;
         private bool hasChanges;
         private bool isNew;
 
-        public HolterControl(IDbDataService service, string objectId, bool additional)
+        public HolterControl(string objectId, bool additional)
         {
-            this.service = service;
             this.objectId = objectId;
             this.isEditable = !additional;
             InitializeComponent();
@@ -26,8 +24,7 @@ namespace Cardiology.UI.Controls
 
         private void initControls()
         {
-
-            DdtHolter holter = service.GetDdtHolterService().GetById(objectId);
+            DdtHolter holter = DbDataService.GetService().GetDdtHolterService().GetById(objectId);
             refreshObject(holter);
             holterTxt.Enabled = isEditable;
             monitoringAdTxt.Enabled = isEditable;
@@ -36,10 +33,10 @@ namespace Cardiology.UI.Controls
 
         public void saveObject(DdtHospital hospitalitySession, string parentId, string parentType)
         {
-            if (isEditable && (isNew && getIsValid()|| isDirty()))
+            if (isEditable && (isNew && getIsValid() || isDirty()))
             {
-    
-                DdtHolter holter = (DdtHolter) getObject();
+
+                DdtHolter holter = (DdtHolter)getObject();
                 holter.HospitalitySession = hospitalitySession.ObjectId;
                 holter.Doctor = hospitalitySession.CuringDoctor;
                 holter.Patient = hospitalitySession.Patient;
@@ -52,7 +49,7 @@ namespace Cardiology.UI.Controls
                     holter.ParentType = parentType;
                 }
 
-                objectId = service.GetDdtHolterService().Save(holter);
+                objectId = DbDataService.GetService().GetDdtHolterService().Save(holter);
                 hasChanges = false;
                 isNew = false;
                 hasChanges = false;
@@ -77,7 +74,7 @@ namespace Cardiology.UI.Controls
         public object getObject()
         {
 
-            DdtHolter holter = service.GetDdtHolterService().GetById(objectId);
+            DdtHolter holter = DbDataService.GetService().GetDdtHolterService().GetById(objectId);
             if (holter == null)
             {
                 holter = new DdtHolter();

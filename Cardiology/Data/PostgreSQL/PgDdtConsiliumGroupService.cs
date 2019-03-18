@@ -27,11 +27,11 @@ namespace Cardiology.Data.PostgreSQL
                     while (reader.Read())
                     {
                         DdtConsiliumGroup obj = new DdtConsiliumGroup();
-                        obj.ObjectId = reader.GetString(1);
-                        obj.ModifyDate = reader.GetDateTime(2);
-                        obj.CreationDate = reader.GetDateTime(3);
-                        obj.Name = reader.GetString(4);
-                        obj.Level = reader.GetInt16(5);
+                        obj.ObjectId = reader.IsDBNull(0) ? null : reader.GetString(0);
+                        obj.ModifyDate = reader.IsDBNull(1) ? DateTime.MinValue : reader.GetDateTime(1);
+                        obj.CreationDate = reader.IsDBNull(2) ? DateTime.MinValue : reader.GetDateTime(2);
+                        obj.Name = reader.IsDBNull(0) ? null : reader.GetString(3);
+                        obj.Level = reader.GetInt16(4);
                         list.Add(obj);
                     }
                 }
@@ -50,11 +50,11 @@ namespace Cardiology.Data.PostgreSQL
                     if (reader.Read())
                     {
                         DdtConsiliumGroup obj = new DdtConsiliumGroup();
-                        obj.ObjectId = reader.GetString(1);
-                        obj.ModifyDate = reader.GetDateTime(2);
-                        obj.CreationDate = reader.GetDateTime(3);
-                        obj.Name = reader.GetString(4);
-                        obj.Level = reader.GetInt16(5);
+                        obj.ObjectId = reader.IsDBNull(0) ? null : reader.GetString(0);
+                        obj.ModifyDate = reader.IsDBNull(1) ? DateTime.MinValue : reader.GetDateTime(1);
+                        obj.CreationDate = reader.IsDBNull(2) ? DateTime.MinValue : reader.GetDateTime(2);
+                        obj.Name = reader.IsDBNull(0) ? null : reader.GetString(3);
+                        obj.Level = reader.GetInt16(4);
                         return obj;
                     }
                 }

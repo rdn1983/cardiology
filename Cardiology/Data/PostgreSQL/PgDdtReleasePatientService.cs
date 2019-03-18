@@ -27,28 +27,28 @@ namespace Cardiology.Data.PostgreSQL
                     while (reader.Read())
                     {
                         DdtReleasePatient obj = new DdtReleasePatient();
-                        obj.ObjectId = reader.GetString(1);
-                        obj.OurEnddate = reader.GetDateTime(2);
-                        obj.DismissedLess30d = reader.GetBoolean(3);
-                        obj.OurSicklistNum = reader.GetString(4);
-                        obj.YearDisabilities = reader.GetString(5);
-                        obj.OurStartdate = reader.GetDateTime(6);
-                        obj.CreationDate = reader.GetDateTime(7);
-                        obj.DisabilityNum = reader.GetString(8);
-                        obj.Doctor = reader.GetString(9);
-                        obj.Patient = reader.GetString(10);
-                        obj.HospitalitySession = reader.GetString(11);
-                        obj.Profession = reader.GetString(12);
-                        obj.ExtrEnddate = reader.GetDateTime(13);
-                        obj.ExtrStartdate = reader.GetDateTime(14);
-                        obj.ModifyDate = reader.GetDateTime(15);
-                        obj.Pensioneer = reader.GetBoolean(16);
-                        obj.IsWorking = reader.GetBoolean(17);
-                        obj.SicklistNeed = reader.GetBoolean(18);
-                        obj.ExtrOpenedSicklist = reader.GetBoolean(19);
-                        obj.OccupationalHazard = reader.GetString(20);
-                        obj.OkrReleaseDate = reader.GetDateTime(21);
-                        obj.ExtrSicklistNum = reader.GetString(22);
+                        obj.ObjectId = reader.IsDBNull(0) ? null : reader.GetString(0);
+                        obj.OurEnddate = reader.IsDBNull(1) ? DateTime.MinValue : reader.GetDateTime(1);
+                        obj.DismissedLess30d = reader.GetBoolean(2);
+                        obj.OurSicklistNum = reader.IsDBNull(3) ? null : reader.GetString(3);
+                        obj.YearDisabilities = reader.IsDBNull(4) ? null : reader.GetString(4);
+                        obj.OurStartdate = reader.IsDBNull(5) ? DateTime.MinValue : reader.GetDateTime(5);
+                        obj.CreationDate = reader.IsDBNull(6) ? DateTime.MinValue : reader.GetDateTime(6);
+                        obj.DisabilityNum = reader.IsDBNull(7) ? null : reader.GetString(7);
+                        obj.Doctor = reader.IsDBNull(8) ? null : reader.GetString(8);
+                        obj.Patient = reader.IsDBNull(9) ? null : reader.GetString(9);
+                        obj.HospitalitySession = reader.IsDBNull(10) ? null : reader.GetString(10);
+                        obj.Profession = reader.IsDBNull(11) ? null : reader.GetString(11);
+                        obj.ExtrEnddate = reader.IsDBNull(12) ? DateTime.MinValue : reader.GetDateTime(12);
+                        obj.ExtrStartdate = reader.IsDBNull(13) ? DateTime.MinValue : reader.GetDateTime(13);
+                        obj.ModifyDate = reader.IsDBNull(14) ? DateTime.MinValue : reader.GetDateTime(14);
+                        obj.Pensioneer = reader.GetBoolean(15);
+                        obj.IsWorking = reader.GetBoolean(16);
+                        obj.SicklistNeed = reader.GetBoolean(17);
+                        obj.ExtrOpenedSicklist = reader.GetBoolean(18);
+                        obj.OccupationalHazard = reader.IsDBNull(19) ? null : reader.GetString(19);
+                        obj.OkrReleaseDate = reader.IsDBNull(20) ? DateTime.MinValue : reader.GetDateTime(20);
+                        obj.ExtrSicklistNum = reader.IsDBNull(21) ? null : reader.GetString(21);
                         list.Add(obj);
                     }
                 }
@@ -67,28 +67,28 @@ namespace Cardiology.Data.PostgreSQL
                     if (reader.Read())
                     {
                         DdtReleasePatient obj = new DdtReleasePatient();
-                        obj.ObjectId = reader.GetString(1);
-                        obj.OurEnddate = reader.GetDateTime(2);
-                        obj.DismissedLess30d = reader.GetBoolean(3);
-                        obj.OurSicklistNum = reader.GetString(4);
-                        obj.YearDisabilities = reader.GetString(5);
-                        obj.OurStartdate = reader.GetDateTime(6);
-                        obj.CreationDate = reader.GetDateTime(7);
-                        obj.DisabilityNum = reader.GetString(8);
-                        obj.Doctor = reader.GetString(9);
-                        obj.Patient = reader.GetString(10);
-                        obj.HospitalitySession = reader.GetString(11);
-                        obj.Profession = reader.GetString(12);
-                        obj.ExtrEnddate = reader.GetDateTime(13);
-                        obj.ExtrStartdate = reader.GetDateTime(14);
-                        obj.ModifyDate = reader.GetDateTime(15);
-                        obj.Pensioneer = reader.GetBoolean(16);
-                        obj.IsWorking = reader.GetBoolean(17);
-                        obj.SicklistNeed = reader.GetBoolean(18);
-                        obj.ExtrOpenedSicklist = reader.GetBoolean(19);
-                        obj.OccupationalHazard = reader.GetString(20);
-                        obj.OkrReleaseDate = reader.GetDateTime(21);
-                        obj.ExtrSicklistNum = reader.GetString(22);
+                        obj.ObjectId = reader.IsDBNull(0) ? null : reader.GetString(0);
+                        obj.OurEnddate = reader.IsDBNull(1) ? DateTime.MinValue : reader.GetDateTime(1);
+                        obj.DismissedLess30d = reader.GetBoolean(2);
+                        obj.OurSicklistNum = reader.IsDBNull(3) ? null : reader.GetString(3);
+                        obj.YearDisabilities = reader.IsDBNull(4) ? null : reader.GetString(4);
+                        obj.OurStartdate = reader.IsDBNull(5) ? DateTime.MinValue : reader.GetDateTime(5);
+                        obj.CreationDate = reader.IsDBNull(6) ? DateTime.MinValue : reader.GetDateTime(6);
+                        obj.DisabilityNum = reader.IsDBNull(7) ? null : reader.GetString(7);
+                        obj.Doctor = reader.IsDBNull(8) ? null : reader.GetString(8);
+                        obj.Patient = reader.IsDBNull(9) ? null : reader.GetString(9);
+                        obj.HospitalitySession = reader.IsDBNull(10) ? null : reader.GetString(10);
+                        obj.Profession = reader.IsDBNull(11) ? null : reader.GetString(11);
+                        obj.ExtrEnddate = reader.IsDBNull(12) ? DateTime.MinValue : reader.GetDateTime(12);
+                        obj.ExtrStartdate = reader.IsDBNull(13) ? DateTime.MinValue : reader.GetDateTime(13);
+                        obj.ModifyDate = reader.IsDBNull(14) ? DateTime.MinValue : reader.GetDateTime(14);
+                        obj.Pensioneer = reader.GetBoolean(15);
+                        obj.IsWorking = reader.GetBoolean(16);
+                        obj.SicklistNeed = reader.GetBoolean(17);
+                        obj.ExtrOpenedSicklist = reader.GetBoolean(18);
+                        obj.OccupationalHazard = reader.IsDBNull(19) ? null : reader.GetString(19);
+                        obj.OkrReleaseDate = reader.IsDBNull(20) ? DateTime.MinValue : reader.GetDateTime(20);
+                        obj.ExtrSicklistNum = reader.IsDBNull(21) ? null : reader.GetString(21);
                         return obj;
                     }
                 }

@@ -27,18 +27,18 @@ namespace Cardiology.Data.PostgreSQL
                     while (reader.Read())
                     {
                         DdtConsilium obj = new DdtConsilium();
-                        obj.HospitalitySession = reader.GetString(1);
-                        obj.ObjectId = reader.GetString(2);
-                        obj.Goal = reader.GetString(3);
-                        obj.Dynamics = reader.GetString(4);
-                        obj.ModifyDate = reader.GetDateTime(5);
-                        obj.DutyAdminName = reader.GetString(6);
-                        obj.Diagnosis = reader.GetString(7);
-                        obj.CreationDate = reader.GetDateTime(8);
-                        obj.ConsiliumDate = reader.GetDateTime(9);
-                        obj.Decision = reader.GetString(10);
-                        obj.Doctor = reader.GetString(11);
-                        obj.Patient = reader.GetString(12);
+                        obj.HospitalitySession = reader.IsDBNull(0) ? null : reader.GetString(0);
+                        obj.ObjectId = reader.IsDBNull(1) ? null : reader.GetString(1);
+                        obj.Goal = reader.IsDBNull(2) ? null : reader.GetString(2);
+                        obj.Dynamics = reader.IsDBNull(3) ? null : reader.GetString(3);
+                        obj.ModifyDate = reader.IsDBNull(4) ? DateTime.MinValue : reader.GetDateTime(4);
+                        obj.DutyAdminName = reader.IsDBNull(5) ? null : reader.GetString(5);
+                        obj.Diagnosis = reader.IsDBNull(6) ? null : reader.GetString(6);
+                        obj.CreationDate = reader.IsDBNull(7) ? DateTime.MinValue : reader.GetDateTime(7);
+                        obj.ConsiliumDate = reader.IsDBNull(8) ? DateTime.MinValue : reader.GetDateTime(8);
+                        obj.Decision = reader.IsDBNull(9) ? null : reader.GetString(9);
+                        obj.Doctor = reader.IsDBNull(10) ? null : reader.GetString(10);
+                        obj.Patient = reader.IsDBNull(11) ? null : reader.GetString(11);
                         list.Add(obj);
                     }
                 }
@@ -57,18 +57,18 @@ namespace Cardiology.Data.PostgreSQL
                     if (reader.Read())
                     {
                         DdtConsilium obj = new DdtConsilium();
-                        obj.HospitalitySession = reader.GetString(1);
-                        obj.ObjectId = reader.GetString(2);
-                        obj.Goal = reader.GetString(3);
-                        obj.Dynamics = reader.GetString(4);
-                        obj.ModifyDate = reader.GetDateTime(5);
-                        obj.DutyAdminName = reader.GetString(6);
-                        obj.Diagnosis = reader.GetString(7);
-                        obj.CreationDate = reader.GetDateTime(8);
-                        obj.ConsiliumDate = reader.GetDateTime(9);
-                        obj.Decision = reader.GetString(10);
-                        obj.Doctor = reader.GetString(11);
-                        obj.Patient = reader.GetString(12);
+                        obj.HospitalitySession = reader.IsDBNull(0) ? null : reader.GetString(0);
+                        obj.ObjectId = reader.IsDBNull(1) ? null : reader.GetString(1);
+                        obj.Goal = reader.IsDBNull(2) ? null : reader.GetString(2);
+                        obj.Dynamics = reader.IsDBNull(3) ? null : reader.GetString(3);
+                        obj.ModifyDate = reader.IsDBNull(4) ? DateTime.MinValue : reader.GetDateTime(4);
+                        obj.DutyAdminName = reader.IsDBNull(5) ? null : reader.GetString(5);
+                        obj.Diagnosis = reader.IsDBNull(6) ? null : reader.GetString(6);
+                        obj.CreationDate = reader.IsDBNull(7) ? DateTime.MinValue : reader.GetDateTime(7);
+                        obj.ConsiliumDate = reader.IsDBNull(8) ? DateTime.MinValue : reader.GetDateTime(8);
+                        obj.Decision = reader.IsDBNull(9) ? null : reader.GetString(9);
+                        obj.Doctor = reader.IsDBNull(10) ? null : reader.GetString(10);
+                        obj.Patient = reader.IsDBNull(11) ? null : reader.GetString(11);
                         return obj;
                     }
                 }

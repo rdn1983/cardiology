@@ -119,6 +119,7 @@
     <Compile Include="Data\Commons\IDdvPatientService.cs" />
     <Compile Include="Data\Commons\IDmGroupService.cs" />
     <Compile Include="Data\Commons\IDmGroupUsersService.cs" />
+    <Compile Include="Data\DbDataService.cs" />
     <Compile Include="Data\IDbConnectionFactory.cs" />
     <Compile Include="Data\IDbDataService.cs" />
     <Compile Include="Data\Model2\DdtAlcoProtocol.cs" />

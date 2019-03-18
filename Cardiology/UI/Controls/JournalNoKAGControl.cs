@@ -8,16 +8,14 @@ namespace Cardiology.UI.Controls
 {
     public partial class JournalNoKAGControl : UserControl, IDocbaseControl
     {
-        private readonly IDbDataService service;
         private string objectId;
         private string dsidCuringDoctor;
         private int journalType;
         private bool hasChanges;
         private bool isNew;
 
-        public JournalNoKAGControl(IDbDataService service, string objectId, int journalType, string dsidCuringDoctor)
+        public JournalNoKAGControl(string objectId, int journalType, string dsidCuringDoctor)
         {
-            this.service = service;
             this.objectId = objectId;
             this.journalType = journalType;
             this.dsidCuringDoctor = dsidCuringDoctor;
@@ -54,10 +52,10 @@ namespace Cardiology.UI.Controls
             warningLbl.Visible = false;
 
 
-            CommonUtils.InitDoctorsComboboxValues(service, docBox, " dss_login in (select dss_user_name from dm_group_users where dss_group_name = 'duty_cardioreanim') ");
-            CommonUtils.SetDoctorsComboboxDefaultValue(service, docBox, dsidCuringDoctor);
+            CommonUtils.InitDoctorsComboboxValues(DbDataService.GetService(), docBox, " r_object_id in (select dsid_doctor_id from dm_group_users where dss_group_name = 'duty_cardioreanim') ");
+            CommonUtils.SetDoctorsComboboxDefaultValue(DbDataService.GetService(), docBox, dsidCuringDoctor);
 
-            DdtJournal journal = service.GetDdtJournalService().GetById(objectId);
+            DdtJournal journal = DbDataService.GetService().GetDdtJournalService().GetById(objectId);
             refreshObject(journal);
         }
 
@@ -76,7 +74,7 @@ namespace Cardiology.UI.Controls
             journal.HospitalitySession = hospitalitySession.ObjectId;
             journal.Patient = hospitalitySession.Patient;
 
-            objectId = service.GetDdtJournalService().Save(journal);
+            objectId = DbDataService.GetService().GetDdtJournalService().Save(journal);
             hasChanges = false;
             isNew = false;
         }
@@ -123,7 +121,7 @@ namespace Cardiology.UI.Controls
         public object getObject()
         {
 
-            DdtJournal journal = service.GetDdtJournalService().GetById(objectId);
+            DdtJournal journal = DbDataService.GetService().GetDdtJournalService().GetById(objectId);
             if (journal == null)
             {
                 journal = new DdtJournal();
@@ -152,7 +150,7 @@ namespace Cardiology.UI.Controls
             if (obj != null && obj is DdtJournal)
             {
                 DdtJournal journal = (DdtJournal)obj;
-    
+
                 complaintsTxt.Text = journal.Complaints;
                 adTxt.Text = journal.Ad;
                 chddTxt.Text = journal.Chdd;
@@ -166,7 +164,7 @@ namespace Cardiology.UI.Controls
                 goodRhytmBtn.Checked = journal.GoodRhythm;
                 badRhytmBtn.Checked = !journal.GoodRhythm;
 
-                DdvDoctor doc = service.GetDdvDoctorService().GetById(journal.Doctor);
+                DdvDoctor doc = DbDataService.GetService().GetDdvDoctorService().GetById(journal.Doctor);
                 docBox.SelectedIndex = docBox.FindStringExact(doc.ShortName);
                 objectId = journal.ObjectId;
                 isNew = string.IsNullOrEmpty(objectId);
@@ -175,10 +173,10 @@ namespace Cardiology.UI.Controls
             else
             {
                 journalTxt.Text = journalType == (int)DdtJournalDsiType.PENDING_JUSTIFICATION ? JournalShuffleUtils.shuffleBadJournalText() : JournalShuffleUtils.shuffleJournalText();
-                if (journalType == (int) DdtJournalDsiType.AFTER_PENDING)
+                if (journalType == (int)DdtJournalDsiType.AFTER_PENDING)
                 {
                     journalTxt.Text += "Необходимо решить вопрос о проведении консилиума.";
-                    this.journalType = (int) DdtJournalDsiType.BEFORE_KAG;
+                    this.journalType = (int)DdtJournalDsiType.BEFORE_KAG;
                 }
                 adTxt.SelectedIndex = JournalShuffleUtils.shuffleNextIndex(adTxt.Items.Count - 1);
                 chddTxt.SelectedIndex = chddTxt.FindString("14");

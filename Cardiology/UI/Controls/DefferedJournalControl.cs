@@ -8,14 +8,12 @@ namespace Cardiology.UI.Controls
 {
     public partial class DefferedJournalControl : UserControl, IDocbaseControl
     {
-        private readonly IDbDataService service;
         private string objectId;
         private bool hasChanges;
         private bool isNew;
 
-        public DefferedJournalControl(IDbDataService service, string objectId)
+        public DefferedJournalControl(string objectId)
         {
-            this.service = service;
             this.objectId = objectId;
             InitializeComponent();
             initControls();
@@ -40,8 +38,8 @@ namespace Cardiology.UI.Controls
             CommonUtils.InitRangedItems(defferedChddTxt, 14, 26);
             warningLbl.Visible = false;
 
-            CommonUtils.InitDoctorsComboboxValues(service, docBox, null);
-            DdtJournal journal = service.GetDdtJournalService().GetById(objectId);
+            CommonUtils.InitDoctorsComboboxValues(DbDataService.GetService(), docBox, null);
+            DdtJournal journal = DbDataService.GetService().GetDdtJournalService().GetById(objectId);
             refreshObject(journal);
         }
 
@@ -57,7 +55,7 @@ namespace Cardiology.UI.Controls
             journal.Patient = hospitalitySession.Patient;
             journal.Doctor = string.IsNullOrEmpty(journal.Doctor) ? hospitalitySession.CuringDoctor : journal.Doctor;
 
-            objectId = service.GetDdtJournalService().Save(journal);
+            objectId = DbDataService.GetService().GetDdtJournalService().Save(journal);
             hasChanges = false;
             isNew = false;
         }
@@ -155,7 +153,7 @@ namespace Cardiology.UI.Controls
 
         public object getObject()
         {
-            DdtJournal journal = service.GetDdtJournalService().GetById(objectId);
+            DdtJournal journal = DbDataService.GetService().GetDdtJournalService().GetById(objectId);
             if (journal == null)
             {
                 journal = new DdtJournal();
@@ -183,7 +181,7 @@ namespace Cardiology.UI.Controls
             if (obj != null && obj is DdtJournal)
             {
                 DdtJournal journal = (DdtJournal)obj;
-   
+
                 deferredJournalTxt.Text = journal.Journal;
                 deferredAdTxt.Text = journal.Ad;
                 defferedChddTxt.Text = journal.Chdd;
@@ -193,7 +191,7 @@ namespace Cardiology.UI.Controls
                 deferredStartDate.Value = journal.AdmissionDate;
                 deferredStartTime.Value = journal.AdmissionDate;
 
-                DdvDoctor doc = service.GetDdvDoctorService().GetById(journal.Doctor);
+                DdvDoctor doc = DbDataService.GetService().GetDdvDoctorService().GetById(journal.Doctor);
                 docBox.SelectedIndex = docBox.FindStringExact(doc.ShortName);
                 objectId = journal.ObjectId;
                 isNew = string.IsNullOrEmpty(objectId);

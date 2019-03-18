@@ -27,12 +27,12 @@ namespace Cardiology.Data.PostgreSQL
                     while (reader.Read())
                     {
                         DdtDoctor obj = new DdtDoctor();
-                        obj.ObjectId = reader.GetString(1);
-                        obj.MiddleName = reader.GetString(2);
-                        obj.FirstName = reader.GetString(3);
-                        obj.ModifyDate = reader.GetDateTime(4);
-                        obj.CreationDate = reader.GetDateTime(5);
-                        obj.LastName = reader.GetString(6);
+                        obj.ObjectId = reader.IsDBNull(0) ? null : reader.GetString(0);
+                        obj.MiddleName = reader.IsDBNull(1) ? null : reader.GetString(1);
+                        obj.FirstName = reader.IsDBNull(2) ? null : reader.GetString(2);
+                        obj.ModifyDate = reader.IsDBNull(3) ? DateTime.MinValue : reader.GetDateTime(3);
+                        obj.CreationDate = reader.IsDBNull(4) ? DateTime.MinValue : reader.GetDateTime(4);
+                        obj.LastName = reader.IsDBNull(5) ? null : reader.GetString(5);
                         list.Add(obj);
                     }
                 }
@@ -51,12 +51,12 @@ namespace Cardiology.Data.PostgreSQL
                     if (reader.Read())
                     {
                         DdtDoctor obj = new DdtDoctor();
-                        obj.ObjectId = reader.GetString(1);
-                        obj.MiddleName = reader.GetString(2);
-                        obj.FirstName = reader.GetString(3);
-                        obj.ModifyDate = reader.GetDateTime(4);
-                        obj.CreationDate = reader.GetDateTime(5);
-                        obj.LastName = reader.GetString(6);
+                        obj.ObjectId = reader.IsDBNull(0) ? null : reader.GetString(0);
+                        obj.MiddleName = reader.IsDBNull(1) ? null : reader.GetString(1);
+                        obj.FirstName = reader.IsDBNull(2) ? null : reader.GetString(2);
+                        obj.ModifyDate = reader.IsDBNull(3) ? DateTime.MinValue : reader.GetDateTime(3);
+                        obj.CreationDate = reader.IsDBNull(4) ? DateTime.MinValue : reader.GetDateTime(4);
+                        obj.LastName = reader.IsDBNull(5) ? null : reader.GetString(5);
                         return obj;
                     }
                 }

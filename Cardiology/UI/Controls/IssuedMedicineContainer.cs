@@ -16,16 +16,16 @@ namespace Cardiology.UI.Controls
             InitializeComponent();
         }
 
-        internal void Init(IDbDataService service, DdtIssuedMedicineList medList)
+        internal void Init(DdtIssuedMedicineList medList)
         {
             if (medList != null)
             {
                 medListId = medList.ObjectId;
                 clearMedicine();
-                IList<DdtIssuedMedicine> med = service.GetDdtIssuedMedicineService().GetListByMedicineListId(medList.ObjectId);
+                IList<DdtIssuedMedicine> med = DbDataService.GetService().GetDdtIssuedMedicineService().GetListByMedicineListId(medList.ObjectId);
                 for (int i = 0; i < med.Count; i++)
                 {
-                    IssuedMedicineControl control = new IssuedMedicineControl(service, getNextIndex(), this);
+                    IssuedMedicineControl control = new IssuedMedicineControl(getNextIndex(), this);
                     control.Init(med[i]);
                     sizedContainer.Controls.Add(control);
                 }
@@ -40,7 +40,7 @@ namespace Cardiology.UI.Controls
                 clearMedicine();
                 foreach (DdtCure cure in cures)
                 {
-                    IssuedMedicineControl ctrl = new IssuedMedicineControl(service, getNextIndex(), this);
+                    IssuedMedicineControl ctrl = new IssuedMedicineControl(getNextIndex(), this);
                     ctrl.RefreshData(service, cure);
                     sizedContainer.Controls.Add(ctrl);
                 }
@@ -75,7 +75,7 @@ namespace Cardiology.UI.Controls
 
         internal void addMedicineBox(IDbDataService service)
         {
-            IssuedMedicineControl ctrl = new IssuedMedicineControl(service, getNextIndex(), this);
+            IssuedMedicineControl ctrl = new IssuedMedicineControl(getNextIndex(), this);
             sizedContainer.Controls.Add(ctrl);
         }
 

@@ -6,17 +6,15 @@ namespace Cardiology.UI.Controls
 {
     public partial class EgdsAnalysisControl : UserControl, IDocbaseControl
     {
-        private readonly IDbDataService service;
         private string objectId;
         private bool isEditable;
         private bool hasChanges;
         private bool isNew;
 
-        public EgdsAnalysisControl() : this(null, null, false) { }
+        public EgdsAnalysisControl() : this(null, false) { }
 
-        public EgdsAnalysisControl(IDbDataService service, string objectId, bool additional)
+        public EgdsAnalysisControl(string objectId, bool additional)
         {
-            this.service = service;
             this.objectId = objectId;
             this.isEditable = !additional;
             InitializeComponent();
@@ -27,7 +25,7 @@ namespace Cardiology.UI.Controls
 
         private void InitControls()
         {
-            DdtEgds egds = service.GetDdtEgdsService().GetById(objectId);
+            DdtEgds egds = DbDataService.GetService().GetDdtEgdsService().GetById(objectId);
             refreshObject(egds);
             regularEgdsTxt.Enabled = isEditable;
             analysisDate.Enabled = isEditable;
@@ -51,7 +49,7 @@ namespace Cardiology.UI.Controls
                     egds.ParentType = parentType;
                 }
 
-                objectId = service.GetDdtEgdsService().Save(egds);
+                objectId = DbDataService.GetService().GetDdtEgdsService().Save(egds);
                 hasChanges = false;
                 isNew = false;
             }
@@ -74,7 +72,7 @@ namespace Cardiology.UI.Controls
 
         public object getObject()
         {
-            DdtEgds egds = service.GetDdtEgdsService().GetById(objectId);
+            DdtEgds egds = DbDataService.GetService().GetDdtEgdsService().GetById(objectId);
             if (egds == null)
             {
                 egds = new DdtEgds();

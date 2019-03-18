@@ -9,18 +9,16 @@ namespace Cardiology.UI.Controls
 {
     public partial class KagAnalysisControl : UserControl, IDocbaseControl
     {
-        private readonly IDbDataService service;
         private string objectId;
         private string hospitalSessionId;
         private bool isEditable;
         private bool hasChanges;
         private bool isNew;
 
-        public KagAnalysisControl(IDbDataService service, string objectId, bool additional, string hospitalSessionId)
+        public KagAnalysisControl(string objectId, bool additional, string hospitalSessionId)
         {
             this.objectId = objectId;
             this.hospitalSessionId = hospitalSessionId;
-            this.service = service;
             this.isEditable = !additional;
             InitializeComponent();
             InitControls();
@@ -30,8 +28,7 @@ namespace Cardiology.UI.Controls
 
         private void InitControls()
         {
-
-            DdtKag kag = service.GetDdtKagService().GetById(objectId);
+            DdtKag kag = DbDataService.GetService().GetDdtKagService().GetById(objectId);
             refreshObject(kag);
             kagResultsTxt.Enabled = isEditable;
             kagManipulationTxt.Enabled = isEditable;
@@ -60,7 +57,7 @@ namespace Cardiology.UI.Controls
                     kag.ParentType = parentType;
                 }
 
-                objectId = service.GetDdtKagService().Save(kag);
+                objectId = DbDataService.GetService().GetDdtKagService().Save(kag);
                 isNew = false;
                 hasChanges = false;
             }
@@ -84,7 +81,7 @@ namespace Cardiology.UI.Controls
         public object getObject()
         {
 
-            DdtKag kag = service.GetDdtKagService().GetById(objectId);
+            DdtKag kag = DbDataService.GetService().GetDdtKagService().GetById(objectId);
             if (kag == null)
             {
                 kag = new DdtKag();
@@ -118,7 +115,7 @@ namespace Cardiology.UI.Controls
             else
             {
     
-                DdtHospital hospitalitySession = service.GetDdtHospitalService().GetById(hospitalSessionId);
+                DdtHospital hospitalitySession = DbDataService.GetService().GetDdtHospitalService().GetById(hospitalSessionId);
                 DateTime admissionDate = hospitalitySession.AdmissionDate;
                 kagDate.Value = admissionDate;
                 kagStartTime.Value = admissionDate.AddMinutes(30);
@@ -151,20 +148,20 @@ namespace Cardiology.UI.Controls
         private void procedureConsentBlank_Click(object sender, EventArgs e)
         {
             Dictionary<string, string> values = new Dictionary<string, string>();
-            TemplatesUtils.fillBlankTemplate(service, "blank_kag_template.doc", hospitalSessionId, values);
+            TemplatesUtils.fillBlankTemplate(DbDataService.GetService(), "blank_kag_template.doc", hospitalSessionId, values);
         }
 
         private void dataProcessingBlank_Click(object sender, EventArgs e)
         {
             Dictionary<string, string> values = new Dictionary<string, string>();
-            TemplatesUtils.fillBlankTemplate(service, "blank_common_consent_template.doc", hospitalSessionId, values);
+            TemplatesUtils.fillBlankTemplate(DbDataService.GetService(), "blank_common_consent_template.doc", hospitalSessionId, values);
         }
 
         private void anesthesiaBlank_Click(object sender, EventArgs e)
         {
             Dictionary<string, string> values = new Dictionary<string, string>();
             values.Add("{time}", DateTime.Now.ToShortTimeString());
-            TemplatesUtils.fillBlankTemplate(service, "blank_anastesia_template.doc", hospitalSessionId, values);
+            TemplatesUtils.fillBlankTemplate(DbDataService.GetService(), "blank_anastesia_template.doc", hospitalSessionId, values);
         }
 
         private void kagDate_ValueChanged(object sender, EventArgs e)

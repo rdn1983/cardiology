@@ -24,7 +24,7 @@ namespace Cardiology.UI.Forms
             this.issuedMedId = issuedMedId;
             InitializeComponent();
 
-            CommonUtils.InitDoctorsComboboxValues(service, clinicalPharmacologistBox, "dsi_appointment_type=2");
+            ControlUtils.InitDoctorsByGroupName(service.GetDdvDoctorService(), clinicalPharmacologistBox, "duty_rhdmil");
             CommonUtils.InitDoctorsComboboxValues(service, nurseBox, null);
             ControlUtils.InitDoctorsByGroupName(service.GetDdvDoctorService(), cardioReanimBox, "duty_cardioreanim");
             ControlUtils.InitDoctorsByGroupName(service.GetDdvDoctorService(), directorBox, "io_cardio_reanim");
@@ -209,7 +209,7 @@ namespace Cardiology.UI.Forms
             {
                 diagnosisTxt.Text = medList.Diagnosis;
                 shortlyOperationTxt.Text = medList.HasKag;
-                issuedMedicineContainer.Init(service, medList);
+                issuedMedicineContainer.Init(medList);
             }
             else
             {

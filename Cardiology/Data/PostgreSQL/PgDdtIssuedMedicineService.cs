@@ -27,11 +27,11 @@ namespace Cardiology.Data.PostgreSQL
                     while (reader.Read())
                     {
                         DdtIssuedMedicine obj = new DdtIssuedMedicine();
-                        obj.MedList = reader.GetString(1);
-                        obj.ObjectId = reader.GetString(2);
-                        obj.Cure = reader.GetString(3);
-                        obj.ModifyDate = reader.GetDateTime(4);
-                        obj.CreationDate = reader.GetDateTime(5);
+                        obj.MedList = reader.IsDBNull(0) ? null : reader.GetString(0);
+                        obj.ObjectId = reader.IsDBNull(1) ? null : reader.GetString(1);
+                        obj.Cure = reader.IsDBNull(2) ? null : reader.GetString(2);
+                        obj.ModifyDate = reader.IsDBNull(3) ? DateTime.MinValue : reader.GetDateTime(3);
+                        obj.CreationDate = reader.IsDBNull(4) ? DateTime.MinValue : reader.GetDateTime(4);
                         list.Add(obj);
                     }
                 }
@@ -51,11 +51,11 @@ namespace Cardiology.Data.PostgreSQL
                     while (reader.Read())
                     {
                         DdtIssuedMedicine obj = new DdtIssuedMedicine();
-                        obj.MedList = reader.GetString(1);
-                        obj.ObjectId = reader.GetString(2);
-                        obj.Cure = reader.GetString(3);
-                        obj.ModifyDate = reader.GetDateTime(4);
-                        obj.CreationDate = reader.GetDateTime(5);
+                        obj.MedList = reader.IsDBNull(0) ? null : reader.GetString(0);
+                        obj.ObjectId = reader.IsDBNull(1) ? null : reader.GetString(1);
+                        obj.Cure = reader.IsDBNull(2) ? null : reader.GetString(2);
+                        obj.ModifyDate = reader.IsDBNull(3) ? DateTime.MinValue : reader.GetDateTime(3);
+                        obj.CreationDate = reader.IsDBNull(4) ? DateTime.MinValue : reader.GetDateTime(4);
                         list.Add(obj);
                     }
                 }
@@ -74,11 +74,11 @@ namespace Cardiology.Data.PostgreSQL
                     if (reader.Read())
                     {
                         DdtIssuedMedicine obj = new DdtIssuedMedicine();
-                        obj.MedList = reader.GetString(1);
-                        obj.ObjectId = reader.GetString(2);
-                        obj.Cure = reader.GetString(3);
-                        obj.ModifyDate = reader.GetDateTime(4);
-                        obj.CreationDate = reader.GetDateTime(5);
+                        obj.MedList = reader.IsDBNull(0) ? null : reader.GetString(0);
+                        obj.ObjectId = reader.IsDBNull(1) ? null : reader.GetString(1);
+                        obj.Cure = reader.IsDBNull(2) ? null : reader.GetString(2);
+                        obj.ModifyDate = reader.IsDBNull(3) ? DateTime.MinValue : reader.GetDateTime(3);
+                        obj.CreationDate = reader.IsDBNull(4) ? DateTime.MinValue : reader.GetDateTime(4);
                         return obj;
                     }
                 }

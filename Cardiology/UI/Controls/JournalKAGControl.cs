@@ -19,16 +19,14 @@ namespace Cardiology.UI.Controls
         private const string RELEASE_JOURNAL_POSTFIX = "Пациент передан дежурному врачу. ";
 
         private const int CONTROL_HEIGHT = 108;
-        private readonly IDbDataService service;
         private string objId;
         private bool hasChanges;
         private bool isNew;
         private bool isReleaseJournal;
         private PulseTableCOntainer pulseSelector;
 
-        public JournalKAGControl(IDbDataService service, string objId, bool isRelease)
+        public JournalKAGControl(string objId, bool isRelease)
         {
-            this.service = service;
             this.objId = objId;
             this.isReleaseJournal = isRelease;
             InitializeComponent();
@@ -43,7 +41,7 @@ namespace Cardiology.UI.Controls
             CommonUtils.InitRangedItems(chddTxt, 14, 26);
 
 
-            DdtVariousSpecConcluson obj = service.GetDdtVariousSpecConclusonService().GetById(objId);
+            DdtVariousSpecConcluson obj = DbDataService.GetService().GetDdtVariousSpecConclusonService().GetById(objId);
             refreshObject(obj);
         }
 
@@ -81,7 +79,7 @@ namespace Cardiology.UI.Controls
         public object getObject()
         {
 
-            DdtVariousSpecConcluson result = service.GetDdtVariousSpecConclusonService().GetById(objId);
+            DdtVariousSpecConcluson result = DbDataService.GetService().GetDdtVariousSpecConclusonService().GetById(objId);
             if (result == null)
             {
                 result = new DdtVariousSpecConcluson();
@@ -138,7 +136,7 @@ namespace Cardiology.UI.Controls
             conclusion.SpecialistType = "Дежурный кардиореаниматолог";
             conclusion.AdditionalBool = isReleaseJournal;
 
-            objId = service.GetDdtVariousSpecConclusonService().Save(conclusion);
+            objId = DbDataService.GetService().GetDdtVariousSpecConclusonService().Save(conclusion);
             isNew = false;
             hasChanges = false;
         }

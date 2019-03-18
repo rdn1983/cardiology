@@ -3,7 +3,6 @@ using System.Data.Common;
 using System.Collections.Generic;
 using Cardiology.Data.Model2;
 using Cardiology.Data.Commons;
-using System.Data.SqlClient;
 using System.Data;
 using NpgsqlTypes;
 
@@ -30,26 +29,22 @@ namespace Cardiology.Data.PostgreSQL
                     while (reader.Read())
                     {
                         DdtHospital obj = new DdtHospital();
-                        obj.ObjectId = reader.GetString(0);
-                        if (!reader.IsDBNull(1))
-                        {
-                            obj.Diagnosis = reader.GetString(1);
-                        }
-
-                        obj.DutyDoctor = reader.GetString(2);
-                        obj.CreationDate = reader.GetDateTime(3);
+                        obj.ObjectId = reader.IsDBNull(0) ? null : reader.GetString(0);
+                        obj.Diagnosis = reader.IsDBNull(1) ? null : reader.GetString(1);
+                        obj.DutyDoctor = reader.IsDBNull(2) ? null : reader.GetString(2);
+                        obj.CreationDate = reader.IsDBNull(3) ? DateTime.MinValue : reader.GetDateTime(3);
                         obj.ReleaseType = reader.GetInt16(4);
-                        obj.AdmissionDate = reader.GetDateTime(5);
-                        obj.Patient = reader.GetString(6);
-                        obj.CuringDoctor = reader.GetString(7);
+                        obj.AdmissionDate = reader.IsDBNull(5) ? DateTime.MinValue : reader.GetDateTime(5);
+                        obj.Patient = reader.IsDBNull(6) ? null : reader.GetString(6);
+                        obj.CuringDoctor = reader.IsDBNull(7) ? null : reader.GetString(7);
                         obj.Active = reader.GetBoolean(8);
-                        obj.ModifyDate = reader.GetDateTime(9);
+                        obj.ModifyDate = reader.IsDBNull(9) ? DateTime.MinValue : reader.GetDateTime(9);
                         obj.RejectCure = reader.GetBoolean(10);
-                        obj.RoomCell = reader.GetString(11);
+                        obj.RoomCell = reader.IsDBNull(11) ? null : reader.GetString(11);
                         obj.Death = reader.GetBoolean(12);
-                        obj.DirCardioReanimDoctor = reader.GetString(13);
-                        obj.SubstitutionDoctor = reader.GetString(14);
-                        obj.AnesthetistDoctor = reader.GetString(15);
+                        obj.DirCardioReanimDoctor = reader.IsDBNull(13) ? null : reader.GetString(13);
+                        obj.SubstitutionDoctor = reader.IsDBNull(14) ? null : reader.GetString(14);
+                        obj.AnesthetistDoctor = reader.IsDBNull(15) ? null : reader.GetString(15);
                         list.Add(obj);
                     }
                 }
@@ -68,26 +63,22 @@ namespace Cardiology.Data.PostgreSQL
                     if (reader.Read())
                     {
                         DdtHospital obj = new DdtHospital();
-                        obj.ObjectId = reader.GetString(0);
-                        if (!reader.IsDBNull(1))
-                        {
-                            obj.Diagnosis = reader.GetString(1);
-                        }
-
-                        obj.DutyDoctor = reader.GetString(2);
-                        obj.CreationDate = reader.GetDateTime(3);
+                        obj.ObjectId = reader.IsDBNull(0) ? null : reader.GetString(0);
+                        obj.Diagnosis = reader.IsDBNull(1) ? null : reader.GetString(1);
+                        obj.DutyDoctor = reader.IsDBNull(2) ? null : reader.GetString(2);
+                        obj.CreationDate = reader.IsDBNull(3) ? DateTime.MinValue : reader.GetDateTime(3);
                         obj.ReleaseType = reader.GetInt16(4);
-                        obj.AdmissionDate = reader.GetDateTime(5);
-                        obj.Patient = reader.GetString(6);
-                        obj.CuringDoctor = reader.GetString(7);
+                        obj.AdmissionDate = reader.IsDBNull(5) ? DateTime.MinValue : reader.GetDateTime(5);
+                        obj.Patient = reader.IsDBNull(6) ? null : reader.GetString(6);
+                        obj.CuringDoctor = reader.IsDBNull(7) ? null : reader.GetString(7);
                         obj.Active = reader.GetBoolean(8);
-                        obj.ModifyDate = reader.GetDateTime(9);
+                        obj.ModifyDate = reader.IsDBNull(9) ? DateTime.MinValue : reader.GetDateTime(9);
                         obj.RejectCure = reader.GetBoolean(10);
-                        obj.RoomCell = reader.GetString(11);
+                        obj.RoomCell = reader.IsDBNull(11) ? null : reader.GetString(11);
                         obj.Death = reader.GetBoolean(12);
-                        obj.DirCardioReanimDoctor = reader.GetString(13);
-                        obj.SubstitutionDoctor = reader.GetString(14);
-                        obj.AnesthetistDoctor = reader.GetString(15);
+                        obj.DirCardioReanimDoctor = reader.IsDBNull(13) ? null : reader.GetString(13);
+                        obj.SubstitutionDoctor = reader.IsDBNull(14) ? null : reader.GetString(14);
+                        obj.AnesthetistDoctor = reader.IsDBNull(15) ? null : reader.GetString(15);
                         return obj;
                     }
                 }

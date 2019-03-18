@@ -20,7 +20,7 @@ namespace Cardiology.UI.Forms
             this.hospitalitySession = hospitalitySession;
             this.objectId = objectId;
             this.service = service;
-            selector = new AnalysisSelector(service);
+            selector = new AnalysisSelector();
             InitializeComponent();
             InitControls();
         }

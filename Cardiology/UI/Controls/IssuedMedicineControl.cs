@@ -9,20 +9,17 @@ namespace Cardiology.UI.Controls
 {
     public partial class IssuedMedicineControl : UserControl, IComponent
     {
-        private readonly IDbDataService service;
         private string objectId;
         private int index;
         private IssuedMedicineContainer parent;
 
-        public IssuedMedicineControl(IDbDataService service, int index, IssuedMedicineContainer parent)
+        public IssuedMedicineControl(int index, IssuedMedicineContainer parent)
         {
-            this.service = service;
-
             InitializeComponent();
             this.index = index;
             this.parent = parent;
 
-            CommonUtils.InitCureTypeComboboxValues(service, medicineTypeTxt0);
+            CommonUtils.InitCureTypeComboboxValues(DbDataService.GetService(), medicineTypeTxt0);
         }
 
         internal int getIndex()
@@ -34,10 +31,10 @@ namespace Cardiology.UI.Controls
         {
             if (med != null)
             {
-                DdtCure cure = service.GetDdtCureService().GetById(med.Cure);
+                DdtCure cure = DbDataService.GetService().GetDdtCureService().GetById(med.Cure);
                 if (cure != null)
                 {
-                    DdtCureType type = service.GetDdtCureTypeService().GetById(cure.CureType);
+                    DdtCureType type = DbDataService.GetService().GetDdtCureTypeService().GetById(cure.CureType);
                     if (type != null)
                     {
                         medicineTypeTxt0.SelectedIndex = medicineTypeTxt0.FindStringExact(type.Name);
@@ -74,8 +71,7 @@ namespace Cardiology.UI.Controls
         {
             if (!string.IsNullOrEmpty(objectId))
             {
-                
-                service.GetDdtIssuedMedicineService().Delete(objectId);
+                DbDataService.GetService().GetDdtIssuedMedicineService().Delete(objectId);
             }
             if (parent != null)
             {
@@ -87,7 +83,7 @@ namespace Cardiology.UI.Controls
         {
             ComboBox box = (ComboBox)sender;
             DdtCureType selectedVal = (DdtCureType)box.SelectedItem;
-            CommonUtils.InitCureComboboxValuesByTypeId(service, issuedMedicineTxt0, selectedVal.ObjectId);
+            CommonUtils.InitCureComboboxValuesByTypeId(DbDataService.GetService(), issuedMedicineTxt0, selectedVal.ObjectId);
         }
     }
 }

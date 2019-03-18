@@ -1,5 +1,4 @@
 ﻿using System.Windows.Forms;
-using Cardiology.Commons;
 using Cardiology.Data;
 using Cardiology.Data.Model2;
 
@@ -7,18 +6,16 @@ namespace Cardiology.UI.Controls
 {
     public partial class UrineAnalysisControl : UserControl, IDocbaseControl
     {
-        private readonly IDbDataService service;
         private string objectId;
         private bool isEditable;
         private bool hasChanges;
         private bool isNew;
 
-        public UrineAnalysisControl() : this(null, null, false)
+        public UrineAnalysisControl() : this(null, false)
         { }
 
-        public UrineAnalysisControl(IDbDataService service, string objectId, bool additional)
+        public UrineAnalysisControl(string objectId, bool additional)
         {
-            this.service = service;
             this.objectId = objectId;
             this.isEditable = !additional;
             InitializeComponent();
@@ -29,8 +26,7 @@ namespace Cardiology.UI.Controls
 
         private void initControls()
         {
-
-            DdtUrineAnalysis urineAnalysis = service.GetDdtUrineAnalysisService().GetById(objectId);
+            DdtUrineAnalysis urineAnalysis = DbDataService.GetService().GetDdtUrineAnalysisService().GetById(objectId);
             refreshObject(urineAnalysis);
             dateUrineAnalysis.Enabled = isEditable;
             colorTxt.ReadOnly = !isEditable;
@@ -43,7 +39,7 @@ namespace Cardiology.UI.Controls
         {
             if (isEditable && (isNew && getIsValid() || isDirty()))
             {
-    
+
                 DdtUrineAnalysis urine = (DdtUrineAnalysis)getObject();
                 urine.HospitalitySession = hospitalitySession.ObjectId;
                 urine.Doctor = hospitalitySession.CuringDoctor;
@@ -57,7 +53,7 @@ namespace Cardiology.UI.Controls
                     urine.ParentType = parentType;
                 }
 
-                objectId = service.GetDdtUrineAnalysisService().Save(urine);
+                objectId = DbDataService.GetService().GetDdtUrineAnalysisService().Save(urine);
                 hasChanges = false;
                 isNew = false;
             }
@@ -82,7 +78,7 @@ namespace Cardiology.UI.Controls
         public object getObject()
         {
 
-            DdtUrineAnalysis urine = service.GetDdtUrineAnalysisService().GetById(objectId);
+            DdtUrineAnalysis urine = DbDataService.GetService().GetDdtUrineAnalysisService().GetById(objectId);
             if (urine == null)
             {
                 urine = new DdtUrineAnalysis();

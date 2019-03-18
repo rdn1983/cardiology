@@ -27,21 +27,21 @@ namespace Cardiology.Data.PostgreSQL
                     while (reader.Read())
                     {
                         DdtVariousSpecConcluson obj = new DdtVariousSpecConcluson();
-                        obj.AdditionalInfo0 = reader.GetString(1);
-                        obj.ObjectId = reader.GetString(2);
-                        obj.Visible = reader.GetBoolean(3);
-                        obj.SpecialistType = reader.GetString(4);
-                        obj.AdditionalInfo2 = reader.GetString(5);
-                        obj.AdditionalInfo1 = reader.GetString(6);
-                        obj.CreationDate = reader.GetDateTime(7);
-                        obj.Parent = reader.GetString(8);
-                        obj.AdmissionDate = reader.GetDateTime(9);
-                        obj.AdditionalInfo4 = reader.GetString(10);
-                        obj.AdditionalInfo3 = reader.GetString(11);
-                        obj.SpecialistConclusion = reader.GetString(12);
-                        obj.ModifyDate = reader.GetDateTime(13);
-                        obj.ParentType = reader.GetString(14);
-                        obj.AdditionalBool = reader.GetBoolean(15);
+                        obj.AdditionalInfo0 = reader.IsDBNull(0) ? null : reader.GetString(0);
+                        obj.ObjectId = reader.IsDBNull(1) ? null : reader.GetString(1);
+                        obj.Visible = reader.GetBoolean(2);
+                        obj.SpecialistType = reader.IsDBNull(3) ? null : reader.GetString(3);
+                        obj.AdditionalInfo2 = reader.IsDBNull(4) ? null : reader.GetString(4);
+                        obj.AdditionalInfo1 = reader.IsDBNull(5) ? null : reader.GetString(5);
+                        obj.CreationDate = reader.IsDBNull(6) ? DateTime.MinValue : reader.GetDateTime(6);
+                        obj.Parent = reader.IsDBNull(7) ? null : reader.GetString(7);
+                        obj.AdmissionDate = reader.IsDBNull(8) ? DateTime.MinValue : reader.GetDateTime(8);
+                        obj.AdditionalInfo4 = reader.IsDBNull(9) ? null : reader.GetString(9);
+                        obj.AdditionalInfo3 = reader.IsDBNull(10) ? null : reader.GetString(10);
+                        obj.SpecialistConclusion = reader.IsDBNull(11) ? null : reader.GetString(11);
+                        obj.ModifyDate = reader.IsDBNull(12) ? DateTime.MinValue : reader.GetDateTime(12);
+                        obj.ParentType = reader.IsDBNull(13) ? null : reader.GetString(13);
+                        obj.AdditionalBool = reader.GetBoolean(14);
                         list.Add(obj);
                     }
                 }
@@ -61,21 +61,21 @@ namespace Cardiology.Data.PostgreSQL
                     while (reader.Read())
                     {
                         DdtVariousSpecConcluson obj = new DdtVariousSpecConcluson();
-                        obj.AdditionalInfo0 = reader.GetString(1);
-                        obj.ObjectId = reader.GetString(2);
-                        obj.Visible = reader.GetBoolean(3);
-                        obj.SpecialistType = reader.GetString(4);
-                        obj.AdditionalInfo2 = reader.GetString(5);
-                        obj.AdditionalInfo1 = reader.GetString(6);
-                        obj.CreationDate = reader.GetDateTime(7);
-                        obj.Parent = reader.GetString(8);
-                        obj.AdmissionDate = reader.GetDateTime(9);
-                        obj.AdditionalInfo4 = reader.GetString(10);
-                        obj.AdditionalInfo3 = reader.GetString(11);
-                        obj.SpecialistConclusion = reader.GetString(12);
-                        obj.ModifyDate = reader.GetDateTime(13);
-                        obj.ParentType = reader.GetString(14);
-                        obj.AdditionalBool = reader.GetBoolean(15);
+                        obj.AdditionalInfo0 = reader.IsDBNull(0) ? null : reader.GetString(0);
+                        obj.ObjectId = reader.IsDBNull(1) ? null : reader.GetString(1);
+                        obj.Visible = reader.GetBoolean(2);
+                        obj.SpecialistType = reader.IsDBNull(3) ? null : reader.GetString(3);
+                        obj.AdditionalInfo2 = reader.IsDBNull(4) ? null : reader.GetString(4);
+                        obj.AdditionalInfo1 = reader.IsDBNull(5) ? null : reader.GetString(5);
+                        obj.CreationDate = reader.IsDBNull(6) ? DateTime.MinValue : reader.GetDateTime(6);
+                        obj.Parent = reader.IsDBNull(7) ? null : reader.GetString(7);
+                        obj.AdmissionDate = reader.IsDBNull(8) ? DateTime.MinValue : reader.GetDateTime(8);
+                        obj.AdditionalInfo4 = reader.IsDBNull(9) ? null : reader.GetString(9);
+                        obj.AdditionalInfo3 = reader.IsDBNull(10) ? null : reader.GetString(10);
+                        obj.SpecialistConclusion = reader.IsDBNull(11) ? null : reader.GetString(11);
+                        obj.ModifyDate = reader.IsDBNull(12) ? DateTime.MinValue : reader.GetDateTime(12);
+                        obj.ParentType = reader.IsDBNull(13) ? null : reader.GetString(13);
+                        obj.AdditionalBool = reader.GetBoolean(14);
                         list.Add(obj);
                     }
                 }
@@ -94,21 +94,21 @@ namespace Cardiology.Data.PostgreSQL
                     while (reader.Read())
                     {
                         DdtVariousSpecConcluson obj = new DdtVariousSpecConcluson();
-                        obj.AdditionalInfo0 = reader.GetString(1);
-                        obj.ObjectId = reader.GetString(2);
-                        obj.Visible = reader.GetBoolean(3);
-                        obj.SpecialistType = reader.GetString(4);
-                        obj.AdditionalInfo2 = reader.GetString(5);
-                        obj.AdditionalInfo1 = reader.GetString(6);
-                        obj.CreationDate = reader.GetDateTime(7);
-                        obj.Parent = reader.GetString(8);
-                        obj.AdmissionDate = reader.GetDateTime(9);
-                        obj.AdditionalInfo4 = reader.GetString(10);
-                        obj.AdditionalInfo3 = reader.GetString(11);
-                        obj.SpecialistConclusion = reader.GetString(12);
-                        obj.ModifyDate = reader.GetDateTime(13);
-                        obj.ParentType = reader.GetString(14);
-                        obj.AdditionalBool = reader.GetBoolean(15);
+                        obj.AdditionalInfo0 = reader.IsDBNull(0) ? null : reader.GetString(0);
+                        obj.ObjectId = reader.IsDBNull(1) ? null : reader.GetString(1);
+                        obj.Visible = reader.GetBoolean(2);
+                        obj.SpecialistType = reader.IsDBNull(3) ? null : reader.GetString(3);
+                        obj.AdditionalInfo2 = reader.IsDBNull(4) ? null : reader.GetString(4);
+                        obj.AdditionalInfo1 = reader.IsDBNull(5) ? null : reader.GetString(5);
+                        obj.CreationDate = reader.IsDBNull(6) ? DateTime.MinValue : reader.GetDateTime(6);
+                        obj.Parent = reader.IsDBNull(7) ? null : reader.GetString(7);
+                        obj.AdmissionDate = reader.IsDBNull(8) ? DateTime.MinValue : reader.GetDateTime(8);
+                        obj.AdditionalInfo4 = reader.IsDBNull(9) ? null : reader.GetString(9);
+                        obj.AdditionalInfo3 = reader.IsDBNull(10) ? null : reader.GetString(10);
+                        obj.SpecialistConclusion = reader.IsDBNull(11) ? null : reader.GetString(11);
+                        obj.ModifyDate = reader.IsDBNull(12) ? DateTime.MinValue : reader.GetDateTime(12);
+                        obj.ParentType = reader.IsDBNull(13) ? null : reader.GetString(13);
+                        obj.AdditionalBool = reader.GetBoolean(14);
                         list.Add(obj);
                     }
                 }
@@ -127,21 +127,21 @@ namespace Cardiology.Data.PostgreSQL
                     if (reader.Read())
                     {
                         DdtVariousSpecConcluson obj = new DdtVariousSpecConcluson();
-                        obj.AdditionalInfo0 = reader.GetString(1);
-                        obj.ObjectId = reader.GetString(2);
-                        obj.Visible = reader.GetBoolean(3);
-                        obj.SpecialistType = reader.GetString(4);
-                        obj.AdditionalInfo2 = reader.GetString(5);
-                        obj.AdditionalInfo1 = reader.GetString(6);
-                        obj.CreationDate = reader.GetDateTime(7);
-                        obj.Parent = reader.GetString(8);
-                        obj.AdmissionDate = reader.GetDateTime(9);
-                        obj.AdditionalInfo4 = reader.GetString(10);
-                        obj.AdditionalInfo3 = reader.GetString(11);
-                        obj.SpecialistConclusion = reader.GetString(12);
-                        obj.ModifyDate = reader.GetDateTime(13);
-                        obj.ParentType = reader.GetString(14);
-                        obj.AdditionalBool = reader.GetBoolean(15);
+                        obj.AdditionalInfo0 = reader.IsDBNull(0) ? null : reader.GetString(0);
+                        obj.ObjectId = reader.IsDBNull(1) ? null : reader.GetString(1);
+                        obj.Visible = reader.GetBoolean(2);
+                        obj.SpecialistType = reader.IsDBNull(3) ? null : reader.GetString(3);
+                        obj.AdditionalInfo2 = reader.IsDBNull(4) ? null : reader.GetString(4);
+                        obj.AdditionalInfo1 = reader.IsDBNull(5) ? null : reader.GetString(5);
+                        obj.CreationDate = reader.IsDBNull(6) ? DateTime.MinValue : reader.GetDateTime(6);
+                        obj.Parent = reader.IsDBNull(7) ? null : reader.GetString(7);
+                        obj.AdmissionDate = reader.IsDBNull(8) ? DateTime.MinValue : reader.GetDateTime(8);
+                        obj.AdditionalInfo4 = reader.IsDBNull(9) ? null : reader.GetString(9);
+                        obj.AdditionalInfo3 = reader.IsDBNull(10) ? null : reader.GetString(10);
+                        obj.SpecialistConclusion = reader.IsDBNull(11) ? null : reader.GetString(11);
+                        obj.ModifyDate = reader.IsDBNull(12) ? DateTime.MinValue : reader.GetDateTime(12);
+                        obj.ParentType = reader.IsDBNull(13) ? null : reader.GetString(13);
+                        obj.AdditionalBool = reader.GetBoolean(14);
                         return obj;
                     }
                 }
@@ -160,21 +160,21 @@ namespace Cardiology.Data.PostgreSQL
                     if (reader.Read())
                     {
                         DdtVariousSpecConcluson obj = new DdtVariousSpecConcluson();
-                        obj.AdditionalInfo0 = reader.GetString(1);
-                        obj.ObjectId = reader.GetString(2);
-                        obj.Visible = reader.GetBoolean(3);
-                        obj.SpecialistType = reader.GetString(4);
-                        obj.AdditionalInfo2 = reader.GetString(5);
-                        obj.AdditionalInfo1 = reader.GetString(6);
-                        obj.CreationDate = reader.GetDateTime(7);
-                        obj.Parent = reader.GetString(8);
-                        obj.AdmissionDate = reader.GetDateTime(9);
-                        obj.AdditionalInfo4 = reader.GetString(10);
-                        obj.AdditionalInfo3 = reader.GetString(11);
-                        obj.SpecialistConclusion = reader.GetString(12);
-                        obj.ModifyDate = reader.GetDateTime(13);
-                        obj.ParentType = reader.GetString(14);
-                        obj.AdditionalBool = reader.GetBoolean(15);
+                        obj.AdditionalInfo0 = reader.IsDBNull(0) ? null : reader.GetString(0);
+                        obj.ObjectId = reader.IsDBNull(1) ? null : reader.GetString(1);
+                        obj.Visible = reader.GetBoolean(2);
+                        obj.SpecialistType = reader.IsDBNull(3) ? null : reader.GetString(3);
+                        obj.AdditionalInfo2 = reader.IsDBNull(4) ? null : reader.GetString(4);
+                        obj.AdditionalInfo1 = reader.IsDBNull(5) ? null : reader.GetString(5);
+                        obj.CreationDate = reader.IsDBNull(6) ? DateTime.MinValue : reader.GetDateTime(6);
+                        obj.Parent = reader.IsDBNull(7) ? null : reader.GetString(7);
+                        obj.AdmissionDate = reader.IsDBNull(8) ? DateTime.MinValue : reader.GetDateTime(8);
+                        obj.AdditionalInfo4 = reader.IsDBNull(9) ? null : reader.GetString(9);
+                        obj.AdditionalInfo3 = reader.IsDBNull(10) ? null : reader.GetString(10);
+                        obj.SpecialistConclusion = reader.IsDBNull(11) ? null : reader.GetString(11);
+                        obj.ModifyDate = reader.IsDBNull(12) ? DateTime.MinValue : reader.GetDateTime(12);
+                        obj.ParentType = reader.IsDBNull(13) ? null : reader.GetString(13);
+                        obj.AdditionalBool = reader.GetBoolean(14);
                         return obj;
                     }
                 }

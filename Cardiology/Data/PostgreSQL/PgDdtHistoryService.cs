@@ -27,19 +27,19 @@ namespace Cardiology.Data.PostgreSQL
                     while (reader.Read())
                     {
                         DdtHistory obj = new DdtHistory();
-                        obj.ObjectId = reader.GetString(1);
-                        obj.OperationId = reader.GetString(2);
-                        obj.OperationDate = reader.GetDateTime(3);
-                        obj.CreationDate = reader.GetDateTime(4);
-                        obj.Doctor = reader.GetString(5);
-                        obj.Patient = reader.GetString(6);
-                        obj.OperationName = reader.GetString(7);
-                        obj.HospitalitySession = reader.GetString(8);
-                        obj.Deleted = reader.GetBoolean(9);
-                        obj.Description = reader.GetString(10);
-                        obj.ModifyDate = reader.GetDateTime(11);
-                        obj.DeleteDate = reader.GetDateTime(12);
-                        obj.OperationType = reader.GetString(13);
+                        obj.ObjectId = reader.IsDBNull(0) ? null : reader.GetString(0);
+                        obj.OperationId = reader.IsDBNull(1) ? null : reader.GetString(1);
+                        obj.OperationDate = reader.IsDBNull(2) ? DateTime.MinValue : reader.GetDateTime(2);
+                        obj.CreationDate = reader.IsDBNull(3) ? DateTime.MinValue : reader.GetDateTime(3);
+                        obj.Doctor = reader.IsDBNull(4) ? null : reader.GetString(4);
+                        obj.Patient = reader.IsDBNull(5) ? null : reader.GetString(5);
+                        obj.OperationName = reader.IsDBNull(6) ? null : reader.GetString(6);
+                        obj.HospitalitySession = reader.IsDBNull(7) ? null : reader.GetString(7);
+                        obj.Deleted = reader.GetBoolean(8);
+                        obj.Description = reader.IsDBNull(9) ? null : reader.GetString(9);
+                        obj.ModifyDate = reader.IsDBNull(10) ? DateTime.MinValue : reader.GetDateTime(10);
+                        obj.DeleteDate = reader.IsDBNull(11) ? DateTime.MinValue : reader.GetDateTime(11);
+                        obj.OperationType = reader.IsDBNull(12) ? null : reader.GetString(12);
                         list.Add(obj);
                     }
                 }
@@ -58,19 +58,19 @@ namespace Cardiology.Data.PostgreSQL
                     if (reader.Read())
                     {
                         DdtHistory obj = new DdtHistory();
-                        obj.ObjectId = reader.GetString(1);
-                        obj.OperationId = reader.GetString(2);
-                        obj.OperationDate = reader.GetDateTime(3);
-                        obj.CreationDate = reader.GetDateTime(4);
-                        obj.Doctor = reader.GetString(5);
-                        obj.Patient = reader.GetString(6);
-                        obj.OperationName = reader.GetString(7);
-                        obj.HospitalitySession = reader.GetString(8);
-                        obj.Deleted = reader.GetBoolean(9);
-                        obj.Description = reader.GetString(10);
-                        obj.ModifyDate = reader.GetDateTime(11);
-                        obj.DeleteDate = reader.GetDateTime(12);
-                        obj.OperationType = reader.GetString(13);
+                        obj.ObjectId = reader.IsDBNull(0) ? null : reader.GetString(0);
+                        obj.OperationId = reader.IsDBNull(1) ? null : reader.GetString(1);
+                        obj.OperationDate = reader.IsDBNull(2) ? DateTime.MinValue : reader.GetDateTime(2);
+                        obj.CreationDate = reader.IsDBNull(3) ? DateTime.MinValue : reader.GetDateTime(3);
+                        obj.Doctor = reader.IsDBNull(4) ? null : reader.GetString(4);
+                        obj.Patient = reader.IsDBNull(5) ? null : reader.GetString(5);
+                        obj.OperationName = reader.IsDBNull(6) ? null : reader.GetString(6);
+                        obj.HospitalitySession = reader.IsDBNull(7) ? null : reader.GetString(7);
+                        obj.Deleted = reader.GetBoolean(8);
+                        obj.Description = reader.IsDBNull(9) ? null : reader.GetString(9);
+                        obj.ModifyDate = reader.IsDBNull(10) ? DateTime.MinValue : reader.GetDateTime(10);
+                        obj.DeleteDate = reader.IsDBNull(11) ? DateTime.MinValue : reader.GetDateTime(11);
+                        obj.OperationType = reader.IsDBNull(12) ? null : reader.GetString(12);
                         return obj;
                     }
                 }

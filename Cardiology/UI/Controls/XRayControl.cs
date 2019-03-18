@@ -13,9 +13,9 @@ namespace Cardiology.UI.Controls
         private bool hasChanges;
         private bool isNew;
 
-        public XRayControl(IDbDataService service, string objectId, bool additional)
+        public XRayControl(string objectId, bool additional)
         {
-            this.service = service;
+            this.service = DbDataService.GetService();
             this.objectId = objectId;
             this.isEditable = !additional;
             InitializeComponent();
@@ -42,10 +42,10 @@ namespace Cardiology.UI.Controls
 
         public void saveObject(DdtHospital hospitalitySession, string parentId, string parentType)
         {
-            if (isEditable && (isNew && getIsValid()|| isDirty()))
+            if (isEditable && (isNew && getIsValid() || isDirty()))
             {
-    
-                DdtXRay xRay = (DdtXRay) getObject();
+
+                DdtXRay xRay = (DdtXRay)getObject();
                 xRay.HospitalitySession = hospitalitySession.ObjectId;
                 xRay.Doctor = hospitalitySession.CuringDoctor;
                 xRay.Patient = hospitalitySession.Patient;
@@ -95,7 +95,7 @@ namespace Cardiology.UI.Controls
         {
             if (obj != null && obj is DdtXRay)
             {
-                DdtXRay xRay = (DdtXRay) obj;
+                DdtXRay xRay = (DdtXRay)obj;
                 ktDateTxt.Value = xRay.AnalysisDate;
                 ktTimeTxt.Value = xRay.AnalysisDate;
                 chestXRayTxt.Text = xRay.ChestXray;

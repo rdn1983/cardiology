@@ -27,7 +27,7 @@ namespace Cardiology.Commons
         internal static void InitDoctorsByGroupComboboxValues(IDbDataService service, ComboBox cb, string groupName)
         {
             cb.Items.Clear();
-            string query = @"SELECT d.dss_full_name, d.r_object_id, d.dss_middle_name, d.dss_first_name, d.r_modify_date, d.dss_short_name, d.r_creation_date, d.dss_last_name FROM ddv_doctor d, dm_group_users gr WHERE gr.dss_group_name='" + groupName + "' AND gr.dsid_doctor=d.r_object_id";
+            string query = @"SELECT d.dss_full_name, d.r_object_id, d.dss_middle_name, d.dss_first_name, d.r_modify_date, d.dss_short_name, d.r_creation_date, d.dss_last_name FROM ddv_doctor d, dm_group_users gr WHERE gr.dss_group_name='" + groupName + "' AND gr.dsid_doctor_id=d.r_object_id";
             List<DdvDoctor> doctors = service.GetDdvDoctorService().GetByQuery(query);
             cb.Items.AddRange(doctors.ToArray());
             cb.ValueMember = "ObjectId";

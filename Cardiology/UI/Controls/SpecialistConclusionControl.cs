@@ -1,5 +1,4 @@
 ﻿using System.Windows.Forms;
-using Cardiology.Commons;
 using Cardiology.Data;
 using Cardiology.Data.Model2;
 
@@ -7,15 +6,13 @@ namespace Cardiology.UI.Controls
 {
     public partial class SpecialistConclusionControl : UserControl, IDocbaseControl
     {
-        private readonly IDbDataService service;
         private string objectId;
         private bool isEditable;
         private bool hasChanges;
         private bool isNew;
 
-        public SpecialistConclusionControl(IDbDataService service, string objectId, bool additional)
+        public SpecialistConclusionControl(string objectId, bool additional)
         {
-            this.service = service;
             this.objectId = objectId;
             this.isEditable = !additional;
             InitializeComponent();
@@ -27,7 +24,7 @@ namespace Cardiology.UI.Controls
         private void initControls()
         {
 
-            DdtSpecialistConclusion specConclusion = service.GetDdtSpecialistConclusionService().GetById(objectId);
+            DdtSpecialistConclusion specConclusion = DbDataService.GetService().GetDdtSpecialistConclusionService().GetById(objectId);
             refreshObject(specConclusion);
             neurologTxt.ReadOnly = !isEditable;
             surgeonTxt.ReadOnly = !isEditable;
@@ -38,10 +35,10 @@ namespace Cardiology.UI.Controls
 
         public void saveObject(DdtHospital hospitalitySession, string parentId, string parentType)
         {
-            if (isEditable && (isNew && getIsValid()|| isDirty()))
+            if (isEditable && (isNew && getIsValid() || isDirty()))
             {
-    
-                DdtSpecialistConclusion specConslusion = (DdtSpecialistConclusion) getObject();
+
+                DdtSpecialistConclusion specConslusion = (DdtSpecialistConclusion)getObject();
                 specConslusion.HospitalitySession = hospitalitySession.ObjectId;
                 specConslusion.Doctor = hospitalitySession.CuringDoctor;
                 specConslusion.Patient = hospitalitySession.Patient;
@@ -54,7 +51,7 @@ namespace Cardiology.UI.Controls
                     specConslusion.ParentType = parentType;
                 }
 
-                objectId = service.GetDdtSpecialistConclusionService().Save(specConslusion);
+                objectId = DbDataService.GetService().GetDdtSpecialistConclusionService().Save(specConslusion);
                 isNew = false;
                 hasChanges = false;
             }
@@ -67,8 +64,8 @@ namespace Cardiology.UI.Controls
 
         public bool getIsValid()
         {
-            return !string.IsNullOrEmpty(neurologTxt.Text) ||!string.IsNullOrEmpty(surgeonTxt.Text) 
-                ||!string.IsNullOrEmpty(neuroSurgeonTxt.Text) ||!string.IsNullOrEmpty(endocrinologistTx.Text);
+            return !string.IsNullOrEmpty(neurologTxt.Text) || !string.IsNullOrEmpty(surgeonTxt.Text)
+                || !string.IsNullOrEmpty(neuroSurgeonTxt.Text) || !string.IsNullOrEmpty(endocrinologistTx.Text);
         }
 
         public bool isDirty()
@@ -79,7 +76,7 @@ namespace Cardiology.UI.Controls
         public object getObject()
         {
 
-            DdtSpecialistConclusion specConslusion = service.GetDdtSpecialistConclusionService().GetById(objectId);
+            DdtSpecialistConclusion specConslusion = DbDataService.GetService().GetDdtSpecialistConclusionService().GetById(objectId);
             if (specConslusion == null)
             {
                 specConslusion = new DdtSpecialistConclusion();

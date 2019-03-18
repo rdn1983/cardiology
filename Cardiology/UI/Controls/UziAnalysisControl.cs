@@ -1,5 +1,4 @@
 ﻿using System.Windows.Forms;
-using Cardiology.Commons;
 using Cardiology.Data;
 using Cardiology.Data.Model2;
 
@@ -7,15 +6,13 @@ namespace Cardiology.UI.Controls
 {
     public partial class UziAnalysisControl : UserControl, IDocbaseControl
     {
-        private readonly IDbDataService service;
         private string objectId;
         private bool isEditable;
         private bool hasChanges;
         private bool isNew;
 
-        public UziAnalysisControl(IDbDataService service, string objectId, bool additional)
+        public UziAnalysisControl(string objectId, bool additional)
         {
-            this.service = service;
             this.objectId = objectId;
             this.isEditable = !additional;
             InitializeComponent();
@@ -27,7 +24,7 @@ namespace Cardiology.UI.Controls
         private void initControls()
         {
 
-            DdtUzi uzi = service.GetDdtUziService().GetById(objectId);
+            DdtUzi uzi = DbDataService.GetService().GetDdtUziService().GetById(objectId);
             refreshObject(uzi);
             ehoKgTxt.Enabled = isEditable;
             uzdTxt.Enabled = isEditable;
@@ -41,8 +38,8 @@ namespace Cardiology.UI.Controls
         {
             if (isEditable && (isNew && getIsValid() || isDirty()))
             {
-    
-                DdtUzi uziObj = (DdtUzi) getObject();
+
+                DdtUzi uziObj = (DdtUzi)getObject();
                 uziObj.HospitalitySession = hospitalitySession.ObjectId;
                 uziObj.Doctor = hospitalitySession.CuringDoctor;
                 uziObj.Patient = hospitalitySession.Patient;
@@ -55,7 +52,7 @@ namespace Cardiology.UI.Controls
                     uziObj.ParentType = parentType;
                 }
 
-                objectId = service.GetDdtUziService().Save(uziObj);
+                objectId = DbDataService.GetService().GetDdtUziService().Save(uziObj);
                 isNew = false;
                 hasChanges = false;
             }
@@ -86,7 +83,7 @@ namespace Cardiology.UI.Controls
         public object getObject()
         {
 
-            DdtUzi uziObj = service.GetDdtUziService().GetById(objectId);
+            DdtUzi uziObj = DbDataService.GetService().GetDdtUziService().GetById(objectId);
             if (uziObj == null)
             {
                 uziObj = new DdtUzi();

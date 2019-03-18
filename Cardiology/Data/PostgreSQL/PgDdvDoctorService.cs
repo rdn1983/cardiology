@@ -20,21 +20,22 @@ namespace Cardiology.Data.PostgreSQL
             IList<DdvDoctor> list = new List<DdvDoctor>();
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = "SELECT r_object_id, dss_full_name, dss_middle_name, dss_first_name, r_modify_date, dss_short_name, r_creation_date, dss_last_name FROM ddv_doctor";
+                String sql = "SELECT r_object_id, dss_full_name, dss_middle_name, dss_first_name, r_modify_date, dss_short_name, r_creation_date, dss_last_name " +
+                    "FROM ddv_doctor";
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
                     while (reader.Read())
                     {
                         DdvDoctor obj = new DdvDoctor();
-                        obj.ObjectId = reader.GetString(0);
-                        obj.FullName = reader.GetString(1);
-                        obj.MiddleName = reader.GetString(2);
-                        obj.FirstName = reader.GetString(3);
-                        obj.ModifyDate = reader.GetDateTime(4);
-                        obj.ShortName = reader.GetString(5);
-                        obj.CreationDate = reader.GetDateTime(6);
-                        obj.LastName = reader.GetString(7);
+                        obj.ObjectId = reader.IsDBNull(0) ? null : reader.GetString(0);
+                        obj.FullName = reader.IsDBNull(1) ? null : reader.GetString(1);
+                        obj.MiddleName = reader.IsDBNull(2) ? null : reader.GetString(2);
+                        obj.FirstName = reader.IsDBNull(3) ? null : reader.GetString(3);
+                        obj.ModifyDate = reader.IsDBNull(4) ? DateTime.MinValue : reader.GetDateTime(4);
+                        obj.ShortName = reader.IsDBNull(5) ? null : reader.GetString(5);
+                        obj.CreationDate = reader.IsDBNull(6) ? DateTime.MinValue : reader.GetDateTime(6);
+                        obj.LastName = reader.IsDBNull(7) ? null : reader.GetString(7);
                         list.Add(obj);
                     }
                 }
@@ -47,21 +48,23 @@ namespace Cardiology.Data.PostgreSQL
             IList<DdvDoctor> list = new List<DdvDoctor>();
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = String.Format("SELECT d.r_object_id, d.dss_full_name, d.dss_middle_name, d.dss_first_name, d.r_modify_date, d.dss_short_name, d.r_creation_date, d.dss_last_name FROM ddv_doctor d, dm_group_users g WHERE g.dss_group_name = '{0}' AND d.r_object_id = g.dsid_doctor_id", groupName);
+                String sql = String.Format("SELECT d.r_object_id, d.dss_full_name, d.dss_middle_name, d.dss_first_name, d.r_modify_date," +
+                    " d.dss_short_name, d.r_creation_date, d.dss_last_name FROM ddv_doctor d, dm_group_users g WHERE g.dss_group_name = '{0}'" +
+                    " AND d.r_object_id = g.dsid_doctor_id", groupName);
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
                     while (reader.Read())
                     {
                         DdvDoctor obj = new DdvDoctor();
-                        obj.ObjectId = reader.GetString(0);
-                        obj.FullName = reader.GetString(1);
-                        obj.MiddleName = reader.GetString(2);
-                        obj.FirstName = reader.GetString(3);
-                        obj.ModifyDate = reader.GetDateTime(4);
-                        obj.ShortName = reader.GetString(5);
-                        obj.CreationDate = reader.GetDateTime(6);
-                        obj.LastName = reader.GetString(7);
+                        obj.ObjectId = reader.IsDBNull(0) ? null : reader.GetString(0);
+                        obj.FullName = reader.IsDBNull(1) ? null : reader.GetString(1);
+                        obj.MiddleName = reader.IsDBNull(2) ? null : reader.GetString(2);
+                        obj.FirstName = reader.IsDBNull(3) ? null : reader.GetString(3);
+                        obj.ModifyDate = reader.IsDBNull(4) ? DateTime.MinValue : reader.GetDateTime(4);
+                        obj.ShortName = reader.IsDBNull(5) ? null : reader.GetString(5);
+                        obj.CreationDate = reader.IsDBNull(6) ? DateTime.MinValue : reader.GetDateTime(6);
+                        obj.LastName = reader.IsDBNull(7) ? null : reader.GetString(7);
                         list.Add(obj);
                     }
                 }
@@ -80,14 +83,14 @@ namespace Cardiology.Data.PostgreSQL
                     while (reader.Read())
                     {
                         DdvDoctor obj = new DdvDoctor();
-                        obj.ObjectId = reader.GetString(0);
-                        obj.FullName = reader.GetString(1);
-                        obj.MiddleName = reader.GetString(2);
-                        obj.FirstName = reader.GetString(3);
-                        obj.ModifyDate = reader.GetDateTime(4);
-                        obj.ShortName = reader.GetString(5);
-                        obj.CreationDate = reader.GetDateTime(6);
-                        obj.LastName = reader.GetString(7);
+                        obj.ObjectId = reader.IsDBNull(0) ? null : reader.GetString(0);
+                        obj.FullName = reader.IsDBNull(1) ? null : reader.GetString(1);
+                        obj.MiddleName = reader.IsDBNull(2) ? null : reader.GetString(2);
+                        obj.FirstName = reader.IsDBNull(3) ? null : reader.GetString(3);
+                        obj.ModifyDate = reader.IsDBNull(4) ? DateTime.MinValue : reader.GetDateTime(4);
+                        obj.ShortName = reader.IsDBNull(5) ? null : reader.GetString(5);
+                        obj.CreationDate = reader.IsDBNull(6) ? DateTime.MinValue : reader.GetDateTime(6);
+                        obj.LastName = reader.IsDBNull(7) ? null : reader.GetString(7);
                         list.Add(obj);
                     }
                 }
@@ -99,21 +102,22 @@ namespace Cardiology.Data.PostgreSQL
         {
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = String.Format("SELECT dss_full_name, r_object_id, dss_middle_name, dss_first_name, r_modify_date, dss_short_name, r_creation_date, dss_last_name FROM ddv_doctor WHERE r_object_id = '{0}'", id);
+                String sql = String.Format("SELECT dss_full_name, r_object_id, dss_middle_name, dss_first_name, r_modify_date, dss_short_name, r_creation_date," +
+                    " dss_last_name FROM ddv_doctor WHERE r_object_id = '{0}'", id);
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
                     if (reader.Read())
                     {
                         DdvDoctor obj = new DdvDoctor();
-                        obj.FullName = reader.GetString(1);
-                        obj.ObjectId = reader.GetString(2);
-                        obj.MiddleName = reader.GetString(3);
-                        obj.FirstName = reader.GetString(4);
-                        obj.ModifyDate = reader.GetDateTime(5);
-                        obj.ShortName = reader.GetString(6);
-                        obj.CreationDate = reader.GetDateTime(7);
-                        obj.LastName = reader.GetString(8);
+                        obj.ObjectId = reader.IsDBNull(0) ? null : reader.GetString(0);
+                        obj.FullName = reader.IsDBNull(1) ? null : reader.GetString(1);
+                        obj.MiddleName = reader.IsDBNull(2) ? null : reader.GetString(2);
+                        obj.FirstName = reader.IsDBNull(3) ? null : reader.GetString(3);
+                        obj.ModifyDate = reader.IsDBNull(4) ? DateTime.MinValue : reader.GetDateTime(4);
+                        obj.ShortName = reader.IsDBNull(5) ? null : reader.GetString(5);
+                        obj.CreationDate = reader.IsDBNull(6) ? DateTime.MinValue : reader.GetDateTime(6);
+                        obj.LastName = reader.IsDBNull(7) ? null : reader.GetString(7);
                         return obj;
                     }
                 }
@@ -131,14 +135,14 @@ namespace Cardiology.Data.PostgreSQL
                     if (reader.Read())
                     {
                         DdvDoctor obj = new DdvDoctor();
-                        obj.FullName = reader.GetString(1);
-                        obj.ObjectId = reader.GetString(2);
-                        obj.MiddleName = reader.GetString(3);
-                        obj.FirstName = reader.GetString(4);
-                        obj.ModifyDate = reader.GetDateTime(5);
-                        obj.ShortName = reader.GetString(6);
-                        obj.CreationDate = reader.GetDateTime(7);
-                        obj.LastName = reader.GetString(8);
+                        obj.ObjectId = reader.IsDBNull(0) ? null : reader.GetString(0);
+                        obj.FullName = reader.IsDBNull(1) ? null : reader.GetString(1);
+                        obj.MiddleName = reader.IsDBNull(2) ? null : reader.GetString(2);
+                        obj.FirstName = reader.IsDBNull(3) ? null : reader.GetString(3);
+                        obj.ModifyDate = reader.IsDBNull(4) ? DateTime.MinValue : reader.GetDateTime(4);
+                        obj.ShortName = reader.IsDBNull(5) ? null : reader.GetString(5);
+                        obj.CreationDate = reader.IsDBNull(6) ? DateTime.MinValue : reader.GetDateTime(6);
+                        obj.LastName = reader.IsDBNull(7) ? null : reader.GetString(7);
                         return obj;
                     }
                 }

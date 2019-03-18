@@ -27,12 +27,12 @@ namespace Cardiology.Data.PostgreSQL
                     while (reader.Read())
                     {
                         DdtConsiliumGroupMember obj = new DdtConsiliumGroupMember();
-                        obj.ObjectId = reader.GetString(1);
-                        obj.ModifyDate = reader.GetDateTime(2);
-                        obj.CreationDate = reader.GetDateTime(3);
-                        obj.Name = reader.GetString(4);
-                        obj.Doctor = reader.GetString(5);
-                        obj.Group = reader.GetString(6);
+                        obj.ObjectId = reader.IsDBNull(0) ? null : reader.GetString(0);
+                        obj.ModifyDate = reader.IsDBNull(1) ? DateTime.MinValue : reader.GetDateTime(1);
+                        obj.CreationDate = reader.IsDBNull(2) ? DateTime.MinValue : reader.GetDateTime(2);
+                        obj.Name = reader.IsDBNull(3) ? null : reader.GetString(3);
+                        obj.Doctor = reader.IsDBNull(4) ? null : reader.GetString(4);
+                        obj.Group = reader.IsDBNull(5) ? null : reader.GetString(5);
                         list.Add(obj);
                     }
                 }
@@ -51,12 +51,12 @@ namespace Cardiology.Data.PostgreSQL
                     if (reader.Read())
                     {
                         DdtConsiliumGroupMember obj = new DdtConsiliumGroupMember();
-                        obj.ObjectId = reader.GetString(1);
-                        obj.ModifyDate = reader.GetDateTime(2);
-                        obj.CreationDate = reader.GetDateTime(3);
-                        obj.Name = reader.GetString(4);
-                        obj.Doctor = reader.GetString(5);
-                        obj.Group = reader.GetString(6);
+                        obj.ObjectId = reader.IsDBNull(0) ? null : reader.GetString(0);
+                        obj.ModifyDate = reader.IsDBNull(1) ? DateTime.MinValue : reader.GetDateTime(1);
+                        obj.CreationDate = reader.IsDBNull(2) ? DateTime.MinValue : reader.GetDateTime(2);
+                        obj.Name = reader.IsDBNull(3) ? null : reader.GetString(3);
+                        obj.Doctor = reader.IsDBNull(4) ? null : reader.GetString(4);
+                        obj.Group = reader.IsDBNull(5) ? null : reader.GetString(5);
                         return obj;
                     }
                 }
@@ -75,12 +75,12 @@ namespace Cardiology.Data.PostgreSQL
                     if (reader.Read())
                     {
                         DdtConsiliumGroupMember obj = new DdtConsiliumGroupMember();
-                        obj.ObjectId = reader.GetString(1);
-                        obj.ModifyDate = reader.GetDateTime(2);
-                        obj.CreationDate = reader.GetDateTime(3);
-                        obj.Name = reader.GetString(4);
-                        obj.Doctor = reader.GetString(5);
-                        obj.Group = reader.GetString(6);
+                        obj.ObjectId = reader.IsDBNull(0) ? null : reader.GetString(0);
+                        obj.ModifyDate = reader.IsDBNull(1) ? DateTime.MinValue : reader.GetDateTime(1);
+                        obj.CreationDate = reader.IsDBNull(2) ? DateTime.MinValue : reader.GetDateTime(2);
+                        obj.Name = reader.IsDBNull(3) ? null : reader.GetString(3);
+                        obj.Doctor = reader.IsDBNull(4) ? null : reader.GetString(4);
+                        obj.Group = reader.IsDBNull(5) ? null : reader.GetString(5);
                         return obj;
                     }
                 }
@@ -99,12 +99,12 @@ namespace Cardiology.Data.PostgreSQL
                     if (reader.Read())
                     {
                         DdtConsiliumGroupMember obj = new DdtConsiliumGroupMember();
-                        obj.ObjectId = reader.GetString(1);
-                        obj.ModifyDate = reader.GetDateTime(2);
-                        obj.CreationDate = reader.GetDateTime(3);
-                        obj.Name = reader.GetString(4);
-                        obj.Doctor = reader.GetString(5);
-                        obj.Group = reader.GetString(6);
+                        obj.ObjectId = reader.IsDBNull(0) ? null : reader.GetString(0);
+                        obj.ModifyDate = reader.IsDBNull(1) ? DateTime.MinValue : reader.GetDateTime(1);
+                        obj.CreationDate = reader.IsDBNull(2) ? DateTime.MinValue : reader.GetDateTime(2);
+                        obj.Name = reader.IsDBNull(3) ? null : reader.GetString(3);
+                        obj.Doctor = reader.IsDBNull(4) ? null : reader.GetString(4);
+                        obj.Group = reader.IsDBNull(5) ? null : reader.GetString(5);
                         return obj;
                     }
                 }

@@ -79,7 +79,7 @@ namespace Cardiology.UI.Forms
                 foreach (DdtEkg ekgObj in ekgAnalysis)
                 {
                     TableLayoutPanel container = getTabContainer("ekgTab", "ЭКГ", false);
-                    EkgAnalysisControlcs ekg = new EkgAnalysisControlcs(service, ekgObj.ObjectId, false);
+                    EkgAnalysisControlcs ekg = new EkgAnalysisControlcs(ekgObj.ObjectId, false);
                     container.Controls.Add(ekg);
                 }
 
@@ -87,7 +87,7 @@ namespace Cardiology.UI.Forms
                 foreach (DdtSpecialistConclusion obj in specs)
                 {
                     TableLayoutPanel container = getTabContainer("specsTab", "Заключения специалистов", true);
-                    SpecialistConclusionControl specControl = new SpecialistConclusionControl(service, obj.ObjectId, false);
+                    SpecialistConclusionControl specControl = new SpecialistConclusionControl(obj.ObjectId, false);
                     container.Controls.Add(specControl);
                 }
 
@@ -96,7 +96,7 @@ namespace Cardiology.UI.Forms
                 foreach (DdtHolter obj in holters)
                 {
                     TableLayoutPanel container = getTabContainer("holterTab", "Холтер", true);
-                    HolterControl holt = new HolterControl(service, obj.ObjectId, false);
+                    HolterControl holt = new HolterControl(obj.ObjectId, false);
                     container.Controls.Add(holt);
                 }
 
@@ -104,7 +104,7 @@ namespace Cardiology.UI.Forms
                 foreach (DdtBloodAnalysis obj in bloods)
                 {
                     TableLayoutPanel container = getTabContainer("bloodTab", "Анализы крови", true);
-                    BloodAnalysisControl blood = new BloodAnalysisControl(service, obj.ObjectId, false);
+                    BloodAnalysisControl blood = new BloodAnalysisControl(obj.ObjectId, false);
                     container.Controls.Add(blood);
                 }
 
@@ -113,7 +113,7 @@ namespace Cardiology.UI.Forms
                 foreach (DdtUzi obj in uzis)
                 {
                     TableLayoutPanel container = getTabContainer("uziTab", "УЗИ", false);
-                    UziAnalysisControl control = new UziAnalysisControl(service, obj.ObjectId, false);
+                    UziAnalysisControl control = new UziAnalysisControl(obj.ObjectId, false);
                     container.Controls.Add(control);
                 }
             }
@@ -129,7 +129,7 @@ namespace Cardiology.UI.Forms
                 {
                     kagId = kag.ObjectId;
                     TableLayoutPanel container = getTabContainer("kagTab", "КАГ", true);
-                    KagAnalysisControl specControl = new KagAnalysisControl(service, kag.ObjectId, false, hospitalitySession.ObjectId);
+                    KagAnalysisControl specControl = new KagAnalysisControl(kag.ObjectId, false, hospitalitySession.ObjectId);
                     container.Controls.Clear();
                     container.Controls.Add(specControl);
                     kagContainer.Visible = true;
@@ -271,21 +271,21 @@ namespace Cardiology.UI.Forms
         private void uziItem_Click(object sender, EventArgs e)
         {
             TableLayoutPanel container = getTabContainer("uziTab", "УЗИ", false);
-            UziAnalysisControl control = new UziAnalysisControl(service, null, false);
+            UziAnalysisControl control = new UziAnalysisControl(null, false);
             container.Controls.Add(control);
         }
 
         private void bloodItem_Click(object sender, EventArgs e)
         {
             TableLayoutPanel container = getTabContainer("bloodTab", "Анализы крови", true);
-            BloodAnalysisControl blood = new BloodAnalysisControl(service, null, false);
+            BloodAnalysisControl blood = new BloodAnalysisControl(null, false);
             container.Controls.Add(blood);
         }
 
         private void ekgItem_Click(object sender, EventArgs e)
         {
             TableLayoutPanel container = getTabContainer("ekgTab", "ЭКГ", false);
-            EkgAnalysisControlcs ekg = new EkgAnalysisControlcs(service, null, false);
+            EkgAnalysisControlcs ekg = new EkgAnalysisControlcs(null, false);
             container.Controls.Add(ekg);
         }
 
@@ -297,14 +297,14 @@ namespace Cardiology.UI.Forms
         private void holterItem_Click(object sender, EventArgs e)
         {
             TableLayoutPanel container = getTabContainer("holterTab", "Холтер", true);
-            HolterControl ekg = new HolterControl(service, null, false);
+            HolterControl ekg = new HolterControl(null, false);
             container.Controls.Add(ekg);
         }
 
         private void specialistItem_Click(object sender, EventArgs e)
         {
             TableLayoutPanel container = getTabContainer("specsTab", "Заключения специалистов", true);
-            SpecialistConclusionControl ekg = new SpecialistConclusionControl(service, null, false);
+            SpecialistConclusionControl ekg = new SpecialistConclusionControl(null, false);
             container.Controls.Add(ekg);
         }
 

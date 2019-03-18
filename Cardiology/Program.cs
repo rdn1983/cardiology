@@ -17,7 +17,7 @@ namespace Cardiology
         {
             IDbConnectionFactory connectionFactory = new PgConnectionFactory();
             IDbDataService service = new PgDataService(connectionFactory);
-
+            DbDataService.SetService(service);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new PatientList(service));

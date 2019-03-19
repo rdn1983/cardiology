@@ -106,7 +106,7 @@ namespace Cardiology.Data.PostgreSQL
                                             dss_first_name = @firstName, 
                                             dsd_weight = @weight, 
                                             dss_snils = @snils, 
-                                            dss_last_name, = @lastName 
+                                            dss_last_name = @lastName, 
                                             dss_passport_date = @passportDate, 
                                             dss_phone = @phone, 
                                             dss_oms = @oms, 
@@ -132,6 +132,7 @@ namespace Cardiology.Data.PostgreSQL
                         cmd.Parameters.AddWithValue("@phone", obj.Phone);
                         cmd.Parameters.AddWithValue("@oms", obj.Oms);
                         cmd.Parameters.AddWithValue("@passportSerial", obj.PassportSerial);
+                        cmd.Parameters.AddWithValue("@birthDate", obj.Birthdate);
                         cmd.Parameters.AddWithValue("@sd", obj.Sd);
                         cmd.Parameters.AddWithValue("@medCode", obj.MedCode);
                         cmd.Parameters.AddWithValue("@passportIssuePlace", obj.PassportIssuePlace);

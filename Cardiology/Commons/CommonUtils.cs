@@ -40,7 +40,7 @@ namespace Cardiology.Commons
             IList<DdtCure> cureList = service.GetDdtCureService().GetListByCureTypeId(cureTypeId);
             cb.Items.AddRange(cureList.ToArray());
             cb.ValueMember = "ObjectId";
-            cb.DisplayMember = "DssName";
+            cb.DisplayMember = "Name";
         }
 
         internal static void InitCureTypeComboboxValues(IDbDataService service, ComboBox cb)

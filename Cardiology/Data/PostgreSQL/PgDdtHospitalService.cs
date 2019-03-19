@@ -94,25 +94,25 @@ namespace Cardiology.Data.PostgreSQL
                 if (GetById(hospital.ObjectId) != null)
                 {
                     string sql = "UPDATE ddt_hospital SET " +
-                                          "dss_diagnosis = @Diagnosis," +
-                                          "dsid_duty_doctor = @DutyDoctor," +
-                                          "dsi_release_type = @ReleaseType," +
-                                          "dsdt_admission_date = @AdmissionDate," +
-                                          "dsid_patient = @Patient," +
-                                          "dsid_curing_doctor = @CuringDoctor," +
-                                          "dsb_active = @Active," +
-                                          "dsb_reject_cure = @RejectCure," +
-                                          "dss_room_cell = @RoomCell," +
-                                          "dsb_death = @Death," +
-                                          "dsid_dir_cardio_reanim_doctor = @DirCardioReanimDoctor," +
-                                          "dsid_substitution_doctor = @SubstitutionDoctor," +
-                                          "dsid_anesthetist_doctor = @AnesthetistDoctor" +
-                                          "WHERE r_object_id = @ObjectId ";
+                                          "dss_diagnosis = @Diagnosis, " +
+                                          "dsid_duty_doctor = @DutyDoctor, " +
+                                          "dsi_release_type = @ReleaseType, " +
+                                          "dsdt_admission_date = @AdmissionDate, " +
+                                          "dsid_patient = @Patient, " +
+                                          "dsid_curing_doctor = @CuringDoctor, " +
+                                          "dsb_active = @Active, " +
+                                          "dsb_reject_cure = @RejectCure, " +
+                                          "dss_room_cell = @RoomCell, " +
+                                          "dsb_death = @Death, " +
+                                          "dsid_dir_cardio_reanim_doctor = @DirCardioReanimDoctor, " +
+                                          "dsid_substitution_doctor = @SubstitutionDoctor, " +
+                                          "dsid_anesthetist_doctor = @AnesthetistDoctor " +
+                                          "WHERE r_object_id = @ObjectId";
 
                     using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
                     {
                         cmd.CommandType = CommandType.Text;
-                        cmd.Parameters.AddWithValue("@Diagnosis", hospital.Diagnosis);
+                        cmd.Parameters.AddWithValue("@Diagnosis", hospital.Diagnosis ?? "");
                         cmd.Parameters.AddWithValue("@DutyDoctor", hospital.DutyDoctor);
                         cmd.Parameters.AddWithValue("@ReleaseType", hospital.ReleaseType);
                         cmd.Parameters.AddWithValue("@AdmissionDate", hospital.AdmissionDate);

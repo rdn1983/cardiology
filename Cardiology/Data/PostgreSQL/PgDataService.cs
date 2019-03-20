@@ -382,7 +382,7 @@ namespace Cardiology.Data.PostgreSQL
                 {
                     if (reader.Read())
                     {
-                        return reader.GetString(1);
+                        return reader.GetString(0);
                     }
                 }
 

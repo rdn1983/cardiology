@@ -3,6 +3,7 @@ using System.Data.Common;
 using System.Collections.Generic;
 using Cardiology.Data.Model2;
 using Cardiology.Data.Commons;
+using System.Data;
 
 namespace Cardiology.Data.PostgreSQL
 {
@@ -166,7 +167,55 @@ namespace Cardiology.Data.PostgreSQL
 
         public string Save(DdtEgds obj)
         {
-            throw new NotImplementedException();
+            using (dynamic connection = connectionFactory.GetConnection())
+            {
+                if (GetById(obj.ObjectId) != null)
+                {
+                    string sql = "UPDATE ddt_egds SET " +
+                                          "dsid_hospitality_session = @HospitalitySession, " +
+                                        "dsid_patient = @Patient, " +
+                                        "dsid_doctor = @Doctor, " +
+                                        "dsdt_analysis_date = @AnalysisDate, " +
+                                        "dss_egds = @Egds, " +
+                                        "dsb_admission_analysis = @AdmissionAnalysis, " +
+                                        "dsid_parent = @Parent, " +
+                                        "dss_parent_type = @ParentType " +
+                                         "WHERE r_object_id = @ObjectId";
+                    using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Parameters.AddWithValue("@HospitalitySession", obj.HospitalitySession);
+                        cmd.Parameters.AddWithValue("@Patient", obj.Patient);
+                        cmd.Parameters.AddWithValue("@Doctor", obj.Doctor);
+                        cmd.Parameters.AddWithValue("@AnalysisDate", obj.AnalysisDate);
+                        cmd.Parameters.AddWithValue("@Egds", obj.Egds == null ? "" : obj.Egds);
+                        cmd.Parameters.AddWithValue("@AdmissionAnalysis", obj.AdmissionAnalysis);
+                        cmd.Parameters.AddWithValue("@Parent", obj.Parent);
+                        cmd.Parameters.AddWithValue("@ParentType", obj.ParentType == null ? "" : obj.ParentType);
+                        cmd.Parameters.AddWithValue("@ObjectId", obj.ObjectId);
+                        cmd.ExecuteNonQuery();
+                    }
+                    return obj.ObjectId;
+                }
+                else
+                {
+                    string sql = "INSERT INTO ddt_egds(dsid_hospitality_session,dsid_patient,dsid_doctor,dsdt_analysis_date,dss_egds,dsb_admission_analysis,dsid_parent,dss_parent_type) " +
+                                                              "VALUES(@HospitalitySession,@Patient,@Doctor,@AnalysisDate,@Egds,@AdmissionAnalysis,@Parent,@ParentType) RETURNING r_object_id";
+                    using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Parameters.AddWithValue("@HospitalitySession", obj.HospitalitySession);
+                        cmd.Parameters.AddWithValue("@Patient", obj.Patient);
+                        cmd.Parameters.AddWithValue("@Doctor", obj.Doctor);
+                        cmd.Parameters.AddWithValue("@AnalysisDate", obj.AnalysisDate);
+                        cmd.Parameters.AddWithValue("@Egds", obj.Egds == null ? "" : obj.Egds);
+                        cmd.Parameters.AddWithValue("@AdmissionAnalysis", obj.AdmissionAnalysis);
+                        cmd.Parameters.AddWithValue("@Parent", obj.Parent);
+                        cmd.Parameters.AddWithValue("@ParentType", obj.ParentType == null ? "" : obj.ParentType);
+                        return (string)cmd.ExecuteScalar();
+                    }
+                }
+            }
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Data.Common;
 using System.Collections.Generic;
 using Cardiology.Data.Model2;
 using Cardiology.Data.Commons;
+using System.Data;
 
 namespace Cardiology.Data.PostgreSQL
 {
@@ -143,8 +144,63 @@ namespace Cardiology.Data.PostgreSQL
 
         public string Save(DdtSpecialistConclusion obj)
         {
-            throw new NotImplementedException();
+            using (dynamic connection = connectionFactory.GetConnection())
+            {
+                if (GetById(obj.ObjectId) != null)
+                {
+                    string sql = "UPDATE ddt_specialist_conclusion SET " +
+                                          "dsid_hospitality_session = @HospitalitySession, " +
+                                        "dsid_patient = @Patient, " +
+                                        "dsid_doctor = @Doctor, " +
+                                        "dsdt_analysis_date = @AnalysisDate, " +
+                                        "dss_neurolog = @Neurolog, " +
+                                        "dss_surgeon = @Surgeon, " +
+                                        "dss_neuro_surgeon = @NeuroSurgeon, " +
+                                        "dss_endocrinologist = @Endocrinologist, " +
+                                        "dsid_parent = @Parent, " +
+                                        "dss_parent_type = @ParentType " +
+                                         "WHERE r_object_id = @ObjectId";
+                    using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Parameters.AddWithValue("@HospitalitySession", obj.HospitalitySession);
+                        cmd.Parameters.AddWithValue("@Patient", obj.Patient);
+                        cmd.Parameters.AddWithValue("@Doctor", obj.Doctor);
+                        cmd.Parameters.AddWithValue("@AnalysisDate", obj.AnalysisDate);
+                        cmd.Parameters.AddWithValue("@Neurolog", obj.Neurolog == null ? "" : obj.Neurolog);
+                        cmd.Parameters.AddWithValue("@Surgeon", obj.Surgeon == null ? "" : obj.Surgeon);
+                        cmd.Parameters.AddWithValue("@NeuroSurgeon", obj.NeuroSurgeon == null ? "" : obj.NeuroSurgeon);
+                        cmd.Parameters.AddWithValue("@Endocrinologist", obj.Endocrinologist == null ? "" : obj.Endocrinologist);
+                        cmd.Parameters.AddWithValue("@Parent", obj.Parent);
+                        cmd.Parameters.AddWithValue("@ParentType", obj.ParentType == null ? "" : obj.ParentType);
+                        cmd.Parameters.AddWithValue("@ObjectId", obj.ObjectId);
+                        cmd.ExecuteNonQuery();
+                    }
+                    return obj.ObjectId;
+                }
+                else
+                {
+                    string sql = "INSERT INTO ddt_specialist_conclusion(dsid_hospitality_session,dsid_patient,dsid_doctor,dsdt_analysis_date,dss_neurolog,dss_surgeon,dss_neuro_surgeon,dss_endocrinologist,dsid_parent,dss_parent_type) " +
+                                                              "VALUES(@HospitalitySession,@Patient,@Doctor,@AnalysisDate,@Neurolog,@Surgeon,@NeuroSurgeon,@Endocrinologist,@Parent,@ParentType) RETURNING r_object_id";
+                    using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Parameters.AddWithValue("@HospitalitySession", obj.HospitalitySession);
+                        cmd.Parameters.AddWithValue("@Patient", obj.Patient);
+                        cmd.Parameters.AddWithValue("@Doctor", obj.Doctor);
+                        cmd.Parameters.AddWithValue("@AnalysisDate", obj.AnalysisDate);
+                        cmd.Parameters.AddWithValue("@Neurolog", obj.Neurolog == null ? "" : obj.Neurolog);
+                        cmd.Parameters.AddWithValue("@Surgeon", obj.Surgeon == null ? "" : obj.Surgeon);
+                        cmd.Parameters.AddWithValue("@NeuroSurgeon", obj.NeuroSurgeon == null ? "" : obj.NeuroSurgeon);
+                        cmd.Parameters.AddWithValue("@Endocrinologist", obj.Endocrinologist == null ? "" : obj.Endocrinologist);
+                        cmd.Parameters.AddWithValue("@Parent", obj.Parent);
+                        cmd.Parameters.AddWithValue("@ParentType", obj.ParentType == null ? "" : obj.ParentType);
+                        return (string)cmd.ExecuteScalar();
+                    }
+                }
+            }
         }
+
 
     }
 }

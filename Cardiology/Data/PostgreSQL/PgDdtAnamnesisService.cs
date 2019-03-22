@@ -3,6 +3,7 @@ using System.Data.Common;
 using System.Collections.Generic;
 using Cardiology.Data.Model2;
 using Cardiology.Data.Commons;
+using System.Data;
 
 namespace Cardiology.Data.PostgreSQL
 {
@@ -214,7 +215,103 @@ namespace Cardiology.Data.PostgreSQL
 
         public string Save(DdtAnamnesis obj)
         {
-            throw new NotImplementedException();
+            using (dynamic connection = connectionFactory.GetConnection())
+            {
+                if (GetById(obj.ObjectId) != null)
+                {
+                    string sql = "UPDATE ddt_anamnesis SET " +
+                                        "dsid_hospitality_session = @HospitalitySession, " +
+                                        "dsid_patient = @Patient, " +
+                                        "dsid_doctor = @Doctor, " +
+                                        "dsdt_inspection_date = @InspectionDate, " +
+                                        "dss_complaints = @Complaints, " +
+                                        "dss_anamnesis_morbi = @AnamnesisMorbi, " +
+                                        "dss_anamnesis_vitae = @AnamnesisVitae, " +
+                                        "dss_anamnesis_allergy = @AnamnesisAllergy, " +
+                                        "dss_anamnesis_epid = @AnamnesisEpid, " +
+                                        "dss_past_surgeries = @PastSurgeries, " +
+                                        "dss_accompanying_illnesses = @AccompanyingIllnesses, " +
+                                        "dss_drugs_intoxication = @DrugsIntoxication, " +
+                                        "dss_st_presens = @StPresens, " +
+                                        "dss_respiratory_system = @RespiratorySystem, " +
+                                        "dss_cardiovascular_system = @CardiovascularSystem, " +
+                                        "dss_digestive_system = @DigestiveSystem, " +
+                                        "dss_urinary_system = @UrinarySystem, " +
+                                        "dss_nervous_system = @NervousSystem, " +
+                                        "dss_diagnosis_justification = @DiagnosisJustification, " +
+                                        "dss_operation_cause = @OperationCause, " +
+                                        "dss_template_name = @TemplateName, " +
+                                        "dsb_template = @Template, " +
+                                        "dss_diagnosis = @Diagnosis, " +
+                                        "dss_oks_st = @OksSt " +
+                                         "WHERE r_object_id = @ObjectId";
+                    using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Parameters.AddWithValue("@HospitalitySession", obj.HospitalitySession);
+                        cmd.Parameters.AddWithValue("@Patient", obj.Patient);
+                        cmd.Parameters.AddWithValue("@Doctor", obj.Doctor);
+                        cmd.Parameters.AddWithValue("@InspectionDate", obj.InspectionDate);
+                        cmd.Parameters.AddWithValue("@Complaints", obj.Complaints == null ? "" : obj.Complaints);
+                        cmd.Parameters.AddWithValue("@AnamnesisMorbi", obj.AnamnesisMorbi == null ? "" : obj.AnamnesisMorbi);
+                        cmd.Parameters.AddWithValue("@AnamnesisVitae", obj.AnamnesisVitae == null ? "" : obj.AnamnesisVitae);
+                        cmd.Parameters.AddWithValue("@AnamnesisAllergy", obj.AnamnesisAllergy == null ? "" : obj.AnamnesisAllergy);
+                        cmd.Parameters.AddWithValue("@AnamnesisEpid", obj.AnamnesisEpid == null ? "" : obj.AnamnesisEpid);
+                        cmd.Parameters.AddWithValue("@PastSurgeries", obj.PastSurgeries == null ? "" : obj.PastSurgeries);
+                        cmd.Parameters.AddWithValue("@AccompanyingIllnesses", obj.AccompanyingIllnesses == null ? "" : obj.AccompanyingIllnesses);
+                        cmd.Parameters.AddWithValue("@DrugsIntoxication", obj.DrugsIntoxication == null ? "" : obj.DrugsIntoxication);
+                        cmd.Parameters.AddWithValue("@StPresens", obj.StPresens == null ? "" : obj.StPresens);
+                        cmd.Parameters.AddWithValue("@RespiratorySystem", obj.RespiratorySystem == null ? "" : obj.RespiratorySystem);
+                        cmd.Parameters.AddWithValue("@CardiovascularSystem", obj.CardiovascularSystem == null ? "" : obj.CardiovascularSystem);
+                        cmd.Parameters.AddWithValue("@DigestiveSystem", obj.DigestiveSystem == null ? "" : obj.DigestiveSystem);
+                        cmd.Parameters.AddWithValue("@UrinarySystem", obj.UrinarySystem == null ? "" : obj.UrinarySystem);
+                        cmd.Parameters.AddWithValue("@NervousSystem", obj.NervousSystem == null ? "" : obj.NervousSystem);
+                        cmd.Parameters.AddWithValue("@DiagnosisJustification", obj.DiagnosisJustification == null ? "" : obj.DiagnosisJustification);
+                        cmd.Parameters.AddWithValue("@OperationCause", obj.OperationCause == null ? "" : obj.OperationCause);
+                        cmd.Parameters.AddWithValue("@TemplateName", obj.TemplateName == null ? "" : obj.TemplateName);
+                        cmd.Parameters.AddWithValue("@Template", obj.Template);
+                        cmd.Parameters.AddWithValue("@Diagnosis", obj.Diagnosis == null ? "" : obj.Diagnosis);
+                        cmd.Parameters.AddWithValue("@OksSt", obj.OksSt == null ? "" : obj.OksSt);
+                        cmd.Parameters.AddWithValue("@ObjectId", obj.ObjectId);
+                        cmd.ExecuteNonQuery();
+                    }
+                    return obj.ObjectId;
+                }
+                else
+                {
+                    string sql = "INSERT INTO ddt_anamnesis(dsid_hospitality_session,dsid_patient,dsid_doctor,dsdt_inspection_date,dss_complaints,dss_anamnesis_morbi,dss_anamnesis_vitae,dss_anamnesis_allergy,dss_anamnesis_epid,dss_past_surgeries,dss_accompanying_illnesses,dss_drugs_intoxication,dss_st_presens,dss_respiratory_system,dss_cardiovascular_system,dss_digestive_system,dss_urinary_system,dss_nervous_system,dss_diagnosis_justification,dss_operation_cause,dss_template_name,dsb_template,dss_diagnosis,dss_oks_st) " +
+                                                              "VALUES(@HospitalitySession,@Patient,@Doctor,@InspectionDate,@Complaints,@AnamnesisMorbi,@AnamnesisVitae,@AnamnesisAllergy,@AnamnesisEpid,@PastSurgeries,@AccompanyingIllnesses,@DrugsIntoxication,@StPresens,@RespiratorySystem,@CardiovascularSystem,@DigestiveSystem,@UrinarySystem,@NervousSystem,@DiagnosisJustification,@OperationCause,@TemplateName,@Template,@Diagnosis,@OksSt) RETURNING r_object_id";
+                    using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Parameters.AddWithValue("@HospitalitySession", obj.HospitalitySession);
+                        cmd.Parameters.AddWithValue("@Patient", obj.Patient);
+                        cmd.Parameters.AddWithValue("@Doctor", obj.Doctor);
+                        cmd.Parameters.AddWithValue("@InspectionDate", obj.InspectionDate);
+                        cmd.Parameters.AddWithValue("@Complaints", obj.Complaints == null ? "" : obj.Complaints);
+                        cmd.Parameters.AddWithValue("@AnamnesisMorbi", obj.AnamnesisMorbi == null ? "" : obj.AnamnesisMorbi);
+                        cmd.Parameters.AddWithValue("@AnamnesisVitae", obj.AnamnesisVitae == null ? "" : obj.AnamnesisVitae);
+                        cmd.Parameters.AddWithValue("@AnamnesisAllergy", obj.AnamnesisAllergy == null ? "" : obj.AnamnesisAllergy);
+                        cmd.Parameters.AddWithValue("@AnamnesisEpid", obj.AnamnesisEpid == null ? "" : obj.AnamnesisEpid);
+                        cmd.Parameters.AddWithValue("@PastSurgeries", obj.PastSurgeries == null ? "" : obj.PastSurgeries);
+                        cmd.Parameters.AddWithValue("@AccompanyingIllnesses", obj.AccompanyingIllnesses == null ? "" : obj.AccompanyingIllnesses);
+                        cmd.Parameters.AddWithValue("@DrugsIntoxication", obj.DrugsIntoxication == null ? "" : obj.DrugsIntoxication);
+                        cmd.Parameters.AddWithValue("@StPresens", obj.StPresens == null ? "" : obj.StPresens);
+                        cmd.Parameters.AddWithValue("@RespiratorySystem", obj.RespiratorySystem == null ? "" : obj.RespiratorySystem);
+                        cmd.Parameters.AddWithValue("@CardiovascularSystem", obj.CardiovascularSystem == null ? "" : obj.CardiovascularSystem);
+                        cmd.Parameters.AddWithValue("@DigestiveSystem", obj.DigestiveSystem == null ? "" : obj.DigestiveSystem);
+                        cmd.Parameters.AddWithValue("@UrinarySystem", obj.UrinarySystem == null ? "" : obj.UrinarySystem);
+                        cmd.Parameters.AddWithValue("@NervousSystem", obj.NervousSystem == null ? "" : obj.NervousSystem);
+                        cmd.Parameters.AddWithValue("@DiagnosisJustification", obj.DiagnosisJustification == null ? "" : obj.DiagnosisJustification);
+                        cmd.Parameters.AddWithValue("@OperationCause", obj.OperationCause == null ? "" : obj.OperationCause);
+                        cmd.Parameters.AddWithValue("@TemplateName", obj.TemplateName == null ? "" : obj.TemplateName);
+                        cmd.Parameters.AddWithValue("@Template", obj.Template);
+                        cmd.Parameters.AddWithValue("@Diagnosis", obj.Diagnosis == null ? "" : obj.Diagnosis);
+                        cmd.Parameters.AddWithValue("@OksSt", obj.OksSt == null ? "" : obj.OksSt);
+                        return (string)cmd.ExecuteScalar();
+                    }
+                }
+            }
         }
     }
 }

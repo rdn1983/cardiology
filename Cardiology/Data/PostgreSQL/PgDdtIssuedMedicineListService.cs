@@ -3,6 +3,7 @@ using System.Data.Common;
 using System.Collections.Generic;
 using Cardiology.Data.Model2;
 using Cardiology.Data.Commons;
+using System.Data;
 
 namespace Cardiology.Data.PostgreSQL
 {
@@ -88,18 +89,6 @@ namespace Cardiology.Data.PostgreSQL
             return null;
         }
 
-        public string Save(DdtIssuedMedicineList obj)
-        {
-            if (string.IsNullOrEmpty(obj.ObjectId))
-            {
-                throw new NotImplementedException();
-            }
-            else
-            {
-                throw new NotImplementedException();
-            }
-        }
-
         public DdtIssuedMedicineList GetListByHospitalIdAndParentType(string parentType, string hospitalSession)
         {
             using (dynamic connection = connectionFactory.GetConnection())
@@ -173,5 +162,74 @@ namespace Cardiology.Data.PostgreSQL
             }
             return null;
         }
+
+        public string Save(DdtIssuedMedicineList obj)
+        {
+            using (dynamic connection = connectionFactory.GetConnection())
+            {
+                if (GetById(obj.ObjectId) != null)
+                {
+                    string sql = "UPDATE ddt_issued_medicine_list SET " +
+                                          "dsid_doctor = @Doctor, " +
+                                        "dsid_patient = @Patient, " +
+                                        "dsid_hospitality_session = @HospitalitySession, " +
+                                        "dsdt_issuing_date = @IssuingDate, " +
+                                        "dsid_parent_id = @ParentId, " +
+                                        "dss_parent_type = @ParentType, " +
+                                        "dss_diagnosis = @Diagnosis, " +
+                                        "dss_has_kag = @HasKag, " +
+                                        "dsb_skip_print = @SkipPrint, " +
+                                        "dsid_pharmacologist = @Pharmacologist, " +
+                                        "dsid_nurse = @Nurse, " +
+                                        "dsid_director = @Director, " +
+                                        "dss_template_name = @TemplateName " +
+                                         "WHERE r_object_id = @ObjectId";
+                    using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Parameters.AddWithValue("@Doctor", obj.Doctor);
+                        cmd.Parameters.AddWithValue("@Patient", obj.Patient);
+                        cmd.Parameters.AddWithValue("@HospitalitySession", obj.HospitalitySession);
+                        cmd.Parameters.AddWithValue("@IssuingDate", obj.IssuingDate);
+                        cmd.Parameters.AddWithValue("@ParentId", obj.ParentId);
+                        cmd.Parameters.AddWithValue("@ParentType", obj.ParentType == null ? "" : obj.ParentType);
+                        cmd.Parameters.AddWithValue("@Diagnosis", obj.Diagnosis == null ? "" : obj.Diagnosis);
+                        cmd.Parameters.AddWithValue("@HasKag", obj.HasKag == null ? "" : obj.HasKag);
+                        cmd.Parameters.AddWithValue("@SkipPrint", obj.SkipPrint);
+                        cmd.Parameters.AddWithValue("@Pharmacologist", obj.Pharmacologist);
+                        cmd.Parameters.AddWithValue("@Nurse", obj.Nurse);
+                        cmd.Parameters.AddWithValue("@Director", obj.Director);
+                        cmd.Parameters.AddWithValue("@TemplateName", obj.TemplateName == null ? "" : obj.TemplateName);
+                        cmd.Parameters.AddWithValue("@ObjectId", obj.ObjectId);
+                        cmd.ExecuteNonQuery();
+                    }
+                    return obj.ObjectId;
+                }
+                else
+                {
+                    string sql = "INSERT INTO ddt_issued_medicine_list(dsid_doctor,dsid_patient,dsid_hospitality_session,dsdt_issuing_date,dsid_parent_id,dss_parent_type,dss_diagnosis,dss_has_kag,dsb_skip_print,dsid_pharmacologist,dsid_nurse,dsid_director,dss_template_name) " +
+                                                              "VALUES(@Doctor,@Patient,@HospitalitySession,@IssuingDate,@ParentId,@ParentType,@Diagnosis,@HasKag,@SkipPrint,@Pharmacologist,@Nurse,@Director,@TemplateName) RETURNING r_object_id";
+                    using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Parameters.AddWithValue("@Doctor", obj.Doctor);
+                        cmd.Parameters.AddWithValue("@Patient", obj.Patient);
+                        cmd.Parameters.AddWithValue("@HospitalitySession", obj.HospitalitySession);
+                        cmd.Parameters.AddWithValue("@IssuingDate", obj.IssuingDate);
+                        cmd.Parameters.AddWithValue("@ParentId", obj.ParentId);
+                        cmd.Parameters.AddWithValue("@ParentType", obj.ParentType == null ? "" : obj.ParentType);
+                        cmd.Parameters.AddWithValue("@Diagnosis", obj.Diagnosis == null ? "" : obj.Diagnosis);
+                        cmd.Parameters.AddWithValue("@HasKag", obj.HasKag == null ? "" : obj.HasKag);
+                        cmd.Parameters.AddWithValue("@SkipPrint", obj.SkipPrint);
+                        cmd.Parameters.AddWithValue("@Pharmacologist", obj.Pharmacologist);
+                        cmd.Parameters.AddWithValue("@Nurse", obj.Nurse);
+                        cmd.Parameters.AddWithValue("@Director", obj.Director);
+                        cmd.Parameters.AddWithValue("@TemplateName", obj.TemplateName == null ? "" : obj.TemplateName);
+                        return (string)cmd.ExecuteScalar();
+                    }
+                }
+            }
+        }
+
     }
 }

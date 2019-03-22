@@ -3,6 +3,7 @@ using System.Data.Common;
 using System.Collections.Generic;
 using Cardiology.Data.Model2;
 using Cardiology.Data.Commons;
+using System.Data;
 
 namespace Cardiology.Data.PostgreSQL
 {
@@ -146,7 +147,65 @@ namespace Cardiology.Data.PostgreSQL
 
         public string Save(DdtKag obj)
         {
-            throw new NotImplementedException();
+            using (dynamic connection = connectionFactory.GetConnection())
+            {
+                if (GetById(obj.ObjectId) != null)
+                {
+                    string sql = "UPDATE ddt_kag SET " +
+                                          "dsid_hospitality_session = @HospitalitySession, " +
+                                            "dsid_patient = @Patient, " +
+                                            "dsid_doctor = @Doctor, " +
+                                            "dsdt_analysis_date = @AnalysisDate, " +
+                                            "dss_results = @Results, " +
+                                            "dsdt_start_time = @StartTime, " +
+                                            "dsdt_end_time = @EndTime, " +
+                                            "dss_kag_manipulation = @KagManipulation, " +
+                                            "dss_kag_action = @KagAction, " +
+                                            "dsid_parent = @Parent, " +
+                                            "dss_parent_type = @ParentType " +
+                                             "WHERE r_object_id = @ObjectId";
+                    using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Parameters.AddWithValue("@HospitalitySession", obj.HospitalitySession);
+                        cmd.Parameters.AddWithValue("@Patient", obj.Patient);
+                        cmd.Parameters.AddWithValue("@Doctor", obj.Doctor);
+                        cmd.Parameters.AddWithValue("@AnalysisDate", obj.AnalysisDate);
+                        cmd.Parameters.AddWithValue("@Results", obj.Results == null ? "" : obj.Results);
+                        cmd.Parameters.AddWithValue("@StartTime", obj.StartTime);
+                        cmd.Parameters.AddWithValue("@EndTime", obj.EndTime);
+                        cmd.Parameters.AddWithValue("@KagManipulation", obj.KagManipulation == null ? "" : obj.KagManipulation);
+                        cmd.Parameters.AddWithValue("@KagAction", obj.KagAction == null ? "" : obj.KagAction);
+                        cmd.Parameters.AddWithValue("@Parent", obj.Parent);
+                        cmd.Parameters.AddWithValue("@ParentType", obj.ParentType == null ? "" : obj.ParentType);
+                        cmd.Parameters.AddWithValue("@ObjectId", obj.ObjectId);
+                        cmd.ExecuteNonQuery();
+                    }
+                    return obj.ObjectId;
+                }
+                else
+                {
+                    string sql = "INSERT INTO ddt_kag(dsid_hospitality_session,dsid_patient,dsid_doctor,dsdt_analysis_date,dss_results,dsdt_start_time,dsdt_end_time,dss_kag_manipulation,dss_kag_action,dsid_parent,dss_parent_type) " +
+                                                              "VALUES(@HospitalitySession,@Patient,@Doctor,@AnalysisDate,@Results,@StartTime,@EndTime,@KagManipulation,@KagAction,@Parent,@ParentType) RETURNING r_object_id";
+                    using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Parameters.AddWithValue("@HospitalitySession", obj.HospitalitySession);
+                        cmd.Parameters.AddWithValue("@Patient", obj.Patient);
+                        cmd.Parameters.AddWithValue("@Doctor", obj.Doctor);
+                        cmd.Parameters.AddWithValue("@AnalysisDate", obj.AnalysisDate);
+                        cmd.Parameters.AddWithValue("@Results", obj.Results == null ? "" : obj.Results);
+                        cmd.Parameters.AddWithValue("@StartTime", obj.StartTime);
+                        cmd.Parameters.AddWithValue("@EndTime", obj.EndTime);
+                        cmd.Parameters.AddWithValue("@KagManipulation", obj.KagManipulation == null ? "" : obj.KagManipulation);
+                        cmd.Parameters.AddWithValue("@KagAction", obj.KagAction == null ? "" : obj.KagAction);
+                        cmd.Parameters.AddWithValue("@Parent", obj.Parent);
+                        cmd.Parameters.AddWithValue("@ParentType", obj.ParentType == null ? "" : obj.ParentType);
+                        return (string)cmd.ExecuteScalar();
+                    }
+                }
+            }
         }
+
     }
 }

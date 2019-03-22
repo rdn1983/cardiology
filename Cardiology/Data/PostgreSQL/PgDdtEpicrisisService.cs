@@ -3,6 +3,7 @@ using System.Data.Common;
 using System.Collections.Generic;
 using Cardiology.Data.Model2;
 using Cardiology.Data.Commons;
+using System.Data;
 
 namespace Cardiology.Data.PostgreSQL
 {
@@ -72,7 +73,50 @@ namespace Cardiology.Data.PostgreSQL
 
         public string Save(DdtEpicrisis obj)
         {
-            throw new NotImplementedException();
+            using (dynamic connection = connectionFactory.GetConnection())
+            {
+                if (GetById(obj.ObjectId) != null)
+                {
+                    string sql = "UPDATE ddt_epicrisis SET " +
+                                          "dsid_hospitality_session = @HospitalitySession, " +
+                                        "dsid_patient = @Patient, " +
+                                        "dsid_doctor = @Doctor, " +
+                                        "dsdt_epicrisis_date = @EpicrisisDate, " +
+                                        "dss_diagnosis = @Diagnosis, " +
+                                        "dsi_epicrisis_type = @EpicrisisType " +
+                                         "WHERE r_object_id = @ObjectId";
+                    using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Parameters.AddWithValue("@HospitalitySession", obj.HospitalitySession);
+                        cmd.Parameters.AddWithValue("@Patient", obj.Patient);
+                        cmd.Parameters.AddWithValue("@Doctor", obj.Doctor);
+                        cmd.Parameters.AddWithValue("@EpicrisisDate", obj.EpicrisisDate);
+                        cmd.Parameters.AddWithValue("@Diagnosis", obj.Diagnosis == null ? "" : obj.Diagnosis);
+                        cmd.Parameters.AddWithValue("@EpicrisisType", obj.EpicrisisType);
+                        cmd.Parameters.AddWithValue("@ObjectId", obj.ObjectId);
+                        cmd.ExecuteNonQuery();
+                    }
+                    return obj.ObjectId;
+                }
+                else
+                {
+                    string sql = "INSERT INTO ddt_epicrisis(dsid_hospitality_session,dsid_patient,dsid_doctor,dsdt_epicrisis_date,dss_diagnosis,dsi_epicrisis_type) " +
+                                                              "VALUES(@HospitalitySession,@Patient,@Doctor,@EpicrisisDate,@Diagnosis,@EpicrisisType) RETURNING r_object_id";
+                    using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Parameters.AddWithValue("@HospitalitySession", obj.HospitalitySession);
+                        cmd.Parameters.AddWithValue("@Patient", obj.Patient);
+                        cmd.Parameters.AddWithValue("@Doctor", obj.Doctor);
+                        cmd.Parameters.AddWithValue("@EpicrisisDate", obj.EpicrisisDate);
+                        cmd.Parameters.AddWithValue("@Diagnosis", obj.Diagnosis == null ? "" : obj.Diagnosis);
+                        cmd.Parameters.AddWithValue("@EpicrisisType", obj.EpicrisisType);
+                        return (string)cmd.ExecuteScalar();
+                    }
+                }
+            }
         }
+
     }
 }

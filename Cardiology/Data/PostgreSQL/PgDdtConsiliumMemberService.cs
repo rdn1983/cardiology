@@ -3,6 +3,7 @@ using System.Data.Common;
 using System.Collections.Generic;
 using Cardiology.Data.Model2;
 using Cardiology.Data.Commons;
+using System.Data;
 
 namespace Cardiology.Data.PostgreSQL
 {
@@ -111,7 +112,39 @@ namespace Cardiology.Data.PostgreSQL
 
         public string Save(DdtConsiliumMember obj)
         {
-            throw new NotImplementedException();
+            using (dynamic connection = connectionFactory.GetConnection())
+            {
+                if (GetById(obj.ObjectId) != null)
+                {
+                    string sql = "UPDATE ddt_consilium_member SET " +
+                                          "dsid_consilium = @Consilium, " +
+                                            "dsid_doctor = @Doctor " +
+                                             "WHERE r_object_id = @ObjectId";
+                    using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Parameters.AddWithValue("@Consilium", obj.Consilium);
+                        cmd.Parameters.AddWithValue("@Doctor", obj.Doctor);
+                        cmd.Parameters.AddWithValue("@ObjectId", obj.ObjectId);
+                        cmd.ExecuteNonQuery();
+                    }
+                    return obj.ObjectId;
+                }
+                else
+                {
+                    string sql = "INSERT INTO ddt_consilium_member(dsid_consilium,dsid_doctor) " +
+                                                              "VALUES(@Consilium,@Doctor) RETURNING r_object_id";
+                    using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Parameters.AddWithValue("@Consilium", obj.Consilium);
+                        cmd.Parameters.AddWithValue("@Doctor", obj.Doctor);
+                        return (string)cmd.ExecuteScalar();
+                    }
+                }
+            }
         }
+
+
     }
 }

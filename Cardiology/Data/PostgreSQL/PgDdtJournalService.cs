@@ -3,6 +3,7 @@ using System.Data.Common;
 using System.Collections.Generic;
 using Cardiology.Data.Model2;
 using Cardiology.Data.Commons;
+using System.Data;
 
 namespace Cardiology.Data.PostgreSQL
 {
@@ -217,7 +218,89 @@ namespace Cardiology.Data.PostgreSQL
 
         public string Save(DdtJournal obj)
         {
-            throw new NotImplementedException();
+            using (dynamic connection = connectionFactory.GetConnection())
+            {
+                if (GetById(obj.ObjectId) != null)
+                {
+                    string sql = "UPDATE ddt_journal SET " +
+                                          "dsid_hospitality_session = @HospitalitySession, " +
+                                        "dsid_patient = @Patient, " +
+                                        "dsdt_admission_date = @AdmissionDate, " +
+                                        "dsid_doctor = @Doctor, " +
+                                        "dss_complaints = @Complaints, " +
+                                        "dss_chdd = @Chdd, " +
+                                        "dss_chss = @Chss, " +
+                                        "dss_ps = @Ps, " +
+                                        "dss_ad = @Ad, " +
+                                        "dss_monitor = @Monitor, " +
+                                        "dss_rhythm = @Rhythm, " +
+                                        "dsb_good_rhythm = @GoodRhythm, " +
+                                        "dss_surgeon_exam = @SurgeonExam, " +
+                                        "dss_cardio_exam = @CardioExam, " +
+                                        "dss_ekg = @Ekg, " +
+                                        "dss_journal = @Journal, " +
+                                        "dsi_journal_type = @JournalType, " +
+                                        "dsb_release_journal = @ReleaseJournal, " +
+                                        "dss_diagnosis = @Diagnosis " +
+                                         "WHERE r_object_id = @ObjectId";
+                    using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Parameters.AddWithValue("@HospitalitySession", obj.HospitalitySession);
+                        cmd.Parameters.AddWithValue("@Patient", obj.Patient);
+                        cmd.Parameters.AddWithValue("@AdmissionDate", obj.AdmissionDate);
+                        cmd.Parameters.AddWithValue("@Doctor", obj.Doctor);
+                        cmd.Parameters.AddWithValue("@Complaints", obj.Complaints == null ? "" : obj.Complaints);
+                        cmd.Parameters.AddWithValue("@Chdd", obj.Chdd == null ? "" : obj.Chdd);
+                        cmd.Parameters.AddWithValue("@Chss", obj.Chss == null ? "" : obj.Chss);
+                        cmd.Parameters.AddWithValue("@Ps", obj.Ps == null ? "" : obj.Ps);
+                        cmd.Parameters.AddWithValue("@Ad", obj.Ad == null ? "" : obj.Ad);
+                        cmd.Parameters.AddWithValue("@Monitor", obj.Monitor == null ? "" : obj.Monitor);
+                        cmd.Parameters.AddWithValue("@Rhythm", obj.Rhythm == null ? "" : obj.Rhythm);
+                        cmd.Parameters.AddWithValue("@GoodRhythm", obj.GoodRhythm);
+                        cmd.Parameters.AddWithValue("@SurgeonExam", obj.SurgeonExam == null ? "" : obj.SurgeonExam);
+                        cmd.Parameters.AddWithValue("@CardioExam", obj.CardioExam == null ? "" : obj.CardioExam);
+                        cmd.Parameters.AddWithValue("@Ekg", obj.Ekg == null ? "" : obj.Ekg);
+                        cmd.Parameters.AddWithValue("@Journal", obj.Journal == null ? "" : obj.Journal);
+                        cmd.Parameters.AddWithValue("@JournalType", obj.JournalType);
+                        cmd.Parameters.AddWithValue("@ReleaseJournal", obj.ReleaseJournal);
+                        cmd.Parameters.AddWithValue("@Diagnosis", obj.Diagnosis == null ? "" : obj.Diagnosis);
+                        cmd.Parameters.AddWithValue("@ObjectId", obj.ObjectId);
+                        cmd.ExecuteNonQuery();
+                    }
+                    return obj.ObjectId;
+                }
+                else
+                {
+                    string sql = "INSERT INTO ddt_journal(dsid_hospitality_session,dsid_patient,dsdt_admission_date,dsid_doctor,dss_complaints,dss_chdd,dss_chss,dss_ps,dss_ad,dss_monitor,dss_rhythm,dsb_good_rhythm,dss_surgeon_exam,dss_cardio_exam,dss_ekg,dss_journal,dsi_journal_type,dsb_release_journal,dss_diagnosis) " +
+                                                              "VALUES(@HospitalitySession,@Patient,@AdmissionDate,@Doctor,@Complaints,@Chdd,@Chss,@Ps,@Ad,@Monitor,@Rhythm,@GoodRhythm,@SurgeonExam,@CardioExam,@Ekg,@Journal,@JournalType,@ReleaseJournal,@Diagnosis) RETURNING r_object_id";
+                    using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Parameters.AddWithValue("@HospitalitySession", obj.HospitalitySession);
+                        cmd.Parameters.AddWithValue("@Patient", obj.Patient);
+                        cmd.Parameters.AddWithValue("@AdmissionDate", obj.AdmissionDate);
+                        cmd.Parameters.AddWithValue("@Doctor", obj.Doctor);
+                        cmd.Parameters.AddWithValue("@Complaints", obj.Complaints == null ? "" : obj.Complaints);
+                        cmd.Parameters.AddWithValue("@Chdd", obj.Chdd == null ? "" : obj.Chdd);
+                        cmd.Parameters.AddWithValue("@Chss", obj.Chss == null ? "" : obj.Chss);
+                        cmd.Parameters.AddWithValue("@Ps", obj.Ps == null ? "" : obj.Ps);
+                        cmd.Parameters.AddWithValue("@Ad", obj.Ad == null ? "" : obj.Ad);
+                        cmd.Parameters.AddWithValue("@Monitor", obj.Monitor == null ? "" : obj.Monitor);
+                        cmd.Parameters.AddWithValue("@Rhythm", obj.Rhythm == null ? "" : obj.Rhythm);
+                        cmd.Parameters.AddWithValue("@GoodRhythm", obj.GoodRhythm);
+                        cmd.Parameters.AddWithValue("@SurgeonExam", obj.SurgeonExam == null ? "" : obj.SurgeonExam);
+                        cmd.Parameters.AddWithValue("@CardioExam", obj.CardioExam == null ? "" : obj.CardioExam);
+                        cmd.Parameters.AddWithValue("@Ekg", obj.Ekg == null ? "" : obj.Ekg);
+                        cmd.Parameters.AddWithValue("@Journal", obj.Journal == null ? "" : obj.Journal);
+                        cmd.Parameters.AddWithValue("@JournalType", obj.JournalType);
+                        cmd.Parameters.AddWithValue("@ReleaseJournal", obj.ReleaseJournal);
+                        cmd.Parameters.AddWithValue("@Diagnosis", obj.Diagnosis == null ? "" : obj.Diagnosis);
+                        return (string)cmd.ExecuteScalar();
+                    }
+                }
+            }
         }
+
     }
 }

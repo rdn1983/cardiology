@@ -3,6 +3,7 @@ using System.Data.Common;
 using System.Collections.Generic;
 using Cardiology.Data.Model2;
 using Cardiology.Data.Commons;
+using System.Data;
 
 namespace Cardiology.Data.PostgreSQL
 {
@@ -151,7 +152,68 @@ namespace Cardiology.Data.PostgreSQL
 
         public string Save(DdtXRay obj)
         {
-            throw new NotImplementedException();
+            using (dynamic connection = connectionFactory.GetConnection())
+            {
+                if (GetById(obj.ObjectId) != null)
+                {
+                    string sql = "UPDATE ddt_xray SET " +
+                                          "dsid_hospitality_session = @HospitalitySession, " +
+                                            "dsid_patient = @Patient, " +
+                                            "dsid_doctor = @Doctor, " +
+                                            "dsdt_analysis_date = @AnalysisDate, " +
+                                            "dss_chest_xray = @ChestXray, " +
+                                            "dss_control_radiography = @ControlRadiography, " +
+                                            "dss_mskt = @Mskt, " +
+                                            "dss_kt = @Kt, " +
+                                            "dss_mrt = @Mrt, " +
+                                            "dsdt_kt_date = @KtDate, " +
+                                            "dsid_parent = @Parent, " +
+                                            "dss_parent_type = @ParentType " +
+                                             "WHERE r_object_id = @ObjectId";
+                    using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Parameters.AddWithValue("@HospitalitySession", obj.HospitalitySession);
+                        cmd.Parameters.AddWithValue("@Patient", obj.Patient);
+                        cmd.Parameters.AddWithValue("@Doctor", obj.Doctor);
+                        cmd.Parameters.AddWithValue("@AnalysisDate", obj.AnalysisDate);
+                        cmd.Parameters.AddWithValue("@ChestXray", obj.ChestXray == null ? "" : obj.ChestXray);
+                        cmd.Parameters.AddWithValue("@ControlRadiography", obj.ControlRadiography == null ? "" : obj.ControlRadiography);
+                        cmd.Parameters.AddWithValue("@Mskt", obj.Mskt == null ? "" : obj.Mskt);
+                        cmd.Parameters.AddWithValue("@Kt", obj.Kt == null ? "" : obj.Kt);
+                        cmd.Parameters.AddWithValue("@Mrt", obj.Mrt == null ? "" : obj.Mrt);
+                        cmd.Parameters.AddWithValue("@KtDate", obj.KtDate);
+                        cmd.Parameters.AddWithValue("@Parent", obj.Parent);
+                        cmd.Parameters.AddWithValue("@ParentType", obj.ParentType == null ? "" : obj.ParentType);
+                        cmd.Parameters.AddWithValue("@ObjectId", obj.ObjectId);
+                        cmd.ExecuteNonQuery();
+                    }
+                    return obj.ObjectId;
+                }
+                else
+                {
+                    string sql = "INSERT INTO ddt_xray(dsid_hospitality_session,dsid_patient,dsid_doctor,dsdt_analysis_date,dss_chest_xray,dss_control_radiography,dss_mskt,dss_kt,dss_mrt,dsdt_kt_date,dsid_parent,dss_parent_type) " +
+                                                              "VALUES(@HospitalitySession,@Patient,@Doctor,@AnalysisDate,@ChestXray,@ControlRadiography,@Mskt,@Kt,@Mrt,@KtDate,@Parent,@ParentType) RETURNING r_object_id";
+                    using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Parameters.AddWithValue("@HospitalitySession", obj.HospitalitySession);
+                        cmd.Parameters.AddWithValue("@Patient", obj.Patient);
+                        cmd.Parameters.AddWithValue("@Doctor", obj.Doctor);
+                        cmd.Parameters.AddWithValue("@AnalysisDate", obj.AnalysisDate);
+                        cmd.Parameters.AddWithValue("@ChestXray", obj.ChestXray == null ? "" : obj.ChestXray);
+                        cmd.Parameters.AddWithValue("@ControlRadiography", obj.ControlRadiography == null ? "" : obj.ControlRadiography);
+                        cmd.Parameters.AddWithValue("@Mskt", obj.Mskt == null ? "" : obj.Mskt);
+                        cmd.Parameters.AddWithValue("@Kt", obj.Kt == null ? "" : obj.Kt);
+                        cmd.Parameters.AddWithValue("@Mrt", obj.Mrt == null ? "" : obj.Mrt);
+                        cmd.Parameters.AddWithValue("@KtDate", obj.KtDate);
+                        cmd.Parameters.AddWithValue("@Parent", obj.Parent);
+                        cmd.Parameters.AddWithValue("@ParentType", obj.ParentType == null ? "" : obj.ParentType);
+                        return (string)cmd.ExecuteScalar();
+                    }
+                }
+            }
         }
+
     }
 }

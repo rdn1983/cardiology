@@ -3,6 +3,7 @@ using System.Data.Common;
 using System.Collections.Generic;
 using Cardiology.Data.Model2;
 using Cardiology.Data.Commons;
+using System.Data;
 
 namespace Cardiology.Data.PostgreSQL
 {
@@ -130,7 +131,80 @@ namespace Cardiology.Data.PostgreSQL
 
         public string Save(DdtUrineAnalysis obj)
         {
-            throw new NotImplementedException();
+            using (dynamic connection = connectionFactory.GetConnection())
+            {
+                if (GetById(obj.ObjectId) != null)
+                {
+                    string sql = "UPDATE ddt_urine_analysis SET " +
+                                          "dsid_hospitality_session = @HospitalitySession, " +
+                                        "dsid_patient = @Patient, " +
+                                        "dsid_doctor = @Doctor, " +
+                                        "dsdt_analysis_date = @AnalysisDate, " +
+                                        "dss_color = @Color, " +
+                                        "dss_acidity = @Acidity, " +
+                                        "dss_specific_gravity = @SpecificGravity, " +
+                                        "dss_leukocytes = @Leukocytes, " +
+                                        "dss_erythrocytes = @Erythrocytes, " +
+                                        "dss_glucose = @Glucose, " +
+                                        "dss_protein = @Protein, " +
+                                        "dss_ketones = @Ketones, " +
+                                        "dsb_admission_analysis = @AdmissionAnalysis, " +
+                                        "dsb_discharge_analysis = @DischargeAnalysis, " +
+                                        "dsid_parent = @Parent, " +
+                                        "dss_parent_type = @ParentType " +
+                                         "WHERE r_object_id = @ObjectId";
+                    using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Parameters.AddWithValue("@HospitalitySession", obj.HospitalitySession);
+                        cmd.Parameters.AddWithValue("@Patient", obj.Patient);
+                        cmd.Parameters.AddWithValue("@Doctor", obj.Doctor);
+                        cmd.Parameters.AddWithValue("@AnalysisDate", obj.AnalysisDate);
+                        cmd.Parameters.AddWithValue("@Color", obj.Color == null ? "" : obj.Color);
+                        cmd.Parameters.AddWithValue("@Acidity", obj.Acidity == null ? "" : obj.Acidity);
+                        cmd.Parameters.AddWithValue("@SpecificGravity", obj.SpecificGravity == null ? "" : obj.SpecificGravity);
+                        cmd.Parameters.AddWithValue("@Leukocytes", obj.Leukocytes == null ? "" : obj.Leukocytes);
+                        cmd.Parameters.AddWithValue("@Erythrocytes", obj.Erythrocytes == null ? "" : obj.Erythrocytes);
+                        cmd.Parameters.AddWithValue("@Glucose", obj.Glucose == null ? "" : obj.Glucose);
+                        cmd.Parameters.AddWithValue("@Protein", obj.Protein == null ? "" : obj.Protein);
+                        cmd.Parameters.AddWithValue("@Ketones", obj.Ketones == null ? "" : obj.Ketones);
+                        cmd.Parameters.AddWithValue("@AdmissionAnalysis", obj.AdmissionAnalysis);
+                        cmd.Parameters.AddWithValue("@DischargeAnalysis", obj.DischargeAnalysis);
+                        cmd.Parameters.AddWithValue("@Parent", obj.Parent);
+                        cmd.Parameters.AddWithValue("@ParentType", obj.ParentType == null ? "" : obj.ParentType);
+                        cmd.Parameters.AddWithValue("@ObjectId", obj.ObjectId);
+                        cmd.ExecuteNonQuery();
+                    }
+                    return obj.ObjectId;
+                }
+                else
+                {
+                    string sql = "INSERT INTO ddt_urine_analysis(dsid_hospitality_session,dsid_patient,dsid_doctor,dsdt_analysis_date,dss_color,dss_acidity,dss_specific_gravity,dss_leukocytes,dss_erythrocytes,dss_glucose,dss_protein,dss_ketones,dsb_admission_analysis,dsb_discharge_analysis,dsid_parent,dss_parent_type) " +
+                                                              "VALUES(@HospitalitySession,@Patient,@Doctor,@AnalysisDate,@Color,@Acidity,@SpecificGravity,@Leukocytes,@Erythrocytes,@Glucose,@Protein,@Ketones,@AdmissionAnalysis,@DischargeAnalysis,@Parent,@ParentType) RETURNING r_object_id";
+                    using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Parameters.AddWithValue("@HospitalitySession", obj.HospitalitySession);
+                        cmd.Parameters.AddWithValue("@Patient", obj.Patient);
+                        cmd.Parameters.AddWithValue("@Doctor", obj.Doctor);
+                        cmd.Parameters.AddWithValue("@AnalysisDate", obj.AnalysisDate);
+                        cmd.Parameters.AddWithValue("@Color", obj.Color == null ? "" : obj.Color);
+                        cmd.Parameters.AddWithValue("@Acidity", obj.Acidity == null ? "" : obj.Acidity);
+                        cmd.Parameters.AddWithValue("@SpecificGravity", obj.SpecificGravity == null ? "" : obj.SpecificGravity);
+                        cmd.Parameters.AddWithValue("@Leukocytes", obj.Leukocytes == null ? "" : obj.Leukocytes);
+                        cmd.Parameters.AddWithValue("@Erythrocytes", obj.Erythrocytes == null ? "" : obj.Erythrocytes);
+                        cmd.Parameters.AddWithValue("@Glucose", obj.Glucose == null ? "" : obj.Glucose);
+                        cmd.Parameters.AddWithValue("@Protein", obj.Protein == null ? "" : obj.Protein);
+                        cmd.Parameters.AddWithValue("@Ketones", obj.Ketones == null ? "" : obj.Ketones);
+                        cmd.Parameters.AddWithValue("@AdmissionAnalysis", obj.AdmissionAnalysis);
+                        cmd.Parameters.AddWithValue("@DischargeAnalysis", obj.DischargeAnalysis);
+                        cmd.Parameters.AddWithValue("@Parent", obj.Parent);
+                        cmd.Parameters.AddWithValue("@ParentType", obj.ParentType == null ? "" : obj.ParentType);
+                        return (string)cmd.ExecuteScalar();
+                    }
+                }
+            }
         }
+
     }
 }

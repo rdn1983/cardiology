@@ -3,6 +3,7 @@ using System.Data.Common;
 using System.Collections.Generic;
 using Cardiology.Data.Model2;
 using Cardiology.Data.Commons;
+using System.Data;
 
 namespace Cardiology.Data.PostgreSQL
 {
@@ -66,7 +67,42 @@ namespace Cardiology.Data.PostgreSQL
 
         public string Save(DdtDoctor obj)
         {
-            throw new NotImplementedException();
+            using (dynamic connection = connectionFactory.GetConnection())
+            {
+                if (GetById(obj.ObjectId) != null)
+                {
+                    string sql = "UPDATE ddt_doctor SET " +
+                                          "dss_last_name = @LastName, " +
+                                            "dss_first_name = @FirstName, " +
+                                            "dss_middle_name = @MiddleName " +
+                                             "WHERE r_object_id = @ObjectId";
+                    using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Parameters.AddWithValue("@LastName", obj.LastName);
+                        cmd.Parameters.AddWithValue("@FirstName", obj.FirstName);
+                        cmd.Parameters.AddWithValue("@MiddleName", obj.MiddleName);
+                        cmd.Parameters.AddWithValue("@ObjectId", obj.ObjectId);
+                        cmd.ExecuteNonQuery();
+                    }
+                    return obj.ObjectId;
+                }
+                else
+                {
+                    string sql = "INSERT INTO ddt_doctor(dss_last_name,dss_first_name,dss_middle_name) " +
+                         "VALUES(@LastName,@FirstName,@MiddleName) RETURNING r_object_id";
+                    using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Parameters.AddWithValue("@LastName", obj.LastName);
+                        cmd.Parameters.AddWithValue("@FirstName", obj.FirstName);
+                        cmd.Parameters.AddWithValue("@MiddleName", obj.MiddleName);
+                        return (string)cmd.ExecuteScalar();
+                    }
+                }
+            }
         }
+
+
     }
 }

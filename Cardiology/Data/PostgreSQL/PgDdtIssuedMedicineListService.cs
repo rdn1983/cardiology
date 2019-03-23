@@ -261,7 +261,7 @@ namespace Cardiology.Data.PostgreSQL
                         cmd.Parameters.AddWithValue("@Patient", obj.Patient);
                         cmd.Parameters.AddWithValue("@HospitalitySession", obj.HospitalitySession);
                         cmd.Parameters.AddWithValue("@IssuingDate", obj.IssuingDate);
-                        cmd.Parameters.AddWithValue("@ParentId", obj.ParentId);
+                        cmd.Parameters.AddWithValue("@ParentId", obj.ParentId == null ? "" : obj.ParentId);
                         cmd.Parameters.AddWithValue("@ParentType", obj.ParentType == null ? "" : obj.ParentType);
                         cmd.Parameters.AddWithValue("@Diagnosis", obj.Diagnosis == null ? "" : obj.Diagnosis);
                         cmd.Parameters.AddWithValue("@HasKag", obj.HasKag == null ? "" : obj.HasKag);

@@ -418,7 +418,7 @@ namespace Cardiology.Data.PostgreSQL
                         cmd.Parameters.AddWithValue("@AdmissionAnalysis", obj.AdmissionAnalysis);
                         cmd.Parameters.AddWithValue("@DischargeAnalysis", obj.DischargeAnalysis);
                         cmd.Parameters.AddWithValue("@AnalysisDate", obj.AnalysisDate);
-                        cmd.Parameters.AddWithValue("@Parent", obj.Parent);
+                        cmd.Parameters.AddWithValue("@Parent", obj.Parent == null ? "0000000000000000" : obj.Parent);
                         cmd.Parameters.AddWithValue("@ParentType", obj.ParentType == null ? "" : obj.ParentType);
                         cmd.Parameters.AddWithValue("@ObjectId", obj.ObjectId);
                         cmd.ExecuteNonQuery();
@@ -456,7 +456,7 @@ namespace Cardiology.Data.PostgreSQL
                         cmd.Parameters.AddWithValue("@AdmissionAnalysis", obj.AdmissionAnalysis);
                         cmd.Parameters.AddWithValue("@DischargeAnalysis", obj.DischargeAnalysis);
                         cmd.Parameters.AddWithValue("@AnalysisDate", obj.AnalysisDate);
-                        cmd.Parameters.AddWithValue("@Parent", obj.Parent);
+                        cmd.Parameters.AddWithValue("@Parent", obj.Parent == null ? "0000000000000000" : obj.Parent);
                         cmd.Parameters.AddWithValue("@ParentType", obj.ParentType == null ? "" : obj.ParentType);
                         return (string)cmd.ExecuteScalar();
                     }

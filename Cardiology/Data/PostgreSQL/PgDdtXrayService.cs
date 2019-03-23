@@ -183,7 +183,7 @@ namespace Cardiology.Data.PostgreSQL
                         cmd.Parameters.AddWithValue("@Kt", obj.Kt == null ? "" : obj.Kt);
                         cmd.Parameters.AddWithValue("@Mrt", obj.Mrt == null ? "" : obj.Mrt);
                         cmd.Parameters.AddWithValue("@KtDate", obj.KtDate);
-                        cmd.Parameters.AddWithValue("@Parent", obj.Parent);
+                        cmd.Parameters.AddWithValue("@Parent", obj.Parent == null ? "0000000000000000" : obj.Parent);
                         cmd.Parameters.AddWithValue("@ParentType", obj.ParentType == null ? "" : obj.ParentType);
                         cmd.Parameters.AddWithValue("@ObjectId", obj.ObjectId);
                         cmd.ExecuteNonQuery();
@@ -207,7 +207,7 @@ namespace Cardiology.Data.PostgreSQL
                         cmd.Parameters.AddWithValue("@Kt", obj.Kt == null ? "" : obj.Kt);
                         cmd.Parameters.AddWithValue("@Mrt", obj.Mrt == null ? "" : obj.Mrt);
                         cmd.Parameters.AddWithValue("@KtDate", obj.KtDate);
-                        cmd.Parameters.AddWithValue("@Parent", obj.Parent);
+                        cmd.Parameters.AddWithValue("@Parent", obj.Parent == null ? "0000000000000000" : obj.Parent);
                         cmd.Parameters.AddWithValue("@ParentType", obj.ParentType == null ? "" : obj.ParentType);
                         return (string)cmd.ExecuteScalar();
                     }

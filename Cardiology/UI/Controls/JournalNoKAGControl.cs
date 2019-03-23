@@ -52,7 +52,7 @@ namespace Cardiology.UI.Controls
             warningLbl.Visible = false;
 
 
-            CommonUtils.InitDoctorsComboboxValues(DbDataService.GetService(), docBox, " r_object_id in (select dsid_doctor_id from dm_group_users where dss_group_name = 'duty_cardioreanim') ");
+            CommonUtils.InitDoctorsComboboxValues(DbDataService.GetService(), docBox, " r_object_id in (select dsid_doctor_id from dm_group_users where dss_group_name = 'cardioreanimation_department') ");
             CommonUtils.SetDoctorsComboboxDefaultValue(DbDataService.GetService(), docBox, dsidCuringDoctor);
 
             DdtJournal journal = DbDataService.GetService().GetDdtJournalService().GetById(objectId);

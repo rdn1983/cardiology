@@ -116,7 +116,7 @@ namespace Cardiology.Data.PostgreSQL
                         cmd.Parameters.AddWithValue("@Patient", obj.Patient);
                         cmd.Parameters.AddWithValue("@HospitalitySession", obj.HospitalitySession);
                         cmd.Parameters.AddWithValue("@AnalysisDate", obj.AnalysisDate);
-                        cmd.Parameters.AddWithValue("@Parent", obj.Parent);
+                        cmd.Parameters.AddWithValue("@Parent", obj.Parent == null ? "0000000000000000" : obj.Parent);
                         cmd.Parameters.AddWithValue("@ParentType", obj.ParentType == null ? "" : obj.ParentType);
                         cmd.Parameters.AddWithValue("@PsaCommon", obj.PsaCommon == null ? "" : obj.PsaCommon);
                         cmd.Parameters.AddWithValue("@PsaFree", obj.PsaFree == null ? "" : obj.PsaFree);
@@ -142,7 +142,7 @@ namespace Cardiology.Data.PostgreSQL
                         cmd.Parameters.AddWithValue("@Patient", obj.Patient);
                         cmd.Parameters.AddWithValue("@HospitalitySession", obj.HospitalitySession);
                         cmd.Parameters.AddWithValue("@AnalysisDate", obj.AnalysisDate);
-                        cmd.Parameters.AddWithValue("@Parent", obj.Parent);
+                        cmd.Parameters.AddWithValue("@Parent", obj.Parent == null ? "0000000000000000" : obj.Parent);
                         cmd.Parameters.AddWithValue("@ParentType", obj.ParentType == null ? "" : obj.ParentType);
                         cmd.Parameters.AddWithValue("@PsaCommon", obj.PsaCommon == null ? "" : obj.PsaCommon);
                         cmd.Parameters.AddWithValue("@PsaFree", obj.PsaFree == null ? "" : obj.PsaFree);

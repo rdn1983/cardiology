@@ -171,7 +171,7 @@ namespace Cardiology.Data.PostgreSQL
                         cmd.Parameters.AddWithValue("@Surgeon", obj.Surgeon == null ? "" : obj.Surgeon);
                         cmd.Parameters.AddWithValue("@NeuroSurgeon", obj.NeuroSurgeon == null ? "" : obj.NeuroSurgeon);
                         cmd.Parameters.AddWithValue("@Endocrinologist", obj.Endocrinologist == null ? "" : obj.Endocrinologist);
-                        cmd.Parameters.AddWithValue("@Parent", obj.Parent);
+                        cmd.Parameters.AddWithValue("@Parent", obj.Parent == null ? "0000000000000000" : obj.Parent);
                         cmd.Parameters.AddWithValue("@ParentType", obj.ParentType == null ? "" : obj.ParentType);
                         cmd.Parameters.AddWithValue("@ObjectId", obj.ObjectId);
                         cmd.ExecuteNonQuery();
@@ -193,7 +193,7 @@ namespace Cardiology.Data.PostgreSQL
                         cmd.Parameters.AddWithValue("@Surgeon", obj.Surgeon == null ? "" : obj.Surgeon);
                         cmd.Parameters.AddWithValue("@NeuroSurgeon", obj.NeuroSurgeon == null ? "" : obj.NeuroSurgeon);
                         cmd.Parameters.AddWithValue("@Endocrinologist", obj.Endocrinologist == null ? "" : obj.Endocrinologist);
-                        cmd.Parameters.AddWithValue("@Parent", obj.Parent);
+                        cmd.Parameters.AddWithValue("@Parent", obj.Parent == null ? "0000000000000000" : obj.Parent);
                         cmd.Parameters.AddWithValue("@ParentType", obj.ParentType == null ? "" : obj.ParentType);
                         return (string)cmd.ExecuteScalar();
                     }

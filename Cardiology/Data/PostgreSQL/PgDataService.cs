@@ -360,15 +360,16 @@ namespace Cardiology.Data.PostgreSQL
             }
             else if (fieldType == typeof(string))
             {
-                return "'" + value + "'";
+                return value?.ToString();
             }
             else if (fieldType == typeof(DateTime))
             {
-                return (@"to_timestamp('" + value + "', 'DD.MM.YYYY HH24:mi:ss')");
+                DateTime dt = (DateTime) value;
+                return dt.ToShortDateString() + " " + dt.ToShortTimeString();
             }
             else
             {
-                return value.ToString();
+                return value?.ToString();
             }
 
         }
@@ -399,7 +400,7 @@ namespace Cardiology.Data.PostgreSQL
                 {
                     if (reader.Read())
                     {
-                        return reader.GetDateTime(1);
+                        return reader.GetDateTime(0);
                     }
                 }
 

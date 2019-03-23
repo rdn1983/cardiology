@@ -206,7 +206,7 @@ namespace Cardiology.Data.PostgreSQL
                     using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
                     {
                         cmd.CommandType = CommandType.Text;
-                        cmd.Parameters.AddWithValue("@Parent", obj.Parent);
+                        cmd.Parameters.AddWithValue("@Parent", obj.Parent == null ? "0000000000000000" : obj.Parent);
                         cmd.Parameters.AddWithValue("@ParentType", obj.ParentType == null ? "" : obj.ParentType);
                         cmd.Parameters.AddWithValue("@AdmissionDate", obj.AdmissionDate);
                         cmd.Parameters.AddWithValue("@SpecialistType", obj.SpecialistType == null ? "" : obj.SpecialistType);
@@ -230,7 +230,7 @@ namespace Cardiology.Data.PostgreSQL
                     using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
                     {
                         cmd.CommandType = CommandType.Text;
-                        cmd.Parameters.AddWithValue("@Parent", obj.Parent);
+                        cmd.Parameters.AddWithValue("@Parent", obj.Parent == null ? "0000000000000000" : obj.Parent);
                         cmd.Parameters.AddWithValue("@ParentType", obj.ParentType == null ? "" : obj.ParentType);
                         cmd.Parameters.AddWithValue("@AdmissionDate", obj.AdmissionDate);
                         cmd.Parameters.AddWithValue("@SpecialistType", obj.SpecialistType == null ? "" : obj.SpecialistType);

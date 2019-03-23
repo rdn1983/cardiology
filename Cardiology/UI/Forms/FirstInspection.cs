@@ -142,7 +142,7 @@ namespace Cardiology.UI.Forms
         private void initIssuedMedicine()
         {
             DdtIssuedMedicineList medList =
-                service.GetDdtIssuedMedicineListService().GetListByHospitalId(hospitalSession.ObjectId);
+                service.GetDdtIssuedMedicineListService().GetListByParentId(anamnesis?.ObjectId);
             if (medList != null)
             {
                 issuedMedicineContainer.Init(medList);
@@ -264,7 +264,7 @@ namespace Cardiology.UI.Forms
 
             if (meds2.Count > 0)
             {
-                DdtIssuedMedicineList medList = service.GetDdtIssuedMedicineListService().GetListByHospitalId(hospitalSession.ObjectId);
+                DdtIssuedMedicineList medList = service.GetDdtIssuedMedicineListService().GetListByParentId(anamnesis.ObjectId);
                 if (medList == null)
                 {
                     medList = new DdtIssuedMedicineList();
@@ -280,8 +280,7 @@ namespace Cardiology.UI.Forms
                 medList.ObjectId = id;
                 foreach (DdtIssuedMedicine med in meds2)
                 {
-                    med.MedList = medList.ObjectId;
-
+                    med.MedList = id;
                     service.GetDdtIssuedMedicineService().Save(med);
                 }
             }

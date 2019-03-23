@@ -17,9 +17,9 @@ namespace Cardiology.Commons
         internal static void InitDoctorsComboboxValues(IDbDataService service, ComboBox cb, string whereCnd)
         {
             cb.Items.Clear();
-            string query = @"SELECT dss_full_name, r_object_id, dss_middle_name, dss_first_name, r_modify_date, dss_short_name, r_creation_date, dss_last_name FROM ddv_doctor " + (string.IsNullOrEmpty(whereCnd) ? "" : (" WHERE " + whereCnd));
-            List<DdvDoctor> doctors = service.GetDdvDoctorService().GetByQuery(query);
-            cb.Items.AddRange(doctors.ToArray());
+            string query = @"SELECT r_object_id, dss_full_name, dss_middle_name, dss_first_name, r_modify_date, dss_short_name, r_creation_date, dss_last_name FROM ddv_doctor " + (string.IsNullOrEmpty(whereCnd) ? "" : (" WHERE " + whereCnd));
+            IList<DdvDoctor> doctors = service.GetDdvDoctorService().GetByQuery(query);
+            cb.DataSource = doctors;
             cb.ValueMember = "ObjectId";
             cb.DisplayMember = "ShortName";
         }
@@ -27,9 +27,9 @@ namespace Cardiology.Commons
         internal static void InitDoctorsByGroupComboboxValues(IDbDataService service, ComboBox cb, string groupName)
         {
             cb.Items.Clear();
-            string query = @"SELECT d.dss_full_name, d.r_object_id, d.dss_middle_name, d.dss_first_name, d.r_modify_date, d.dss_short_name, d.r_creation_date, d.dss_last_name FROM ddv_doctor d, dm_group_users gr WHERE gr.dss_group_name='" + groupName + "' AND gr.dsid_doctor_id=d.r_object_id";
+            string query = @"SELECT d.r_object_id, d.dss_full_name, d.dss_middle_name, d.dss_first_name, d.r_modify_date, d.dss_short_name, d.r_creation_date, d.dss_last_name FROM ddv_doctor d, dm_group_users gr WHERE gr.dss_group_name='" + groupName + "' AND gr.dsid_doctor_id=d.r_object_id";
             List<DdvDoctor> doctors = service.GetDdvDoctorService().GetByQuery(query);
-            cb.Items.AddRange(doctors.ToArray());
+            cb.DataSource = doctors;
             cb.ValueMember = "ObjectId";
             cb.DisplayMember = "ShortName";
         }

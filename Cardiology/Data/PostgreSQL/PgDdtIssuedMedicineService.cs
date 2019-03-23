@@ -87,7 +87,7 @@ namespace Cardiology.Data.PostgreSQL
             return null;
         }
 
-        public void Save(DdtIssuedMedicine obj)
+        public string Save(DdtIssuedMedicine obj)
         {
             using (dynamic connection = connectionFactory.GetConnection())
             {
@@ -105,7 +105,7 @@ namespace Cardiology.Data.PostgreSQL
                         cmd.Parameters.AddWithValue("@ObjectId", obj.ObjectId);
                         cmd.ExecuteNonQuery();
                     }
-                   // return obj.ObjectId;
+                    return obj.ObjectId;
                 }
                 else
                 {
@@ -116,7 +116,7 @@ namespace Cardiology.Data.PostgreSQL
                         cmd.CommandType = CommandType.Text;
                         cmd.Parameters.AddWithValue("@MedList", obj.MedList);
                         cmd.Parameters.AddWithValue("@Cure", obj.Cure);
-                       // return (string)cmd.ExecuteScalar();
+                        return (string)cmd.ExecuteScalar();
                     }
                 }
             }

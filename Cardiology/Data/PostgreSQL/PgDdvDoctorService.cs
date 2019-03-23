@@ -102,7 +102,7 @@ namespace Cardiology.Data.PostgreSQL
         {
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = String.Format("SELECT dss_full_name, r_object_id, dss_middle_name, dss_first_name, r_modify_date, dss_short_name, r_creation_date," +
+                String sql = String.Format("SELECT r_object_id, dss_full_name, dss_middle_name, dss_first_name, r_modify_date, dss_short_name, r_creation_date," +
                     " dss_last_name FROM ddv_doctor WHERE r_object_id = '{0}'", id);
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())

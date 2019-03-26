@@ -203,7 +203,9 @@ namespace Cardiology.Commons
                 " AND dsdt_inspection_date<to_timestamp('" + incpectionDate.ToShortDateString() + " " + incpectionDate.ToLongTimeString() + "', 'DD.MM.YYYY HH24:MI:SS') ORDER BY dsdt_inspection_date DESC";
             DateTime startDate = service.GetTime(startDateQuery);
 
-            return service.GetDdtJournalService().GetObject(@"SELECT * FROM " + DdtJournal.NAME +
+            return service.GetDdtJournalService().GetObject(@"SELECT r_object_id, dss_diagnosis, dss_chss, dss_chdd, r_creation_date, dss_complaints, "+
+                "dss_surgeon_exam, dss_ekg, dsdt_admission_date, dss_monitor, dss_rhythm, dsid_doctor, dsid_patient, dss_ps, dss_ad, dsid_hospitality_session,"+
+                " r_modify_date, dss_cardio_exam, dsi_journal_type, dsb_good_rhythm, dsb_release_journal, dss_journal FROM " + DdtJournal.NAME +
                 " WHERE dsid_hospitality_session='" + sessionId + "'" +
                     " AND dsi_journal_type=" + (int)DdtJournalDsiType.AFTER_KAG +
                     (startDate != default(DateTime) ? (" AND dsdt_admission_date>=to_timestamp('" + startDate.ToShortDateString() + " " + startDate.ToLongTimeString() + "', 'dd.mm.yyyy HH24:mi:ss')") : "") +

@@ -21,7 +21,9 @@ namespace Cardiology.Data.PostgreSQL
             IList<DdtJournal> list = new List<DdtJournal>();
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = "SELECT r_object_id, dss_diagnosis, dss_chss, dss_chdd, r_creation_date, dss_complaints, dss_surgeon_exam, dss_ekg, dsdt_admission_date, dss_monitor, dss_rhythm, dsid_doctor, dsid_patient, dss_ps, dss_ad, dsid_hospitality_session, r_modify_date, dss_cardio_exam, dsi_journal_type, dsb_good_rhythm, dsb_release_journal, dss_journal FROM ddt_journal";
+                String sql = "SELECT r_object_id, dss_diagnosis, dss_chss, dss_chdd, r_creation_date, dss_complaints, dss_surgeon_exam, " +
+                    "dss_ekg, dsdt_admission_date, dss_monitor, dss_rhythm, dsid_doctor, dsid_patient, dss_ps, dss_ad, dsid_hospitality_session, " +
+                    "r_modify_date, dss_cardio_exam, dsi_journal_type, dsb_good_rhythm, dsb_release_journal, dss_journal FROM ddt_journal";
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -140,7 +142,10 @@ namespace Cardiology.Data.PostgreSQL
         {
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = String.Format("SELECT r_object_id, dss_diagnosis, dss_chss, dss_chdd, r_creation_date, dss_complaints, dss_surgeon_exam, dss_ekg, dsdt_admission_date, dss_monitor, dss_rhythm, dsid_doctor, dsid_patient, dss_ps, dss_ad, dsid_hospitality_session, r_modify_date, dss_cardio_exam, dsi_journal_type, dsb_good_rhythm, dsb_release_journal, dss_journal FROM ddt_journal WHERE r_object_id = '{0}'", id);
+                String sql = String.Format("SELECT r_object_id, dss_diagnosis, dss_chss, dss_chdd, r_creation_date, dss_complaints, dss_surgeon_exam, " +
+                    "dss_ekg, dsdt_admission_date, dss_monitor, dss_rhythm, dsid_doctor, dsid_patient, dss_ps, dss_ad, dsid_hospitality_session, " +
+                    "r_modify_date, dss_cardio_exam, dsi_journal_type, dsb_good_rhythm, dsb_release_journal, dss_journal FROM ddt_journal " +
+                    "WHERE r_object_id = '{0}'", id);
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -180,7 +185,10 @@ namespace Cardiology.Data.PostgreSQL
         {
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = String.Format("SELECT r_object_id, dss_diagnosis, dss_chss, dss_chdd, r_creation_date, dss_complaints, dss_surgeon_exam, dss_ekg, dsdt_admission_date, dss_monitor, dss_rhythm, dsid_doctor, dsid_patient, dss_ps, dss_ad, dsid_hospitality_session, r_modify_date, dss_cardio_exam, dsi_journal_type, dsb_good_rhythm, dsb_release_journal, dss_journal FROM ddt_journal WHERE dsid_hospitality_session = '{0}' AND dsi_journal_type = {1} ", hospitalSession, jornalType);
+                String sql = String.Format("SELECT r_object_id, dss_diagnosis, dss_chss, dss_chdd, r_creation_date, dss_complaints, dss_surgeon_exam, " +
+                    "dss_ekg, dsdt_admission_date, dss_monitor, dss_rhythm, dsid_doctor, dsid_patient, dss_ps, dss_ad, dsid_hospitality_session, " +
+                    "r_modify_date, dss_cardio_exam, dsi_journal_type, dsb_good_rhythm, dsb_release_journal, dss_journal FROM ddt_journal " +
+                    "WHERE dsid_hospitality_session = '{0}' AND dsi_journal_type = {1} ", hospitalSession, jornalType);
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {

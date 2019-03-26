@@ -56,7 +56,8 @@ CREATE VIEW ddv_patient (
     dsb_sd,
 
     dss_full_name,
-    dss_short_name
+    dss_short_name,
+	dsi_sex
 ) AS
   SELECT
     r_object_id,
@@ -84,6 +85,7 @@ CREATE VIEW ddv_patient (
     dsb_sd,
 
     CONCAT(dss_last_name, ' ', dss_first_name, ' ', dss_middle_name)                                   AS dss_full_name,
-    CONCAT(dss_last_name, ' ', SUBSTR(dss_first_name, 1, 1), '. ', SUBSTR(dss_middle_name, 1, 1), '.') AS dss_short_name
+    CONCAT(dss_last_name, ' ', SUBSTR(dss_first_name, 1, 1), '. ', SUBSTR(dss_middle_name, 1, 1), '.') AS dss_short_name,
+	dsi_sex
 
   FROM ddt_patient;

@@ -21,6 +21,7 @@ namespace Cardiology
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new PatientList(service));
+
         }
     }
 }

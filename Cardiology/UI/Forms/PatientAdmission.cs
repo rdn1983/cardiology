@@ -60,6 +60,8 @@ namespace Cardiology.UI.Forms
             highTxt.Text = patient.High.ToString();
             patientBirthDate.Text = patient.Birthdate.ToString();
             sdBtn.Checked = patient.Sd;
+            maleChb.Checked = patient.Sex == 0;
+            femaleChb.Checked = patient.Sex == 1;
 
             patientReceiptDate.Value = hospital.AdmissionDate;
             patientReceiptTime.Text = hospital.AdmissionDate.TimeOfDay.ToString();
@@ -99,7 +101,7 @@ namespace Cardiology.UI.Forms
             }
             patient.Address = addressTxt.Text.Trim();
             patient.LastName = patientLastName.Text.Trim();
-            patient.MiddleName = patientLastName.Text.Trim();
+            patient.MiddleName = patientSecondName .Text.Trim();
             patient.FirstName = patientFirstName.Text.Trim();
             patient.MedCode = medCodeTxt.Text.Trim();
             patient.Phone = phoneTxt.Text;
@@ -110,6 +112,7 @@ namespace Cardiology.UI.Forms
             patient.PassportNum = passportNumTxt.Text;
             patient.PassportSerial = passportSerialTxt.Text;
             patient.Sd = sdBtn.Checked;
+            patient.Sex = maleChb.Checked ? 0 : 1;
 
             if (!string.IsNullOrEmpty(weightTxt.Text))
             {

@@ -1,0 +1,1 @@
+alter table ddt_patient add dsi_sex int;

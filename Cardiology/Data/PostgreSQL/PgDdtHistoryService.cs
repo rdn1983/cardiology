@@ -82,7 +82,7 @@ namespace Cardiology.Data.PostgreSQL
         {
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = String.Format("delete from ddt_history  WHERE dsid_operation_id='@{0}'", operationId);
+                String sql = String.Format("delete from ddt_history  WHERE dsid_operation_id='{0}'", operationId);
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 command.ExecuteScalar();
             }

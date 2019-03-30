@@ -49,8 +49,8 @@ namespace Cardiology.Data.PostgreSQL
                         obj.Sd = reader.GetBoolean(15);
                         obj.MedCode = reader.IsDBNull(16) ? null : reader.GetString(16);
                         obj.PassportIssuePlace = reader.IsDBNull(17) ? null : reader.GetString(17);
-                        obj.High = reader.GetFloat(18);
-                        obj.Sex = reader.GetInt16(19);
+                        obj.High = reader.IsDBNull(18) ? -1 : reader.GetFloat(18);
+                        obj.Sex = reader.IsDBNull(19) ? -1 : reader.GetInt16(19);
                         list.Add(obj);
                     }
                 }
@@ -90,8 +90,8 @@ namespace Cardiology.Data.PostgreSQL
                         obj.Sd = reader.GetBoolean(15);
                         obj.MedCode = reader.IsDBNull(16) ? null : reader.GetString(16);
                         obj.PassportIssuePlace = reader.IsDBNull(17) ? null : reader.GetString(17);
-                        obj.High = reader.GetFloat(18);
-                        obj.Sex = reader.GetInt16(19);
+                        obj.High = reader.IsDBNull(18) ? -1 : reader.GetFloat(18);
+                        obj.Sex = reader.IsDBNull(19) ? -1 : reader.GetInt16(19);
                         return obj;
                     }
                 }

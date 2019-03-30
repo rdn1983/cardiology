@@ -33,7 +33,7 @@ namespace Cardiology.Data.PostgreSQL
                         obj.Diagnosis = reader.IsDBNull(1) ? null : reader.GetString(1);
                         obj.DutyDoctor = reader.IsDBNull(2) ? null : reader.GetString(2);
                         obj.CreationDate = reader.IsDBNull(3) ? DateTime.MinValue : reader.GetDateTime(3);
-                        obj.ReleaseType = reader.GetInt16(4);
+                        obj.ReleaseType = reader.IsDBNull(4) ? -1 : reader.GetInt16(4);
                         obj.AdmissionDate = reader.IsDBNull(5) ? DateTime.MinValue : reader.GetDateTime(5);
                         obj.Patient = reader.IsDBNull(6) ? null : reader.GetString(6);
                         obj.CuringDoctor = reader.IsDBNull(7) ? null : reader.GetString(7);
@@ -67,7 +67,7 @@ namespace Cardiology.Data.PostgreSQL
                         obj.Diagnosis = reader.IsDBNull(1) ? null : reader.GetString(1);
                         obj.DutyDoctor = reader.IsDBNull(2) ? null : reader.GetString(2);
                         obj.CreationDate = reader.IsDBNull(3) ? DateTime.MinValue : reader.GetDateTime(3);
-                        obj.ReleaseType = reader.GetInt16(4);
+                        obj.ReleaseType = reader.IsDBNull(4) ? -1 : reader.GetInt16(4);
                         obj.AdmissionDate = reader.IsDBNull(5) ? DateTime.MinValue : reader.GetDateTime(5);
                         obj.Patient = reader.IsDBNull(6) ? null : reader.GetString(6);
                         obj.CuringDoctor = reader.IsDBNull(7) ? null : reader.GetString(7);

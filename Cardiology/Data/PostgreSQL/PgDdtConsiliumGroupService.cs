@@ -32,7 +32,7 @@ namespace Cardiology.Data.PostgreSQL
                         obj.ModifyDate = reader.IsDBNull(1) ? DateTime.MinValue : reader.GetDateTime(1);
                         obj.CreationDate = reader.IsDBNull(2) ? DateTime.MinValue : reader.GetDateTime(2);
                         obj.Name = reader.IsDBNull(0) ? null : reader.GetString(3);
-                        obj.Level = reader.GetInt16(4);
+                        obj.Level = reader.IsDBNull(4) ? -1 : reader.GetInt16(4);
                         list.Add(obj);
                     }
                 }
@@ -55,7 +55,7 @@ namespace Cardiology.Data.PostgreSQL
                         obj.ModifyDate = reader.IsDBNull(1) ? DateTime.MinValue : reader.GetDateTime(1);
                         obj.CreationDate = reader.IsDBNull(2) ? DateTime.MinValue : reader.GetDateTime(2);
                         obj.Name = reader.IsDBNull(0) ? null : reader.GetString(3);
-                        obj.Level = reader.GetInt16(4);
+                        obj.Level = reader.IsDBNull(4) ? -1 : reader.GetInt16(4);
                         return obj;
                     }
                 }

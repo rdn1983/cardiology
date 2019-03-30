@@ -37,7 +37,7 @@ namespace Cardiology.Data.PostgreSQL
                         obj.TransferJustification = reader.IsDBNull(6) ? null : reader.GetString(6);
                         obj.StartDate = reader.IsDBNull(7) ? DateTime.MinValue : reader.GetDateTime(7);
                         obj.Doctor = reader.IsDBNull(8) ? null : reader.GetString(8);
-                        obj.Type = reader.GetInt16(9);
+                        obj.Type = reader.IsDBNull(9) ? -1 : reader.GetInt16(9);
                         obj.Contacts = reader.IsDBNull(10) ? null : reader.GetString(10);
                         obj.Patient = reader.IsDBNull(11) ? null : reader.GetString(11);
                         list.Add(obj);
@@ -67,7 +67,7 @@ namespace Cardiology.Data.PostgreSQL
                         obj.TransferJustification = reader.IsDBNull(6) ? null : reader.GetString(6);
                         obj.StartDate = reader.IsDBNull(7) ? DateTime.MinValue : reader.GetDateTime(7);
                         obj.Doctor = reader.IsDBNull(8) ? null : reader.GetString(8);
-                        obj.Type = reader.GetInt16(9);
+                        obj.Type = reader.IsDBNull(9) ? -1 : reader.GetInt16(9);
                         obj.Contacts = reader.IsDBNull(10) ? null : reader.GetString(10);
                         obj.Patient = reader.IsDBNull(11) ? null : reader.GetString(11);
                         return obj;
@@ -97,7 +97,7 @@ namespace Cardiology.Data.PostgreSQL
                         obj.TransferJustification = reader.IsDBNull(6) ? null : reader.GetString(6);
                         obj.StartDate = reader.IsDBNull(7) ? DateTime.MinValue : reader.GetDateTime(7);
                         obj.Doctor = reader.IsDBNull(8) ? null : reader.GetString(8);
-                        obj.Type = reader.GetInt16(9);
+                        obj.Type = reader.IsDBNull(9) ? -1 : reader.GetInt16(9);
                         obj.Contacts = reader.IsDBNull(10) ? null : reader.GetString(10);
                         obj.Patient = reader.IsDBNull(11) ? null : reader.GetString(11);
                         return obj;

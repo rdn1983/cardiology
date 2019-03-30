@@ -36,7 +36,7 @@ namespace Cardiology.Data.PostgreSQL
                         obj.MiddleName = reader.IsDBNull(3) ? null : reader.GetString(3);
                         obj.PassportNum = reader.IsDBNull(4) ? null : reader.GetString(4);
                         obj.FirstName = reader.IsDBNull(5) ? null : reader.GetString(5);
-                        obj.Weight = reader.GetFloat(6);
+                        obj.Weight = reader.IsDBNull(6) ? -1 : reader.GetFloat(6);
                         obj.Snils = reader.IsDBNull(7) ? null : reader.GetString(7);
                         obj.CreationDate = reader.IsDBNull(8) ? DateTime.MinValue : reader.GetDateTime(8);
                         obj.LastName = reader.IsDBNull(9) ? null : reader.GetString(9);
@@ -50,8 +50,8 @@ namespace Cardiology.Data.PostgreSQL
                         obj.Sd = reader.GetBoolean(17);
                         obj.MedCode = reader.IsDBNull(18) ? null : reader.GetString(18);
                         obj.PassportIssuePlace = reader.IsDBNull(19) ? null : reader.GetString(19);
-                        obj.High = reader.GetFloat(20);
-                        obj.Sex = reader.GetInt16(21);
+                        obj.High = reader.IsDBNull(20) ? -1 : reader.GetFloat(20);
+                        obj.Sex = reader.IsDBNull(21) ? -1 : reader.GetInt16(21);
                         list.Add(obj);
                     }
                 }
@@ -80,7 +80,7 @@ namespace Cardiology.Data.PostgreSQL
                         obj.MiddleName = reader.IsDBNull(3) ? null : reader.GetString(3);
                         obj.PassportNum = reader.IsDBNull(4) ? null : reader.GetString(4);
                         obj.FirstName = reader.IsDBNull(5) ? null : reader.GetString(5);
-                        obj.Weight = reader.GetFloat(6);
+                        obj.Weight = reader.IsDBNull(6) ? -1 : reader.GetFloat(6);
                         obj.Snils = reader.IsDBNull(7) ? null : reader.GetString(7);
                         obj.CreationDate = reader.IsDBNull(8) ? DateTime.MinValue : reader.GetDateTime(8);
                         obj.LastName = reader.IsDBNull(9) ? null : reader.GetString(9);
@@ -94,8 +94,8 @@ namespace Cardiology.Data.PostgreSQL
                         obj.Sd = reader.GetBoolean(17);
                         obj.MedCode = reader.IsDBNull(18) ? null : reader.GetString(18);
                         obj.PassportIssuePlace = reader.IsDBNull(19) ? null : reader.GetString(19);
-                        obj.High = reader.GetFloat(20);
-                        obj.Sex = reader.GetInt16(21);
+                        obj.High = reader.IsDBNull(20) ? -1 : reader.GetFloat(20);
+                        obj.Sex = reader.IsDBNull(21) ? -1 : reader.GetInt16(21);
                         return obj;
                     }
                 }
@@ -124,7 +124,7 @@ namespace Cardiology.Data.PostgreSQL
                         obj.MiddleName = reader.IsDBNull(3) ? null : reader.GetString(3);
                         obj.PassportNum = reader.IsDBNull(4) ? null : reader.GetString(4);
                         obj.FirstName = reader.IsDBNull(5) ? null : reader.GetString(5);
-                        obj.Weight = reader.GetFloat(6);
+                        obj.Weight = reader.IsDBNull(6) ? -1 : reader.GetFloat(6);
                         obj.Snils = reader.IsDBNull(7) ? null : reader.GetString(7);
                         obj.CreationDate = reader.IsDBNull(8) ? DateTime.MinValue : reader.GetDateTime(8);
                         obj.LastName = reader.IsDBNull(9) ? null : reader.GetString(9);
@@ -138,8 +138,8 @@ namespace Cardiology.Data.PostgreSQL
                         obj.Sd = reader.GetBoolean(17);
                         obj.MedCode = reader.IsDBNull(18) ? null : reader.GetString(18);
                         obj.PassportIssuePlace = reader.IsDBNull(19) ? null : reader.GetString(19);
-                        obj.High = reader.GetFloat(20);
-                        obj.Sex = reader.GetInt16(21);
+                        obj.High = reader.IsDBNull(20) ? -1 : reader.GetFloat(20);
+                        obj.Sex = reader.IsDBNull(21) ? -1 : reader.GetInt16(21);
                         return obj;
                     }
                 }

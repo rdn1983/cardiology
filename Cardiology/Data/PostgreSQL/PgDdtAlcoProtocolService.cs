@@ -123,7 +123,7 @@ namespace Cardiology.Data.PostgreSQL
                 String sql = String.Format("SELECT r_object_id, dss_pribor, dss_conclusion, dss_mimics, dss_breathe, dss_tremble, dss_illness, dss_orientation," +
                     " dss_skin, dss_drunk, dss_pressure, dss_pulse, dsb_template, dss_touch_nose, dss_docs, dss_bio, dss_speech, dss_cause, dss_smell," +
                     " dss_motions, r_creation_date, dsid_hospitality_session, dss_eyes, r_modify_date, dss_walk, dss_nistagm, dss_look, dss_trub, dss_behavior " +
-                    "FROM ddt_alco_protocol WHERE r_object_id = '{0}'", hospitalSessionId);
+                    "FROM ddt_alco_protocol WHERE dsid_hospitality_session = '{0}'", hospitalSessionId);
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {

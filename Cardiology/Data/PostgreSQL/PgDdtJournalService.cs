@@ -48,7 +48,7 @@ namespace Cardiology.Data.PostgreSQL
                         obj.HospitalitySession = reader.IsDBNull(15) ? null : reader.GetString(15);
                         obj.ModifyDate = reader.IsDBNull(16) ? DateTime.MinValue : reader.GetDateTime(16);
                         obj.CardioExam = reader.IsDBNull(17) ? null : reader.GetString(17);
-                        obj.JournalType = reader.GetInt16(18);
+                        obj.JournalType = reader.IsDBNull(18) ? -1 : reader.GetInt16(18);
                         obj.GoodRhythm = reader.GetBoolean(19);
                         obj.ReleaseJournal = reader.GetBoolean(20);
                         obj.Journal = reader.IsDBNull(21) ? null : reader.GetString(21);
@@ -88,7 +88,7 @@ namespace Cardiology.Data.PostgreSQL
                         obj.HospitalitySession = reader.IsDBNull(15) ? null : reader.GetString(15);
                         obj.ModifyDate = reader.IsDBNull(16) ? DateTime.MinValue : reader.GetDateTime(16);
                         obj.CardioExam = reader.IsDBNull(17) ? null : reader.GetString(17);
-                        obj.JournalType = reader.GetInt16(18);
+                        obj.JournalType = reader.IsDBNull(18) ? -1 : reader.GetInt16(18);
                         obj.GoodRhythm = reader.GetBoolean(19);
                         obj.ReleaseJournal = reader.GetBoolean(20);
                         obj.Journal = reader.IsDBNull(21) ? null : reader.GetString(21);
@@ -127,7 +127,7 @@ namespace Cardiology.Data.PostgreSQL
                         obj.HospitalitySession = reader.IsDBNull(15) ? null : reader.GetString(15);
                         obj.ModifyDate = reader.IsDBNull(16) ? DateTime.MinValue : reader.GetDateTime(16);
                         obj.CardioExam = reader.IsDBNull(17) ? null : reader.GetString(17);
-                        obj.JournalType = reader.GetInt16(18);
+                        obj.JournalType = reader.IsDBNull(18) ? -1 : reader.GetInt16(18);
                         obj.GoodRhythm = reader.GetBoolean(19);
                         obj.ReleaseJournal = reader.GetBoolean(20);
                         obj.Journal = reader.IsDBNull(21) ? null : reader.GetString(21);
@@ -170,7 +170,7 @@ namespace Cardiology.Data.PostgreSQL
                         obj.HospitalitySession = reader.IsDBNull(15) ? null : reader.GetString(15);
                         obj.ModifyDate = reader.IsDBNull(16) ? DateTime.MinValue : reader.GetDateTime(16);
                         obj.CardioExam = reader.IsDBNull(17) ? null : reader.GetString(17);
-                        obj.JournalType = reader.GetInt16(18);
+                        obj.JournalType = reader.IsDBNull(18) ? -1 : reader.GetInt16(18);
                         obj.GoodRhythm = reader.GetBoolean(19);
                         obj.ReleaseJournal = reader.GetBoolean(20);
                         obj.Journal = reader.IsDBNull(21) ? null : reader.GetString(21);
@@ -213,7 +213,7 @@ namespace Cardiology.Data.PostgreSQL
                         obj.HospitalitySession = reader.IsDBNull(15) ? null : reader.GetString(15);
                         obj.ModifyDate = reader.IsDBNull(16) ? DateTime.MinValue : reader.GetDateTime(16);
                         obj.CardioExam = reader.IsDBNull(17) ? null : reader.GetString(17);
-                        obj.JournalType = reader.GetInt16(18);
+                        obj.JournalType = reader.IsDBNull(18) ? -1 : reader.GetInt16(18);
                         obj.GoodRhythm = reader.GetBoolean(19);
                         obj.ReleaseJournal = reader.GetBoolean(20);
                         obj.Journal = reader.IsDBNull(21) ? null : reader.GetString(21);

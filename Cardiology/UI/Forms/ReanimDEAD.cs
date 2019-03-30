@@ -10,12 +10,10 @@ namespace Cardiology.UI.Forms
 {
     public partial class ReanimDEAD : Form
     {
-        private readonly IDbDataService service;
         private DdvPatient patient;
 
-        public ReanimDEAD(IDbDataService service, DdvPatient patient)
+        public ReanimDEAD(DdvPatient patient)
         {
-            this.service = service;
             this.patient = patient;
             InitializeComponent();
             InitializeDoctorsBox();
@@ -23,14 +21,7 @@ namespace Cardiology.UI.Forms
 
         private void InitializeDoctorsBox()
         {
-            IList<DdvDoctor> doctors = service.GetDdvDoctorService().GetAll();
-            foreach (var obj in doctors)
-            {
-                doctorsBox.Items.Add(obj);
-            }
-            doctorsBox.ValueMember = "ObjectId";
-            doctorsBox.DisplayMember = "DssFullName";
-
+            CommonUtils.InitDoctorsComboboxValues(DbDataService.GetService(), doctorsBox, null);
         }
 
         private bool getIsNotValid()

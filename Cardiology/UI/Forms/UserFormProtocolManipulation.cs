@@ -16,49 +16,49 @@ namespace Cardiology.UI.Forms
 
         private void kateterBtn_Click(object sender, EventArgs e)
         {
-            UserFromVena form = new UserFromVena(service);
+            UserFromVena form = new UserFromVena();
             form.ShowDialog();
         }
 
         private void trombolizisBtn_Click(object sender, EventArgs e)
         {
-            UserFormTrombolizis form = new UserFormTrombolizis(service, null);
+            UserFormTrombolizis form = new UserFormTrombolizis(null);
             form.ShowDialog();
         }
 
         private void veksBtn_Click(object sender, EventArgs e)
         {
-            UserFormVEKS form = new UserFormVEKS(service);
+            UserFormVEKS form = new UserFormVEKS();
             form.ShowDialog();
         }
 
         private void toraketosBtn_Click(object sender, EventArgs e)
         {
-            UserFormTorCent form = new UserFormTorCent(service);
+            UserFormTorCent form = new UserFormTorCent();
             form.ShowDialog();
         }
 
         private void eitBtn_Click(object sender, EventArgs e)
         {
-            UserFormEIT form = new UserFormEIT(service);
+            UserFormEIT form = new UserFormEIT();
             form.ShowDialog();
         }
 
         private void intubationBtn_Click(object sender, EventArgs e)
         {
-            UserFormIntubation form = new UserFormIntubation(service);
+            UserFormIntubation form = new UserFormIntubation();
             form.ShowDialog();
         }
 
         private void ekstubationBtn_Click(object sender, EventArgs e)
         {
-            UserFormExtubation form = new UserFormExtubation(service);
+            UserFormExtubation form = new UserFormExtubation();
             form.ShowDialog();
         }
 
         private void reanimBtn_Click(object sender, EventArgs e)
         {
-            ReanimDEAD form = new ReanimDEAD(service, null);
+            ReanimDEAD form = new ReanimDEAD(null);
             form.ShowDialog();
         }
     }

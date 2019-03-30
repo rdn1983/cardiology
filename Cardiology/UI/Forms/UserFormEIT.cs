@@ -4,31 +4,21 @@ using System.IO;
 using System.Windows.Forms;
 using Cardiology.Commons;
 using Cardiology.Data;
-using Cardiology.Data.Model2;
 
 namespace Cardiology.UI.Forms
 {
     public partial class UserFormEIT : Form
     {
-        private readonly IDbDataService service;
-
-        public UserFormEIT(IDbDataService service)
+        
+        public UserFormEIT()
         {
             InitializeComponent();
             initializeDoctorsBox();
-            this.service = service;
         }
 
         private void initializeDoctorsBox()
         {
-            IList<DdvDoctor> doctors = service.GetDdvDoctorService().GetAll();
-            for (int i = 0; i < doctors.Count; i++)
-            {
-                doctorsBox.Items.Add(doctors[i]);
-            }
-            doctorsBox.ValueMember = "ObjectId";
-            doctorsBox.DisplayMember = "DssFullName";
-
+            CommonUtils.InitDoctorsComboboxValues(DbDataService.GetService(), doctorsBox, null);
         }
 
         private bool getIsNotValid()

@@ -9,11 +9,10 @@ namespace Cardiology.UI.Forms
 {
     public partial class UserFormExtubation : Form
     {
-        private readonly IDbDataService service;
-        public UserFormExtubation(IDbDataService service)
+        public UserFormExtubation()
         {
-            this.service = service;
             InitializeComponent();
+            CommonUtils.InitDoctorsComboboxValues(DbDataService.GetService(), doctorsBox, null);
         }
 
         private bool getIsNotValid()

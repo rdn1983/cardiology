@@ -29,8 +29,8 @@ namespace Cardiology.UI.Forms
         {
             curingDoc = service.GetDdvDoctorService().GetById(hospitalitySession?.CuringDoctor);
             ControlUtils.InitDoctorsByGroupName(service.GetDdvDoctorService(), adminTxt, "duty_cardioreanim");
-            ControlUtils.InitGroupsComboboxValues(this.service.GetDmGroupService(), appointmentTxt0);
-            ControlUtils.InitDoctorsByGroupName(this.service.GetDdvDoctorService(), doctorWho0, null);
+            ControlUtils.InitGroupsComboboxValues(service.GetDmGroupService(), appointmentTxt0);
+            ControlUtils.InitDoctorsByGroupName(service.GetDdvDoctorService(), doctorWho0, null);
             DdvPatient patient = service.GetDdvPatientService().GetById(hospitalitySession.Patient);
             if (patient != null)
             {
@@ -59,8 +59,7 @@ namespace Cardiology.UI.Forms
                     diagnosisTxt0.Text = anamnesis.Diagnosis;
                 }
 
-                List<DdtConsiliumMember> members = service.GetDdtConsiliumMemberService()
-                    .GetByQuery("SELECT * FROM ddt_consilium_member WHERE dss_template_name = 'default_consilium'");
+                IList<DdtConsiliumMember> members = service.GetDdtConsiliumMemberService().GetAll();
                 InitMembers(service, members);
             }
 

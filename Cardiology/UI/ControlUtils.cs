@@ -10,11 +10,7 @@ namespace Cardiology.UI
     {
         internal static void InitDoctorsByGroupName(IDdvDoctorService service, ComboBox control, string groupName)
         {
-            control.Items.Clear();
-
-            IList<DdvDoctor> list = service.GetByGroupName(groupName);
-            control.DataSource = list;
-
+            control.DataSource = service.GetByGroupName(groupName);
             control.ValueMember = "ObjectId";
             control.DisplayMember = "ShortName";
         }
@@ -46,11 +42,7 @@ namespace Cardiology.UI
 
         internal static void InitGroupsComboboxValues(IDmGroupService service, ComboBox control)
         {
-            control.Items.Clear();
-
-            IList<DmGroup> list = service.GetAll();
-            control.DataSource = list;
-
+            control.DataSource = service.GetAll();
             control.ValueMember = "Name";
             control.DisplayMember = "Description";
         }

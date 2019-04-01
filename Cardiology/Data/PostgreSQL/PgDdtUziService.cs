@@ -85,7 +85,9 @@ namespace Cardiology.Data.PostgreSQL
         {
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = String.Format("SELECT r_object_id, dsdt_analysis_date, dss_eho_kg, r_creation_date, dss_pleurs_uzi, dsid_parent, dsid_doctor, dsid_patient, dsid_hospitality_session, dss_uzd_bca, r_modify_date, dss_parent_type, dss_cds, dss_uzi_obp FROM ddt_uzi WHERE dsid_parent = '{0}'", parentId);
+                String sql = String.Format("SELECT r_object_id, dsdt_analysis_date, dss_eho_kg, r_creation_date, " +
+                    "dss_pleurs_uzi, dsid_parent, dsid_doctor, dsid_patient, dsid_hospitality_session, dss_uzd_bca," +
+                    " r_modify_date, dss_parent_type, dss_cds, dss_uzi_obp FROM ddt_uzi WHERE dsid_parent = '{0}'", parentId);
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -118,7 +120,9 @@ namespace Cardiology.Data.PostgreSQL
             IList<DdtUzi> list = new List<DdtUzi>();
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = String.Format("SELECT r_object_id, dsdt_analysis_date, dss_eho_kg, r_creation_date, dss_pleurs_uzi, dsid_parent, dsid_doctor, dsid_patient, dsid_hospitality_session, dss_uzd_bca, r_modify_date, dss_parent_type, dss_cds, dss_uzi_obp FROM ddt_uzi WHERE dsid_patient = '{0}'", parentId);
+                String sql = String.Format("SELECT r_object_id, dsdt_analysis_date, dss_eho_kg, r_creation_date, " +
+                    "dss_pleurs_uzi, dsid_parent, dsid_doctor, dsid_patient, dsid_hospitality_session, dss_uzd_bca, " +
+                    "r_modify_date, dss_parent_type, dss_cds, dss_uzi_obp FROM ddt_uzi WHERE dsid_parent = '{0}'", parentId);
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {

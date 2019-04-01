@@ -28,7 +28,7 @@ namespace Cardiology.UI.Forms
         private void InitControls()
         {
             curingDoc = service.GetDdvDoctorService().GetById(hospitalitySession?.CuringDoctor);
-            ControlUtils.InitDoctorsByGroupName(service.GetDdvDoctorService(), adminTxt, "duty_cardioreanim");
+            ControlUtils.InitDoctorsByGroupName(service.GetDdvDoctorService(), adminTxt, "cardioreanimation_department");
             ControlUtils.InitGroupsComboboxValues(service.GetDmGroupService(), appointmentTxt0);
             ControlUtils.InitDoctorsByGroupName(service.GetDdvDoctorService(), doctorWho0, null);
             DdvPatient patient = service.GetDdvPatientService().GetById(hospitalitySession.Patient);

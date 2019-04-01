@@ -92,7 +92,6 @@ namespace Cardiology.UI.Forms
                 }
 
                 IList<DdtHolter> holters = service.GetDdtHolterService().GetListByParentId(inspectionObj.ObjectId);
-                    
                 foreach (DdtHolter obj in holters)
                 {
                     TableLayoutPanel container = getTabContainer("holterTab", "Холтер", true);
@@ -109,11 +108,18 @@ namespace Cardiology.UI.Forms
                 }
 
                 IList<DdtUzi> uzis = service.GetDdtUziService().GetListByParentId(inspectionObj.ObjectId);
-                    
                 foreach (DdtUzi obj in uzis)
                 {
                     TableLayoutPanel container = getTabContainer("uziTab", "УЗИ", false);
                     UziAnalysisControl control = new UziAnalysisControl(obj.ObjectId, false);
+                    container.Controls.Add(control);
+                }
+
+                IList<DdtXRay> xRays = service.GetDdtXrayService().GetListByParentId(inspectionObj.ObjectId);
+                foreach (DdtXRay obj in xRays)
+                {
+                    TableLayoutPanel container = getTabContainer("xRayTab", "Рентген", false);
+                    XRayControl control = new XRayControl(obj.ObjectId, false);
                     container.Controls.Add(control);
                 }
             }
@@ -155,7 +161,7 @@ namespace Cardiology.UI.Forms
 
             if (save())
             {
-            Close();
+                Close();
             }
         }
 
@@ -214,7 +220,7 @@ namespace Cardiology.UI.Forms
             TableLayoutPanel tabCntr = getTabContainer(name, title, false);
             for (int i = 0; i < tabCntr.Controls.Count; i++)
             {
-                IDocbaseControl control = getSafeObjectValueUni(tabCntr, new getValue<IDocbaseControl>((ctrl) 
+                IDocbaseControl control = getSafeObjectValueUni(tabCntr, new getValue<IDocbaseControl>((ctrl)
                     => (IDocbaseControl)((TableLayoutPanel)ctrl).Controls[i]));
                 control.saveObject(hospitalitySession, inspectionObj.ObjectId, DdtInspection.NAME);
             }
@@ -237,7 +243,8 @@ namespace Cardiology.UI.Forms
                     {
                         result = createTab(name, title, isVerticalStyle);
                     }));
-                } else
+                }
+                else
                 {
                     result = createTab(name, title, isVerticalStyle);
                 }
@@ -292,6 +299,8 @@ namespace Cardiology.UI.Forms
         private void xRayItem_Click(object sender, EventArgs e)
         {
             TableLayoutPanel page = getTabContainer("xRayTab", "Рентген", false);
+            XRayControl control = new XRayControl(null, false);
+            page.Controls.Add(control);
         }
 
         private void holterItem_Click(object sender, EventArgs e)

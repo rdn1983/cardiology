@@ -21,7 +21,9 @@ namespace Cardiology.Data.PostgreSQL
             IList<DdtHolter> list = new List<DdtHolter>();
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = "SELECT dsid_hospitality_session, r_object_id, dsdt_analysis_date, r_modify_date, dss_monitoring_ad, dss_parent_type, r_creation_date, dsid_parent, dss_holter, dsid_doctor, dsid_patient FROM ddt_holter";
+                String sql = "SELECT dsid_hospitality_session, r_object_id, dsdt_analysis_date, r_modify_date," +
+                    " dss_monitoring_ad, dss_parent_type, r_creation_date, dsid_parent, dss_holter, dsid_doctor," +
+                    " dsid_patient FROM ddt_holter";
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -50,7 +52,9 @@ namespace Cardiology.Data.PostgreSQL
         {
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = String.Format("SELECT dsid_hospitality_session, r_object_id, dsdt_analysis_date, r_modify_date, dss_monitoring_ad, dss_parent_type, r_creation_date, dsid_parent, dss_holter, dsid_doctor, dsid_patient FROM ddt_holter WHERE r_object_id = '{0}'", id);
+                String sql = String.Format("SELECT dsid_hospitality_session, r_object_id, dsdt_analysis_date, " +
+                    "r_modify_date, dss_monitoring_ad, dss_parent_type, r_creation_date, dsid_parent, dss_holter," +
+                    " dsid_doctor, dsid_patient FROM ddt_holter WHERE r_object_id = '{0}'", id);
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -80,7 +84,9 @@ namespace Cardiology.Data.PostgreSQL
             IList<DdtHolter> list = new List<DdtHolter>();
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = String.Format("SELECT dsid_hospitality_session, r_object_id, dsdt_analysis_date, r_modify_date, dss_monitoring_ad, dss_parent_type, r_creation_date, dsid_parent, dss_holter, dsid_doctor, dsid_patient FROM ddt_holter WHERE dsid_parent = '{0}'", parentId);
+                String sql = String.Format("SELECT dsid_hospitality_session, r_object_id, dsdt_analysis_date, " +
+                    "r_modify_date, dss_monitoring_ad, dss_parent_type, r_creation_date, dsid_parent, dss_holter, " +
+                    "dsid_doctor, dsid_patient FROM ddt_holter WHERE dsid_parent = '{0}'", parentId);
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {

@@ -725,4 +725,7 @@
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>XCOPY "$(ProjectDir)Templates" "$(TargetDir)Templates\" /S /Y</PostBuildEvent>
+  </PropertyGroup>
 </Project>

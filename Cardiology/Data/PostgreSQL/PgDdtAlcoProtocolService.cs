@@ -166,11 +166,11 @@ namespace Cardiology.Data.PostgreSQL
             return null;
         }
 
-        public string Save(DdtAlcoProtocol obj)
+        public string Save(DdtAlcoProtocol protocol)
         {
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                if (GetById(obj.ObjectId) != null)
+                if (GetById(protocol.ObjectId) != null)
                 {
                     string sql = "UPDATE ddt_alco_protocol SET " +
                                         "dsid_hospitality_session = @HospitalitySession, " +
@@ -203,36 +203,36 @@ namespace Cardiology.Data.PostgreSQL
                     using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
                     {
                         cmd.CommandType = CommandType.Text;
-                        cmd.Parameters.AddWithValue("@HospitalitySession", obj.HospitalitySession);
-                        cmd.Parameters.AddWithValue("@Look", obj.Look == null ? "" : obj.Look);
-                        cmd.Parameters.AddWithValue("@Cause", obj.Cause == null ? "" : obj.Cause);
-                        cmd.Parameters.AddWithValue("@Behavior", obj.Behavior == null ? "" : obj.Behavior);
-                        cmd.Parameters.AddWithValue("@Orientation", obj.Orientation == null ? "" : obj.Orientation);
-                        cmd.Parameters.AddWithValue("@Speech", obj.Speech == null ? "" : obj.Speech);
-                        cmd.Parameters.AddWithValue("@Skin", obj.Skin == null ? "" : obj.Skin);
-                        cmd.Parameters.AddWithValue("@Breathe", obj.Breathe == null ? "" : obj.Breathe);
-                        cmd.Parameters.AddWithValue("@Pulse", obj.Pulse == null ? "" : obj.Pulse);
-                        cmd.Parameters.AddWithValue("@Pressure", obj.Pressure == null ? "" : obj.Pressure);
-                        cmd.Parameters.AddWithValue("@Eyes", obj.Eyes == null ? "" : obj.Eyes);
-                        cmd.Parameters.AddWithValue("@Nistagm", obj.Nistagm == null ? "" : obj.Nistagm);
-                        cmd.Parameters.AddWithValue("@Motions", obj.Motions == null ? "" : obj.Motions);
-                        cmd.Parameters.AddWithValue("@Mimics", obj.Mimics == null ? "" : obj.Mimics);
-                        cmd.Parameters.AddWithValue("@Walk", obj.Walk == null ? "" : obj.Walk);
-                        cmd.Parameters.AddWithValue("@TouchNose", obj.TouchNose == null ? "" : obj.TouchNose);
-                        cmd.Parameters.AddWithValue("@Tremble", obj.Tremble == null ? "" : obj.Tremble);
-                        cmd.Parameters.AddWithValue("@Illness", obj.Illness == null ? "" : obj.Illness);
-                        cmd.Parameters.AddWithValue("@Drunk", obj.Drunk == null ? "" : obj.Drunk);
-                        cmd.Parameters.AddWithValue("@Smell", obj.Smell == null ? "" : obj.Smell);
-                        cmd.Parameters.AddWithValue("@Pribor", obj.Pribor == null ? "" : obj.Pribor);
-                        cmd.Parameters.AddWithValue("@Trub", obj.Trub == null ? "" : obj.Trub);
-                        cmd.Parameters.AddWithValue("@Bio", obj.Bio == null ? "" : obj.Bio);
-                        cmd.Parameters.AddWithValue("@Docs", obj.Docs == null ? "" : obj.Docs);
-                        cmd.Parameters.AddWithValue("@Conclusion", obj.Conclusion == null ? "" : obj.Conclusion);
-                        cmd.Parameters.AddWithValue("@Template", obj.Template);
-                        cmd.Parameters.AddWithValue("@ObjectId", obj.ObjectId);
+                        cmd.Parameters.AddWithValue("@HospitalitySession", protocol.HospitalitySession);
+                        cmd.Parameters.AddWithValue("@Look", protocol.Look == null ? "" : protocol.Look);
+                        cmd.Parameters.AddWithValue("@Cause", protocol.Cause == null ? "" : protocol.Cause);
+                        cmd.Parameters.AddWithValue("@Behavior", protocol.Behavior == null ? "" : protocol.Behavior);
+                        cmd.Parameters.AddWithValue("@Orientation", protocol.Orientation == null ? "" : protocol.Orientation);
+                        cmd.Parameters.AddWithValue("@Speech", protocol.Speech == null ? "" : protocol.Speech);
+                        cmd.Parameters.AddWithValue("@Skin", protocol.Skin == null ? "" : protocol.Skin);
+                        cmd.Parameters.AddWithValue("@Breathe", protocol.Breathe == null ? "" : protocol.Breathe);
+                        cmd.Parameters.AddWithValue("@Pulse", protocol.Pulse == null ? "" : protocol.Pulse);
+                        cmd.Parameters.AddWithValue("@Pressure", protocol.Pressure == null ? "" : protocol.Pressure);
+                        cmd.Parameters.AddWithValue("@Eyes", protocol.Eyes == null ? "" : protocol.Eyes);
+                        cmd.Parameters.AddWithValue("@Nistagm", protocol.Nistagm == null ? "" : protocol.Nistagm);
+                        cmd.Parameters.AddWithValue("@Motions", protocol.Motions == null ? "" : protocol.Motions);
+                        cmd.Parameters.AddWithValue("@Mimics", protocol.Mimics == null ? "" : protocol.Mimics);
+                        cmd.Parameters.AddWithValue("@Walk", protocol.Walk == null ? "" : protocol.Walk);
+                        cmd.Parameters.AddWithValue("@TouchNose", protocol.TouchNose == null ? "" : protocol.TouchNose);
+                        cmd.Parameters.AddWithValue("@Tremble", protocol.Tremble == null ? "" : protocol.Tremble);
+                        cmd.Parameters.AddWithValue("@Illness", protocol.Illness == null ? "" : protocol.Illness);
+                        cmd.Parameters.AddWithValue("@Drunk", protocol.Drunk == null ? "" : protocol.Drunk);
+                        cmd.Parameters.AddWithValue("@Smell", protocol.Smell == null ? "" : protocol.Smell);
+                        cmd.Parameters.AddWithValue("@Pribor", protocol.Pribor == null ? "" : protocol.Pribor);
+                        cmd.Parameters.AddWithValue("@Trub", protocol.Trub == null ? "" : protocol.Trub);
+                        cmd.Parameters.AddWithValue("@Bio", protocol.Bio == null ? "" : protocol.Bio);
+                        cmd.Parameters.AddWithValue("@Docs", protocol.Docs == null ? "" : protocol.Docs);
+                        cmd.Parameters.AddWithValue("@Conclusion", protocol.Conclusion == null ? "" : protocol.Conclusion);
+                        cmd.Parameters.AddWithValue("@Template", protocol.Template);
+                        cmd.Parameters.AddWithValue("@ObjectId", protocol.ObjectId);
                         cmd.ExecuteNonQuery();
                     }
-                    return obj.ObjectId;
+                    return protocol.ObjectId;
                 }
                 else
                 {
@@ -241,32 +241,32 @@ namespace Cardiology.Data.PostgreSQL
                     using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
                     {
                         cmd.CommandType = CommandType.Text;
-                        cmd.Parameters.AddWithValue("@HospitalitySession", obj.HospitalitySession);
-                        cmd.Parameters.AddWithValue("@Look", obj.Look == null ? "" : obj.Look);
-                        cmd.Parameters.AddWithValue("@Cause", obj.Cause == null ? "" : obj.Cause);
-                        cmd.Parameters.AddWithValue("@Behavior", obj.Behavior == null ? "" : obj.Behavior);
-                        cmd.Parameters.AddWithValue("@Orientation", obj.Orientation == null ? "" : obj.Orientation);
-                        cmd.Parameters.AddWithValue("@Speech", obj.Speech == null ? "" : obj.Speech);
-                        cmd.Parameters.AddWithValue("@Skin", obj.Skin == null ? "" : obj.Skin);
-                        cmd.Parameters.AddWithValue("@Breathe", obj.Breathe == null ? "" : obj.Breathe);
-                        cmd.Parameters.AddWithValue("@Pulse", obj.Pulse == null ? "" : obj.Pulse);
-                        cmd.Parameters.AddWithValue("@Pressure", obj.Pressure == null ? "" : obj.Pressure);
-                        cmd.Parameters.AddWithValue("@Eyes", obj.Eyes == null ? "" : obj.Eyes);
-                        cmd.Parameters.AddWithValue("@Nistagm", obj.Nistagm == null ? "" : obj.Nistagm);
-                        cmd.Parameters.AddWithValue("@Motions", obj.Motions == null ? "" : obj.Motions);
-                        cmd.Parameters.AddWithValue("@Mimics", obj.Mimics == null ? "" : obj.Mimics);
-                        cmd.Parameters.AddWithValue("@Walk", obj.Walk == null ? "" : obj.Walk);
-                        cmd.Parameters.AddWithValue("@TouchNose", obj.TouchNose == null ? "" : obj.TouchNose);
-                        cmd.Parameters.AddWithValue("@Tremble", obj.Tremble == null ? "" : obj.Tremble);
-                        cmd.Parameters.AddWithValue("@Illness", obj.Illness == null ? "" : obj.Illness);
-                        cmd.Parameters.AddWithValue("@Drunk", obj.Drunk == null ? "" : obj.Drunk);
-                        cmd.Parameters.AddWithValue("@Smell", obj.Smell == null ? "" : obj.Smell);
-                        cmd.Parameters.AddWithValue("@Pribor", obj.Pribor == null ? "" : obj.Pribor);
-                        cmd.Parameters.AddWithValue("@Trub", obj.Trub == null ? "" : obj.Trub);
-                        cmd.Parameters.AddWithValue("@Bio", obj.Bio == null ? "" : obj.Bio);
-                        cmd.Parameters.AddWithValue("@Docs", obj.Docs == null ? "" : obj.Docs);
-                        cmd.Parameters.AddWithValue("@Conclusion", obj.Conclusion == null ? "" : obj.Conclusion);
-                        cmd.Parameters.AddWithValue("@Template", obj.Template);
+                        cmd.Parameters.AddWithValue("@HospitalitySession", protocol.HospitalitySession);
+                        cmd.Parameters.AddWithValue("@Look", protocol.Look == null ? "" : protocol.Look);
+                        cmd.Parameters.AddWithValue("@Cause", protocol.Cause == null ? "" : protocol.Cause);
+                        cmd.Parameters.AddWithValue("@Behavior", protocol.Behavior == null ? "" : protocol.Behavior);
+                        cmd.Parameters.AddWithValue("@Orientation", protocol.Orientation == null ? "" : protocol.Orientation);
+                        cmd.Parameters.AddWithValue("@Speech", protocol.Speech == null ? "" : protocol.Speech);
+                        cmd.Parameters.AddWithValue("@Skin", protocol.Skin == null ? "" : protocol.Skin);
+                        cmd.Parameters.AddWithValue("@Breathe", protocol.Breathe == null ? "" : protocol.Breathe);
+                        cmd.Parameters.AddWithValue("@Pulse", protocol.Pulse == null ? "" : protocol.Pulse);
+                        cmd.Parameters.AddWithValue("@Pressure", protocol.Pressure == null ? "" : protocol.Pressure);
+                        cmd.Parameters.AddWithValue("@Eyes", protocol.Eyes == null ? "" : protocol.Eyes);
+                        cmd.Parameters.AddWithValue("@Nistagm", protocol.Nistagm == null ? "" : protocol.Nistagm);
+                        cmd.Parameters.AddWithValue("@Motions", protocol.Motions == null ? "" : protocol.Motions);
+                        cmd.Parameters.AddWithValue("@Mimics", protocol.Mimics == null ? "" : protocol.Mimics);
+                        cmd.Parameters.AddWithValue("@Walk", protocol.Walk == null ? "" : protocol.Walk);
+                        cmd.Parameters.AddWithValue("@TouchNose", protocol.TouchNose == null ? "" : protocol.TouchNose);
+                        cmd.Parameters.AddWithValue("@Tremble", protocol.Tremble == null ? "" : protocol.Tremble);
+                        cmd.Parameters.AddWithValue("@Illness", protocol.Illness == null ? "" : protocol.Illness);
+                        cmd.Parameters.AddWithValue("@Drunk", protocol.Drunk == null ? "" : protocol.Drunk);
+                        cmd.Parameters.AddWithValue("@Smell", protocol.Smell == null ? "" : protocol.Smell);
+                        cmd.Parameters.AddWithValue("@Pribor", protocol.Pribor == null ? "" : protocol.Pribor);
+                        cmd.Parameters.AddWithValue("@Trub", protocol.Trub == null ? "" : protocol.Trub);
+                        cmd.Parameters.AddWithValue("@Bio", protocol.Bio == null ? "" : protocol.Bio);
+                        cmd.Parameters.AddWithValue("@Docs", protocol.Docs == null ? "" : protocol.Docs);
+                        cmd.Parameters.AddWithValue("@Conclusion", protocol.Conclusion == null ? "" : protocol.Conclusion);
+                        cmd.Parameters.AddWithValue("@Template", protocol.Template);
                         return (string)cmd.ExecuteScalar();
                     }
                 }

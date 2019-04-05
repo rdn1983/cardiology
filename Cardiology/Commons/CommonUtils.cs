@@ -205,7 +205,7 @@ namespace Cardiology.Commons
                 "dss_surgeon_exam, dss_ekg, dsdt_admission_date, dss_monitor, dss_rhythm, dsid_doctor, dsid_patient, dss_ps, dss_ad, dsid_hospitality_session,"+
                 " r_modify_date, dss_cardio_exam, dsi_journal_type, dsb_good_rhythm, dsb_release_journal, dss_journal FROM " + DdtJournal.NAME +
                 " WHERE dsid_hospitality_session='" + sessionId + "'" +
-                    " AND dsi_journal_type=" + (int)DdtJournalDsiType.AFTER_KAG +
+                    " AND dsi_journal_type=" + (int)DdtJournalDsiType.AfterKag +
                     (startDate != default(DateTime) ? (" AND dsdt_admission_date>=to_timestamp('" + startDate.ToShortDateString() + " " + startDate.ToLongTimeString() + "', 'dd.mm.yyyy HH24:mi:ss')") : "") +
                     " AND dsdt_admission_date<=to_timestamp('" + incpectionDate.ToShortDateString() + " " + incpectionDate.ToLongTimeString() + "', 'dd.mm.yyyy HH24:mi:ss')");
 

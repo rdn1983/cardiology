@@ -165,7 +165,7 @@ namespace Cardiology.UI.Forms
                 journal.Doctor = hospitalitySession.CuringDoctor;
                 journal.HospitalitySession = hospitalitySession.ObjectId;
                 journal.Patient = hospitalitySession.Patient;
-                journal.JournalType = (int)DdtJournalDsiType.AFTER_KAG;
+                journal.JournalType = (int)DdtJournalDsiType.AfterKag;
                 journal.Complaints = "Жалоб на момент осмотра не предъявляет.";
             }
             journal.Diagnosis = afterKagDiagnosisTxt.Text;

@@ -7,12 +7,8 @@ using Cardiology.Data.Model2;
 
 namespace Cardiology.Commons
 {
-    public class TemplatesUtils
+    static class TemplatesUtils
     {
-        public TemplatesUtils()
-        {
-        }
-
         public static void fillBlankTemplate(IDbDataService service, string templateFileName, string hospitalSessionId, Dictionary<string, string> values)
         {
 

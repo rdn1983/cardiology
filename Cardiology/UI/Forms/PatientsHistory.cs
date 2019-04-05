@@ -60,7 +60,7 @@ namespace Cardiology.UI.Forms
 
         private void journalBeforeKAGMeniItem_Click(object sender, EventArgs e)
         {
-            JournalBeforeKag form = new JournalBeforeKag(service, hospitalitySession, null, (int)DdtJournalDsiType.BEFORE_KAG);
+            JournalBeforeKag form = new JournalBeforeKag(service, hospitalitySession, null, (int)DdtJournalDsiType.BeforeKag);
             form.ShowDialog();
         }
 
@@ -72,7 +72,7 @@ namespace Cardiology.UI.Forms
 
         private void journalWithoutKAGMenuItem_Click(object sender, EventArgs e)
         {
-            JournalBeforeKag form = new JournalBeforeKag(service, hospitalitySession, null, (int)DdtJournalDsiType.WITHOUT_KAG);
+            JournalBeforeKag form = new JournalBeforeKag(service, hospitalitySession, null, (int)DdtJournalDsiType.WithoutKag);
             form.ShowDialog();
         }
 
@@ -130,7 +130,7 @@ namespace Cardiology.UI.Forms
             else if (DdtJournal.NAME.Equals(firstType, StringComparison.Ordinal))
             {
                 DdtJournal journal = service.GetDdtJournalService().GetById(firstId);
-                if (journal.JournalType == (int)DdtJournalDsiType.AFTER_KAG)
+                if (journal.JournalType == (int)DdtJournalDsiType.AfterKag)
                 {
                     form = new JournalAfterKAG(service, hospitalitySession, firstId);
                 }

@@ -63,3 +63,16 @@ INSERT INTO dm_group_users (dss_group_name, dsid_doctor_id) VALUES('duty_adminis
 INSERT INTO dm_group_users (dss_group_name, dsid_doctor_id) VALUES('duty_administrators', (SELECT r_object_id FROM ddt_doctor WHERE dss_last_name = 'Соболев' AND dss_first_name = 'Владимир' AND dss_middle_name = 'Владимирович'));
 INSERT INTO dm_group_users (dss_group_name, dsid_doctor_id) VALUES('duty_administrators', (SELECT r_object_id FROM ddt_doctor WHERE dss_last_name = 'Шандалин' AND dss_first_name = 'Вадим' AND dss_middle_name = 'Александрович'));
 INSERT INTO dm_group_users (dss_group_name, dsid_doctor_id) VALUES('duty_administrators', (SELECT r_object_id FROM ddt_doctor WHERE dss_last_name = 'Юрьев' AND dss_first_name = 'Алексей' AND dss_middle_name = 'Александрович'));
+-- Дежурные мед. сестры
+INSERT INTO dm_group_users (dss_group_name, dsid_doctor_id) VALUES('nurses', (SELECT r_object_id FROM ddt_doctor WHERE dss_last_name = 'Ерхова' AND dss_first_name = 'С' AND dss_middle_name = 'М'));
+INSERT INTO dm_group_users (dss_group_name, dsid_doctor_id) VALUES('nurses', (SELECT r_object_id FROM ddt_doctor WHERE dss_last_name = 'Дербышева' AND dss_first_name = 'И' AND dss_middle_name = 'А'));
+INSERT INTO dm_group_users (dss_group_name, dsid_doctor_id) VALUES('nurses', (SELECT r_object_id FROM ddt_doctor WHERE dss_last_name = 'Саркисян' AND dss_first_name = 'Е' AND dss_middle_name = 'С'));
+INSERT INTO dm_group_users (dss_group_name, dsid_doctor_id) VALUES('nurses', (SELECT r_object_id FROM ddt_doctor WHERE dss_last_name = 'Шехватова' AND dss_first_name = 'И' AND dss_middle_name = 'А'));
+INSERT INTO dm_group_users (dss_group_name, dsid_doctor_id) VALUES('nurses', (SELECT r_object_id FROM ddt_doctor WHERE dss_last_name = 'Андреева' AND dss_first_name = 'Е' AND dss_middle_name = 'А'));
+INSERT INTO dm_group_users (dss_group_name, dsid_doctor_id) VALUES('nurses', (SELECT r_object_id FROM ddt_doctor WHERE dss_last_name = 'Наумов' AND dss_first_name = 'А' AND dss_middle_name = 'М'));
+INSERT INTO dm_group_users (dss_group_name, dsid_doctor_id) VALUES('nurses', (SELECT r_object_id FROM ddt_doctor WHERE dss_last_name = 'Чайковская' AND dss_first_name = 'М' AND dss_middle_name = 'В'));
+INSERT INTO dm_group_users (dss_group_name, dsid_doctor_id) VALUES('nurses', (SELECT r_object_id FROM ddt_doctor WHERE dss_last_name = 'Яковенко' AND dss_first_name = 'Е' AND dss_middle_name = 'В'));
+INSERT INTO dm_group_users (dss_group_name, dsid_doctor_id) VALUES('nurses', (SELECT r_object_id FROM ddt_doctor WHERE dss_last_name = 'Антипова' AND dss_first_name = 'Е' AND dss_middle_name = 'Н'));
+INSERT INTO dm_group_users (dss_group_name, dsid_doctor_id) VALUES('nurses', (SELECT r_object_id FROM ddt_doctor WHERE dss_last_name = 'Щербакова' AND dss_first_name = 'Е' AND dss_middle_name = 'Е'));
+INSERT INTO dm_group_users (dss_group_name, dsid_doctor_id) VALUES('nurses', (SELECT r_object_id FROM ddt_doctor WHERE dss_last_name = 'Толкованова' AND dss_first_name = 'С' AND dss_middle_name = 'И'));
+INSERT INTO dm_group_users (dss_group_name, dsid_doctor_id) VALUES('nurses', (SELECT r_object_id FROM ddt_doctor WHERE dss_last_name = 'Волохова' AND dss_first_name = 'А' AND dss_middle_name = 'А'));

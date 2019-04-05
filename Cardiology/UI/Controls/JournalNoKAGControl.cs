@@ -172,11 +172,11 @@ namespace Cardiology.UI.Controls
             }
             else
             {
-                journalTxt.Text = journalType == (int)DdtJournalDsiType.PENDING_JUSTIFICATION ? JournalShuffleUtils.shuffleBadJournalText() : JournalShuffleUtils.shuffleJournalText();
-                if (journalType == (int)DdtJournalDsiType.AFTER_PENDING)
+                journalTxt.Text = journalType == (int)DdtJournalDsiType.PendingJustification ? JournalShuffleUtils.shuffleBadJournalText() : JournalShuffleUtils.shuffleJournalText();
+                if (journalType == (int)DdtJournalDsiType.AfterPending)
                 {
                     journalTxt.Text += "Необходимо решить вопрос о проведении консилиума.";
-                    this.journalType = (int)DdtJournalDsiType.BEFORE_KAG;
+                    this.journalType = (int)DdtJournalDsiType.BeforeKag;
                 }
                 adTxt.SelectedIndex = JournalShuffleUtils.shuffleNextIndex(adTxt.Items.Count - 1);
                 chddTxt.SelectedIndex = chddTxt.FindString("14");

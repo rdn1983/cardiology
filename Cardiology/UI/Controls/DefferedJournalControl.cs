@@ -157,7 +157,7 @@ namespace Cardiology.UI.Controls
             if (journal == null)
             {
                 journal = new DdtJournal();
-                journal.JournalType = (int)DdtJournalDsiType.PENDING_JUSTIFICATION;
+                journal.JournalType = (int)DdtJournalDsiType.PendingJustification;
             }
 
             journal.Ad = deferredAdTxt.Text;

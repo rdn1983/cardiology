@@ -31,7 +31,7 @@ namespace Cardiology.Commons
             values.Add("{doctor.initials}", doc == null ? "" : doc.ShortName);
 
             List<string> partsPaths = new List<string>();
-            if (journal.JournalType == (int)DdtJournalDsiType.AFTER_KAG)
+            if (journal.JournalType == (int)DdtJournalDsiType.AfterKag)
             {
                 partsPaths.AddRange(collectKagJournalPaths(service, journal, doc, values));
             }

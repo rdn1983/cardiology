@@ -25,7 +25,7 @@ namespace Cardiology.UI.Forms
             InitializeComponent();
 
             ControlUtils.InitDoctorsByGroupName(service.GetDdvDoctorService(), clinicalPharmacologistBox, "xray_department");
-            CommonUtils.InitDoctorsComboboxValues(service, nurseBox, null);
+            ControlUtils.InitDoctorsByGroupName(service.GetDdvDoctorService(), nurseBox, "nurses");
             ControlUtils.InitDoctorsByGroupName(service.GetDdvDoctorService(), cardioReanimBox, "cardioreanimation_department");
             ControlUtils.InitDoctorsByGroupName(service.GetDdvDoctorService(), directorBox, "cardioreanimation_department_head");
             initIssuedCure();

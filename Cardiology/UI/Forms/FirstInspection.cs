@@ -13,10 +13,6 @@ namespace Cardiology.UI.Forms
 {
     public partial class FirstInspection : Form, IAutoSaveForm
     {
-        private const int EGDS_TAB_INDX = 1;
-        private const int URINE_TAB_INDX = 2;
-        private const int BLOOD_TAB_INDX = 3;
-
         private const string OKSUP_TYPE = "oksup";
         private const string OKSDOWN_TYPE = "oksdown";
         private const string KAG_TYPE = "kag";

@@ -13,7 +13,6 @@ namespace Cardiology.UI.Forms
         private readonly IDbDataService service;
         private DdtHospital hospitalitySession;
         private DdtInspection inspectionObj;
-        private static AnalysisSelector selector;
         private string kagId;
 
         public Inspection(IDbDataService service, DdtHospital hospitalitySession, string id)

@@ -102,7 +102,7 @@
             this.protocolLbl1.AutoSize = true;
             this.protocolLbl1.Location = new System.Drawing.Point(3, 48);
             this.protocolLbl1.Name = "protocolLbl1";
-            this.protocolLbl1.Size = new System.Drawing.Size(452, 26);
+            this.protocolLbl1.Size = new System.Drawing.Size(497, 26);
             this.protocolLbl1.TabIndex = 1;
             this.protocolLbl1.Text = "Внешний вид испытуемого: состояние одежды, кожи, наличие повреждений, (ранения, у" +
     "шибы и т.д.)";
@@ -133,7 +133,7 @@
             this.protocolLbl4.AutoSize = true;
             this.protocolLbl4.Location = new System.Drawing.Point(3, 170);
             this.protocolLbl4.Name = "protocolLbl4";
-            this.protocolLbl4.Size = new System.Drawing.Size(480, 26);
+            this.protocolLbl4.Size = new System.Drawing.Size(495, 13);
             this.protocolLbl4.TabIndex = 4;
             this.protocolLbl4.Text = "Речевая способность: связаность изложения, нарушения артикуляции, смазанность реч" +
     "и и др. ";
@@ -302,7 +302,7 @@
             this.protocolLbl22.AutoSize = true;
             this.protocolLbl22.Location = new System.Drawing.Point(3, 714);
             this.protocolLbl22.Name = "protocolLbl22";
-            this.protocolLbl22.Size = new System.Drawing.Size(446, 26);
+            this.protocolLbl22.Size = new System.Drawing.Size(491, 26);
             this.protocolLbl22.TabIndex = 22;
             this.protocolLbl22.Text = "б) биологическая среда(ы) (моча, слюна, кровь, смывы с поверхности губ кожи лица," +
     " пальцев рук)\tисследовались\r\n";
@@ -337,7 +337,7 @@
             this.baseCntr.Controls.Add(this.tableLayoutPanel1);
             this.baseCntr.Location = new System.Drawing.Point(12, 9);
             this.baseCntr.Name = "baseCntr";
-            this.baseCntr.Size = new System.Drawing.Size(703, 604);
+            this.baseCntr.Size = new System.Drawing.Size(740, 604);
             this.baseCntr.TabIndex = 25;
             // 
             // tableLayoutPanel1
@@ -427,12 +427,12 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(686, 598);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(723, 598);
             this.tableLayoutPanel1.TabIndex = 36;
             // 
             // conclusionTxt
             // 
-            this.conclusionTxt.Location = new System.Drawing.Point(492, 773);
+            this.conclusionTxt.Location = new System.Drawing.Point(506, 773);
             this.conclusionTxt.Name = "conclusionTxt";
             this.conclusionTxt.Size = new System.Drawing.Size(186, 130);
             this.conclusionTxt.TabIndex = 27;
@@ -440,7 +440,7 @@
             // 
             // docsTxt
             // 
-            this.docsTxt.Location = new System.Drawing.Point(492, 745);
+            this.docsTxt.Location = new System.Drawing.Point(506, 745);
             this.docsTxt.Name = "docsTxt";
             this.docsTxt.Size = new System.Drawing.Size(186, 22);
             this.docsTxt.TabIndex = 27;
@@ -448,7 +448,7 @@
             // 
             // bioTxt
             // 
-            this.bioTxt.Location = new System.Drawing.Point(492, 717);
+            this.bioTxt.Location = new System.Drawing.Point(506, 717);
             this.bioTxt.Name = "bioTxt";
             this.bioTxt.Size = new System.Drawing.Size(186, 22);
             this.bioTxt.TabIndex = 27;
@@ -456,7 +456,7 @@
             // 
             // trubTxt
             // 
-            this.trubTxt.Location = new System.Drawing.Point(492, 689);
+            this.trubTxt.Location = new System.Drawing.Point(506, 689);
             this.trubTxt.Name = "trubTxt";
             this.trubTxt.Size = new System.Drawing.Size(186, 22);
             this.trubTxt.TabIndex = 27;
@@ -464,7 +464,7 @@
             // 
             // priborTxt
             // 
-            this.priborTxt.Location = new System.Drawing.Point(492, 645);
+            this.priborTxt.Location = new System.Drawing.Point(506, 645);
             this.priborTxt.Name = "priborTxt";
             this.priborTxt.Size = new System.Drawing.Size(186, 38);
             this.priborTxt.TabIndex = 27;
@@ -472,7 +472,7 @@
             // 
             // smellTxt
             // 
-            this.smellTxt.Location = new System.Drawing.Point(492, 617);
+            this.smellTxt.Location = new System.Drawing.Point(506, 617);
             this.smellTxt.Name = "smellTxt";
             this.smellTxt.Size = new System.Drawing.Size(186, 22);
             this.smellTxt.TabIndex = 27;
@@ -480,7 +480,7 @@
             // 
             // drunkTxt
             // 
-            this.drunkTxt.Location = new System.Drawing.Point(492, 589);
+            this.drunkTxt.Location = new System.Drawing.Point(506, 589);
             this.drunkTxt.Name = "drunkTxt";
             this.drunkTxt.Size = new System.Drawing.Size(186, 22);
             this.drunkTxt.TabIndex = 27;
@@ -488,7 +488,7 @@
             // 
             // illnessTxt
             // 
-            this.illnessTxt.Location = new System.Drawing.Point(492, 537);
+            this.illnessTxt.Location = new System.Drawing.Point(506, 537);
             this.illnessTxt.Name = "illnessTxt";
             this.illnessTxt.Size = new System.Drawing.Size(186, 22);
             this.illnessTxt.TabIndex = 27;
@@ -496,7 +496,7 @@
             // 
             // trembleTxt
             // 
-            this.trembleTxt.Location = new System.Drawing.Point(492, 510);
+            this.trembleTxt.Location = new System.Drawing.Point(506, 510);
             this.trembleTxt.Name = "trembleTxt";
             this.trembleTxt.Size = new System.Drawing.Size(186, 21);
             this.trembleTxt.TabIndex = 27;
@@ -504,7 +504,7 @@
             // 
             // touchNoseTxt
             // 
-            this.touchNoseTxt.Location = new System.Drawing.Point(492, 482);
+            this.touchNoseTxt.Location = new System.Drawing.Point(506, 482);
             this.touchNoseTxt.Name = "touchNoseTxt";
             this.touchNoseTxt.Size = new System.Drawing.Size(186, 22);
             this.touchNoseTxt.TabIndex = 27;
@@ -512,7 +512,7 @@
             // 
             // protocolValue14
             // 
-            this.protocolValue14.Location = new System.Drawing.Point(492, 454);
+            this.protocolValue14.Location = new System.Drawing.Point(506, 454);
             this.protocolValue14.Name = "protocolValue14";
             this.protocolValue14.Size = new System.Drawing.Size(186, 22);
             this.protocolValue14.TabIndex = 27;
@@ -520,7 +520,7 @@
             // 
             // walkTxt
             // 
-            this.walkTxt.Location = new System.Drawing.Point(492, 426);
+            this.walkTxt.Location = new System.Drawing.Point(506, 426);
             this.walkTxt.Name = "walkTxt";
             this.walkTxt.Size = new System.Drawing.Size(186, 22);
             this.walkTxt.TabIndex = 27;
@@ -528,7 +528,7 @@
             // 
             // mimicsTxt
             // 
-            this.mimicsTxt.Location = new System.Drawing.Point(492, 398);
+            this.mimicsTxt.Location = new System.Drawing.Point(506, 398);
             this.mimicsTxt.Name = "mimicsTxt";
             this.mimicsTxt.Size = new System.Drawing.Size(186, 22);
             this.mimicsTxt.TabIndex = 27;
@@ -536,7 +536,7 @@
             // 
             // motionTxt
             // 
-            this.motionTxt.Location = new System.Drawing.Point(492, 370);
+            this.motionTxt.Location = new System.Drawing.Point(506, 370);
             this.motionTxt.Name = "motionTxt";
             this.motionTxt.Size = new System.Drawing.Size(186, 22);
             this.motionTxt.TabIndex = 27;
@@ -544,7 +544,7 @@
             // 
             // nistagmTxt
             // 
-            this.nistagmTxt.Location = new System.Drawing.Point(492, 342);
+            this.nistagmTxt.Location = new System.Drawing.Point(506, 342);
             this.nistagmTxt.Name = "nistagmTxt";
             this.nistagmTxt.Size = new System.Drawing.Size(186, 22);
             this.nistagmTxt.TabIndex = 27;
@@ -552,7 +552,7 @@
             // 
             // eyesTxt
             // 
-            this.eyesTxt.Location = new System.Drawing.Point(492, 314);
+            this.eyesTxt.Location = new System.Drawing.Point(506, 314);
             this.eyesTxt.Name = "eyesTxt";
             this.eyesTxt.Size = new System.Drawing.Size(186, 22);
             this.eyesTxt.TabIndex = 27;
@@ -560,7 +560,7 @@
             // 
             // pressureTxt
             // 
-            this.pressureTxt.Location = new System.Drawing.Point(492, 286);
+            this.pressureTxt.Location = new System.Drawing.Point(506, 286);
             this.pressureTxt.Name = "pressureTxt";
             this.pressureTxt.Size = new System.Drawing.Size(186, 22);
             this.pressureTxt.TabIndex = 27;
@@ -568,7 +568,7 @@
             // 
             // pulseTxt
             // 
-            this.pulseTxt.Location = new System.Drawing.Point(492, 258);
+            this.pulseTxt.Location = new System.Drawing.Point(506, 258);
             this.pulseTxt.Name = "pulseTxt";
             this.pulseTxt.Size = new System.Drawing.Size(186, 22);
             this.pulseTxt.TabIndex = 27;
@@ -576,7 +576,7 @@
             // 
             // breatheTxt
             // 
-            this.breatheTxt.Location = new System.Drawing.Point(492, 230);
+            this.breatheTxt.Location = new System.Drawing.Point(506, 230);
             this.breatheTxt.Name = "breatheTxt";
             this.breatheTxt.Size = new System.Drawing.Size(186, 22);
             this.breatheTxt.TabIndex = 27;
@@ -584,7 +584,7 @@
             // 
             // skinTxt
             // 
-            this.skinTxt.Location = new System.Drawing.Point(492, 202);
+            this.skinTxt.Location = new System.Drawing.Point(506, 202);
             this.skinTxt.Name = "skinTxt";
             this.skinTxt.Size = new System.Drawing.Size(186, 22);
             this.skinTxt.TabIndex = 27;
@@ -592,7 +592,7 @@
             // 
             // speechTxt
             // 
-            this.speechTxt.Location = new System.Drawing.Point(492, 173);
+            this.speechTxt.Location = new System.Drawing.Point(506, 173);
             this.speechTxt.Name = "speechTxt";
             this.speechTxt.Size = new System.Drawing.Size(186, 23);
             this.speechTxt.TabIndex = 27;
@@ -600,7 +600,7 @@
             // 
             // orientationTxt
             // 
-            this.orientationTxt.Location = new System.Drawing.Point(492, 145);
+            this.orientationTxt.Location = new System.Drawing.Point(506, 145);
             this.orientationTxt.Name = "orientationTxt";
             this.orientationTxt.Size = new System.Drawing.Size(186, 22);
             this.orientationTxt.TabIndex = 27;
@@ -608,7 +608,7 @@
             // 
             // behaviorTxt
             // 
-            this.behaviorTxt.Location = new System.Drawing.Point(492, 98);
+            this.behaviorTxt.Location = new System.Drawing.Point(506, 98);
             this.behaviorTxt.Name = "behaviorTxt";
             this.behaviorTxt.Size = new System.Drawing.Size(186, 41);
             this.behaviorTxt.TabIndex = 26;
@@ -616,7 +616,7 @@
             // 
             // lookTxt
             // 
-            this.lookTxt.Location = new System.Drawing.Point(492, 51);
+            this.lookTxt.Location = new System.Drawing.Point(506, 51);
             this.lookTxt.Name = "lookTxt";
             this.lookTxt.Size = new System.Drawing.Size(186, 41);
             this.lookTxt.TabIndex = 26;
@@ -624,7 +624,7 @@
             // 
             // causeTxt
             // 
-            this.causeTxt.Location = new System.Drawing.Point(492, 3);
+            this.causeTxt.Location = new System.Drawing.Point(506, 3);
             this.causeTxt.Name = "causeTxt";
             this.causeTxt.Size = new System.Drawing.Size(186, 42);
             this.causeTxt.TabIndex = 25;
@@ -633,7 +633,7 @@
             // saveBtn
             // 
             this.saveBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.saveBtn.Location = new System.Drawing.Point(597, 619);
+            this.saveBtn.Location = new System.Drawing.Point(634, 619);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(118, 23);
             this.saveBtn.TabIndex = 26;
@@ -645,7 +645,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(721, 654);
+            this.ClientSize = new System.Drawing.Size(758, 654);
             this.Controls.Add(this.saveBtn);
             this.Controls.Add(this.baseCntr);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;

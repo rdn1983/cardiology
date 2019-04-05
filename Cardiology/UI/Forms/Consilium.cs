@@ -278,13 +278,8 @@ namespace Cardiology.UI.Forms
                 int indxPlace = CommonUtils.GetFirstDigitIndex(ctrlName);
                 int index = Convert.ToInt32(String.Intern(ctrlName.Substring(indxPlace)));
                 ComboBox c = (ComboBox)CommonUtils.FindControl(doctorsContainer, "doctorWho" + index);
-<<<<<<< HEAD
                 ControlUtils.InitDoctorsByConsiliumGroupId(service.GetDdvDoctorService(), c, group.ObjectId);
-                if ("duty_cardioreanim".Equals(group.Name))
-=======
-                CommonUtils.InitDoctorsByGroupComboboxValues(service, c, group.Name);
                 if ("duty_cardioreanim".Equals(group.Name, StringComparison.Ordinal))
->>>>>>> d5b335a9098952da27e5af4dd16c46e55189f078
                 {
                     c.SelectedIndex = c.FindStringExact(curingDoc?.ShortName);
                 }

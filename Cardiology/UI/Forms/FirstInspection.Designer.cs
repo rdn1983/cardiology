@@ -389,7 +389,7 @@ namespace Cardiology.UI.Forms
             this.anamnesisVitaeBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.anamnesisVitaeBox.Location = new System.Drawing.Point(521, 7);
             this.anamnesisVitaeBox.Name = "anamnesisVitaeBox";
-            this.anamnesisVitaeBox.Size = new System.Drawing.Size(509, 407);
+            this.anamnesisVitaeBox.Size = new System.Drawing.Size(553, 407);
             this.anamnesisVitaeBox.TabIndex = 14;
             this.anamnesisVitaeBox.TabStop = false;
             this.anamnesisVitaeBox.Text = "Anamnesis vitae";
@@ -403,7 +403,7 @@ namespace Cardiology.UI.Forms
             this.accompanyingIllnessesBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.accompanyingIllnessesBox.Location = new System.Drawing.Point(6, 229);
             this.accompanyingIllnessesBox.Name = "accompanyingIllnessesBox";
-            this.accompanyingIllnessesBox.Size = new System.Drawing.Size(495, 169);
+            this.accompanyingIllnessesBox.Size = new System.Drawing.Size(539, 169);
             this.accompanyingIllnessesBox.TabIndex = 16;
             this.accompanyingIllnessesBox.TabStop = false;
             this.accompanyingIllnessesBox.Text = "Из сопутствующих заболеваний";
@@ -416,7 +416,7 @@ namespace Cardiology.UI.Forms
             this.chronicBox.Controls.Add(this.chronicDEP3);
             this.chronicBox.Controls.Add(this.chronicGB3);
             this.chronicBox.Controls.Add(this.chronicMA);
-            this.chronicBox.Location = new System.Drawing.Point(310, 19);
+            this.chronicBox.Location = new System.Drawing.Point(354, 19);
             this.chronicBox.Name = "chronicBox";
             this.chronicBox.Size = new System.Drawing.Size(179, 142);
             this.chronicBox.TabIndex = 1;
@@ -479,7 +479,7 @@ namespace Cardiology.UI.Forms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.accompanyingIllnessesTxt.Location = new System.Drawing.Point(6, 17);
             this.accompanyingIllnessesTxt.Name = "accompanyingIllnessesTxt";
-            this.accompanyingIllnessesTxt.Size = new System.Drawing.Size(298, 144);
+            this.accompanyingIllnessesTxt.Size = new System.Drawing.Size(342, 144);
             this.accompanyingIllnessesTxt.TabIndex = 0;
             this.accompanyingIllnessesTxt.Text = "";
             this.accompanyingIllnessesTxt.TextChanged += new System.EventHandler(this.accompanyingIllnessesTxt_TextChanged);
@@ -492,7 +492,7 @@ namespace Cardiology.UI.Forms
             this.pastSurgeriesBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.pastSurgeriesBox.Location = new System.Drawing.Point(6, 112);
             this.pastSurgeriesBox.Name = "pastSurgeriesBox";
-            this.pastSurgeriesBox.Size = new System.Drawing.Size(495, 105);
+            this.pastSurgeriesBox.Size = new System.Drawing.Size(539, 105);
             this.pastSurgeriesBox.TabIndex = 15;
             this.pastSurgeriesBox.TabStop = false;
             this.pastSurgeriesBox.Text = "Перенесенные заболевания, травмы и операции";
@@ -503,7 +503,7 @@ namespace Cardiology.UI.Forms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pastSurgeriesTxt.Location = new System.Drawing.Point(6, 17);
             this.pastSurgeriesTxt.Name = "pastSurgeriesTxt";
-            this.pastSurgeriesTxt.Size = new System.Drawing.Size(482, 82);
+            this.pastSurgeriesTxt.Size = new System.Drawing.Size(526, 82);
             this.pastSurgeriesTxt.TabIndex = 0;
             this.pastSurgeriesTxt.Text = "";
             // 
@@ -512,9 +512,9 @@ namespace Cardiology.UI.Forms
             this.alcoholProtocolBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.alcoholProtocolBtn.Location = new System.Drawing.Point(330, 83);
             this.alcoholProtocolBtn.Name = "alcoholProtocolBtn";
-            this.alcoholProtocolBtn.Size = new System.Drawing.Size(174, 23);
+            this.alcoholProtocolBtn.Size = new System.Drawing.Size(217, 23);
             this.alcoholProtocolBtn.TabIndex = 3;
-            this.alcoholProtocolBtn.Text = "Протокол алкоосвидетельства";
+            this.alcoholProtocolBtn.Text = "Протокол алко-освидетельствования";
             this.alcoholProtocolBtn.UseVisualStyleBackColor = true;
             this.alcoholProtocolBtn.Visible = false;
             this.alcoholProtocolBtn.Click += new System.EventHandler(this.alcoholProtocolBtn_Click);
@@ -548,7 +548,7 @@ namespace Cardiology.UI.Forms
             this.anamnesisVitaeTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.anamnesisVitaeTxt.Location = new System.Drawing.Point(6, 17);
             this.anamnesisVitaeTxt.Name = "anamnesisVitaeTxt";
-            this.anamnesisVitaeTxt.Size = new System.Drawing.Size(497, 64);
+            this.anamnesisVitaeTxt.Size = new System.Drawing.Size(541, 64);
             this.anamnesisVitaeTxt.TabIndex = 0;
             this.anamnesisVitaeTxt.Text = "";
             // 
@@ -562,7 +562,7 @@ namespace Cardiology.UI.Forms
             this.drugsBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.drugsBox.Location = new System.Drawing.Point(521, 420);
             this.drugsBox.Name = "drugsBox";
-            this.drugsBox.Size = new System.Drawing.Size(509, 116);
+            this.drugsBox.Size = new System.Drawing.Size(553, 116);
             this.drugsBox.TabIndex = 15;
             this.drugsBox.TabStop = false;
             this.drugsBox.Text = "Данные об употреблении наркотических и психотропных препаратов";
@@ -570,7 +570,7 @@ namespace Cardiology.UI.Forms
             // hasNoDrugsIntoxication
             // 
             this.hasNoDrugsIntoxication.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.hasNoDrugsIntoxication.Location = new System.Drawing.Point(259, 87);
+            this.hasNoDrugsIntoxication.Location = new System.Drawing.Point(303, 87);
             this.hasNoDrugsIntoxication.Name = "hasNoDrugsIntoxication";
             this.hasNoDrugsIntoxication.Size = new System.Drawing.Size(244, 23);
             this.hasNoDrugsIntoxication.TabIndex = 2;
@@ -595,7 +595,7 @@ namespace Cardiology.UI.Forms
             this.drugsTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.drugsTxt.Location = new System.Drawing.Point(6, 17);
             this.drugsTxt.Name = "drugsTxt";
-            this.drugsTxt.Size = new System.Drawing.Size(497, 66);
+            this.drugsTxt.Size = new System.Drawing.Size(541, 66);
             this.drugsTxt.TabIndex = 0;
             this.drugsTxt.Text = "";
             // 
@@ -603,7 +603,7 @@ namespace Cardiology.UI.Forms
             // 
             this.saveBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.saveBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.saveBtn.Location = new System.Drawing.Point(903, 606);
+            this.saveBtn.Location = new System.Drawing.Point(947, 606);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(124, 23);
             this.saveBtn.TabIndex = 18;
@@ -615,7 +615,7 @@ namespace Cardiology.UI.Forms
             // 
             this.printBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.printBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.printBtn.Location = new System.Drawing.Point(1033, 606);
+            this.printBtn.Location = new System.Drawing.Point(1077, 606);
             this.printBtn.Name = "printBtn";
             this.printBtn.Size = new System.Drawing.Size(125, 23);
             this.printBtn.TabIndex = 19;
@@ -627,7 +627,7 @@ namespace Cardiology.UI.Forms
             // 
             this.nextBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.nextBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.nextBtn.Location = new System.Drawing.Point(773, 606);
+            this.nextBtn.Location = new System.Drawing.Point(817, 606);
             this.nextBtn.Name = "nextBtn";
             this.nextBtn.Size = new System.Drawing.Size(124, 23);
             this.nextBtn.TabIndex = 20;
@@ -639,7 +639,7 @@ namespace Cardiology.UI.Forms
             // 
             this.prevBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.prevBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.prevBtn.Location = new System.Drawing.Point(643, 606);
+            this.prevBtn.Location = new System.Drawing.Point(687, 606);
             this.prevBtn.Name = "prevBtn";
             this.prevBtn.Size = new System.Drawing.Size(124, 23);
             this.prevBtn.TabIndex = 21;
@@ -660,7 +660,7 @@ namespace Cardiology.UI.Forms
             this.tabsContainer.Location = new System.Drawing.Point(111, 30);
             this.tabsContainer.Name = "tabsContainer";
             this.tabsContainer.SelectedIndex = 0;
-            this.tabsContainer.Size = new System.Drawing.Size(1051, 571);
+            this.tabsContainer.Size = new System.Drawing.Size(1095, 571);
             this.tabsContainer.TabIndex = 22;
             // 
             // anamnesisTab
@@ -675,7 +675,7 @@ namespace Cardiology.UI.Forms
             this.anamnesisTab.Location = new System.Drawing.Point(4, 22);
             this.anamnesisTab.Name = "anamnesisTab";
             this.anamnesisTab.Padding = new System.Windows.Forms.Padding(3);
-            this.anamnesisTab.Size = new System.Drawing.Size(1043, 545);
+            this.anamnesisTab.Size = new System.Drawing.Size(1087, 545);
             this.anamnesisTab.TabIndex = 0;
             this.anamnesisTab.Text = "Анамнез";
             // 
@@ -1315,7 +1315,7 @@ namespace Cardiology.UI.Forms
             this.docBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.docBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.docBox.FormattingEnabled = true;
-            this.docBox.Location = new System.Drawing.Point(376, 608);
+            this.docBox.Location = new System.Drawing.Point(420, 608);
             this.docBox.Name = "docBox";
             this.docBox.Size = new System.Drawing.Size(254, 21);
             this.docBox.TabIndex = 24;
@@ -1324,7 +1324,7 @@ namespace Cardiology.UI.Forms
             // 
             this.docLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.docLbl.AutoSize = true;
-            this.docLbl.Location = new System.Drawing.Point(260, 613);
+            this.docLbl.Location = new System.Drawing.Point(304, 613);
             this.docLbl.Name = "docLbl";
             this.docLbl.Size = new System.Drawing.Size(112, 13);
             this.docLbl.TabIndex = 25;
@@ -1335,7 +1335,7 @@ namespace Cardiology.UI.Forms
             this.patientInitialsLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.patientInitialsLbl.AutoSize = true;
             this.patientInitialsLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.patientInitialsLbl.Location = new System.Drawing.Point(882, 9);
+            this.patientInitialsLbl.Location = new System.Drawing.Point(926, 9);
             this.patientInitialsLbl.Name = "patientInitialsLbl";
             this.patientInitialsLbl.Size = new System.Drawing.Size(0, 13);
             this.patientInitialsLbl.TabIndex = 17;
@@ -1358,7 +1358,7 @@ namespace Cardiology.UI.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1165, 634);
+            this.ClientSize = new System.Drawing.Size(1209, 634);
             this.Controls.Add(this.patientInitialsLbl);
             this.Controls.Add(this.docLbl);
             this.Controls.Add(this.docBox);

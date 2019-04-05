@@ -173,7 +173,7 @@ namespace Cardiology.UI.Forms
 
 
             saveInspectionObj(service);
-            saveAnalysis(service);
+            SaveAnalysis();
             return true;
         }
 
@@ -204,7 +204,7 @@ namespace Cardiology.UI.Forms
 
 
 
-        private void saveAnalysis(IDbDataService service)
+        private void SaveAnalysis()
         {
             saveTab("uziTab", "УЗИ");
             saveTab("bloodTab", "АНализы крови");

@@ -14,7 +14,7 @@ namespace Cardiology.Commons
 
         public bool accept(string templateType)
         {
-            return DdtInspection.NAME.Equals(templateType);
+            return DdtInspection.NAME.Equals(templateType, StringComparison.Ordinal);
         }
 
         public string processTemplate(IDbDataService service, string hospitalitySession, string objectId, Dictionary<string, string> aditionalValues)

@@ -10,7 +10,7 @@ using static System.Windows.Forms.ComboBox;
 
 namespace Cardiology.Commons
 {
-    public class CommonUtils
+    static class CommonUtils
     {
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
 
@@ -220,7 +220,7 @@ namespace Cardiology.Commons
 
                     int index = -1;
                     StringBuilder resultBuilder = new StringBuilder();
-                    if ((index = journal.IndexOf(mask)) >= 0)
+                    if ((index = journal.IndexOf(mask, StringComparison.Ordinal)) >= 0)
                     {
                         int startIndex = index + mask.Length - 1;
                         int counter = 0;

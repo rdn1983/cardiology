@@ -84,7 +84,7 @@ namespace Cardiology.Data.PostgreSQL
             catch (Exception ex)
             {
                 Logger.Error(ex);
-                throw ex;
+                throw;
             }
         }
 

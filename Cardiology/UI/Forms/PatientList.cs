@@ -51,8 +51,19 @@ namespace Cardiology.UI.Forms
 
         private void trombolisisItem_Click(object sender, EventArgs e)
         {
-            UserFormTrombolizis form = new UserFormTrombolizis(null);
-            form.ShowDialog();
+            IEnumerator it = hospitalPatientsTbl.SelectedRows.GetEnumerator();
+            if (it.MoveNext())
+            {
+                DataGridViewRow row = (DataGridViewRow)it.Current;
+                DataGridViewCell cell = row.Cells[0];
+                string value = cell.Value.ToString();
+
+                DdtHospital hospitalSession = service.GetDdtHospitalService().GetById(value);
+                DdvPatient patient = service.GetDdvPatientService().GetById(hospitalSession.Patient);
+
+                UserFormTrombolizis form = new UserFormTrombolizis(patient);
+                form.ShowDialog();
+            }
         }
 
         private void veksItem_Click(object sender, EventArgs e)

@@ -27,9 +27,11 @@ CREATE FUNCTION dmtrg_f_ddt_issued_medicine_list_audit()
 language plpgsql
 as $BODY$
 BEGIN
+IF TRIM(NEW.dsid_parent_id) ='' THEN
 INSERT INTO ddt_history 
 (dsid_hospitality_session, dsid_patient, dsid_doctor, dsid_operation_id, dss_operation_type, dsdt_operation_date, dss_operation_name)
  VALUES (NEW.dsid_hospitality_session, NEW.dsid_patient, NEW.dsid_doctor, NEW.r_object_id, TG_TABLE_NAME, NEW.dsdt_issuing_date, 'Назначение лекарственных препаратов');
+ END IF;
  RETURN NEW;
 END;
 $BODY$;

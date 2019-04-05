@@ -421,7 +421,7 @@ namespace Cardiology.UI.Forms
 
         private void OKSUpBtn_Click(object sender, EventArgs e)
         {
-            if (!"oks.medicine.".Equals(templateName) && isSureChangeTemplate())
+            if (!"oks.medicine.".Equals(templateName, StringComparison.Ordinal) && isSureChangeTemplate())
             {
                 acceptTemplate = true;
                 clearSelection();
@@ -437,7 +437,7 @@ namespace Cardiology.UI.Forms
 
         private void OKSDownBtn_Click(object sender, EventArgs e)
         {
-            if (!"okslongs.medicine.".Equals(templateName) && isSureChangeTemplate())
+            if (!"okslongs.medicine.".Equals(templateName, StringComparison.Ordinal) && isSureChangeTemplate())
             {
                 acceptTemplate = true;
                 clearSelection();
@@ -453,7 +453,7 @@ namespace Cardiology.UI.Forms
 
         private void KAGBtn_Click(object sender, EventArgs e)
         {
-            if (!"kag.medicine.".Equals(templateName) && isSureChangeTemplate())
+            if (!"kag.medicine.".Equals(templateName, StringComparison.Ordinal) && isSureChangeTemplate())
             {
                 acceptTemplate = true;
                 clearSelection();
@@ -469,7 +469,7 @@ namespace Cardiology.UI.Forms
 
         private void aorticDissectionBtn_Click(object sender, EventArgs e)
         {
-            if (!"aorta.medicine.".Equals(templateName) && isSureChangeTemplate())
+            if (!"aorta.medicine.".Equals(templateName, StringComparison.Ordinal) && isSureChangeTemplate())
             {
                 acceptTemplate = true;
                 clearSelection();
@@ -485,7 +485,7 @@ namespace Cardiology.UI.Forms
 
         private void GBBtn_Click(object sender, EventArgs e)
         {
-            if (!"gb.medicine.".Equals(templateName) && isSureChangeTemplate())
+            if (!"gb.medicine.".Equals(templateName, StringComparison.Ordinal) && isSureChangeTemplate())
             {
                 acceptTemplate = true;
                 clearSelection();
@@ -501,7 +501,7 @@ namespace Cardiology.UI.Forms
 
         private void PIKSBtn_Click(object sender, EventArgs e)
         {
-            if (!"nk.medicine.".Equals(templateName) && isSureChangeTemplate())
+            if (!"nk.medicine.".Equals(templateName, StringComparison.Ordinal) && isSureChangeTemplate())
             {
                 acceptTemplate = true;
                 clearSelection();
@@ -517,7 +517,7 @@ namespace Cardiology.UI.Forms
 
         private void PIKVIKBtn_Click(object sender, EventArgs e)
         {
-            if (!"hobl.medicine.".Equals(templateName) && isSureChangeTemplate())
+            if (!"hobl.medicine.".Equals(templateName, StringComparison.Ordinal) && isSureChangeTemplate())
             {
                 acceptTemplate = true;
                 clearSelection();
@@ -534,7 +534,7 @@ namespace Cardiology.UI.Forms
 
         private void DEPBtn_Click(object sender, EventArgs e)
         {
-            if (!"dep.medicine.".Equals(templateName) && isSureChangeTemplate())
+            if (!"dep.medicine.".Equals(templateName, StringComparison.Ordinal) && isSureChangeTemplate())
             {
                 acceptTemplate = true;
                 clearSelection();
@@ -550,7 +550,7 @@ namespace Cardiology.UI.Forms
 
         private void deathBtn_Click(object sender, EventArgs e)
         {
-            if (!"death.medicine.".Equals(templateName) && isSureChangeTemplate())
+            if (!"death.medicine.".Equals(templateName, StringComparison.Ordinal) && isSureChangeTemplate())
             {
                 acceptTemplate = true;
                 clearSelection();

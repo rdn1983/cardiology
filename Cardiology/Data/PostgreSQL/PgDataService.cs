@@ -326,12 +326,12 @@ namespace Cardiology.Data.PostgreSQL
                         string attrValValue = null;
                         while (colsNumerator.MoveNext())
                         {
-                            if (key.Equals(colsNumerator.Current.ColumnName))
+                            if (key.Equals(colsNumerator.Current.ColumnName, StringComparison.Ordinal))
                             {
                                 int indx = columns.IndexOf(colsNumerator.Current);
                                 attrKeyValue = getWrappedValue(reader.GetValue(indx), reader.GetFieldType(indx));
                             }
-                            else if (value.Equals(colsNumerator.Current.ColumnName))
+                            else if (value.Equals(colsNumerator.Current.ColumnName, StringComparison.Ordinal))
                             {
                                 int indx = columns.IndexOf(colsNumerator.Current);
                                 attrValValue = getWrappedValue(reader.GetValue(indx), reader.GetFieldType(indx));

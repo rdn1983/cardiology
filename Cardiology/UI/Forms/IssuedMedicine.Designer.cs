@@ -68,7 +68,7 @@ namespace Cardiology.UI.Forms
             this.clinicalPharmacologistBox = new System.Windows.Forms.ComboBox();
             this.issuedMedicinePnl = new System.Windows.Forms.GroupBox();
             this.medContainer = new System.Windows.Forms.Panel();
-            this.issuedMedicineContainer = new IssuedMedicineContainer();
+            this.issuedMedicineContainer = new Cardiology.UI.Controls.IssuedMedicineContainer();
             this.medicineContainer = new System.Windows.Forms.TableLayoutPanel();
             this.addCureBtn = new System.Windows.Forms.Button();
             this.saveBtn = new System.Windows.Forms.Button();
@@ -274,9 +274,9 @@ namespace Cardiology.UI.Forms
             this.noKagBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.noKagBtn.Location = new System.Drawing.Point(163, 71);
             this.noKagBtn.Name = "noKagBtn";
-            this.noKagBtn.Size = new System.Drawing.Size(60, 17);
+            this.noKagBtn.Size = new System.Drawing.Size(67, 17);
             this.noKagBtn.TabIndex = 2;
-            this.noKagBtn.Text = "Без КГ";
+            this.noKagBtn.Text = "Без КАГ";
             this.noKagBtn.UseVisualStyleBackColor = true;
             this.noKagBtn.CheckedChanged += new System.EventHandler(this.noKagBtn_CheckedChanged);
             // 

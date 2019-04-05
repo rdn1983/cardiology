@@ -12,7 +12,7 @@ namespace Cardiology.Commons
         private const string TemplateFileName = "consilium_template.doc";
         public bool accept(string templateType)
         {
-            return DdtConsilium.NAME.Equals(templateType);
+            return DdtConsilium.NAME.Equals(templateType, StringComparison.Ordinal);
         }
 
         public string processTemplate(IDbDataService service, string hospitalitySession, string objectId, Dictionary<string, string> aditionalValues)

@@ -83,7 +83,7 @@
     <Compile Include="Data\Commons\IDdtCoagulogramService.cs" />
     <Compile Include="Data\Commons\IDdtConsiliumGroupMemberService.cs" />
     <Compile Include="Data\Commons\IDdtConsiliumGroupService.cs" />
-    <Compile Include="Data\Commons\IDdtConsiliumMemberService.cs" />
+    <Compile Include="Data\Commons\IDdtConsiliumRelationService.cs" />
     <Compile Include="Data\Commons\IDdtConsiliumService.cs" />
     <Compile Include="Data\Commons\IDdtCureService.cs" />
     <Compile Include="Data\Commons\IDdtCureTypeService.cs" />
@@ -130,7 +130,7 @@
     <Compile Include="Data\Model2\DdtConsiliumGroup.cs" />
     <Compile Include="Data\Model2\DdtConsiliumGroupLevel.cs" />
     <Compile Include="Data\Model2\DdtConsiliumGroupMember.cs" />
-    <Compile Include="Data\Model2\DdtConsiliumMember.cs" />
+    <Compile Include="Data\Model2\DdtConsiliumRelation.cs" />
     <Compile Include="Data\Model2\DdtCure.cs" />
     <Compile Include="Data\Model2\DdtCureType.cs" />
     <Compile Include="Data\Model2\DdtDoctor.cs" />
@@ -173,7 +173,7 @@
     <Compile Include="Data\PostgreSQL\PgDdtCoagulogramService.cs" />
     <Compile Include="Data\PostgreSQL\PgDdtConsiliumGroupMemberService.cs" />
     <Compile Include="Data\PostgreSQL\PgDdtConsiliumGroupService.cs" />
-    <Compile Include="Data\PostgreSQL\PgDdtConsiliumMemberService.cs" />
+    <Compile Include="Data\PostgreSQL\PgDdtConsiliumRelationService.cs" />
     <Compile Include="Data\PostgreSQL\PgDdtConsiliumService.cs" />
     <Compile Include="Data\PostgreSQL\PgDdtCureService.cs" />
     <Compile Include="Data\PostgreSQL\PgDdtCureTypeService.cs" />

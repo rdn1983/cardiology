@@ -56,20 +56,19 @@ namespace Cardiology.Commons
 
         private string GetMembersInString(IDbDataService service, string consiliumId)
         {
-            IList<DdtConsiliumMember> members = service.GetDdtConsiliumMemberService().GetMembersByConsiliumId(consiliumId);
+            IList<DdtConsiliumRelation> consiluimRelations = service.GetDdtConsiliumRelationService().GetConsiliumRelationsByConsiliumId(consiliumId);
 
             Dictionary<int, String> memberToOrder = new Dictionary<int, String>();
             SortedDictionary<String, String> sortedMembers = new SortedDictionary<String, String>();
 
-            foreach (DdtConsiliumMember mm in members)
+            foreach (DdtConsiliumRelation relation in consiluimRelations)
             {
-                DdvDoctor doctor = service.GetDdvDoctorService().GetById(mm.ObjectId);
-                DdtConsiliumGroupMember groupMember =
-                    service.GetDdtConsiliumGroupMemberService().GetByDoctorId(mm.Doctor);
+                DdtConsiliumGroupMember groupMember = service.GetDdtConsiliumGroupMemberService().GetById(relation.Member);
                 DdtConsiliumGroup group = service.GetDdtConsiliumGroupService().GetById(groupMember.Group);
+                DdvDoctor doctor = service.GetDdvDoctorService().GetById(groupMember.Doctor);
 
                 if (!sortedMembers.ContainsKey(group.Level + " " + group.Name + " " + doctor.ShortName)) {
-                    sortedMembers.Add(group.Level + " " + group.Name + " " + doctor.ShortName, group.Name + " " + doctor.ShortName);
+                    sortedMembers.Add(group.Level + " " + group.Name + " " + doctor.ShortName, group.Name + " " + groupMember.Name + " " + doctor.ShortName);
                 }
             }
 

@@ -35,15 +35,15 @@ CREATE TRIGGER ddt_consilium_trg_audit AFTER INSERT
 	ON ddt_consilium FOR EACH ROW
 EXECUTE PROCEDURE dmtrg_f_ddt_consilium_audit();
 
-CREATE TABLE ddt_consilium_member (
+CREATE TABLE ddt_consilium_relation (
   r_object_id varchar(16) PRIMARY KEY DEFAULT GetNextId(),
   r_creation_date TIMESTAMP DEFAULT NOW() NOT NULL,
   r_modify_date TIMESTAMP NOT NULL,
 
   dsid_consilium VARCHAR(16) NOT NULL REFERENCES ddt_consilium(r_object_id) ON DELETE CASCADE,
-  dsid_doctor VARCHAR(16) NOT NULL REFERENCES ddt_doctor(r_object_id) ON DELETE RESTRICT
+  dsid_member VARCHAR(16) NOT NULL REFERENCES ddt_consilium_group_member(r_object_id) ON DELETE RESTRICT
 );
 
-CREATE TRIGGER ddt_consilium_member_trg_modify_date BEFORE INSERT OR UPDATE
-  ON ddt_consilium_member FOR EACH ROW
+CREATE TRIGGER ddt_consilium_relation_trg_modify_date BEFORE INSERT OR UPDATE
+  ON ddt_consilium_relation FOR EACH ROW
 EXECUTE PROCEDURE dmtrg_f_modify_date();

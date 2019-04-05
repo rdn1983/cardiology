@@ -149,5 +149,35 @@ namespace Cardiology.Data.PostgreSQL
             }
             return null;
         }
+
+        public IList<DdvDoctor> GetByConsiliumGroupId(string consiliumGroupId)
+        {
+            IList<DdvDoctor> list = new List<DdvDoctor>();
+            using (dynamic connection = connectionFactory.GetConnection())
+            {
+                String sql = String.Format("SELECT d.r_object_id, dss_full_name, dss_middle_name, dss_first_name, d.r_modify_date, dss_short_name, d.r_creation_date, dss_last_name, gm.dss_name  " +
+                             "FROM ddt_consilium_group cg, ddt_consilium_group_member gm, ddv_doctor d " +
+                             "WHERE cg.r_object_id = gm.dsid_group and gm.dsid_doctor = d.r_object_id and cg.r_object_id = '{0}'", consiliumGroupId);
+                Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
+                using (DbDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        DdvDoctor obj = new DdvDoctor();
+                        obj.ObjectId = reader.IsDBNull(0) ? null : reader.GetString(0);
+                        obj.FullName = reader.IsDBNull(1) ? null : reader.GetString(1);
+                        obj.MiddleName = reader.IsDBNull(2) ? null : reader.GetString(2);
+                        obj.FirstName = reader.IsDBNull(3) ? null : reader.GetString(3);
+                        obj.ModifyDate = reader.IsDBNull(4) ? DateTime.MinValue : reader.GetDateTime(4);
+                        obj.ShortName = (reader.IsDBNull(8) ? null : reader.GetString(8)) + " " + (reader.IsDBNull(5) ? null : reader.GetString(5));
+                        obj.CreationDate = reader.IsDBNull(6) ? DateTime.MinValue : reader.GetDateTime(6);
+                        obj.LastName = reader.IsDBNull(7) ? null : reader.GetString(7);
+                        list.Add(obj);
+                    }
+                }
+            }
+            return list;
+        }
+
     }
 }

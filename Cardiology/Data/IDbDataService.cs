@@ -79,7 +79,7 @@ namespace Cardiology.Data
 
         IDdvAllDiagnosisService GetDdvAllDiagnosisService();
 
-        IDdtConsiliumMemberService GetDdtConsiliumMemberService();
+        IDdtConsiliumRelationService GetDdtConsiliumRelationService();
 
         IDdtConsiliumGroupMemberService GetDdtConsiliumGroupMemberService();
 

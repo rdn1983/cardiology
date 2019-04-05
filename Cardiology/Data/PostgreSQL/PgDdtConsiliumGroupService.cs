@@ -44,7 +44,7 @@ namespace Cardiology.Data.PostgreSQL
         {
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = String.Format("SELECT r_object_id, r_modify_date, r_creation_date, dss_name FROM ddt_consilium_group WHERE r_object_id = '{0}'", id);
+                String sql = String.Format("SELECT r_object_id, r_modify_date, r_creation_date, dss_name, dsi_level FROM ddt_consilium_group WHERE r_object_id = '{0}'", id);
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {

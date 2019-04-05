@@ -41,6 +41,31 @@ namespace Cardiology.Data.PostgreSQL
             return list;
         }
 
+        public IList<DdtConsiliumGroupMember> GetDefault()
+        {
+            IList<DdtConsiliumGroupMember> list = new List<DdtConsiliumGroupMember>();
+            using (dynamic connection = connectionFactory.GetConnection())
+            {
+                String sql = "SELECT r_object_id, r_modify_date, r_creation_date, dss_name, dsid_doctor, dsid_group FROM ddt_consilium_group_member WHERE dsb_default = TRUE";
+                Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
+                using (DbDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        DdtConsiliumGroupMember obj = new DdtConsiliumGroupMember();
+                        obj.ObjectId = reader.IsDBNull(0) ? null : reader.GetString(0);
+                        obj.ModifyDate = reader.IsDBNull(1) ? DateTime.MinValue : reader.GetDateTime(1);
+                        obj.CreationDate = reader.IsDBNull(2) ? DateTime.MinValue : reader.GetDateTime(2);
+                        obj.Name = reader.IsDBNull(3) ? null : reader.GetString(3);
+                        obj.Doctor = reader.IsDBNull(4) ? null : reader.GetString(4);
+                        obj.Group = reader.IsDBNull(5) ? null : reader.GetString(5);
+                        list.Add(obj);
+                    }
+                }
+            }
+            return list;
+        }
+
         public DdtConsiliumGroupMember GetById(string id)
         {
             using (dynamic connection = connectionFactory.GetConnection())
@@ -89,11 +114,12 @@ namespace Cardiology.Data.PostgreSQL
             return null;
         }
 
-        public DdtConsiliumGroupMember GetByDoctorId(string id)
+        public DdtConsiliumGroupMember GetByDoctorAndGroupId(string doctorId, string groupId)
         {
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = String.Format("SELECT r_object_id, r_modify_date, r_creation_date, dss_name, dsid_doctor, dsid_group FROM ddt_consilium_group_member WHERE dsid_doctor = '{0}'", id);
+                String sql = String.Format("SELECT r_object_id, r_modify_date, r_creation_date, dss_name, dsid_doctor, dsid_group " +
+                    "FROM ddt_consilium_group_member WHERE dsid_doctor = '{0}' AND dsid_group = '{1}'", doctorId, groupId);
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {

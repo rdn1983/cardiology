@@ -4,4 +4,3 @@ INSERT INTO ddt_consilium_group (dss_name, dsi_level) VALUES ('Отделени�
 INSERT INTO ddt_consilium_group (dss_name, dsi_level) VALUES ('Дежурные администраторы', 60);
 INSERT INTO ddt_consilium_group (dss_name, dsi_level) VALUES ('Зав. центра анестезиологии и реанимации', 0);
 INSERT INTO ddt_consilium_group (dss_name, dsi_level) VALUES ('Зам. главного врача', 0);
-INSERT INTO ddt_consilium_group (dss_name, dsi_level) VALUES ('default_consilium', 0);

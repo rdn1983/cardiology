@@ -49,7 +49,7 @@ namespace Cardiology.Data.PostgreSQL
         private readonly IDmGroupService dmGroupService;
         private readonly IDdtCoagulogramService ddtCoagulogramService;
         private readonly IDdvAllDiagnosisService ddvAllDiagnosisService;
-        private readonly IDdtConsiliumMemberService ddtConsiliumMemberService;
+        private readonly IDdtConsiliumRelationService ddtConsiliumRelationService;
         private readonly IDdtUziService ddtUziService;
         private readonly IDdtVariousSpecConclusonService ddtVariousSpecConclusonService;
 
@@ -95,7 +95,7 @@ namespace Cardiology.Data.PostgreSQL
             dmGroupService = new PgDmGroupService(connectionFactory);
             ddtCoagulogramService = new PgDdtCoagulogramService(connectionFactory);
             ddvAllDiagnosisService = new PgDdvAllDiagnosisService(connectionFactory);
-            ddtConsiliumMemberService = new PgDdtConsiliumMemberService(connectionFactory);
+            ddtConsiliumRelationService = new PgDdtConsiliumRelationService(connectionFactory);
             ddtUziService = new PgDdtUziService(connectionFactory);
             ddtVariousSpecConclusonService = new PgDdtVariousSpecConclusonService(connectionFactory);
         }
@@ -295,9 +295,9 @@ namespace Cardiology.Data.PostgreSQL
             return ddvAllDiagnosisService;
         }
 
-        public IDdtConsiliumMemberService GetDdtConsiliumMemberService()
+        public IDdtConsiliumRelationService GetDdtConsiliumRelationService()
         {
-            return ddtConsiliumMemberService;
+            return ddtConsiliumRelationService;
         }
 
         public IDdtUziService GetDdtUziService()

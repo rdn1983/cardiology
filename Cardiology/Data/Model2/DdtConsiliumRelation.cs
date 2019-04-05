@@ -2,9 +2,9 @@ using System;
 
 namespace Cardiology.Data.Model2
 {
-    public class DdtConsiliumMember
+    public class DdtConsiliumRelation
     {
-        public static readonly string NAME = "ddt_consilium_member";
+        public static readonly string NAME = "ddt_consilium_relation";
 
         public string ObjectId { get; set; }
 
@@ -14,7 +14,7 @@ namespace Cardiology.Data.Model2
 
         public DateTime CreationDate { get; set; }
 
-        public string Doctor { get; set; }
+        public string Member { get; set; }
 
     }
 }

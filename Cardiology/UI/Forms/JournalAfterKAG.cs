@@ -142,13 +142,13 @@ namespace Cardiology.UI.Forms
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
-            if (save())
+            if (Save())
             {
                 Close();
             }
         }
 
-        public bool save()
+        public bool Save()
         {
 
             service.GetDdtHospitalService().Save(hospitalitySession);
@@ -208,7 +208,7 @@ namespace Cardiology.UI.Forms
 
         private void printBtn_Click(object sender, EventArgs e)
         {
-            if (save())
+            if (Save())
             {
     
                 DdtJournal journal = service.GetDdtJournalService().GetById(journalId);

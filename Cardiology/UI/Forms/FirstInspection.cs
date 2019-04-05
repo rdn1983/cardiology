@@ -181,7 +181,7 @@ namespace Cardiology.UI.Forms
             return result;
         }
 
-        public bool save()
+        public bool Save()
         {
             bool isNotValid = false;
             for (int i = 0; i < tabsContainer.TabCount; i++)
@@ -649,10 +649,7 @@ namespace Cardiology.UI.Forms
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
-            if (save())
-            {
-                Close();
-            }
+            Save();
         }
 
         private void AddIssuedMedicine_Click(object sender, EventArgs e)
@@ -668,7 +665,7 @@ namespace Cardiology.UI.Forms
 
         private void printBtn_Click(object sender, EventArgs e)
         {
-            if (save())
+            if (Save())
             {
                 ITemplateProcessor te = TemplateProcessorManager.getProcessorByObjectType(DdtAnamnesis.NAME);
                 if (te != null)

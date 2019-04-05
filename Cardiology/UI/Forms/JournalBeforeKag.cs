@@ -70,7 +70,7 @@ namespace Cardiology.UI.Forms
         {
             if (validate())
             {
-                save();
+                Save();
                 Close();
             }
         }
@@ -87,7 +87,7 @@ namespace Cardiology.UI.Forms
             return isValid;
         }
 
-        public bool save()
+        public bool Save()
         {
             journalIds.Clear();
             foreach (Control c in journalContainer.Controls)
@@ -107,7 +107,7 @@ namespace Cardiology.UI.Forms
         {
             if (validate())
             {
-                save();
+                Save();
     
                 List<string> paths = new List<string>();
                 ITemplateProcessor processor = TemplateProcessorManager.getProcessorByObjectType(DdtJournal.NAME);

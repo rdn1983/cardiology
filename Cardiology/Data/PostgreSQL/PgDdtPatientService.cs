@@ -4,11 +4,14 @@ using System.Collections.Generic;
 using System.Data;
 using Cardiology.Data.Model2;
 using Cardiology.Data.Commons;
+using NLog;
+using System.Globalization;
 
 namespace Cardiology.Data.PostgreSQL
 {
     public class PgDdtPatientService : IDdtPatientService
     {
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
         private readonly IDbConnectionFactory connectionFactory;
 
         public PgDdtPatientService(IDbConnectionFactory connectionFactory)
@@ -25,6 +28,8 @@ namespace Cardiology.Data.PostgreSQL
                     "dsd_weight, r_creation_date, dss_snils, dss_last_name, dss_passport_date, dss_phone," +
                     " r_modify_date, dss_oms, dss_passport_serial, dsdt_birthdate, dsb_sd, dss_med_code, " +
                     "dss_passport_issue_place, dsd_high, dsi_sex FROM ddt_patient";
+                Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -66,6 +71,8 @@ namespace Cardiology.Data.PostgreSQL
                     "dss_first_name, dsd_weight, r_creation_date, dss_snils, dss_last_name, dss_passport_date, " +
                     "dss_phone, r_modify_date, dss_oms, dss_passport_serial, dsdt_birthdate, dsb_sd, dss_med_code, " +
                     "dss_passport_issue_place, dsd_high, dsi_sex FROM ddt_patient WHERE r_object_id = '{0}'", id);
+                Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -126,6 +133,8 @@ namespace Cardiology.Data.PostgreSQL
                                             dsi_sex=@Sex
                                             WHERE r_object_id = @ObjectId";
 
+                    Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                     using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
                     {
                         cmd.CommandType = CommandType.Text;
@@ -159,6 +168,8 @@ namespace Cardiology.Data.PostgreSQL
                         dsi_sex) VALUES (@address, @middleName, @passportNum, @firstName, @weight, @snils, @lastName, 
                         @passportDate, @phone, @oms, @passportSerial, @birthDate, @sd, @medCode, @passportIssuePlace,
                         @hight, @Sex)  RETURNING r_object_id";
+
+                    Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
                     using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
                     {
                         cmd.CommandType = CommandType.Text;

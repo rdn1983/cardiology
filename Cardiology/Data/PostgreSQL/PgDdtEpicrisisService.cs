@@ -4,11 +4,14 @@ using System.Collections.Generic;
 using Cardiology.Data.Model2;
 using Cardiology.Data.Commons;
 using System.Data;
+using NLog;
+using System.Globalization;
 
 namespace Cardiology.Data.PostgreSQL
 {
     public class PgDdtEpicrisisService : IDdtEpicrisisService
     {
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
         private readonly IDbConnectionFactory connectionFactory;
 
         public PgDdtEpicrisisService(IDbConnectionFactory connectionFactory)
@@ -22,6 +25,9 @@ namespace Cardiology.Data.PostgreSQL
             using (dynamic connection = connectionFactory.GetConnection())
             {
                 String sql = "SELECT dsid_hospitality_session, r_object_id, r_modify_date, dsdt_epicrisis_date, dss_diagnosis, r_creation_date, dsi_epicrisis_type, dsid_doctor, dsid_patient FROM ddt_epicrisis";
+
+                Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -49,6 +55,9 @@ namespace Cardiology.Data.PostgreSQL
             using (dynamic connection = connectionFactory.GetConnection())
             {
                 String sql = String.Format("SELECT dsid_hospitality_session, r_object_id, r_modify_date, dsdt_epicrisis_date, dss_diagnosis, r_creation_date, dsi_epicrisis_type, dsid_doctor, dsid_patient FROM ddt_epicrisis WHERE r_object_id = '{0}'", id);
+
+                Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -85,6 +94,8 @@ namespace Cardiology.Data.PostgreSQL
                                         "dss_diagnosis = @Diagnosis, " +
                                         "dsi_epicrisis_type = @EpicrisisType " +
                                          "WHERE r_object_id = @ObjectId";
+                    Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                     using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
                     {
                         cmd.CommandType = CommandType.Text;
@@ -103,6 +114,8 @@ namespace Cardiology.Data.PostgreSQL
                 {
                     string sql = "INSERT INTO ddt_epicrisis(dsid_hospitality_session,dsid_patient,dsid_doctor,dsdt_epicrisis_date,dss_diagnosis,dsi_epicrisis_type) " +
                                                               "VALUES(@HospitalitySession,@Patient,@Doctor,@EpicrisisDate,@Diagnosis,@EpicrisisType) RETURNING r_object_id";
+                    Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                     using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
                     {
                         cmd.CommandType = CommandType.Text;

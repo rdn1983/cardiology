@@ -3,11 +3,14 @@ using System.Data.Common;
 using System.Collections.Generic;
 using Cardiology.Data.Model2;
 using Cardiology.Data.Commons;
+using NLog;
+using System.Globalization;
 
 namespace Cardiology.Data.PostgreSQL
 {
     public class PgDdvPatientService : IDdvPatientService
     {
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
         private readonly IDbConnectionFactory connectionFactory;
 
         public PgDdvPatientService(IDbConnectionFactory connectionFactory)
@@ -24,6 +27,8 @@ namespace Cardiology.Data.PostgreSQL
                     "dss_first_name, dsd_weight, dss_snils, r_creation_date, dss_last_name, dss_passport_date, " +
                     "r_modify_date, dss_phone, dss_passport_serial, dss_oms, dss_short_name, dsdt_birthdate, " +
                     "dsb_sd, dss_med_code, dss_passport_issue_place, dsd_high, dsi_sex FROM ddv_patient";
+                Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -68,6 +73,8 @@ namespace Cardiology.Data.PostgreSQL
                     "dss_passport_date, r_modify_date, dss_phone, dss_passport_serial, dss_oms, dss_short_name, " +
                     "dsdt_birthdate, dsb_sd, dss_med_code, dss_passport_issue_place, dsd_high, dsi_sex FROM ddv_patient" +
                     " WHERE r_object_id = '{0}'", id);
+                Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -112,6 +119,8 @@ namespace Cardiology.Data.PostgreSQL
                     "dss_passport_date, r_modify_date, dss_phone, dss_passport_serial, dss_oms, dss_short_name, " +
                     "dsdt_birthdate, dsb_sd, dss_med_code, dss_passport_issue_place, dsd_high, dsi_sex FROM ddv_patient" +
                     " WHERE r_object_id = '{0}'", id);
+                Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {

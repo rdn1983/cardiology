@@ -4,11 +4,14 @@ using System.Collections.Generic;
 using Cardiology.Data.Model2;
 using Cardiology.Data.Commons;
 using System.Data;
+using NLog;
+using System.Globalization;
 
 namespace Cardiology.Data.PostgreSQL
 {
     public class PgDdtHolterService : IDdtHolterService
     {
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
         private readonly IDbConnectionFactory connectionFactory;
 
         public PgDdtHolterService(IDbConnectionFactory connectionFactory)
@@ -24,6 +27,9 @@ namespace Cardiology.Data.PostgreSQL
                 String sql = "SELECT dsid_hospitality_session, r_object_id, dsdt_analysis_date, r_modify_date," +
                     " dss_monitoring_ad, dss_parent_type, r_creation_date, dsid_parent, dss_holter, dsid_doctor," +
                     " dsid_patient FROM ddt_holter";
+
+                Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -55,6 +61,9 @@ namespace Cardiology.Data.PostgreSQL
                 String sql = String.Format("SELECT dsid_hospitality_session, r_object_id, dsdt_analysis_date, " +
                     "r_modify_date, dss_monitoring_ad, dss_parent_type, r_creation_date, dsid_parent, dss_holter," +
                     " dsid_doctor, dsid_patient FROM ddt_holter WHERE r_object_id = '{0}'", id);
+
+                Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -87,6 +96,9 @@ namespace Cardiology.Data.PostgreSQL
                 String sql = String.Format("SELECT dsid_hospitality_session, r_object_id, dsdt_analysis_date, " +
                     "r_modify_date, dss_monitoring_ad, dss_parent_type, r_creation_date, dsid_parent, dss_holter, " +
                     "dsid_doctor, dsid_patient FROM ddt_holter WHERE dsid_parent = '{0}'", parentId);
+
+                Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -127,6 +139,8 @@ namespace Cardiology.Data.PostgreSQL
                                         "dss_holter = @Holter, " +
                                         "dss_monitoring_ad = @MonitoringAd " +
                                          "WHERE r_object_id = @ObjectId";
+                    Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                     using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
                     {
                         cmd.CommandType = CommandType.Text;
@@ -147,6 +161,8 @@ namespace Cardiology.Data.PostgreSQL
                 {
                     string sql = "INSERT INTO ddt_holter(dsid_hospitality_session,dsid_patient,dsid_doctor,dsid_parent,dss_parent_type,dsdt_analysis_date,dss_holter,dss_monitoring_ad) " +
                                                               "VALUES(@HospitalitySession,@Patient,@Doctor,@Parent,@ParentType,@AnalysisDate,@Holter,@MonitoringAd) RETURNING r_object_id";
+                    Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                     using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
                     {
                         cmd.CommandType = CommandType.Text;

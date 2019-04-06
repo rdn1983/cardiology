@@ -4,11 +4,14 @@ using System.Collections.Generic;
 using Cardiology.Data.Model2;
 using Cardiology.Data.Commons;
 using System.Data;
+using NLog;
+using System.Globalization;
 
 namespace Cardiology.Data.PostgreSQL
 {
     public class PgDdtAnamnesisService : IDdtAnamnesisService
     {
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
         private readonly IDbConnectionFactory connectionFactory;
 
         public PgDdtAnamnesisService(IDbConnectionFactory connectionFactory)
@@ -26,6 +29,9 @@ namespace Cardiology.Data.PostgreSQL
                     " dss_anamnesis_allergy, dss_digestive_system, dss_nervous_system, dss_diagnosis, r_creation_date, dss_complaints, dss_oks_st, " +
                     "dsid_doctor, dsid_patient, dsid_hospitality_session, dss_respiratory_system, r_modify_date, dss_st_presens, dss_template_name," +
                     " dss_accompanying_illnesses, dss_anamnesis_morbi FROM ddt_anamnesis";
+
+                Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -75,6 +81,9 @@ namespace Cardiology.Data.PostgreSQL
                     "dss_anamnesis_allergy, dss_digestive_system, dss_nervous_system, dss_diagnosis, r_creation_date, dss_complaints, dss_oks_st, dsid_doctor, " +
                     "dsid_patient, dsid_hospitality_session, dss_respiratory_system, r_modify_date, dss_st_presens, dss_template_name, dss_accompanying_illnesses, " +
                     "dss_anamnesis_morbi FROM ddt_anamnesis WHERE r_object_id = '{0}'", id);
+
+                Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -124,6 +133,9 @@ namespace Cardiology.Data.PostgreSQL
                     " dss_anamnesis_allergy, dss_digestive_system, dss_nervous_system, dss_diagnosis, r_creation_date, dss_complaints, dss_oks_st, dsid_doctor," +
                     " dsid_patient, dsid_hospitality_session, dss_respiratory_system, r_modify_date, dss_st_presens, dss_template_name, dss_accompanying_illnesses," +
                     " dss_anamnesis_morbi FROM ddt_anamnesis WHERE dsid_hospitality_session = '{0}'", id);
+
+                Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -173,6 +185,9 @@ namespace Cardiology.Data.PostgreSQL
                     "dss_anamnesis_allergy, dss_digestive_system, dss_nervous_system, dss_diagnosis, r_creation_date, dss_complaints, dss_oks_st, " +
                     "dsid_doctor, dsid_patient, dsid_hospitality_session, dss_respiratory_system, r_modify_date, dss_st_presens, dss_template_name," +
                     " dss_accompanying_illnesses, dss_anamnesis_morbi FROM ddt_anamnesis WHERE dss_template_name = '{0}'", templateName);
+
+                Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -245,6 +260,9 @@ namespace Cardiology.Data.PostgreSQL
                                         "dss_diagnosis = @Diagnosis, " +
                                         "dss_oks_st = @OksSt " +
                                          "WHERE r_object_id = @ObjectId";
+
+                    Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                     using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
                     {
                         cmd.CommandType = CommandType.Text;
@@ -281,6 +299,9 @@ namespace Cardiology.Data.PostgreSQL
                 {
                     string sql = "INSERT INTO ddt_anamnesis(dsid_hospitality_session,dsid_patient,dsid_doctor,dsdt_inspection_date,dss_complaints,dss_anamnesis_morbi,dss_anamnesis_vitae,dss_anamnesis_allergy,dss_anamnesis_epid,dss_past_surgeries,dss_accompanying_illnesses,dss_drugs_intoxication,dss_st_presens,dss_respiratory_system,dss_cardiovascular_system,dss_digestive_system,dss_urinary_system,dss_nervous_system,dss_diagnosis_justification,dss_operation_cause,dss_template_name,dsb_template,dss_diagnosis,dss_oks_st) " +
                                                               "VALUES(@HospitalitySession,@Patient,@Doctor,@InspectionDate,@Complaints,@AnamnesisMorbi,@AnamnesisVitae,@AnamnesisAllergy,@AnamnesisEpid,@PastSurgeries,@AccompanyingIllnesses,@DrugsIntoxication,@StPresens,@RespiratorySystem,@CardiovascularSystem,@DigestiveSystem,@UrinarySystem,@NervousSystem,@DiagnosisJustification,@OperationCause,@TemplateName,@Template,@Diagnosis,@OksSt) RETURNING r_object_id";
+
+                    Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                     using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
                     {
                         cmd.CommandType = CommandType.Text;

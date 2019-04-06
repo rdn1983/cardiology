@@ -4,11 +4,14 @@ using System.Collections.Generic;
 using Cardiology.Data.Model2;
 using Cardiology.Data.Commons;
 using System.Data;
+using NLog;
+using System.Globalization;
 
 namespace Cardiology.Data.PostgreSQL
 {
     public class PgDdtSerologyService : IDdtSerologyService
     {
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
         private readonly IDbConnectionFactory connectionFactory;
 
         public PgDdtSerologyService(IDbConnectionFactory connectionFactory)
@@ -22,6 +25,8 @@ namespace Cardiology.Data.PostgreSQL
             using (dynamic connection = connectionFactory.GetConnection())
             {
                 String sql = "SELECT r_object_id, dsdt_analysis_date, dss_blood_type, r_creation_date, dss_kell_ag, dss_phenotype, dss_rw, dsid_doctor, dsid_patient, dss_hbs_ag, dss_anti_hcv, dsid_hospitality_session, r_modify_date, dss_hiv, dss_rhesus_factor FROM ddt_serology";
+                Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -55,6 +60,8 @@ namespace Cardiology.Data.PostgreSQL
             using (dynamic connection = connectionFactory.GetConnection())
             {
                 String sql = String.Format("SELECT r_object_id, dsdt_analysis_date, dss_blood_type, r_creation_date, dss_kell_ag, dss_phenotype, dss_rw, dsid_doctor, dsid_patient, dss_hbs_ag, dss_anti_hcv, dsid_hospitality_session, r_modify_date, dss_hiv, dss_rhesus_factor FROM ddt_serology WHERE r_object_id = '{0}'", id);
+                Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -88,6 +95,8 @@ namespace Cardiology.Data.PostgreSQL
             using (dynamic connection = connectionFactory.GetConnection())
             {
                 String sql = String.Format("SELECT r_object_id, dsdt_analysis_date, dss_blood_type, r_creation_date, dss_kell_ag, dss_phenotype, dss_rw, dsid_doctor, dsid_patient, dss_hbs_ag, dss_anti_hcv, dsid_hospitality_session, r_modify_date, dss_hiv, dss_rhesus_factor FROM ddt_serology WHERE dsid_hospitality_session = '{0}'", hospitalSession);
+                Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -136,6 +145,8 @@ namespace Cardiology.Data.PostgreSQL
                                             "dss_anti_hcv = @AntiHcv, " +
                                             "dss_hiv = @Hiv " +
                                              "WHERE r_object_id = @ObjectId";
+                    Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                     using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
                     {
                         cmd.CommandType = CommandType.Text;
@@ -160,6 +171,8 @@ namespace Cardiology.Data.PostgreSQL
                 {
                     string sql = "INSERT INTO ddt_serology(dsid_hospitality_session,dsid_patient,dsid_doctor,dsdt_analysis_date,dss_blood_type,dss_rhesus_factor,dss_phenotype,dss_kell_ag,dss_rw,dss_hbs_ag,dss_anti_hcv,dss_hiv) " +
                                                               "VALUES(@HospitalitySession,@Patient,@Doctor,@AnalysisDate,@BloodType,@RhesusFactor,@Phenotype,@KellAg,@Rw,@HbsAg,@AntiHcv,@Hiv) RETURNING r_object_id";
+                    Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                     using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
                     {
                         cmd.CommandType = CommandType.Text;

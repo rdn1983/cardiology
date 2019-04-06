@@ -4,11 +4,14 @@ using System.Collections.Generic;
 using Cardiology.Data.Model2;
 using Cardiology.Data.Commons;
 using System.Data;
+using NLog;
+using System.Globalization;
 
 namespace Cardiology.Data.PostgreSQL
 {
     public class PgDdtOncologicMarkersService : IDdtOncologicMarkersService
     {
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
         private readonly IDbConnectionFactory connectionFactory;
 
         public PgDdtOncologicMarkersService(IDbConnectionFactory connectionFactory)
@@ -22,6 +25,9 @@ namespace Cardiology.Data.PostgreSQL
             using (dynamic connection = connectionFactory.GetConnection())
             {
                 String sql = "SELECT r_object_id, dsdt_analysis_date, r_creation_date, dss_cea, dsid_parent, dss_psa_common, dss_psa_free, dsid_doctor, dsid_patient, dsid_hospitality_session, dss_hgch, r_modify_date, dss_parent_type, dss_ca_125, dss_ca_199, dss_ca_153, dss_afr FROM ddt_oncologic_markers";
+
+                Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -57,6 +63,9 @@ namespace Cardiology.Data.PostgreSQL
             using (dynamic connection = connectionFactory.GetConnection())
             {
                 String sql = String.Format("SELECT r_object_id, dsdt_analysis_date, r_creation_date, dss_cea, dsid_parent, dss_psa_common, dss_psa_free, dsid_doctor, dsid_patient, dsid_hospitality_session, dss_hgch, r_modify_date, dss_parent_type, dss_ca_125, dss_ca_199, dss_ca_153, dss_afr FROM ddt_oncologic_markers WHERE r_object_id = '{0}'", id);
+
+                Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -109,6 +118,8 @@ namespace Cardiology.Data.PostgreSQL
                                         "dss_hgch = @Hgch, " +
                                         "dss_afr = @Afr " +
                                          "WHERE r_object_id = @ObjectId";
+                    Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                     using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
                     {
                         cmd.CommandType = CommandType.Text;
@@ -135,6 +146,8 @@ namespace Cardiology.Data.PostgreSQL
                 {
                     string sql = "INSERT INTO ddt_oncologic_markers(dsid_doctor,dsid_patient,dsid_hospitality_session,dsdt_analysis_date,dsid_parent,dss_parent_type,dss_psa_common,dss_psa_free,dss_ca_199,dss_ca_125,dss_ca_153,dss_cea,dss_hgch,dss_afr) " +
                                                               "VALUES(@Doctor,@Patient,@HospitalitySession,@AnalysisDate,@Parent,@ParentType,@PsaCommon,@PsaFree,@Ca199,@Ca125,@Ca153,@Cea,@Hgch,@Afr) RETURNING r_object_id";
+                    Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                     using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
                     {
                         cmd.CommandType = CommandType.Text;

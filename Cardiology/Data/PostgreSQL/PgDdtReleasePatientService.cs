@@ -4,11 +4,14 @@ using System.Collections.Generic;
 using Cardiology.Data.Model2;
 using Cardiology.Data.Commons;
 using System.Data;
+using NLog;
+using System.Globalization;
 
 namespace Cardiology.Data.PostgreSQL
 {
     public class PgDdtReleasePatientService : IDdtReleasePatientService
     {
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
         private readonly IDbConnectionFactory connectionFactory;
 
         public PgDdtReleasePatientService(IDbConnectionFactory connectionFactory)
@@ -22,6 +25,8 @@ namespace Cardiology.Data.PostgreSQL
             using (dynamic connection = connectionFactory.GetConnection())
             {
                 String sql = "SELECT r_object_id, dsdt_our_enddate, dsb_dismissed_less30d, dss_our_sicklist_num, dss_year_disabilities, dsdt_our_startdate, r_creation_date, dss_disability_num, dsid_doctor, dsid_patient, dsid_hospitality_session, dss_profession, dsdt_extr_enddate, dsdt_extr_startdate, r_modify_date, dsb_pensioneer, dsb_is_working, dsb_sicklist_need, dsb_extr_opened_sicklist, dss_occupational_hazard, dsdt_okr_release_date, dss_extr_sicklist_num FROM ddt_release_patient";
+                Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -62,6 +67,9 @@ namespace Cardiology.Data.PostgreSQL
             using (dynamic connection = connectionFactory.GetConnection())
             {
                 String sql = String.Format("SELECT r_object_id, dsdt_our_enddate, dsb_dismissed_less30d, dss_our_sicklist_num, dss_year_disabilities, dsdt_our_startdate, r_creation_date, dss_disability_num, dsid_doctor, dsid_patient, dsid_hospitality_session, dss_profession, dsdt_extr_enddate, dsdt_extr_startdate, r_modify_date, dsb_pensioneer, dsb_is_working, dsb_sicklist_need, dsb_extr_opened_sicklist, dss_occupational_hazard, dsdt_okr_release_date, dss_extr_sicklist_num FROM ddt_release_patient WHERE r_object_id = '{0}'", id);
+
+                Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -125,6 +133,8 @@ namespace Cardiology.Data.PostgreSQL
                                         "dsdt_our_startdate = @OurStartdate, " +
                                         "dsdt_our_enddate = @OurEnddate " +
                                          "WHERE r_object_id = @ObjectId";
+                    Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                     using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
                     {
                         cmd.CommandType = CommandType.Text;
@@ -156,6 +166,8 @@ namespace Cardiology.Data.PostgreSQL
                 {
                     string sql = "INSERT INTO ddt_release_patient(dsid_hospitality_session,dsid_patient,dsid_doctor,dsdt_okr_release_date,dsb_is_working,dsb_dismissed_less30d,dss_profession,dss_occupational_hazard,dsb_pensioneer,dss_disability_num,dss_year_disabilities,dsb_sicklist_need,dsb_extr_opened_sicklist,dss_extr_sicklist_num,dsdt_extr_startdate,dsdt_extr_enddate,dss_our_sicklist_num,dsdt_our_startdate,dsdt_our_enddate) " +
                                                               "VALUES(@HospitalitySession,@Patient,@Doctor,@OkrReleaseDate,@IsWorking,@DismissedLess30d,@Profession,@OccupationalHazard,@Pensioneer,@DisabilityNum,@YearDisabilities,@SicklistNeed,@ExtrOpenedSicklist,@ExtrSicklistNum,@ExtrStartdate,@ExtrEnddate,@OurSicklistNum,@OurStartdate,@OurEnddate) RETURNING r_object_id";
+                    Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                     using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
                     {
                         cmd.CommandType = CommandType.Text;
@@ -183,8 +195,5 @@ namespace Cardiology.Data.PostgreSQL
                 }
             }
         }
-
-
-
     }
 }

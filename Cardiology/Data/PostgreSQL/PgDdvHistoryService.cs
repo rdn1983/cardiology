@@ -3,11 +3,14 @@ using System.Data.Common;
 using System.Collections.Generic;
 using Cardiology.Data.Model2;
 using Cardiology.Data.Commons;
+using NLog;
+using System.Globalization;
 
 namespace Cardiology.Data.PostgreSQL
 {
     public class PgDdvHistoryService : IDdvHistoryService
     {
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
         private readonly IDbConnectionFactory connectionFactory;
 
         public PgDdvHistoryService(IDbConnectionFactory connectionFactory)
@@ -57,6 +60,8 @@ namespace Cardiology.Data.PostgreSQL
             IList<DdvHistory> list = new List<DdvHistory>();
             using (dynamic connection = connectionFactory.GetConnection())
             {
+                Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", query);
+
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(query, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {

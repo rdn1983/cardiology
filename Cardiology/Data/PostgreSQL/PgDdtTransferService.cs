@@ -4,11 +4,14 @@ using System.Collections.Generic;
 using Cardiology.Data.Model2;
 using Cardiology.Data.Commons;
 using System.Data;
+using NLog;
+using System.Globalization;
 
 namespace Cardiology.Data.PostgreSQL
 {
     public class PgDdtTransferService : IDdtTransferService
     {
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
         private readonly IDbConnectionFactory connectionFactory;
 
         public PgDdtTransferService(IDbConnectionFactory connectionFactory)
@@ -22,6 +25,8 @@ namespace Cardiology.Data.PostgreSQL
             using (dynamic connection = connectionFactory.GetConnection())
             {
                 String sql = "SELECT dsid_hospitality_session, r_object_id, dsdt_end_date, r_modify_date, dss_destination, r_creation_date, dss_transfer_justification, dsdt_start_date, dsid_doctor, dsi_type, dss_contacts, dsid_patient FROM ddt_transfer";
+                Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -52,6 +57,8 @@ namespace Cardiology.Data.PostgreSQL
             using (dynamic connection = connectionFactory.GetConnection())
             {
                 String sql = String.Format("SELECT dsid_hospitality_session, r_object_id, dsdt_end_date, r_modify_date, dss_destination, r_creation_date, dss_transfer_justification, dsdt_start_date, dsid_doctor, dsi_type, dss_contacts, dsid_patient FROM ddt_transfer WHERE r_object_id = '{0}'", id);
+                Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -82,6 +89,8 @@ namespace Cardiology.Data.PostgreSQL
             using (dynamic connection = connectionFactory.GetConnection())
             {
                 String sql = String.Format("SELECT dsid_hospitality_session, r_object_id, dsdt_end_date, r_modify_date, dss_destination, r_creation_date, dss_transfer_justification, dsdt_start_date, dsid_doctor, dsi_type, dss_contacts, dsid_patient FROM ddt_transfer WHERE dsid_hospitality_session = '{0}'", hospitalSession);
+                Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -124,6 +133,8 @@ namespace Cardiology.Data.PostgreSQL
                                         "dss_transfer_justification = @TransferJustification, " +
                                         "dsi_type = @Type " +
                                          "WHERE r_object_id = @ObjectId";
+                    Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                     using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
                     {
                         cmd.CommandType = CommandType.Text;
@@ -145,6 +156,8 @@ namespace Cardiology.Data.PostgreSQL
                 {
                     string sql = "INSERT INTO ddt_transfer(dsid_hospitality_session,dsid_patient,dsid_doctor,dsdt_start_date,dsdt_end_date,dss_destination,dss_contacts,dss_transfer_justification,dsi_type) " +
                                                               "VALUES(@HospitalitySession,@Patient,@Doctor,@StartDate,@EndDate,@Destination,@Contacts,@TransferJustification,@Type) RETURNING r_object_id";
+                    Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                     using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
                     {
                         cmd.CommandType = CommandType.Text;

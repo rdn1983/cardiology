@@ -4,11 +4,15 @@ using System.Collections.Generic;
 using System.Data.Common;
 using Npgsql.Schema;
 using DbColumn = System.Data.Common.DbColumn;
+using NLog;
+using System.Globalization;
 
 namespace Cardiology.Data.PostgreSQL
 {
     class PgDataService : IDbDataService
     {
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+
         private readonly IDbConnectionFactory connectionFactory;
         private readonly IDdtReleasePatientService ddtReleasePatientService;
         private readonly IDdtIssuedMedicineListService ddtIssuedMedicineListService;
@@ -312,6 +316,7 @@ namespace Cardiology.Data.PostgreSQL
 
         public void Select(string sql, string key, string value, OnKeyValue handler)
         {
+            Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
             using (dynamic connection = connectionFactory.GetConnection())
             {
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
@@ -376,6 +381,7 @@ namespace Cardiology.Data.PostgreSQL
 
         public string GetString(string sql)
         {
+            Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
             using (dynamic connection = connectionFactory.GetConnection())
             {
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
@@ -393,6 +399,7 @@ namespace Cardiology.Data.PostgreSQL
 
         public DateTime GetTime(string sql)
         {
+            Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
             using (dynamic connection = connectionFactory.GetConnection())
             {
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
@@ -414,6 +421,8 @@ namespace Cardiology.Data.PostgreSQL
             using (dynamic connection = connectionFactory.GetConnection())
             {
                 String sql = "delete from " + type + " WHERE r_object_id = '" + id + "'";
+                Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 command.ExecuteScalar();
             }

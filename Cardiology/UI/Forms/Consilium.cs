@@ -28,7 +28,7 @@ namespace Cardiology.UI.Forms
         private void InitControls()
         {
             curingDoc = service.GetDdvDoctorService().GetById(hospitalitySession?.CuringDoctor);
-            ControlUtils.InitDoctorsByGroupName(service.GetDdvDoctorService(), adminTxt, "cardioreanimation_department");
+            ControlUtils.InitDoctorsByGroupName(service.GetDdvDoctorService(), adminTxt, "duty_administrators");
             DdvPatient patient = service.GetDdvPatientService().GetById(hospitalitySession.Patient);
             if (patient != null)
             {

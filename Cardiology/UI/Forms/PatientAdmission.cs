@@ -22,11 +22,11 @@ namespace Cardiology.UI.Forms
                 SystemInformation.PrimaryMonitorSize.Height);
             this.patientBaseInfoBox.MaximumSize = halfScreenSize;
             this.lordOfTheCotBox.MaximumSize = halfScreenSize;
-            initDutyDoctors();
-            initControls();
+            InitDutyDoctors();
+            InitControls();
         }
 
-        private void initDutyDoctors()
+        private void InitDutyDoctors()
         {
 
             ControlUtils.InitDoctorsByGroupName(service.GetDdvDoctorService(), dutyCardioBox, "cardioreanimation_department");
@@ -36,7 +36,7 @@ namespace Cardiology.UI.Forms
             ControlUtils.InitDoctorsByGroupName(service.GetDdvDoctorService(), anesthetistComboBox, "anesthesiology_department");
         }
 
-        private void initControls()
+        private void InitControls()
         {
             if (hospital == null)
             {
@@ -88,7 +88,7 @@ namespace Cardiology.UI.Forms
 
         private void admisPatient_Click(object sender, EventArgs e)
         {
-            if (!getIsValid())
+            if (!GetIsValid())
             {
                 MessageBox.Show("Заполните поля помеченные жирным шрифтом!", "Warning", MessageBoxButtons.OK);
                 return;
@@ -150,7 +150,7 @@ namespace Cardiology.UI.Forms
             Close();
         }
 
-        private bool getIsValid()
+        private bool GetIsValid()
         {
             return !string.IsNullOrEmpty(patientLastName.Text) && !string.IsNullOrEmpty(patientFirstName.Text) &&
                 !string.IsNullOrEmpty(patientSecondName.Text) && dutyCardioBox.SelectedIndex >= 0 &&

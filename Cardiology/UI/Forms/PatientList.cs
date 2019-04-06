@@ -1,25 +1,30 @@
-﻿using System;
+﻿using Cardiology.Commons;
+using Cardiology.Data;
+using Cardiology.Data.Model2;
+using Cardiology.UI.Forms.Admin;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-using Cardiology.Commons;
-using Cardiology.Data;
-using Cardiology.Data.Model2;
 
 namespace Cardiology.UI.Forms
 {
     public partial class PatientList : Form
     {
         private IDbDataService service;
+        private bool admin;
 
-        public PatientList(IDbDataService service)
+        public PatientList(IDbDataService service, bool admin)
         {
             this.service = service;
+            this.admin = admin;
 
             System.Windows.Forms.Control.CheckForIllegalCrossThreadCalls = false;
             InitializeComponent();
             this.hospitalPatientsTbl.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+
+            adminToolStripMenuItem.Visible = admin;
         }
 
         private void loadPatientsGrid(bool idOnlyActive)
@@ -545,6 +550,12 @@ namespace Cardiology.UI.Forms
                     form.ShowDialog();
                 }
             }
+        }
+
+        private void DoctorsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DoctorList form = new DoctorList(service.GetDdvDoctorService());
+            form.ShowDialog();
         }
     }
 }

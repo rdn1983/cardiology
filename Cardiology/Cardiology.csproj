@@ -217,6 +217,12 @@
     <Compile Include="Data\PostgreSQL\PgDmGroupService.cs" />
     <Compile Include="Data\PostgreSQL\PgDmGroupUsersService.cs" />
     <Compile Include="UI\ControlUtils.cs" />
+    <Compile Include="UI\Forms\Admin\DoctorList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\Admin\DoctorList.Designer.cs">
+      <DependentUpon>DoctorList.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Forms\PatientAdmission.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -529,8 +535,12 @@
     <Compile Include="Commons\SilentSaver.cs" />
     <Compile Include="Commons\TemplateProcessorManager.cs" />
     <Compile Include="Commons\JournalTemplateProcessor.cs" />
+    <None Include="Cardiology.Data.Model2.DdtDoctor.datasource" />
     <None Include="Resources\shuffle.png" />
     <None Include="Resources\link20.png" />
+    <EmbeddedResource Include="UI\Forms\Admin\DoctorList.resx">
+      <DependentUpon>DoctorList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Forms\PatientAdmission.resx">
       <DependentUpon>PatientAdmission.cs</DependentUpon>
     </EmbeddedResource>

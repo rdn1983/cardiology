@@ -13,14 +13,16 @@ namespace Cardiology
         /// Главная точка входа для приложения.
         /// </summary>
         [STAThread]
-        static void Main()
+        static void Main(string[] args)
         {
+            bool admin = args != null && args.Length > 0 && "-x".Equals(args[0], StringComparison.Ordinal);
+
             IDbConnectionFactory connectionFactory = new PgConnectionFactory();
             IDbDataService service = new PgDataService(connectionFactory);
             DbDataService.SetService(service);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new PatientList(service));
+            Application.Run(new PatientList(service, admin));
 
         }
     }

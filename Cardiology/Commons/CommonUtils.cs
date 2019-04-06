@@ -1,11 +1,11 @@
 ﻿using Cardiology.Data;
+using Cardiology.Data.Model2;
 using NLog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using Cardiology.Data.Model2;
 using static System.Windows.Forms.ComboBox;
 
 namespace Cardiology.Commons

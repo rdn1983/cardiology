@@ -24,7 +24,7 @@ namespace Cardiology.UI.Controls
 
         private void initControls()
         {
-            DdtHormones hormones = DbDataService.GetService().GetDdtHormonesService().GetById(objectId);
+            DdtHormones hormones = DbDataService.GetInstance().GetDdtHormonesService().GetById(objectId);
             refreshObject(hormones);
             admissionDateTxt.Enabled = isEditable;
             t4Txt.Enabled = isEditable;
@@ -46,7 +46,7 @@ namespace Cardiology.UI.Controls
                 hormones.HospitalitySession = hospitalitySession.ObjectId;
                 hormones.Doctor = hospitalitySession.CuringDoctor;
                 hormones.Patient = hospitalitySession.Patient;
-                objectId = DbDataService.GetService().GetDdtHormonesService().Save(hormones);
+                objectId = DbDataService.GetInstance().GetDdtHormonesService().Save(hormones);
                 isNew = false;
                 hasChanges = false;
             }
@@ -65,7 +65,7 @@ namespace Cardiology.UI.Controls
         public object getObject()
         {
 
-            DdtHormones hormones = DbDataService.GetService().GetDdtHormonesService().GetById(objectId);
+            DdtHormones hormones = DbDataService.GetInstance().GetDdtHormonesService().GetById(objectId);
             if (hormones == null)
             {
                 hormones = new DdtHormones();

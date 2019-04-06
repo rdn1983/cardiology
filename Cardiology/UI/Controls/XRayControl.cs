@@ -15,7 +15,7 @@ namespace Cardiology.UI.Controls
 
         public XRayControl(string objectId, bool additional)
         {
-            this.service = DbDataService.GetService();
+            this.service = DbDataService.GetInstance();
             this.objectId = objectId;
             this.isEditable = !additional;
             InitializeComponent();

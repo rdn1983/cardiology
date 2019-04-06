@@ -22,7 +22,7 @@ namespace Cardiology.UI.Controls
             {
                 medListId = medList.ObjectId;
                 clearMedicine();
-                IList<DdtIssuedMedicine> med = DbDataService.GetService().GetDdtIssuedMedicineService().GetListByMedicineListId(medList.ObjectId);
+                IList<DdtIssuedMedicine> med = DbDataService.GetInstance().GetDdtIssuedMedicineService().GetListByMedicineListId(medList.ObjectId);
                 for (int i = 0; i < med.Count; i++)
                 {
                     IssuedMedicineControl control = new IssuedMedicineControl(getNextIndex(), this);

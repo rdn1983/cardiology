@@ -23,7 +23,7 @@ namespace Cardiology.UI.Controls
 
         private void initControls()
         {
-            DdtHolter holter = DbDataService.GetService().GetDdtHolterService().GetById(objectId);
+            DdtHolter holter = DbDataService.GetInstance().GetDdtHolterService().GetById(objectId);
             refreshObject(holter);
             holterTxt.Enabled = isEditable;
             monitoringAdTxt.Enabled = isEditable;
@@ -48,7 +48,7 @@ namespace Cardiology.UI.Controls
                     holter.ParentType = parentType;
                 }
 
-                objectId = DbDataService.GetService().GetDdtHolterService().Save(holter);
+                objectId = DbDataService.GetInstance().GetDdtHolterService().Save(holter);
                 hasChanges = false;
                 isNew = false;
                 hasChanges = false;
@@ -73,7 +73,7 @@ namespace Cardiology.UI.Controls
         public object getObject()
         {
 
-            DdtHolter holter = DbDataService.GetService().GetDdtHolterService().GetById(objectId);
+            DdtHolter holter = DbDataService.GetInstance().GetDdtHolterService().GetById(objectId);
             if (holter == null)
             {
                 holter = new DdtHolter();

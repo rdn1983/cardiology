@@ -28,7 +28,7 @@ namespace Cardiology.UI.Controls
 
         private void InitControls()
         {
-            DdtBloodAnalysis blood = DbDataService.GetService().GetDdtBloodAnalysisService().GetById(objectId);
+            DdtBloodAnalysis blood = DbDataService.GetInstance().GetDdtBloodAnalysisService().GetById(objectId);
             refreshObject(blood);
             regularAltTxt.Enabled = isEditable;
             regularAmilazaTzt.Enabled = isEditable;
@@ -75,7 +75,7 @@ namespace Cardiology.UI.Controls
                 bloodObj.Patient = hospitalitySession.Patient;
                 bloodObj.ParentType = parentType ?? bloodObj.ParentType;
                 bloodObj.Parent = parentId ?? bloodObj.Parent;
-                objectId = DbDataService.GetService().GetDdtBloodAnalysisService().Save(bloodObj);
+                objectId = DbDataService.GetInstance().GetDdtBloodAnalysisService().Save(bloodObj);
                 hasChanges = false;
                 isNew = false;
             }
@@ -101,7 +101,7 @@ namespace Cardiology.UI.Controls
 
         public object getObject()
         {
-            DdtBloodAnalysis bloodObj = DbDataService.GetService().GetDdtBloodAnalysisService().GetById(objectId);
+            DdtBloodAnalysis bloodObj = DbDataService.GetInstance().GetDdtBloodAnalysisService().GetById(objectId);
             if (bloodObj == null)
             {
                 bloodObj = new DdtBloodAnalysis();

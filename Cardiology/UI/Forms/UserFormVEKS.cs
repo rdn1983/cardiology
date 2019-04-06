@@ -17,7 +17,7 @@ namespace Cardiology.UI.Forms
 
         private void initializeDoctorsBox()
         {
-            CommonUtils.InitDoctorsComboboxValues(DbDataService.GetService(), doctorsBox, null);
+            CommonUtils.InitDoctorsComboboxValues(DbDataService.GetInstance(), doctorsBox, null);
         }
 
         private void printBtn_Click(object sender, EventArgs e)

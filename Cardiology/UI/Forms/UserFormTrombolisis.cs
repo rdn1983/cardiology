@@ -21,7 +21,7 @@ namespace Cardiology.UI.Forms
 
         private void initializeDoctorsBox()
         {
-            CommonUtils.InitDoctorsComboboxValues(DbDataService.GetService(), doctorOkrCB, null);
+            CommonUtils.InitDoctorsComboboxValues(DbDataService.GetInstance(), doctorOkrCB, null);
         }
 
         private void trombolizisPrintBtn_Click(object sender, EventArgs e)
@@ -34,7 +34,7 @@ namespace Cardiology.UI.Forms
             string templatePath = Directory.GetCurrentDirectory() + "\\Templates\\trombolisis_template.doc";
 
             Dictionary<string, string> values = new Dictionary<string, string>();
-            DdvPatient patientView = DbDataService.GetService().GetDdvPatientService().GetById(patient.ObjectId);
+            DdvPatient patientView = DbDataService.GetInstance().GetDdvPatientService().GetById(patient.ObjectId);
             if (patient!=null)
             {
                 values.Add(@"{patient.full_name}", patientView.FullName);

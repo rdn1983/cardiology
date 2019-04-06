@@ -1,26 +1,23 @@
-﻿namespace Cardiology.Data
+﻿using System;
+
+namespace Cardiology.Data
 {
-    class DbDataService
+    public static class DbDataService
     {
-        private static IDbDataService dbService;
+        private static IDbDataService instance;
 
-        public static IDbDataService GetService()
+        public static IDbDataService GetInstance()
         {
-            if (dbService == null)
+            if (instance == null)
             {
-                throw new System.Exception("Connection is null!");
+                throw new NullReferenceException("IDbDataService instance is null");
             }
-            return dbService;
+            return instance;
         }
 
-        public static void SetService(IDbDataService service)
+        public static void SetInstance(IDbDataService value)
         {
-            dbService = service;
-        }
-
-        private DbDataService()
-        {
-
+            instance = value;
         }
     }
 }

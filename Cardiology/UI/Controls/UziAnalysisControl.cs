@@ -24,7 +24,7 @@ namespace Cardiology.UI.Controls
         private void initControls()
         {
 
-            DdtUzi uzi = DbDataService.GetService().GetDdtUziService().GetById(objectId);
+            DdtUzi uzi = DbDataService.GetInstance().GetDdtUziService().GetById(objectId);
             refreshObject(uzi);
             ehoKgTxt.Enabled = isEditable;
             uzdTxt.Enabled = isEditable;
@@ -52,7 +52,7 @@ namespace Cardiology.UI.Controls
                     uziObj.ParentType = parentType;
                 }
 
-                objectId = DbDataService.GetService().GetDdtUziService().Save(uziObj);
+                objectId = DbDataService.GetInstance().GetDdtUziService().Save(uziObj);
                 isNew = false;
                 hasChanges = false;
             }
@@ -83,7 +83,7 @@ namespace Cardiology.UI.Controls
         public object getObject()
         {
 
-            DdtUzi uziObj = DbDataService.GetService().GetDdtUziService().GetById(objectId);
+            DdtUzi uziObj = DbDataService.GetInstance().GetDdtUziService().GetById(objectId);
             if (uziObj == null)
             {
                 uziObj = new DdtUzi();

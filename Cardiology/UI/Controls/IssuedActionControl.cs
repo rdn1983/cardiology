@@ -53,7 +53,7 @@ namespace Cardiology.UI.Controls
             if (!string.IsNullOrEmpty(objectId))
             {
 
-                DbDataService.GetService().Delete(DdtIssuedAction.NAME, objectId);
+                DbDataService.GetInstance().Delete(DdtIssuedAction.NAME, objectId);
             }
             if (parent != null)
             {

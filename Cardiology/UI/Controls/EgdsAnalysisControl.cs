@@ -25,7 +25,7 @@ namespace Cardiology.UI.Controls
 
         private void InitControls()
         {
-            DdtEgds egds = DbDataService.GetService().GetDdtEgdsService().GetById(objectId);
+            DdtEgds egds = DbDataService.GetInstance().GetDdtEgdsService().GetById(objectId);
             refreshObject(egds);
             regularEgdsTxt.Enabled = isEditable;
             analysisDate.Enabled = isEditable;
@@ -49,7 +49,7 @@ namespace Cardiology.UI.Controls
                     egds.ParentType = parentType;
                 }
 
-                objectId = DbDataService.GetService().GetDdtEgdsService().Save(egds);
+                objectId = DbDataService.GetInstance().GetDdtEgdsService().Save(egds);
                 hasChanges = false;
                 isNew = false;
             }
@@ -72,7 +72,7 @@ namespace Cardiology.UI.Controls
 
         public object getObject()
         {
-            DdtEgds egds = DbDataService.GetService().GetDdtEgdsService().GetById(objectId);
+            DdtEgds egds = DbDataService.GetInstance().GetDdtEgdsService().GetById(objectId);
             if (egds == null)
             {
                 egds = new DdtEgds();

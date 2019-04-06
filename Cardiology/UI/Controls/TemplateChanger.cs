@@ -19,7 +19,7 @@ namespace Cardiology.UI.Controls
 
         public void Show(int x, int y, Control parent, string attrName, OnCompleteListener listener)
         {
-            this.service = DbDataService.GetService();
+            this.service = DbDataService.GetInstance();
             this.attrName = attrName;
             this.listener = listener;
             Show(parent, x, y);

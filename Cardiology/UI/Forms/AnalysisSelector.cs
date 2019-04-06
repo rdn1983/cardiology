@@ -51,7 +51,7 @@ namespace Cardiology.UI.Forms
                 dqlBuilder.Append(condition);
             }
 
-            DbDataService.GetService().Select(dqlBuilder.ToString(), labelAttr, valueAttr, (key, value) =>
+            DbDataService.GetInstance().Select(dqlBuilder.ToString(), labelAttr, valueAttr, (key, value) =>
             {
                 ListViewItem ll = new ListViewItem(key);
                 ListViewItem.ListViewSubItem sub = new ListViewItem.ListViewSubItem(ll, value);

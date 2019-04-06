@@ -91,8 +91,8 @@
             this.skatItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lastIssuedMedList = new System.Windows.Forms.ToolStripMenuItem();
             this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.showReleasedPatients = new System.Windows.Forms.CheckBox();
             this.doctorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showReleasedPatients = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.hospitalPatientsTbl)).BeginInit();
             this.main.SuspendLayout();
             this.SuspendLayout();
@@ -155,7 +155,7 @@
             // 
             this.reanimItem.Name = "reanimItem";
             this.reanimItem.Size = new System.Drawing.Size(328, 22);
-            this.reanimItem.Text = "Реанимационные предприятия";
+            this.reanimItem.Text = "Реанимационные мероприятия";
             this.reanimItem.Click += new System.EventHandler(this.reanimItem_Click);
             // 
             // deadItem
@@ -598,6 +598,13 @@
             this.adminToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
             this.adminToolStripMenuItem.Text = "Админка";
             // 
+            // doctorsToolStripMenuItem
+            // 
+            this.doctorsToolStripMenuItem.Name = "doctorsToolStripMenuItem";
+            this.doctorsToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.doctorsToolStripMenuItem.Text = "Врачи";
+            this.doctorsToolStripMenuItem.Click += new System.EventHandler(this.DoctorsToolStripMenuItem_Click);
+            // 
             // showReleasedPatients
             // 
             this.showReleasedPatients.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -609,13 +616,6 @@
             this.showReleasedPatients.Text = "Отобразить выписанных пациентов";
             this.showReleasedPatients.UseVisualStyleBackColor = true;
             this.showReleasedPatients.CheckedChanged += new System.EventHandler(this.showReleasedPatients_CheckedChanged);
-            // 
-            // doctorsToolStripMenuItem
-            // 
-            this.doctorsToolStripMenuItem.Name = "doctorsToolStripMenuItem";
-            this.doctorsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.doctorsToolStripMenuItem.Text = "Врачи";
-            this.doctorsToolStripMenuItem.Click += new System.EventHandler(this.DoctorsToolStripMenuItem_Click);
             // 
             // PatientList
             // 

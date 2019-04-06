@@ -1,6 +1,6 @@
 ﻿namespace Cardiology.UI.Forms
 {
-    partial class ReanimDEAD
+    partial class Death
     {
         /// <summary>
         /// Required designer variable.
@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReanimDEAD));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Death));
             this.deadDateLbl = new System.Windows.Forms.Label();
+            this.deathDateTxt = new System.Windows.Forms.DateTimePicker();
             this.deathTimeCtrl = new System.Windows.Forms.DateTimePicker();
-            this.reanimOperationBtn = new System.Windows.Forms.Button();
             this.docLbl = new System.Windows.Forms.Label();
             this.doctorsBox = new System.Windows.Forms.ComboBox();
-            this.deathDateTxt = new System.Windows.Forms.DateTimePicker();
+            this.openDeathWord = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // deadDateLbl
@@ -43,8 +43,15 @@
             this.deadDateLbl.Location = new System.Drawing.Point(12, 9);
             this.deadDateLbl.Name = "deadDateLbl";
             this.deadDateLbl.Size = new System.Drawing.Size(112, 13);
-            this.deadDateLbl.TabIndex = 0;
+            this.deadDateLbl.TabIndex = 1;
             this.deadDateLbl.Text = "Констатация смерти";
+            // 
+            // deathDateTxt
+            // 
+            this.deathDateTxt.Location = new System.Drawing.Point(12, 25);
+            this.deathDateTxt.Name = "deathDateTxt";
+            this.deathDateTxt.Size = new System.Drawing.Size(119, 20);
+            this.deathDateTxt.TabIndex = 7;
             // 
             // deathTimeCtrl
             // 
@@ -54,17 +61,7 @@
             this.deathTimeCtrl.Name = "deathTimeCtrl";
             this.deathTimeCtrl.ShowUpDown = true;
             this.deathTimeCtrl.Size = new System.Drawing.Size(113, 20);
-            this.deathTimeCtrl.TabIndex = 1;
-            // 
-            // reanimOperationBtn
-            // 
-            this.reanimOperationBtn.Location = new System.Drawing.Point(12, 102);
-            this.reanimOperationBtn.Name = "reanimOperationBtn";
-            this.reanimOperationBtn.Size = new System.Drawing.Size(238, 23);
-            this.reanimOperationBtn.TabIndex = 2;
-            this.reanimOperationBtn.Text = "Открыть МЕРОПРИЯТИЯ в Word";
-            this.reanimOperationBtn.UseVisualStyleBackColor = true;
-            this.reanimOperationBtn.Click += new System.EventHandler(this.OpenReanimationProtocol);
+            this.deathTimeCtrl.TabIndex = 8;
             // 
             // docLbl
             // 
@@ -72,7 +69,7 @@
             this.docLbl.Location = new System.Drawing.Point(9, 59);
             this.docLbl.Name = "docLbl";
             this.docLbl.Size = new System.Drawing.Size(34, 13);
-            this.docLbl.TabIndex = 4;
+            this.docLbl.TabIndex = 9;
             this.docLbl.Text = "Врач:";
             // 
             // doctorsBox
@@ -82,32 +79,35 @@
             this.doctorsBox.Location = new System.Drawing.Point(12, 75);
             this.doctorsBox.Name = "doctorsBox";
             this.doctorsBox.Size = new System.Drawing.Size(238, 21);
-            this.doctorsBox.TabIndex = 5;
+            this.doctorsBox.TabIndex = 10;
             // 
-            // deathDateTxt
+            // openDeathWord
             // 
-            this.deathDateTxt.Location = new System.Drawing.Point(12, 25);
-            this.deathDateTxt.Name = "deathDateTxt";
-            this.deathDateTxt.Size = new System.Drawing.Size(119, 20);
-            this.deathDateTxt.TabIndex = 6;
+            this.openDeathWord.Location = new System.Drawing.Point(12, 102);
+            this.openDeathWord.Name = "openDeathWord";
+            this.openDeathWord.Size = new System.Drawing.Size(238, 23);
+            this.openDeathWord.TabIndex = 11;
+            this.openDeathWord.Text = "Открыть КОНСТАТАЦИЯ в Word";
+            this.openDeathWord.UseVisualStyleBackColor = true;
+            this.openDeathWord.Click += new System.EventHandler(this.OpenDeathProtocol);
             // 
-            // ReanimDEAD
+            // Death
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(257, 133);
-            this.Controls.Add(this.deathDateTxt);
+            this.Controls.Add(this.openDeathWord);
             this.Controls.Add(this.doctorsBox);
             this.Controls.Add(this.docLbl);
-            this.Controls.Add(this.reanimOperationBtn);
             this.Controls.Add(this.deathTimeCtrl);
+            this.Controls.Add(this.deathDateTxt);
             this.Controls.Add(this.deadDateLbl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(286, 222);
-            this.Name = "ReanimDEAD";
+            this.Name = "Death";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Реанимационные мероприятия";
+            this.Text = "Констатация смерти";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -116,10 +116,10 @@
         #endregion
 
         private System.Windows.Forms.Label deadDateLbl;
+        private System.Windows.Forms.DateTimePicker deathDateTxt;
         private System.Windows.Forms.DateTimePicker deathTimeCtrl;
-        private System.Windows.Forms.Button reanimOperationBtn;
         private System.Windows.Forms.Label docLbl;
         private System.Windows.Forms.ComboBox doctorsBox;
-        private System.Windows.Forms.DateTimePicker deathDateTxt;
+        private System.Windows.Forms.Button openDeathWord;
     }
 }

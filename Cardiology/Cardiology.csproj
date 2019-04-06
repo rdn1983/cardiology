@@ -223,6 +223,12 @@
     <Compile Include="UI\Forms\Admin\DoctorList.Designer.cs">
       <DependentUpon>DoctorList.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Forms\Death.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\Death.Designer.cs">
+      <DependentUpon>Death.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Forms\PatientAdmission.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -476,12 +482,6 @@
     <Compile Include="UI\Forms\UserFormIntubation.Designer.cs">
       <DependentUpon>UserFormIntubation.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Forms\UserFormProtocolManipulation.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Forms\UserFormProtocolManipulation.Designer.cs">
-      <DependentUpon>UserFormProtocolManipulation.cs</DependentUpon>
-    </Compile>
     <Compile Include="UI\Forms\UserFormTorCent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -542,6 +542,9 @@
     <None Include="Resources\link20.png" />
     <EmbeddedResource Include="UI\Forms\Admin\DoctorList.resx">
       <DependentUpon>DoctorList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\Death.resx">
+      <DependentUpon>Death.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Forms\PatientAdmission.resx">
       <DependentUpon>PatientAdmission.cs</DependentUpon>
@@ -675,9 +678,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Forms\UserFormIntubation.resx">
       <DependentUpon>UserFormIntubation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Forms\UserFormProtocolManipulation.resx">
-      <DependentUpon>UserFormProtocolManipulation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Forms\UserFormTorCent.resx">
       <DependentUpon>UserFormTorCent.cs</DependentUpon>

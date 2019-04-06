@@ -277,6 +277,7 @@ namespace Cardiology.Commons
             catch (Exception ex)
             {
                 Logger.Error(ex, ex.Message);
+                throw;
             }
             return journal;
 

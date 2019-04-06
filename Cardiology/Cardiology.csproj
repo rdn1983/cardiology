@@ -388,7 +388,6 @@
     <Compile Include="UI\Forms\PulseTableCOntainer.Designer.cs">
       <DependentUpon>PulseTableCOntainer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Data\TableAttribute.cs" />
     <Compile Include="UI\Forms\JournalBeforeKag.cs">
       <SubType>Form</SubType>
     </Compile>

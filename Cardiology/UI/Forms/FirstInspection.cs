@@ -1,12 +1,12 @@
-﻿using System;
+﻿using Cardiology.Commons;
+using Cardiology.Data;
+using Cardiology.Data.Model2;
+using Cardiology.UI.Controls;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using Cardiology.Commons;
-using Cardiology.Data;
-using Cardiology.Data.Model2;
-using Cardiology.UI.Controls;
 using DdtValues = Cardiology.Data.Model2.DdtValues;
 
 namespace Cardiology.UI.Forms
@@ -36,6 +36,8 @@ namespace Cardiology.UI.Forms
         private const string PMA_TYPE = "pma";
         private const string IBS_TYPE = "ibs";
         private const string DT_TYPE = "dt";
+
+        private readonly object syncLock = new object();
 
         private IDbDataService service;
         private DdtHospital hospitalSession;
@@ -649,7 +651,10 @@ namespace Cardiology.UI.Forms
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
-            Save();
+            lock (syncLock)
+            {
+                Save();
+            }
         }
 
         private void AddIssuedMedicine_Click(object sender, EventArgs e)
@@ -665,13 +670,16 @@ namespace Cardiology.UI.Forms
 
         private void printBtn_Click(object sender, EventArgs e)
         {
-            if (Save())
+            lock (syncLock)
             {
-                ITemplateProcessor te = TemplateProcessorManager.getProcessorByObjectType(DdtAnamnesis.NAME);
-                if (te != null)
+                if (Save())
                 {
-                    string path = te.processTemplate(service, hospitalSession.ObjectId, anamnesis.ObjectId, null);
-                    TemplatesUtils.ShowDocument(path);
+                    ITemplateProcessor te = TemplateProcessorManager.getProcessorByObjectType(DdtAnamnesis.NAME);
+                    if (te != null)
+                    {
+                        string path = te.processTemplate(service, hospitalSession.ObjectId, anamnesis.ObjectId, null);
+                        TemplatesUtils.ShowDocument(path);
+                    }
                 }
             }
 

@@ -52,13 +52,13 @@ namespace Cardiology.UI.Forms
             phoneTxt.Text = patient.Phone;
             snilsTxt.Text = patient.Snils;
             omsTxt.Text = patient.Oms;
-            passportDataTxt.Text = patient.PassportDate.ToString();
+            passportDataTxt.Value = patient.PassportDate;
             passportIssuePlaceTxt.Text = patient.PassportIssuePlace;
             passportNumTxt.Text = patient.PassportNum;
             passportSerialTxt.Text = patient.PassportSerial;
-            weightTxt.Text = patient.Weight.ToString();
-            highTxt.Text = patient.High.ToString();
-            patientBirthDate.Text = patient.Birthdate.ToString();
+            weightTxt.Text = patient.Weight.ToString(CultureInfo.InvariantCulture);
+            highTxt.Text = patient.High.ToString(CultureInfo.InvariantCulture);
+            patientBirthDate.Value = patient.Birthdate;
             sdBtn.Checked = patient.Sd;
             maleChb.Checked = patient.Sex == 0;
             femaleChb.Checked = patient.Sex == 1;

@@ -116,7 +116,8 @@ namespace Cardiology.Data.PostgreSQL
                         cmd.CommandType = CommandType.Text;
                         cmd.Parameters.AddWithValue("@MedList", obj.MedList);
                         cmd.Parameters.AddWithValue("@Cure", obj.Cure);
-                        return (string)cmd.ExecuteScalar();
+                        obj.ObjectId = (string)cmd.ExecuteScalar();
+                        return obj.ObjectId;
                     }
                 }
             }

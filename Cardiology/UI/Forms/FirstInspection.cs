@@ -653,7 +653,10 @@ namespace Cardiology.UI.Forms
         {
             lock (syncLock)
             {
-                Save();
+                if(Save())
+                {
+                    Close();
+                }
             }
         }
 

@@ -20,14 +20,14 @@ namespace Cardiology.Data.PostgreSQL
 
         public IList<DdvHistory> GetAll()
         {
-            String sql = "SELECT dsid_hospitality_session, dsid_operation_id, dsdt_operation_date, dss_description, dss_doctor_name, dss_operation_type, dss_operation_name FROM ddv_history";
+            String sql = "SELECT dsid_hospitality_session, dsid_operation_id, dsdt_operation_date, dss_description, dss_doctor_name, dss_doctor_short_name, dss_operation_type, dss_operation_name FROM ddv_history";
             return readQuery(sql);
 
         }
 
         public DdvHistory GetById(string id)
         {
-            String sql = String.Format("SELECT dsid_hospitality_session, dsid_operation_id, dsdt_operation_date, dss_description, dss_doctor_name, dss_operation_type, dss_operation_name FROM ddv_history WHERE r_object_id = '{0}'", id);
+            String sql = String.Format("SELECT dsid_hospitality_session, dsid_operation_id, dsdt_operation_date, dss_description, dss_doctor_name, dss_doctor_short_name, dss_operation_type, dss_operation_name FROM ddv_history WHERE r_object_id = '{0}'", id);
             IList<DdvHistory> list = readQuery(sql);
             if (list.Count > 0)
             {
@@ -38,14 +38,14 @@ namespace Cardiology.Data.PostgreSQL
 
         public IList<DdvHistory> GetHistoryByHospitalSession(string hospitalSessionId)
         {
-            String sql = String.Format("SELECT dsid_hospitality_session, dsid_operation_id, dsdt_operation_date, dss_description, dss_doctor_name, dss_operation_type, dss_operation_name " +
+            String sql = String.Format("SELECT dsid_hospitality_session, dsid_operation_id, dsdt_operation_date, dss_description, dss_doctor_name, dss_doctor_short_name, dss_operation_type, dss_operation_name " +
                                            "FROM ddv_history where dsid_hospitality_session = '{0}'", hospitalSessionId);
             return readQuery(sql);
         }
 
         public DdvHistory GetHistoryByOperationId(string operationId)
         {
-            String sql = String.Format("SELECT dsid_hospitality_session, dsid_operation_id, dsdt_operation_date, dss_description, dss_doctor_name, dss_operation_type, dss_operation_name " +
+            String sql = String.Format("SELECT dsid_hospitality_session, dsid_operation_id, dsdt_operation_date, dss_description, dss_doctor_name, dss_doctor_short_name, dss_operation_type, dss_operation_name " +
                                            "FROM ddv_history where dsid_operation_id = '{0}'", operationId);
             IList<DdvHistory> list = readQuery(sql);
             if (list.Count > 0)
@@ -75,8 +75,9 @@ namespace Cardiology.Data.PostgreSQL
                             obj.OperationDate = reader.IsDBNull(2) ? DateTime.MinValue : reader.GetDateTime(2);
                             obj.Description = reader.IsDBNull(3) ? null : reader.GetString(3);
                             obj.DoctorName = reader.IsDBNull(4) ? null : reader.GetString(4);
-                            obj.OperationType = reader.IsDBNull(5) ? null : reader.GetString(5);
-                            obj.OperationName = reader.IsDBNull(6) ? null : reader.GetString(6);
+                            obj.DoctorShortName = reader.IsDBNull(5) ? null : reader.GetString(5);
+                            obj.OperationType = reader.IsDBNull(6) ? null : reader.GetString(6);
+                            obj.OperationName = reader.IsDBNull(7) ? null : reader.GetString(7);
                             list.Add(obj);
                         }
                     }

@@ -34,7 +34,7 @@ namespace Cardiology.UI.Forms
             for (int i = 0; i < allHspitalPatients.Count(); i++)
             {
                 DdvHistory h = allHspitalPatients[i];
-                patientHistoryGrid.Rows.Add(false, h.HospitalitySession, h.OperationType, h.OperationId, h.OperationName, h.OperationDate, h.DoctorName, h.Description);
+                patientHistoryGrid.Rows.Add(false, h.HospitalitySession, h.OperationType, h.OperationId, h.OperationName, h.OperationDate, h.DoctorShortName, h.Description);
             }
 
         }

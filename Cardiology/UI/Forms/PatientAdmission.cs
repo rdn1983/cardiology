@@ -81,9 +81,7 @@ namespace Cardiology.UI.Forms
             DdvDoctor anesthetistDoctor = service.GetDdvDoctorService().GetById(hospital.AnesthetistDoctor);
             anesthetistComboBox.SelectedIndex = anesthetistComboBox.FindStringExact(anesthetistDoctor.ShortName);
 
-            string[] roomCell = hospital.RoomCell.Split('/');
-            roomTxt.Text = roomCell[0];
-            bedTxt.Text = roomCell[1];
+            roomTxt.Text = hospital.RoomCell;
         }
 
         private void admisPatient_Click(object sender, EventArgs e)
@@ -144,7 +142,7 @@ namespace Cardiology.UI.Forms
             DdvDoctor anesthetistDoctor = (DdvDoctor)anesthetistComboBox.SelectedItem;
             hospital.AnesthetistDoctor = anesthetistDoctor.ObjectId;
 
-            hospital.RoomCell = roomTxt.Text + "/" + bedTxt.Text;
+            hospital.RoomCell = roomTxt.Text?? roomTxt.Text.Trim();
             service.GetDdtHospitalService().Save(hospital);
             //todo перенести в статусную строку
             Close();

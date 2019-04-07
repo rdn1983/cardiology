@@ -38,7 +38,6 @@ namespace Cardiology.UI.Forms
             this.directorCardioReanimPnl = new System.Windows.Forms.GroupBox();
             this.directorCardioReanimBox = new System.Windows.Forms.ComboBox();
             this.placeBox = new System.Windows.Forms.GroupBox();
-            this.bedTxt = new System.Windows.Forms.TextBox();
             this.roomTxt = new System.Windows.Forms.TextBox();
             this.admisPatient = new System.Windows.Forms.Button();
             this.admissionDateBox = new System.Windows.Forms.GroupBox();
@@ -185,7 +184,6 @@ namespace Cardiology.UI.Forms
             // 
             this.placeBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.placeBox.Controls.Add(this.bedTxt);
             this.placeBox.Controls.Add(this.roomTxt);
             this.placeBox.Location = new System.Drawing.Point(6, 401);
             this.placeBox.Name = "placeBox";
@@ -194,19 +192,11 @@ namespace Cardiology.UI.Forms
             this.placeBox.TabStop = false;
             this.placeBox.Text = "Палата/Койка";
             // 
-            // bedTxt
-            // 
-            this.bedTxt.Location = new System.Drawing.Point(77, 16);
-            this.bedTxt.Name = "bedTxt";
-            this.bedTxt.Size = new System.Drawing.Size(64, 20);
-            this.bedTxt.TabIndex = 1;
-            this.bedTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyDigits_KeyPress);
-            // 
             // roomTxt
             // 
             this.roomTxt.Location = new System.Drawing.Point(7, 16);
             this.roomTxt.Name = "roomTxt";
-            this.roomTxt.Size = new System.Drawing.Size(64, 20);
+            this.roomTxt.Size = new System.Drawing.Size(80, 20);
             this.roomTxt.TabIndex = 0;
             this.roomTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyDigits_KeyPress);
             // 
@@ -762,7 +752,6 @@ namespace Cardiology.UI.Forms
         private System.Windows.Forms.RadioButton femaleChb;
         private System.Windows.Forms.RadioButton maleChb;
         private System.Windows.Forms.GroupBox placeBox;
-        private System.Windows.Forms.TextBox bedTxt;
         private System.Windows.Forms.TextBox roomTxt;
         private System.Windows.Forms.TextBox snilsTxt;
         private System.Windows.Forms.Label snilsLbl;

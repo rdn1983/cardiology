@@ -30,7 +30,7 @@ namespace Cardiology.UI.Forms
         {
 
             ControlUtils.InitDoctorsByGroupName(service.GetDdvDoctorService(), dutyCardioBox, "cardioreanimation_department");
-            ControlUtils.InitDoctorsByGroupName(service.GetDdvDoctorService(), directorCardioReanimBox, "cardioreanimation_department_head");           
+            ControlUtils.InitDoctorsByGroupNameAndOrder(service.GetDdvDoctorService(), directorCardioReanimBox, "cardioreanimation_department", "admission.cardioreanimation_department_head");           
             ControlUtils.InitDoctorsByGroupName(service.GetDdvDoctorService(), cardioDocBox, "xray_department");
             ControlUtils.InitDoctorsByGroupName(service.GetDdvDoctorService(), subDoctorBox, "xray_department_head");
             ControlUtils.InitDoctorsByGroupName(service.GetDdvDoctorService(), anesthetistComboBox, "anesthesiology_department");

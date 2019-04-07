@@ -15,6 +15,13 @@ namespace Cardiology.UI
             control.DisplayMember = "ShortName";
         }
 
+        internal static void InitDoctorsByGroupNameAndOrder(IDdvDoctorService service, ComboBox control, string groupName, string orderName)
+        {
+            control.DataSource = service.GetByGroupNameAndOrder(groupName, orderName);
+            control.ValueMember = "ObjectId";
+            control.DisplayMember = "ShortName";
+        }
+
         internal static void InitDoctors(IDdvDoctorService service, ComboBox control, String defaultId)
         {
             control.Items.Clear();

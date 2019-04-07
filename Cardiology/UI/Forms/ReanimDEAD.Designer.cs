@@ -42,9 +42,9 @@
             this.deadDateLbl.AutoSize = true;
             this.deadDateLbl.Location = new System.Drawing.Point(12, 9);
             this.deadDateLbl.Name = "deadDateLbl";
-            this.deadDateLbl.Size = new System.Drawing.Size(112, 13);
+            this.deadDateLbl.Size = new System.Drawing.Size(40, 13);
             this.deadDateLbl.TabIndex = 0;
-            this.deadDateLbl.Text = "Констатация смерти";
+            this.deadDateLbl.Text = "Время";
             // 
             // deathTimeCtrl
             // 

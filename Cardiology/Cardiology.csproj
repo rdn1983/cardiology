@@ -436,11 +436,11 @@
     <Compile Include="UI\Forms\Consilium.Designer.cs">
       <DependentUpon>Consilium.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Forms\ReanimDEAD.cs">
+    <Compile Include="UI\Forms\Resuscitation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Forms\ReanimDEAD.Designer.cs">
-      <DependentUpon>ReanimDEAD.cs</DependentUpon>
+    <Compile Include="UI\Forms\Resuscitation.Designer.cs">
+      <DependentUpon>Resuscitation.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -648,8 +648,8 @@
     <EmbeddedResource Include="UI\Forms\PulseTableCOntainer.resx">
       <DependentUpon>PulseTableCOntainer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Forms\ReanimDEAD.resx">
-      <DependentUpon>ReanimDEAD.cs</DependentUpon>
+    <EmbeddedResource Include="UI\Forms\Resuscitation.resx">
+      <DependentUpon>Resuscitation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

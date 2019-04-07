@@ -8,11 +8,11 @@ using Cardiology.Data.Model2;
 
 namespace Cardiology.UI.Forms
 {
-    public partial class ReanimDEAD : Form
+    public partial class Resuscitation : Form
     {
         private DdvPatient patient;
 
-        public ReanimDEAD(DdvPatient patient)
+        public Resuscitation(DdvPatient patient)
         {
             this.patient = patient;
             InitializeComponent();

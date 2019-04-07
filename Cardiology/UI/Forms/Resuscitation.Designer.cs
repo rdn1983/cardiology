@@ -1,6 +1,6 @@
 ﻿namespace Cardiology.UI.Forms
 {
-    partial class ReanimDEAD
+    partial class Resuscitation
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReanimDEAD));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Resuscitation));
             this.deadDateLbl = new System.Windows.Forms.Label();
             this.deathTimeCtrl = new System.Windows.Forms.DateTimePicker();
             this.reanimOperationBtn = new System.Windows.Forms.Button();

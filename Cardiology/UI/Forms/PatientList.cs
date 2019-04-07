@@ -112,7 +112,7 @@ namespace Cardiology.UI.Forms
 
                 DdtHospital hospitalSession = service.GetDdtHospitalService().GetById(value);
                 DdvPatient patient = service.GetDdvPatientService().GetById(hospitalSession.Patient);
-                ReanimDEAD form = new ReanimDEAD(patient);
+                Resuscitation form = new Resuscitation(patient);
                 form.ShowDialog();
             }
 

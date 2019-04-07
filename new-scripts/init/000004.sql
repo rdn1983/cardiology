@@ -60,3 +60,5 @@ INSERT INTO ddt_doctor (dss_last_name, dss_first_name, dss_middle_name) VALUES (
 INSERT INTO ddt_doctor (dss_last_name, dss_first_name, dss_middle_name) VALUES ('Щербакова', 'Е', 'Е');
 INSERT INTO ddt_doctor (dss_last_name, dss_first_name, dss_middle_name) VALUES ('Толкованова', 'С', 'И');
 INSERT INTO ddt_doctor (dss_last_name, dss_first_name, dss_middle_name) VALUES ('Волохова', 'А', 'А');
+INSERT INTO ddt_doctor (dss_last_name, dss_first_name, dss_middle_name) VALUES ('Галицкий', 'А', 'А');
+INSERT INTO ddt_doctor (dss_last_name, dss_first_name, dss_middle_name) VALUES ('Гостева', 'И', 'В');

@@ -76,3 +76,6 @@ INSERT INTO dm_group_users (dss_group_name, dsid_doctor_id) VALUES('nurses', (SE
 INSERT INTO dm_group_users (dss_group_name, dsid_doctor_id) VALUES('nurses', (SELECT r_object_id FROM ddt_doctor WHERE dss_last_name = 'Щербакова' AND dss_first_name = 'Е' AND dss_middle_name = 'Е'));
 INSERT INTO dm_group_users (dss_group_name, dsid_doctor_id) VALUES('nurses', (SELECT r_object_id FROM ddt_doctor WHERE dss_last_name = 'Толкованова' AND dss_first_name = 'С' AND dss_middle_name = 'И'));
 INSERT INTO dm_group_users (dss_group_name, dsid_doctor_id) VALUES('nurses', (SELECT r_object_id FROM ddt_doctor WHERE dss_last_name = 'Волохова' AND dss_first_name = 'А' AND dss_middle_name = 'А'));
+-- Клинические фармакологи
+INSERT INTO dm_group_users (dss_group_name, dsid_doctor_id) VALUES('clinical_pharmacologists', (SELECT r_object_id FROM ddt_doctor WHERE dss_last_name = 'Галицкий' AND dss_first_name = 'А' AND dss_middle_name = 'А'));
+INSERT INTO dm_group_users (dss_group_name, dsid_doctor_id) VALUES('clinical_pharmacologists', (SELECT r_object_id FROM ddt_doctor WHERE dss_last_name = 'Гостева' AND dss_first_name = 'И' AND dss_middle_name = 'В'));

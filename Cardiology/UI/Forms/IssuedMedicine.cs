@@ -24,7 +24,7 @@ namespace Cardiology.UI.Forms
             this.issuedMedId = issuedMedId;
             InitializeComponent();
 
-            ControlUtils.InitDoctorsByGroupName(service.GetDdvDoctorService(), clinicalPharmacologistBox, "xray_department");
+            ControlUtils.InitDoctorsByGroupName(service.GetDdvDoctorService(), clinicalPharmacologistBox, "clinical_pharmacologists");
             ControlUtils.InitDoctorsByGroupName(service.GetDdvDoctorService(), nurseBox, "nurses");
             ControlUtils.InitDoctorsByGroupName(service.GetDdvDoctorService(), cardioReanimBox, "cardioreanimation_department");
             ControlUtils.InitDoctorsByGroupName(service.GetDdvDoctorService(), directorBox, "cardioreanimation_department_head");

@@ -564,7 +564,7 @@ namespace Cardiology.UI.Forms
 
         private void chronicMA_Click(object sender, EventArgs e)
         {
-            accompanyingIllnessesTxt.Text += getDefaultValueForType(accompanyingIllnessesTxt.Name, MA_TYPE) + " ";
+            accompanyingIllnessesTxt.Text = getDefaultValueForType(accompanyingIllnessesTxt.Name, MA_TYPE) + " " + accompanyingIllnessesTxt.Text;
         }
 
         private void chronicGB3_Click(object sender, EventArgs e)

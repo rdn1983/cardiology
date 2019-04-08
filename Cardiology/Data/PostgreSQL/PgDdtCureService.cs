@@ -131,7 +131,7 @@ namespace Cardiology.Data.PostgreSQL
             IList<DdtCure> list = new List<DdtCure>();
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = String.Format("Select cure.* from ddt_values vv, ddt_cure cure where vv.dss_name like '{0}' AND vv.dss_value = cure.dss_name", templateName);
+                String sql = String.Format("Select cure.* from ddt_values vv, ddt_cure cure where vv.dss_name like '{0}%' AND vv.dss_value = cure.dss_name", templateName);
 
                 Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
 

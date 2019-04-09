@@ -47,7 +47,7 @@ namespace Cardiology.UI.Controls
                 coagulgramm.HospitalitySession = hospitalitySession.ObjectId;
                 coagulgramm.Doctor = hospitalitySession.CuringDoctor;
                 coagulgramm.Patient = hospitalitySession.Patient;
-                objectId = DbDataService.GetService().GetDdtCoagulogramService().Save(coagulgramm);
+                objectId = DbDataService.GetInstance().GetDdtCoagulogramService().Save(coagulgramm);
                 hasChanges = false;
                 isNew = false;
             }
@@ -75,7 +75,7 @@ namespace Cardiology.UI.Controls
 
         public object getObject()
         {
-            DdtCoagulogram coagulgramm = DbDataService.GetService().GetDdtCoagulogramService().GetById(objectId);
+            DdtCoagulogram coagulgramm = DbDataService.GetInstance().GetDdtCoagulogramService().GetById(objectId);
             if (coagulgramm == null)
             {
                 coagulgramm = new DdtCoagulogram();

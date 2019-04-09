@@ -19,6 +19,7 @@ CREATE TABLE ddt_consilium_group_member (
   dsid_group VARCHAR(16) NOT NULL REFERENCES ddt_consilium_group(r_object_id) ON DELETE CASCADE,
   dss_name VARCHAR(1024),
   dsid_doctor VARCHAR(16) NOT NULL REFERENCES ddt_doctor(r_object_id) ON DELETE CASCADE,
+  dsb_default BOOLEAN DEFAULT false,
   UNIQUE(dsid_group, dsid_doctor)
 );
 

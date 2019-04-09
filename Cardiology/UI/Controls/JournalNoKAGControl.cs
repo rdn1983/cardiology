@@ -52,10 +52,10 @@ namespace Cardiology.UI.Controls
             warningLbl.Visible = false;
 
 
-            CommonUtils.InitDoctorsComboboxValues(DbDataService.GetService(), docBox, " r_object_id in (select dsid_doctor_id from dm_group_users where dss_group_name = 'duty_cardioreanim') ");
-            CommonUtils.SetDoctorsComboboxDefaultValue(DbDataService.GetService(), docBox, dsidCuringDoctor);
+            CommonUtils.InitDoctorsComboboxValues(DbDataService.GetInstance(), docBox, " r_object_id in (select dsid_doctor_id from dm_group_users where dss_group_name = 'cardioreanimation_department') ");
+            CommonUtils.SetDoctorsComboboxDefaultValue(DbDataService.GetInstance(), docBox, dsidCuringDoctor);
 
-            DdtJournal journal = DbDataService.GetService().GetDdtJournalService().GetById(objectId);
+            DdtJournal journal = DbDataService.GetInstance().GetDdtJournalService().GetById(objectId);
             refreshObject(journal);
         }
 
@@ -74,7 +74,7 @@ namespace Cardiology.UI.Controls
             journal.HospitalitySession = hospitalitySession.ObjectId;
             journal.Patient = hospitalitySession.Patient;
 
-            objectId = DbDataService.GetService().GetDdtJournalService().Save(journal);
+            objectId = DbDataService.GetInstance().GetDdtJournalService().Save(journal);
             hasChanges = false;
             isNew = false;
         }
@@ -121,7 +121,7 @@ namespace Cardiology.UI.Controls
         public object getObject()
         {
 
-            DdtJournal journal = DbDataService.GetService().GetDdtJournalService().GetById(objectId);
+            DdtJournal journal = DbDataService.GetInstance().GetDdtJournalService().GetById(objectId);
             if (journal == null)
             {
                 journal = new DdtJournal();
@@ -164,7 +164,7 @@ namespace Cardiology.UI.Controls
                 goodRhytmBtn.Checked = journal.GoodRhythm;
                 badRhytmBtn.Checked = !journal.GoodRhythm;
 
-                DdvDoctor doc = DbDataService.GetService().GetDdvDoctorService().GetById(journal.Doctor);
+                DdvDoctor doc = DbDataService.GetInstance().GetDdvDoctorService().GetById(journal.Doctor);
                 docBox.SelectedIndex = docBox.FindStringExact(doc.ShortName);
                 objectId = journal.ObjectId;
                 isNew = string.IsNullOrEmpty(objectId);
@@ -172,11 +172,11 @@ namespace Cardiology.UI.Controls
             }
             else
             {
-                journalTxt.Text = journalType == (int)DdtJournalDsiType.PENDING_JUSTIFICATION ? JournalShuffleUtils.shuffleBadJournalText() : JournalShuffleUtils.shuffleJournalText();
-                if (journalType == (int)DdtJournalDsiType.AFTER_PENDING)
+                journalTxt.Text = journalType == (int)DdtJournalDsiType.PendingJustification ? JournalShuffleUtils.shuffleBadJournalText() : JournalShuffleUtils.shuffleJournalText();
+                if (journalType == (int)DdtJournalDsiType.AfterPending)
                 {
                     journalTxt.Text += "Необходимо решить вопрос о проведении консилиума.";
-                    this.journalType = (int)DdtJournalDsiType.BEFORE_KAG;
+                    this.journalType = (int)DdtJournalDsiType.BeforeKag;
                 }
                 adTxt.SelectedIndex = JournalShuffleUtils.shuffleNextIndex(adTxt.Items.Count - 1);
                 chddTxt.SelectedIndex = chddTxt.FindString("14");

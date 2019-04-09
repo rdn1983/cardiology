@@ -3,11 +3,15 @@ using System.Data.Common;
 using System.Collections.Generic;
 using Cardiology.Data.Model2;
 using Cardiology.Data.Commons;
+using System.Data;
+using NLog;
+using System.Globalization;
 
 namespace Cardiology.Data.PostgreSQL
 {
     public class PgDdtCoagulogramService : IDdtCoagulogramService
     {
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
         private readonly IDbConnectionFactory connectionFactory;
 
         public PgDdtCoagulogramService(IDbConnectionFactory connectionFactory)
@@ -21,6 +25,9 @@ namespace Cardiology.Data.PostgreSQL
             using (dynamic connection = connectionFactory.GetConnection())
             {
                 String sql = "SELECT dss_ddimer, dsid_hospitality_session, r_object_id, dsdt_analysis_date, r_modify_date, dss_mcho, r_creation_date, dss_achtv, dsid_doctor, dsid_patient FROM ddt_coagulogram";
+
+                Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -49,6 +56,9 @@ namespace Cardiology.Data.PostgreSQL
             using (dynamic connection = connectionFactory.GetConnection())
             {
                 String sql = String.Format("SELECT dss_ddimer, dsid_hospitality_session, r_object_id, dsdt_analysis_date, r_modify_date, dss_mcho, r_creation_date, dss_achtv, dsid_doctor, dsid_patient FROM ddt_coagulogram WHERE r_object_id = '{0}'", id);
+
+                Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -74,7 +84,58 @@ namespace Cardiology.Data.PostgreSQL
 
         public string Save(DdtCoagulogram obj)
         {
-            throw new NotImplementedException();
+            using (dynamic connection = connectionFactory.GetConnection())
+            {
+                if (GetById(obj.ObjectId) != null)
+                {
+                    string sql = "UPDATE ddt_coagulogram SET " +
+                                          "dsid_hospitality_session = @HospitalitySession, " +
+                                        "dsid_patient = @Patient, " +
+                                        "dsid_doctor = @Doctor, " +
+                                        "dsdt_analysis_date = @AnalysisDate, " +
+                                        "dss_achtv = @Achtv, " +
+                                        "dss_mcho = @Mcho, " +
+                                        "dss_ddimer = @Ddimer " +
+                                         "WHERE r_object_id = @ObjectId";
+
+                    Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
+                    using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Parameters.AddWithValue("@HospitalitySession", obj.HospitalitySession);
+                        cmd.Parameters.AddWithValue("@Patient", obj.Patient);
+                        cmd.Parameters.AddWithValue("@Doctor", obj.Doctor);
+                        cmd.Parameters.AddWithValue("@AnalysisDate", obj.AnalysisDate);
+                        cmd.Parameters.AddWithValue("@Achtv", obj.Achtv == null ? "" : obj.Achtv);
+                        cmd.Parameters.AddWithValue("@Mcho", obj.Mcho == null ? "" : obj.Mcho);
+                        cmd.Parameters.AddWithValue("@Ddimer", obj.Ddimer == null ? "" : obj.Ddimer);
+                        cmd.Parameters.AddWithValue("@ObjectId", obj.ObjectId);
+                        cmd.ExecuteNonQuery();
+                    }
+                    return obj.ObjectId;
+                }
+                else
+                {
+                    string sql = "INSERT INTO ddt_coagulogram(dsid_hospitality_session,dsid_patient,dsid_doctor,dsdt_analysis_date,dss_achtv,dss_mcho,dss_ddimer) " +
+                                                              "VALUES(@HospitalitySession,@Patient,@Doctor,@AnalysisDate,@Achtv,@Mcho,@Ddimer) RETURNING r_object_id";
+                    Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
+                    using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Parameters.AddWithValue("@HospitalitySession", obj.HospitalitySession);
+                        cmd.Parameters.AddWithValue("@Patient", obj.Patient);
+                        cmd.Parameters.AddWithValue("@Doctor", obj.Doctor);
+                        cmd.Parameters.AddWithValue("@AnalysisDate", obj.AnalysisDate);
+                        cmd.Parameters.AddWithValue("@Achtv", obj.Achtv == null ? "" : obj.Achtv);
+                        cmd.Parameters.AddWithValue("@Mcho", obj.Mcho == null ? "" : obj.Mcho);
+                        cmd.Parameters.AddWithValue("@Ddimer", obj.Ddimer == null ? "" : obj.Ddimer);
+                        return (string)cmd.ExecuteScalar();
+                    }
+                }
+            }
         }
+
     }
 }

@@ -11,6 +11,6 @@ namespace Cardiology.Data.Commons
 
         DdtAlcoProtocol GetByHospitalSession(string hospitalSessionId);
 
-        string Save(DdtAlcoProtocol obj);
+        string Save(DdtAlcoProtocol protocol);
     }
 }

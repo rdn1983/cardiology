@@ -3,11 +3,15 @@ using System.Data.Common;
 using System.Collections.Generic;
 using Cardiology.Data.Model2;
 using Cardiology.Data.Commons;
+using System.Data;
+using NLog;
+using System.Globalization;
 
 namespace Cardiology.Data.PostgreSQL
 {
     public class PgDdtBloodAnalysisService : IDdtBloodAnalysisService
     {
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
         private readonly IDbConnectionFactory connectionFactory;
 
         public PgDdtBloodAnalysisService(IDbConnectionFactory connectionFactory)
@@ -24,6 +28,9 @@ namespace Cardiology.Data.PostgreSQL
                     " dss_parent_type, dss_kfk, dss_kfk_mv, dss_sodium, dsb_admission_analysis, dss_srp, dsb_discharge_analysis, dss_amylase, dsdt_analysis_date, " +
                     "dss_cholesterol, dss_schf, dss_bil, dss_iron, r_creation_date, dss_ast, dsid_parent, dsid_doctor, dsid_patient, dsid_hospitality_session," +
                     " r_modify_date, dss_protein FROM ddt_blood_analysis";
+
+                Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -71,6 +78,9 @@ namespace Cardiology.Data.PostgreSQL
             using (dynamic connection = connectionFactory.GetConnection())
             {
                 String sql = String.Format("SELECT r_object_id, dss_alt, dss_creatinine, dss_platelets, dss_hemoglobin, dss_chlorine, dss_leucocytes, dss_potassium, dss_parent_type, dss_kfk, dss_kfk_mv, dss_sodium, dsb_admission_analysis, dss_srp, dsb_discharge_analysis, dss_amylase, dsdt_analysis_date, dss_cholesterol, dss_schf, dss_bil, dss_iron, r_creation_date, dss_ast, dsid_parent, dsid_doctor, dsid_patient, dsid_hospitality_session, r_modify_date, dss_protein FROM ddt_blood_analysis WHERE r_object_id = '{0}'", id);
+
+                Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -119,6 +129,9 @@ namespace Cardiology.Data.PostgreSQL
             {
                 String sql = String.Format("SELECT r_object_id, dss_alt, dss_creatinine, dss_platelets, dss_hemoglobin, dss_chlorine, dss_leucocytes, dss_potassium, dss_parent_type, dss_kfk, dss_kfk_mv, dss_sodium, dsb_admission_analysis, dss_srp, dsb_discharge_analysis, dss_amylase, dsdt_analysis_date, dss_cholesterol, dss_schf, dss_bil, dss_iron, r_creation_date, dss_ast, dsid_parent, dsid_doctor, dsid_patient, dsid_hospitality_session, r_modify_date, dss_protein " +
                                            "FROM ddt_blood_analysis WHERE dsid_hospitality_session = '{0}' AND dsid_parent = '{1}'", hospitalSession, parentId);
+
+                Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -167,6 +180,9 @@ namespace Cardiology.Data.PostgreSQL
             {
                 String sql = String.Format("SELECT r_object_id, dss_alt, dss_creatinine, dss_platelets, dss_hemoglobin, dss_chlorine, dss_leucocytes, dss_potassium, dss_parent_type, dss_kfk, dss_kfk_mv, dss_sodium, dsb_admission_analysis, dss_srp, dsb_discharge_analysis, dss_amylase, dsdt_analysis_date, dss_cholesterol, dss_schf, dss_bil, dss_iron, r_creation_date, dss_ast, dsid_parent, dsid_doctor, dsid_patient, dsid_hospitality_session, r_modify_date, dss_protein " +
                                            "FROM ddt_blood_analysis WHERE dsid_parent = '{0}'", parentId);
+
+                Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -358,7 +374,110 @@ namespace Cardiology.Data.PostgreSQL
 
         public string Save(DdtBloodAnalysis obj)
         {
-            throw new NotImplementedException();
+            using (dynamic connection = connectionFactory.GetConnection())
+            {
+                if (GetById(obj.ObjectId) != null)
+                {
+                    string sql = "UPDATE ddt_blood_analysis SET " +
+                                        "dsid_hospitality_session = @HospitalitySession, " +
+                                        "dsid_patient = @Patient, " +
+                                        "dsid_doctor = @Doctor, " +
+                                        "dss_hemoglobin = @Hemoglobin, " +
+                                        "dss_leucocytes = @Leucocytes, " +
+                                        "dss_platelets = @Platelets, " +
+                                        "dss_protein = @Protein, " +
+                                        "dss_creatinine = @Creatinine, " +
+                                        "dss_cholesterol = @Cholesterol, " +
+                                        "dss_bil = @Bil, " +
+                                        "dss_iron = @Iron, " +
+                                        "dss_alt = @Alt, " +
+                                        "dss_ast = @Ast, " +
+                                        "dss_schf = @Schf, " +
+                                        "dss_amylase = @Amylase, " +
+                                        "dss_kfk = @Kfk, " +
+                                        "dss_kfk_mv = @KfkMv, " +
+                                        "dss_srp = @Srp, " +
+                                        "dss_potassium = @Potassium, " +
+                                        "dss_sodium = @Sodium, " +
+                                        "dss_chlorine = @Chlorine, " +
+                                        "dsb_admission_analysis = @AdmissionAnalysis, " +
+                                        "dsb_discharge_analysis = @DischargeAnalysis, " +
+                                        "dsdt_analysis_date = @AnalysisDate, " +
+                                        "dsid_parent = @Parent, " +
+                                        "dss_parent_type = @ParentType " +
+                                         "WHERE r_object_id = @ObjectId";
+                    using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Parameters.AddWithValue("@HospitalitySession", obj.HospitalitySession);
+                        cmd.Parameters.AddWithValue("@Patient", obj.Patient);
+                        cmd.Parameters.AddWithValue("@Doctor", obj.Doctor);
+                        cmd.Parameters.AddWithValue("@Hemoglobin", obj.Hemoglobin == null ? "" : obj.Hemoglobin);
+                        cmd.Parameters.AddWithValue("@Leucocytes", obj.Leucocytes == null ? "" : obj.Leucocytes);
+                        cmd.Parameters.AddWithValue("@Platelets", obj.Platelets == null ? "" : obj.Platelets);
+                        cmd.Parameters.AddWithValue("@Protein", obj.Protein == null ? "" : obj.Protein);
+                        cmd.Parameters.AddWithValue("@Creatinine", obj.Creatinine == null ? "" : obj.Creatinine);
+                        cmd.Parameters.AddWithValue("@Cholesterol", obj.Cholesterol == null ? "" : obj.Cholesterol);
+                        cmd.Parameters.AddWithValue("@Bil", obj.Bil == null ? "" : obj.Bil);
+                        cmd.Parameters.AddWithValue("@Iron", obj.Iron == null ? "" : obj.Iron);
+                        cmd.Parameters.AddWithValue("@Alt", obj.Alt == null ? "" : obj.Alt);
+                        cmd.Parameters.AddWithValue("@Ast", obj.Ast == null ? "" : obj.Ast);
+                        cmd.Parameters.AddWithValue("@Schf", obj.Schf == null ? "" : obj.Schf);
+                        cmd.Parameters.AddWithValue("@Amylase", obj.Amylase == null ? "" : obj.Amylase);
+                        cmd.Parameters.AddWithValue("@Kfk", obj.Kfk == null ? "" : obj.Kfk);
+                        cmd.Parameters.AddWithValue("@KfkMv", obj.KfkMv == null ? "" : obj.KfkMv);
+                        cmd.Parameters.AddWithValue("@Srp", obj.Srp == null ? "" : obj.Srp);
+                        cmd.Parameters.AddWithValue("@Potassium", obj.Potassium == null ? "" : obj.Potassium);
+                        cmd.Parameters.AddWithValue("@Sodium", obj.Sodium == null ? "" : obj.Sodium);
+                        cmd.Parameters.AddWithValue("@Chlorine", obj.Chlorine == null ? "" : obj.Chlorine);
+                        cmd.Parameters.AddWithValue("@AdmissionAnalysis", obj.AdmissionAnalysis);
+                        cmd.Parameters.AddWithValue("@DischargeAnalysis", obj.DischargeAnalysis);
+                        cmd.Parameters.AddWithValue("@AnalysisDate", obj.AnalysisDate);
+                        cmd.Parameters.AddWithValue("@Parent", obj.Parent == null ? "0000000000000000" : obj.Parent);
+                        cmd.Parameters.AddWithValue("@ParentType", obj.ParentType == null ? "" : obj.ParentType);
+                        cmd.Parameters.AddWithValue("@ObjectId", obj.ObjectId);
+                        cmd.ExecuteNonQuery();
+                    }
+                    return obj.ObjectId;
+                }
+                else
+                {
+                    string sql = "INSERT INTO ddt_blood_analysis(dsid_hospitality_session,dsid_patient,dsid_doctor,dss_hemoglobin,dss_leucocytes,dss_platelets,dss_protein,dss_creatinine,dss_cholesterol,dss_bil,dss_iron,dss_alt,dss_ast,dss_schf,dss_amylase,dss_kfk,dss_kfk_mv,dss_srp,dss_potassium,dss_sodium,dss_chlorine,dsb_admission_analysis,dsb_discharge_analysis,dsdt_analysis_date,dsid_parent,dss_parent_type) " +
+                                                              "VALUES(@HospitalitySession,@Patient,@Doctor,@Hemoglobin,@Leucocytes,@Platelets,@Protein,@Creatinine,@Cholesterol,@Bil,@Iron,@Alt,@Ast,@Schf,@Amylase,@Kfk,@KfkMv,@Srp,@Potassium,@Sodium,@Chlorine,@AdmissionAnalysis,@DischargeAnalysis,@AnalysisDate,@Parent,@ParentType) RETURNING r_object_id";
+                    using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Parameters.AddWithValue("@HospitalitySession", obj.HospitalitySession);
+                        cmd.Parameters.AddWithValue("@Patient", obj.Patient);
+                        cmd.Parameters.AddWithValue("@Doctor", obj.Doctor);
+                        cmd.Parameters.AddWithValue("@Hemoglobin", obj.Hemoglobin == null ? "" : obj.Hemoglobin);
+                        cmd.Parameters.AddWithValue("@Leucocytes", obj.Leucocytes == null ? "" : obj.Leucocytes);
+                        cmd.Parameters.AddWithValue("@Platelets", obj.Platelets == null ? "" : obj.Platelets);
+                        cmd.Parameters.AddWithValue("@Protein", obj.Protein == null ? "" : obj.Protein);
+                        cmd.Parameters.AddWithValue("@Creatinine", obj.Creatinine == null ? "" : obj.Creatinine);
+                        cmd.Parameters.AddWithValue("@Cholesterol", obj.Cholesterol == null ? "" : obj.Cholesterol);
+                        cmd.Parameters.AddWithValue("@Bil", obj.Bil == null ? "" : obj.Bil);
+                        cmd.Parameters.AddWithValue("@Iron", obj.Iron == null ? "" : obj.Iron);
+                        cmd.Parameters.AddWithValue("@Alt", obj.Alt == null ? "" : obj.Alt);
+                        cmd.Parameters.AddWithValue("@Ast", obj.Ast == null ? "" : obj.Ast);
+                        cmd.Parameters.AddWithValue("@Schf", obj.Schf == null ? "" : obj.Schf);
+                        cmd.Parameters.AddWithValue("@Amylase", obj.Amylase == null ? "" : obj.Amylase);
+                        cmd.Parameters.AddWithValue("@Kfk", obj.Kfk == null ? "" : obj.Kfk);
+                        cmd.Parameters.AddWithValue("@KfkMv", obj.KfkMv == null ? "" : obj.KfkMv);
+                        cmd.Parameters.AddWithValue("@Srp", obj.Srp == null ? "" : obj.Srp);
+                        cmd.Parameters.AddWithValue("@Potassium", obj.Potassium == null ? "" : obj.Potassium);
+                        cmd.Parameters.AddWithValue("@Sodium", obj.Sodium == null ? "" : obj.Sodium);
+                        cmd.Parameters.AddWithValue("@Chlorine", obj.Chlorine == null ? "" : obj.Chlorine);
+                        cmd.Parameters.AddWithValue("@AdmissionAnalysis", obj.AdmissionAnalysis);
+                        cmd.Parameters.AddWithValue("@DischargeAnalysis", obj.DischargeAnalysis);
+                        cmd.Parameters.AddWithValue("@AnalysisDate", obj.AnalysisDate);
+                        cmd.Parameters.AddWithValue("@Parent", obj.Parent == null ? "0000000000000000" : obj.Parent);
+                        cmd.Parameters.AddWithValue("@ParentType", obj.ParentType == null ? "" : obj.ParentType);
+                        return (string)cmd.ExecuteScalar();
+                    }
+                }
+            }
         }
+
     }
 }

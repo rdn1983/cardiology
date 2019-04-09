@@ -12,7 +12,7 @@ namespace Cardiology.Commons
 
         public bool accept(string templateType)
         {
-            return DdtJournal.NAME.Equals(templateType);
+            return DdtJournal.NAME.Equals(templateType, StringComparison.Ordinal);
         }
 
         public string processTemplate(IDbDataService service, string hospitalitySession, string objectId, Dictionary<string, string> aditionalValues)
@@ -31,7 +31,7 @@ namespace Cardiology.Commons
             values.Add("{doctor.initials}", doc == null ? "" : doc.ShortName);
 
             List<string> partsPaths = new List<string>();
-            if (journal.JournalType == (int)DdtJournalDsiType.AFTER_KAG)
+            if (journal.JournalType == (int)DdtJournalDsiType.AfterKag)
             {
                 partsPaths.AddRange(collectKagJournalPaths(service, journal, doc, values));
             }

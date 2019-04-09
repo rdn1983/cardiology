@@ -3,11 +3,15 @@ using System.Data.Common;
 using System.Collections.Generic;
 using Cardiology.Data.Model2;
 using Cardiology.Data.Commons;
+using System.Data;
+using NLog;
+using System.Globalization;
 
 namespace Cardiology.Data.PostgreSQL
 {
     public class PgDdtSpecialistConclusionService : IDdtSpecialistConclusionService
     {
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
         private readonly IDbConnectionFactory connectionFactory;
 
         public PgDdtSpecialistConclusionService(IDbConnectionFactory connectionFactory)
@@ -21,6 +25,8 @@ namespace Cardiology.Data.PostgreSQL
             using (dynamic connection = connectionFactory.GetConnection())
             {
                 String sql = "SELECT r_object_id, dsdt_analysis_date, r_creation_date, dsid_parent, dss_neuro_surgeon, dsid_doctor, dsid_patient, dss_endocrinologist, dsid_hospitality_session, r_modify_date, dss_parent_type, dss_neurolog, dss_surgeon FROM ddt_specialist_conclusion";
+                Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -52,7 +58,12 @@ namespace Cardiology.Data.PostgreSQL
             IList<DdtSpecialistConclusion> list = new List<DdtSpecialistConclusion>();
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = String.Format("SELECT r_object_id, dsdt_analysis_date, r_creation_date, dsid_parent, dss_neuro_surgeon, dsid_doctor, dsid_patient, dss_endocrinologist, dsid_hospitality_session, r_modify_date, dss_parent_type, dss_neurolog, dss_surgeon FROM ddt_specialist_conclusion WHERE dsid_patient = '{0}'", parentId);
+                String sql = String.Format("SELECT r_object_id, dsdt_analysis_date, r_creation_date, dsid_parent, " +
+                    "dss_neuro_surgeon, dsid_doctor, dsid_patient, dss_endocrinologist, dsid_hospitality_session," +
+                    " r_modify_date, dss_parent_type, dss_neurolog, dss_surgeon FROM ddt_specialist_conclusion" +
+                    " WHERE dsid_parent = '{0}'", parentId);
+                Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -84,6 +95,8 @@ namespace Cardiology.Data.PostgreSQL
             List<DdtSpecialistConclusion> list = new List<DdtSpecialistConclusion>();
             using (dynamic connection = connectionFactory.GetConnection())
             {
+                Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -114,7 +127,12 @@ namespace Cardiology.Data.PostgreSQL
         {
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = String.Format("SELECT r_object_id, dsdt_analysis_date, r_creation_date, dsid_parent, dss_neuro_surgeon, dsid_doctor, dsid_patient, dss_endocrinologist, dsid_hospitality_session, r_modify_date, dss_parent_type, dss_neurolog, dss_surgeon FROM ddt_specialist_conclusion WHERE r_object_id = '{0}'", id);
+                String sql = String.Format("SELECT r_object_id, dsdt_analysis_date, r_creation_date, dsid_parent, " +
+                    "dss_neuro_surgeon, dsid_doctor, dsid_patient, dss_endocrinologist, dsid_hospitality_session," +
+                    " r_modify_date, dss_parent_type, dss_neurolog, dss_surgeon FROM ddt_specialist_conclusion" +
+                    " WHERE r_object_id = '{0}'", id);
+                Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -143,8 +161,67 @@ namespace Cardiology.Data.PostgreSQL
 
         public string Save(DdtSpecialistConclusion obj)
         {
-            throw new NotImplementedException();
+            using (dynamic connection = connectionFactory.GetConnection())
+            {
+                if (GetById(obj.ObjectId) != null)
+                {
+                    string sql = "UPDATE ddt_specialist_conclusion SET " +
+                                          "dsid_hospitality_session = @HospitalitySession, " +
+                                        "dsid_patient = @Patient, " +
+                                        "dsid_doctor = @Doctor, " +
+                                        "dsdt_analysis_date = @AnalysisDate, " +
+                                        "dss_neurolog = @Neurolog, " +
+                                        "dss_surgeon = @Surgeon, " +
+                                        "dss_neuro_surgeon = @NeuroSurgeon, " +
+                                        "dss_endocrinologist = @Endocrinologist, " +
+                                        "dsid_parent = @Parent, " +
+                                        "dss_parent_type = @ParentType " +
+                                         "WHERE r_object_id = @ObjectId";
+                    Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
+                    using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Parameters.AddWithValue("@HospitalitySession", obj.HospitalitySession);
+                        cmd.Parameters.AddWithValue("@Patient", obj.Patient);
+                        cmd.Parameters.AddWithValue("@Doctor", obj.Doctor);
+                        cmd.Parameters.AddWithValue("@AnalysisDate", obj.AnalysisDate);
+                        cmd.Parameters.AddWithValue("@Neurolog", obj.Neurolog == null ? "" : obj.Neurolog);
+                        cmd.Parameters.AddWithValue("@Surgeon", obj.Surgeon == null ? "" : obj.Surgeon);
+                        cmd.Parameters.AddWithValue("@NeuroSurgeon", obj.NeuroSurgeon == null ? "" : obj.NeuroSurgeon);
+                        cmd.Parameters.AddWithValue("@Endocrinologist", obj.Endocrinologist == null ? "" : obj.Endocrinologist);
+                        cmd.Parameters.AddWithValue("@Parent", obj.Parent == null ? "0000000000000000" : obj.Parent);
+                        cmd.Parameters.AddWithValue("@ParentType", obj.ParentType == null ? "" : obj.ParentType);
+                        cmd.Parameters.AddWithValue("@ObjectId", obj.ObjectId);
+                        cmd.ExecuteNonQuery();
+                    }
+                    return obj.ObjectId;
+                }
+                else
+                {
+                    string sql = "INSERT INTO ddt_specialist_conclusion(dsid_hospitality_session,dsid_patient,dsid_doctor,dsdt_analysis_date,dss_neurolog,dss_surgeon,dss_neuro_surgeon,dss_endocrinologist,dsid_parent,dss_parent_type) " +
+                                                              "VALUES(@HospitalitySession,@Patient,@Doctor,@AnalysisDate,@Neurolog,@Surgeon,@NeuroSurgeon,@Endocrinologist,@Parent,@ParentType) RETURNING r_object_id";
+                    Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
+                    using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Parameters.AddWithValue("@HospitalitySession", obj.HospitalitySession);
+                        cmd.Parameters.AddWithValue("@Patient", obj.Patient);
+                        cmd.Parameters.AddWithValue("@Doctor", obj.Doctor);
+                        cmd.Parameters.AddWithValue("@AnalysisDate", obj.AnalysisDate);
+                        cmd.Parameters.AddWithValue("@Neurolog", obj.Neurolog == null ? "" : obj.Neurolog);
+                        cmd.Parameters.AddWithValue("@Surgeon", obj.Surgeon == null ? "" : obj.Surgeon);
+                        cmd.Parameters.AddWithValue("@NeuroSurgeon", obj.NeuroSurgeon == null ? "" : obj.NeuroSurgeon);
+                        cmd.Parameters.AddWithValue("@Endocrinologist", obj.Endocrinologist == null ? "" : obj.Endocrinologist);
+                        cmd.Parameters.AddWithValue("@Parent", obj.Parent == null ? "0000000000000000" : obj.Parent);
+                        cmd.Parameters.AddWithValue("@ParentType", obj.ParentType == null ? "" : obj.ParentType);
+                        return (string)cmd.ExecuteScalar();
+                    }
+                }
+            }
         }
+
 
     }
 }

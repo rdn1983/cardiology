@@ -89,8 +89,10 @@
             this.costlyMedsItems = new System.Windows.Forms.ToolStripMenuItem();
             this.justificationCostlyCureItem = new System.Windows.Forms.ToolStripMenuItem();
             this.skatItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.showReleasedPatients = new System.Windows.Forms.CheckBox();
             this.lastIssuedMedList = new System.Windows.Forms.ToolStripMenuItem();
+            this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.doctorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showReleasedPatients = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.hospitalPatientsTbl)).BeginInit();
             this.main.SuspendLayout();
             this.SuspendLayout();
@@ -153,7 +155,7 @@
             // 
             this.reanimItem.Name = "reanimItem";
             this.reanimItem.Size = new System.Drawing.Size(328, 22);
-            this.reanimItem.Text = "Реанимационные предприятия";
+            this.reanimItem.Text = "Реанимационные мероприятия";
             this.reanimItem.Click += new System.EventHandler(this.reanimItem_Click);
             // 
             // deadItem
@@ -278,7 +280,8 @@
             this.main.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.actiosMenu,
             this.reportsMenu,
-            this.lastIssuedMedList});
+            this.lastIssuedMedList,
+            this.adminToolStripMenuItem});
             this.main.Location = new System.Drawing.Point(0, 0);
             this.main.Name = "main";
             this.main.Size = new System.Drawing.Size(857, 24);
@@ -580,6 +583,28 @@
             this.skatItem.Text = "СКАТ";
             this.skatItem.Click += new System.EventHandler(this.skatItem_Click);
             // 
+            // lastIssuedMedList
+            // 
+            this.lastIssuedMedList.Name = "lastIssuedMedList";
+            this.lastIssuedMedList.Size = new System.Drawing.Size(165, 20);
+            this.lastIssuedMedList.Text = "Текущий лист назначений";
+            this.lastIssuedMedList.Click += new System.EventHandler(this.lastIssuedMedList_Click);
+            // 
+            // adminToolStripMenuItem
+            // 
+            this.adminToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.doctorsToolStripMenuItem});
+            this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
+            this.adminToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
+            this.adminToolStripMenuItem.Text = "Админка";
+            // 
+            // doctorsToolStripMenuItem
+            // 
+            this.doctorsToolStripMenuItem.Name = "doctorsToolStripMenuItem";
+            this.doctorsToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.doctorsToolStripMenuItem.Text = "Врачи";
+            this.doctorsToolStripMenuItem.Click += new System.EventHandler(this.DoctorsToolStripMenuItem_Click);
+            // 
             // showReleasedPatients
             // 
             this.showReleasedPatients.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -591,13 +616,6 @@
             this.showReleasedPatients.Text = "Отобразить выписанных пациентов";
             this.showReleasedPatients.UseVisualStyleBackColor = true;
             this.showReleasedPatients.CheckedChanged += new System.EventHandler(this.showReleasedPatients_CheckedChanged);
-            // 
-            // lastIssuedMedList
-            // 
-            this.lastIssuedMedList.Name = "lastIssuedMedList";
-            this.lastIssuedMedList.Size = new System.Drawing.Size(165, 20);
-            this.lastIssuedMedList.Text = "Текущий лист назначений";
-            this.lastIssuedMedList.Click += new System.EventHandler(this.lastIssuedMedList_Click);
             // 
             // PatientList
             // 
@@ -684,5 +702,7 @@
         private System.Windows.Forms.ToolStripMenuItem skatItem;
         private System.Windows.Forms.CheckBox showReleasedPatients;
         private System.Windows.Forms.ToolStripMenuItem lastIssuedMedList;
+        private System.Windows.Forms.ToolStripMenuItem adminToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem doctorsToolStripMenuItem;
     }
 }

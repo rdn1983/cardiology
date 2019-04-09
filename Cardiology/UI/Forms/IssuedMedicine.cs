@@ -24,10 +24,10 @@ namespace Cardiology.UI.Forms
             this.issuedMedId = issuedMedId;
             InitializeComponent();
 
-            ControlUtils.InitDoctorsByGroupName(service.GetDdvDoctorService(), clinicalPharmacologistBox, "duty_rhdmil");
-            CommonUtils.InitDoctorsComboboxValues(service, nurseBox, null);
-            ControlUtils.InitDoctorsByGroupName(service.GetDdvDoctorService(), cardioReanimBox, "duty_cardioreanim");
-            ControlUtils.InitDoctorsByGroupName(service.GetDdvDoctorService(), directorBox, "io_cardio_reanim");
+            ControlUtils.InitDoctorsByGroupName(service.GetDdvDoctorService(), clinicalPharmacologistBox, "clinical_pharmacologists");
+            ControlUtils.InitDoctorsByGroupName(service.GetDdvDoctorService(), nurseBox, "nurses");
+            ControlUtils.InitDoctorsByGroupName(service.GetDdvDoctorService(), cardioReanimBox, "cardioreanimation_department");
+            ControlUtils.InitDoctorsByGroupName(service.GetDdvDoctorService(), directorBox, "cardioreanimation_department_head");
             initIssuedCure();
 
             DdvPatient patient = service.GetDdvPatientService().GetById(hospitalitySession.Patient);
@@ -185,8 +185,8 @@ namespace Cardiology.UI.Forms
 
                 DdvDoctor nurse = (DdvDoctor)nurseBox.SelectedItem;
                 medList.Nurse = nurse?.ObjectId;
-                DdvDoctor doc = (DdvDoctor)cardioReanimBox.SelectedItem;
 
+                DdvDoctor doc = (DdvDoctor)cardioReanimBox.SelectedItem;
                 medList.Doctor = doc == null ? hospitalitySession.DutyDoctor : doc.ObjectId;
 
                 medList.Diagnosis = diagnosisTxt.Text;
@@ -194,10 +194,10 @@ namespace Cardiology.UI.Forms
                 medList.HasKag = shortlyOperationTxt.Text;
                 medList.IssuingDate = createDateTxt.Value;
 
-                service.GetDdtIssuedMedicineListService().Save(medList);
+                string id = service.GetDdtIssuedMedicineListService().Save(medList);
                 foreach (DdtIssuedMedicine med in meds)
                 {
-                    med.MedList = medList.ObjectId;
+                    med.MedList = id;
                     service.GetDdtIssuedMedicineService().Save(med);
                 }
             }

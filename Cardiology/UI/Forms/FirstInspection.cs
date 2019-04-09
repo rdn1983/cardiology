@@ -1,22 +1,18 @@
-﻿using System;
+﻿using Cardiology.Commons;
+using Cardiology.Data;
+using Cardiology.Data.Model2;
+using Cardiology.UI.Controls;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using Cardiology.Commons;
-using Cardiology.Data;
-using Cardiology.Data.Model2;
-using Cardiology.UI.Controls;
 using DdtValues = Cardiology.Data.Model2.DdtValues;
 
 namespace Cardiology.UI.Forms
 {
     public partial class FirstInspection : Form, IAutoSaveForm
     {
-        private const int EGDS_TAB_INDX = 1;
-        private const int URINE_TAB_INDX = 2;
-        private const int BLOOD_TAB_INDX = 3;
-
         private const string OKSUP_TYPE = "oksup";
         private const string OKSDOWN_TYPE = "oksdown";
         private const string KAG_TYPE = "kag";
@@ -40,6 +36,8 @@ namespace Cardiology.UI.Forms
         private const string PMA_TYPE = "pma";
         private const string IBS_TYPE = "ibs";
         private const string DT_TYPE = "dt";
+
+        private readonly object syncLock = new object();
 
         private IDbDataService service;
         private DdtHospital hospitalSession;
@@ -142,7 +140,7 @@ namespace Cardiology.UI.Forms
         private void initIssuedMedicine()
         {
             DdtIssuedMedicineList medList =
-                service.GetDdtIssuedMedicineListService().GetListByHospitalId(hospitalSession.ObjectId);
+                service.GetDdtIssuedMedicineListService().GetListByParentId(anamnesis?.ObjectId);
             if (medList != null)
             {
                 issuedMedicineContainer.Init(medList);
@@ -185,7 +183,7 @@ namespace Cardiology.UI.Forms
             return result;
         }
 
-        public bool save()
+        public bool Save()
         {
             bool isNotValid = false;
             for (int i = 0; i < tabsContainer.TabCount; i++)
@@ -264,7 +262,7 @@ namespace Cardiology.UI.Forms
 
             if (meds2.Count > 0)
             {
-                DdtIssuedMedicineList medList = service.GetDdtIssuedMedicineListService().GetListByHospitalId(hospitalSession.ObjectId);
+                DdtIssuedMedicineList medList = service.GetDdtIssuedMedicineListService().GetListByParentId(anamnesis.ObjectId);
                 if (medList == null)
                 {
                     medList = new DdtIssuedMedicineList();
@@ -280,8 +278,7 @@ namespace Cardiology.UI.Forms
                 medList.ObjectId = id;
                 foreach (DdtIssuedMedicine med in meds2)
                 {
-                    med.MedList = medList.ObjectId;
-
+                    med.MedList = id;
                     service.GetDdtIssuedMedicineService().Save(med);
                 }
             }
@@ -422,7 +419,7 @@ namespace Cardiology.UI.Forms
 
         private void OKSUpBtn_Click(object sender, EventArgs e)
         {
-            if (!"oks.medicine.".Equals(templateName) && isSureChangeTemplate())
+            if (!"oks.medicine.".Equals(templateName, StringComparison.Ordinal) && isSureChangeTemplate())
             {
                 acceptTemplate = true;
                 clearSelection();
@@ -438,7 +435,7 @@ namespace Cardiology.UI.Forms
 
         private void OKSDownBtn_Click(object sender, EventArgs e)
         {
-            if (!"okslongs.medicine.".Equals(templateName) && isSureChangeTemplate())
+            if (!"okslongs.medicine.".Equals(templateName, StringComparison.Ordinal) && isSureChangeTemplate())
             {
                 acceptTemplate = true;
                 clearSelection();
@@ -454,7 +451,7 @@ namespace Cardiology.UI.Forms
 
         private void KAGBtn_Click(object sender, EventArgs e)
         {
-            if (!"kag.medicine.".Equals(templateName) && isSureChangeTemplate())
+            if (!"kag.medicine.".Equals(templateName, StringComparison.Ordinal) && isSureChangeTemplate())
             {
                 acceptTemplate = true;
                 clearSelection();
@@ -470,7 +467,7 @@ namespace Cardiology.UI.Forms
 
         private void aorticDissectionBtn_Click(object sender, EventArgs e)
         {
-            if (!"aorta.medicine.".Equals(templateName) && isSureChangeTemplate())
+            if (!"aorta.medicine.".Equals(templateName, StringComparison.Ordinal) && isSureChangeTemplate())
             {
                 acceptTemplate = true;
                 clearSelection();
@@ -486,7 +483,7 @@ namespace Cardiology.UI.Forms
 
         private void GBBtn_Click(object sender, EventArgs e)
         {
-            if (!"gb.medicine.".Equals(templateName) && isSureChangeTemplate())
+            if (!"gb.medicine.".Equals(templateName, StringComparison.Ordinal) && isSureChangeTemplate())
             {
                 acceptTemplate = true;
                 clearSelection();
@@ -502,7 +499,7 @@ namespace Cardiology.UI.Forms
 
         private void PIKSBtn_Click(object sender, EventArgs e)
         {
-            if (!"nk.medicine.".Equals(templateName) && isSureChangeTemplate())
+            if (!"nk.medicine.".Equals(templateName, StringComparison.Ordinal) && isSureChangeTemplate())
             {
                 acceptTemplate = true;
                 clearSelection();
@@ -518,7 +515,7 @@ namespace Cardiology.UI.Forms
 
         private void PIKVIKBtn_Click(object sender, EventArgs e)
         {
-            if (!"hobl.medicine.".Equals(templateName) && isSureChangeTemplate())
+            if (!"hobl.medicine.".Equals(templateName, StringComparison.Ordinal) && isSureChangeTemplate())
             {
                 acceptTemplate = true;
                 clearSelection();
@@ -535,7 +532,7 @@ namespace Cardiology.UI.Forms
 
         private void DEPBtn_Click(object sender, EventArgs e)
         {
-            if (!"dep.medicine.".Equals(templateName) && isSureChangeTemplate())
+            if (!"dep.medicine.".Equals(templateName, StringComparison.Ordinal) && isSureChangeTemplate())
             {
                 acceptTemplate = true;
                 clearSelection();
@@ -551,7 +548,7 @@ namespace Cardiology.UI.Forms
 
         private void deathBtn_Click(object sender, EventArgs e)
         {
-            if (!"death.medicine.".Equals(templateName) && isSureChangeTemplate())
+            if (!"death.medicine.".Equals(templateName, StringComparison.Ordinal) && isSureChangeTemplate())
             {
                 acceptTemplate = true;
                 clearSelection();
@@ -567,7 +564,7 @@ namespace Cardiology.UI.Forms
 
         private void chronicMA_Click(object sender, EventArgs e)
         {
-            accompanyingIllnessesTxt.Text += getDefaultValueForType(accompanyingIllnessesTxt.Name, MA_TYPE) + " ";
+            accompanyingIllnessesTxt.Text = getDefaultValueForType(accompanyingIllnessesTxt.Name, MA_TYPE) + " " + accompanyingIllnessesTxt.Text;
         }
 
         private void chronicGB3_Click(object sender, EventArgs e)
@@ -654,9 +651,12 @@ namespace Cardiology.UI.Forms
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
-            if (save())
+            lock (syncLock)
             {
-                Close();
+                if(Save())
+                {
+                    Close();
+                }
             }
         }
 
@@ -673,13 +673,16 @@ namespace Cardiology.UI.Forms
 
         private void printBtn_Click(object sender, EventArgs e)
         {
-            if (save())
+            lock (syncLock)
             {
-                ITemplateProcessor te = TemplateProcessorManager.getProcessorByObjectType(DdtAnamnesis.NAME);
-                if (te != null)
+                if (Save())
                 {
-                    string path = te.processTemplate(service, hospitalSession.ObjectId, anamnesis.ObjectId, null);
-                    TemplatesUtils.ShowDocument(path);
+                    ITemplateProcessor te = TemplateProcessorManager.getProcessorByObjectType(DdtAnamnesis.NAME);
+                    if (te != null)
+                    {
+                        string path = te.processTemplate(service, hospitalSession.ObjectId, anamnesis.ObjectId, null);
+                        TemplatesUtils.ShowDocument(path);
+                    }
                 }
             }
 

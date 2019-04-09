@@ -26,7 +26,7 @@ namespace Cardiology.UI.Controls
 
         private void initControls()
         {
-            DdtUrineAnalysis urineAnalysis = DbDataService.GetService().GetDdtUrineAnalysisService().GetById(objectId);
+            DdtUrineAnalysis urineAnalysis = DbDataService.GetInstance().GetDdtUrineAnalysisService().GetById(objectId);
             refreshObject(urineAnalysis);
             dateUrineAnalysis.Enabled = isEditable;
             colorTxt.ReadOnly = !isEditable;
@@ -53,7 +53,7 @@ namespace Cardiology.UI.Controls
                     urine.ParentType = parentType;
                 }
 
-                objectId = DbDataService.GetService().GetDdtUrineAnalysisService().Save(urine);
+                objectId = DbDataService.GetInstance().GetDdtUrineAnalysisService().Save(urine);
                 hasChanges = false;
                 isNew = false;
             }
@@ -78,7 +78,7 @@ namespace Cardiology.UI.Controls
         public object getObject()
         {
 
-            DdtUrineAnalysis urine = DbDataService.GetService().GetDdtUrineAnalysisService().GetById(objectId);
+            DdtUrineAnalysis urine = DbDataService.GetInstance().GetDdtUrineAnalysisService().GetById(objectId);
             if (urine == null)
             {
                 urine = new DdtUrineAnalysis();

@@ -3,11 +3,15 @@ using System.Data.Common;
 using System.Collections.Generic;
 using Cardiology.Data.Model2;
 using Cardiology.Data.Commons;
+using System.Data;
+using NLog;
+using System.Globalization;
 
 namespace Cardiology.Data.PostgreSQL
 {
     public class PgDdtHormonesService : IDdtHormonesService
     {
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
         private readonly IDbConnectionFactory connectionFactory;
 
         public PgDdtHormonesService(IDbConnectionFactory connectionFactory)
@@ -21,6 +25,9 @@ namespace Cardiology.Data.PostgreSQL
             using (dynamic connection = connectionFactory.GetConnection())
             {
                 String sql = "SELECT dsid_hospitality_session, r_object_id, dss_ttg, dsdt_analysis_date, dss_t3, r_modify_date, dss_t4, r_creation_date, dsid_doctor, dsid_patient FROM ddt_hormones";
+
+                Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -49,6 +56,9 @@ namespace Cardiology.Data.PostgreSQL
             using (dynamic connection = connectionFactory.GetConnection())
             {
                 String sql = String.Format("SELECT dsid_hospitality_session, r_object_id, dss_ttg, dsdt_analysis_date, dss_t3, r_modify_date, dss_t4, r_creation_date, dsid_doctor, dsid_patient FROM ddt_hormones WHERE r_object_id = '{0}'", id);
+
+                Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -74,7 +84,59 @@ namespace Cardiology.Data.PostgreSQL
 
         public string Save(DdtHormones obj)
         {
-            throw new NotImplementedException();
+            using (dynamic connection = connectionFactory.GetConnection())
+            {
+                if (GetById(obj.ObjectId) != null)
+                {
+                    string sql = "UPDATE ddt_hormones SET " +
+                                          "dsid_hospitality_session = @HospitalitySession, " +
+                                        "dsid_patient = @Patient, " +
+                                        "dsid_doctor = @Doctor, " +
+                                        "dsdt_analysis_date = @AnalysisDate, " +
+                                        "dss_t3 = @T3, " +
+                                        "dss_t4 = @T4, " +
+                                        "dss_ttg = @Ttg " +
+                                         "WHERE r_object_id = @ObjectId";
+
+                    Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
+                    using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Parameters.AddWithValue("@HospitalitySession", obj.HospitalitySession);
+                        cmd.Parameters.AddWithValue("@Patient", obj.Patient);
+                        cmd.Parameters.AddWithValue("@Doctor", obj.Doctor);
+                        cmd.Parameters.AddWithValue("@AnalysisDate", obj.AnalysisDate);
+                        cmd.Parameters.AddWithValue("@T3", obj.T3 == null ? "" : obj.T3);
+                        cmd.Parameters.AddWithValue("@T4", obj.T4 == null ? "" : obj.T4);
+                        cmd.Parameters.AddWithValue("@Ttg", obj.Ttg == null ? "" : obj.Ttg);
+                        cmd.Parameters.AddWithValue("@ObjectId", obj.ObjectId);
+                        cmd.ExecuteNonQuery();
+                    }
+                    return obj.ObjectId;
+                }
+                else
+                {
+                    string sql = "INSERT INTO ddt_hormones(dsid_hospitality_session,dsid_patient,dsid_doctor,dsdt_analysis_date,dss_t3,dss_t4,dss_ttg) " +
+                                                              "VALUES(@HospitalitySession,@Patient,@Doctor,@AnalysisDate,@T3,@T4,@Ttg) RETURNING r_object_id";
+                    Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
+                    using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Parameters.AddWithValue("@HospitalitySession", obj.HospitalitySession);
+                        cmd.Parameters.AddWithValue("@Patient", obj.Patient);
+                        cmd.Parameters.AddWithValue("@Doctor", obj.Doctor);
+                        cmd.Parameters.AddWithValue("@AnalysisDate", obj.AnalysisDate);
+                        cmd.Parameters.AddWithValue("@T3", obj.T3 == null ? "" : obj.T3);
+                        cmd.Parameters.AddWithValue("@T4", obj.T4 == null ? "" : obj.T4);
+                        cmd.Parameters.AddWithValue("@Ttg", obj.Ttg == null ? "" : obj.Ttg);
+                        return (string)cmd.ExecuteScalar();
+                    }
+                }
+            }
         }
+
+
     }
 }

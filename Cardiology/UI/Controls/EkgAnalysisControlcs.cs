@@ -33,7 +33,7 @@ namespace Cardiology.UI.Controls
 
         private void initControls()
         {
-            DdtEkg ekg = DbDataService.GetService().GetDdtEkgService().GetById(objectId);
+            DdtEkg ekg = DbDataService.GetInstance().GetDdtEkgService().GetById(objectId);
             refreshObject(ekg);
             regularEkgTxt.Enabled = isEditable;
             readonlyEkgTxt.Enabled = isEditable;
@@ -47,7 +47,7 @@ namespace Cardiology.UI.Controls
 
         public object getObject()
         {
-            DdtEkg ekg = DbDataService.GetService().GetDdtEkgService().GetById(objectId);
+            DdtEkg ekg = DbDataService.GetInstance().GetDdtEkgService().GetById(objectId);
             if (ekg == null)
             {
                 ekg = new DdtEkg();
@@ -75,7 +75,7 @@ namespace Cardiology.UI.Controls
                     ekg.ParentType = parentType;
                 }
 
-                objectId = DbDataService.GetService().GetDdtEkgService().Save(ekg);
+                objectId = DbDataService.GetInstance().GetDdtEkgService().Save(ekg);
                 isNew = false;
                 hasChanges = false;
             }

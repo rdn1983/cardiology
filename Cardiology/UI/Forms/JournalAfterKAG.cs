@@ -142,13 +142,13 @@ namespace Cardiology.UI.Forms
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
-            if (save())
+            if (Save())
             {
                 Close();
             }
         }
 
-        public bool save()
+        public bool Save()
         {
 
             service.GetDdtHospitalService().Save(hospitalitySession);
@@ -165,7 +165,7 @@ namespace Cardiology.UI.Forms
                 journal.Doctor = hospitalitySession.CuringDoctor;
                 journal.HospitalitySession = hospitalitySession.ObjectId;
                 journal.Patient = hospitalitySession.Patient;
-                journal.JournalType = (int)DdtJournalDsiType.AFTER_KAG;
+                journal.JournalType = (int)DdtJournalDsiType.AfterKag;
                 journal.Complaints = "Жалоб на момент осмотра не предъявляет.";
             }
             journal.Diagnosis = afterKagDiagnosisTxt.Text;
@@ -208,7 +208,7 @@ namespace Cardiology.UI.Forms
 
         private void printBtn_Click(object sender, EventArgs e)
         {
-            if (save())
+            if (Save())
             {
     
                 DdtJournal journal = service.GetDdtJournalService().GetById(journalId);

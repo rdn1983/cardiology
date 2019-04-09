@@ -34,7 +34,7 @@ namespace Cardiology.UI.Forms
             for (int i = 0; i < allHspitalPatients.Count(); i++)
             {
                 DdvHistory h = allHspitalPatients[i];
-                patientHistoryGrid.Rows.Add(false, h.HospitalitySession, h.OperationType, h.OperationId, h.OperationName, h.OperationDate, h.DoctorName, h.Description);
+                patientHistoryGrid.Rows.Add(false, h.HospitalitySession, h.OperationType, h.OperationId, h.OperationName, h.OperationDate, h.DoctorShortName, h.Description);
             }
 
         }
@@ -60,7 +60,7 @@ namespace Cardiology.UI.Forms
 
         private void journalBeforeKAGMeniItem_Click(object sender, EventArgs e)
         {
-            JournalBeforeKag form = new JournalBeforeKag(service, hospitalitySession, null, (int)DdtJournalDsiType.BEFORE_KAG);
+            JournalBeforeKag form = new JournalBeforeKag(service, hospitalitySession, null, (int)DdtJournalDsiType.BeforeKag);
             form.ShowDialog();
         }
 
@@ -72,7 +72,7 @@ namespace Cardiology.UI.Forms
 
         private void journalWithoutKAGMenuItem_Click(object sender, EventArgs e)
         {
-            JournalBeforeKag form = new JournalBeforeKag(service, hospitalitySession, null, (int)DdtJournalDsiType.WITHOUT_KAG);
+            JournalBeforeKag form = new JournalBeforeKag(service, hospitalitySession, null, (int)DdtJournalDsiType.WithoutKag);
             form.ShowDialog();
         }
 
@@ -123,14 +123,14 @@ namespace Cardiology.UI.Forms
             }
             Form form = null;
 
-            if (DdtAnamnesis.NAME.Equals(firstType))
+            if (DdtAnamnesis.NAME.Equals(firstType, StringComparison.Ordinal))
             {
                 form = new FirstInspection(service, hospitalitySession);
             }
-            else if (DdtJournal.NAME.Equals(firstType))
+            else if (DdtJournal.NAME.Equals(firstType, StringComparison.Ordinal))
             {
                 DdtJournal journal = service.GetDdtJournalService().GetById(firstId);
-                if (journal.JournalType == (int)DdtJournalDsiType.AFTER_KAG)
+                if (journal.JournalType == (int)DdtJournalDsiType.AfterKag)
                 {
                     form = new JournalAfterKAG(service, hospitalitySession, firstId);
                 }
@@ -139,36 +139,36 @@ namespace Cardiology.UI.Forms
                     form = new JournalBeforeKag(service, hospitalitySession, ids, -1);
                 }
             }
-            else if (DdtIssuedMedicineList.NAME.Equals(firstType))
+            else if (DdtIssuedMedicineList.NAME.Equals(firstType, StringComparison.Ordinal))
             {
                 form = new IssuedMedicine(this.service, hospitalitySession, firstId);
             }
-            else if (DdtEgds.NAME.Equals(firstType) || DdtXRay.NAME.Equals(firstType)
-                || DdtUrineAnalysis.NAME.Equals(firstType) || DdtEkg.NAME.Equals(firstType)
-                || DdtSpecialistConclusion.NAME.Equals(firstType) || DdtUzi.NAME.Equals(firstType)
-                || DdtKag.NAME.Equals(firstType) || DdtHolter.NAME.Equals(firstType)
-                || DdtBloodAnalysis.NAME.Equals(firstType) || DdtHormones.NAME.Equals(firstType)
-                || DdtCoagulogram.NAME.Equals(firstType) || DdtOncologicMarkers.NAME.Equals(firstType))
+            else if (DdtEgds.NAME.Equals(firstType, StringComparison.Ordinal) || DdtXRay.NAME.Equals(firstType, StringComparison.Ordinal)
+                || DdtUrineAnalysis.NAME.Equals(firstType, StringComparison.Ordinal) || DdtEkg.NAME.Equals(firstType, StringComparison.Ordinal)
+                || DdtSpecialistConclusion.NAME.Equals(firstType, StringComparison.Ordinal) || DdtUzi.NAME.Equals(firstType, StringComparison.Ordinal)
+                || DdtKag.NAME.Equals(firstType, StringComparison.Ordinal) || DdtHolter.NAME.Equals(firstType, StringComparison.Ordinal)
+                || DdtBloodAnalysis.NAME.Equals(firstType, StringComparison.Ordinal) || DdtHormones.NAME.Equals(firstType, StringComparison.Ordinal)
+                || DdtCoagulogram.NAME.Equals(firstType, StringComparison.Ordinal) || DdtOncologicMarkers.NAME.Equals(firstType, StringComparison.Ordinal))
             {
                 form = new AnalysisContainer(service, hospitalitySession, firstType, firstId);
             }
-            else if (DdtConsilium.NAME.Equals(firstType))
+            else if (DdtConsilium.NAME.Equals(firstType, StringComparison.Ordinal))
             {
                 form = new Consilium(service, hospitalitySession, firstId);
             }
-            else if (DdtSerology.NAME.Equals(firstType))
+            else if (DdtSerology.NAME.Equals(firstType, StringComparison.Ordinal))
             {
                 form = new Serology(service, hospitalitySession);
             }
-            else if (DdtInspection.NAME.Equals(firstType))
+            else if (DdtInspection.NAME.Equals(firstType, StringComparison.Ordinal))
             {
                 form = new Inspection(service, hospitalitySession, firstId);
             }
-            else if (DdtEpicrisis.NAME.Equals(firstType))
+            else if (DdtEpicrisis.NAME.Equals(firstType, StringComparison.Ordinal))
             {
                 form = new PreoperativeEpicrisiscs(service, hospitalitySession, firstId);
             }
-            else if (DdtHospital.NAME.Equals(firstType))
+            else if (DdtHospital.NAME.Equals(firstType, StringComparison.Ordinal))
             {
                 form = new PatientAdmission(service, hospitalitySession);
             }
@@ -269,7 +269,7 @@ namespace Cardiology.UI.Forms
                 DataGridViewCell cell = row.Cells[3];
                 string idsValue = cell.Value.ToString();
                 string typeValue = row.Cells[2].Value.ToString();
-                if (!DdtHospital.NAME.Equals(typeValue))
+                if (!DdtHospital.NAME.Equals(typeValue, StringComparison.Ordinal))
                 {
                     service.Delete(typeValue, idsValue);
                     service.GetDdtHistoryService().DeleteHistoryById(idsValue);

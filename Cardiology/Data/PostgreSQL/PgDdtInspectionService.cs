@@ -3,11 +3,15 @@ using System.Data.Common;
 using System.Collections.Generic;
 using Cardiology.Data.Model2;
 using Cardiology.Data.Commons;
+using System.Data;
+using NLog;
+using System.Globalization;
 
 namespace Cardiology.Data.PostgreSQL
 {
     public class PgDdtInspectionService : IDdtInspectionService
     {
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
         private readonly IDbConnectionFactory connectionFactory;
 
         public PgDdtInspectionService(IDbConnectionFactory connectionFactory)
@@ -21,6 +25,9 @@ namespace Cardiology.Data.PostgreSQL
             using (dynamic connection = connectionFactory.GetConnection())
             {
                 String sql = "SELECT dsid_hospitality_session, r_object_id, dsdt_inspection_date, r_modify_date, dss_diagnosis, dss_kateter_placement, r_creation_date, dss_complaints, dss_inspection, dsid_doctor, dss_inspection_result, dsid_patient FROM ddt_inspection";
+
+                Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -51,6 +58,9 @@ namespace Cardiology.Data.PostgreSQL
             using (dynamic connection = connectionFactory.GetConnection())
             {
                 String sql = String.Format("SELECT dsid_hospitality_session, r_object_id, dsdt_inspection_date, r_modify_date, dss_diagnosis, dss_kateter_placement, r_creation_date, dss_complaints, dss_inspection, dsid_doctor, dss_inspection_result, dsid_patient FROM ddt_inspection WHERE r_object_id = '{0}'", id);
+
+                Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -78,7 +88,63 @@ namespace Cardiology.Data.PostgreSQL
 
         public string Save(DdtInspection obj)
         {
-            throw new NotImplementedException();
+            using (dynamic connection = connectionFactory.GetConnection())
+            {
+                if (GetById(obj.ObjectId) != null)
+                {
+                    string sql = "UPDATE ddt_inspection SET " +
+                                          "dsid_hospitality_session = @HospitalitySession, " +
+                                            "dsid_patient = @Patient, " +
+                                            "dsid_doctor = @Doctor, " +
+                                            "dsdt_inspection_date = @InspectionDate, " +
+                                            "dss_diagnosis = @Diagnosis, " +
+                                            "dss_complaints = @Complaints, " +
+                                            "dss_inspection = @Inspection, " +
+                                            "dss_kateter_placement = @KateterPlacement, " +
+                                            "dss_inspection_result = @InspectionResult " +
+                                             "WHERE r_object_id = @ObjectId";
+                    Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
+                    using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Parameters.AddWithValue("@HospitalitySession", obj.HospitalitySession);
+                        cmd.Parameters.AddWithValue("@Patient", obj.Patient);
+                        cmd.Parameters.AddWithValue("@Doctor", obj.Doctor);
+                        cmd.Parameters.AddWithValue("@InspectionDate", obj.InspectionDate);
+                        cmd.Parameters.AddWithValue("@Diagnosis", obj.Diagnosis == null ? "" : obj.Diagnosis);
+                        cmd.Parameters.AddWithValue("@Complaints", obj.Complaints == null ? "" : obj.Complaints);
+                        cmd.Parameters.AddWithValue("@Inspection", obj.Inspection == null ? "" : obj.Inspection);
+                        cmd.Parameters.AddWithValue("@KateterPlacement", obj.KateterPlacement == null ? "" : obj.KateterPlacement);
+                        cmd.Parameters.AddWithValue("@InspectionResult", obj.InspectionResult == null ? "" : obj.InspectionResult);
+                        cmd.Parameters.AddWithValue("@ObjectId", obj.ObjectId);
+                        cmd.ExecuteNonQuery();
+                    }
+                    return obj.ObjectId;
+                }
+                else
+                {
+                    string sql = "INSERT INTO ddt_inspection(dsid_hospitality_session,dsid_patient,dsid_doctor,dsdt_inspection_date,dss_diagnosis,dss_complaints,dss_inspection,dss_kateter_placement,dss_inspection_result) " +
+                                                              "VALUES(@HospitalitySession,@Patient,@Doctor,@InspectionDate,@Diagnosis,@Complaints,@Inspection,@KateterPlacement,@InspectionResult) RETURNING r_object_id";
+                    Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
+                    using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Parameters.AddWithValue("@HospitalitySession", obj.HospitalitySession);
+                        cmd.Parameters.AddWithValue("@Patient", obj.Patient);
+                        cmd.Parameters.AddWithValue("@Doctor", obj.Doctor);
+                        cmd.Parameters.AddWithValue("@InspectionDate", obj.InspectionDate);
+                        cmd.Parameters.AddWithValue("@Diagnosis", obj.Diagnosis == null ? "" : obj.Diagnosis);
+                        cmd.Parameters.AddWithValue("@Complaints", obj.Complaints == null ? "" : obj.Complaints);
+                        cmd.Parameters.AddWithValue("@Inspection", obj.Inspection == null ? "" : obj.Inspection);
+                        cmd.Parameters.AddWithValue("@KateterPlacement", obj.KateterPlacement == null ? "" : obj.KateterPlacement);
+                        cmd.Parameters.AddWithValue("@InspectionResult", obj.InspectionResult == null ? "" : obj.InspectionResult);
+                        return (string)cmd.ExecuteScalar();
+                    }
+                }
+            }
         }
+
     }
 }

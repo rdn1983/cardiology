@@ -1,25 +1,30 @@
-﻿using System;
+﻿using Cardiology.Commons;
+using Cardiology.Data;
+using Cardiology.Data.Model2;
+using Cardiology.UI.Forms.Admin;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-using Cardiology.Commons;
-using Cardiology.Data;
-using Cardiology.Data.Model2;
 
 namespace Cardiology.UI.Forms
 {
     public partial class PatientList : Form
     {
         private IDbDataService service;
+        private bool admin;
 
-        public PatientList(IDbDataService service)
+        public PatientList(IDbDataService service, bool admin)
         {
             this.service = service;
+            this.admin = admin;
 
             System.Windows.Forms.Control.CheckForIllegalCrossThreadCalls = false;
             InitializeComponent();
             this.hospitalPatientsTbl.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+
+            adminToolStripMenuItem.Visible = admin;
         }
 
         private void loadPatientsGrid(bool idOnlyActive)
@@ -45,43 +50,54 @@ namespace Cardiology.UI.Forms
 
         private void kateterItem_Click(object sender, EventArgs e)
         {
-            UserFromVena form = new UserFromVena(service);
+            UserFromVena form = new UserFromVena();
             form.ShowDialog();
         }
 
         private void trombolisisItem_Click(object sender, EventArgs e)
         {
-            UserFormTrombolizis form = new UserFormTrombolizis(service, null);
-            form.ShowDialog();
+            IEnumerator it = hospitalPatientsTbl.SelectedRows.GetEnumerator();
+            if (it.MoveNext())
+            {
+                DataGridViewRow row = (DataGridViewRow)it.Current;
+                DataGridViewCell cell = row.Cells[0];
+                string value = cell.Value.ToString();
+
+                DdtHospital hospitalSession = service.GetDdtHospitalService().GetById(value);
+                DdvPatient patient = service.GetDdvPatientService().GetById(hospitalSession.Patient);
+
+                UserFormTrombolizis form = new UserFormTrombolizis(patient);
+                form.ShowDialog();
+            }
         }
 
         private void veksItem_Click(object sender, EventArgs e)
         {
-            UserFormVEKS form = new UserFormVEKS(service);
+            UserFormVEKS form = new UserFormVEKS();
             form.ShowDialog();
         }
 
         private void toracatezosItem_Click(object sender, EventArgs e)
         {
-            UserFormTorCent form = new UserFormTorCent(service);
+            UserFormTorCent form = new UserFormTorCent();
             form.ShowDialog();
         }
 
         private void eitItem_Click(object sender, EventArgs e)
         {
-            UserFormEIT form = new UserFormEIT(service);
+            UserFormEIT form = new UserFormEIT();
             form.ShowDialog();
         }
 
         private void intubationItem_Click(object sender, EventArgs e)
         {
-            UserFormIntubation form = new UserFormIntubation(service);
+            UserFormIntubation form = new UserFormIntubation();
             form.ShowDialog();
         }
 
         private void ekstubationItem_Click(object sender, EventArgs e)
         {
-            UserFormExtubation form = new UserFormExtubation(service);
+            UserFormExtubation form = new UserFormExtubation();
             form.ShowDialog();
         }
 
@@ -96,7 +112,7 @@ namespace Cardiology.UI.Forms
 
                 DdtHospital hospitalSession = service.GetDdtHospitalService().GetById(value);
                 DdvPatient patient = service.GetDdvPatientService().GetById(hospitalSession.Patient);
-                ReanimDEAD form = new ReanimDEAD(service, patient);
+                Resuscitation form = new Resuscitation(patient);
                 form.ShowDialog();
             }
 
@@ -113,7 +129,7 @@ namespace Cardiology.UI.Forms
 
                 DdtHospital hospitalSession = service.GetDdtHospitalService().GetById(value);
                 DdvPatient patient = service.GetDdvPatientService().GetById(hospitalSession.Patient);
-                ReanimDEAD form = new ReanimDEAD(service, patient);
+                Death form = new Death(patient);
                 form.ShowDialog();
             }
         }
@@ -534,6 +550,12 @@ namespace Cardiology.UI.Forms
                     form.ShowDialog();
                 }
             }
+        }
+
+        private void DoctorsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DoctorList form = new DoctorList(service.GetDdvDoctorService());
+            form.ShowDialog();
         }
     }
 }

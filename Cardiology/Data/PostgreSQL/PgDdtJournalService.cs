@@ -3,11 +3,15 @@ using System.Data.Common;
 using System.Collections.Generic;
 using Cardiology.Data.Model2;
 using Cardiology.Data.Commons;
+using System.Data;
+using NLog;
+using System.Globalization;
 
 namespace Cardiology.Data.PostgreSQL
 {
     public class PgDdtJournalService : IDdtJournalService
     {
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
         private readonly IDbConnectionFactory connectionFactory;
 
         public PgDdtJournalService(IDbConnectionFactory connectionFactory)
@@ -20,7 +24,12 @@ namespace Cardiology.Data.PostgreSQL
             IList<DdtJournal> list = new List<DdtJournal>();
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = "SELECT r_object_id, dss_diagnosis, dss_chss, dss_chdd, r_creation_date, dss_complaints, dss_surgeon_exam, dss_ekg, dsdt_admission_date, dss_monitor, dss_rhythm, dsid_doctor, dsid_patient, dss_ps, dss_ad, dsid_hospitality_session, r_modify_date, dss_cardio_exam, dsi_journal_type, dsb_good_rhythm, dsb_release_journal, dss_journal FROM ddt_journal";
+                String sql = "SELECT r_object_id, dss_diagnosis, dss_chss, dss_chdd, r_creation_date, dss_complaints, dss_surgeon_exam, " +
+                    "dss_ekg, dsdt_admission_date, dss_monitor, dss_rhythm, dsid_doctor, dsid_patient, dss_ps, dss_ad, dsid_hospitality_session, " +
+                    "r_modify_date, dss_cardio_exam, dsi_journal_type, dsb_good_rhythm, dsb_release_journal, dss_journal FROM ddt_journal";
+
+                Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -45,7 +54,7 @@ namespace Cardiology.Data.PostgreSQL
                         obj.HospitalitySession = reader.IsDBNull(15) ? null : reader.GetString(15);
                         obj.ModifyDate = reader.IsDBNull(16) ? DateTime.MinValue : reader.GetDateTime(16);
                         obj.CardioExam = reader.IsDBNull(17) ? null : reader.GetString(17);
-                        obj.JournalType = reader.GetInt16(18);
+                        obj.JournalType = reader.IsDBNull(18) ? -1 : reader.GetInt16(18);
                         obj.GoodRhythm = reader.GetBoolean(19);
                         obj.ReleaseJournal = reader.GetBoolean(20);
                         obj.Journal = reader.IsDBNull(21) ? null : reader.GetString(21);
@@ -61,6 +70,8 @@ namespace Cardiology.Data.PostgreSQL
             List<DdtJournal> list = new List<DdtJournal>();
             using (dynamic connection = connectionFactory.GetConnection())
             {
+                Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -85,7 +96,7 @@ namespace Cardiology.Data.PostgreSQL
                         obj.HospitalitySession = reader.IsDBNull(15) ? null : reader.GetString(15);
                         obj.ModifyDate = reader.IsDBNull(16) ? DateTime.MinValue : reader.GetDateTime(16);
                         obj.CardioExam = reader.IsDBNull(17) ? null : reader.GetString(17);
-                        obj.JournalType = reader.GetInt16(18);
+                        obj.JournalType = reader.IsDBNull(18) ? -1 : reader.GetInt16(18);
                         obj.GoodRhythm = reader.GetBoolean(19);
                         obj.ReleaseJournal = reader.GetBoolean(20);
                         obj.Journal = reader.IsDBNull(21) ? null : reader.GetString(21);
@@ -100,6 +111,8 @@ namespace Cardiology.Data.PostgreSQL
         {
             using (dynamic connection = connectionFactory.GetConnection())
             {
+                Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -124,7 +137,7 @@ namespace Cardiology.Data.PostgreSQL
                         obj.HospitalitySession = reader.IsDBNull(15) ? null : reader.GetString(15);
                         obj.ModifyDate = reader.IsDBNull(16) ? DateTime.MinValue : reader.GetDateTime(16);
                         obj.CardioExam = reader.IsDBNull(17) ? null : reader.GetString(17);
-                        obj.JournalType = reader.GetInt16(18);
+                        obj.JournalType = reader.IsDBNull(18) ? -1 : reader.GetInt16(18);
                         obj.GoodRhythm = reader.GetBoolean(19);
                         obj.ReleaseJournal = reader.GetBoolean(20);
                         obj.Journal = reader.IsDBNull(21) ? null : reader.GetString(21);
@@ -139,7 +152,13 @@ namespace Cardiology.Data.PostgreSQL
         {
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = String.Format("SELECT r_object_id, dss_diagnosis, dss_chss, dss_chdd, r_creation_date, dss_complaints, dss_surgeon_exam, dss_ekg, dsdt_admission_date, dss_monitor, dss_rhythm, dsid_doctor, dsid_patient, dss_ps, dss_ad, dsid_hospitality_session, r_modify_date, dss_cardio_exam, dsi_journal_type, dsb_good_rhythm, dsb_release_journal, dss_journal FROM ddt_journal WHERE r_object_id = '{0}'", id);
+                String sql = String.Format("SELECT r_object_id, dss_diagnosis, dss_chss, dss_chdd, r_creation_date, dss_complaints, dss_surgeon_exam, " +
+                    "dss_ekg, dsdt_admission_date, dss_monitor, dss_rhythm, dsid_doctor, dsid_patient, dss_ps, dss_ad, dsid_hospitality_session, " +
+                    "r_modify_date, dss_cardio_exam, dsi_journal_type, dsb_good_rhythm, dsb_release_journal, dss_journal FROM ddt_journal " +
+                    "WHERE r_object_id = '{0}'", id);
+
+                Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -164,7 +183,7 @@ namespace Cardiology.Data.PostgreSQL
                         obj.HospitalitySession = reader.IsDBNull(15) ? null : reader.GetString(15);
                         obj.ModifyDate = reader.IsDBNull(16) ? DateTime.MinValue : reader.GetDateTime(16);
                         obj.CardioExam = reader.IsDBNull(17) ? null : reader.GetString(17);
-                        obj.JournalType = reader.GetInt16(18);
+                        obj.JournalType = reader.IsDBNull(18) ? -1 : reader.GetInt16(18);
                         obj.GoodRhythm = reader.GetBoolean(19);
                         obj.ReleaseJournal = reader.GetBoolean(20);
                         obj.Journal = reader.IsDBNull(21) ? null : reader.GetString(21);
@@ -179,7 +198,13 @@ namespace Cardiology.Data.PostgreSQL
         {
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = String.Format("SELECT r_object_id, dss_diagnosis, dss_chss, dss_chdd, r_creation_date, dss_complaints, dss_surgeon_exam, dss_ekg, dsdt_admission_date, dss_monitor, dss_rhythm, dsid_doctor, dsid_patient, dss_ps, dss_ad, dsid_hospitality_session, r_modify_date, dss_cardio_exam, dsi_journal_type, dsb_good_rhythm, dsb_release_journal, dss_journal FROM ddt_journal WHERE dsid_hospitality_session = '{0}' AND dsi_journal_type = {1} ", hospitalSession, jornalType);
+                String sql = String.Format("SELECT r_object_id, dss_diagnosis, dss_chss, dss_chdd, r_creation_date, dss_complaints, dss_surgeon_exam, " +
+                    "dss_ekg, dsdt_admission_date, dss_monitor, dss_rhythm, dsid_doctor, dsid_patient, dss_ps, dss_ad, dsid_hospitality_session, " +
+                    "r_modify_date, dss_cardio_exam, dsi_journal_type, dsb_good_rhythm, dsb_release_journal, dss_journal FROM ddt_journal " +
+                    "WHERE dsid_hospitality_session = '{0}' AND dsi_journal_type = {1} ", hospitalSession, jornalType);
+
+                Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -204,7 +229,7 @@ namespace Cardiology.Data.PostgreSQL
                         obj.HospitalitySession = reader.IsDBNull(15) ? null : reader.GetString(15);
                         obj.ModifyDate = reader.IsDBNull(16) ? DateTime.MinValue : reader.GetDateTime(16);
                         obj.CardioExam = reader.IsDBNull(17) ? null : reader.GetString(17);
-                        obj.JournalType = reader.GetInt16(18);
+                        obj.JournalType = reader.IsDBNull(18) ? -1 : reader.GetInt16(18);
                         obj.GoodRhythm = reader.GetBoolean(19);
                         obj.ReleaseJournal = reader.GetBoolean(20);
                         obj.Journal = reader.IsDBNull(21) ? null : reader.GetString(21);
@@ -217,7 +242,93 @@ namespace Cardiology.Data.PostgreSQL
 
         public string Save(DdtJournal obj)
         {
-            throw new NotImplementedException();
+            using (dynamic connection = connectionFactory.GetConnection())
+            {
+                if (GetById(obj.ObjectId) != null)
+                {
+                    string sql = "UPDATE ddt_journal SET " +
+                                          "dsid_hospitality_session = @HospitalitySession, " +
+                                        "dsid_patient = @Patient, " +
+                                        "dsdt_admission_date = @AdmissionDate, " +
+                                        "dsid_doctor = @Doctor, " +
+                                        "dss_complaints = @Complaints, " +
+                                        "dss_chdd = @Chdd, " +
+                                        "dss_chss = @Chss, " +
+                                        "dss_ps = @Ps, " +
+                                        "dss_ad = @Ad, " +
+                                        "dss_monitor = @Monitor, " +
+                                        "dss_rhythm = @Rhythm, " +
+                                        "dsb_good_rhythm = @GoodRhythm, " +
+                                        "dss_surgeon_exam = @SurgeonExam, " +
+                                        "dss_cardio_exam = @CardioExam, " +
+                                        "dss_ekg = @Ekg, " +
+                                        "dss_journal = @Journal, " +
+                                        "dsi_journal_type = @JournalType, " +
+                                        "dsb_release_journal = @ReleaseJournal, " +
+                                        "dss_diagnosis = @Diagnosis " +
+                                         "WHERE r_object_id = @ObjectId";
+                    Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
+                    using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Parameters.AddWithValue("@HospitalitySession", obj.HospitalitySession);
+                        cmd.Parameters.AddWithValue("@Patient", obj.Patient);
+                        cmd.Parameters.AddWithValue("@AdmissionDate", obj.AdmissionDate);
+                        cmd.Parameters.AddWithValue("@Doctor", obj.Doctor);
+                        cmd.Parameters.AddWithValue("@Complaints", obj.Complaints == null ? "" : obj.Complaints);
+                        cmd.Parameters.AddWithValue("@Chdd", obj.Chdd == null ? "" : obj.Chdd);
+                        cmd.Parameters.AddWithValue("@Chss", obj.Chss == null ? "" : obj.Chss);
+                        cmd.Parameters.AddWithValue("@Ps", obj.Ps == null ? "" : obj.Ps);
+                        cmd.Parameters.AddWithValue("@Ad", obj.Ad == null ? "" : obj.Ad);
+                        cmd.Parameters.AddWithValue("@Monitor", obj.Monitor == null ? "" : obj.Monitor);
+                        cmd.Parameters.AddWithValue("@Rhythm", obj.Rhythm == null ? "" : obj.Rhythm);
+                        cmd.Parameters.AddWithValue("@GoodRhythm", obj.GoodRhythm);
+                        cmd.Parameters.AddWithValue("@SurgeonExam", obj.SurgeonExam == null ? "" : obj.SurgeonExam);
+                        cmd.Parameters.AddWithValue("@CardioExam", obj.CardioExam == null ? "" : obj.CardioExam);
+                        cmd.Parameters.AddWithValue("@Ekg", obj.Ekg == null ? "" : obj.Ekg);
+                        cmd.Parameters.AddWithValue("@Journal", obj.Journal == null ? "" : obj.Journal);
+                        cmd.Parameters.AddWithValue("@JournalType", obj.JournalType);
+                        cmd.Parameters.AddWithValue("@ReleaseJournal", obj.ReleaseJournal);
+                        cmd.Parameters.AddWithValue("@Diagnosis", obj.Diagnosis == null ? "" : obj.Diagnosis);
+                        cmd.Parameters.AddWithValue("@ObjectId", obj.ObjectId);
+                        cmd.ExecuteNonQuery();
+                    }
+                    return obj.ObjectId;
+                }
+                else
+                {
+                    string sql = "INSERT INTO ddt_journal(dsid_hospitality_session,dsid_patient,dsdt_admission_date,dsid_doctor,dss_complaints,dss_chdd,dss_chss,dss_ps,dss_ad,dss_monitor,dss_rhythm,dsb_good_rhythm,dss_surgeon_exam,dss_cardio_exam,dss_ekg,dss_journal,dsi_journal_type,dsb_release_journal,dss_diagnosis) " +
+                                                              "VALUES(@HospitalitySession,@Patient,@AdmissionDate,@Doctor,@Complaints,@Chdd,@Chss,@Ps,@Ad,@Monitor,@Rhythm,@GoodRhythm,@SurgeonExam,@CardioExam,@Ekg,@Journal,@JournalType,@ReleaseJournal,@Diagnosis) RETURNING r_object_id";
+                    Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
+                    using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Parameters.AddWithValue("@HospitalitySession", obj.HospitalitySession);
+                        cmd.Parameters.AddWithValue("@Patient", obj.Patient);
+                        cmd.Parameters.AddWithValue("@AdmissionDate", obj.AdmissionDate);
+                        cmd.Parameters.AddWithValue("@Doctor", obj.Doctor);
+                        cmd.Parameters.AddWithValue("@Complaints", obj.Complaints == null ? "" : obj.Complaints);
+                        cmd.Parameters.AddWithValue("@Chdd", obj.Chdd == null ? "" : obj.Chdd);
+                        cmd.Parameters.AddWithValue("@Chss", obj.Chss == null ? "" : obj.Chss);
+                        cmd.Parameters.AddWithValue("@Ps", obj.Ps == null ? "" : obj.Ps);
+                        cmd.Parameters.AddWithValue("@Ad", obj.Ad == null ? "" : obj.Ad);
+                        cmd.Parameters.AddWithValue("@Monitor", obj.Monitor == null ? "" : obj.Monitor);
+                        cmd.Parameters.AddWithValue("@Rhythm", obj.Rhythm == null ? "" : obj.Rhythm);
+                        cmd.Parameters.AddWithValue("@GoodRhythm", obj.GoodRhythm);
+                        cmd.Parameters.AddWithValue("@SurgeonExam", obj.SurgeonExam == null ? "" : obj.SurgeonExam);
+                        cmd.Parameters.AddWithValue("@CardioExam", obj.CardioExam == null ? "" : obj.CardioExam);
+                        cmd.Parameters.AddWithValue("@Ekg", obj.Ekg == null ? "" : obj.Ekg);
+                        cmd.Parameters.AddWithValue("@Journal", obj.Journal == null ? "" : obj.Journal);
+                        cmd.Parameters.AddWithValue("@JournalType", obj.JournalType);
+                        cmd.Parameters.AddWithValue("@ReleaseJournal", obj.ReleaseJournal);
+                        cmd.Parameters.AddWithValue("@Diagnosis", obj.Diagnosis == null ? "" : obj.Diagnosis);
+                        return (string)cmd.ExecuteScalar();
+                    }
+                }
+            }
         }
+
     }
 }

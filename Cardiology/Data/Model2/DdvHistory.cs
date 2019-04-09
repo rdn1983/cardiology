@@ -14,6 +14,8 @@ namespace Cardiology.Data.Model2
 
         public string DoctorName { get; set; }
 
+        public string DoctorShortName { get; set; }
+
         public string OperationType { get; set; }
 
         public string OperationName { get; set; }

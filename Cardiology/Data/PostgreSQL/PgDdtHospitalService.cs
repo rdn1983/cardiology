@@ -5,11 +5,14 @@ using Cardiology.Data.Model2;
 using Cardiology.Data.Commons;
 using System.Data;
 using NpgsqlTypes;
+using NLog;
+using System.Globalization;
 
 namespace Cardiology.Data.PostgreSQL
 {
     public class PgDdtHospitalService : IDdtHospitalService
     {
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
         private readonly IDbConnectionFactory connectionFactory;
 
         public PgDdtHospitalService(IDbConnectionFactory connectionFactory)
@@ -23,6 +26,9 @@ namespace Cardiology.Data.PostgreSQL
             using (dynamic connection = connectionFactory.GetConnection())
             {
                 String sql = "SELECT r_object_id, dss_diagnosis, dsid_duty_doctor, r_creation_date, dsi_release_type, dsdt_admission_date, dsid_patient, dsid_curing_doctor, dsb_active, r_modify_date, dsb_reject_cure, dss_room_cell, dsb_death, dsid_dir_cardio_reanim_doctor, dsid_substitution_doctor, dsid_anesthetist_doctor FROM ddt_hospital";
+
+                Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -33,7 +39,7 @@ namespace Cardiology.Data.PostgreSQL
                         obj.Diagnosis = reader.IsDBNull(1) ? null : reader.GetString(1);
                         obj.DutyDoctor = reader.IsDBNull(2) ? null : reader.GetString(2);
                         obj.CreationDate = reader.IsDBNull(3) ? DateTime.MinValue : reader.GetDateTime(3);
-                        obj.ReleaseType = reader.GetInt16(4);
+                        obj.ReleaseType = reader.IsDBNull(4) ? -1 : reader.GetInt16(4);
                         obj.AdmissionDate = reader.IsDBNull(5) ? DateTime.MinValue : reader.GetDateTime(5);
                         obj.Patient = reader.IsDBNull(6) ? null : reader.GetString(6);
                         obj.CuringDoctor = reader.IsDBNull(7) ? null : reader.GetString(7);
@@ -57,6 +63,9 @@ namespace Cardiology.Data.PostgreSQL
             using (dynamic connection = connectionFactory.GetConnection())
             {
                 String sql = String.Format("SELECT r_object_id, dss_diagnosis, dsid_duty_doctor, r_creation_date, dsi_release_type, dsdt_admission_date, dsid_patient, dsid_curing_doctor, dsb_active, r_modify_date, dsb_reject_cure, dss_room_cell, dsb_death, dsid_dir_cardio_reanim_doctor, dsid_substitution_doctor, dsid_anesthetist_doctor FROM ddt_hospital WHERE r_object_id = '{0}'", id);
+
+                Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -67,7 +76,7 @@ namespace Cardiology.Data.PostgreSQL
                         obj.Diagnosis = reader.IsDBNull(1) ? null : reader.GetString(1);
                         obj.DutyDoctor = reader.IsDBNull(2) ? null : reader.GetString(2);
                         obj.CreationDate = reader.IsDBNull(3) ? DateTime.MinValue : reader.GetDateTime(3);
-                        obj.ReleaseType = reader.GetInt16(4);
+                        obj.ReleaseType = reader.IsDBNull(4) ? -1 : reader.GetInt16(4);
                         obj.AdmissionDate = reader.IsDBNull(5) ? DateTime.MinValue : reader.GetDateTime(5);
                         obj.Patient = reader.IsDBNull(6) ? null : reader.GetString(6);
                         obj.CuringDoctor = reader.IsDBNull(7) ? null : reader.GetString(7);
@@ -109,6 +118,8 @@ namespace Cardiology.Data.PostgreSQL
                                           "dsid_anesthetist_doctor = @AnesthetistDoctor " +
                                           "WHERE r_object_id = @ObjectId";
 
+                    Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                     using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
                     {
                         cmd.CommandType = CommandType.Text;
@@ -139,6 +150,8 @@ namespace Cardiology.Data.PostgreSQL
                                           "VALUES(@Diagnosis, @DutyDoctor, @ReleaseType, @AdmissionDate, @Patient, @CuringDoctor," +
                                           "@Active, @RejectCure, @RoomCell, @Death, @DirCardioReanimDoctor, @SubstitutionDoctor," +
                                           "@AnesthetistDoctor)";
+
+                    Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
 
                     using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
                     {

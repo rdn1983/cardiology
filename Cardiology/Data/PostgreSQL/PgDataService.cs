@@ -4,11 +4,15 @@ using System.Collections.Generic;
 using System.Data.Common;
 using Npgsql.Schema;
 using DbColumn = System.Data.Common.DbColumn;
+using NLog;
+using System.Globalization;
 
 namespace Cardiology.Data.PostgreSQL
 {
     class PgDataService : IDbDataService
     {
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+
         private readonly IDbConnectionFactory connectionFactory;
         private readonly IDdtReleasePatientService ddtReleasePatientService;
         private readonly IDdtIssuedMedicineListService ddtIssuedMedicineListService;
@@ -49,7 +53,7 @@ namespace Cardiology.Data.PostgreSQL
         private readonly IDmGroupService dmGroupService;
         private readonly IDdtCoagulogramService ddtCoagulogramService;
         private readonly IDdvAllDiagnosisService ddvAllDiagnosisService;
-        private readonly IDdtConsiliumMemberService ddtConsiliumMemberService;
+        private readonly IDdtConsiliumRelationService ddtConsiliumRelationService;
         private readonly IDdtUziService ddtUziService;
         private readonly IDdtVariousSpecConclusonService ddtVariousSpecConclusonService;
 
@@ -95,7 +99,7 @@ namespace Cardiology.Data.PostgreSQL
             dmGroupService = new PgDmGroupService(connectionFactory);
             ddtCoagulogramService = new PgDdtCoagulogramService(connectionFactory);
             ddvAllDiagnosisService = new PgDdvAllDiagnosisService(connectionFactory);
-            ddtConsiliumMemberService = new PgDdtConsiliumMemberService(connectionFactory);
+            ddtConsiliumRelationService = new PgDdtConsiliumRelationService(connectionFactory);
             ddtUziService = new PgDdtUziService(connectionFactory);
             ddtVariousSpecConclusonService = new PgDdtVariousSpecConclusonService(connectionFactory);
         }
@@ -295,9 +299,9 @@ namespace Cardiology.Data.PostgreSQL
             return ddvAllDiagnosisService;
         }
 
-        public IDdtConsiliumMemberService GetDdtConsiliumMemberService()
+        public IDdtConsiliumRelationService GetDdtConsiliumRelationService()
         {
-            return ddtConsiliumMemberService;
+            return ddtConsiliumRelationService;
         }
 
         public IDdtUziService GetDdtUziService()
@@ -312,6 +316,7 @@ namespace Cardiology.Data.PostgreSQL
 
         public void Select(string sql, string key, string value, OnKeyValue handler)
         {
+            Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
             using (dynamic connection = connectionFactory.GetConnection())
             {
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
@@ -326,12 +331,12 @@ namespace Cardiology.Data.PostgreSQL
                         string attrValValue = null;
                         while (colsNumerator.MoveNext())
                         {
-                            if (key.Equals(colsNumerator.Current.ColumnName))
+                            if (key.Equals(colsNumerator.Current.ColumnName, StringComparison.Ordinal))
                             {
                                 int indx = columns.IndexOf(colsNumerator.Current);
                                 attrKeyValue = getWrappedValue(reader.GetValue(indx), reader.GetFieldType(indx));
                             }
-                            else if (value.Equals(colsNumerator.Current.ColumnName))
+                            else if (value.Equals(colsNumerator.Current.ColumnName, StringComparison.Ordinal))
                             {
                                 int indx = columns.IndexOf(colsNumerator.Current);
                                 attrValValue = getWrappedValue(reader.GetValue(indx), reader.GetFieldType(indx));
@@ -360,21 +365,23 @@ namespace Cardiology.Data.PostgreSQL
             }
             else if (fieldType == typeof(string))
             {
-                return "'" + value + "'";
+                return value?.ToString();
             }
             else if (fieldType == typeof(DateTime))
             {
-                return (@"to_timestamp('" + value + "', 'DD.MM.YYYY HH24:mi:ss')");
+                DateTime dt = (DateTime) value;
+                return dt.ToShortDateString() + " " + dt.ToShortTimeString();
             }
             else
             {
-                return value.ToString();
+                return value?.ToString();
             }
 
         }
 
         public string GetString(string sql)
         {
+            Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
             using (dynamic connection = connectionFactory.GetConnection())
             {
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
@@ -392,6 +399,7 @@ namespace Cardiology.Data.PostgreSQL
 
         public DateTime GetTime(string sql)
         {
+            Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
             using (dynamic connection = connectionFactory.GetConnection())
             {
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
@@ -399,7 +407,7 @@ namespace Cardiology.Data.PostgreSQL
                 {
                     if (reader.Read())
                     {
-                        return reader.GetDateTime(1);
+                        return reader.GetDateTime(0);
                     }
                 }
 
@@ -413,6 +421,8 @@ namespace Cardiology.Data.PostgreSQL
             using (dynamic connection = connectionFactory.GetConnection())
             {
                 String sql = "delete from " + type + " WHERE r_object_id = '" + id + "'";
+                Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 command.ExecuteScalar();
             }

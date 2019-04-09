@@ -38,8 +38,8 @@ namespace Cardiology.UI.Controls
             CommonUtils.InitRangedItems(defferedChddTxt, 14, 26);
             warningLbl.Visible = false;
 
-            CommonUtils.InitDoctorsComboboxValues(DbDataService.GetService(), docBox, null);
-            DdtJournal journal = DbDataService.GetService().GetDdtJournalService().GetById(objectId);
+            CommonUtils.InitDoctorsComboboxValues(DbDataService.GetInstance(), docBox, null);
+            DdtJournal journal = DbDataService.GetInstance().GetDdtJournalService().GetById(objectId);
             refreshObject(journal);
         }
 
@@ -55,7 +55,7 @@ namespace Cardiology.UI.Controls
             journal.Patient = hospitalitySession.Patient;
             journal.Doctor = string.IsNullOrEmpty(journal.Doctor) ? hospitalitySession.CuringDoctor : journal.Doctor;
 
-            objectId = DbDataService.GetService().GetDdtJournalService().Save(journal);
+            objectId = DbDataService.GetInstance().GetDdtJournalService().Save(journal);
             hasChanges = false;
             isNew = false;
         }
@@ -153,11 +153,11 @@ namespace Cardiology.UI.Controls
 
         public object getObject()
         {
-            DdtJournal journal = DbDataService.GetService().GetDdtJournalService().GetById(objectId);
+            DdtJournal journal = DbDataService.GetInstance().GetDdtJournalService().GetById(objectId);
             if (journal == null)
             {
                 journal = new DdtJournal();
-                journal.JournalType = (int)DdtJournalDsiType.PENDING_JUSTIFICATION;
+                journal.JournalType = (int)DdtJournalDsiType.PendingJustification;
             }
 
             journal.Ad = deferredAdTxt.Text;
@@ -191,7 +191,7 @@ namespace Cardiology.UI.Controls
                 deferredStartDate.Value = journal.AdmissionDate;
                 deferredStartTime.Value = journal.AdmissionDate;
 
-                DdvDoctor doc = DbDataService.GetService().GetDdvDoctorService().GetById(journal.Doctor);
+                DdvDoctor doc = DbDataService.GetInstance().GetDdvDoctorService().GetById(journal.Doctor);
                 docBox.SelectedIndex = docBox.FindStringExact(doc.ShortName);
                 objectId = journal.ObjectId;
                 isNew = string.IsNullOrEmpty(objectId);

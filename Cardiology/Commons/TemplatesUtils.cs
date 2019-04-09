@@ -7,12 +7,8 @@ using Cardiology.Data.Model2;
 
 namespace Cardiology.Commons
 {
-    public class TemplatesUtils
+    static class TemplatesUtils
     {
-        public TemplatesUtils()
-        {
-        }
-
         public static void fillBlankTemplate(IDbDataService service, string templateFileName, string hospitalSessionId, Dictionary<string, string> values)
         {
 
@@ -20,7 +16,7 @@ namespace Cardiology.Commons
             if (hospitalSession != null)
             {
                 DdvDoctor doc = service.GetDdvDoctorService().GetById(hospitalSession.CuringDoctor);
-                DdvPatient patient = service.GetDdvPatientService().GetById(hospitalSession.CuringDoctor);
+                DdvPatient patient = service.GetDdvPatientService().GetById(hospitalSession.Patient);
 
                 values.Add(@"{doctor.who.short}", doc.ShortName);
                 values.Add(@"{patient.initials}", patient.ShortName);
@@ -33,12 +29,14 @@ namespace Cardiology.Commons
                 values.Add(@"{patient.fullname}", patient.FirstName);
                 values.Add(@"{date}", DateTime.Now.ToShortDateString());
 
-                doc = service.GetDdvDoctorService().GetObject(@"SELECT * FROM " + DdvDoctor.NAME + " where dss_login IN " +
-                    "(select dss_user_name FROM dm_group_users WHERE dss_group_name ='io_cardio_reanim')");
-                values.Add(@"{doctor.io.department}", doc.ShortName);
-                doc = service.GetDdvDoctorService().GetObject(@"SELECT * FROM " + DdvDoctor.NAME + " where dss_login IN " +
-                    "(select dss_user_name FROM dm_group_users WHERE dss_group_name ='io_therapy')");
-                values.Add(@"{doctor.io.hospital}", doc.ShortName);
+                IList<DdvDoctor> allGroupsDoc = service.GetDdvDoctorService().GetByGroupName("cardioreanimation_department_head");
+                doc = allGroupsDoc.Count > 0 ? allGroupsDoc[0] : null;
+                values.Add(@"{doctor.io.department}", doc?.ShortName);
+
+                allGroupsDoc.Clear();
+                allGroupsDoc = service.GetDdvDoctorService().GetByGroupName("therapy_deputy_head");
+                doc = allGroupsDoc.Count > 0 ? allGroupsDoc[0] : null;
+                values.Add(@"{doctor.io.hospital}", doc?.ShortName);
             }
             TemplatesUtils.FillTemplateAndShow(Directory.GetCurrentDirectory() + "\\Templates\\" + templateFileName, values);
         }
@@ -48,7 +46,7 @@ namespace Cardiology.Commons
         {
             DdtHospital hospitalSession = service.GetDdtHospitalService().GetById(hospitalSessionId);
             DdvDoctor doc = service.GetDdvDoctorService().GetById(hospitalSession.CuringDoctor);
-            DdvPatient patient = service.GetDdvPatientService().GetById(hospitalSession.CuringDoctor);
+            DdvPatient patient = service.GetDdvPatientService().GetById(hospitalSession.Patient);
             values.Add(@"{doctor.who.short}", doc.ShortName);
             values.Add(@"{patient.initials}", patient.ShortName);
             values.Add(@"{patient.birthdate}", patient.Birthdate.ToShortDateString());

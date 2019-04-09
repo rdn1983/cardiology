@@ -10,12 +10,10 @@ namespace Cardiology.UI.Forms
 {
     public partial class UserFormTrombolizis : Form
     {
-        private readonly IDbDataService service;
         private DdtPatient patient;
 
-        public UserFormTrombolizis(IDbDataService service, DdtPatient patient)
+        public UserFormTrombolizis(DdtPatient patient)
         {
-            this.service = service;
             this.patient = patient;
             InitializeComponent();
             initializeDoctorsBox();
@@ -23,14 +21,7 @@ namespace Cardiology.UI.Forms
 
         private void initializeDoctorsBox()
         {
-            IList<DdvDoctor> doctors = service.GetDdvDoctorService().GetAll();
-            foreach (var obj in doctors)
-            {
-                doctorOkrCB.Items.Add(obj);
-            }
-            doctorOkrCB.ValueMember = "ObjectId";
-            doctorOkrCB.DisplayMember = "DssFullName";
-
+            CommonUtils.InitDoctorsByGroupComboboxValues(DbDataService.GetInstance(), doctorOkrCB, "cardioreanimation_department");
         }
 
         private void trombolizisPrintBtn_Click(object sender, EventArgs e)
@@ -43,7 +34,7 @@ namespace Cardiology.UI.Forms
             string templatePath = Directory.GetCurrentDirectory() + "\\Templates\\trombolisis_template.doc";
 
             Dictionary<string, string> values = new Dictionary<string, string>();
-            DdvPatient patientView = service.GetDdvPatientService().GetById(patient.ObjectId);
+            DdvPatient patientView = DbDataService.GetInstance().GetDdvPatientService().GetById(patient.ObjectId);
             if (patient!=null)
             {
                 values.Add(@"{patient.full_name}", patientView.FullName);

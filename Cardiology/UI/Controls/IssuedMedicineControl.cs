@@ -19,7 +19,7 @@ namespace Cardiology.UI.Controls
             this.index = index;
             this.parent = parent;
 
-            CommonUtils.InitCureTypeComboboxValues(DbDataService.GetService(), medicineTypeTxt0);
+            CommonUtils.InitCureTypeComboboxValues(DbDataService.GetInstance(), medicineTypeTxt0);
         }
 
         internal int getIndex()
@@ -31,10 +31,10 @@ namespace Cardiology.UI.Controls
         {
             if (med != null)
             {
-                DdtCure cure = DbDataService.GetService().GetDdtCureService().GetById(med.Cure);
+                DdtCure cure = DbDataService.GetInstance().GetDdtCureService().GetById(med.Cure);
                 if (cure != null)
                 {
-                    DdtCureType type = DbDataService.GetService().GetDdtCureTypeService().GetById(cure.CureType);
+                    DdtCureType type = DbDataService.GetInstance().GetDdtCureTypeService().GetById(cure.CureType);
                     if (type != null)
                     {
                         medicineTypeTxt0.SelectedIndex = medicineTypeTxt0.FindStringExact(type.Name);
@@ -71,7 +71,7 @@ namespace Cardiology.UI.Controls
         {
             if (!string.IsNullOrEmpty(objectId))
             {
-                DbDataService.GetService().GetDdtIssuedMedicineService().Delete(objectId);
+                DbDataService.GetInstance().GetDdtIssuedMedicineService().Delete(objectId);
             }
             if (parent != null)
             {
@@ -83,7 +83,7 @@ namespace Cardiology.UI.Controls
         {
             ComboBox box = (ComboBox)sender;
             DdtCureType selectedVal = (DdtCureType)box.SelectedItem;
-            CommonUtils.InitCureComboboxValuesByTypeId(DbDataService.GetService(), issuedMedicineTxt0, selectedVal.ObjectId);
+            CommonUtils.InitCureComboboxValuesByTypeId(DbDataService.GetInstance(), issuedMedicineTxt0, selectedVal.ObjectId);
         }
     }
 }

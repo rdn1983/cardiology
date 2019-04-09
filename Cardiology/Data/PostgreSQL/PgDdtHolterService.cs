@@ -3,11 +3,15 @@ using System.Data.Common;
 using System.Collections.Generic;
 using Cardiology.Data.Model2;
 using Cardiology.Data.Commons;
+using System.Data;
+using NLog;
+using System.Globalization;
 
 namespace Cardiology.Data.PostgreSQL
 {
     public class PgDdtHolterService : IDdtHolterService
     {
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
         private readonly IDbConnectionFactory connectionFactory;
 
         public PgDdtHolterService(IDbConnectionFactory connectionFactory)
@@ -20,7 +24,12 @@ namespace Cardiology.Data.PostgreSQL
             IList<DdtHolter> list = new List<DdtHolter>();
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = "SELECT dsid_hospitality_session, r_object_id, dsdt_analysis_date, r_modify_date, dss_monitoring_ad, dss_parent_type, r_creation_date, dsid_parent, dss_holter, dsid_doctor, dsid_patient FROM ddt_holter";
+                String sql = "SELECT dsid_hospitality_session, r_object_id, dsdt_analysis_date, r_modify_date," +
+                    " dss_monitoring_ad, dss_parent_type, r_creation_date, dsid_parent, dss_holter, dsid_doctor," +
+                    " dsid_patient FROM ddt_holter";
+
+                Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -49,7 +58,12 @@ namespace Cardiology.Data.PostgreSQL
         {
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = String.Format("SELECT dsid_hospitality_session, r_object_id, dsdt_analysis_date, r_modify_date, dss_monitoring_ad, dss_parent_type, r_creation_date, dsid_parent, dss_holter, dsid_doctor, dsid_patient FROM ddt_holter WHERE r_object_id = '{0}'", id);
+                String sql = String.Format("SELECT dsid_hospitality_session, r_object_id, dsdt_analysis_date, " +
+                    "r_modify_date, dss_monitoring_ad, dss_parent_type, r_creation_date, dsid_parent, dss_holter," +
+                    " dsid_doctor, dsid_patient FROM ddt_holter WHERE r_object_id = '{0}'", id);
+
+                Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -79,7 +93,12 @@ namespace Cardiology.Data.PostgreSQL
             IList<DdtHolter> list = new List<DdtHolter>();
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = String.Format("SELECT dsid_hospitality_session, r_object_id, dsdt_analysis_date, r_modify_date, dss_monitoring_ad, dss_parent_type, r_creation_date, dsid_parent, dss_holter, dsid_doctor, dsid_patient FROM ddt_holter WHERE dsid_parent = '{0}'", parentId);
+                String sql = String.Format("SELECT dsid_hospitality_session, r_object_id, dsdt_analysis_date, " +
+                    "r_modify_date, dss_monitoring_ad, dss_parent_type, r_creation_date, dsid_parent, dss_holter, " +
+                    "dsid_doctor, dsid_patient FROM ddt_holter WHERE dsid_parent = '{0}'", parentId);
+
+                Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -106,7 +125,60 @@ namespace Cardiology.Data.PostgreSQL
 
         public string Save(DdtHolter obj)
         {
-            throw new NotImplementedException();
+            using (dynamic connection = connectionFactory.GetConnection())
+            {
+                if (GetById(obj.ObjectId) != null)
+                {
+                    string sql = "UPDATE ddt_holter SET " +
+                                          "dsid_hospitality_session = @HospitalitySession, " +
+                                        "dsid_patient = @Patient, " +
+                                        "dsid_doctor = @Doctor, " +
+                                        "dsid_parent = @Parent, " +
+                                        "dss_parent_type = @ParentType, " +
+                                        "dsdt_analysis_date = @AnalysisDate, " +
+                                        "dss_holter = @Holter, " +
+                                        "dss_monitoring_ad = @MonitoringAd " +
+                                         "WHERE r_object_id = @ObjectId";
+                    Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
+                    using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Parameters.AddWithValue("@HospitalitySession", obj.HospitalitySession);
+                        cmd.Parameters.AddWithValue("@Patient", obj.Patient);
+                        cmd.Parameters.AddWithValue("@Doctor", obj.Doctor);
+                        cmd.Parameters.AddWithValue("@Parent", obj.Parent == null ? "0000000000000000" : obj.Parent);
+                        cmd.Parameters.AddWithValue("@ParentType", obj.ParentType == null ? "" : obj.ParentType);
+                        cmd.Parameters.AddWithValue("@AnalysisDate", obj.AnalysisDate);
+                        cmd.Parameters.AddWithValue("@Holter", obj.Holter == null ? "" : obj.Holter);
+                        cmd.Parameters.AddWithValue("@MonitoringAd", obj.MonitoringAd == null ? "" : obj.MonitoringAd);
+                        cmd.Parameters.AddWithValue("@ObjectId", obj.ObjectId);
+                        cmd.ExecuteNonQuery();
+                    }
+                    return obj.ObjectId;
+                }
+                else
+                {
+                    string sql = "INSERT INTO ddt_holter(dsid_hospitality_session,dsid_patient,dsid_doctor,dsid_parent,dss_parent_type,dsdt_analysis_date,dss_holter,dss_monitoring_ad) " +
+                                                              "VALUES(@HospitalitySession,@Patient,@Doctor,@Parent,@ParentType,@AnalysisDate,@Holter,@MonitoringAd) RETURNING r_object_id";
+                    Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
+                    using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Parameters.AddWithValue("@HospitalitySession", obj.HospitalitySession);
+                        cmd.Parameters.AddWithValue("@Patient", obj.Patient);
+                        cmd.Parameters.AddWithValue("@Doctor", obj.Doctor);
+                        cmd.Parameters.AddWithValue("@Parent", obj.Parent == null ? "0000000000000000" : obj.Parent);
+                        cmd.Parameters.AddWithValue("@ParentType", obj.ParentType == null ? "" : obj.ParentType);
+                        cmd.Parameters.AddWithValue("@AnalysisDate", obj.AnalysisDate);
+                        cmd.Parameters.AddWithValue("@Holter", obj.Holter == null ? "" : obj.Holter);
+                        cmd.Parameters.AddWithValue("@MonitoringAd", obj.MonitoringAd == null ? "" : obj.MonitoringAd);
+                        return (string)cmd.ExecuteScalar();
+                    }
+                }
+            }
         }
+
     }
 }

@@ -28,7 +28,7 @@ namespace Cardiology.UI.Forms
             selectedIds = new List<string>();
 
             InitializeComponent();
-            bool isHorizontalStyle = DdtEkg.NAME.Equals(typeName) || DdtEgds.NAME.Equals(typeName) || DdtHolter.NAME.Equals(typeName);
+            bool isHorizontalStyle = DdtEkg.NAME.Equals(typeName, StringComparison.Ordinal) || DdtEgds.NAME.Equals(typeName, StringComparison.Ordinal) || DdtHolter.NAME.Equals(typeName, StringComparison.Ordinal);
             combainingContainer.GrowStyle = isHorizontalStyle ? TableLayoutPanelGrowStyle.AddRows : TableLayoutPanelGrowStyle.AddColumns;
             combainingContainer.RowStyles.Clear();
             combainingContainer.RowStyles.Add(new RowStyle(SizeType.AutoSize));
@@ -38,13 +38,13 @@ namespace Cardiology.UI.Forms
 
         private void initControls()
         {
-            bool needAdmissionAnalysis = DdtUrineAnalysis.NAME.Equals(typeName) || DdtBloodAnalysis.NAME.Equals(typeName)
-                || DdtEgds.NAME.Equals(typeName) || DdtEkg.NAME.Equals(typeName);
+            bool needAdmissionAnalysis = DdtUrineAnalysis.NAME.Equals(typeName, StringComparison.Ordinal) || DdtBloodAnalysis.NAME.Equals(typeName, StringComparison.Ordinal)
+                || DdtEgds.NAME.Equals(typeName, StringComparison.Ordinal) || DdtEkg.NAME.Equals(typeName, StringComparison.Ordinal);
 
             if (needAdmissionAnalysis)
             {
                 string firstAnalysisId = service.GetString(string.Format(FIRST_ANALYSIS_QRY_TEMPLATE, typeName, hospitalitySession.ObjectId));
-                if (firstAnalysisId != null && !firstAnalysisId.Equals(currentId))
+                if (firstAnalysisId != null && !firstAnalysisId.Equals(currentId, StringComparison.Ordinal))
                 {
                     createControl(firstAnalysisId);
                 }
@@ -56,105 +56,105 @@ namespace Cardiology.UI.Forms
         {
             selectedIds.Add(objectId);
 
-            if (DdtBloodAnalysis.NAME.Equals(typeName))
+            if (DdtBloodAnalysis.NAME.Equals(typeName, StringComparison.Ordinal))
             {
-                combainingContainer.Controls.Add(new BloodAnalysisControl(objectId, objectId != null && !objectId.Equals(currentId)));
+                combainingContainer.Controls.Add(new BloodAnalysisControl(objectId, objectId != null && !objectId.Equals(currentId, StringComparison.Ordinal)));
             }
-            else if (DdtUrineAnalysis.NAME.Equals(typeName))
+            else if (DdtUrineAnalysis.NAME.Equals(typeName, StringComparison.Ordinal))
             {
-                combainingContainer.Controls.Add(new UrineAnalysisControl(objectId, objectId != null && !objectId.Equals(currentId)));
+                combainingContainer.Controls.Add(new UrineAnalysisControl(objectId, objectId != null && !objectId.Equals(currentId, StringComparison.Ordinal)));
             }
-            else if (DdtEkg.NAME.Equals(typeName))
+            else if (DdtEkg.NAME.Equals(typeName, StringComparison.Ordinal))
             {
-                EkgAnalysisControlcs ekg = new EkgAnalysisControlcs(objectId, objectId != null && !objectId.Equals(currentId));
+                EkgAnalysisControlcs ekg = new EkgAnalysisControlcs(objectId, objectId != null && !objectId.Equals(currentId, StringComparison.Ordinal));
                 combainingContainer.Controls.Add(ekg);
                 Console.WriteLine(ekg.Size);
             }
-            else if (DdtKag.NAME.Equals(typeName))
+            else if (DdtKag.NAME.Equals(typeName, StringComparison.Ordinal))
             {
-                combainingContainer.Controls.Add(new KagAnalysisControl(objectId, objectId != null && !objectId.Equals(currentId), hospitalitySession.ObjectId));
+                combainingContainer.Controls.Add(new KagAnalysisControl(objectId, objectId != null && !objectId.Equals(currentId, StringComparison.Ordinal), hospitalitySession.ObjectId));
             }
-            else if (DdtEgds.NAME.Equals(typeName))
+            else if (DdtEgds.NAME.Equals(typeName, StringComparison.Ordinal))
             {
-                combainingContainer.Controls.Add(new EgdsAnalysisControl(objectId, objectId != null && !objectId.Equals(currentId)));
+                combainingContainer.Controls.Add(new EgdsAnalysisControl(objectId, objectId != null && !objectId.Equals(currentId, StringComparison.Ordinal)));
             }
-            else if (DdtXRay.NAME.Equals(typeName))
+            else if (DdtXRay.NAME.Equals(typeName, StringComparison.Ordinal))
             {
-                combainingContainer.Controls.Add(new XRayControl(objectId, objectId != null && !objectId.Equals(currentId)));
+                combainingContainer.Controls.Add(new XRayControl(objectId, objectId != null && !objectId.Equals(currentId, StringComparison.Ordinal)));
             }
-            else if (DdtHolter.NAME.Equals(typeName))
+            else if (DdtHolter.NAME.Equals(typeName, StringComparison.Ordinal))
             {
-                combainingContainer.Controls.Add(new HolterControl(objectId, objectId != null && !objectId.Equals(currentId)));
+                combainingContainer.Controls.Add(new HolterControl(objectId, objectId != null && !objectId.Equals(currentId, StringComparison.Ordinal)));
             }
-            else if (DdtUzi.NAME.Equals(typeName))
+            else if (DdtUzi.NAME.Equals(typeName, StringComparison.Ordinal))
             {
-                combainingContainer.Controls.Add(new UziAnalysisControl(objectId, objectId != null && !objectId.Equals(currentId)));
+                combainingContainer.Controls.Add(new UziAnalysisControl(objectId, objectId != null && !objectId.Equals(currentId, StringComparison.Ordinal)));
             }
-            else if (DdtSpecialistConclusion.NAME.Equals(typeName))
+            else if (DdtSpecialistConclusion.NAME.Equals(typeName, StringComparison.Ordinal))
             {
-                combainingContainer.Controls.Add(new SpecialistConclusionControl(objectId, objectId != null && !objectId.Equals(currentId)));
+                combainingContainer.Controls.Add(new SpecialistConclusionControl(objectId, objectId != null && !objectId.Equals(currentId, StringComparison.Ordinal)));
             }
-            else if (DdtHormones.NAME.Equals(typeName))
+            else if (DdtHormones.NAME.Equals(typeName, StringComparison.Ordinal))
             {
-                combainingContainer.Controls.Add(new HormonesControl(objectId, objectId != null && !objectId.Equals(currentId)));
+                combainingContainer.Controls.Add(new HormonesControl(objectId, objectId != null && !objectId.Equals(currentId, StringComparison.Ordinal)));
             }
-            else if (DdtCoagulogram.NAME.Equals(typeName))
+            else if (DdtCoagulogram.NAME.Equals(typeName, StringComparison.Ordinal))
             {
-                combainingContainer.Controls.Add(new CoagulogrammControl(objectId, objectId != null && !objectId.Equals(currentId)));
+                combainingContainer.Controls.Add(new CoagulogrammControl(objectId, objectId != null && !objectId.Equals(currentId, StringComparison.Ordinal)));
             }
-            else if (DdtOncologicMarkers.NAME.Equals(typeName))
+            else if (DdtOncologicMarkers.NAME.Equals(typeName, StringComparison.Ordinal))
             {
-                combainingContainer.Controls.Add(new OncologicMarkersControl(objectId, objectId != null && !objectId.Equals(currentId), hospitalitySession.ObjectId));
+                combainingContainer.Controls.Add(new OncologicMarkersControl(objectId, objectId != null && !objectId.Equals(currentId, StringComparison.Ordinal), hospitalitySession.ObjectId));
             }
         }
 
         private void initTitle()
         {
-            if (DdtBloodAnalysis.NAME.Equals(typeName))
+            if (DdtBloodAnalysis.NAME.Equals(typeName, StringComparison.Ordinal))
             {
                 this.Text = "Клинический анализ крови";
             }
-            else if (DdtUrineAnalysis.NAME.Equals(typeName))
+            else if (DdtUrineAnalysis.NAME.Equals(typeName, StringComparison.Ordinal))
             {
                 this.Text = "Анализ мочи";
             }
-            else if (DdtKag.NAME.Equals(typeName))
+            else if (DdtKag.NAME.Equals(typeName, StringComparison.Ordinal))
             {
                 this.Text = "КАГ";
             }
-            else if (DdtEkg.NAME.Equals(typeName))
+            else if (DdtEkg.NAME.Equals(typeName, StringComparison.Ordinal))
             {
                 this.Text = "ЭКГ";
             }
-            else if (DdtEgds.NAME.Equals(typeName))
+            else if (DdtEgds.NAME.Equals(typeName, StringComparison.Ordinal))
             {
                 this.Text = "ЭГДС";
             }
-            else if (DdtUzi.NAME.Equals(typeName))
+            else if (DdtUzi.NAME.Equals(typeName, StringComparison.Ordinal))
             {
                 this.Text = "УЗИ";
             }
-            else if (DdtXRay.NAME.Equals(typeName))
+            else if (DdtXRay.NAME.Equals(typeName, StringComparison.Ordinal))
             {
                 this.Text = "Рентген/КТ";
             }
-            else if (DdtHolter.NAME.Equals(typeName))
+            else if (DdtHolter.NAME.Equals(typeName, StringComparison.Ordinal))
             {
                 this.Text = "Холтер/СМАД";
             }
-            else if (DdtSpecialistConclusion.NAME.Equals(typeName))
+            else if (DdtSpecialistConclusion.NAME.Equals(typeName, StringComparison.Ordinal))
             {
                 this.Text = "Заключение специалистов";
             }
-            else if (DdtCoagulogram.NAME.Equals(typeName))
+            else if (DdtCoagulogram.NAME.Equals(typeName, StringComparison.Ordinal))
             {
                 this.Text = "Коагулограмма";
             }
-            else if (DdtHormones.NAME.Equals(typeName))
+            else if (DdtHormones.NAME.Equals(typeName, StringComparison.Ordinal))
             {
                 this.Text = "Гормоны";
             }
-            else if (DdtHormones.NAME.Equals(typeName))
+            else if (DdtHormones.NAME.Equals(typeName, StringComparison.Ordinal))
             {
                 this.Text = "Онкомаркеры";
             }

@@ -1,5 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeAnalysis.FxCopAnalyzers.2.9.1\build\Microsoft.CodeAnalysis.FxCopAnalyzers.props" Condition="Exists('..\packages\Microsoft.CodeAnalysis.FxCopAnalyzers.2.9.1\build\Microsoft.CodeAnalysis.FxCopAnalyzers.props')" />
+  <Import Project="..\packages\Microsoft.NetFramework.Analyzers.2.9.1\build\Microsoft.NetFramework.Analyzers.props" Condition="Exists('..\packages\Microsoft.NetFramework.Analyzers.2.9.1\build\Microsoft.NetFramework.Analyzers.props')" />
+  <Import Project="..\packages\Microsoft.NetCore.Analyzers.2.9.1\build\Microsoft.NetCore.Analyzers.props" Condition="Exists('..\packages\Microsoft.NetCore.Analyzers.2.9.1\build\Microsoft.NetCore.Analyzers.props')" />
+  <Import Project="..\packages\Microsoft.CodeQuality.Analyzers.2.9.1\build\Microsoft.CodeQuality.Analyzers.props" Condition="Exists('..\packages\Microsoft.CodeQuality.Analyzers.2.9.1\build\Microsoft.CodeQuality.Analyzers.props')" />
+  <Import Project="..\packages\Microsoft.CodeAnalysis.VersionCheckAnalyzer.2.9.1\build\Microsoft.CodeAnalysis.VersionCheckAnalyzer.props" Condition="Exists('..\packages\Microsoft.CodeAnalysis.VersionCheckAnalyzer.2.9.1\build\Microsoft.CodeAnalysis.VersionCheckAnalyzer.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -11,6 +16,8 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -83,7 +90,7 @@
     <Compile Include="Data\Commons\IDdtCoagulogramService.cs" />
     <Compile Include="Data\Commons\IDdtConsiliumGroupMemberService.cs" />
     <Compile Include="Data\Commons\IDdtConsiliumGroupService.cs" />
-    <Compile Include="Data\Commons\IDdtConsiliumMemberService.cs" />
+    <Compile Include="Data\Commons\IDdtConsiliumRelationService.cs" />
     <Compile Include="Data\Commons\IDdtConsiliumService.cs" />
     <Compile Include="Data\Commons\IDdtCureService.cs" />
     <Compile Include="Data\Commons\IDdtCureTypeService.cs" />
@@ -130,7 +137,7 @@
     <Compile Include="Data\Model2\DdtConsiliumGroup.cs" />
     <Compile Include="Data\Model2\DdtConsiliumGroupLevel.cs" />
     <Compile Include="Data\Model2\DdtConsiliumGroupMember.cs" />
-    <Compile Include="Data\Model2\DdtConsiliumMember.cs" />
+    <Compile Include="Data\Model2\DdtConsiliumRelation.cs" />
     <Compile Include="Data\Model2\DdtCure.cs" />
     <Compile Include="Data\Model2\DdtCureType.cs" />
     <Compile Include="Data\Model2\DdtDoctor.cs" />
@@ -173,7 +180,7 @@
     <Compile Include="Data\PostgreSQL\PgDdtCoagulogramService.cs" />
     <Compile Include="Data\PostgreSQL\PgDdtConsiliumGroupMemberService.cs" />
     <Compile Include="Data\PostgreSQL\PgDdtConsiliumGroupService.cs" />
-    <Compile Include="Data\PostgreSQL\PgDdtConsiliumMemberService.cs" />
+    <Compile Include="Data\PostgreSQL\PgDdtConsiliumRelationService.cs" />
     <Compile Include="Data\PostgreSQL\PgDdtConsiliumService.cs" />
     <Compile Include="Data\PostgreSQL\PgDdtCureService.cs" />
     <Compile Include="Data\PostgreSQL\PgDdtCureTypeService.cs" />
@@ -210,6 +217,18 @@
     <Compile Include="Data\PostgreSQL\PgDmGroupService.cs" />
     <Compile Include="Data\PostgreSQL\PgDmGroupUsersService.cs" />
     <Compile Include="UI\ControlUtils.cs" />
+    <Compile Include="UI\Forms\Admin\DoctorList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\Admin\DoctorList.Designer.cs">
+      <DependentUpon>DoctorList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\Death.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\Death.Designer.cs">
+      <DependentUpon>Death.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Forms\PatientAdmission.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -375,7 +394,6 @@
     <Compile Include="UI\Forms\PulseTableCOntainer.Designer.cs">
       <DependentUpon>PulseTableCOntainer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Data\TableAttribute.cs" />
     <Compile Include="UI\Forms\JournalBeforeKag.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -418,11 +436,11 @@
     <Compile Include="UI\Forms\Consilium.Designer.cs">
       <DependentUpon>Consilium.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Forms\ReanimDEAD.cs">
+    <Compile Include="UI\Forms\Resuscitation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Forms\ReanimDEAD.Designer.cs">
-      <DependentUpon>ReanimDEAD.cs</DependentUpon>
+    <Compile Include="UI\Forms\Resuscitation.Designer.cs">
+      <DependentUpon>Resuscitation.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -463,12 +481,6 @@
     </Compile>
     <Compile Include="UI\Forms\UserFormIntubation.Designer.cs">
       <DependentUpon>UserFormIntubation.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Forms\UserFormProtocolManipulation.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Forms\UserFormProtocolManipulation.Designer.cs">
-      <DependentUpon>UserFormProtocolManipulation.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Forms\UserFormTorCent.cs">
       <SubType>Form</SubType>
@@ -522,8 +534,18 @@
     <Compile Include="Commons\SilentSaver.cs" />
     <Compile Include="Commons\TemplateProcessorManager.cs" />
     <Compile Include="Commons\JournalTemplateProcessor.cs" />
+    <None Include="Cardiology.Data.Model2.DdtDoctor.datasource" />
+    <None Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Resources\shuffle.png" />
     <None Include="Resources\link20.png" />
+    <EmbeddedResource Include="UI\Forms\Admin\DoctorList.resx">
+      <DependentUpon>DoctorList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\Death.resx">
+      <DependentUpon>Death.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Forms\PatientAdmission.resx">
       <DependentUpon>PatientAdmission.cs</DependentUpon>
     </EmbeddedResource>
@@ -626,8 +648,8 @@
     <EmbeddedResource Include="UI\Forms\PulseTableCOntainer.resx">
       <DependentUpon>PulseTableCOntainer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Forms\ReanimDEAD.resx">
-      <DependentUpon>ReanimDEAD.cs</DependentUpon>
+    <EmbeddedResource Include="UI\Forms\Resuscitation.resx">
+      <DependentUpon>Resuscitation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -656,9 +678,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Forms\UserFormIntubation.resx">
       <DependentUpon>UserFormIntubation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Forms\UserFormProtocolManipulation.resx">
-      <DependentUpon>UserFormProtocolManipulation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Forms\UserFormTorCent.resx">
       <DependentUpon>UserFormTorCent.cs</DependentUpon>
@@ -691,6 +710,141 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Templates\blank_aid_aggrement_template.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\blank_aid_template.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\blank_alco_examination_template.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\blank_anastesia_template.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\blank_common_consent_template.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\blank_dead_constatation_template.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\blank_echo_template.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\blank_hospitality_refusal_template.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\blank_justification_costly_cure_template.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\blank_kag_template.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\blank_kek_template.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\blank_narko_template.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\blank_refusal_dead_inspection_template.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\blank_refusal_medical_injure.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\blank_refusal_of_treatment_template.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\blank_registered_transfusion_template.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\blank_skat_template.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\blank_stent_template.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\blank_transfer_template.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\blank_trunsfusion_approval_template.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\blank_trunsfusion_claim_template.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\blank_yes_manipulation_template.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\consilium_template.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\death_epicrisis_template.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\death_template.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\eit_template.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\ekstubacia_template.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\epicrisis_template.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\first_inspectation.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\gkb52_letter_template.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\gkb83_letter_template.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\gkb_buyanova_letter_template.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\gkb_yudina_letter_template.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\inspectation_template.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\intubation_template.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\issued_medicine_template.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\journal_template.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\kateter_template.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\lrc_letter_template.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\msch60_letter_template.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\reanim_operations_template.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\torakacentes_template.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\transfer_epicrisis_template.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\trombolisis_template.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\veks_template.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -723,6 +877,32 @@
   <ItemGroup>
     <None Include="Resources\remove.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Analyzer Include="..\packages\Microsoft.CodeAnalysis.VersionCheckAnalyzer.2.9.1\analyzers\dotnet\Microsoft.CodeAnalysis.VersionCheckAnalyzer.dll" />
+    <Analyzer Include="..\packages\Microsoft.CodeQuality.Analyzers.2.9.1\analyzers\dotnet\cs\Humanizer.dll" />
+    <Analyzer Include="..\packages\Microsoft.CodeQuality.Analyzers.2.9.1\analyzers\dotnet\cs\Microsoft.CodeQuality.Analyzers.dll" />
+    <Analyzer Include="..\packages\Microsoft.CodeQuality.Analyzers.2.9.1\analyzers\dotnet\cs\Microsoft.CodeQuality.CSharp.Analyzers.dll" />
+    <Analyzer Include="..\packages\Microsoft.NetCore.Analyzers.2.9.1\analyzers\dotnet\cs\Microsoft.NetCore.Analyzers.dll" />
+    <Analyzer Include="..\packages\Microsoft.NetCore.Analyzers.2.9.1\analyzers\dotnet\cs\Microsoft.NetCore.CSharp.Analyzers.dll" />
+    <Analyzer Include="..\packages\Microsoft.NetFramework.Analyzers.2.9.1\analyzers\dotnet\cs\Microsoft.NetFramework.Analyzers.dll" />
+    <Analyzer Include="..\packages\Microsoft.NetFramework.Analyzers.2.9.1\analyzers\dotnet\cs\Microsoft.NetFramework.CSharp.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\hearts-32.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Данный проект ссылается на пакеты NuGet, отсутствующие на этом компьютере. Используйте восстановление пакетов NuGet, чтобы скачать их.  Дополнительную информацию см. по адресу: http://go.microsoft.com/fwlink/?LinkID=322105. Отсутствует следующий файл: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeAnalysis.VersionCheckAnalyzer.2.9.1\build\Microsoft.CodeAnalysis.VersionCheckAnalyzer.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeAnalysis.VersionCheckAnalyzer.2.9.1\build\Microsoft.CodeAnalysis.VersionCheckAnalyzer.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeQuality.Analyzers.2.9.1\build\Microsoft.CodeQuality.Analyzers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeQuality.Analyzers.2.9.1\build\Microsoft.CodeQuality.Analyzers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.NetCore.Analyzers.2.9.1\build\Microsoft.NetCore.Analyzers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.NetCore.Analyzers.2.9.1\build\Microsoft.NetCore.Analyzers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.NetFramework.Analyzers.2.9.1\build\Microsoft.NetFramework.Analyzers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.NetFramework.Analyzers.2.9.1\build\Microsoft.NetFramework.Analyzers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeAnalysis.FxCopAnalyzers.2.9.1\build\Microsoft.CodeAnalysis.FxCopAnalyzers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeAnalysis.FxCopAnalyzers.2.9.1\build\Microsoft.CodeAnalysis.FxCopAnalyzers.props'))" />
+  </Target>
 </Project>

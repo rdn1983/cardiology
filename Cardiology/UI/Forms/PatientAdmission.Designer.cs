@@ -38,11 +38,7 @@ namespace Cardiology.UI.Forms
             this.directorCardioReanimPnl = new System.Windows.Forms.GroupBox();
             this.directorCardioReanimBox = new System.Windows.Forms.ComboBox();
             this.placeBox = new System.Windows.Forms.GroupBox();
-            this.bedTxt = new System.Windows.Forms.TextBox();
             this.roomTxt = new System.Windows.Forms.TextBox();
-            this.kagInfoBox = new System.Windows.Forms.GroupBox();
-            this.hasKagBtn = new System.Windows.Forms.RadioButton();
-            this.hasNoKagBtn = new System.Windows.Forms.RadioButton();
             this.admisPatient = new System.Windows.Forms.Button();
             this.admissionDateBox = new System.Windows.Forms.GroupBox();
             this.patientReceiptTime = new System.Windows.Forms.DateTimePicker();
@@ -92,7 +88,6 @@ namespace Cardiology.UI.Forms
             this.anesthetistBox.SuspendLayout();
             this.directorCardioReanimPnl.SuspendLayout();
             this.placeBox.SuspendLayout();
-            this.kagInfoBox.SuspendLayout();
             this.admissionDateBox.SuspendLayout();
             this.medCodeBox.SuspendLayout();
             this.directorDepartmentBox.SuspendLayout();
@@ -112,7 +107,6 @@ namespace Cardiology.UI.Forms
             this.lordOfTheCotBox.Controls.Add(this.anesthetistBox);
             this.lordOfTheCotBox.Controls.Add(this.directorCardioReanimPnl);
             this.lordOfTheCotBox.Controls.Add(this.placeBox);
-            this.lordOfTheCotBox.Controls.Add(this.kagInfoBox);
             this.lordOfTheCotBox.Controls.Add(this.admisPatient);
             this.lordOfTheCotBox.Controls.Add(this.admissionDateBox);
             this.lordOfTheCotBox.Controls.Add(this.medCodeBox);
@@ -190,64 +184,21 @@ namespace Cardiology.UI.Forms
             // 
             this.placeBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.placeBox.Controls.Add(this.bedTxt);
             this.placeBox.Controls.Add(this.roomTxt);
-            this.placeBox.Location = new System.Drawing.Point(6, 440);
+            this.placeBox.Location = new System.Drawing.Point(6, 401);
             this.placeBox.Name = "placeBox";
             this.placeBox.Size = new System.Drawing.Size(254, 46);
             this.placeBox.TabIndex = 10;
             this.placeBox.TabStop = false;
             this.placeBox.Text = "Палата/Койка";
             // 
-            // bedTxt
-            // 
-            this.bedTxt.Location = new System.Drawing.Point(77, 16);
-            this.bedTxt.Name = "bedTxt";
-            this.bedTxt.Size = new System.Drawing.Size(64, 20);
-            this.bedTxt.TabIndex = 1;
-            this.bedTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyDigits_KeyPress);
-            // 
             // roomTxt
             // 
             this.roomTxt.Location = new System.Drawing.Point(7, 16);
             this.roomTxt.Name = "roomTxt";
-            this.roomTxt.Size = new System.Drawing.Size(64, 20);
+            this.roomTxt.Size = new System.Drawing.Size(80, 20);
             this.roomTxt.TabIndex = 0;
             this.roomTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OnlyDigits_KeyPress);
-            // 
-            // kagInfoBox
-            // 
-            this.kagInfoBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.kagInfoBox.Controls.Add(this.hasKagBtn);
-            this.kagInfoBox.Controls.Add(this.hasNoKagBtn);
-            this.kagInfoBox.Location = new System.Drawing.Point(6, 394);
-            this.kagInfoBox.Name = "kagInfoBox";
-            this.kagInfoBox.Size = new System.Drawing.Size(254, 46);
-            this.kagInfoBox.TabIndex = 9;
-            this.kagInfoBox.TabStop = false;
-            // 
-            // hasKagBtn
-            // 
-            this.hasKagBtn.AutoSize = true;
-            this.hasKagBtn.Location = new System.Drawing.Point(98, 17);
-            this.hasKagBtn.Name = "hasKagBtn";
-            this.hasKagBtn.Size = new System.Drawing.Size(75, 17);
-            this.hasKagBtn.TabIndex = 1;
-            this.hasKagBtn.Text = "Было КАГ";
-            this.hasKagBtn.UseVisualStyleBackColor = true;
-            // 
-            // hasNoKagBtn
-            // 
-            this.hasNoKagBtn.AutoSize = true;
-            this.hasNoKagBtn.Checked = true;
-            this.hasNoKagBtn.Location = new System.Drawing.Point(7, 17);
-            this.hasNoKagBtn.Name = "hasNoKagBtn";
-            this.hasNoKagBtn.Size = new System.Drawing.Size(91, 17);
-            this.hasNoKagBtn.TabIndex = 0;
-            this.hasNoKagBtn.TabStop = true;
-            this.hasNoKagBtn.Text = "Не было КАГ";
-            this.hasNoKagBtn.UseVisualStyleBackColor = true;
             // 
             // admisPatient
             // 
@@ -750,8 +701,6 @@ namespace Cardiology.UI.Forms
             this.directorCardioReanimPnl.ResumeLayout(false);
             this.placeBox.ResumeLayout(false);
             this.placeBox.PerformLayout();
-            this.kagInfoBox.ResumeLayout(false);
-            this.kagInfoBox.PerformLayout();
             this.admissionDateBox.ResumeLayout(false);
             this.medCodeBox.ResumeLayout(false);
             this.medCodeBox.PerformLayout();
@@ -802,11 +751,7 @@ namespace Cardiology.UI.Forms
         private System.Windows.Forms.Label addressLbl;
         private System.Windows.Forms.RadioButton femaleChb;
         private System.Windows.Forms.RadioButton maleChb;
-        private System.Windows.Forms.GroupBox kagInfoBox;
-        private System.Windows.Forms.RadioButton hasKagBtn;
-        private System.Windows.Forms.RadioButton hasNoKagBtn;
         private System.Windows.Forms.GroupBox placeBox;
-        private System.Windows.Forms.TextBox bedTxt;
         private System.Windows.Forms.TextBox roomTxt;
         private System.Windows.Forms.TextBox snilsTxt;
         private System.Windows.Forms.Label snilsLbl;

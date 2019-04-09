@@ -3,10 +3,10 @@ namespace Cardiology.Data.Model2
 {
     public enum DdtJournalDsiType : int 
     {
-        BEFORE_KAG = 0,
-        AFTER_KAG = 1,
-        WITHOUT_KAG = 2,
-        PENDING_JUSTIFICATION = 3,
-        AFTER_PENDING = 4
+        BeforeKag = 0,
+        AfterKag = 1,
+        WithoutKag = 2,
+        PendingJustification = 3,
+        AfterPending = 4
     }
 }

@@ -3,11 +3,14 @@ using System.Data.Common;
 using System.Collections.Generic;
 using Cardiology.Data.Model2;
 using Cardiology.Data.Commons;
+using NLog;
+using System.Globalization;
 
 namespace Cardiology.Data.PostgreSQL
 {
     public class PgDdtHistoryService : IDdtHistoryService
     {
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
         private readonly IDbConnectionFactory connectionFactory;
 
         public PgDdtHistoryService(IDbConnectionFactory connectionFactory)
@@ -21,6 +24,9 @@ namespace Cardiology.Data.PostgreSQL
             using (dynamic connection = connectionFactory.GetConnection())
             {
                 String sql = "SELECT r_object_id, dsid_operation_id, dsdt_operation_date, r_creation_date, dsid_doctor, dsid_patient, dss_operation_name, dsid_hospitality_session, dsb_deleted, dss_description, r_modify_date, dsdt_delete_date, dss_operation_type FROM ddt_history";
+
+                Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -52,6 +58,9 @@ namespace Cardiology.Data.PostgreSQL
             using (dynamic connection = connectionFactory.GetConnection())
             {
                 String sql = String.Format("SELECT r_object_id, dsid_operation_id, dsdt_operation_date, r_creation_date, dsid_doctor, dsid_patient, dss_operation_name, dsid_hospitality_session, dsb_deleted, dss_description, r_modify_date, dsdt_delete_date, dss_operation_type FROM ddt_history WHERE r_object_id = '{0}'", id);
+
+                Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -82,7 +91,10 @@ namespace Cardiology.Data.PostgreSQL
         {
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = String.Format("delete from ddt_history  WHERE dsid_operation_id='@{0}'", operationId);
+                String sql = String.Format("delete from ddt_history  WHERE dsid_operation_id='{0}'", operationId);
+
+                Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 command.ExecuteScalar();
             }

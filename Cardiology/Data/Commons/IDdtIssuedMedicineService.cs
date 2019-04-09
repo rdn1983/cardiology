@@ -11,7 +11,7 @@ namespace Cardiology.Data.Commons
 
         DdtIssuedMedicine GetById(string id);
 
-        void Save(DdtIssuedMedicine obj);
+        string Save(DdtIssuedMedicine obj);
 
         void Delete(string id);
     }

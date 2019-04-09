@@ -7,3 +7,5 @@ INSERT INTO dm_group (dss_name, dss_description) VALUES ('therapy_deputy_head', 
 INSERT INTO dm_group (dss_name, dss_description) VALUES ('anesthesiology_head', 'Зав. центра анестезиологии и реанимации');
 INSERT INTO dm_group (dss_name, dss_description) VALUES ('surgery_head', 'Зав. центра хирургии');
 INSERT INTO dm_group (dss_name, dss_description) VALUES ('duty_administrators', 'Дежурные администраторы');
+INSERT INTO dm_group (dss_name, dss_description) VALUES ('nurses', 'Дежурные мед. сестры');
+INSERT INTO dm_group (dss_name, dss_description) VALUES ('clinical_pharmacologists', 'Клинические фармакологи');

@@ -14,7 +14,7 @@ namespace Cardiology.Commons
 
         public bool accept(string templateType)
         {
-            return DdtInspection.NAME.Equals(templateType);
+            return DdtInspection.NAME.Equals(templateType, StringComparison.Ordinal);
         }
 
         public string processTemplate(IDbDataService service, string hospitalitySession, string objectId, Dictionary<string, string> aditionalValues)
@@ -89,7 +89,7 @@ namespace Cardiology.Commons
         {
             StringBuilder bld = new StringBuilder();
             DdtJournal kagJournal = service.GetDdtJournalService()
-                .GetByHospitalSessionAndJournalType(sessionId, (int) DdtJournalDsiType.AFTER_KAG);
+                .GetByHospitalSessionAndJournalType(sessionId, (int) DdtJournalDsiType.AfterKag);
             if (kagJournal != null)
             {
                 DdtKag kag = service.GetDdtKagService().GetByParentId(kagJournal.ObjectId);

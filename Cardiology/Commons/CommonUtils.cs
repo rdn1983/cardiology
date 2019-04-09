@@ -1,35 +1,33 @@
 ﻿using Cardiology.Data;
+using Cardiology.Data.Model2;
 using NLog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using Cardiology.Data.Model2;
 using static System.Windows.Forms.ComboBox;
 
 namespace Cardiology.Commons
 {
-    public class CommonUtils
+    static class CommonUtils
     {
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
 
         internal static void InitDoctorsComboboxValues(IDbDataService service, ComboBox cb, string whereCnd)
         {
             cb.Items.Clear();
-            string query = @"SELECT dss_full_name, r_object_id, dss_middle_name, dss_first_name, r_modify_date, dss_short_name, r_creation_date, dss_last_name FROM ddv_doctor " + (string.IsNullOrEmpty(whereCnd) ? "" : (" WHERE " + whereCnd));
-            List<DdvDoctor> doctors = service.GetDdvDoctorService().GetByQuery(query);
-            cb.Items.AddRange(doctors.ToArray());
+            string query = @"SELECT r_object_id, dss_full_name, dss_middle_name, dss_first_name, r_modify_date, dss_short_name, r_creation_date, dss_last_name FROM ddv_doctor " + (string.IsNullOrEmpty(whereCnd) ? "" : (" WHERE " + whereCnd));
+            IList<DdvDoctor> doctors = service.GetDdvDoctorService().GetByQuery(query);
+            cb.DataSource = doctors;
             cb.ValueMember = "ObjectId";
             cb.DisplayMember = "ShortName";
         }
 
         internal static void InitDoctorsByGroupComboboxValues(IDbDataService service, ComboBox cb, string groupName)
         {
-            cb.Items.Clear();
-            string query = @"SELECT d.dss_full_name, d.r_object_id, d.dss_middle_name, d.dss_first_name, d.r_modify_date, d.dss_short_name, d.r_creation_date, d.dss_last_name FROM ddv_doctor d, dm_group_users gr WHERE gr.dss_group_name='" + groupName + "' AND gr.dsid_doctor_id=d.r_object_id";
-            List<DdvDoctor> doctors = service.GetDdvDoctorService().GetByQuery(query);
-            cb.Items.AddRange(doctors.ToArray());
+            string query = @"SELECT d.r_object_id, d.dss_full_name, d.dss_middle_name, d.dss_first_name, d.r_modify_date, d.dss_short_name, d.r_creation_date, d.dss_last_name FROM ddv_doctor d, dm_group_users gr WHERE gr.dss_group_name='" + groupName + "' AND gr.dsid_doctor_id=d.r_object_id";
+            cb.DataSource = service.GetDdvDoctorService().GetByQuery(query);
             cb.ValueMember = "ObjectId";
             cb.DisplayMember = "ShortName";
         }
@@ -203,9 +201,11 @@ namespace Cardiology.Commons
                 " AND dsdt_inspection_date<to_timestamp('" + incpectionDate.ToShortDateString() + " " + incpectionDate.ToLongTimeString() + "', 'DD.MM.YYYY HH24:MI:SS') ORDER BY dsdt_inspection_date DESC";
             DateTime startDate = service.GetTime(startDateQuery);
 
-            return service.GetDdtJournalService().GetObject(@"SELECT * FROM " + DdtJournal.NAME +
+            return service.GetDdtJournalService().GetObject(@"SELECT r_object_id, dss_diagnosis, dss_chss, dss_chdd, r_creation_date, dss_complaints, "+
+                "dss_surgeon_exam, dss_ekg, dsdt_admission_date, dss_monitor, dss_rhythm, dsid_doctor, dsid_patient, dss_ps, dss_ad, dsid_hospitality_session,"+
+                " r_modify_date, dss_cardio_exam, dsi_journal_type, dsb_good_rhythm, dsb_release_journal, dss_journal FROM " + DdtJournal.NAME +
                 " WHERE dsid_hospitality_session='" + sessionId + "'" +
-                    " AND dsi_journal_type=" + (int)DdtJournalDsiType.AFTER_KAG +
+                    " AND dsi_journal_type=" + (int)DdtJournalDsiType.AfterKag +
                     (startDate != default(DateTime) ? (" AND dsdt_admission_date>=to_timestamp('" + startDate.ToShortDateString() + " " + startDate.ToLongTimeString() + "', 'dd.mm.yyyy HH24:mi:ss')") : "") +
                     " AND dsdt_admission_date<=to_timestamp('" + incpectionDate.ToShortDateString() + " " + incpectionDate.ToLongTimeString() + "', 'dd.mm.yyyy HH24:mi:ss')");
 
@@ -220,7 +220,7 @@ namespace Cardiology.Commons
 
                     int index = -1;
                     StringBuilder resultBuilder = new StringBuilder();
-                    if ((index = journal.IndexOf(mask)) >= 0)
+                    if ((index = journal.IndexOf(mask, StringComparison.Ordinal)) >= 0)
                     {
                         int startIndex = index + mask.Length - 1;
                         int counter = 0;
@@ -277,6 +277,7 @@ namespace Cardiology.Commons
             catch (Exception ex)
             {
                 Logger.Error(ex, ex.Message);
+                throw;
             }
             return journal;
 

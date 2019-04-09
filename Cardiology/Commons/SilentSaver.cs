@@ -50,7 +50,7 @@ namespace Cardiology.Commons
             if (start && form != null)
             {
                 logger.Debug("auto save is started");
-                form.save();
+                form.Save();
                 logger.Debug("auto save is ended");
             }
         }

@@ -49,7 +49,10 @@ namespace Cardiology.UI.Forms
                 Text += " " + patient.ShortName;
             }
 
-            List<DdtJournal> journals = service.GetDdtJournalService().GetByQuery(@"Select * FROM ddt_journal WHERE r_object_id IN ('" +
+            List<DdtJournal> journals = service.GetDdtJournalService().GetByQuery(@"Select r_object_id, dss_diagnosis, dss_chss, dss_chdd, r_creation_date, "+
+                "dss_complaints, dss_surgeon_exam, dss_ekg, dsdt_admission_date, dss_monitor, dss_rhythm, dsid_doctor, dsid_patient, dss_ps, dss_ad,"+
+                " dsid_hospitality_session, r_modify_date, dss_cardio_exam, dsi_journal_type, dsb_good_rhythm, dsb_release_journal, dss_journal "+
+                "FROM ddt_journal WHERE r_object_id IN ('" +
                 journalIds.Aggregate((a, b) => a + "','" + b) + "') ORDER BY dsdt_admission_date ASC");
             foreach (DdtJournal j in journals)
             {
@@ -67,7 +70,7 @@ namespace Cardiology.UI.Forms
         {
             if (validate())
             {
-                save();
+                Save();
                 Close();
             }
         }
@@ -84,7 +87,7 @@ namespace Cardiology.UI.Forms
             return isValid;
         }
 
-        public bool save()
+        public bool Save()
         {
             journalIds.Clear();
             foreach (Control c in journalContainer.Controls)
@@ -104,7 +107,7 @@ namespace Cardiology.UI.Forms
         {
             if (validate())
             {
-                save();
+                Save();
     
                 List<string> paths = new List<string>();
                 ITemplateProcessor processor = TemplateProcessorManager.getProcessorByObjectType(DdtJournal.NAME);
@@ -129,7 +132,7 @@ namespace Cardiology.UI.Forms
 
         private void createJournalMenu_Click(object sender, EventArgs e)
         {
-            JournalNoKAGControl nextJournal = new JournalNoKAGControl(null, (int)DdtJournalDsiType.BEFORE_KAG, hospitalitySession.CuringDoctor);
+            JournalNoKAGControl nextJournal = new JournalNoKAGControl(null, (int)DdtJournalDsiType.BeforeKag, hospitalitySession.CuringDoctor);
             if (journalContainer.Controls.Count > 0)
             {
                 JournalNoKAGControl lastJournal = (JournalNoKAGControl)journalContainer.Controls[journalContainer.Controls.Count - 1];
@@ -142,7 +145,7 @@ namespace Cardiology.UI.Forms
 
         private void createDefferedJournalMenu_Click(object sender, EventArgs e)
         {
-            JournalNoKAGControl goodJournalBefore = new JournalNoKAGControl(null, (int)DdtJournalDsiType.BEFORE_KAG, hospitalitySession.CuringDoctor);
+            JournalNoKAGControl goodJournalBefore = new JournalNoKAGControl(null, (int)DdtJournalDsiType.BeforeKag, hospitalitySession.CuringDoctor);
             if (journalContainer.Controls.Count > 0)
             {
                 JournalNoKAGControl lastJournal = (JournalNoKAGControl)journalContainer.Controls[journalContainer.Controls.Count - 1];
@@ -153,13 +156,13 @@ namespace Cardiology.UI.Forms
             }
             journalContainer.Controls.Add(goodJournalBefore);
 
-            JournalNoKAGControl badJournal = new JournalNoKAGControl(null, (int)DdtJournalDsiType.PENDING_JUSTIFICATION, hospitalitySession.CuringDoctor);
+            JournalNoKAGControl badJournal = new JournalNoKAGControl(null, (int)DdtJournalDsiType.PendingJustification, hospitalitySession.CuringDoctor);
             badJournal.initTime(goodJournalBefore.getJournalDateTime().AddHours(1));
             badJournal.initDocName(goodJournalBefore.getDocName());
             badJournal.initRhytm(goodJournalBefore.isGoodRhytm());
             journalContainer.Controls.Add(badJournal);
 
-            JournalNoKAGControl goodJournal = new JournalNoKAGControl(null, (int)DdtJournalDsiType.AFTER_PENDING, hospitalitySession.CuringDoctor);
+            JournalNoKAGControl goodJournal = new JournalNoKAGControl(null, (int)DdtJournalDsiType.AfterPending, hospitalitySession.CuringDoctor);
             goodJournal.initTime(badJournal.getJournalDateTime().AddMinutes(15));
             goodJournal.initDocName(badJournal.getDocName());
             goodJournal.initRhytm(badJournal.isGoodRhytm());

@@ -7,11 +7,13 @@ namespace Cardiology.Data.Commons
     {
         IList<DdtConsiliumGroupMember> GetAll();
 
+        IList<DdtConsiliumGroupMember> GetDefault();
+
         DdtConsiliumGroupMember GetById(string id);
 
         DdtConsiliumGroupMember GetByGroupName(string groupName);
 
-        DdtConsiliumGroupMember GetByDoctorId(string id);
+        DdtConsiliumGroupMember GetByDoctorAndGroupId(string doctorId, string groupId);
 
         string Save(DdtConsiliumGroupMember obj);
     }

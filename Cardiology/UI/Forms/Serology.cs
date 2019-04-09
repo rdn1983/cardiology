@@ -55,7 +55,7 @@ namespace Cardiology.UI.Forms
 
         private void LoadBoxValues(ComboBox box, string type)
         {
-            IList<DdtValues> list = service.GetDdtValuesService().GetListByNameLike(type + ".'");
+            IList<DdtValues> list = service.GetDdtValuesService().GetListByNameLike(type + ".");
             box.DataSource = list;
 
             box.ValueMember = "Value";

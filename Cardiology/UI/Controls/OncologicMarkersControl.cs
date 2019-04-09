@@ -28,7 +28,7 @@ namespace Cardiology.UI.Controls
         private void initControls()
         {
 
-            DdtOncologicMarkers markers = DbDataService.GetService().GetDdtOncologicMarkersService().GetById(objectId);
+            DdtOncologicMarkers markers = DbDataService.GetInstance().GetDdtOncologicMarkersService().GetById(objectId);
             refreshObject(markers);
             ceaTxt.Enabled = isEditable;
             psaCommonTxt.Enabled = isEditable;
@@ -59,7 +59,7 @@ namespace Cardiology.UI.Controls
                     oncologicMarkers.ParentType = parentType;
                 }
 
-                objectId = DbDataService.GetService().GetDdtOncologicMarkersService().Save(oncologicMarkers);
+                objectId = DbDataService.GetInstance().GetDdtOncologicMarkersService().Save(oncologicMarkers);
                 isNew = false;
                 hasChanges = false;
             }
@@ -85,7 +85,7 @@ namespace Cardiology.UI.Controls
         public object getObject()
         {
 
-            DdtOncologicMarkers markerObj = DbDataService.GetService().GetDdtOncologicMarkersService().GetById(objectId);
+            DdtOncologicMarkers markerObj = DbDataService.GetInstance().GetDdtOncologicMarkersService().GetById(objectId);
             if (markerObj == null)
             {
                 markerObj = new DdtOncologicMarkers();

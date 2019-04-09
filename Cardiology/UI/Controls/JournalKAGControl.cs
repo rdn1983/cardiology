@@ -41,7 +41,7 @@ namespace Cardiology.UI.Controls
             CommonUtils.InitRangedItems(chddTxt, 14, 26);
 
 
-            DdtVariousSpecConcluson obj = DbDataService.GetService().GetDdtVariousSpecConclusonService().GetById(objId);
+            DdtVariousSpecConcluson obj = DbDataService.GetInstance().GetDdtVariousSpecConclusonService().GetById(objId);
             refreshObject(obj);
         }
 
@@ -55,8 +55,8 @@ namespace Cardiology.UI.Controls
                 chddTxt.Text = journal.AdditionalInfo1;
                 adTxt.Text = journal.AdditionalInfo3;
                 chssTxt.Text = journal.AdditionalInfo2;
-                goodRhytmBtn0.Checked = "синусовый ритм".Equals(journal.AdditionalInfo4);
-                badRhytmBtn0.Checked = !"синусовый ритм".Equals(journal.AdditionalInfo4);
+                goodRhytmBtn0.Checked = "синусовый ритм".Equals(journal.AdditionalInfo4, StringComparison.Ordinal);
+                badRhytmBtn0.Checked = !"синусовый ритм".Equals(journal.AdditionalInfo4, StringComparison.Ordinal);
                 monitorTxt0.Text = journal.AdditionalInfo4;
                 objId = journal.ObjectId;
                 isNew = string.IsNullOrEmpty(objId);
@@ -79,7 +79,7 @@ namespace Cardiology.UI.Controls
         public object getObject()
         {
 
-            DdtVariousSpecConcluson result = DbDataService.GetService().GetDdtVariousSpecConclusonService().GetById(objId);
+            DdtVariousSpecConcluson result = DbDataService.GetInstance().GetDdtVariousSpecConclusonService().GetById(objId);
             if (result == null)
             {
                 result = new DdtVariousSpecConcluson();
@@ -136,7 +136,7 @@ namespace Cardiology.UI.Controls
             conclusion.SpecialistType = "Дежурный кардиореаниматолог";
             conclusion.AdditionalBool = isReleaseJournal;
 
-            objId = DbDataService.GetService().GetDdtVariousSpecConclusonService().Save(conclusion);
+            objId = DbDataService.GetInstance().GetDdtVariousSpecConclusonService().Save(conclusion);
             isNew = false;
             hasChanges = false;
         }

@@ -15,5 +15,9 @@ namespace Cardiology.Data.Commons
         DdvDoctor GetById(string id);
 
         DdvDoctor GetObject(string sql);
+
+        IList<DdvDoctor> GetByConsiliumGroupId(string consiliumGroupId);
+
+        IList<DdvDoctor> GetByGroupNameAndOrder(string groupName, string orderName);
     }
 }

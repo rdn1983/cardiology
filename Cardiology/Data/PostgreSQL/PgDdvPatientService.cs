@@ -3,11 +3,14 @@ using System.Data.Common;
 using System.Collections.Generic;
 using Cardiology.Data.Model2;
 using Cardiology.Data.Commons;
+using NLog;
+using System.Globalization;
 
 namespace Cardiology.Data.PostgreSQL
 {
     public class PgDdvPatientService : IDdvPatientService
     {
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
         private readonly IDbConnectionFactory connectionFactory;
 
         public PgDdvPatientService(IDbConnectionFactory connectionFactory)
@@ -20,7 +23,12 @@ namespace Cardiology.Data.PostgreSQL
             IList<DdvPatient> list = new List<DdvPatient>();
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = "SELECT dss_address, r_object_id, dss_full_name, dss_middle_name, dss_passport_num, dss_first_name, dsd_weight, dss_snils, r_creation_date, dss_last_name, dss_passport_date, r_modify_date, dss_phone, dss_passport_serial, dss_oms, dss_short_name, dsdt_birthdate, dsb_sd, dss_med_code, dss_passport_issue_place, dsd_high FROM ddv_patient";
+                String sql = "SELECT dss_address, r_object_id, dss_full_name, dss_middle_name, dss_passport_num, " +
+                    "dss_first_name, dsd_weight, dss_snils, r_creation_date, dss_last_name, dss_passport_date, " +
+                    "r_modify_date, dss_phone, dss_passport_serial, dss_oms, dss_short_name, dsdt_birthdate, " +
+                    "dsb_sd, dss_med_code, dss_passport_issue_place, dsd_high, dsi_sex FROM ddv_patient";
+                Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -33,7 +41,7 @@ namespace Cardiology.Data.PostgreSQL
                         obj.MiddleName = reader.IsDBNull(3) ? null : reader.GetString(3);
                         obj.PassportNum = reader.IsDBNull(4) ? null : reader.GetString(4);
                         obj.FirstName = reader.IsDBNull(5) ? null : reader.GetString(5);
-                        obj.Weight = reader.GetFloat(6);
+                        obj.Weight = reader.IsDBNull(6) ? -1 : reader.GetFloat(6);
                         obj.Snils = reader.IsDBNull(7) ? null : reader.GetString(7);
                         obj.CreationDate = reader.IsDBNull(8) ? DateTime.MinValue : reader.GetDateTime(8);
                         obj.LastName = reader.IsDBNull(9) ? null : reader.GetString(9);
@@ -47,7 +55,8 @@ namespace Cardiology.Data.PostgreSQL
                         obj.Sd = reader.GetBoolean(17);
                         obj.MedCode = reader.IsDBNull(18) ? null : reader.GetString(18);
                         obj.PassportIssuePlace = reader.IsDBNull(19) ? null : reader.GetString(19);
-                        obj.High = reader.GetFloat(20);
+                        obj.High = reader.IsDBNull(20) ? -1 : reader.GetFloat(20);
+                        obj.Sex = reader.IsDBNull(21) ? -1 : reader.GetInt16(21);
                         list.Add(obj);
                     }
                 }
@@ -59,7 +68,13 @@ namespace Cardiology.Data.PostgreSQL
         {
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = String.Format("SELECT dss_address, r_object_id, dss_full_name, dss_middle_name, dss_passport_num, dss_first_name, dsd_weight, dss_snils, r_creation_date, dss_last_name, dss_passport_date, r_modify_date, dss_phone, dss_passport_serial, dss_oms, dss_short_name, dsdt_birthdate, dsb_sd, dss_med_code, dss_passport_issue_place, dsd_high FROM ddv_patient WHERE r_object_id = '{0}'", id);
+                String sql = String.Format("SELECT dss_address, r_object_id, dss_full_name, dss_middle_name, " +
+                    "dss_passport_num, dss_first_name, dsd_weight, dss_snils, r_creation_date, dss_last_name, " +
+                    "dss_passport_date, r_modify_date, dss_phone, dss_passport_serial, dss_oms, dss_short_name, " +
+                    "dsdt_birthdate, dsb_sd, dss_med_code, dss_passport_issue_place, dsd_high, dsi_sex FROM ddv_patient" +
+                    " WHERE r_object_id = '{0}'", id);
+                Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -72,7 +87,7 @@ namespace Cardiology.Data.PostgreSQL
                         obj.MiddleName = reader.IsDBNull(3) ? null : reader.GetString(3);
                         obj.PassportNum = reader.IsDBNull(4) ? null : reader.GetString(4);
                         obj.FirstName = reader.IsDBNull(5) ? null : reader.GetString(5);
-                        obj.Weight = reader.GetFloat(6);
+                        obj.Weight = reader.IsDBNull(6) ? -1 : reader.GetFloat(6);
                         obj.Snils = reader.IsDBNull(7) ? null : reader.GetString(7);
                         obj.CreationDate = reader.IsDBNull(8) ? DateTime.MinValue : reader.GetDateTime(8);
                         obj.LastName = reader.IsDBNull(9) ? null : reader.GetString(9);
@@ -86,7 +101,8 @@ namespace Cardiology.Data.PostgreSQL
                         obj.Sd = reader.GetBoolean(17);
                         obj.MedCode = reader.IsDBNull(18) ? null : reader.GetString(18);
                         obj.PassportIssuePlace = reader.IsDBNull(19) ? null : reader.GetString(19);
-                        obj.High = reader.GetFloat(20);
+                        obj.High = reader.IsDBNull(20) ? -1 : reader.GetFloat(20);
+                        obj.Sex = reader.IsDBNull(21) ? -1 : reader.GetInt16(21);
                         return obj;
                     }
                 }
@@ -98,7 +114,13 @@ namespace Cardiology.Data.PostgreSQL
         {
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = String.Format("SELECT dss_address, r_object_id, dss_full_name, dss_middle_name, dss_passport_num, dss_first_name, dsd_weight, dss_snils, r_creation_date, dss_last_name, dss_passport_date, r_modify_date, dss_phone, dss_passport_serial, dss_oms, dss_short_name, dsdt_birthdate, dsb_sd, dss_med_code, dss_passport_issue_place, dsd_high FROM ddv_patient WHERE r_object_id = '{0}'", id);
+                String sql = String.Format("SELECT dss_address, r_object_id, dss_full_name, dss_middle_name, " +
+                    "dss_passport_num, dss_first_name, dsd_weight, dss_snils, r_creation_date, dss_last_name, " +
+                    "dss_passport_date, r_modify_date, dss_phone, dss_passport_serial, dss_oms, dss_short_name, " +
+                    "dsdt_birthdate, dsb_sd, dss_med_code, dss_passport_issue_place, dsd_high, dsi_sex FROM ddv_patient" +
+                    " WHERE r_object_id = '{0}'", id);
+                Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -111,7 +133,7 @@ namespace Cardiology.Data.PostgreSQL
                         obj.MiddleName = reader.IsDBNull(3) ? null : reader.GetString(3);
                         obj.PassportNum = reader.IsDBNull(4) ? null : reader.GetString(4);
                         obj.FirstName = reader.IsDBNull(5) ? null : reader.GetString(5);
-                        obj.Weight = reader.GetFloat(6);
+                        obj.Weight = reader.IsDBNull(6) ? -1 : reader.GetFloat(6);
                         obj.Snils = reader.IsDBNull(7) ? null : reader.GetString(7);
                         obj.CreationDate = reader.IsDBNull(8) ? DateTime.MinValue : reader.GetDateTime(8);
                         obj.LastName = reader.IsDBNull(9) ? null : reader.GetString(9);
@@ -125,7 +147,8 @@ namespace Cardiology.Data.PostgreSQL
                         obj.Sd = reader.GetBoolean(17);
                         obj.MedCode = reader.IsDBNull(18) ? null : reader.GetString(18);
                         obj.PassportIssuePlace = reader.IsDBNull(19) ? null : reader.GetString(19);
-                        obj.High = reader.GetFloat(20);
+                        obj.High = reader.IsDBNull(20) ? -1 : reader.GetFloat(20);
+                        obj.Sex = reader.IsDBNull(21) ? -1 : reader.GetInt16(21);
                         return obj;
                     }
                 }

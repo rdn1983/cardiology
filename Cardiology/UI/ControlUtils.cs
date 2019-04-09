@@ -10,11 +10,14 @@ namespace Cardiology.UI
     {
         internal static void InitDoctorsByGroupName(IDdvDoctorService service, ComboBox control, string groupName)
         {
-            control.Items.Clear();
+            control.DataSource = service.GetByGroupName(groupName);
+            control.ValueMember = "ObjectId";
+            control.DisplayMember = "ShortName";
+        }
 
-            IList<DdvDoctor> list = service.GetByGroupName(groupName);
-            control.DataSource = list;
-
+        internal static void InitDoctorsByGroupNameAndOrder(IDdvDoctorService service, ComboBox control, string groupName, string orderName)
+        {
+            control.DataSource = service.GetByGroupNameAndOrder(groupName, orderName);
             control.ValueMember = "ObjectId";
             control.DisplayMember = "ShortName";
         }
@@ -46,13 +49,23 @@ namespace Cardiology.UI
 
         internal static void InitGroupsComboboxValues(IDmGroupService service, ComboBox control)
         {
-            control.Items.Clear();
-
-            IList<DmGroup> list = service.GetAll();
-            control.DataSource = list;
-
+            control.DataSource = service.GetAll();
             control.ValueMember = "Name";
             control.DisplayMember = "Description";
+        }
+
+        internal static void InitConsiliumGroupsComboboxValues(IDdtConsiliumGroupService service, ComboBox control)
+        {
+            control.DataSource = service.GetAll();
+            control.ValueMember = "Name";
+            control.DisplayMember = "Description";
+        }
+
+        internal static void InitDoctorsByConsiliumGroupId(IDdvDoctorService service, ComboBox control, string consiliumGroupId)
+        {
+            control.DataSource = service.GetByConsiliumGroupId(consiliumGroupId);
+            control.ValueMember = "ObjectId";
+            control.DisplayMember = "ShortName";
         }
     }
 }

@@ -48,3 +48,17 @@ INSERT INTO ddt_doctor (dss_last_name, dss_first_name, dss_middle_name) VALUES (
 INSERT INTO ddt_doctor (dss_last_name, dss_first_name, dss_middle_name) VALUES ('Соболев', 'Владимир', 'Владимирович');
 INSERT INTO ddt_doctor (dss_last_name, dss_first_name, dss_middle_name) VALUES ('Шандалин', 'Вадим', 'Александрович');
 INSERT INTO ddt_doctor (dss_last_name, dss_first_name, dss_middle_name) VALUES ('Юрьев', 'Алексей', 'Александрович');
+INSERT INTO ddt_doctor (dss_last_name, dss_first_name, dss_middle_name) VALUES ('Ерхова', 'С', 'М');
+INSERT INTO ddt_doctor (dss_last_name, dss_first_name, dss_middle_name) VALUES ('Дербышева', 'И', 'А');
+INSERT INTO ddt_doctor (dss_last_name, dss_first_name, dss_middle_name) VALUES ('Саркисян', 'Е', 'С');
+INSERT INTO ddt_doctor (dss_last_name, dss_first_name, dss_middle_name) VALUES ('Шехватова', 'И', 'А');
+INSERT INTO ddt_doctor (dss_last_name, dss_first_name, dss_middle_name) VALUES ('Андреева', 'Е', 'А');
+INSERT INTO ddt_doctor (dss_last_name, dss_first_name, dss_middle_name) VALUES ('Наумов', 'А', 'М');
+INSERT INTO ddt_doctor (dss_last_name, dss_first_name, dss_middle_name) VALUES ('Чайковская', 'М', 'В');
+INSERT INTO ddt_doctor (dss_last_name, dss_first_name, dss_middle_name) VALUES ('Яковенко', 'Е', 'В');
+INSERT INTO ddt_doctor (dss_last_name, dss_first_name, dss_middle_name) VALUES ('Антипова', 'Е', 'Н');
+INSERT INTO ddt_doctor (dss_last_name, dss_first_name, dss_middle_name) VALUES ('Щербакова', 'Е', 'Е');
+INSERT INTO ddt_doctor (dss_last_name, dss_first_name, dss_middle_name) VALUES ('Толкованова', 'С', 'И');
+INSERT INTO ddt_doctor (dss_last_name, dss_first_name, dss_middle_name) VALUES ('Волохова', 'А', 'А');
+INSERT INTO ddt_doctor (dss_last_name, dss_first_name, dss_middle_name) VALUES ('Галицкий', 'А', 'А');
+INSERT INTO ddt_doctor (dss_last_name, dss_first_name, dss_middle_name) VALUES ('Гостева', 'И', 'В');

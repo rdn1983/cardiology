@@ -44,5 +44,7 @@ namespace Cardiology.Data.Model2
 
         public float High { get; set; }
 
+        public int Sex { get; set; }
+
     }
 }

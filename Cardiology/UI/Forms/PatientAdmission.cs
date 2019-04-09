@@ -22,21 +22,21 @@ namespace Cardiology.UI.Forms
                 SystemInformation.PrimaryMonitorSize.Height);
             this.patientBaseInfoBox.MaximumSize = halfScreenSize;
             this.lordOfTheCotBox.MaximumSize = halfScreenSize;
-            initDutyDoctors();
-            initControls();
+            InitDutyDoctors();
+            InitControls();
         }
 
-        private void initDutyDoctors()
+        private void InitDutyDoctors()
         {
 
             ControlUtils.InitDoctorsByGroupName(service.GetDdvDoctorService(), dutyCardioBox, "cardioreanimation_department");
-            ControlUtils.InitDoctorsByGroupName(service.GetDdvDoctorService(), directorCardioReanimBox, "cardioreanimation_department_head");           
+            ControlUtils.InitDoctorsByGroupNameAndOrder(service.GetDdvDoctorService(), directorCardioReanimBox, "cardioreanimation_department", "admission.cardioreanimation_department_head");           
             ControlUtils.InitDoctorsByGroupName(service.GetDdvDoctorService(), cardioDocBox, "xray_department");
-            ControlUtils.InitDoctorsByGroupName(service.GetDdvDoctorService(), subDoctorBox, "xray_department_head");
+            ControlUtils.InitDoctorsByGroupNameAndOrder(service.GetDdvDoctorService(), subDoctorBox, "xray_department", "admission.xray_department");
             ControlUtils.InitDoctorsByGroupName(service.GetDdvDoctorService(), anesthetistComboBox, "anesthesiology_department");
         }
 
-        private void initControls()
+        private void InitControls()
         {
             if (hospital == null)
             {
@@ -52,14 +52,16 @@ namespace Cardiology.UI.Forms
             phoneTxt.Text = patient.Phone;
             snilsTxt.Text = patient.Snils;
             omsTxt.Text = patient.Oms;
-            passportDataTxt.Text = patient.PassportDate.ToString();
+            passportDataTxt.Value = patient.PassportDate;
             passportIssuePlaceTxt.Text = patient.PassportIssuePlace;
             passportNumTxt.Text = patient.PassportNum;
             passportSerialTxt.Text = patient.PassportSerial;
-            weightTxt.Text = patient.Weight.ToString();
-            highTxt.Text = patient.High.ToString();
-            patientBirthDate.Text = patient.Birthdate.ToString();
+            weightTxt.Text = patient.Weight.ToString(CultureInfo.InvariantCulture);
+            highTxt.Text = patient.High.ToString(CultureInfo.InvariantCulture);
+            patientBirthDate.Value = patient.Birthdate;
             sdBtn.Checked = patient.Sd;
+            maleChb.Checked = patient.Sex == 0;
+            femaleChb.Checked = patient.Sex == 1;
 
             patientReceiptDate.Value = hospital.AdmissionDate;
             patientReceiptTime.Text = hospital.AdmissionDate.TimeOfDay.ToString();
@@ -79,14 +81,12 @@ namespace Cardiology.UI.Forms
             DdvDoctor anesthetistDoctor = service.GetDdvDoctorService().GetById(hospital.AnesthetistDoctor);
             anesthetistComboBox.SelectedIndex = anesthetistComboBox.FindStringExact(anesthetistDoctor.ShortName);
 
-            string[] roomCell = hospital.RoomCell.Split('/');
-            roomTxt.Text = roomCell[0];
-            bedTxt.Text = roomCell[1];
+            roomTxt.Text = hospital.RoomCell;
         }
 
         private void admisPatient_Click(object sender, EventArgs e)
         {
-            if (!getIsValid())
+            if (!GetIsValid())
             {
                 MessageBox.Show("Заполните поля помеченные жирным шрифтом!", "Warning", MessageBoxButtons.OK);
                 return;
@@ -99,7 +99,7 @@ namespace Cardiology.UI.Forms
             }
             patient.Address = addressTxt.Text.Trim();
             patient.LastName = patientLastName.Text.Trim();
-            patient.MiddleName = patientLastName.Text.Trim();
+            patient.MiddleName = patientSecondName .Text.Trim();
             patient.FirstName = patientFirstName.Text.Trim();
             patient.MedCode = medCodeTxt.Text.Trim();
             patient.Phone = phoneTxt.Text;
@@ -110,6 +110,7 @@ namespace Cardiology.UI.Forms
             patient.PassportNum = passportNumTxt.Text;
             patient.PassportSerial = passportSerialTxt.Text;
             patient.Sd = sdBtn.Checked;
+            patient.Sex = maleChb.Checked ? 0 : 1;
 
             if (!string.IsNullOrEmpty(weightTxt.Text))
             {
@@ -141,13 +142,13 @@ namespace Cardiology.UI.Forms
             DdvDoctor anesthetistDoctor = (DdvDoctor)anesthetistComboBox.SelectedItem;
             hospital.AnesthetistDoctor = anesthetistDoctor.ObjectId;
 
-            hospital.RoomCell = roomTxt.Text + "/" + bedTxt.Text;
+            hospital.RoomCell = roomTxt.Text?? roomTxt.Text.Trim();
             service.GetDdtHospitalService().Save(hospital);
             //todo перенести в статусную строку
             Close();
         }
 
-        private bool getIsValid()
+        private bool GetIsValid()
         {
             return !string.IsNullOrEmpty(patientLastName.Text) && !string.IsNullOrEmpty(patientFirstName.Text) &&
                 !string.IsNullOrEmpty(patientSecondName.Text) && dutyCardioBox.SelectedIndex >= 0 &&

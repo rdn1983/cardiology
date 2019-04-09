@@ -24,7 +24,7 @@ namespace Cardiology.UI.Controls
         private void initControls()
         {
 
-            DdtSpecialistConclusion specConclusion = DbDataService.GetService().GetDdtSpecialistConclusionService().GetById(objectId);
+            DdtSpecialistConclusion specConclusion = DbDataService.GetInstance().GetDdtSpecialistConclusionService().GetById(objectId);
             refreshObject(specConclusion);
             neurologTxt.ReadOnly = !isEditable;
             surgeonTxt.ReadOnly = !isEditable;
@@ -51,7 +51,7 @@ namespace Cardiology.UI.Controls
                     specConslusion.ParentType = parentType;
                 }
 
-                objectId = DbDataService.GetService().GetDdtSpecialistConclusionService().Save(specConslusion);
+                objectId = DbDataService.GetInstance().GetDdtSpecialistConclusionService().Save(specConslusion);
                 isNew = false;
                 hasChanges = false;
             }
@@ -76,7 +76,7 @@ namespace Cardiology.UI.Controls
         public object getObject()
         {
 
-            DdtSpecialistConclusion specConslusion = DbDataService.GetService().GetDdtSpecialistConclusionService().GetById(objectId);
+            DdtSpecialistConclusion specConslusion = DbDataService.GetInstance().GetDdtSpecialistConclusionService().GetById(objectId);
             if (specConslusion == null)
             {
                 specConslusion = new DdtSpecialistConclusion();

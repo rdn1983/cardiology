@@ -32,6 +32,14 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PatientsHistory));
             this.patientHistoryGrid = new System.Windows.Forms.DataGridView();
+            this.checkedToPrint = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.hospitalSession = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.operationType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.operationId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.operationName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.operationDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.docExecutor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.operationDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gridContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.editMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteMenu = new System.Windows.Forms.ToolStripMenuItem();
@@ -66,14 +74,6 @@
             this.journalWithoutKAGMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.konsiliumItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.checkedToPrint = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.hospitalSession = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.operationType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.operationId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.operationName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.operationDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.docExecutor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.operationDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.patientHistoryGrid)).BeginInit();
             this.gridContextMenu.SuspendLayout();
             this.mainMenu.SuspendLayout();
@@ -115,6 +115,62 @@
             this.patientHistoryGrid.Size = new System.Drawing.Size(776, 319);
             this.patientHistoryGrid.TabIndex = 0;
             this.patientHistoryGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.patientHistoryGrid_CellClick);
+            // 
+            // checkedToPrint
+            // 
+            this.checkedToPrint.HeaderText = "";
+            this.checkedToPrint.Name = "checkedToPrint";
+            this.checkedToPrint.ReadOnly = true;
+            this.checkedToPrint.Width = 30;
+            // 
+            // hospitalSession
+            // 
+            this.hospitalSession.HeaderText = "hospitalSession";
+            this.hospitalSession.Name = "hospitalSession";
+            this.hospitalSession.ReadOnly = true;
+            this.hospitalSession.Visible = false;
+            // 
+            // operationType
+            // 
+            this.operationType.HeaderText = "operationType";
+            this.operationType.Name = "operationType";
+            this.operationType.ReadOnly = true;
+            this.operationType.Visible = false;
+            // 
+            // operationId
+            // 
+            this.operationId.HeaderText = "operationId";
+            this.operationId.Name = "operationId";
+            this.operationId.ReadOnly = true;
+            this.operationId.Visible = false;
+            // 
+            // operationName
+            // 
+            this.operationName.HeaderText = "Название операции";
+            this.operationName.Name = "operationName";
+            this.operationName.ReadOnly = true;
+            this.operationName.Width = 250;
+            // 
+            // operationDate
+            // 
+            this.operationDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.operationDate.HeaderText = "Дата операции";
+            this.operationDate.Name = "operationDate";
+            this.operationDate.ReadOnly = true;
+            // 
+            // docExecutor
+            // 
+            this.docExecutor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.docExecutor.HeaderText = "Ответственный врач";
+            this.docExecutor.Name = "docExecutor";
+            this.docExecutor.ReadOnly = true;
+            // 
+            // operationDescription
+            // 
+            this.operationDescription.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.operationDescription.HeaderText = "Подробности";
+            this.operationDescription.Name = "operationDescription";
+            this.operationDescription.ReadOnly = true;
             // 
             // gridContextMenu
             // 
@@ -374,7 +430,7 @@
             // 
             this.journalWithoutKAGMenuItem.Name = "journalWithoutKAGMenuItem";
             this.journalWithoutKAGMenuItem.Size = new System.Drawing.Size(261, 22);
-            this.journalWithoutKAGMenuItem.Text = "Дневник без КАГ";
+            this.journalWithoutKAGMenuItem.Text = "Варианты дневников";
             this.journalWithoutKAGMenuItem.Click += new System.EventHandler(this.journalWithoutKAGMenuItem_Click);
             // 
             // toolStripSeparator2
@@ -388,62 +444,6 @@
             this.konsiliumItem.Size = new System.Drawing.Size(261, 22);
             this.konsiliumItem.Text = "Консилиум";
             this.konsiliumItem.Click += new System.EventHandler(this.konsiliumItem_Click);
-            // 
-            // checkedToPrint
-            // 
-            this.checkedToPrint.HeaderText = "";
-            this.checkedToPrint.Name = "checkedToPrint";
-            this.checkedToPrint.ReadOnly = true;
-            this.checkedToPrint.Width = 30;
-            // 
-            // hospitalSession
-            // 
-            this.hospitalSession.HeaderText = "hospitalSession";
-            this.hospitalSession.Name = "hospitalSession";
-            this.hospitalSession.ReadOnly = true;
-            this.hospitalSession.Visible = false;
-            // 
-            // operationType
-            // 
-            this.operationType.HeaderText = "operationType";
-            this.operationType.Name = "operationType";
-            this.operationType.ReadOnly = true;
-            this.operationType.Visible = false;
-            // 
-            // operationId
-            // 
-            this.operationId.HeaderText = "operationId";
-            this.operationId.Name = "operationId";
-            this.operationId.ReadOnly = true;
-            this.operationId.Visible = false;
-            // 
-            // operationName
-            // 
-            this.operationName.HeaderText = "Название операции";
-            this.operationName.Name = "operationName";
-            this.operationName.ReadOnly = true;
-            this.operationName.Width = 250;
-            // 
-            // operationDate
-            // 
-            this.operationDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.operationDate.HeaderText = "Дата операции";
-            this.operationDate.Name = "operationDate";
-            this.operationDate.ReadOnly = true;
-            // 
-            // docExecutor
-            // 
-            this.docExecutor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.docExecutor.HeaderText = "Ответственный врач";
-            this.docExecutor.Name = "docExecutor";
-            this.docExecutor.ReadOnly = true;
-            // 
-            // operationDescription
-            // 
-            this.operationDescription.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.operationDescription.HeaderText = "Подробности";
-            this.operationDescription.Name = "operationDescription";
-            this.operationDescription.ReadOnly = true;
             // 
             // PatientsHistory
             // 

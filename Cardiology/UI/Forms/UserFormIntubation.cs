@@ -14,12 +14,21 @@ namespace Cardiology.UI.Forms
         {
             InitializeComponent();
             initializeDoctorsBox();
+            initializeHeaderArea();
         }
 
         private void initializeDoctorsBox()
         {
             CommonUtils.InitDoctorsComboboxValues(DbDataService.GetInstance(), doctorsBox, null);
 
+        }
+
+        private void initializeHeaderArea()
+        {
+            RichTextBox headerArea = (RichTextBox) CommonUtils.FindControl(this, "headerArea");
+            headerArea.Text = "В связи с неэффективностью консервативной терапии, нарастающей дыхательной и сердечно-сосудистой недостаточностью " +
+                "принято решение перевести больного на ИВЛ. После предварительной оксигенации лицевой маской больной интубирован с первой попытки трубкой № 9. " +
+                "Трубка фиксирована. Дыхание проводится во все отделы, симметрично. Налажена ИВЛ в режиме SIMV, ДО - 550 мл, FIO2- 30%, P ins 15 mbr, PEEP 5 mbr";
         }
 
         private bool getIsNotValid()

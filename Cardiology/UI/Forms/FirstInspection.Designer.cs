@@ -122,6 +122,7 @@ namespace Cardiology.UI.Forms
             this.issuedCntr = new System.Windows.Forms.Panel();
             this.issuedMedicineContainer = new IssuedMedicineContainer();
             this.addIssuedMedicineBtn = new System.Windows.Forms.Button();
+            this.ekgAnalysisControlcs = new EkgAnalysisControlcs();
             this.firstAnalysisTab = new System.Windows.Forms.TabPage();
             this.tabs = new System.Windows.Forms.TabControl();
             this.ekgTab = new System.Windows.Forms.TabPage();
@@ -138,7 +139,6 @@ namespace Cardiology.UI.Forms
             this.docLbl = new System.Windows.Forms.Label();
             this.patientInitialsLbl = new System.Windows.Forms.Label();
             this.templateChanger = new TemplateChanger();
-            this.ekgAnalysisControlcs = new EkgAnalysisControlcs();
             this.complaintsBox.SuspendLayout();
             this.anamnesisMorbiBox.SuspendLayout();
             this.anamnesisAllergyBox.SuspendLayout();
@@ -1511,6 +1511,7 @@ namespace Cardiology.UI.Forms
         private System.Windows.Forms.Button addIssuedMedicineBtn;
         private System.Windows.Forms.TabPage firstAnalysisTab;
         private System.Windows.Forms.TabControl tabs;
+        private EkgAnalysisControlcs ekgAnalysisControlcs;
         private System.Windows.Forms.TabPage ekgTab;
         private System.Windows.Forms.TabPage egdsTab;
         private System.Windows.Forms.TabPage bloodTab;
@@ -1532,6 +1533,5 @@ namespace Cardiology.UI.Forms
         private BloodAnalysisControl bloodAnalysisControl;
         private UrineAnalysisControl urineAnalysisControl;
         private EgdsAnalysisControl egdsAnalysisControl1;
-        private EkgAnalysisControlcs ekgAnalysisControlcs;
     }
 }

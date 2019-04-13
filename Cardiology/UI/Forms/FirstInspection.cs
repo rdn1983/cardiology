@@ -61,6 +61,7 @@ namespace Cardiology.UI.Forms
             InitAdmissionAnalysis();
             InitDoctorComboBox();
             InitPatientInfo();
+            initAlco();
         }
 
         private void InitPatientInfo()
@@ -134,6 +135,16 @@ namespace Cardiology.UI.Forms
                 diagnosisTxt.Text = anamnesis.Diagnosis;
                 anamnesisAllergyTxt.Text = anamnesis.AnamnesisAllergy;
                 operationCauseTxt.Text = anamnesis.OperationCause;
+            }
+        }
+
+        private void initAlco()
+        {
+            String sql = String.Format("SELECT r_object_id FROM ddt_alco_protocol WHERE dsid_hospitality_session = '{0}'", anamnesis?.HospitalitySession);
+            string alcoProtocolId = service.GetString(sql);
+            if (alcoProtocolId != null)
+            {
+                alcoholBtn_Click(null, null);
             }
         }
 
@@ -653,7 +664,7 @@ namespace Cardiology.UI.Forms
         {
             lock (syncLock)
             {
-                if(Save())
+                if (Save())
                 {
                     Close();
                 }

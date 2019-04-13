@@ -93,6 +93,8 @@ namespace Cardiology.UI.Forms
             protocol.Trub = trubTxt.Text;
             protocol.Walk = walkTxt.Text;
             protocol.Cause = causeTxt.Text;
+            protocol.Doctor = hospitalitySession.CuringDoctor;
+            protocol.Patient = hospitalitySession.Patient;
 
             service.GetDdtAlcoProtocolService().Save(protocol);
             Close();

@@ -26,7 +26,8 @@ namespace Cardiology.Data.PostgreSQL
             {
                 String sql = "SELECT r_object_id, dss_pribor, dss_conclusion, dss_mimics, dss_breathe, dss_tremble, dss_illness, dss_orientation, dss_skin, " +
                     "dss_drunk, dss_pressure, dss_pulse, dsb_template, dss_touch_nose, dss_docs, dss_bio, dss_speech, dss_cause, dss_smell, dss_motions," +
-                    " r_creation_date, dsid_hospitality_session, dss_eyes, r_modify_date, dss_walk, dss_nistagm, dss_look, dss_trub, dss_behavior FROM ddt_alco_protocol";
+                    " r_creation_date, dsid_hospitality_session, dss_eyes, r_modify_date, dss_walk, dss_nistagm, dss_look, dss_trub, dss_behavior, dsid_doctor, dsid_patient " +
+                    "FROM ddt_alco_protocol";
 
                 Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
 
@@ -65,6 +66,8 @@ namespace Cardiology.Data.PostgreSQL
                         obj.Look = reader.IsDBNull(26) ? null : reader.GetString(26);
                         obj.Trub = reader.IsDBNull(27) ? null : reader.GetString(27);
                         obj.Behavior = reader.IsDBNull(28) ? null : reader.GetString(28);
+                        obj.Doctor = reader.IsDBNull(29) ? null : reader.GetString(29);
+                        obj.Doctor = reader.IsDBNull(30) ? null : reader.GetString(30);
                         list.Add(obj);
                     }
                 }
@@ -78,7 +81,7 @@ namespace Cardiology.Data.PostgreSQL
             {
                 String sql = String.Format("SELECT r_object_id, dss_pribor, dss_conclusion, dss_mimics, dss_breathe, dss_tremble, dss_illness, dss_orientation," +
                     " dss_skin, dss_drunk, dss_pressure, dss_pulse, dsb_template, dss_touch_nose, dss_docs, dss_bio, dss_speech, dss_cause, dss_smell, dss_motions, " +
-                    "r_creation_date, dsid_hospitality_session, dss_eyes, r_modify_date, dss_walk, dss_nistagm, dss_look, dss_trub, dss_behavior " +
+                    "r_creation_date, dsid_hospitality_session, dss_eyes, r_modify_date, dss_walk, dss_nistagm, dss_look, dss_trub, dss_behavior, dsid_doctor, dsid_patient " +
                     "FROM ddt_alco_protocol WHERE r_object_id = '{0}'", id);
 
                 Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
@@ -118,6 +121,8 @@ namespace Cardiology.Data.PostgreSQL
                         obj.Look = reader.IsDBNull(26) ? null : reader.GetString(26);
                         obj.Trub = reader.IsDBNull(27) ? null : reader.GetString(27);
                         obj.Behavior = reader.IsDBNull(28) ? null : reader.GetString(28);
+                        obj.Doctor = reader.IsDBNull(29) ? null : reader.GetString(29);
+                        obj.Doctor = reader.IsDBNull(30) ? null : reader.GetString(30);
                         return obj;
                     }
                 }
@@ -131,8 +136,8 @@ namespace Cardiology.Data.PostgreSQL
             {
                 String sql = String.Format("SELECT r_object_id, dss_pribor, dss_conclusion, dss_mimics, dss_breathe, dss_tremble, dss_illness, dss_orientation," +
                     " dss_skin, dss_drunk, dss_pressure, dss_pulse, dsb_template, dss_touch_nose, dss_docs, dss_bio, dss_speech, dss_cause, dss_smell," +
-                    " dss_motions, r_creation_date, dsid_hospitality_session, dss_eyes, r_modify_date, dss_walk, dss_nistagm, dss_look, dss_trub, dss_behavior " +
-                    "FROM ddt_alco_protocol WHERE dsid_hospitality_session = '{0}'", hospitalSessionId);
+                    " dss_motions, r_creation_date, dsid_hospitality_session, dss_eyes, r_modify_date, dss_walk, dss_nistagm, dss_look, dss_trub, dss_behavior, " +
+                    "dsid_doctor, dsid_patient FROM ddt_alco_protocol WHERE dsid_hospitality_session = '{0}'", hospitalSessionId);
 
                 Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
 
@@ -171,6 +176,8 @@ namespace Cardiology.Data.PostgreSQL
                         obj.Look = reader.IsDBNull(26) ? null : reader.GetString(26);
                         obj.Trub = reader.IsDBNull(27) ? null : reader.GetString(27);
                         obj.Behavior = reader.IsDBNull(28) ? null : reader.GetString(28);
+                        obj.Doctor = reader.IsDBNull(29) ? null : reader.GetString(29);
+                        obj.Doctor = reader.IsDBNull(30) ? null : reader.GetString(30);
                         return obj;
                     }
                 }
@@ -210,7 +217,9 @@ namespace Cardiology.Data.PostgreSQL
                                         "dss_bio = @Bio, " +
                                         "dss_docs = @Docs, " +
                                         "dss_conclusion = @Conclusion, " +
-                                        "dsb_template = @Template " +
+                                        "dsb_template = @Template, " +
+                                        "dsid_doctor= @Doctor, " +
+                                        "dsid_patient= @Patient " +
                                          "WHERE r_object_id = @ObjectId";
 
                     Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
@@ -245,14 +254,16 @@ namespace Cardiology.Data.PostgreSQL
                         cmd.Parameters.AddWithValue("@Conclusion", protocol.Conclusion == null ? "" : protocol.Conclusion);
                         cmd.Parameters.AddWithValue("@Template", protocol.Template);
                         cmd.Parameters.AddWithValue("@ObjectId", protocol.ObjectId);
+                        cmd.Parameters.AddWithValue("@Doctor", protocol.Doctor);
+                        cmd.Parameters.AddWithValue("@Patient", protocol.Patient);
                         cmd.ExecuteNonQuery();
                     }
                     return protocol.ObjectId;
                 }
                 else
                 {
-                    string sql = "INSERT INTO ddt_alco_protocol(dsid_hospitality_session,dss_look,dss_cause,dss_behavior,dss_orientation,dss_speech,dss_skin,dss_breathe,dss_pulse,dss_pressure,dss_eyes,dss_nistagm,dss_motions,dss_mimics,dss_walk,dss_touch_nose,dss_tremble,dss_illness,dss_drunk,dss_smell,dss_pribor,dss_trub,dss_bio,dss_docs,dss_conclusion,dsb_template) " +
-                                                              "VALUES(@HospitalitySession,@Look,@Cause,@Behavior,@Orientation,@Speech,@Skin,@Breathe,@Pulse,@Pressure,@Eyes,@Nistagm,@Motions,@Mimics,@Walk,@TouchNose,@Tremble,@Illness,@Drunk,@Smell,@Pribor,@Trub,@Bio,@Docs,@Conclusion,@Template) RETURNING r_object_id";
+                    string sql = "INSERT INTO ddt_alco_protocol(dsid_hospitality_session,dss_look,dss_cause,dss_behavior,dss_orientation,dss_speech,dss_skin,dss_breathe,dss_pulse,dss_pressure,dss_eyes,dss_nistagm,dss_motions,dss_mimics,dss_walk,dss_touch_nose,dss_tremble,dss_illness,dss_drunk,dss_smell,dss_pribor,dss_trub,dss_bio,dss_docs,dss_conclusion,dsb_template,dsid_doctor, dsid_patient) " +
+                                                              "VALUES(@HospitalitySession,@Look,@Cause,@Behavior,@Orientation,@Speech,@Skin,@Breathe,@Pulse,@Pressure,@Eyes,@Nistagm,@Motions,@Mimics,@Walk,@TouchNose,@Tremble,@Illness,@Drunk,@Smell,@Pribor,@Trub,@Bio,@Docs,@Conclusion,@Template,@Doctor,@Patient) RETURNING r_object_id";
 
                     Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
 
@@ -285,6 +296,8 @@ namespace Cardiology.Data.PostgreSQL
                         cmd.Parameters.AddWithValue("@Docs", protocol.Docs == null ? "" : protocol.Docs);
                         cmd.Parameters.AddWithValue("@Conclusion", protocol.Conclusion == null ? "" : protocol.Conclusion);
                         cmd.Parameters.AddWithValue("@Template", protocol.Template);
+                        cmd.Parameters.AddWithValue("@Doctor", protocol.Doctor);
+                        cmd.Parameters.AddWithValue("@Patient", protocol.Patient);
                         return (string)cmd.ExecuteScalar();
                     }
                 }

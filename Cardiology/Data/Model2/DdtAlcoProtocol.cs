@@ -50,6 +50,10 @@ namespace Cardiology.Data.Model2
 
         public string HospitalitySession { get; set; }
 
+        public string Doctor { get; set; }
+
+        public string Patient { get; set; }
+
         public string Eyes { get; set; }
 
         public DateTime ModifyDate { get; set; }

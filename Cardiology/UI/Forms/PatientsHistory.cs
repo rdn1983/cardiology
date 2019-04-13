@@ -172,6 +172,10 @@ namespace Cardiology.UI.Forms
             {
                 form = new PatientAdmission(service, hospitalitySession);
             }
+            else if (DdtAlcoProtocol.NAME.Equals(firstType, StringComparison.Ordinal))
+            {
+                form = new AlcoIntoxication(service, hospitalitySession);
+            }
 
             if (form != null)
             {

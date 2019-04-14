@@ -27,8 +27,8 @@ namespace Cardiology.UI.Controls
 
         private void pikvikItem_Click(object sender, EventArgs e)
         {
-
-            string value = service.GetString(@"SELECT " + attrName + " FROM ddt_anamnesis WHERE " +
+            string value = "dss_template_name".Equals(attrName, StringComparison.Ordinal)? "hobl" :
+                service.GetString(@"SELECT " + attrName + " FROM ddt_anamnesis WHERE " +
                 "dsb_template=true AND dss_template_name='pikvik'");
             listener?.Invoke(value);
             attrName = null;
@@ -93,8 +93,8 @@ namespace Cardiology.UI.Controls
 
         private void oksDownItem_Click(object sender, EventArgs e)
         {
-
-            string value = service.GetString(@"SELECT " + attrName + " FROM ddt_anamnesis WHERE " +
+            string value = "dss_template_name".Equals(attrName, StringComparison.Ordinal) ? "oks." :
+                service.GetString(@"SELECT " + attrName + " FROM ddt_anamnesis WHERE " +
                 "dsb_template=true AND dss_template_name='oksdown'");
             listener?.Invoke(value);
             attrName = null;
@@ -104,8 +104,8 @@ namespace Cardiology.UI.Controls
 
         private void oksUpItem_Click(object sender, EventArgs e)
         {
-
-            string value = service.GetString(@"SELECT " + attrName + " FROM ddt_anamnesis WHERE " +
+            string value = "dss_template_name".Equals(attrName, StringComparison.Ordinal) ? "okslongs" :
+                service.GetString(@"SELECT " + attrName + " FROM ddt_anamnesis WHERE " +
                 "dsb_template=true AND dss_template_name='oksup'");
             listener?.Invoke(value);
             attrName = null;
@@ -115,8 +115,8 @@ namespace Cardiology.UI.Controls
 
         private void piksItem_Click(object sender, EventArgs e)
         {
-
-            string value = service.GetString(@"SELECT " + attrName + " FROM ddt_anamnesis WHERE " +
+            string value = "dss_template_name".Equals(attrName, StringComparison.Ordinal) ? "nk" :
+                service.GetString(@"SELECT " + attrName + " FROM ddt_anamnesis WHERE " +
                 "dsb_template=true AND dss_template_name='piks'");
             listener?.Invoke(value);
             attrName = null;

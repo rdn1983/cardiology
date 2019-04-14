@@ -26,7 +26,7 @@ namespace Cardiology.Commons
                 values.Add(@"{admission.date}", hospitalSession.AdmissionDate.ToShortDateString());
                 values.Add(@"{patient.historycard}", patient.MedCode);
                 values.Add(@"{doctor.who}", doc.FullName);
-                values.Add(@"{patient.fullname}", patient.FirstName);
+                values.Add(@"{patient.fullname}", patient.FullName);
                 values.Add(@"{date}", DateTime.Now.ToShortDateString());
 
                 IList<DdvDoctor> allGroupsDoc = service.GetDdvDoctorService().GetByGroupName("cardioreanimation_department_head");

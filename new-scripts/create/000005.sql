@@ -21,7 +21,8 @@ CREATE TABLE ddt_patient (
   dss_passport_num         VARCHAR(20),
   dss_passport_issue_place VARCHAR(128),
   dss_passport_date        TIMESTAMP,
-  dsb_sd                   boolean
+  dsb_sd                   boolean,
+  dsb_sex                  boolean NOT NULL
 );
 
 CREATE TRIGGER ddt_patient_trg_modify_date
@@ -57,7 +58,7 @@ CREATE VIEW ddv_patient (
 
     dss_full_name,
     dss_short_name,
-	dsi_sex
+	dsb_sex
 ) AS
   SELECT
     r_object_id,
@@ -86,6 +87,6 @@ CREATE VIEW ddv_patient (
 
     CONCAT(dss_last_name, ' ', dss_first_name, ' ', dss_middle_name)                                   AS dss_full_name,
     CONCAT(dss_last_name, ' ', SUBSTR(dss_first_name, 1, 1), '. ', SUBSTR(dss_middle_name, 1, 1), '.') AS dss_short_name,
-	dsi_sex
+	dsb_sex
 
   FROM ddt_patient;

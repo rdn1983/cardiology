@@ -27,7 +27,7 @@ namespace Cardiology.Data.PostgreSQL
                 String sql = "SELECT r_object_id, dss_address, dss_middle_name, dss_passport_num, dss_first_name, " +
                     "dsd_weight, r_creation_date, dss_snils, dss_last_name, dss_passport_date, dss_phone," +
                     " r_modify_date, dss_oms, dss_passport_serial, dsdt_birthdate, dsb_sd, dss_med_code, " +
-                    "dss_passport_issue_place, dsd_high, dsi_sex FROM ddt_patient";
+                    "dss_passport_issue_place, dsd_high, dsb_sex FROM ddt_patient";
                 Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
 
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
@@ -55,7 +55,7 @@ namespace Cardiology.Data.PostgreSQL
                         obj.MedCode = reader.IsDBNull(16) ? null : reader.GetString(16);
                         obj.PassportIssuePlace = reader.IsDBNull(17) ? null : reader.GetString(17);
                         obj.High = reader.IsDBNull(18) ? -1 : reader.GetFloat(18);
-                        obj.Sex = reader.IsDBNull(19) ? -1 : reader.GetInt16(19);
+                        obj.Sex = reader.GetBoolean(19);
                         list.Add(obj);
                     }
                 }
@@ -70,7 +70,7 @@ namespace Cardiology.Data.PostgreSQL
                 String sql = String.Format("SELECT r_object_id, dss_address, dss_middle_name, dss_passport_num, " +
                     "dss_first_name, dsd_weight, r_creation_date, dss_snils, dss_last_name, dss_passport_date, " +
                     "dss_phone, r_modify_date, dss_oms, dss_passport_serial, dsdt_birthdate, dsb_sd, dss_med_code, " +
-                    "dss_passport_issue_place, dsd_high, dsi_sex FROM ddt_patient WHERE r_object_id = '{0}'", id);
+                    "dss_passport_issue_place, dsd_high, dsb_sex FROM ddt_patient WHERE r_object_id = '{0}'", id);
                 Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
 
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
@@ -98,7 +98,7 @@ namespace Cardiology.Data.PostgreSQL
                         obj.MedCode = reader.IsDBNull(16) ? null : reader.GetString(16);
                         obj.PassportIssuePlace = reader.IsDBNull(17) ? null : reader.GetString(17);
                         obj.High = reader.IsDBNull(18) ? -1 : reader.GetFloat(18);
-                        obj.Sex = reader.IsDBNull(19) ? -1 : reader.GetInt16(19);
+                        obj.Sex = reader.GetBoolean(19);
                         return obj;
                     }
                 }
@@ -130,7 +130,7 @@ namespace Cardiology.Data.PostgreSQL
                                             dss_med_code = @medCode, 
                                             dss_passport_issue_place = @passportIssuePlace, 
                                             dsd_high = @hight,
-                                            dsi_sex=@Sex
+                                            dsb_sex=@Sex
                                             WHERE r_object_id = @ObjectId";
 
                     Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
@@ -165,7 +165,7 @@ namespace Cardiology.Data.PostgreSQL
                     string sql = @"INSERT INTO ddt_patient (dss_address, dss_middle_name, dss_passport_num, 
                         dss_first_name, dsd_weight, dss_snils, dss_last_name, dss_passport_date, dss_phone, dss_oms, 
                         dss_passport_serial, dsdt_birthdate, dsb_sd, dss_med_code, dss_passport_issue_place, dsd_high,
-                        dsi_sex) VALUES (@address, @middleName, @passportNum, @firstName, @weight, @snils, @lastName, 
+                        dsb_sex) VALUES (@address, @middleName, @passportNum, @firstName, @weight, @snils, @lastName, 
                         @passportDate, @phone, @oms, @passportSerial, @birthDate, @sd, @medCode, @passportIssuePlace,
                         @hight, @Sex)  RETURNING r_object_id";
 

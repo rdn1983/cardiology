@@ -60,8 +60,8 @@ namespace Cardiology.UI.Forms
             highTxt.Text = patient.High.ToString(CultureInfo.InvariantCulture);
             patientBirthDate.Value = patient.Birthdate;
             sdBtn.Checked = patient.Sd;
-            maleChb.Checked = patient.Sex == 0;
-            femaleChb.Checked = patient.Sex == 1;
+            maleChb.Checked = patient.Sex;
+            femaleChb.Checked = !patient.Sex;
 
             patientReceiptDate.Value = hospital.AdmissionDate;
             patientReceiptTime.Text = hospital.AdmissionDate.TimeOfDay.ToString();
@@ -110,7 +110,7 @@ namespace Cardiology.UI.Forms
             patient.PassportNum = passportNumTxt.Text;
             patient.PassportSerial = passportSerialTxt.Text;
             patient.Sd = sdBtn.Checked;
-            patient.Sex = maleChb.Checked ? 0 : 1;
+            patient.Sex = maleChb.Checked;
 
             if (!string.IsNullOrEmpty(weightTxt.Text))
             {

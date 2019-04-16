@@ -3,6 +3,7 @@ using Cardiology.Data;
 using Cardiology.Data.Model2;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Windows.Forms;
 
@@ -43,6 +44,12 @@ namespace Cardiology.UI.Forms
             DdvDoctor doc = (DdvDoctor) doctorsBox.SelectedItem;
 
             values.Add(@"{doctor.who.short}", doc != null ? doc.ShortName: "");
+            values.Add(
+                "{patient.passport_info}",
+                string.Format(CultureInfo.CurrentCulture, "{0} {1}, выдан {2} {3}", 
+                patient.PassportSerial, patient.PassportNum, 
+                patient.PassportDate.ToShortDateString(), patient.PassportIssuePlace)
+                );
             values.Add(@"{doctor.appointment_name}", "");
             values.Add(@"{patient.full_name}", patient.FullName);
             values.Add(@"{patient.birthdate}", patient.Birthdate!=null ? patient.Birthdate.ToShortDateString(): "");            

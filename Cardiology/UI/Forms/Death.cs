@@ -44,7 +44,7 @@ namespace Cardiology.UI.Forms
 
             values.Add(@"{doctor.who.short}", doc != null ? doc.ShortName: "");
             values.Add(@"{doctor.appointment_name}", "");
-            values.Add(@"{patient.full_name}", patient.ShortName);
+            values.Add(@"{patient.full_name}", patient.FullName);
             values.Add(@"{patient.birthdate}", patient.Birthdate!=null ? patient.Birthdate.ToShortDateString(): "");            
             values.Add(@"{patient.sex}", patient.Sex != null ? (patient.Sex  == 0 ? "мужской" : "женский") : "");
             values.Add(@"{patient.medcode}", patient.MedCode);

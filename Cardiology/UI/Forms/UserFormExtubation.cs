@@ -12,7 +12,7 @@ namespace Cardiology.UI.Forms
         public UserFormExtubation()
         {
             InitializeComponent();
-            CommonUtils.InitDoctorsComboboxValues(DbDataService.GetInstance(), doctorsBox, null);
+            ControlUtils.InitDoctorsByGroupName(DbDataService.GetInstance().GetDdvDoctorService(), doctorsBox, "cardioreanimation_department");
         }
 
         private bool getIsNotValid()

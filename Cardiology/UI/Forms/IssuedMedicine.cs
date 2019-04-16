@@ -27,7 +27,8 @@ namespace Cardiology.UI.Forms
             ControlUtils.InitDoctorsByGroupName(service.GetDdvDoctorService(), clinicalPharmacologistBox, "clinical_pharmacologists");
             ControlUtils.InitDoctorsByGroupName(service.GetDdvDoctorService(), nurseBox, "nurses");
             ControlUtils.InitDoctorsByGroupName(service.GetDdvDoctorService(), cardioReanimBox, "cardioreanimation_department");
-            ControlUtils.InitDoctorsByGroupName(service.GetDdvDoctorService(), directorBox, "cardioreanimation_department_head");
+            ControlUtils.InitDoctorsByGroupNameAndOrder(service.GetDdvDoctorService(), directorBox, "cardioreanimation_department", "issued_medicine.cardioreanimation_department_head");
+
             initIssuedCure();
 
             DdvPatient patient = service.GetDdvPatientService().GetById(hospitalitySession.Patient);

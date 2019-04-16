@@ -195,10 +195,10 @@ namespace Cardiology.UI.Forms
                 medList.HasKag = shortlyOperationTxt.Text;
                 medList.IssuingDate = createDateTxt.Value;
 
-                string id = service.GetDdtIssuedMedicineListService().Save(medList);
+                issuedMedId = service.GetDdtIssuedMedicineListService().Save(medList);
                 foreach (DdtIssuedMedicine med in meds)
                 {
-                    med.MedList = id;
+                    med.MedList = issuedMedId;
                     service.GetDdtIssuedMedicineService().Save(med);
                 }
             }

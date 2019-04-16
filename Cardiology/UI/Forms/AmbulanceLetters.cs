@@ -16,7 +16,7 @@ namespace Cardiology.UI.Forms
             this.service = service;
             this.hospitalitySession = hospitalitySession;
             InitializeComponent();
-            CommonUtils.InitDoctorsComboboxValues(service, doctorsBox, "");
+            ControlUtils.InitDoctorsByGroupNameAndOrder(service.GetDdvDoctorService(), doctorsBox, "cardioreanimation_department", "default.cardioreanimation_department_head");
         }
 
         private void gbUdinaBtn_Click(object sender, System.EventArgs e)

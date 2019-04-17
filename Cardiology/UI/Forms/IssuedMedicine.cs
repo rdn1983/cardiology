@@ -397,15 +397,25 @@ namespace Cardiology.UI.Forms
             Dictionary<string, string> values = new Dictionary<string, string>();
             DdtIssuedMedicineList medList = service.GetDdtIssuedMedicineListService().GetById(issuedMedId);
             DdtHospital hospitalSession = service.GetDdtHospitalService().GetById(hospitalitySession.ObjectId);
-            DdvDoctor doc = service.GetDdvDoctorService().GetById(medList.Doctor);
-            DdvDoctor nurse = service.GetDdvDoctorService().GetById(medList.Nurse);
-            DdvDoctor director = service.GetDdvDoctorService().GetById(medList.Director);
-            DdvDoctor pharma = service.GetDdvDoctorService().GetById(medList.Pharmacologist);
-            DdvPatient patient = service.GetDdvPatientService().GetById(medList.Patient);
+
+            DdvDoctor doc = null; 
+            DdvDoctor nurse = null; 
+            DdvDoctor director = null; 
+            DdvDoctor pharma = null; 
+            DdvPatient patient = null;
+
+            if( medList != null)
+            {
+                doc = service.GetDdvDoctorService().GetById(medList.Doctor);
+                nurse = service.GetDdvDoctorService().GetById(medList.Nurse);
+                director = service.GetDdvDoctorService().GetById(medList.Director);
+                pharma = service.GetDdvDoctorService().GetById(medList.Pharmacologist);
+                patient = service.GetDdvPatientService().GetById(medList.Patient);
+            }
 
             values.Add(@"{doctor.who.short}", doc?.ShortName);
             values.Add(@"{patient.diagnosis}", diagnosisTxt.Text);
-            values.Add(@"{patient.age}", DateTime.Now.Year - patient.Birthdate.Year + "");
+            values.Add(@"{patient.age}", patient != null? DateTime.Now.Year - patient.Birthdate.Year + "": "");
             values.Add(@"{admission.date}", hospitalSession.AdmissionDate.ToShortDateString());
             values.Add(@"{patient.historycard}", patient?.MedCode);
             values.Add(@"{patient.fullname}", patient?.FullName);

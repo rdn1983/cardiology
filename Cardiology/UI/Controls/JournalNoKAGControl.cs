@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using Cardiology.Commons;
 using Cardiology.Data;
 using Cardiology.Data.Model2;
+using Cardiology.UI.Forms;
 
 namespace Cardiology.UI.Controls
 {
@@ -13,6 +14,7 @@ namespace Cardiology.UI.Controls
         private int journalType;
         private bool hasChanges;
         private bool isNew;
+        private PulseTableCOntainer pulseSelector;
 
         public JournalNoKAGControl(string objectId, int journalType, string dsidCuringDoctor)
         {
@@ -244,6 +246,28 @@ namespace Cardiology.UI.Controls
         private void docBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             hasChanges = true;
+        }
+
+        private void shuffleBtn_Click(object sender, EventArgs e)
+        {
+            if (pulseSelector == null)
+            {
+                pulseSelector = new PulseTableCOntainer(RefreshPulseInfo);
+            }
+            Control control = (Control) sender; 
+            MouseEventArgs margs = (MouseEventArgs) e;
+            pulseSelector.Show(control.PointToScreen(margs.Location));
+        }
+
+        private void RefreshPulseInfo(Range adRange, Range chsRange)
+        {
+            int nextAdValue = JournalShuffleUtils.shuffleNextValue(adRange.Start, adRange.End);
+            if (nextAdValue < 40) nextAdValue = 40;
+            if (nextAdValue > 150) nextAdValue = 150;
+            nextAdValue = (int)Math.Round((double)nextAdValue / 10) * 10;
+            adTxt.SelectedIndex = adTxt.FindString(nextAdValue + "/");
+            int chssNextValue = JournalShuffleUtils.shuffleNextValue(chsRange.Start, chsRange.End);
+            chssTxt.SelectedIndex = chssTxt.FindString(chssNextValue + "");
         }
         #endregion
     }

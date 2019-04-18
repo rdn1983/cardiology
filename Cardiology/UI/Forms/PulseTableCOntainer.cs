@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Cardiology.UI.Forms
@@ -11,9 +12,16 @@ namespace Cardiology.UI.Forms
         {
             InitializeComponent();
             completeListener = listener;
+            StartPosition = FormStartPosition.Manual;
         }
 
         internal delegate void OnReturnValues(Range adRangse, Range chsRange);
+
+        public void Show(Point p)
+        {
+            Location = p;
+            Show();
+        }
 
         private void PulseTableCOntainer_Deactivate(object sender, EventArgs e)
         {

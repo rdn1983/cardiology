@@ -48,11 +48,13 @@
             this.chssLbl = new System.Windows.Forms.Label();
             this.goodRhytmBtn = new System.Windows.Forms.RadioButton();
             this.hideJournalBtn = new System.Windows.Forms.CheckBox();
+            this.shuffleBtn = new System.Windows.Forms.Button();
             this.visibledPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // visibledPanel
             // 
+            this.visibledPanel.Controls.Add(this.shuffleBtn);
             this.visibledPanel.Controls.Add(this.warningLbl);
             this.visibledPanel.Controls.Add(this.docLbl);
             this.visibledPanel.Controls.Add(this.docBox);
@@ -138,7 +140,7 @@
             this.chssTxt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.chssTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.chssTxt.FormattingEnabled = true;
-            this.chssTxt.Location = new System.Drawing.Point(197, 54);
+            this.chssTxt.Location = new System.Drawing.Point(172, 54);
             this.chssTxt.Name = "chssTxt";
             this.chssTxt.Size = new System.Drawing.Size(56, 21);
             this.chssTxt.TabIndex = 12;
@@ -159,7 +161,7 @@
             this.chddTxt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.chddTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.chddTxt.FormattingEnabled = true;
-            this.chddTxt.Location = new System.Drawing.Point(197, 30);
+            this.chddTxt.Location = new System.Drawing.Point(172, 30);
             this.chddTxt.Name = "chddTxt";
             this.chddTxt.Size = new System.Drawing.Size(56, 21);
             this.chddTxt.TabIndex = 11;
@@ -193,7 +195,7 @@
             "130/90",
             "140/100",
             "150/110"});
-            this.adTxt.Location = new System.Drawing.Point(197, 78);
+            this.adTxt.Location = new System.Drawing.Point(172, 78);
             this.adTxt.Name = "adTxt";
             this.adTxt.Size = new System.Drawing.Size(56, 21);
             this.adTxt.TabIndex = 14;
@@ -202,7 +204,7 @@
             // journalTxt
             // 
             this.journalTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.journalTxt.Location = new System.Drawing.Point(259, 27);
+            this.journalTxt.Location = new System.Drawing.Point(259, 28);
             this.journalTxt.Name = "journalTxt";
             this.journalTxt.Size = new System.Drawing.Size(428, 72);
             this.journalTxt.TabIndex = 15;
@@ -213,7 +215,7 @@
             // 
             this.adLbl.AutoSize = true;
             this.adLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.adLbl.Location = new System.Drawing.Point(168, 85);
+            this.adLbl.Location = new System.Drawing.Point(143, 85);
             this.adLbl.Name = "adLbl";
             this.adLbl.Size = new System.Drawing.Size(26, 13);
             this.adLbl.TabIndex = 19;
@@ -223,7 +225,7 @@
             // 
             this.chddLbl.AutoSize = true;
             this.chddLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.chddLbl.Location = new System.Drawing.Point(164, 36);
+            this.chddLbl.Location = new System.Drawing.Point(139, 36);
             this.chddLbl.Name = "chddLbl";
             this.chddLbl.Size = new System.Drawing.Size(27, 13);
             this.chddLbl.TabIndex = 16;
@@ -257,7 +259,7 @@
             // 
             this.chssLbl.AutoSize = true;
             this.chssLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.chssLbl.Location = new System.Drawing.Point(163, 60);
+            this.chssLbl.Location = new System.Drawing.Point(138, 60);
             this.chssLbl.Name = "chssLbl";
             this.chssLbl.Size = new System.Drawing.Size(32, 13);
             this.chssLbl.TabIndex = 17;
@@ -287,6 +289,16 @@
             this.hideJournalBtn.Text = "Скрыть дневник";
             this.hideJournalBtn.UseVisualStyleBackColor = true;
             this.hideJournalBtn.CheckedChanged += new System.EventHandler(this.hideJournalBtn_CheckedChanged);
+            // 
+            // shuffleBtn
+            // 
+            this.shuffleBtn.Image = global::Cardiology.Properties.Resources.shuffle;
+            this.shuffleBtn.Location = new System.Drawing.Point(231, 28);
+            this.shuffleBtn.Name = "shuffleBtn";
+            this.shuffleBtn.Size = new System.Drawing.Size(25, 73);
+            this.shuffleBtn.TabIndex = 48;
+            this.shuffleBtn.UseVisualStyleBackColor = true;
+            this.shuffleBtn.Click += new System.EventHandler(this.shuffleBtn_Click);
             // 
             // JournalNoKAGControl
             // 
@@ -325,5 +337,6 @@
         private System.Windows.Forms.Label docLbl;
         private System.Windows.Forms.ComboBox docBox;
         private System.Windows.Forms.Label warningLbl;
+        private System.Windows.Forms.Button shuffleBtn;
     }
 }

@@ -217,7 +217,9 @@ namespace Cardiology.UI.Controls
             {
                 pulseSelector = new PulseTableCOntainer(RefreshPulseInfo);
             }
-            pulseSelector.Show();
+            Control control = (Control)sender;
+            MouseEventArgs margs = (MouseEventArgs)e;
+            pulseSelector.Show(control.PointToScreen(margs.Location));
         }
 
         private void RefreshPulseInfo(Range adRange, Range chsRange)

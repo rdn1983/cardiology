@@ -54,7 +54,7 @@ namespace Cardiology.Commons
 
             StringBuilder builder = new StringBuilder();
 
-            DdtIssuedMedicineList medList = service.GetDdtIssuedMedicineListService().GetListByHospitalIdAndParentType(hospitalitySession, DdtAnamnesis.NAME);
+            DdtIssuedMedicineList medList = service.GetDdtIssuedMedicineListService().GetListByParentId(anamnesis?.ObjectId);
 
             if (medList != null)
             {

@@ -42,6 +42,7 @@ namespace Cardiology.UI.Forms
         private IDbDataService service;
         private DdtHospital hospitalSession;
         private DdtAnamnesis anamnesis;
+        private DdvPatient patient;
         private bool acceptTemplate = false;
         private string templateName;
 
@@ -54,30 +55,29 @@ namespace Cardiology.UI.Forms
 
             anamnesis = service.GetDdtAnamnesisService().GetByHospitalSessionId(hospitalSession.ObjectId);
 
+            InitPatientInfo();
+            InitDiagnosis();
+
             InitializeAnamnesis(anamnesis);
             initIssuedMedicine();
             initIssuedActions(anamnesis);
-            InitDiagnosis();
             InitAdmissionAnalysis();
             InitDoctorComboBox();
-            InitPatientInfo();
             initAlco();
         }
 
         private void InitPatientInfo()
         {
-            DdvPatient patient = service.GetDdvPatientService().GetById(hospitalSession.Patient);
+            patient = service.GetDdvPatientService().GetById(hospitalSession.Patient);
             if (patient != null)
             {
                 patientInitialsLbl.Text = patient.ShortName;
                 if (anamnesis == null)
                 {
-                    IList<DdtCure> medicineTemplates = service.GetDdtCureService().GetListByTemplate("sd");
-                    issuedMedicineContainer.RefreshData(service, medicineTemplates);
                     if (patient.Sd)
                     {
-                        accompanyingIllnessesTxt.Text += "Сахарный диабет 2 типа, среднетяжелого течения, субкомпенсация. \n";
-                        diagnosisTxt.Text += "Сахарный диабет 2 типа, среднетяжелого течения, субкомпенсация. \n";
+                        IList<DdtCure> medicineTemplates = service.GetDdtCureService().GetListByTemplate("sd");
+                        issuedMedicineContainer.RefreshData(service, medicineTemplates);
                     }
                 }
             }
@@ -137,6 +137,19 @@ namespace Cardiology.UI.Forms
                 anamnesisAllergyTxt.Text = anamnesis.AnamnesisAllergy;
                 operationCauseTxt.Text = anamnesis.OperationCause;
             }
+
+            if (patient.Sd)
+            {
+                if (!accompanyingIllnessesTxt.Text.Contains("Сахарный диабет"))
+                {
+                    accompanyingIllnessesTxt.Text += "Сахарный диабет 2 типа, среднетяжелого течения, субкомпенсация. \n";
+                }
+                if (!diagnosisTxt.Text.Contains("Сахарный диабет"))
+                {
+                    diagnosisTxt.Text += "Сахарный диабет 2 типа, среднетяжелого течения, субкомпенсация. \n";
+                }
+            }
+
         }
 
         private void initAlco()
@@ -370,6 +383,22 @@ namespace Cardiology.UI.Forms
         private void updatemedicineFromTemplate(string template)
         {
             IList<DdtCure> medicineTemplates = service.GetDdtCureService().GetListByTemplate(template);
+            if (patient != null && patient.Sd)
+            {
+                IList<DdtCure> sdMedTemplate = service.GetDdtCureService().GetListByTemplate("sd");
+                foreach (DdtCure cur in sdMedTemplate)
+                {
+                    medicineTemplates.Add(cur);
+                }
+                foreach(DdtCure cur in medicineTemplates)
+                {
+                    if(cur.Name.Equals("Стол ОВД", StringComparison.Ordinal))
+                    {
+                        medicineTemplates.Remove(cur);
+                        break;
+                    }
+                }
+            }
             clearOldMedList(service);
             issuedMedicineContainer.RefreshData(service, medicineTemplates);
         }

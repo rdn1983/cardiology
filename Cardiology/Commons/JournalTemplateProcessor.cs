@@ -64,13 +64,20 @@ namespace Cardiology.Commons
             {
                 DdtVariousSpecConcluson kagMainPart = cardioConclusions[0];
                 values.Add("{time}", journalDate.ToShortTimeString());
-                values.Add("{title}", "Осмотр дежурного кардиореаниматолога " + (doc == null ? "" : doc.ShortName) + 
+                values.Add("{title}", "Осмотр дежурного кардиореаниматолога " + (doc == null ? "" : doc.ShortName) +
                     " совместно с ангиохирургом Потехиным Д.А. \n Пациента доставили из рентгеноперационной.");
                 values.Add("{complaints}", " ");
                 values.Add("{journal}", kagMainPart.SpecialistConclusion);
                 values.Add("{monitor}", kagMainPart.AdditionalInfo4);
-                values.Add("{kag_diagnosis}", kag == null ? " " : "У пациента по данным КАГ выявлено:" + kag.KagAction + "\n");
-                values.Add("{diagnosis}", "Таким образом, у пациента:" + journal.Diagnosis);
+                string kagValue = "";
+                if (kag != null)
+                {
+                    kagValue += kag.Results == null ? "" : "У пациента по данным КАГ выявлено:" + kag.Results + "\n";
+                    kagValue += kag.KagManipulation == null ? "" : "Пациенту выполнено:" + kag.KagManipulation + "\n";
+                    kagValue += kag.KagAction == null ? "" : "Таким образом, у пациента:" + kag.KagAction + "\n";
+                }
+                values.Add("{kag_diagnosis}", kagValue);
+                values.Add("{diagnosis}", kag==null?"Таким образом, у пациента:" + journal.Diagnosis:"");
                 partsPaths.Add(TemplatesUtils.FillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + TEMPLATE_FILE_NAME, values));
                 cardioConclusions.Remove(kagMainPart);
             }
@@ -111,7 +118,13 @@ namespace Cardiology.Commons
                 conclusionValues.Add("{journal}", releaseConclusion.SpecialistConclusion);
                 conclusionValues.Add("{monitor}", releaseConclusion.AdditionalInfo4);
                 conclusionValues.Add("{doctor.initials}", doc == null ? "" : doc.ShortName);
-                conclusionValues.Add("{kag_diagnosis}", kag == null ? " " : "У пациента по данным КАГ выявлено:" + kag.KagAction + "\n");
+                string kagValue = "";
+                if (kag != null)
+                {
+                    kagValue += kag.Results == null ? "" : "У пациента по данным КАГ выявлено:" + kag.Results + "\n";
+                    kagValue += kag.KagManipulation == null ? "" : "Пациенту выполнено:" + kag.KagManipulation + "\n";
+                }
+                conclusionValues.Add("{kag_diagnosis}", kagValue);
                 conclusionValues.Add("{diagnosis}", "Таким образом, у пациента:" + journal.Diagnosis);
                 partsPaths.Add(TemplatesUtils.FillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + TEMPLATE_FILE_NAME, conclusionValues));
             }

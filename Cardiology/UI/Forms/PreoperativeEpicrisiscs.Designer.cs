@@ -36,15 +36,16 @@
             this.chooseDiagnosisBtn = new System.Windows.Forms.Button();
             this.analysisLbl = new System.Windows.Forms.Label();
             this.analysisGrid = new System.Windows.Forms.DataGridView();
-            this.r_object_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.analysisType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.analysisTypeLbl = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.analysis_data = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.delete_btn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.chooseAnalysisBtn = new System.Windows.Forms.Button();
             this.print = new System.Windows.Forms.Button();
             this.epicrisisDateTxt = new System.Windows.Forms.DateTimePicker();
             this.epicrisisDateLbl = new System.Windows.Forms.Label();
+            this.closeBtn = new System.Windows.Forms.Button();
+            this.r_object_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.analysisType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.analysisTypeLbl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.analysis_data = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.deleteBtn = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.analysisGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -113,7 +114,7 @@
             this.analysisType,
             this.analysisTypeLbl,
             this.analysis_data,
-            this.delete_btn});
+            this.deleteBtn});
             this.analysisGrid.Location = new System.Drawing.Point(16, 144);
             this.analysisGrid.Name = "analysisGrid";
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -126,36 +127,7 @@
             this.analysisGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.analysisGrid.Size = new System.Drawing.Size(523, 197);
             this.analysisGrid.TabIndex = 4;
-            // 
-            // r_object_id
-            // 
-            this.r_object_id.HeaderText = "object_id";
-            this.r_object_id.Name = "r_object_id";
-            this.r_object_id.Visible = false;
-            // 
-            // analysisType
-            // 
-            this.analysisType.HeaderText = "object_type";
-            this.analysisType.Name = "analysisType";
-            this.analysisType.Visible = false;
-            // 
-            // analysisTypeLbl
-            // 
-            this.analysisTypeLbl.HeaderText = "Тип";
-            this.analysisTypeLbl.Name = "analysisTypeLbl";
-            // 
-            // analysis_data
-            // 
-            this.analysis_data.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.analysis_data.HeaderText = "Данные анализов";
-            this.analysis_data.Name = "analysis_data";
-            // 
-            // delete_btn
-            // 
-            this.delete_btn.HeaderText = "";
-            this.delete_btn.MinimumWidth = 30;
-            this.delete_btn.Name = "delete_btn";
-            this.delete_btn.Width = 30;
+            this.analysisGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.analysisGrid_CellContentClick);
             // 
             // chooseAnalysisBtn
             // 
@@ -172,7 +144,7 @@
             // print
             // 
             this.print.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.print.Location = new System.Drawing.Point(464, 349);
+            this.print.Location = new System.Drawing.Point(388, 348);
             this.print.Name = "print";
             this.print.Size = new System.Drawing.Size(75, 23);
             this.print.TabIndex = 6;
@@ -198,11 +170,51 @@
             this.epicrisisDateLbl.TabIndex = 8;
             this.epicrisisDateLbl.Text = "Дата:";
             // 
+            // closeBtn
+            // 
+            this.closeBtn.Location = new System.Drawing.Point(465, 348);
+            this.closeBtn.Name = "closeBtn";
+            this.closeBtn.Size = new System.Drawing.Size(74, 23);
+            this.closeBtn.TabIndex = 9;
+            this.closeBtn.Text = "Сохранить";
+            this.closeBtn.UseVisualStyleBackColor = true;
+            this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
+            // 
+            // r_object_id
+            // 
+            this.r_object_id.HeaderText = "object_id";
+            this.r_object_id.Name = "r_object_id";
+            this.r_object_id.Visible = false;
+            // 
+            // analysisType
+            // 
+            this.analysisType.HeaderText = "object_type";
+            this.analysisType.Name = "analysisType";
+            this.analysisType.Visible = false;
+            // 
+            // analysisTypeLbl
+            // 
+            this.analysisTypeLbl.HeaderText = "Тип";
+            this.analysisTypeLbl.Name = "analysisTypeLbl";
+            // 
+            // analysis_data
+            // 
+            this.analysis_data.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.analysis_data.HeaderText = "Данные анализов";
+            this.analysis_data.Name = "analysis_data";
+            // 
+            // deleteBtn
+            // 
+            this.deleteBtn.HeaderText = "";
+            this.deleteBtn.Image = global::Cardiology.Properties.Resources.trash;
+            this.deleteBtn.Name = "deleteBtn";
+            // 
             // PreoperativeEpicrisiscs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(593, 384);
+            this.Controls.Add(this.closeBtn);
             this.Controls.Add(this.epicrisisDateLbl);
             this.Controls.Add(this.epicrisisDateTxt);
             this.Controls.Add(this.print);
@@ -230,14 +242,15 @@
         private System.Windows.Forms.Button chooseDiagnosisBtn;
         private System.Windows.Forms.Label analysisLbl;
         private System.Windows.Forms.DataGridView analysisGrid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn r_object_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn analysisType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn analysisTypeLbl;
-        private System.Windows.Forms.DataGridViewTextBoxColumn analysis_data;
-        private System.Windows.Forms.DataGridViewButtonColumn delete_btn;
         private System.Windows.Forms.Button chooseAnalysisBtn;
         private System.Windows.Forms.Button print;
         private System.Windows.Forms.DateTimePicker epicrisisDateTxt;
         private System.Windows.Forms.Label epicrisisDateLbl;
+        private System.Windows.Forms.Button closeBtn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn r_object_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn analysisType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn analysisTypeLbl;
+        private System.Windows.Forms.DataGridViewTextBoxColumn analysis_data;
+        private System.Windows.Forms.DataGridViewImageColumn deleteBtn;
     }
 }

@@ -98,8 +98,19 @@ namespace Cardiology.Commons
                 bloodStr.Append(CompileValue("Anti HCV крови", serology.AntiHcv));
                 bloodStr.Append(CompileValue("HIV", serology.Hiv));
             }
-                values.Add("{analysis.blood}", blood == null ? " " : "Анализы крови:" + bloodStr);
-            values.Add("{analysis.urine}", " ");
+            values.Add("{analysis.blood}", blood == null ? " " : "Анализы крови:" + bloodStr);
+            DdtUrineAnalysis uri = service.GetDdtUrineAnalysisService().GetByHospitalSessionAndParentId(hospitalitySession, obj.ObjectId);
+            StringBuilder uriValue = new StringBuilder();
+            if (uri != null)
+            {
+                uriValue.Append("Анализы мочи:");
+                uriValue.Append(CompileValue("Цвет:", uri.Color));
+                uriValue.Append(CompileValue("Лейкоциты:", uri.Leukocytes));
+                uriValue.Append(CompileValue("Эритроциты:", uri.Erythrocytes));
+                uriValue.Append(CompileValue("Белок:", uri.Protein));
+
+            }
+            values.Add("{analysis.urine}", uriValue.ToString());
             DdtUzi uzi = service.GetDdtUziService().GetByParentId(obj.ObjectId);
             StringBuilder uziStr = new StringBuilder();
             if (uzi != null)

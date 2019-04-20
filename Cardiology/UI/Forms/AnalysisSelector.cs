@@ -36,7 +36,7 @@ namespace Cardiology.UI.Forms
             dqlBuilder.Append("SELECT ").Append(labelAttr).Append(",").Append(valueAttr).Append(" FROM ").Append(typeName);
             if (exceptedIds != null && exceptedIds.Count > 0)
             {
-                dqlBuilder.Append(" WHERE r_object_id NOT IN (");
+                dqlBuilder.Append(" WHERE " + valueAttr + " NOT IN (");
                 foreach (string id in exceptedIds)
                 {
                     dqlBuilder.Append("'").Append(id).Append("',");

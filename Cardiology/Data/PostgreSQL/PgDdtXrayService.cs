@@ -130,7 +130,9 @@ namespace Cardiology.Data.PostgreSQL
         {
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = String.Format("SELECT r_object_id, dsdt_analysis_date, dss_mskt, r_creation_date, dss_kt, dsid_parent, dss_chest_xray, dsid_doctor, dsid_patient, dsid_hospitality_session, r_modify_date, dss_parent_type, dss_mrt, dss_control_radiography, dsdt_kt_date FROM ddt_xray WHERE r_object_id = '{0}'", parentId);
+                String sql = String.Format("SELECT r_object_id, dsdt_analysis_date, dss_mskt, r_creation_date, dss_kt, dsid_parent, dss_chest_xray, dsid_doctor, " +
+                    "dsid_patient, dsid_hospitality_session, r_modify_date, dss_parent_type, dss_mrt, dss_control_radiography, dsdt_kt_date" +
+                    " FROM ddt_xray WHERE dsid_parent = '{0}'", parentId);
                 Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
 
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);

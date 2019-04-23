@@ -19,8 +19,7 @@ namespace Cardiology.UI.Forms
 
         private void initializeDoctorsBox()
         {
-            CommonUtils.InitDoctorsComboboxValues(DbDataService.GetInstance(), doctorsBox, null);
-
+            CommonUtils.InitDoctorsByGroupComboboxValues(DbDataService.GetInstance(), doctorsBox, "cardioreanimation_department");
         }
 
         private void initializeHeaderArea()

@@ -138,7 +138,7 @@
             this.openInWord.Name = "openInWord";
             this.openInWord.Size = new System.Drawing.Size(75, 23);
             this.openInWord.TabIndex = 14;
-            this.openInWord.Text = "8";
+            this.openInWord.Text = "MsWord";
             this.openInWord.UseVisualStyleBackColor = true;
             this.openInWord.Click += new System.EventHandler(this.openInWord_Click);
             // 

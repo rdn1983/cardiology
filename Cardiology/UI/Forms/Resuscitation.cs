@@ -16,7 +16,7 @@ namespace Cardiology.UI.Forms
         {
             this.patient = patient;
             InitializeComponent();
-            CommonUtils.InitDoctorsComboboxValues(DbDataService.GetInstance(), doctorsBox, null);
+            CommonUtils.InitDoctorsByGroupComboboxValues(DbDataService.GetInstance(), doctorsBox, "cardioreanimation_department");
         }
 
         private bool getIsNotValid()

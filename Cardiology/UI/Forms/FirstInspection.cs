@@ -865,7 +865,8 @@ namespace Cardiology.UI.Forms
             {
                 if (Save())
                 {
-                    Close();
+                    // убрал закрытие в рамках задачи #269
+                    //Close();
                 }
             }
         }

@@ -5,6 +5,7 @@ using Cardiology.UI.Forms.Admin;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -39,7 +40,8 @@ namespace Cardiology.UI.Forms
                     activePatient.PatientName, 
                     activePatient.RoomCell, activePatient.AdmissionDate, activePatient.DocName, activePatient.Diagnosis);
             }
-
+            //Сортируем по дате приема
+            hospitalPatientsTbl.Sort(hospitalPatientsTbl.Columns[3], ListSortDirection.Descending);
         }
 
         private void patientAdmission_Click(object sender, EventArgs e)

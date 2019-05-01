@@ -725,9 +725,6 @@
     <None Include="Templates\blank_common_consent_template.doc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Templates\blank_dead_constatation_template.doc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="Templates\blank_echo_template.doc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

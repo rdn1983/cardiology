@@ -66,10 +66,10 @@ namespace Cardiology.UI.Forms
             patientReceiptDate.Value = hospital.AdmissionDate;
             patientReceiptTime.Text = hospital.AdmissionDate.TimeOfDay.ToString();
 
-            DdvDoctor docDuty = service.GetDdvDoctorService().GetById(hospital.DutyDoctor);
+            DdvDoctor docDuty = service.GetDdvDoctorService().GetById(hospital.CuringDoctor);
             dutyCardioBox.SelectedIndex = dutyCardioBox.FindStringExact(docDuty.ShortName);
 
-            DdvDoctor docCuring = service.GetDdvDoctorService().GetById(hospital.CuringDoctor);
+            DdvDoctor docCuring = service.GetDdvDoctorService().GetById(hospital.DutyDoctor);
             cardioDocBox.SelectedIndex = cardioDocBox.FindStringExact(docCuring.ShortName);
 
             DdvDoctor docSubstitution = service.GetDdvDoctorService().GetById(hospital.SubstitutionDoctor);

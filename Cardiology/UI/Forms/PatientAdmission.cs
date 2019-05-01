@@ -131,9 +131,9 @@ namespace Cardiology.UI.Forms
             }
             hospital.Active = true;
             hospital.AdmissionDate = CommonUtils.ConstructDateWIthTime(patientReceiptDate.Value, patientReceiptTime.Value);
-            DdvDoctor docDuty = (DdvDoctor)dutyCardioBox.SelectedItem;
+            DdvDoctor docDuty = (DdvDoctor)cardioDocBox.SelectedItem;
             hospital.DutyDoctor = docDuty.ObjectId;
-            DdvDoctor docCuring = (DdvDoctor)cardioDocBox.SelectedItem;
+            DdvDoctor docCuring = (DdvDoctor)dutyCardioBox.SelectedItem;
             hospital.CuringDoctor = docCuring.ObjectId;
             DdvDoctor docSubstitution = (DdvDoctor)subDoctorBox.SelectedItem;
             hospital.SubstitutionDoctor = docSubstitution.ObjectId;

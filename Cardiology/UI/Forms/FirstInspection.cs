@@ -162,6 +162,8 @@ namespace Cardiology.UI.Forms
             {
                 alcoholBtn_Click(null, null);
             }
+
+            UpdateAlcoProtocolVisibility();
         }
 
         private void initIssuedMedicine()
@@ -246,6 +248,12 @@ namespace Cardiology.UI.Forms
                 chronicSD.Font = new Font(chronicSD.Font, FontStyle.Regular);
                 chronicHOBL.Font = new Font(chronicHOBL.Font, FontStyle.Regular);
             }
+        }
+
+        private void UpdateAlcoProtocolVisibility()
+        {
+            string templateName = getDefaultValueForType(anamnesisVitaeTxt.Name, YES_TYPE);
+            alcoholProtocolBtn.Visible = anamnesisVitaeTxt.Text != null && anamnesisVitaeTxt.Text.Contains(templateName);
         }
 
         private bool getIsValid(int tabIndex)
@@ -804,13 +812,11 @@ namespace Cardiology.UI.Forms
         private void noAlcoholBtn_Click(object sender, EventArgs e)
         {
             anamnesisVitaeTxt.Text = getDefaultValueForType(anamnesisVitaeTxt.Name, NO_TYPE);
-            alcoholProtocolBtn.Visible = false;
         }
 
         private void alcoholBtn_Click(object sender, EventArgs e)
         {
             anamnesisVitaeTxt.Text = getDefaultValueForType(anamnesisVitaeTxt.Name, YES_TYPE);
-            alcoholProtocolBtn.Visible = true;
         }
 
         private void telaRadio_CheckedChanged(object sender, EventArgs e)
@@ -967,5 +973,9 @@ namespace Cardiology.UI.Forms
 
         #endregion
 
+        private void AnamnesisVitaeTxt_TextChanged(object sender, EventArgs e)
+        {
+            UpdateAlcoProtocolVisibility();
+        }
     }
 }

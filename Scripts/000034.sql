@@ -1,1 +1,0 @@
-ALTER TABLE ddt_hospital ADD COLUMN dsid_dir_cardio_reanim_doctor VARCHAR(16) REFERENCES ddt_doctors(r_object_id), ADD COLUMN dsid_anesthetist_doctor VARCHAR(16) REFERENCES ddt_doctors(r_object_id);

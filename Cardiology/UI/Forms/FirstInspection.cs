@@ -64,6 +64,8 @@ namespace Cardiology.UI.Forms
             InitAdmissionAnalysis();
             InitDoctorComboBox();
             initAlco();
+
+            HighlightChronicButtons();
         }
 
         private void InitPatientInfo()
@@ -180,6 +182,69 @@ namespace Cardiology.UI.Forms
                 IList<DdtIssuedAction> allActions =
                     service.GetDdtIssuedActionService().GetListByParentId(parent.ObjectId);
                 issuedActionContainer.init(allActions);
+            }
+        }
+
+        private void HighlightChronicButtons()
+        {
+            if (accompanyingIllnessesTxt.Text != null && accompanyingIllnessesTxt.Text.Length > 0)
+            {
+                string templateValue = getDefaultValueForType(accompanyingIllnessesTxt.Name, MA_TYPE);
+                if (accompanyingIllnessesTxt.Text.Contains(templateValue))
+                {
+                    chronicMA.Font = new Font(chronicMA.Font, FontStyle.Bold);
+                }
+                else
+                {
+                    chronicMA.Font = new Font(chronicMA.Font, FontStyle.Regular);
+                }
+
+                templateValue = getDefaultValueForType(accompanyingIllnessesTxt.Name, GB_TYPE);
+                if (accompanyingIllnessesTxt.Text.Contains(templateValue))
+                {
+                    chronicGB3.Font = new Font(chronicGB3.Font, FontStyle.Bold);
+                }
+                else
+                {
+                    chronicGB3.Font = new Font(chronicGB3.Font, FontStyle.Regular);
+                }
+
+                templateValue = getDefaultValueForType(accompanyingIllnessesTxt.Name, DEP_TYPE);
+                if (accompanyingIllnessesTxt.Text.Contains(templateValue))
+                {
+                    chronicDEP3.Font = new Font(chronicDEP3.Font, FontStyle.Bold);
+                }
+                else
+                {
+                    chronicDEP3.Font = new Font(chronicDEP3.Font, FontStyle.Regular);
+                }
+
+                templateValue = getDefaultValueForType(accompanyingIllnessesTxt.Name, SD_TYPE);
+                if (accompanyingIllnessesTxt.Text.Contains(templateValue))
+                {
+                    chronicSD.Font = new Font(chronicSD.Font, FontStyle.Bold);
+                }
+                else
+                {
+                    chronicSD.Font = new Font(chronicSD.Font, FontStyle.Regular);
+                }
+
+                templateValue = getDefaultValueForType(accompanyingIllnessesTxt.Name, HOBL_TYPE);
+                if (accompanyingIllnessesTxt.Text.Contains(templateValue))
+                {
+                    chronicHOBL.Font = new Font(chronicHOBL.Font, FontStyle.Bold);
+                }
+                else
+                {
+                    chronicHOBL.Font = new Font(chronicHOBL.Font, FontStyle.Regular);
+                }
+            } else
+            {
+                chronicMA.Font = new Font(chronicMA.Font, FontStyle.Regular);
+                chronicGB3.Font = new Font(chronicGB3.Font, FontStyle.Regular);
+                chronicDEP3.Font = new Font(chronicDEP3.Font, FontStyle.Regular);
+                chronicSD.Font = new Font(chronicSD.Font, FontStyle.Regular);
+                chronicHOBL.Font = new Font(chronicHOBL.Font, FontStyle.Regular);
             }
         }
 
@@ -605,27 +670,125 @@ namespace Cardiology.UI.Forms
 
         private void chronicMA_Click(object sender, EventArgs e)
         {
-            accompanyingIllnessesTxt.Text = getDefaultValueForType(accompanyingIllnessesTxt.Name, MA_TYPE) + " " + accompanyingIllnessesTxt.Text;
+            string templateValue = getDefaultValueForType(accompanyingIllnessesTxt.Name, MA_TYPE);
+            if(accompanyingIllnessesTxt.Text == null)
+            {
+                accompanyingIllnessesTxt.Text = templateValue;
+            } else {
+                if(accompanyingIllnessesTxt.Text.Contains(templateValue))
+                {
+                    accompanyingIllnessesTxt.Text = accompanyingIllnessesTxt.Text.Replace(templateValue, "");
+                }
+                else
+                {
+                    accompanyingIllnessesTxt.Text = templateValue + " " + accompanyingIllnessesTxt.Text;
+                }
+            }
+
+            if(accompanyingIllnessesTxt.Text != null)
+            {
+                accompanyingIllnessesTxt.Text = accompanyingIllnessesTxt.Text.Trim();
+            }
         }
 
         private void chronicGB3_Click(object sender, EventArgs e)
         {
-            accompanyingIllnessesTxt.Text += getDefaultValueForType(accompanyingIllnessesTxt.Name, GB_TYPE) + " ";
+            string templateValue = getDefaultValueForType(accompanyingIllnessesTxt.Name, GB_TYPE);
+            if (accompanyingIllnessesTxt.Text == null)
+            {
+                accompanyingIllnessesTxt.Text = templateValue;
+            }
+            else
+            {
+                if (accompanyingIllnessesTxt.Text.Contains(templateValue))
+                {
+                    accompanyingIllnessesTxt.Text = accompanyingIllnessesTxt.Text.Replace(templateValue, "");
+                }
+                else
+                {
+                    accompanyingIllnessesTxt.Text += templateValue + " ";
+                }
+            }
+
+            if (accompanyingIllnessesTxt.Text != null)
+            {
+                accompanyingIllnessesTxt.Text = accompanyingIllnessesTxt.Text.Trim();
+            }
         }
 
         private void chronicDEP3_Click(object sender, EventArgs e)
         {
-            accompanyingIllnessesTxt.Text += getDefaultValueForType(accompanyingIllnessesTxt.Name, DEP_TYPE) + " ";
+            string templateValue = getDefaultValueForType(accompanyingIllnessesTxt.Name, DEP_TYPE);
+            if (accompanyingIllnessesTxt.Text == null)
+            {
+                accompanyingIllnessesTxt.Text = templateValue;
+            }
+            else
+            {
+                if (accompanyingIllnessesTxt.Text.Contains(templateValue))
+                {
+                    accompanyingIllnessesTxt.Text = accompanyingIllnessesTxt.Text.Replace(templateValue, "");
+                }
+                else
+                {
+                    accompanyingIllnessesTxt.Text += templateValue + " ";
+                }
+            }
+
+            if (accompanyingIllnessesTxt.Text != null)
+            {
+                accompanyingIllnessesTxt.Text = accompanyingIllnessesTxt.Text.Trim();
+            }
         }
 
         private void chronicSD_Click(object sender, EventArgs e)
         {
-            accompanyingIllnessesTxt.Text += getDefaultValueForType(accompanyingIllnessesTxt.Name, SD_TYPE) + " ";
+            string templateValue = getDefaultValueForType(accompanyingIllnessesTxt.Name, SD_TYPE);
+            if (accompanyingIllnessesTxt.Text == null)
+            {
+                accompanyingIllnessesTxt.Text = templateValue;
+            }
+            else
+            {
+                if (accompanyingIllnessesTxt.Text.Contains(templateValue))
+                {
+                    accompanyingIllnessesTxt.Text = accompanyingIllnessesTxt.Text.Replace(templateValue, "");
+                }
+                else
+                {
+                    accompanyingIllnessesTxt.Text += templateValue + " ";
+                }
+            }
+
+            if (accompanyingIllnessesTxt.Text != null)
+            {
+                accompanyingIllnessesTxt.Text = accompanyingIllnessesTxt.Text.Trim();
+            }
         }
 
         private void chronicHOBL_Click(object sender, EventArgs e)
         {
-            accompanyingIllnessesTxt.Text += getDefaultValueForType(accompanyingIllnessesTxt.Name, HOBL_TYPE) + " ";
+            string templateValue = getDefaultValueForType(accompanyingIllnessesTxt.Name, HOBL_TYPE);
+            if (accompanyingIllnessesTxt.Text == null)
+            {
+                accompanyingIllnessesTxt.Text = templateValue;
+            }
+            else
+            {
+                if (accompanyingIllnessesTxt.Text.Contains(templateValue))
+                {
+                    accompanyingIllnessesTxt.Text = accompanyingIllnessesTxt.Text.Replace(templateValue, "");
+                }
+                else
+                {
+                    accompanyingIllnessesTxt.Text += templateValue + " ";
+                }
+            }
+
+            if (accompanyingIllnessesTxt.Text != null)
+            {
+                accompanyingIllnessesTxt.Text = accompanyingIllnessesTxt.Text.Trim();
+            }
         }
 
         private void hasDrugsIntoxication_Click(object sender, EventArgs e)
@@ -788,6 +951,8 @@ namespace Cardiology.UI.Forms
                 }
                 i++;
             }
+
+            HighlightChronicButtons();
         }
 
         private void addIssuedAction_Click(object sender, EventArgs e)

@@ -551,6 +551,7 @@ namespace Cardiology.UI.Forms
             this.anamnesisVitaeTxt.Size = new System.Drawing.Size(541, 64);
             this.anamnesisVitaeTxt.TabIndex = 0;
             this.anamnesisVitaeTxt.Text = "";
+            this.anamnesisVitaeTxt.TextChanged += new System.EventHandler(this.AnamnesisVitaeTxt_TextChanged);
             // 
             // drugsBox
             // 

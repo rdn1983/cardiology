@@ -120,22 +120,6 @@ namespace Cardiology.UI.Forms
 
         }
 
-        private void deadItem_Click(object sender, EventArgs e)
-        {
-            IEnumerator it = hospitalPatientsTbl.SelectedRows.GetEnumerator();
-            if (it.MoveNext())
-            {
-                DataGridViewRow row = (DataGridViewRow)it.Current;
-                DataGridViewCell cell = row.Cells[0];
-                string value = cell.Value.ToString();
-
-                DdtHospital hospitalSession = service.GetDdtHospitalService().GetById(value);
-                DdvPatient patient = service.GetDdvPatientService().GetById(hospitalSession.Patient);
-                Death form = new Death(patient);
-                form.ShowDialog();
-            }
-        }
-
         private void bloodTrunsfusionMenuItem_Click(object sender, EventArgs e)
         {
             Perelivanie form = new Perelivanie();
@@ -494,21 +478,17 @@ namespace Cardiology.UI.Forms
 
         private void deadConstatationItem_Click(object sender, EventArgs e)
         {
-
             IEnumerator it = hospitalPatientsTbl.SelectedRows.GetEnumerator();
             if (it.MoveNext())
             {
                 DataGridViewRow row = (DataGridViewRow)it.Current;
                 DataGridViewCell cell = row.Cells[0];
                 string value = cell.Value.ToString();
-                Dictionary<string, string> values = new Dictionary<string, string>();
-                values.Add("{time}", DateTime.Now.ToShortTimeString());
+
                 DdtHospital hospitalSession = service.GetDdtHospitalService().GetById(value);
-                DdtPatient patient = service.GetDdtPatientService().GetById(hospitalSession.Patient);
-                string passportInfo = patient.PassportSerial + " " + patient.PassportNum + " выдан "
-                    + patient.PassportDate.ToShortDateString() + " " + patient.PassportIssuePlace;
-                values.Add("{patient.passport}", passportInfo);
-                TemplatesUtils.fillBlankTemplate(service, "blank_dead_constatation_template.doc", value, values);
+                DdvPatient patient = service.GetDdvPatientService().GetById(hospitalSession.Patient);
+                Death form = new Death(patient);
+                form.ShowDialog();
             }
         }
 

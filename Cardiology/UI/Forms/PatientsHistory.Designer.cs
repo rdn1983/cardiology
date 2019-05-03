@@ -108,12 +108,11 @@
             this.docExecutor,
             this.operationDescription});
             this.patientHistoryGrid.ContextMenuStrip = this.gridContextMenu;
-            this.patientHistoryGrid.Location = new System.Drawing.Point(32, 44);
-            this.patientHistoryGrid.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.patientHistoryGrid.Location = new System.Drawing.Point(24, 36);
             this.patientHistoryGrid.Name = "patientHistoryGrid";
             this.patientHistoryGrid.ReadOnly = true;
             this.patientHistoryGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.patientHistoryGrid.Size = new System.Drawing.Size(1035, 393);
+            this.patientHistoryGrid.Size = new System.Drawing.Size(776, 319);
             this.patientHistoryGrid.TabIndex = 0;
             this.patientHistoryGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.patientHistoryGrid_CellClick);
             // 
@@ -180,19 +179,19 @@
             this.editMenu,
             this.deleteMenu});
             this.gridContextMenu.Name = "gridContextMenu";
-            this.gridContextMenu.Size = new System.Drawing.Size(181, 52);
+            this.gridContextMenu.Size = new System.Drawing.Size(155, 48);
             // 
             // editMenu
             // 
             this.editMenu.Name = "editMenu";
-            this.editMenu.Size = new System.Drawing.Size(180, 24);
+            this.editMenu.Size = new System.Drawing.Size(154, 22);
             this.editMenu.Text = "Редактировать";
             this.editMenu.Click += new System.EventHandler(this.editMenu_Click);
             // 
             // deleteMenu
             // 
             this.deleteMenu.Name = "deleteMenu";
-            this.deleteMenu.Size = new System.Drawing.Size(180, 24);
+            this.deleteMenu.Size = new System.Drawing.Size(154, 22);
             this.deleteMenu.Text = "Удалить";
             this.deleteMenu.Click += new System.EventHandler(this.deleteMenu_Click);
             // 
@@ -200,10 +199,9 @@
             // 
             this.printTitlePage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.printTitlePage.AutoSize = true;
-            this.printTitlePage.Location = new System.Drawing.Point(693, 518);
-            this.printTitlePage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.printTitlePage.Location = new System.Drawing.Point(515, 421);
             this.printTitlePage.Name = "printTitlePage";
-            this.printTitlePage.Size = new System.Drawing.Size(223, 21);
+            this.printTitlePage.Size = new System.Drawing.Size(172, 17);
             this.printTitlePage.TabIndex = 1;
             this.printTitlePage.Text = "Распечатать титульный лист";
             this.printTitlePage.UseVisualStyleBackColor = true;
@@ -211,10 +209,9 @@
             // printBtn
             // 
             this.printBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.printBtn.Location = new System.Drawing.Point(924, 505);
-            this.printBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.printBtn.Location = new System.Drawing.Point(693, 410);
             this.printBtn.Name = "printBtn";
-            this.printBtn.Size = new System.Drawing.Size(127, 34);
+            this.printBtn.Size = new System.Drawing.Size(95, 28);
             this.printBtn.TabIndex = 2;
             this.printBtn.Text = "Печать";
             this.printBtn.UseVisualStyleBackColor = true;
@@ -224,10 +221,9 @@
             // 
             this.titleLbl.AutoSize = true;
             this.titleLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.titleLbl.Location = new System.Drawing.Point(16, 25);
-            this.titleLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.titleLbl.Location = new System.Drawing.Point(12, 20);
             this.titleLbl.Name = "titleLbl";
-            this.titleLbl.Size = new System.Drawing.Size(0, 20);
+            this.titleLbl.Size = new System.Drawing.Size(0, 16);
             this.titleLbl.TabIndex = 3;
             // 
             // mainMenu
@@ -237,8 +233,7 @@
             this.actionsManu});
             this.mainMenu.Location = new System.Drawing.Point(0, 0);
             this.mainMenu.Name = "mainMenu";
-            this.mainMenu.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.mainMenu.Size = new System.Drawing.Size(1067, 28);
+            this.mainMenu.Size = new System.Drawing.Size(800, 24);
             this.mainMenu.TabIndex = 4;
             // 
             // actionsManu
@@ -258,13 +253,13 @@
             this.toolStripSeparator2,
             this.konsiliumItem});
             this.actionsManu.Name = "actionsManu";
-            this.actionsManu.Size = new System.Drawing.Size(86, 24);
+            this.actionsManu.Size = new System.Drawing.Size(70, 20);
             this.actionsManu.Text = "Действия";
             // 
             // firstInspectationsItem
             // 
             this.firstInspectationsItem.Name = "firstInspectationsItem";
-            this.firstInspectationsItem.Size = new System.Drawing.Size(323, 26);
+            this.firstInspectationsItem.Size = new System.Drawing.Size(261, 22);
             this.firstInspectationsItem.Text = "Первичный обход";
             this.firstInspectationsItem.Click += new System.EventHandler(this.firstInspectationsItem_Click);
             // 
@@ -279,55 +274,55 @@
             this.specialistItem,
             this.holterItem});
             this.inspectionsMenuItem.Name = "inspectionsMenuItem";
-            this.inspectionsMenuItem.Size = new System.Drawing.Size(323, 26);
+            this.inspectionsMenuItem.Size = new System.Drawing.Size(261, 22);
             this.inspectionsMenuItem.Text = "Результаты обследований";
             // 
             // xrayMenuItem
             // 
             this.xrayMenuItem.Name = "xrayMenuItem";
-            this.xrayMenuItem.Size = new System.Drawing.Size(270, 26);
+            this.xrayMenuItem.Size = new System.Drawing.Size(223, 22);
             this.xrayMenuItem.Text = "Рентген/КТ";
             this.xrayMenuItem.Click += new System.EventHandler(this.xrayMenuItem_Click);
             // 
             // uziItem
             // 
             this.uziItem.Name = "uziItem";
-            this.uziItem.Size = new System.Drawing.Size(270, 26);
+            this.uziItem.Size = new System.Drawing.Size(223, 22);
             this.uziItem.Text = "УЗИ/ЭХО";
             this.uziItem.Click += new System.EventHandler(this.uziItem_Click);
             // 
             // ekgItem
             // 
             this.ekgItem.Name = "ekgItem";
-            this.ekgItem.Size = new System.Drawing.Size(270, 26);
+            this.ekgItem.Size = new System.Drawing.Size(223, 22);
             this.ekgItem.Text = "ЭКГ";
             this.ekgItem.Click += new System.EventHandler(this.ekgItem_Click);
             // 
             // kagItem
             // 
             this.kagItem.Name = "kagItem";
-            this.kagItem.Size = new System.Drawing.Size(270, 26);
+            this.kagItem.Size = new System.Drawing.Size(223, 22);
             this.kagItem.Text = "КАГ";
             this.kagItem.Click += new System.EventHandler(this.kagItem_Click);
             // 
             // egdsItem
             // 
             this.egdsItem.Name = "egdsItem";
-            this.egdsItem.Size = new System.Drawing.Size(270, 26);
+            this.egdsItem.Size = new System.Drawing.Size(223, 22);
             this.egdsItem.Text = "ЭГДС";
             this.egdsItem.Click += new System.EventHandler(this.egdsItem_Click);
             // 
             // specialistItem
             // 
             this.specialistItem.Name = "specialistItem";
-            this.specialistItem.Size = new System.Drawing.Size(270, 26);
+            this.specialistItem.Size = new System.Drawing.Size(223, 22);
             this.specialistItem.Text = "Заключение специалистов";
             this.specialistItem.Click += new System.EventHandler(this.specialistItem_Click);
             // 
             // holterItem
             // 
             this.holterItem.Name = "holterItem";
-            this.holterItem.Size = new System.Drawing.Size(270, 26);
+            this.holterItem.Size = new System.Drawing.Size(223, 22);
             this.holterItem.Text = "Холтер/СМАД";
             this.holterItem.Click += new System.EventHandler(this.holterItem_Click);
             // 
@@ -341,129 +336,129 @@
             this.hormonesItem,
             this.oncologicMarkersItem});
             this.analysisItem.Name = "analysisItem";
-            this.analysisItem.Size = new System.Drawing.Size(323, 26);
+            this.analysisItem.Size = new System.Drawing.Size(261, 22);
             this.analysisItem.Text = "Анализы";
             // 
             // bloodItem
             // 
             this.bloodItem.Name = "bloodItem";
-            this.bloodItem.Size = new System.Drawing.Size(275, 26);
+            this.bloodItem.Size = new System.Drawing.Size(225, 22);
             this.bloodItem.Text = "Клинический анализ крови";
             this.bloodItem.Click += new System.EventHandler(this.bloodItem_Click);
             // 
             // urineItem
             // 
             this.urineItem.Name = "urineItem";
-            this.urineItem.Size = new System.Drawing.Size(275, 26);
+            this.urineItem.Size = new System.Drawing.Size(225, 22);
             this.urineItem.Text = "Анализ мочи";
             this.urineItem.Click += new System.EventHandler(this.urineItem_Click);
             // 
             // koagulogrammItem
             // 
             this.koagulogrammItem.Name = "koagulogrammItem";
-            this.koagulogrammItem.Size = new System.Drawing.Size(275, 26);
+            this.koagulogrammItem.Size = new System.Drawing.Size(225, 22);
             this.koagulogrammItem.Text = "Коагулограмма";
             this.koagulogrammItem.Click += new System.EventHandler(this.koagulogrammItem_Click);
             // 
             // bloodTypeItem
             // 
             this.bloodTypeItem.Name = "bloodTypeItem";
-            this.bloodTypeItem.Size = new System.Drawing.Size(275, 26);
+            this.bloodTypeItem.Size = new System.Drawing.Size(225, 22);
             this.bloodTypeItem.Text = "Группа крови, инфекции";
             this.bloodTypeItem.Click += new System.EventHandler(this.bloodTypeItem_Click);
             // 
             // hormonesItem
             // 
             this.hormonesItem.Name = "hormonesItem";
-            this.hormonesItem.Size = new System.Drawing.Size(275, 26);
+            this.hormonesItem.Size = new System.Drawing.Size(225, 22);
             this.hormonesItem.Text = "Гормоны";
             this.hormonesItem.Click += new System.EventHandler(this.hormonesItem_Click);
             // 
             // oncologicMarkersItem
             // 
             this.oncologicMarkersItem.Name = "oncologicMarkersItem";
-            this.oncologicMarkersItem.Size = new System.Drawing.Size(275, 26);
+            this.oncologicMarkersItem.Size = new System.Drawing.Size(225, 22);
             this.oncologicMarkersItem.Text = "Онкомаркеры";
             this.oncologicMarkersItem.Click += new System.EventHandler(this.oncologicMarkersItem_Click);
             // 
             // bloodTrunsfusionMenuItem
             // 
             this.bloodTrunsfusionMenuItem.Name = "bloodTrunsfusionMenuItem";
-            this.bloodTrunsfusionMenuItem.Size = new System.Drawing.Size(323, 26);
+            this.bloodTrunsfusionMenuItem.Size = new System.Drawing.Size(261, 22);
             this.bloodTrunsfusionMenuItem.Text = "Переливание компонентов крови";
             this.bloodTrunsfusionMenuItem.Click += new System.EventHandler(this.bloodTrunsfusionMenuItem_Click);
             // 
             // issuingMedicineMenuItem
             // 
             this.issuingMedicineMenuItem.Name = "issuingMedicineMenuItem";
-            this.issuingMedicineMenuItem.Size = new System.Drawing.Size(323, 26);
+            this.issuingMedicineMenuItem.Size = new System.Drawing.Size(261, 22);
             this.issuingMedicineMenuItem.Text = "Лист назначений";
             this.issuingMedicineMenuItem.Click += new System.EventHandler(this.issuingMedicineMenuItem_Click);
             // 
             // beforeOperationItem
             // 
             this.beforeOperationItem.Name = "beforeOperationItem";
-            this.beforeOperationItem.Size = new System.Drawing.Size(323, 26);
+            this.beforeOperationItem.Size = new System.Drawing.Size(261, 22);
             this.beforeOperationItem.Text = "Предоперационный эпикриз";
             this.beforeOperationItem.Click += new System.EventHandler(this.beforeOperationItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(320, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(258, 6);
             // 
             // morningInspectationMenuItem
             // 
             this.morningInspectationMenuItem.Name = "morningInspectationMenuItem";
-            this.morningInspectationMenuItem.Size = new System.Drawing.Size(323, 26);
+            this.morningInspectationMenuItem.Size = new System.Drawing.Size(261, 22);
             this.morningInspectationMenuItem.Text = "Утренний совместный обход";
             this.morningInspectationMenuItem.Click += new System.EventHandler(this.morningInspectationMenuItem_Click);
             // 
             // journalBeforeKAGMeniItem
             // 
             this.journalBeforeKAGMeniItem.Name = "journalBeforeKAGMeniItem";
-            this.journalBeforeKAGMeniItem.Size = new System.Drawing.Size(323, 26);
+            this.journalBeforeKAGMeniItem.Size = new System.Drawing.Size(261, 22);
             this.journalBeforeKAGMeniItem.Text = "Дневник до КАГ";
             this.journalBeforeKAGMeniItem.Click += new System.EventHandler(this.journalBeforeKAGMeniItem_Click);
             // 
             // journalAfterKAGMnuItem
             // 
             this.journalAfterKAGMnuItem.Name = "journalAfterKAGMnuItem";
-            this.journalAfterKAGMnuItem.Size = new System.Drawing.Size(323, 26);
+            this.journalAfterKAGMnuItem.Size = new System.Drawing.Size(261, 22);
             this.journalAfterKAGMnuItem.Text = "Дневник после КАГ";
             this.journalAfterKAGMnuItem.Click += new System.EventHandler(this.journalAfterKAGMnuItem_Click);
             // 
             // journalWithoutKAGMenuItem
             // 
             this.journalWithoutKAGMenuItem.Name = "journalWithoutKAGMenuItem";
-            this.journalWithoutKAGMenuItem.Size = new System.Drawing.Size(323, 26);
+            this.journalWithoutKAGMenuItem.Size = new System.Drawing.Size(261, 22);
             this.journalWithoutKAGMenuItem.Text = "Варианты дневников";
+            this.journalWithoutKAGMenuItem.Visible = false;
             this.journalWithoutKAGMenuItem.Click += new System.EventHandler(this.journalWithoutKAGMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(320, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(258, 6);
             // 
             // konsiliumItem
             // 
             this.konsiliumItem.Name = "konsiliumItem";
-            this.konsiliumItem.Size = new System.Drawing.Size(323, 26);
+            this.konsiliumItem.Size = new System.Drawing.Size(261, 22);
             this.konsiliumItem.Text = "Консилиум";
             this.konsiliumItem.Click += new System.EventHandler(this.konsiliumItem_Click);
             // 
             // PatientsHistory
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.mainMenu);
             this.Controls.Add(this.titleLbl);
             this.Controls.Add(this.printBtn);
             this.Controls.Add(this.printTitlePage);
             this.Controls.Add(this.patientHistoryGrid);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "PatientsHistory";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "История болезни";

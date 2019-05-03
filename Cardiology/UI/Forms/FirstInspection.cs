@@ -87,7 +87,7 @@ namespace Cardiology.UI.Forms
 
         private void InitDoctorComboBox()
         {
-            String id = anamnesis == null ? hospitalSession.DutyDoctor : anamnesis.Doctor;
+            String id = anamnesis == null ? hospitalSession.CuringDoctor : anamnesis.Doctor;
             ControlUtils.InitDoctorsByGroupName(this.service.GetDdvDoctorService(), docBox, "cardioreanimation_department");
             docBox.SelectedValue = id;
         }
@@ -821,8 +821,7 @@ namespace Cardiology.UI.Forms
             {
                 if (Save())
                 {
-                    // убрал закрытие в рамках задачи #269
-                    //Close();
+                    Close();
                 }
             }
         }

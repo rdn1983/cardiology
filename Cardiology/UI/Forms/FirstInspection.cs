@@ -679,123 +679,79 @@ namespace Cardiology.UI.Forms
         private void chronicMA_Click(object sender, EventArgs e)
         {
             string templateValue = getDefaultValueForType(accompanyingIllnessesTxt.Name, MA_TYPE);
-            if(accompanyingIllnessesTxt.Text == null)
-            {
-                accompanyingIllnessesTxt.Text = templateValue;
-            } else {
-                if(accompanyingIllnessesTxt.Text.Contains(templateValue))
-                {
-                    accompanyingIllnessesTxt.Text = accompanyingIllnessesTxt.Text.Replace(templateValue, "");
-                }
-                else
-                {
-                    accompanyingIllnessesTxt.Text = templateValue + " " + accompanyingIllnessesTxt.Text;
-                }
-            }
-
-            if(accompanyingIllnessesTxt.Text != null)
-            {
-                accompanyingIllnessesTxt.Text = accompanyingIllnessesTxt.Text.Trim();
-            }
+            ToggleIllnessText(templateValue, false);
         }
 
         private void chronicGB3_Click(object sender, EventArgs e)
         {
             string templateValue = getDefaultValueForType(accompanyingIllnessesTxt.Name, GB_TYPE);
-            if (accompanyingIllnessesTxt.Text == null)
-            {
-                accompanyingIllnessesTxt.Text = templateValue;
-            }
-            else
-            {
-                if (accompanyingIllnessesTxt.Text.Contains(templateValue))
-                {
-                    accompanyingIllnessesTxt.Text = accompanyingIllnessesTxt.Text.Replace(templateValue, "");
-                }
-                else
-                {
-                    accompanyingIllnessesTxt.Text += templateValue + " ";
-                }
-            }
-
-            if (accompanyingIllnessesTxt.Text != null)
-            {
-                accompanyingIllnessesTxt.Text = accompanyingIllnessesTxt.Text.Trim();
-            }
+            ToggleIllnessText(templateValue, true);
         }
 
         private void chronicDEP3_Click(object sender, EventArgs e)
         {
             string templateValue = getDefaultValueForType(accompanyingIllnessesTxt.Name, DEP_TYPE);
-            if (accompanyingIllnessesTxt.Text == null)
-            {
-                accompanyingIllnessesTxt.Text = templateValue;
-            }
-            else
-            {
-                if (accompanyingIllnessesTxt.Text.Contains(templateValue))
-                {
-                    accompanyingIllnessesTxt.Text = accompanyingIllnessesTxt.Text.Replace(templateValue, "");
-                }
-                else
-                {
-                    accompanyingIllnessesTxt.Text += templateValue + " ";
-                }
-            }
-
-            if (accompanyingIllnessesTxt.Text != null)
-            {
-                accompanyingIllnessesTxt.Text = accompanyingIllnessesTxt.Text.Trim();
-            }
+            ToggleIllnessText(templateValue, true);
         }
 
         private void chronicSD_Click(object sender, EventArgs e)
         {
             string templateValue = getDefaultValueForType(accompanyingIllnessesTxt.Name, SD_TYPE);
-            if (accompanyingIllnessesTxt.Text == null)
-            {
-                accompanyingIllnessesTxt.Text = templateValue;
-            }
-            else
-            {
-                if (accompanyingIllnessesTxt.Text.Contains(templateValue))
-                {
-                    accompanyingIllnessesTxt.Text = accompanyingIllnessesTxt.Text.Replace(templateValue, "");
-                }
-                else
-                {
-                    accompanyingIllnessesTxt.Text += templateValue + " ";
-                }
-            }
-
-            if (accompanyingIllnessesTxt.Text != null)
-            {
-                accompanyingIllnessesTxt.Text = accompanyingIllnessesTxt.Text.Trim();
-            }
+            ToggleIllnessText(templateValue, true);
         }
 
         private void chronicHOBL_Click(object sender, EventArgs e)
         {
             string templateValue = getDefaultValueForType(accompanyingIllnessesTxt.Name, HOBL_TYPE);
+            ToggleIllnessText(templateValue, true);
+        }
+
+        private void ToggleIllnessText(string text, Boolean append)
+        {
             if (accompanyingIllnessesTxt.Text == null)
             {
-                accompanyingIllnessesTxt.Text = templateValue;
+                accompanyingIllnessesTxt.Text = text;
             }
             else
             {
-                if (accompanyingIllnessesTxt.Text.Contains(templateValue))
+                if (accompanyingIllnessesTxt.Text.Contains(text))
                 {
-                    accompanyingIllnessesTxt.Text = accompanyingIllnessesTxt.Text.Replace(templateValue, "");
+                    accompanyingIllnessesTxt.Text = accompanyingIllnessesTxt.Text.Replace(text, "");
                 }
                 else
                 {
-                    accompanyingIllnessesTxt.Text += templateValue + " ";
+                    if (append)
+                    {
+                        accompanyingIllnessesTxt.Text += text + " ";
+                    }
+                    else
+                    {
+                        accompanyingIllnessesTxt.Text = text + " " + accompanyingIllnessesTxt.Text;
+                    }
                 }
             }
 
             if (accompanyingIllnessesTxt.Text != null)
             {
                 accompanyingIllnessesTxt.Text = accompanyingIllnessesTxt.Text.Trim();
+            }
+
+            if(accompanyingIllnessesTxt.Text == null)
+            {
+                accompanyingIllnessesTxt.Text = "";
+            }
+
+            if (diagnosisTxt.Text == null)
+            {
+                diagnosisTxt.Text = "";
+            }
+
+            if (accompanyingIllnessesTxt.Text.Contains(text) && !diagnosisTxt.Text.Contains(text))
+            {
+                diagnosisTxt.Text += text + " ";
+            }
+            else if (!accompanyingIllnessesTxt.Text.Contains(text) && diagnosisTxt.Text.Contains(text)) {
+                diagnosisTxt.Text = diagnosisTxt.Text.Replace(text, "");
             }
         }
 
@@ -938,27 +894,6 @@ namespace Cardiology.UI.Forms
 
         private void accompanyingIllnessesTxt_TextChanged(object sender, EventArgs e)
         {
-            string illness = string.Intern(accompanyingIllnessesTxt.Text);
-            string diagnosis = String.Intern(diagnosisTxt.Text);
-            int i = 0;
-            StringBuilder str = new StringBuilder();
-            while (illness.Length > 0 && i <= illness.Length - 1)
-            {
-                char c = illness[i];
-                str.Append(c);
-                if (c == ',' || c == '.' || c == '/' || i == illness.Length - 1)
-                {
-                    if (diagnosis.IndexOf(str.ToString()) < 0)
-                    {
-                        diagnosisTxt.Text += str.ToString();
-                    }
-                    illness = illness.Replace(str.ToString(), "");
-                    str.Clear();
-                    i = 0;
-                }
-                i++;
-            }
-
             HighlightChronicButtons();
         }
 

@@ -139,21 +139,37 @@ namespace Cardiology.UI.Controls
 
         private void rhytmSinusBtn_Click(object sender, EventArgs e)
         {
+            if(regularEkgTxt.Text !=null && regularEkgTxt.Text.Trim().Length > 0)
+            {
+                regularEkgTxt.Text = regularEkgTxt.Text + ". ";
+            }
             regularEkgTxt.Text = regularEkgTxt.Text + "ритм синусовый";
         }
 
         private void fibrillationBtn_Click(object sender, EventArgs e)
         {
+            if (regularEkgTxt.Text != null && regularEkgTxt.Text.Trim().Length > 0)
+            {
+                regularEkgTxt.Text = regularEkgTxt.Text + ". ";
+            }
             regularEkgTxt.Text = regularEkgTxt.Text + "фибрилляция предсердий";
         }
 
         private void flutterBtn_Click(object sender, EventArgs e)
         {
+            if (regularEkgTxt.Text != null && regularEkgTxt.Text.Trim().Length > 0)
+            {
+                regularEkgTxt.Text = regularEkgTxt.Text + ". ";
+            }
             regularEkgTxt.Text = regularEkgTxt.Text + "трепетание предсердий";
         }
 
         private void elevation_Click(object sender, EventArgs e)
         {
+            if (regularEkgTxt.Text != null && regularEkgTxt.Text.Trim().Length > 0)
+            {
+                regularEkgTxt.Text = regularEkgTxt.Text + ". ";
+            }
             regularEkgTxt.Text = regularEkgTxt.Text + "элевация ST в ";
         }
 
@@ -164,11 +180,19 @@ namespace Cardiology.UI.Controls
 
         private void depressionBtn_Click(object sender, EventArgs e)
         {
+            if (regularEkgTxt.Text != null && regularEkgTxt.Text.Trim().Length > 0)
+            {
+                regularEkgTxt.Text = regularEkgTxt.Text + ". ";
+            }
             regularEkgTxt.Text = regularEkgTxt.Text + "депрессия ST в ";
         }
 
         private void negativeTBtn_Click(object sender, EventArgs e)
         {
+            if (regularEkgTxt.Text != null && regularEkgTxt.Text.Trim().Length > 0)
+            {
+                regularEkgTxt.Text = regularEkgTxt.Text + ". ";
+            }
             regularEkgTxt.Text = regularEkgTxt.Text + "отрицательный T";
         }
 

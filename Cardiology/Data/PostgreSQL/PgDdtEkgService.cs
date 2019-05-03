@@ -57,7 +57,7 @@ namespace Cardiology.Data.PostgreSQL
             IList<DdtEkg> list = new List<DdtEkg>();
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = String.Format("SELECT dsid_hospitality_session, r_object_id, dsdt_analysis_date, " +
+                String sql = String.Format(CultureInfo.CurrentCulture, "SELECT dsid_hospitality_session, r_object_id, dsdt_analysis_date, " +
                     "r_modify_date, dss_parent_type, r_creation_date, dsid_parent, dsb_admission_analysis, dss_ekg, " +
                     "dsid_doctor, dsid_patient FROM ddt_ekg WHERE dsid_parent = '{0}'", parentId);
 
@@ -122,7 +122,7 @@ namespace Cardiology.Data.PostgreSQL
         {
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = String.Format("SELECT dsid_hospitality_session, r_object_id, dsdt_analysis_date, r_modify_date, dss_parent_type, r_creation_date, dsid_parent, dsb_admission_analysis, dss_ekg, dsid_doctor, dsid_patient FROM ddt_ekg WHERE r_object_id = '{0}'", id);
+                String sql = String.Format(CultureInfo.CurrentCulture, "SELECT dsid_hospitality_session, r_object_id, dsdt_analysis_date, r_modify_date, dss_parent_type, r_creation_date, dsid_parent, dsb_admission_analysis, dss_ekg, dsid_doctor, dsid_patient FROM ddt_ekg WHERE r_object_id = '{0}'", id);
 
                 Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
 
@@ -154,7 +154,7 @@ namespace Cardiology.Data.PostgreSQL
         {
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = String.Format("SELECT dsid_hospitality_session, r_object_id, dsdt_analysis_date, r_modify_date, dss_parent_type, r_creation_date, dsid_parent, dsb_admission_analysis, dss_ekg, dsid_doctor, dsid_patient " +
+                String sql = String.Format(CultureInfo.CurrentCulture, "SELECT dsid_hospitality_session, r_object_id, dsdt_analysis_date, r_modify_date, dss_parent_type, r_creation_date, dsid_parent, dsb_admission_analysis, dss_ekg, dsid_doctor, dsid_patient " +
                                            "FROM ddt_ekg WHERE dsid_hospitality_session = '{0}' AND dsid_parent = '{1}'", hospitalSession, parentId);
 
                 Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
@@ -187,7 +187,7 @@ namespace Cardiology.Data.PostgreSQL
         {
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = String.Format("SELECT dsid_hospitality_session, r_object_id, dsdt_analysis_date, r_modify_date, dss_parent_type, r_creation_date, dsid_parent, dsb_admission_analysis, dss_ekg, dsid_doctor, dsid_patient " +
+                String sql = String.Format(CultureInfo.CurrentCulture, "SELECT dsid_hospitality_session, r_object_id, dsdt_analysis_date, r_modify_date, dss_parent_type, r_creation_date, dsid_parent, dsb_admission_analysis, dss_ekg, dsid_doctor, dsid_patient " +
                                            "FROM ddt_ekg WHERE dsid_parent = '{0}'", parentId);
 
                 Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
@@ -220,7 +220,7 @@ namespace Cardiology.Data.PostgreSQL
         {
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = String.Format("SELECT dsid_hospitality_session, r_object_id, dsdt_analysis_date, r_modify_date, dss_parent_type, r_creation_date, dsid_parent, dsb_admission_analysis, dss_ekg, dsid_doctor, dsid_patient " +
+                String sql = String.Format(CultureInfo.CurrentCulture, "SELECT dsid_hospitality_session, r_object_id, dsdt_analysis_date, r_modify_date, dss_parent_type, r_creation_date, dsid_parent, dsb_admission_analysis, dss_ekg, dsid_doctor, dsid_patient " +
                                            "FROM ddt_ekg WHERE dsid_hospitality_session = '{0}' ", hospitalSession);
 
                 Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
@@ -249,12 +249,12 @@ namespace Cardiology.Data.PostgreSQL
             return null;
         }
 
-        public DdtEkg GetByHospitalSessionAndAdmission(string hospitalSession, bool admissionAnalysis)
+        public DdtEkg GetByHospitalSessionAndAdmission(string hospitalSession)
         {
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = String.Format("SELECT dsid_hospitality_session, r_object_id, dsdt_analysis_date, r_modify_date, dss_parent_type, r_creation_date, dsid_parent, dsb_admission_analysis, dss_ekg, dsid_doctor, dsid_patient " +
-                                           "FROM ddt_ekg WHERE dsid_hospitality_session = '{0}' and dsb_admission_analysis='{1}' ", hospitalSession, admissionAnalysis);
+                String sql = String.Format(CultureInfo.CurrentCulture, "SELECT dsid_hospitality_session, r_object_id, dsdt_analysis_date, r_modify_date, dss_parent_type, r_creation_date, dsid_parent, dsb_admission_analysis, dss_ekg, dsid_doctor, dsid_patient " +
+                                           "FROM ddt_ekg WHERE dsid_hospitality_session = '{0}'", hospitalSession);
 
                 Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
 

@@ -279,7 +279,7 @@
             this.frontType1.Name = "frontType1";
             this.frontType1.Size = new System.Drawing.Size(181, 23);
             this.frontType1.TabIndex = 21;
-            this.frontType1.Text = "Переднеперегородочный";
+            this.frontType1.Text = "Переднеперегородочный инфаркт миокарда передней стенки левого желудочка";
             this.frontType1.UseVisualStyleBackColor = true;
             this.frontType1.Click += new System.EventHandler(this.frontType1_Click);
             // 

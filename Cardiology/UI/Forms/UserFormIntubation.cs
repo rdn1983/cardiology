@@ -52,7 +52,7 @@ namespace Cardiology.UI.Forms
             values.Add(@"{header}", headerArea.Text);
             values.Add(@"{body}", bodyArea.Text);
             values.Add(@"{doctor.who}", doctorsBox.Text);
-            TemplatesUtils.FillTemplateAndShow(templatePath, values);
+            TemplatesUtils.FillTemplateAndShow(templatePath, values, null);
         }
     }
 }

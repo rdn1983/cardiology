@@ -56,7 +56,7 @@ namespace Cardiology.UI.Forms
             values.Add(@"{patient.sex}", patient.Sex ? "мужской" : "женский");
             values.Add(@"{patient.medcode}", patient.MedCode);
             values.Add(@"{doctor.who}", doc != null ? doc.FullName: "");
-            TemplatesUtils.FillTemplateAndShow(templatePath, values);
+            TemplatesUtils.FillTemplateAndShow(templatePath, values, TemplatesUtils.getTempFileName("Констатация смерти", patient.FullName));
         }
     }
 }

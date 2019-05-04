@@ -13,10 +13,11 @@ namespace Cardiology.Commons
         {
 
             DdtHospital hospitalSession = service.GetDdtHospitalService().GetById(hospitalSessionId);
+            DdvPatient patient = null;
             if (hospitalSession != null)
             {
                 DdvDoctor doc = service.GetDdvDoctorService().GetById(hospitalSession.CuringDoctor);
-                DdvPatient patient = service.GetDdvPatientService().GetById(hospitalSession.Patient);
+                patient = service.GetDdvPatientService().GetById(hospitalSession.Patient);
 
                 values.Add(@"{doctor.who.short}", doc.ShortName);
                 values.Add(@"{patient.initials}", patient.ShortName);
@@ -38,7 +39,8 @@ namespace Cardiology.Commons
                 doc = allGroupsDoc.Count > 0 ? allGroupsDoc[0] : null;
                 values.Add(@"{doctor.io.hospital}", doc?.ShortName);
             }
-            TemplatesUtils.FillTemplateAndShow(Directory.GetCurrentDirectory() + "\\Templates\\" + templateFileName, values);
+            string resultName = getTempFileName("Бланк", patient?.FullName);
+            TemplatesUtils.FillTemplateAndShow(Directory.GetCurrentDirectory() + "\\Templates\\" + templateFileName, values, resultName);
         }
 
 
@@ -57,13 +59,25 @@ namespace Cardiology.Commons
             values.Add(@"{doctor.who}", doc.FullName);
             values.Add(@"{patient.fullname}", patient.FullName);
             values.Add(@"{date}", DateTime.Now.ToShortDateString());
-            TemplatesUtils.FillTemplateAndShow(Directory.GetCurrentDirectory() + "\\Templates\\" + templateFileName, values);
+            string resultName = getTempFileName("Письмо для скорой", patient?.FullName);
+            TemplatesUtils.FillTemplateAndShow(Directory.GetCurrentDirectory() + "\\Templates\\" + templateFileName, values, resultName);
+        }
+
+        public static string getTempFileName(string typeName, string patientFio)
+        {
+            return typeName + " " + patientFio + " " + DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToLongTimeString().Replace(":", "-");
         }
 
         public static string FillTemplate(string templatePath, Dictionary<string, string> mappedValues)
         {
+            return FillTemplate(templatePath, mappedValues, null);
+        }
+
+        public static string FillTemplate(string templatePath, Dictionary<string, string> mappedValues, string resultName)
+        {
             Word.Document doc = null;
             Word.Application app = null;
+            string filledDocPath = null;
             try
             {
                 app = new Word.Application();
@@ -81,7 +95,7 @@ namespace Cardiology.Commons
                             if (oldValue != null && oldValue.Contains(entry.Key))
                             {
                                 wRange.Find.ClearFormatting();
-                                wRange.Find.Execute(FindText:entry.Key);
+                                wRange.Find.Execute(FindText: entry.Key);
                                 wRange.Select();
                                 string newVal = entry.Value;
                                 if (string.IsNullOrEmpty(newVal))
@@ -95,13 +109,29 @@ namespace Cardiology.Commons
                         }
                     }
                 }
-                string filledDocPath = Path.GetTempFileName();
+                if (resultName == null)
+                {
+                    filledDocPath = Path.GetTempFileName();
+                }
+                else
+                {
+                    filledDocPath = Path.Combine(Path.GetTempPath(), resultName);
+                    File.Move(Path.GetTempFileName(), filledDocPath);
+                }
+                doc.PageSetup.TopMargin = 20;
+                doc.PageSetup.BottomMargin = 20;
+                doc.PageSetup.LeftMargin = 50;
+                //doc.Paragraphs.CharacterUnitFirstLineIndent = 1.5F;
                 doc.SaveAs(filledDocPath);
                 Console.WriteLine("filled document path=" + filledDocPath);
                 return filledDocPath;
             }
             catch (Exception ex)
             {
+                if (File.Exists(filledDocPath))
+                {
+                    File.Delete(filledDocPath);
+                }
                 Console.WriteLine(ex.StackTrace);
             }
             finally
@@ -121,9 +151,9 @@ namespace Cardiology.Commons
 
         }
 
-        public static string FillTemplateAndShow(string templatePath, Dictionary<string, string> mappedValues)
+        public static string FillTemplateAndShow(string templatePath, Dictionary<string, string> mappedValues, string resultName)
         {
-            string filledTemplate = FillTemplate(templatePath, mappedValues);
+            string filledTemplate = FillTemplate(templatePath, mappedValues, resultName);
             if (!string.IsNullOrEmpty(filledTemplate))
             {
                 ShowDocument(filledTemplate);
@@ -133,11 +163,17 @@ namespace Cardiology.Commons
         }
 
 
-        public static string MergeFiles(string[] filesToMerge, bool insertPageBreaks)
+        public static string MergeFiles(string[] filesToMerge, bool insertPageBreaks, string resultName)
         {
             object missing = System.Type.Missing;
             object pageBreak = Word.WdBreakType.wdPageBreak;
-            object outputFile = Path.GetTempFileName();
+            object outputFile = null;
+            if (resultName == null) { outputFile = Path.GetTempFileName(); }
+            else
+            {
+                outputFile = Path.Combine(Path.GetTempPath(), resultName);
+                File.Move(Path.GetTempFileName(), outputFile.ToString());
+            }
 
             Word._Application wordApplication = null;
             Word._Document wordDocument = null;
@@ -155,6 +191,12 @@ namespace Cardiology.Commons
                         selection.InsertBreak(ref pageBreak);
                     }
                 }
+
+                wordDocument.PageSetup.TopMargin = 20;
+                wordDocument.PageSetup.BottomMargin = 20;
+                wordDocument.PageSetup.LeftMargin = 50;
+                //wordDocument.Paragraphs.CharacterUnitFirstLineIndent = 1.5F;
+                
                 wordDocument.SaveAs(ref outputFile);
                 Console.WriteLine("Generated file after merge=" + outputFile);
                 return outputFile.ToString();
@@ -181,7 +223,10 @@ namespace Cardiology.Commons
                 }
                 foreach (string path in filesToMerge)
                 {
-                    File.Delete(path);
+                    if (File.Exists(path))
+                    {
+                        File.Delete(path);
+                    }
                 }
             }
             return null;
@@ -194,8 +239,7 @@ namespace Cardiology.Commons
             try
             {
                 wordApplication = new Word.Application();
-                wordDocument = wordApplication.Documents.Add(path);
-                //wordApplication.Activate();
+                wordDocument = wordApplication.Documents.Open(path);
                 wordApplication.Visible = true;
             }
             catch (Exception ex)

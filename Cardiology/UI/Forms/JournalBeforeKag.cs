@@ -49,9 +49,9 @@ namespace Cardiology.UI.Forms
                 Text += " " + patient.ShortName;
             }
 
-            List<DdtJournal> journals = service.GetDdtJournalService().GetByQuery(@"Select r_object_id, dss_diagnosis, dss_chss, dss_chdd, r_creation_date, "+
-                "dss_complaints, dss_surgeon_exam, dss_ekg, dsdt_admission_date, dss_monitor, dss_rhythm, dsid_doctor, dsid_patient, dss_ps, dss_ad,"+
-                " dsid_hospitality_session, r_modify_date, dss_cardio_exam, dsi_journal_type, dsb_good_rhythm, dsb_release_journal, dss_journal "+
+            List<DdtJournal> journals = service.GetDdtJournalService().GetByQuery(@"Select r_object_id, dss_diagnosis, dss_chss, dss_chdd, r_creation_date, " +
+                "dss_complaints, dss_surgeon_exam, dss_ekg, dsdt_admission_date, dss_monitor, dss_rhythm, dsid_doctor, dsid_patient, dss_ps, dss_ad," +
+                " dsid_hospitality_session, r_modify_date, dss_cardio_exam, dsi_journal_type, dsb_good_rhythm, dsb_release_journal, dss_journal " +
                 "FROM ddt_journal WHERE r_object_id IN ('" +
                 journalIds.Aggregate((a, b) => a + "','" + b) + "') ORDER BY dsdt_admission_date ASC");
             foreach (DdtJournal j in journals)
@@ -93,7 +93,8 @@ namespace Cardiology.UI.Forms
             foreach (Control c in journalContainer.Controls)
             {
                 CheckBox hide = c.Controls.Find("hideJournalBtn", true).FirstOrDefault() as CheckBox;
-                if (!hide.Checked) {
+                if (!hide.Checked)
+                {
                     IDocbaseControl docbaseControl = (IDocbaseControl)c;
                     docbaseControl.saveObject(hospitalitySession, null, null);
                     journalIds.Add(docbaseControl.getObjectId());
@@ -108,7 +109,7 @@ namespace Cardiology.UI.Forms
             if (validate())
             {
                 Save();
-    
+
                 List<string> paths = new List<string>();
                 ITemplateProcessor processor = TemplateProcessorManager.getProcessorByObjectType(DdtJournal.NAME);
                 foreach (string id in journalIds)
@@ -120,7 +121,9 @@ namespace Cardiology.UI.Forms
                         paths.Add(path);
                     }
                 }
-                string result = TemplatesUtils.MergeFiles(paths.ToArray(), false);
+                DdvPatient patient = service.GetDdvPatientService().GetById(hospitalitySession.Patient);
+                string resultName = TemplatesUtils.getTempFileName("Журнал", patient.FullName);
+                string result = TemplatesUtils.MergeFiles(paths.ToArray(), false, resultName);
                 TemplatesUtils.ShowDocument(result);
             }
         }

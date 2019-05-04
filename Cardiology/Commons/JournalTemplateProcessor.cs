@@ -47,7 +47,9 @@ namespace Cardiology.Commons
                 string mainPart = TemplatesUtils.FillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + TEMPLATE_FILE_NAME, values);
                 partsPaths.Add(mainPart);
             }
-            return TemplatesUtils.MergeFiles(partsPaths.ToArray(), false);
+            DdvPatient patient = service.GetDdvPatientService().GetById(journal.Patient);
+            string resultName = TemplatesUtils.getTempFileName("Журнал", patient.FullName);
+            return TemplatesUtils.MergeFiles(partsPaths.ToArray(), false, resultName);
         }
 
 

@@ -142,7 +142,8 @@ namespace Cardiology.Commons
             DdvDoctor doc = service.GetDdvDoctorService().GetById(obj.Doctor);
             values.Add("{doctor.who.short}", doc.ShortName);
 
-            return TemplatesUtils.FillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + getTemplateName(obj), values);
+            string resultFileName = TemplatesUtils.getTempFileName("Эпикриз", patient.FullName);
+            return TemplatesUtils.FillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + getTemplateName(obj), values, resultFileName);
         }
 
         private string CompileValue(string title, string value)

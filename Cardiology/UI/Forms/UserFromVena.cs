@@ -44,7 +44,7 @@ namespace Cardiology.UI.Forms
             values.Add(@"{try_num}", tryNumTxt.Text);
             values.Add(@"{column}", columnTxt.Text);
             values.Add(@"{doctor.who}", doctorsBox.Text);
-            TemplatesUtils.FillTemplateAndShow(templatePath, values);
+            TemplatesUtils.FillTemplateAndShow(templatePath, values, null);
         }
     }
 }

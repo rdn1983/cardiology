@@ -45,7 +45,7 @@ namespace Cardiology.Commons
             PutEkgData(values, service, hospitalitySession);
             PutBloodData(values, service, hospitalitySession);
 
-            return TemplatesUtils.FillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + TemplateFileName, values);
+            return TemplatesUtils.FillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + TemplateFileName, values, TemplatesUtils.getTempFileName("Консилиум", patient.FullName));
         }
 
         private string GetDoctorInString(IDbDataService service, String doctorId)

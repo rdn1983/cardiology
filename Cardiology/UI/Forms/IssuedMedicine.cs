@@ -440,7 +440,7 @@ namespace Cardiology.UI.Forms
                 values.Add(@"{issued_medicine_" + i + "}", value);
             }
             string templatePath = Directory.GetCurrentDirectory() + "\\Templates\\issued_medicine_template.doc";
-            TemplatesUtils.FillTemplateAndShow(templatePath, values);
+            TemplatesUtils.FillTemplateAndShow(templatePath, values, TemplatesUtils.getTempFileName("Назначения", patient.FullName));
         }
 
         private void kagMedBtn_Click(object sender, EventArgs e)

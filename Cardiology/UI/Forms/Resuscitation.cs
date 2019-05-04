@@ -48,7 +48,7 @@ namespace Cardiology.UI.Forms
                 values.Add(@"{time" + i + "}", deathTime.ToShortTimeString());
 
             }
-            TemplatesUtils.FillTemplateAndShow(templatePath, values);
+            TemplatesUtils.FillTemplateAndShow(templatePath, values, TemplatesUtils.getTempFileName("Реанимационные действия", patient.FullName));
         }
     }
 }

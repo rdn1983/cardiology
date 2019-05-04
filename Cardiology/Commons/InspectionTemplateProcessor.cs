@@ -51,7 +51,8 @@ namespace Cardiology.Commons
             putUziData(values, service, obj.ObjectId);
             putKagData(values, service, obj.HospitalitySession);
 
-            return TemplatesUtils.FillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + TEMPLATE_FILE_NAME, values);
+            string resultFileName = TemplatesUtils.getTempFileName("Ежедневный осмотр", patient.FullName);
+            return TemplatesUtils.FillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + TEMPLATE_FILE_NAME, values, resultFileName);
         }
 
 

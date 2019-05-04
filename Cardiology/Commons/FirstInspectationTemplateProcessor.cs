@@ -83,7 +83,9 @@ namespace Cardiology.Commons
             DdtHospital hospital = service.GetDdtHospitalService().GetById(hospitalitySession);
             values.Add("{date}", hospital.AdmissionDate.ToShortDateString() + " " + hospital.AdmissionDate.ToShortTimeString());
 
-            return TemplatesUtils.FillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + TEMPLATE_FILE_NAME, values);
+            DdvPatient patient = service.GetDdvPatientService().GetById(hospital.Patient);
+            string resultName = TemplatesUtils.getTempFileName("Первичный осмотр", patient.FullName);
+            return TemplatesUtils.FillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + TEMPLATE_FILE_NAME, values, resultName);
         }
     }
 }

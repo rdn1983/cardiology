@@ -43,7 +43,7 @@ namespace Cardiology.UI.Forms
 
         private void bloodTrunsfusionMenuItem_Click(object sender, EventArgs e)
         {
-            Perelivanie form = new Perelivanie();
+            Transfusion form = new Transfusion(service, hospitalitySession, null);
             form.ShowDialog();
         }
 
@@ -176,6 +176,10 @@ namespace Cardiology.UI.Forms
             else if (DdtAlcoProtocol.NAME.Equals(firstType, StringComparison.Ordinal))
             {
                 form = new AlcoIntoxication(service, hospitalitySession);
+            }
+            else if (DdtTransfusion.NAME.Equals(firstType, StringComparison.Ordinal))
+            {
+                form = new Transfusion(service, hospitalitySession, firstId);
             }
 
             if (form != null)

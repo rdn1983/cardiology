@@ -84,6 +84,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commons\RequestBloodTemplateProcessor.cs" />
+    <Compile Include="Commons\TransfusionConsentTemplateProcessor.cs" />
     <Compile Include="Data\Commons\IDdtAlcoProtocolService.cs" />
     <Compile Include="Data\Commons\IDdtAnamnesisService.cs" />
     <Compile Include="Data\Commons\IDdtBloodAnalysisService.cs" />
@@ -114,6 +116,7 @@
     <Compile Include="Data\Commons\IDdtSerologyService.cs" />
     <Compile Include="Data\Commons\IDdtSpecialistConclusionService.cs" />
     <Compile Include="Data\Commons\IDdtTransferService.cs" />
+    <Compile Include="Data\Commons\IDdtTransfusionService.cs" />
     <Compile Include="Data\Commons\IDdtUrineAnalysisService.cs" />
     <Compile Include="Data\Commons\IDdtUziService.cs" />
     <Compile Include="Data\Commons\IDdtValuesService.cs" />
@@ -160,6 +163,10 @@
     <Compile Include="Data\Model2\DdtSerology.cs" />
     <Compile Include="Data\Model2\DdtSpecialistConclusion.cs" />
     <Compile Include="Data\Model2\DdtTransfer.cs" />
+    <Compile Include="Data\Model2\DdtTransfusion.cs" />
+    <Compile Include="Data\Model2\DdtTransfusionConsent.cs" />
+    <Compile Include="Data\Model2\DdtTransfusionProtocol.cs" />
+    <Compile Include="Data\Model2\DdtTransfusionRequestBlood.cs" />
     <Compile Include="Data\Model2\DdtUrineAnalysis.cs" />
     <Compile Include="Data\Model2\DdtUzi.cs" />
     <Compile Include="Data\Model2\DdtValues.cs" />
@@ -204,6 +211,7 @@
     <Compile Include="Data\PostgreSQL\PgDdtSerologyService.cs" />
     <Compile Include="Data\PostgreSQL\PgDdtSpecialistConclusionService.cs" />
     <Compile Include="Data\PostgreSQL\PgDdtTransferService.cs" />
+    <Compile Include="Data\PostgreSQL\PgDdtTransfusionService.cs" />
     <Compile Include="Data\PostgreSQL\PgDdtUrineAnalysisService.cs" />
     <Compile Include="Data\PostgreSQL\PgDdtUziService.cs" />
     <Compile Include="Data\PostgreSQL\PgDdtValuesService.cs" />
@@ -424,12 +432,6 @@
     <Compile Include="UI\Forms\IssuedMedicine.Designer.cs">
       <DependentUpon>IssuedMedicine.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Forms\Perelivanie.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Forms\Perelivanie.Designer.cs">
-      <DependentUpon>Perelivanie.cs</DependentUpon>
-    </Compile>
     <Compile Include="UI\Forms\Consilium.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -463,6 +465,12 @@
     </Compile>
     <Compile Include="UI\Controls\UrineAnalysisControl.Designer.cs">
       <DependentUpon>UrineAnalysisControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\Transfusion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\Transfusion.Designer.cs">
+      <DependentUpon>Transfusion.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Forms\UserFormEIT.cs">
       <SubType>Form</SubType>
@@ -633,9 +641,6 @@
     <EmbeddedResource Include="UI\Forms\PatientsHistory.resx">
       <DependentUpon>PatientsHistory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Forms\Perelivanie.resx">
-      <DependentUpon>Perelivanie.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UI\Forms\PreoperativeEpicrisiscs.resx">
       <DependentUpon>PreoperativeEpicrisiscs.cs</DependentUpon>
     </EmbeddedResource>
@@ -669,6 +674,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Controls\UrineAnalysisControl.resx">
       <DependentUpon>UrineAnalysisControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\Transfusion.resx">
+      <DependentUpon>Transfusion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Forms\UserFormEIT.resx">
       <DependentUpon>UserFormEIT.cs</DependentUpon>
@@ -830,12 +838,15 @@
     <None Include="Templates\reanim_operations_template.doc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Templates\request_blood.doc" />
+    <None Include="Templates\title.docx" />
     <None Include="Templates\torakacentes_template.doc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Templates\transfer_epicrisis_template.doc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Templates\transfusion_consent.doc" />
     <None Include="Templates\trombolisis_template.doc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

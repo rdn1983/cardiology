@@ -46,5 +46,12 @@ namespace Cardiology.Data.Model2
 
         public bool Sex { get; set; }
 
+        public string BloodGroup { get; set; }
+
+        public string RHFactor { get; set; }
+
+        public string Kell { get; set; }
+
+        public string Phenotype { get; set; }
     }
 }

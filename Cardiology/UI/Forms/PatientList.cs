@@ -36,8 +36,8 @@ namespace Cardiology.UI.Forms
             {
                 DdvActiveHospitalPatients activePatient = activePatients[i];
                 hospitalPatientsTbl.Rows.Add(
-                    activePatient.HospitalSession, 
-                    activePatient.PatientName, 
+                    activePatient.HospitalSession,
+                    activePatient.PatientName,
                     activePatient.RoomCell, activePatient.AdmissionDate, activePatient.DocName, activePatient.Diagnosis);
             }
             //Сортируем по дате приема
@@ -120,13 +120,21 @@ namespace Cardiology.UI.Forms
 
         }
 
-        private void bloodTrunsfusionMenuItem_Click(object sender, EventArgs e)
+        private void deadItem_Click(object sender, EventArgs e)
         {
-            Perelivanie form = new Perelivanie();
-            form.ShowDialog();
+            IEnumerator it = hospitalPatientsTbl.SelectedRows.GetEnumerator();
+            if (it.MoveNext())
+            {
+                DataGridViewRow row = (DataGridViewRow)it.Current;
+                DataGridViewCell cell = row.Cells[0];
+                string value = cell.Value.ToString();
+
+                DdtHospital hospitalSession = service.GetDdtHospitalService().GetById(value);
+                DdvPatient patient = service.GetDdvPatientService().GetById(hospitalSession.Patient);
+                Death form = new Death(patient);
+                form.ShowDialog();
+            }
         }
-
-
 
         private void Hospital_Activated(object sender, EventArgs e)
         {

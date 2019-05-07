@@ -27,7 +27,7 @@ namespace Cardiology.Data.PostgreSQL
                 String sql = "SELECT r_object_id, dss_address, dss_middle_name, dss_passport_num, dss_first_name, " +
                     "dsd_weight, r_creation_date, dss_snils, dss_last_name, dss_passport_date, dss_phone," +
                     " r_modify_date, dss_oms, dss_passport_serial, dsdt_birthdate, dsb_sd, dss_med_code, " +
-                    "dss_passport_issue_place, dsd_high, dsb_sex FROM ddt_patient";
+                    "dss_passport_issue_place, dsd_high, dsb_sex, dss_blood_group, dss_rh_factor, dss_kell, dss_phenotype FROM ddt_patient";
                 Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
 
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
@@ -56,6 +56,10 @@ namespace Cardiology.Data.PostgreSQL
                         obj.PassportIssuePlace = reader.IsDBNull(17) ? null : reader.GetString(17);
                         obj.High = reader.IsDBNull(18) ? -1 : reader.GetFloat(18);
                         obj.Sex = reader.GetBoolean(19);
+                        obj.BloodGroup = reader.IsDBNull(20) ? null : reader.GetString(20);
+                        obj.RHFactor = reader.IsDBNull(21) ? null : reader.GetString(21);
+                        obj.Kell = reader.IsDBNull(22) ? null : reader.GetString(22);
+                        obj.Phenotype = reader.IsDBNull(23) ? null : reader.GetString(23);
                         list.Add(obj);
                     }
                 }
@@ -70,7 +74,7 @@ namespace Cardiology.Data.PostgreSQL
                 String sql = String.Format("SELECT r_object_id, dss_address, dss_middle_name, dss_passport_num, " +
                     "dss_first_name, dsd_weight, r_creation_date, dss_snils, dss_last_name, dss_passport_date, " +
                     "dss_phone, r_modify_date, dss_oms, dss_passport_serial, dsdt_birthdate, dsb_sd, dss_med_code, " +
-                    "dss_passport_issue_place, dsd_high, dsb_sex FROM ddt_patient WHERE r_object_id = '{0}'", id);
+                    "dss_passport_issue_place, dsd_high, dsb_sex, dss_blood_group, dss_rh_factor, dss_kell, dss_phenotype FROM ddt_patient WHERE r_object_id = '{0}'", id);
                 Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
 
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
@@ -99,6 +103,10 @@ namespace Cardiology.Data.PostgreSQL
                         obj.PassportIssuePlace = reader.IsDBNull(17) ? null : reader.GetString(17);
                         obj.High = reader.IsDBNull(18) ? -1 : reader.GetFloat(18);
                         obj.Sex = reader.GetBoolean(19);
+                        obj.BloodGroup = reader.IsDBNull(20) ? null : reader.GetString(20);
+                        obj.RHFactor = reader.IsDBNull(21) ? null : reader.GetString(21);
+                        obj.Kell = reader.IsDBNull(22) ? null : reader.GetString(22);
+                        obj.Phenotype = reader.IsDBNull(23) ? null : reader.GetString(23);
                         return obj;
                     }
                 }
@@ -198,5 +206,29 @@ namespace Cardiology.Data.PostgreSQL
                 return obj.ObjectId;
             }
         }
+
+        public string SetBloodData(DdtPatient obj)
+        {
+            using (dynamic connection = connectionFactory.GetConnection())
+            {
+                    string sql = @"UPDATE ddt_patient SET dss_blood_group=@BloodGroup, dss_rh_factor=@RHFactor, dss_kell=@Kell, dss_phenotype=@Phenotype WHERE r_object_id = @ObjectId";
+
+                    Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
+                    using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Parameters.AddWithValue("@ObjectId", obj.ObjectId);
+                        cmd.Parameters.AddWithValue("@BloodGroup", obj.BloodGroup);
+                        cmd.Parameters.AddWithValue("@RHFactor", obj.RHFactor);
+                        cmd.Parameters.AddWithValue("@Kell", obj.Kell);
+                        cmd.Parameters.AddWithValue("@Phenotype", obj.Phenotype);
+
+                        cmd.ExecuteNonQuery();
+                    }
+                return obj.ObjectId;
+            }
+        }
     }
+
 }

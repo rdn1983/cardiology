@@ -26,7 +26,8 @@ namespace Cardiology.Data.PostgreSQL
                 String sql = "SELECT dss_address, r_object_id, dss_full_name, dss_middle_name, dss_passport_num, " +
                     "dss_first_name, dsd_weight, dss_snils, r_creation_date, dss_last_name, dss_passport_date, " +
                     "r_modify_date, dss_phone, dss_passport_serial, dss_oms, dss_short_name, dsdt_birthdate, " +
-                    "dsb_sd, dss_med_code, dss_passport_issue_place, dsd_high, dsb_sex FROM ddv_patient";
+                    "dsb_sd, dss_med_code, dss_passport_issue_place, dsd_high, dsb_sex, " +
+                    "dss_blood_group, dss_rh_factor, dss_kell, dss_phenotype  FROM ddv_patient";
                 Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
 
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
@@ -57,6 +58,10 @@ namespace Cardiology.Data.PostgreSQL
                         obj.PassportIssuePlace = reader.IsDBNull(19) ? null : reader.GetString(19);
                         obj.High = reader.IsDBNull(20) ? -1 : reader.GetFloat(20);
                         obj.Sex =  reader.GetBoolean(21);
+                        obj.BloodGroup = reader.IsDBNull(22) ? null : reader.GetString(22);
+                        obj.RHFactor = reader.IsDBNull(23) ? null : reader.GetString(23);
+                        obj.Kell = reader.IsDBNull(24) ? null : reader.GetString(24);
+                        obj.Phenotype = reader.IsDBNull(25) ? null : reader.GetString(25);
                         list.Add(obj);
                     }
                 }
@@ -71,7 +76,8 @@ namespace Cardiology.Data.PostgreSQL
                 String sql = String.Format("SELECT dss_address, r_object_id, dss_full_name, dss_middle_name, " +
                     "dss_passport_num, dss_first_name, dsd_weight, dss_snils, r_creation_date, dss_last_name, " +
                     "dss_passport_date, r_modify_date, dss_phone, dss_passport_serial, dss_oms, dss_short_name, " +
-                    "dsdt_birthdate, dsb_sd, dss_med_code, dss_passport_issue_place, dsd_high, dsb_sex FROM ddv_patient" +
+                    "dsdt_birthdate, dsb_sd, dss_med_code, dss_passport_issue_place, dsd_high, dsb_sex, " +
+                    "dss_blood_group, dss_rh_factor, dss_kell, dss_phenotype  FROM ddv_patient" +
                     " WHERE r_object_id = '{0}'", id);
                 Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
 
@@ -103,6 +109,10 @@ namespace Cardiology.Data.PostgreSQL
                         obj.PassportIssuePlace = reader.IsDBNull(19) ? null : reader.GetString(19);
                         obj.High = reader.IsDBNull(20) ? -1 : reader.GetFloat(20);
                         obj.Sex =  reader.GetBoolean(21);
+                        obj.BloodGroup = reader.IsDBNull(22) ? null : reader.GetString(22);
+                        obj.RHFactor = reader.IsDBNull(23) ? null : reader.GetString(23);
+                        obj.Kell = reader.IsDBNull(24) ? null : reader.GetString(24);
+                        obj.Phenotype = reader.IsDBNull(25) ? null : reader.GetString(25);
                         return obj;
                     }
                 }
@@ -117,7 +127,8 @@ namespace Cardiology.Data.PostgreSQL
                 String sql = String.Format("SELECT dss_address, r_object_id, dss_full_name, dss_middle_name, " +
                     "dss_passport_num, dss_first_name, dsd_weight, dss_snils, r_creation_date, dss_last_name, " +
                     "dss_passport_date, r_modify_date, dss_phone, dss_passport_serial, dss_oms, dss_short_name, " +
-                    "dsdt_birthdate, dsb_sd, dss_med_code, dss_passport_issue_place, dsd_high, dsb_sex FROM ddv_patient" +
+                    "dsdt_birthdate, dsb_sd, dss_med_code, dss_passport_issue_place, dsd_high, dsb_sex, " +
+                    "dss_blood_group, dss_rh_factor, dss_kell, dss_phenotype  FROM ddv_patient" +
                     " WHERE r_object_id = '{0}'", id);
                 Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
 
@@ -149,6 +160,10 @@ namespace Cardiology.Data.PostgreSQL
                         obj.PassportIssuePlace = reader.IsDBNull(19) ? null : reader.GetString(19);
                         obj.High = reader.IsDBNull(20) ? -1 : reader.GetFloat(20);
                         obj.Sex =  reader.GetBoolean(21);
+                        obj.BloodGroup = reader.IsDBNull(22) ? null : reader.GetString(22);
+                        obj.RHFactor = reader.IsDBNull(23) ? null : reader.GetString(23);
+                        obj.Kell = reader.IsDBNull(24) ? null : reader.GetString(24);
+                        obj.Phenotype = reader.IsDBNull(25) ? null : reader.GetString(25);
                         return obj;
                     }
                 }

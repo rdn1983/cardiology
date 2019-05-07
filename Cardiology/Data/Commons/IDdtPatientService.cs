@@ -10,5 +10,7 @@ namespace Cardiology.Data.Commons
         DdtPatient GetById(string id);
 
         string Save(DdtPatient obj);
+
+        string SetBloodData(DdtPatient obj);
     }
 }

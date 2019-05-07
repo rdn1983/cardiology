@@ -22,7 +22,11 @@ CREATE TABLE ddt_patient (
   dss_passport_issue_place VARCHAR(128),
   dss_passport_date        TIMESTAMP,
   dsb_sd                   boolean,
-  dsb_sex                  boolean NOT NULL
+  dsb_sex                  boolean NOT NULL,
+  dss_blood_group          VARCHAR(8),
+  dss_rh_factor            VARCHAR(8),
+  dss_kell                 VARCHAR(16),
+  dss_phenotype            VARCHAR(16)
 );
 
 CREATE TRIGGER ddt_patient_trg_modify_date
@@ -31,7 +35,7 @@ CREATE TRIGGER ddt_patient_trg_modify_date
   FOR EACH ROW
 EXECUTE PROCEDURE dmtrg_f_modify_date();
 
-CREATE VIEW ddv_patient (
+CREATE OR REPLACE VIEW ddv_patient (
     r_object_id,
     r_creation_date,
     r_modify_date,
@@ -58,7 +62,12 @@ CREATE VIEW ddv_patient (
 
     dss_full_name,
     dss_short_name,
-	dsb_sex
+	dsb_sex,
+	
+	dss_blood_group,
+	dss_rh_factor,
+	dss_kell,
+	dss_phenotype
 ) AS
   SELECT
     r_object_id,
@@ -87,6 +96,11 @@ CREATE VIEW ddv_patient (
 
     CONCAT(dss_last_name, ' ', dss_first_name, ' ', dss_middle_name)                                   AS dss_full_name,
     CONCAT(dss_last_name, ' ', SUBSTR(dss_first_name, 1, 1), '. ', SUBSTR(dss_middle_name, 1, 1), '.') AS dss_short_name,
-	dsb_sex
+	dsb_sex,
+	
+		dss_blood_group,
+	dss_rh_factor,
+	dss_kell,
+	dss_phenotype
 
   FROM ddt_patient;

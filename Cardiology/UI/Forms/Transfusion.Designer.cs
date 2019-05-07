@@ -1,6 +1,6 @@
 ﻿namespace Cardiology.UI.Forms
 {
-    partial class Perelivanie
+    partial class Transfusion
     {
         /// <summary>
         /// Required designer variable.
@@ -28,72 +28,81 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Perelivanie));
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Transfusion));
+            this.tabTransfusion = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.button17 = new System.Windows.Forms.Button();
-            this.button18 = new System.Windows.Forms.Button();
-            this.button19 = new System.Windows.Forms.Button();
-            this.button20 = new System.Windows.Forms.Button();
-            this.button21 = new System.Windows.Forms.Button();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
-            this.button15 = new System.Windows.Forms.Button();
-            this.button16 = new System.Windows.Forms.Button();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.gbConsent = new System.Windows.Forms.GroupBox();
+            this.consilium = new System.Windows.Forms.RadioButton();
+            this.notConsent = new System.Windows.Forms.RadioButton();
+            this.consent = new System.Windows.Forms.RadioButton();
+            this.gbBloodData = new System.Windows.Forms.GroupBox();
+            this.lblRHFactor = new System.Windows.Forms.Label();
+            this.lblBloodGroup = new System.Windows.Forms.Label();
+            this.lblKell = new System.Windows.Forms.Label();
+            this.tbKell = new System.Windows.Forms.TextBox();
+            this.lblPhenotype = new System.Windows.Forms.Label();
+            this.tbPhenotype = new System.Windows.Forms.TextBox();
+            this.btnSetBloodData = new System.Windows.Forms.Button();
+            this.gbRHFactor = new System.Windows.Forms.GroupBox();
+            this.rb0 = new System.Windows.Forms.RadioButton();
+            this.rb1 = new System.Windows.Forms.RadioButton();
+            this.gbBloodGroup = new System.Windows.Forms.GroupBox();
+            this.rbIV = new System.Windows.Forms.RadioButton();
+            this.rbIII = new System.Windows.Forms.RadioButton();
+            this.rbII = new System.Windows.Forms.RadioButton();
+            this.rbI = new System.Windows.Forms.RadioButton();
+            this.btnConsent = new System.Windows.Forms.Button();
+            this.btnConsilium = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.dtTransfusionDate = new System.Windows.Forms.DateTimePicker();
+            this.gbTransfusionMedium = new System.Windows.Forms.GroupBox();
+            this.Platelet = new System.Windows.Forms.CheckBox();
+            this.Albumin = new System.Windows.Forms.CheckBox();
+            this.Plasma = new System.Windows.Forms.CheckBox();
+            this.btnBloodAnalysis = new System.Windows.Forms.Button();
+            this.Blood = new System.Windows.Forms.CheckBox();
+            this.gbBlood = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.countBlood = new System.Windows.Forms.ComboBox();
+            this.inrBlood = new System.Windows.Forms.TextBox();
+            this.apttBlood = new System.Windows.Forms.TextBox();
+            this.hematocritBlood = new System.Windows.Forms.TextBox();
+            this.hemoglobinBlood = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.showAnalyzesBtn = new System.Windows.Forms.Button();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.gbPlasma = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.countPlasma = new System.Windows.Forms.ComboBox();
+            this.inrPlasma = new System.Windows.Forms.TextBox();
+            this.apttPlasma = new System.Windows.Forms.TextBox();
+            this.hematocritPlasma = new System.Windows.Forms.TextBox();
+            this.hemoglobinPlasma = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.gbAlbumin = new System.Windows.Forms.GroupBox();
+            this.label83 = new System.Windows.Forms.Label();
+            this.countAlbumin = new System.Windows.Forms.ComboBox();
+            this.albuminAlbumin = new System.Windows.Forms.TextBox();
+            this.proteinAlbumin = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.protein = new System.Windows.Forms.Label();
+            this.gbPlatelet = new System.Windows.Forms.GroupBox();
+            this.label102 = new System.Windows.Forms.Label();
+            this.albuminPlatelet = new System.Windows.Forms.TextBox();
+            this.countPlatelet = new System.Windows.Forms.ComboBox();
+            this.plateletPlatelet = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.btnRequest = new System.Windows.Forms.Button();
+            this.gbDoctor = new System.Windows.Forms.GroupBox();
+            this.cbDoctor = new System.Windows.Forms.ComboBox();
+            this.tabPageBloodProtocol = new System.Windows.Forms.TabPage();
             this.button27 = new System.Windows.Forms.Button();
             this.button26 = new System.Windows.Forms.Button();
             this.button25 = new System.Windows.Forms.Button();
@@ -201,7 +210,7 @@
             this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label13 = new System.Windows.Forms.Label();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tabPagePlasmaProtocol = new System.Windows.Forms.TabPage();
             this.button30 = new System.Windows.Forms.Button();
             this.button31 = new System.Windows.Forms.Button();
             this.button32 = new System.Windows.Forms.Button();
@@ -262,7 +271,7 @@
             this.dateTimePicker7 = new System.Windows.Forms.DateTimePicker();
             this.label55 = new System.Windows.Forms.Label();
             this.label56 = new System.Windows.Forms.Label();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.tabPageAlbuminProtocol = new System.Windows.Forms.TabPage();
             this.button33 = new System.Windows.Forms.Button();
             this.button34 = new System.Windows.Forms.Button();
             this.button35 = new System.Windows.Forms.Button();
@@ -307,28 +316,32 @@
             this.dateTimePicker9 = new System.Windows.Forms.DateTimePicker();
             this.label100 = new System.Windows.Forms.Label();
             this.label101 = new System.Windows.Forms.Label();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.tabPagePloteletProtocol = new System.Windows.Forms.TabPage();
             this.label80 = new System.Windows.Forms.Label();
             this.button36 = new System.Windows.Forms.Button();
             this.button37 = new System.Windows.Forms.Button();
             this.button38 = new System.Windows.Forms.Button();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.tabPageTransfusionList = new System.Windows.Forms.TabPage();
             this.button29 = new System.Windows.Forms.Button();
             this.button28 = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.button22 = new System.Windows.Forms.Button();
             this.button23 = new System.Windows.Forms.Button();
-            this.button24 = new System.Windows.Forms.Button();
-            this.tabControl1.SuspendLayout();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.tabTransfusion.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.groupBox7.SuspendLayout();
-            this.groupBox6.SuspendLayout();
-            this.groupBox5.SuspendLayout();
-            this.groupBox4.SuspendLayout();
+            this.gbConsent.SuspendLayout();
+            this.gbBloodData.SuspendLayout();
+            this.gbRHFactor.SuspendLayout();
+            this.gbBloodGroup.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.gbTransfusionMedium.SuspendLayout();
+            this.gbBlood.SuspendLayout();
+            this.gbPlasma.SuspendLayout();
+            this.gbAlbumin.SuspendLayout();
+            this.gbPlatelet.SuspendLayout();
+            this.gbDoctor.SuspendLayout();
+            this.tabPageBloodProtocol.SuspendLayout();
             this.groupBox18.SuspendLayout();
             this.groupBox21.SuspendLayout();
             this.groupBox20.SuspendLayout();
@@ -343,7 +356,7 @@
             this.groupBox10.SuspendLayout();
             this.groupBox9.SuspendLayout();
             this.groupBox8.SuspendLayout();
-            this.tabPage3.SuspendLayout();
+            this.tabPagePlasmaProtocol.SuspendLayout();
             this.groupBox25.SuspendLayout();
             this.groupBox26.SuspendLayout();
             this.groupBox27.SuspendLayout();
@@ -351,427 +364,289 @@
             this.groupBox24.SuspendLayout();
             this.groupBox23.SuspendLayout();
             this.groupBox22.SuspendLayout();
-            this.tabPage4.SuspendLayout();
+            this.tabPageAlbuminProtocol.SuspendLayout();
             this.groupBox29.SuspendLayout();
             this.groupBox31.SuspendLayout();
             this.groupBox32.SuspendLayout();
             this.groupBox33.SuspendLayout();
             this.groupBox34.SuspendLayout();
-            this.tabPage5.SuspendLayout();
-            this.tabPage6.SuspendLayout();
+            this.tabPagePloteletProtocol.SuspendLayout();
+            this.tabPageTransfusionList.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // tabTransfusion
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tabTransfusion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Controls.Add(this.tabPage5);
-            this.tabControl1.Controls.Add(this.tabPage6);
-            this.tabControl1.Location = new System.Drawing.Point(2, 3);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(794, 545);
-            this.tabControl1.TabIndex = 0;
+            this.tabTransfusion.Controls.Add(this.tabPage1);
+            this.tabTransfusion.Controls.Add(this.tabPageBloodProtocol);
+            this.tabTransfusion.Controls.Add(this.tabPagePlasmaProtocol);
+            this.tabTransfusion.Controls.Add(this.tabPageAlbuminProtocol);
+            this.tabTransfusion.Controls.Add(this.tabPagePloteletProtocol);
+            this.tabTransfusion.Controls.Add(this.tabPageTransfusionList);
+            this.tabTransfusion.Location = new System.Drawing.Point(2, 3);
+            this.tabTransfusion.Name = "tabTransfusion";
+            this.tabTransfusion.SelectedIndex = 0;
+            this.tabTransfusion.Size = new System.Drawing.Size(814, 522);
+            this.tabTransfusion.TabIndex = 0;
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.groupBox7);
-            this.tabPage1.Controls.Add(this.groupBox6);
-            this.tabPage1.Controls.Add(this.groupBox5);
-            this.tabPage1.Controls.Add(this.groupBox4);
+            this.tabPage1.Controls.Add(this.gbConsent);
+            this.tabPage1.Controls.Add(this.gbBloodData);
+            this.tabPage1.Controls.Add(this.btnConsent);
+            this.tabPage1.Controls.Add(this.btnConsilium);
+            this.tabPage1.Controls.Add(this.button6);
+            this.tabPage1.Controls.Add(this.button5);
             this.tabPage1.Controls.Add(this.groupBox3);
-            this.tabPage1.Controls.Add(this.groupBox2);
-            this.tabPage1.Controls.Add(this.groupBox1);
-            this.tabPage1.Controls.Add(this.showAnalyzesBtn);
+            this.tabPage1.Controls.Add(this.gbTransfusionMedium);
+            this.tabPage1.Controls.Add(this.gbDoctor);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage1.Size = new System.Drawing.Size(786, 519);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(806, 496);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Показания к трансфузии";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // groupBox7
-            // 
-            this.groupBox7.Controls.Add(this.button17);
-            this.groupBox7.Controls.Add(this.button18);
-            this.groupBox7.Controls.Add(this.button19);
-            this.groupBox7.Controls.Add(this.button20);
-            this.groupBox7.Controls.Add(this.button21);
-            this.groupBox7.Controls.Add(this.textBox9);
-            this.groupBox7.Controls.Add(this.textBox10);
-            this.groupBox7.Controls.Add(this.label11);
-            this.groupBox7.Controls.Add(this.label12);
-            this.groupBox7.Location = new System.Drawing.Point(588, 116);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(188, 318);
-            this.groupBox7.TabIndex = 16;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Кровь";
-            // 
-            // button17
-            // 
-            this.button17.Location = new System.Drawing.Point(13, 280);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(165, 23);
-            this.button17.TabIndex = 13;
-            this.button17.Text = "Новый протокол трансфузии";
-            this.button17.UseVisualStyleBackColor = true;
-            // 
-            // button18
-            // 
-            this.button18.Location = new System.Drawing.Point(13, 251);
-            this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(165, 23);
-            this.button18.TabIndex = 12;
-            this.button18.Text = "Исправить старый протокол";
-            this.button18.UseVisualStyleBackColor = true;
-            // 
-            // button19
-            // 
-            this.button19.Location = new System.Drawing.Point(13, 206);
-            this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(165, 23);
-            this.button19.TabIndex = 11;
-            this.button19.Text = "Заявка";
-            this.button19.UseVisualStyleBackColor = true;
-            // 
-            // button20
-            // 
-            this.button20.Location = new System.Drawing.Point(13, 177);
-            this.button20.Name = "button20";
-            this.button20.Size = new System.Drawing.Size(165, 23);
-            this.button20.TabIndex = 10;
-            this.button20.Text = "Согласие";
-            this.button20.UseVisualStyleBackColor = true;
-            // 
-            // button21
-            // 
-            this.button21.Location = new System.Drawing.Point(13, 148);
-            this.button21.Name = "button21";
-            this.button21.Size = new System.Drawing.Size(165, 23);
-            this.button21.TabIndex = 9;
-            this.button21.Text = "Показания";
-            this.button21.UseVisualStyleBackColor = true;
-            // 
-            // textBox9
-            // 
-            this.textBox9.Location = new System.Drawing.Point(76, 37);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(100, 20);
-            this.textBox9.TabIndex = 5;
-            // 
-            // textBox10
-            // 
-            this.textBox10.Location = new System.Drawing.Point(76, 13);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(100, 20);
-            this.textBox10.TabIndex = 4;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(7, 44);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(57, 13);
-            this.label11.TabIndex = 1;
-            this.label11.Text = "Альбумин";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(6, 20);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(71, 13);
-            this.label12.TabIndex = 0;
-            this.label12.Text = "Тромбоциты";
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.button12);
-            this.groupBox6.Controls.Add(this.button13);
-            this.groupBox6.Controls.Add(this.button14);
-            this.groupBox6.Controls.Add(this.button15);
-            this.groupBox6.Controls.Add(this.button16);
-            this.groupBox6.Controls.Add(this.textBox11);
-            this.groupBox6.Controls.Add(this.textBox12);
-            this.groupBox6.Controls.Add(this.label14);
-            this.groupBox6.Controls.Add(this.label15);
-            this.groupBox6.Location = new System.Drawing.Point(394, 116);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(188, 318);
-            this.groupBox6.TabIndex = 15;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Кровь";
-            // 
-            // button12
-            // 
-            this.button12.Location = new System.Drawing.Point(13, 280);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(165, 23);
-            this.button12.TabIndex = 13;
-            this.button12.Text = "Новый протокол трансфузии";
-            this.button12.UseVisualStyleBackColor = true;
-            // 
-            // button13
-            // 
-            this.button13.Location = new System.Drawing.Point(13, 251);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(165, 23);
-            this.button13.TabIndex = 12;
-            this.button13.Text = "Исправить старый протокол";
-            this.button13.UseVisualStyleBackColor = true;
-            // 
-            // button14
-            // 
-            this.button14.Location = new System.Drawing.Point(13, 206);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(165, 23);
-            this.button14.TabIndex = 11;
-            this.button14.Text = "Заявка";
-            this.button14.UseVisualStyleBackColor = true;
-            // 
-            // button15
-            // 
-            this.button15.Location = new System.Drawing.Point(13, 177);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(165, 23);
-            this.button15.TabIndex = 10;
-            this.button15.Text = "Согласие";
-            this.button15.UseVisualStyleBackColor = true;
-            // 
-            // button16
-            // 
-            this.button16.Location = new System.Drawing.Point(13, 148);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(165, 23);
-            this.button16.TabIndex = 9;
-            this.button16.Text = "Показания";
-            this.button16.UseVisualStyleBackColor = true;
-            // 
-            // textBox11
-            // 
-            this.textBox11.Location = new System.Drawing.Point(76, 37);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(100, 20);
-            this.textBox11.TabIndex = 5;
-            // 
-            // textBox12
-            // 
-            this.textBox12.Location = new System.Drawing.Point(76, 13);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(100, 20);
-            this.textBox12.TabIndex = 4;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(7, 44);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(57, 13);
-            this.label14.TabIndex = 1;
-            this.label14.Text = "Альбумин";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(6, 20);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(75, 13);
-            this.label15.TabIndex = 0;
-            this.label15.Text = "Общий белок";
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.label6);
-            this.groupBox5.Controls.Add(this.button7);
-            this.groupBox5.Controls.Add(this.button8);
-            this.groupBox5.Controls.Add(this.button9);
-            this.groupBox5.Controls.Add(this.button10);
-            this.groupBox5.Controls.Add(this.button11);
-            this.groupBox5.Controls.Add(this.comboBox3);
-            this.groupBox5.Controls.Add(this.textBox5);
-            this.groupBox5.Controls.Add(this.textBox6);
-            this.groupBox5.Controls.Add(this.textBox7);
-            this.groupBox5.Controls.Add(this.textBox8);
-            this.groupBox5.Controls.Add(this.label7);
-            this.groupBox5.Controls.Add(this.label8);
-            this.groupBox5.Controls.Add(this.label9);
-            this.groupBox5.Controls.Add(this.label10);
-            this.groupBox5.Location = new System.Drawing.Point(199, 116);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(189, 318);
-            this.groupBox5.TabIndex = 5;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Кровь";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(10, 118);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(66, 13);
-            this.label6.TabIndex = 14;
-            this.label6.Text = "Количество";
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(13, 280);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(165, 23);
-            this.button7.TabIndex = 13;
-            this.button7.Text = "Новый протокол трансфузии";
-            this.button7.UseVisualStyleBackColor = true;
-            // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(13, 251);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(165, 23);
-            this.button8.TabIndex = 12;
-            this.button8.Text = "Исправить старый протокол";
-            this.button8.UseVisualStyleBackColor = true;
-            // 
-            // button9
-            // 
-            this.button9.Location = new System.Drawing.Point(13, 206);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(165, 23);
-            this.button9.TabIndex = 11;
-            this.button9.Text = "Заявка";
-            this.button9.UseVisualStyleBackColor = true;
-            // 
-            // button10
-            // 
-            this.button10.Location = new System.Drawing.Point(13, 177);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(165, 23);
-            this.button10.TabIndex = 10;
-            this.button10.Text = "Согласие";
-            this.button10.UseVisualStyleBackColor = true;
-            // 
-            // button11
-            // 
-            this.button11.Location = new System.Drawing.Point(13, 148);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(165, 23);
-            this.button11.TabIndex = 9;
-            this.button11.Text = "Показания";
-            this.button11.UseVisualStyleBackColor = true;
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(76, 110);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(100, 21);
-            this.comboBox3.TabIndex = 8;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(76, 85);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 7;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(76, 61);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 6;
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(76, 37);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 20);
-            this.textBox7.TabIndex = 5;
-            // 
-            // textBox8
-            // 
-            this.textBox8.Location = new System.Drawing.Point(76, 13);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(100, 20);
-            this.textBox8.TabIndex = 4;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(10, 92);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(32, 13);
-            this.label7.TabIndex = 3;
-            this.label7.Text = "МНО";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(10, 68);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(36, 13);
-            this.label8.TabIndex = 2;
-            this.label8.Text = "АЧТВ";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(10, 44);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(67, 13);
-            this.label9.TabIndex = 1;
-            this.label9.Text = "Гематокрит";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(10, 20);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(68, 13);
-            this.label10.TabIndex = 0;
-            this.label10.Text = "Гемоглобин";
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.label5);
-            this.groupBox4.Controls.Add(this.button6);
-            this.groupBox4.Controls.Add(this.button5);
-            this.groupBox4.Controls.Add(this.button4);
-            this.groupBox4.Controls.Add(this.button3);
-            this.groupBox4.Controls.Add(this.button2);
-            this.groupBox4.Controls.Add(this.comboBox2);
-            this.groupBox4.Controls.Add(this.textBox4);
-            this.groupBox4.Controls.Add(this.textBox3);
-            this.groupBox4.Controls.Add(this.textBox2);
-            this.groupBox4.Controls.Add(this.textBox1);
-            this.groupBox4.Controls.Add(this.label4);
-            this.groupBox4.Controls.Add(this.label3);
-            this.groupBox4.Controls.Add(this.label2);
-            this.groupBox4.Controls.Add(this.label1);
-            this.groupBox4.Location = new System.Drawing.Point(7, 112);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(186, 318);
-            this.groupBox4.TabIndex = 4;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Кровь";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(10, 118);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(66, 13);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "Количество";
+            // gbConsent
+            // 
+            this.gbConsent.Controls.Add(this.consilium);
+            this.gbConsent.Controls.Add(this.notConsent);
+            this.gbConsent.Controls.Add(this.consent);
+            this.gbConsent.Location = new System.Drawing.Point(12, 289);
+            this.gbConsent.Name = "gbConsent";
+            this.gbConsent.Size = new System.Drawing.Size(328, 45);
+            this.gbConsent.TabIndex = 27;
+            this.gbConsent.TabStop = false;
+            this.gbConsent.Text = "Согласие";
+            // 
+            // consilium
+            // 
+            this.consilium.AutoSize = true;
+            this.consilium.Location = new System.Drawing.Point(213, 16);
+            this.consilium.Name = "consilium";
+            this.consilium.Size = new System.Drawing.Size(79, 17);
+            this.consilium.TabIndex = 1;
+            this.consilium.TabStop = true;
+            this.consilium.Text = "Консилиум";
+            this.consilium.UseVisualStyleBackColor = true;
+            this.consilium.CheckedChanged += new System.EventHandler(this.changeConsent);
+            // 
+            // notConsent
+            // 
+            this.notConsent.AutoSize = true;
+            this.notConsent.Location = new System.Drawing.Point(112, 16);
+            this.notConsent.Name = "notConsent";
+            this.notConsent.Size = new System.Drawing.Size(81, 17);
+            this.notConsent.TabIndex = 1;
+            this.notConsent.TabStop = true;
+            this.notConsent.Text = "Не соласен";
+            this.notConsent.UseVisualStyleBackColor = true;
+            this.notConsent.CheckedChanged += new System.EventHandler(this.changeConsent);
+            // 
+            // consent
+            // 
+            this.consent.AutoSize = true;
+            this.consent.Location = new System.Drawing.Point(15, 16);
+            this.consent.Name = "consent";
+            this.consent.Size = new System.Drawing.Size(72, 17);
+            this.consent.TabIndex = 0;
+            this.consent.TabStop = true;
+            this.consent.Text = "Согласен";
+            this.consent.UseVisualStyleBackColor = true;
+            this.consent.CheckedChanged += new System.EventHandler(this.changeConsent);
+            // 
+            // gbBloodData
+            // 
+            this.gbBloodData.Controls.Add(this.lblRHFactor);
+            this.gbBloodData.Controls.Add(this.lblBloodGroup);
+            this.gbBloodData.Controls.Add(this.lblKell);
+            this.gbBloodData.Controls.Add(this.tbKell);
+            this.gbBloodData.Controls.Add(this.lblPhenotype);
+            this.gbBloodData.Controls.Add(this.tbPhenotype);
+            this.gbBloodData.Controls.Add(this.btnSetBloodData);
+            this.gbBloodData.Controls.Add(this.gbRHFactor);
+            this.gbBloodData.Controls.Add(this.gbBloodGroup);
+            this.gbBloodData.Location = new System.Drawing.Point(10, 12);
+            this.gbBloodData.Name = "gbBloodData";
+            this.gbBloodData.Size = new System.Drawing.Size(330, 170);
+            this.gbBloodData.TabIndex = 26;
+            this.gbBloodData.TabStop = false;
+            this.gbBloodData.Text = "Данные о крови пациента";
+            // 
+            // lblRHFactor
+            // 
+            this.lblRHFactor.AutoSize = true;
+            this.lblRHFactor.Location = new System.Drawing.Point(6, 49);
+            this.lblRHFactor.Name = "lblRHFactor";
+            this.lblRHFactor.Size = new System.Drawing.Size(77, 13);
+            this.lblRHFactor.TabIndex = 25;
+            this.lblRHFactor.Text = "Резус-фактор";
+            // 
+            // lblBloodGroup
+            // 
+            this.lblBloodGroup.AutoSize = true;
+            this.lblBloodGroup.Location = new System.Drawing.Point(6, 21);
+            this.lblBloodGroup.Name = "lblBloodGroup";
+            this.lblBloodGroup.Size = new System.Drawing.Size(76, 13);
+            this.lblBloodGroup.TabIndex = 24;
+            this.lblBloodGroup.Text = "Группа крови";
+            // 
+            // lblKell
+            // 
+            this.lblKell.AutoSize = true;
+            this.lblKell.Location = new System.Drawing.Point(50, 76);
+            this.lblKell.Name = "lblKell";
+            this.lblKell.Size = new System.Drawing.Size(32, 13);
+            this.lblKell.TabIndex = 23;
+            this.lblKell.Text = "Келл";
+            // 
+            // tbKell
+            // 
+            this.tbKell.Location = new System.Drawing.Point(86, 73);
+            this.tbKell.Name = "tbKell";
+            this.tbKell.Size = new System.Drawing.Size(234, 20);
+            this.tbKell.TabIndex = 15;
+            // 
+            // lblPhenotype
+            // 
+            this.lblPhenotype.AutoSize = true;
+            this.lblPhenotype.Location = new System.Drawing.Point(31, 102);
+            this.lblPhenotype.Name = "lblPhenotype";
+            this.lblPhenotype.Size = new System.Drawing.Size(51, 13);
+            this.lblPhenotype.TabIndex = 22;
+            this.lblPhenotype.Text = "Фенотип";
+            // 
+            // tbPhenotype
+            // 
+            this.tbPhenotype.Location = new System.Drawing.Point(86, 102);
+            this.tbPhenotype.Name = "tbPhenotype";
+            this.tbPhenotype.Size = new System.Drawing.Size(234, 20);
+            this.tbPhenotype.TabIndex = 15;
+            // 
+            // btnSetBloodData
+            // 
+            this.btnSetBloodData.Location = new System.Drawing.Point(86, 128);
+            this.btnSetBloodData.Name = "btnSetBloodData";
+            this.btnSetBloodData.Size = new System.Drawing.Size(234, 33);
+            this.btnSetBloodData.TabIndex = 20;
+            this.btnSetBloodData.Text = "Обновить данные пациента";
+            this.btnSetBloodData.UseVisualStyleBackColor = true;
+            this.btnSetBloodData.Click += new System.EventHandler(this.btnSetBloodDataClick);
+            // 
+            // gbRHFactor
+            // 
+            this.gbRHFactor.Controls.Add(this.rb0);
+            this.gbRHFactor.Controls.Add(this.rb1);
+            this.gbRHFactor.Location = new System.Drawing.Point(86, 39);
+            this.gbRHFactor.Name = "gbRHFactor";
+            this.gbRHFactor.Size = new System.Drawing.Size(234, 29);
+            this.gbRHFactor.TabIndex = 4;
+            this.gbRHFactor.TabStop = false;
+            // 
+            // rb0
+            // 
+            this.rb0.AutoSize = true;
+            this.rb0.Location = new System.Drawing.Point(59, 8);
+            this.rb0.Name = "rb0";
+            this.rb0.Size = new System.Drawing.Size(50, 17);
+            this.rb0.TabIndex = 1;
+            this.rb0.TabStop = true;
+            this.rb0.Text = "Rh(-)";
+            this.rb0.UseVisualStyleBackColor = true;
+            // 
+            // rb1
+            // 
+            this.rb1.AutoSize = true;
+            this.rb1.Location = new System.Drawing.Point(3, 8);
+            this.rb1.Name = "rb1";
+            this.rb1.Size = new System.Drawing.Size(54, 17);
+            this.rb1.TabIndex = 0;
+            this.rb1.TabStop = true;
+            this.rb1.Text = "Rh(+)";
+            this.rb1.UseVisualStyleBackColor = true;
+            // 
+            // gbBloodGroup
+            // 
+            this.gbBloodGroup.Controls.Add(this.rbIV);
+            this.gbBloodGroup.Controls.Add(this.rbIII);
+            this.gbBloodGroup.Controls.Add(this.rbII);
+            this.gbBloodGroup.Controls.Add(this.rbI);
+            this.gbBloodGroup.Location = new System.Drawing.Point(86, 9);
+            this.gbBloodGroup.Name = "gbBloodGroup";
+            this.gbBloodGroup.Size = new System.Drawing.Size(234, 30);
+            this.gbBloodGroup.TabIndex = 4;
+            this.gbBloodGroup.TabStop = false;
+            // 
+            // rbIV
+            // 
+            this.rbIV.AutoSize = true;
+            this.rbIV.Location = new System.Drawing.Point(173, 9);
+            this.rbIV.Name = "rbIV";
+            this.rbIV.Size = new System.Drawing.Size(59, 17);
+            this.rbIV.TabIndex = 3;
+            this.rbIV.TabStop = true;
+            this.rbIV.Text = "AB (IV)";
+            this.rbIV.UseVisualStyleBackColor = true;
+            // 
+            // rbIII
+            // 
+            this.rbIII.AutoSize = true;
+            this.rbIII.Location = new System.Drawing.Point(114, 9);
+            this.rbIII.Name = "rbIII";
+            this.rbIII.Size = new System.Drawing.Size(54, 17);
+            this.rbIII.TabIndex = 2;
+            this.rbIII.TabStop = true;
+            this.rbIII.Text = "В (III)";
+            this.rbIII.UseVisualStyleBackColor = true;
+            // 
+            // rbII
+            // 
+            this.rbII.AutoSize = true;
+            this.rbII.Location = new System.Drawing.Point(59, 9);
+            this.rbII.Name = "rbII";
+            this.rbII.Size = new System.Drawing.Size(51, 17);
+            this.rbII.TabIndex = 1;
+            this.rbII.TabStop = true;
+            this.rbII.Text = "A (II)";
+            this.rbII.UseVisualStyleBackColor = true;
+            // 
+            // rbI
+            // 
+            this.rbI.AutoSize = true;
+            this.rbI.Location = new System.Drawing.Point(3, 9);
+            this.rbI.Name = "rbI";
+            this.rbI.Size = new System.Drawing.Size(48, 17);
+            this.rbI.TabIndex = 0;
+            this.rbI.TabStop = true;
+            this.rbI.Text = "О (I)";
+            this.rbI.UseVisualStyleBackColor = true;
+            // 
+            // btnConsent
+            // 
+            this.btnConsent.Location = new System.Drawing.Point(10, 349);
+            this.btnConsent.Name = "btnConsent";
+            this.btnConsent.Size = new System.Drawing.Size(165, 23);
+            this.btnConsent.TabIndex = 10;
+            this.btnConsent.Text = "Согласие";
+            this.btnConsent.UseVisualStyleBackColor = true;
+            this.btnConsent.Click += new System.EventHandler(this.consentBtnClik);
+            // 
+            // btnConsilium
+            // 
+            this.btnConsilium.Location = new System.Drawing.Point(10, 378);
+            this.btnConsilium.Name = "btnConsilium";
+            this.btnConsilium.Size = new System.Drawing.Size(165, 23);
+            this.btnConsilium.TabIndex = 19;
+            this.btnConsilium.Text = "Консилиум";
+            this.btnConsilium.UseVisualStyleBackColor = true;
+            this.btnConsilium.Click += new System.EventHandler(this.btnConsiliumClick);
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(13, 280);
+            this.button6.Location = new System.Drawing.Point(624, 461);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(165, 23);
             this.button6.TabIndex = 13;
@@ -780,82 +655,173 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(13, 251);
+            this.button5.Location = new System.Drawing.Point(624, 427);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(165, 23);
             this.button5.TabIndex = 12;
             this.button5.Text = "Исправить старый протокол";
             this.button5.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // groupBox3
             // 
-            this.button4.Location = new System.Drawing.Point(13, 206);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(165, 23);
-            this.button4.TabIndex = 11;
-            this.button4.Text = "Заявка";
-            this.button4.UseVisualStyleBackColor = true;
+            this.groupBox3.Controls.Add(this.dtTransfusionDate);
+            this.groupBox3.Location = new System.Drawing.Point(10, 238);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(330, 40);
+            this.groupBox3.TabIndex = 3;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Дата трансфузии";
             // 
-            // button3
+            // dtTransfusionDate
             // 
-            this.button3.Location = new System.Drawing.Point(13, 177);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(165, 23);
-            this.button3.TabIndex = 10;
-            this.button3.Text = "Согласие";
-            this.button3.UseVisualStyleBackColor = true;
+            this.dtTransfusionDate.Location = new System.Drawing.Point(6, 15);
+            this.dtTransfusionDate.Name = "dtTransfusionDate";
+            this.dtTransfusionDate.Size = new System.Drawing.Size(169, 20);
+            this.dtTransfusionDate.TabIndex = 0;
             // 
-            // button2
+            // gbTransfusionMedium
             // 
-            this.button2.Location = new System.Drawing.Point(13, 148);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(165, 23);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Показания";
-            this.button2.UseVisualStyleBackColor = true;
+            this.gbTransfusionMedium.Controls.Add(this.Platelet);
+            this.gbTransfusionMedium.Controls.Add(this.Albumin);
+            this.gbTransfusionMedium.Controls.Add(this.Plasma);
+            this.gbTransfusionMedium.Controls.Add(this.btnBloodAnalysis);
+            this.gbTransfusionMedium.Controls.Add(this.Blood);
+            this.gbTransfusionMedium.Controls.Add(this.gbBlood);
+            this.gbTransfusionMedium.Controls.Add(this.gbPlasma);
+            this.gbTransfusionMedium.Controls.Add(this.gbAlbumin);
+            this.gbTransfusionMedium.Controls.Add(this.gbPlatelet);
+            this.gbTransfusionMedium.Controls.Add(this.btnRequest);
+            this.gbTransfusionMedium.Location = new System.Drawing.Point(376, 15);
+            this.gbTransfusionMedium.Name = "gbTransfusionMedium";
+            this.gbTransfusionMedium.Size = new System.Drawing.Size(413, 357);
+            this.gbTransfusionMedium.TabIndex = 2;
+            this.gbTransfusionMedium.TabStop = false;
+            this.gbTransfusionMedium.Text = "Трансфузионная среда";
             // 
-            // comboBox2
+            // Platelet
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(77, 110);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(100, 21);
-            this.comboBox2.TabIndex = 8;
+            this.Platelet.AutoSize = true;
+            this.Platelet.Location = new System.Drawing.Point(324, 23);
+            this.Platelet.Name = "Platelet";
+            this.Platelet.Size = new System.Drawing.Size(80, 17);
+            this.Platelet.TabIndex = 17;
+            this.Platelet.Text = "Тромбоцит";
+            this.Platelet.UseVisualStyleBackColor = true;
+            this.Platelet.CheckedChanged += new System.EventHandler(this.cbTransfusionMediumChanged);
             // 
-            // textBox4
+            // Albumin
             // 
-            this.textBox4.Location = new System.Drawing.Point(77, 85);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 7;
+            this.Albumin.AutoSize = true;
+            this.Albumin.Location = new System.Drawing.Point(218, 23);
+            this.Albumin.Name = "Albumin";
+            this.Albumin.Size = new System.Drawing.Size(75, 17);
+            this.Albumin.TabIndex = 17;
+            this.Albumin.Text = "Альбумин";
+            this.Albumin.UseVisualStyleBackColor = true;
+            this.Albumin.CheckedChanged += new System.EventHandler(this.cbTransfusionMediumChanged);
             // 
-            // textBox3
+            // Plasma
             // 
-            this.textBox3.Location = new System.Drawing.Point(77, 61);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 6;
+            this.Plasma.AutoSize = true;
+            this.Plasma.Location = new System.Drawing.Point(116, 23);
+            this.Plasma.Name = "Plasma";
+            this.Plasma.Size = new System.Drawing.Size(62, 17);
+            this.Plasma.TabIndex = 17;
+            this.Plasma.Text = "Плазма";
+            this.Plasma.UseVisualStyleBackColor = true;
+            this.Plasma.CheckedChanged += new System.EventHandler(this.cbTransfusionMediumChanged);
             // 
-            // textBox2
+            // btnBloodAnalysis
             // 
-            this.textBox2.Location = new System.Drawing.Point(77, 37);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 5;
+            this.btnBloodAnalysis.Location = new System.Drawing.Point(14, 301);
+            this.btnBloodAnalysis.Name = "btnBloodAnalysis";
+            this.btnBloodAnalysis.Size = new System.Drawing.Size(187, 37);
+            this.btnBloodAnalysis.TabIndex = 19;
+            this.btnBloodAnalysis.Text = "Анализ крови";
+            this.btnBloodAnalysis.UseVisualStyleBackColor = true;
+            this.btnBloodAnalysis.Click += new System.EventHandler(this.btnBloodAnalysisClick);
             // 
-            // textBox1
+            // Blood
             // 
-            this.textBox1.Location = new System.Drawing.Point(77, 13);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 4;
+            this.Blood.AutoSize = true;
+            this.Blood.Location = new System.Drawing.Point(20, 23);
+            this.Blood.Name = "Blood";
+            this.Blood.Size = new System.Drawing.Size(57, 17);
+            this.Blood.TabIndex = 17;
+            this.Blood.Text = "Кровь";
+            this.Blood.UseVisualStyleBackColor = true;
+            this.Blood.CheckedChanged += new System.EventHandler(this.cbTransfusionMediumChanged);
+            // 
+            // gbBlood
+            // 
+            this.gbBlood.Controls.Add(this.label5);
+            this.gbBlood.Controls.Add(this.countBlood);
+            this.gbBlood.Controls.Add(this.inrBlood);
+            this.gbBlood.Controls.Add(this.apttBlood);
+            this.gbBlood.Controls.Add(this.hematocritBlood);
+            this.gbBlood.Controls.Add(this.hemoglobinBlood);
+            this.gbBlood.Controls.Add(this.label4);
+            this.gbBlood.Controls.Add(this.label3);
+            this.gbBlood.Controls.Add(this.label2);
+            this.gbBlood.Controls.Add(this.label1);
+            this.gbBlood.Location = new System.Drawing.Point(15, 51);
+            this.gbBlood.Name = "gbBlood";
+            this.gbBlood.Size = new System.Drawing.Size(186, 138);
+            this.gbBlood.TabIndex = 4;
+            this.gbBlood.TabStop = false;
+            this.gbBlood.Text = "Кровь";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(10, 113);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(67, 13);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Количество";
+            // 
+            // countBlood
+            // 
+            this.countBlood.FormattingEnabled = true;
+            this.countBlood.Location = new System.Drawing.Point(77, 110);
+            this.countBlood.Name = "countBlood";
+            this.countBlood.Size = new System.Drawing.Size(100, 21);
+            this.countBlood.TabIndex = 8;
+            // 
+            // inrBlood
+            // 
+            this.inrBlood.Location = new System.Drawing.Point(77, 85);
+            this.inrBlood.Name = "inrBlood";
+            this.inrBlood.Size = new System.Drawing.Size(100, 20);
+            this.inrBlood.TabIndex = 7;
+            // 
+            // apttBlood
+            // 
+            this.apttBlood.Location = new System.Drawing.Point(77, 61);
+            this.apttBlood.Name = "apttBlood";
+            this.apttBlood.Size = new System.Drawing.Size(100, 20);
+            this.apttBlood.TabIndex = 6;
+            // 
+            // hematocritBlood
+            // 
+            this.hematocritBlood.Location = new System.Drawing.Point(77, 37);
+            this.hematocritBlood.Name = "hematocritBlood";
+            this.hematocritBlood.Size = new System.Drawing.Size(100, 20);
+            this.hematocritBlood.TabIndex = 5;
+            // 
+            // hemoglobinBlood
+            // 
+            this.hemoglobinBlood.Location = new System.Drawing.Point(77, 13);
+            this.hemoglobinBlood.Name = "hemoglobinBlood";
+            this.hemoglobinBlood.Size = new System.Drawing.Size(100, 20);
+            this.hemoglobinBlood.TabIndex = 4;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(10, 92);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(32, 13);
+            this.label4.Size = new System.Drawing.Size(30, 13);
             this.label4.TabIndex = 3;
             this.label4.Text = "МНО";
             // 
@@ -864,7 +830,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(10, 68);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(36, 13);
+            this.label3.Size = new System.Drawing.Size(33, 13);
             this.label3.TabIndex = 2;
             this.label3.Text = "АЧТВ";
             // 
@@ -882,134 +848,295 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(10, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 13);
+            this.label1.Size = new System.Drawing.Size(66, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Гемоглобин";
             // 
-            // groupBox3
+            // gbPlasma
             // 
-            this.groupBox3.Controls.Add(this.dateTimePicker1);
-            this.groupBox3.Location = new System.Drawing.Point(424, 7);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(271, 100);
-            this.groupBox3.TabIndex = 3;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Дата трансфузии";
+            this.gbPlasma.Controls.Add(this.label6);
+            this.gbPlasma.Controls.Add(this.countPlasma);
+            this.gbPlasma.Controls.Add(this.inrPlasma);
+            this.gbPlasma.Controls.Add(this.apttPlasma);
+            this.gbPlasma.Controls.Add(this.hematocritPlasma);
+            this.gbPlasma.Controls.Add(this.hemoglobinPlasma);
+            this.gbPlasma.Controls.Add(this.label7);
+            this.gbPlasma.Controls.Add(this.label8);
+            this.gbPlasma.Controls.Add(this.label9);
+            this.gbPlasma.Controls.Add(this.label10);
+            this.gbPlasma.Location = new System.Drawing.Point(216, 51);
+            this.gbPlasma.Name = "gbPlasma";
+            this.gbPlasma.Size = new System.Drawing.Size(189, 138);
+            this.gbPlasma.TabIndex = 5;
+            this.gbPlasma.TabStop = false;
+            this.gbPlasma.Text = "Плазма";
             // 
-            // dateTimePicker1
+            // label6
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(20, 26);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(235, 20);
-            this.dateTimePicker1.TabIndex = 0;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(10, 113);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(67, 13);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Количество";
             // 
-            // groupBox2
+            // countPlasma
             // 
-            this.groupBox2.Controls.Add(this.radioButton4);
-            this.groupBox2.Controls.Add(this.radioButton3);
-            this.groupBox2.Controls.Add(this.radioButton2);
-            this.groupBox2.Controls.Add(this.radioButton1);
-            this.groupBox2.Location = new System.Drawing.Point(137, 67);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(270, 39);
-            this.groupBox2.TabIndex = 2;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Что будем переливать";
+            this.countPlasma.FormattingEnabled = true;
+            this.countPlasma.Location = new System.Drawing.Point(76, 110);
+            this.countPlasma.Name = "countPlasma";
+            this.countPlasma.Size = new System.Drawing.Size(100, 21);
+            this.countPlasma.TabIndex = 8;
             // 
-            // radioButton4
+            // inrPlasma
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(198, 16);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(72, 17);
-            this.radioButton4.TabIndex = 3;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "Тромбо-т";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.inrPlasma.Location = new System.Drawing.Point(76, 85);
+            this.inrPlasma.Name = "inrPlasma";
+            this.inrPlasma.Size = new System.Drawing.Size(100, 20);
+            this.inrPlasma.TabIndex = 7;
             // 
-            // radioButton3
+            // apttPlasma
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(126, 16);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(75, 17);
-            this.radioButton3.TabIndex = 2;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Альбумин";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.apttPlasma.Location = new System.Drawing.Point(76, 61);
+            this.apttPlasma.Name = "apttPlasma";
+            this.apttPlasma.Size = new System.Drawing.Size(100, 20);
+            this.apttPlasma.TabIndex = 6;
             // 
-            // radioButton2
+            // hematocritPlasma
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(62, 16);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(65, 17);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Плазма";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.hematocritPlasma.Location = new System.Drawing.Point(76, 37);
+            this.hematocritPlasma.Name = "hematocritPlasma";
+            this.hematocritPlasma.Size = new System.Drawing.Size(100, 20);
+            this.hematocritPlasma.TabIndex = 5;
             // 
-            // radioButton1
+            // hemoglobinPlasma
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(6, 16);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(56, 17);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Кровь";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.hemoglobinPlasma.Location = new System.Drawing.Point(76, 13);
+            this.hemoglobinPlasma.Name = "hemoglobinPlasma";
+            this.hemoglobinPlasma.Size = new System.Drawing.Size(100, 20);
+            this.hemoglobinPlasma.TabIndex = 4;
             // 
-            // groupBox1
+            // label7
             // 
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Location = new System.Drawing.Point(137, 7);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(270, 53);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "2. Врач назначивший трансфузию:";
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(10, 92);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(30, 13);
+            this.label7.TabIndex = 3;
+            this.label7.Text = "МНО";
             // 
-            // comboBox1
+            // label8
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(6, 26);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(258, 21);
-            this.comboBox1.TabIndex = 0;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(10, 68);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(33, 13);
+            this.label8.TabIndex = 2;
+            this.label8.Text = "АЧТВ";
             // 
-            // showAnalyzesBtn
+            // label9
             // 
-            this.showAnalyzesBtn.Location = new System.Drawing.Point(7, 7);
-            this.showAnalyzesBtn.Name = "showAnalyzesBtn";
-            this.showAnalyzesBtn.Size = new System.Drawing.Size(123, 99);
-            this.showAnalyzesBtn.TabIndex = 0;
-            this.showAnalyzesBtn.Text = "1. Ввести:\r\n группу крови,\r\nРезус ф-р,\r\nКЕЛЛ-аг, \r\nФенотип";
-            this.showAnalyzesBtn.UseVisualStyleBackColor = true;
-            this.showAnalyzesBtn.Click += new System.EventHandler(this.showAnalyzesBtn_Click);
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(10, 44);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(67, 13);
+            this.label9.TabIndex = 1;
+            this.label9.Text = "Гематокрит";
             // 
-            // tabPage2
+            // label10
             // 
-            this.tabPage2.Controls.Add(this.button27);
-            this.tabPage2.Controls.Add(this.button26);
-            this.tabPage2.Controls.Add(this.button25);
-            this.tabPage2.Controls.Add(this.groupBox18);
-            this.tabPage2.Controls.Add(this.groupBox16);
-            this.tabPage2.Controls.Add(this.groupBox15);
-            this.tabPage2.Controls.Add(this.groupBox14);
-            this.tabPage2.Controls.Add(this.groupBox13);
-            this.tabPage2.Controls.Add(this.groupBox12);
-            this.tabPage2.Controls.Add(this.groupBox11);
-            this.tabPage2.Controls.Add(this.groupBox10);
-            this.tabPage2.Controls.Add(this.groupBox9);
-            this.tabPage2.Controls.Add(this.groupBox8);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage2.Size = new System.Drawing.Size(786, 519);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Протокол КРОВЬ";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(10, 20);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(66, 13);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "Гемоглобин";
+            // 
+            // gbAlbumin
+            // 
+            this.gbAlbumin.Controls.Add(this.label83);
+            this.gbAlbumin.Controls.Add(this.countAlbumin);
+            this.gbAlbumin.Controls.Add(this.albuminAlbumin);
+            this.gbAlbumin.Controls.Add(this.proteinAlbumin);
+            this.gbAlbumin.Controls.Add(this.label14);
+            this.gbAlbumin.Controls.Add(this.protein);
+            this.gbAlbumin.Location = new System.Drawing.Point(14, 202);
+            this.gbAlbumin.Name = "gbAlbumin";
+            this.gbAlbumin.Size = new System.Drawing.Size(188, 92);
+            this.gbAlbumin.TabIndex = 15;
+            this.gbAlbumin.TabStop = false;
+            this.gbAlbumin.Text = "Альбумин";
+            // 
+            // label83
+            // 
+            this.label83.AutoSize = true;
+            this.label83.Location = new System.Drawing.Point(6, 65);
+            this.label83.Name = "label83";
+            this.label83.Size = new System.Drawing.Size(67, 13);
+            this.label83.TabIndex = 16;
+            this.label83.Text = "Количество";
+            // 
+            // countAlbumin
+            // 
+            this.countAlbumin.FormattingEnabled = true;
+            this.countAlbumin.Location = new System.Drawing.Point(77, 62);
+            this.countAlbumin.Name = "countAlbumin";
+            this.countAlbumin.Size = new System.Drawing.Size(100, 21);
+            this.countAlbumin.TabIndex = 15;
+            // 
+            // albuminAlbumin
+            // 
+            this.albuminAlbumin.Location = new System.Drawing.Point(76, 37);
+            this.albuminAlbumin.Name = "albuminAlbumin";
+            this.albuminAlbumin.Size = new System.Drawing.Size(100, 20);
+            this.albuminAlbumin.TabIndex = 5;
+            // 
+            // proteinAlbumin
+            // 
+            this.proteinAlbumin.Location = new System.Drawing.Point(76, 13);
+            this.proteinAlbumin.Name = "proteinAlbumin";
+            this.proteinAlbumin.Size = new System.Drawing.Size(100, 20);
+            this.proteinAlbumin.TabIndex = 4;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(7, 44);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(56, 13);
+            this.label14.TabIndex = 1;
+            this.label14.Text = "Альбумин";
+            // 
+            // protein
+            // 
+            this.protein.AutoSize = true;
+            this.protein.Location = new System.Drawing.Point(6, 20);
+            this.protein.Name = "protein";
+            this.protein.Size = new System.Drawing.Size(75, 13);
+            this.protein.TabIndex = 0;
+            this.protein.Text = "Общий белок";
+            // 
+            // gbPlatelet
+            // 
+            this.gbPlatelet.Controls.Add(this.label102);
+            this.gbPlatelet.Controls.Add(this.albuminPlatelet);
+            this.gbPlatelet.Controls.Add(this.countPlatelet);
+            this.gbPlatelet.Controls.Add(this.plateletPlatelet);
+            this.gbPlatelet.Controls.Add(this.label11);
+            this.gbPlatelet.Controls.Add(this.label12);
+            this.gbPlatelet.Location = new System.Drawing.Point(216, 201);
+            this.gbPlatelet.Name = "gbPlatelet";
+            this.gbPlatelet.Size = new System.Drawing.Size(188, 94);
+            this.gbPlatelet.TabIndex = 16;
+            this.gbPlatelet.TabStop = false;
+            this.gbPlatelet.Text = "Тромбоцит";
+            this.gbPlatelet.UseWaitCursor = true;
+            // 
+            // label102
+            // 
+            this.label102.AutoSize = true;
+            this.label102.Location = new System.Drawing.Point(6, 66);
+            this.label102.Name = "label102";
+            this.label102.Size = new System.Drawing.Size(67, 13);
+            this.label102.TabIndex = 16;
+            this.label102.Text = "Количество";
+            this.label102.UseWaitCursor = true;
+            // 
+            // albuminPlatelet
+            // 
+            this.albuminPlatelet.Location = new System.Drawing.Point(76, 37);
+            this.albuminPlatelet.Name = "albuminPlatelet";
+            this.albuminPlatelet.Size = new System.Drawing.Size(100, 20);
+            this.albuminPlatelet.TabIndex = 5;
+            this.albuminPlatelet.UseWaitCursor = true;
+            // 
+            // countPlatelet
+            // 
+            this.countPlatelet.FormattingEnabled = true;
+            this.countPlatelet.Location = new System.Drawing.Point(76, 62);
+            this.countPlatelet.Name = "countPlatelet";
+            this.countPlatelet.Size = new System.Drawing.Size(100, 21);
+            this.countPlatelet.TabIndex = 15;
+            this.countPlatelet.UseWaitCursor = true;
+            // 
+            // plateletPlatelet
+            // 
+            this.plateletPlatelet.Location = new System.Drawing.Point(76, 13);
+            this.plateletPlatelet.Name = "plateletPlatelet";
+            this.plateletPlatelet.Size = new System.Drawing.Size(100, 20);
+            this.plateletPlatelet.TabIndex = 4;
+            this.plateletPlatelet.UseWaitCursor = true;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(7, 44);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(56, 13);
+            this.label11.TabIndex = 1;
+            this.label11.Text = "Альбумин";
+            this.label11.UseWaitCursor = true;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(6, 20);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(69, 13);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "Тромбоциты";
+            this.label12.UseWaitCursor = true;
+            // 
+            // btnRequest
+            // 
+            this.btnRequest.Location = new System.Drawing.Point(216, 301);
+            this.btnRequest.Name = "btnRequest";
+            this.btnRequest.Size = new System.Drawing.Size(191, 36);
+            this.btnRequest.TabIndex = 11;
+            this.btnRequest.Text = "Заявка";
+            this.btnRequest.UseVisualStyleBackColor = true;
+            this.btnRequest.Click += new System.EventHandler(this.requestBtnClik);
+            // 
+            // gbDoctor
+            // 
+            this.gbDoctor.Controls.Add(this.cbDoctor);
+            this.gbDoctor.Location = new System.Drawing.Point(10, 188);
+            this.gbDoctor.Name = "gbDoctor";
+            this.gbDoctor.Size = new System.Drawing.Size(330, 44);
+            this.gbDoctor.TabIndex = 1;
+            this.gbDoctor.TabStop = false;
+            this.gbDoctor.Text = "Врач назначивший трансфузию";
+            // 
+            // cbDoctor
+            // 
+            this.cbDoctor.FormattingEnabled = true;
+            this.cbDoctor.Location = new System.Drawing.Point(6, 16);
+            this.cbDoctor.Name = "cbDoctor";
+            this.cbDoctor.Size = new System.Drawing.Size(169, 21);
+            this.cbDoctor.TabIndex = 0;
+            // 
+            // tabPageBloodProtocol
+            // 
+            this.tabPageBloodProtocol.Controls.Add(this.button27);
+            this.tabPageBloodProtocol.Controls.Add(this.button26);
+            this.tabPageBloodProtocol.Controls.Add(this.button25);
+            this.tabPageBloodProtocol.Controls.Add(this.groupBox18);
+            this.tabPageBloodProtocol.Controls.Add(this.groupBox16);
+            this.tabPageBloodProtocol.Controls.Add(this.groupBox15);
+            this.tabPageBloodProtocol.Controls.Add(this.groupBox14);
+            this.tabPageBloodProtocol.Controls.Add(this.groupBox13);
+            this.tabPageBloodProtocol.Controls.Add(this.groupBox12);
+            this.tabPageBloodProtocol.Controls.Add(this.groupBox11);
+            this.tabPageBloodProtocol.Controls.Add(this.groupBox10);
+            this.tabPageBloodProtocol.Controls.Add(this.groupBox9);
+            this.tabPageBloodProtocol.Controls.Add(this.groupBox8);
+            this.tabPageBloodProtocol.Location = new System.Drawing.Point(4, 22);
+            this.tabPageBloodProtocol.Name = "tabPageBloodProtocol";
+            this.tabPageBloodProtocol.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageBloodProtocol.Size = new System.Drawing.Size(806, 496);
+            this.tabPageBloodProtocol.TabIndex = 1;
+            this.tabPageBloodProtocol.Text = "Протокол КРОВЬ";
+            this.tabPageBloodProtocol.UseVisualStyleBackColor = true;
             // 
             // button27
             // 
@@ -1109,7 +1236,7 @@
             this.label52.AutoSize = true;
             this.label52.Location = new System.Drawing.Point(184, 16);
             this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(74, 26);
+            this.label52.Size = new System.Drawing.Size(73, 26);
             this.label52.TabIndex = 2;
             this.label52.Text = "Температура\r\nград.С";
             // 
@@ -1127,7 +1254,7 @@
             this.label54.AutoSize = true;
             this.label54.Location = new System.Drawing.Point(10, 28);
             this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(79, 13);
+            this.label54.Size = new System.Drawing.Size(80, 13);
             this.label54.TabIndex = 0;
             this.label54.Text = "АД (мм.рт.ст.)";
             // 
@@ -1190,7 +1317,7 @@
             this.label48.AutoSize = true;
             this.label48.Location = new System.Drawing.Point(184, 16);
             this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(74, 26);
+            this.label48.Size = new System.Drawing.Size(73, 26);
             this.label48.TabIndex = 2;
             this.label48.Text = "Температура\r\nград.С";
             // 
@@ -1208,7 +1335,7 @@
             this.label50.AutoSize = true;
             this.label50.Location = new System.Drawing.Point(10, 28);
             this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(79, 13);
+            this.label50.Size = new System.Drawing.Size(80, 13);
             this.label50.TabIndex = 0;
             this.label50.Text = "АД (мм.рт.ст.)";
             // 
@@ -1271,7 +1398,7 @@
             this.label45.AutoSize = true;
             this.label45.Location = new System.Drawing.Point(184, 16);
             this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(74, 26);
+            this.label45.Size = new System.Drawing.Size(73, 26);
             this.label45.TabIndex = 2;
             this.label45.Text = "Температура\r\nград.С";
             // 
@@ -1289,7 +1416,7 @@
             this.label43.AutoSize = true;
             this.label43.Location = new System.Drawing.Point(10, 28);
             this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(79, 13);
+            this.label43.Size = new System.Drawing.Size(80, 13);
             this.label43.TabIndex = 0;
             this.label43.Text = "АД (мм.рт.ст.)";
             // 
@@ -1340,7 +1467,7 @@
             this.label40.AutoSize = true;
             this.label40.Location = new System.Drawing.Point(7, 71);
             this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(58, 13);
+            this.label40.Size = new System.Drawing.Size(61, 13);
             this.label40.TabIndex = 12;
             this.label40.Text = "Годен до: ";
             // 
@@ -1363,7 +1490,7 @@
             this.label41.AutoSize = true;
             this.label41.Location = new System.Drawing.Point(7, 24);
             this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(81, 13);
+            this.label41.Size = new System.Drawing.Size(82, 13);
             this.label41.TabIndex = 6;
             this.label41.Text = "Изготовитель:";
             // 
@@ -1372,7 +1499,7 @@
             this.label42.AutoSize = true;
             this.label42.Location = new System.Drawing.Point(7, 48);
             this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(44, 13);
+            this.label42.Size = new System.Drawing.Size(45, 13);
             this.label42.TabIndex = 9;
             this.label42.Text = "Серия: ";
             // 
@@ -1402,7 +1529,7 @@
             this.label37.AutoSize = true;
             this.label37.Location = new System.Drawing.Point(6, 68);
             this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(78, 13);
+            this.label37.Size = new System.Drawing.Size(80, 13);
             this.label37.TabIndex = 8;
             this.label37.Text = "Анти-В Серия:";
             // 
@@ -1418,7 +1545,7 @@
             this.label81.AutoSize = true;
             this.label81.Location = new System.Drawing.Point(6, 134);
             this.label81.Name = "label81";
-            this.label81.Size = new System.Drawing.Size(58, 13);
+            this.label81.Size = new System.Drawing.Size(61, 13);
             this.label81.TabIndex = 16;
             this.label81.Text = "Годен до: ";
             // 
@@ -1434,7 +1561,7 @@
             this.label82.AutoSize = true;
             this.label82.Location = new System.Drawing.Point(6, 113);
             this.label82.Name = "label82";
-            this.label82.Size = new System.Drawing.Size(80, 13);
+            this.label82.Size = new System.Drawing.Size(82, 13);
             this.label82.TabIndex = 14;
             this.label82.Text = "Анти-Д Серия:";
             // 
@@ -1450,7 +1577,7 @@
             this.label39.AutoSize = true;
             this.label39.Location = new System.Drawing.Point(6, 89);
             this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(58, 13);
+            this.label39.Size = new System.Drawing.Size(61, 13);
             this.label39.TabIndex = 12;
             this.label39.Text = "Годен до: ";
             // 
@@ -1473,7 +1600,7 @@
             this.label38.AutoSize = true;
             this.label38.Location = new System.Drawing.Point(6, 19);
             this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(78, 13);
+            this.label38.Size = new System.Drawing.Size(81, 13);
             this.label38.TabIndex = 6;
             this.label38.Text = "Анти-А Серия:";
             // 
@@ -1482,7 +1609,7 @@
             this.label36.AutoSize = true;
             this.label36.Location = new System.Drawing.Point(6, 42);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(55, 13);
+            this.label36.Size = new System.Drawing.Size(58, 13);
             this.label36.TabIndex = 9;
             this.label36.Text = "Годен до:";
             // 
@@ -1520,7 +1647,7 @@
             this.label33.AutoSize = true;
             this.label33.Location = new System.Drawing.Point(6, 44);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(85, 13);
+            this.label33.Size = new System.Drawing.Size(84, 13);
             this.label33.TabIndex = 9;
             this.label33.Text = "Номер партии: ";
             // 
@@ -1536,7 +1663,7 @@
             this.label35.AutoSize = true;
             this.label35.Location = new System.Drawing.Point(6, 20);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(89, 13);
+            this.label35.Size = new System.Drawing.Size(90, 13);
             this.label35.TabIndex = 6;
             this.label35.Text = "Производитель:";
             // 
@@ -1552,7 +1679,7 @@
             this.label34.AutoSize = true;
             this.label34.Location = new System.Drawing.Point(6, 71);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(58, 13);
+            this.label34.Size = new System.Drawing.Size(61, 13);
             this.label34.TabIndex = 8;
             this.label34.Text = "Годен до: ";
             // 
@@ -1590,7 +1717,7 @@
             this.label32.AutoSize = true;
             this.label32.Location = new System.Drawing.Point(7, 47);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(85, 13);
+            this.label32.Size = new System.Drawing.Size(84, 13);
             this.label32.TabIndex = 3;
             this.label32.Text = "Номер партии: ";
             // 
@@ -1599,7 +1726,7 @@
             this.label31.AutoSize = true;
             this.label31.Location = new System.Drawing.Point(7, 74);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(58, 13);
+            this.label31.Size = new System.Drawing.Size(61, 13);
             this.label31.TabIndex = 2;
             this.label31.Text = "Годен до: ";
             // 
@@ -1615,7 +1742,7 @@
             this.label30.AutoSize = true;
             this.label30.Location = new System.Drawing.Point(7, 23);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(89, 13);
+            this.label30.Size = new System.Drawing.Size(90, 13);
             this.label30.TabIndex = 0;
             this.label30.Text = "Производитель:";
             // 
@@ -1656,7 +1783,7 @@
             this.label29.AutoSize = true;
             this.label29.Location = new System.Drawing.Point(218, 75);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(65, 13);
+            this.label29.Size = new System.Drawing.Size(64, 13);
             this.label29.TabIndex = 14;
             this.label29.Text = "Объем(мл):";
             // 
@@ -1725,7 +1852,7 @@
             this.label27.AutoSize = true;
             this.label27.Location = new System.Drawing.Point(6, 152);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(68, 13);
+            this.label27.Size = new System.Drawing.Size(71, 13);
             this.label27.TabIndex = 5;
             this.label27.Text = "Код донора:";
             // 
@@ -1734,7 +1861,7 @@
             this.label26.AutoSize = true;
             this.label26.Location = new System.Drawing.Point(6, 125);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(80, 13);
+            this.label26.Size = new System.Drawing.Size(81, 13);
             this.label26.TabIndex = 4;
             this.label26.Text = "N контейнера:";
             // 
@@ -1743,7 +1870,7 @@
             this.label25.AutoSize = true;
             this.label25.Location = new System.Drawing.Point(8, 102);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(84, 13);
+            this.label25.Size = new System.Drawing.Size(86, 13);
             this.label25.TabIndex = 3;
             this.label25.Text = "Срок годности:";
             // 
@@ -1752,7 +1879,7 @@
             this.label24.AutoSize = true;
             this.label24.Location = new System.Drawing.Point(8, 75);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(91, 13);
+            this.label24.Size = new System.Drawing.Size(92, 13);
             this.label24.TabIndex = 2;
             this.label24.Text = "Дата заготовки:";
             // 
@@ -1907,7 +2034,7 @@
             this.label19.AutoSize = true;
             this.label19.Location = new System.Drawing.Point(8, 39);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(127, 13);
+            this.label19.Size = new System.Drawing.Size(132, 13);
             this.label19.TabIndex = 1;
             this.label19.Text = "по индивид-му подбору:";
             // 
@@ -1953,7 +2080,7 @@
             this.label17.AutoSize = true;
             this.label17.Location = new System.Drawing.Point(6, 39);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(162, 13);
+            this.label17.Size = new System.Drawing.Size(161, 13);
             this.label17.TabIndex = 1;
             this.label17.Text = "Время окончания трансфузии:";
             // 
@@ -1962,7 +2089,7 @@
             this.label16.AutoSize = true;
             this.label16.Location = new System.Drawing.Point(6, 16);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(144, 13);
+            this.label16.Size = new System.Drawing.Size(143, 13);
             this.label16.TabIndex = 0;
             this.label16.Text = "Время начала трансфузии:";
             // 
@@ -1998,27 +2125,27 @@
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(6, 16);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(183, 39);
+            this.label13.Size = new System.Drawing.Size(181, 39);
             this.label13.TabIndex = 0;
             this.label13.Text = "Дата и время взятия пробы крови\r\n реципиента для проведения \r\nпроб на совместимос" +
     "ть:";
             // 
-            // tabPage3
+            // tabPagePlasmaProtocol
             // 
-            this.tabPage3.Controls.Add(this.button30);
-            this.tabPage3.Controls.Add(this.button31);
-            this.tabPage3.Controls.Add(this.button32);
-            this.tabPage3.Controls.Add(this.groupBox25);
-            this.tabPage3.Controls.Add(this.groupBox24);
-            this.tabPage3.Controls.Add(this.groupBox23);
-            this.tabPage3.Controls.Add(this.groupBox22);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage3.Size = new System.Drawing.Size(786, 519);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Протокол ПЛАЗМА";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.tabPagePlasmaProtocol.Controls.Add(this.button30);
+            this.tabPagePlasmaProtocol.Controls.Add(this.button31);
+            this.tabPagePlasmaProtocol.Controls.Add(this.button32);
+            this.tabPagePlasmaProtocol.Controls.Add(this.groupBox25);
+            this.tabPagePlasmaProtocol.Controls.Add(this.groupBox24);
+            this.tabPagePlasmaProtocol.Controls.Add(this.groupBox23);
+            this.tabPagePlasmaProtocol.Controls.Add(this.groupBox22);
+            this.tabPagePlasmaProtocol.Location = new System.Drawing.Point(4, 22);
+            this.tabPagePlasmaProtocol.Name = "tabPagePlasmaProtocol";
+            this.tabPagePlasmaProtocol.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPagePlasmaProtocol.Size = new System.Drawing.Size(806, 496);
+            this.tabPagePlasmaProtocol.TabIndex = 2;
+            this.tabPagePlasmaProtocol.Text = "Протокол ПЛАЗМА";
+            this.tabPagePlasmaProtocol.UseVisualStyleBackColor = true;
             // 
             // button30
             // 
@@ -2118,7 +2245,7 @@
             this.label69.AutoSize = true;
             this.label69.Location = new System.Drawing.Point(184, 16);
             this.label69.Name = "label69";
-            this.label69.Size = new System.Drawing.Size(74, 26);
+            this.label69.Size = new System.Drawing.Size(73, 26);
             this.label69.TabIndex = 2;
             this.label69.Text = "Температура\r\nград.С";
             // 
@@ -2136,7 +2263,7 @@
             this.label71.AutoSize = true;
             this.label71.Location = new System.Drawing.Point(10, 28);
             this.label71.Name = "label71";
-            this.label71.Size = new System.Drawing.Size(79, 13);
+            this.label71.Size = new System.Drawing.Size(80, 13);
             this.label71.TabIndex = 0;
             this.label71.Text = "АД (мм.рт.ст.)";
             // 
@@ -2199,7 +2326,7 @@
             this.label73.AutoSize = true;
             this.label73.Location = new System.Drawing.Point(184, 16);
             this.label73.Name = "label73";
-            this.label73.Size = new System.Drawing.Size(74, 26);
+            this.label73.Size = new System.Drawing.Size(73, 26);
             this.label73.TabIndex = 2;
             this.label73.Text = "Температура\r\nград.С";
             // 
@@ -2217,7 +2344,7 @@
             this.label75.AutoSize = true;
             this.label75.Location = new System.Drawing.Point(10, 28);
             this.label75.Name = "label75";
-            this.label75.Size = new System.Drawing.Size(79, 13);
+            this.label75.Size = new System.Drawing.Size(80, 13);
             this.label75.TabIndex = 0;
             this.label75.Text = "АД (мм.рт.ст.)";
             // 
@@ -2280,7 +2407,7 @@
             this.label77.AutoSize = true;
             this.label77.Location = new System.Drawing.Point(184, 16);
             this.label77.Name = "label77";
-            this.label77.Size = new System.Drawing.Size(74, 26);
+            this.label77.Size = new System.Drawing.Size(73, 26);
             this.label77.TabIndex = 2;
             this.label77.Text = "Температура\r\nград.С";
             // 
@@ -2298,7 +2425,7 @@
             this.label79.AutoSize = true;
             this.label79.Location = new System.Drawing.Point(10, 28);
             this.label79.Name = "label79";
-            this.label79.Size = new System.Drawing.Size(79, 13);
+            this.label79.Size = new System.Drawing.Size(80, 13);
             this.label79.TabIndex = 0;
             this.label79.Text = "АД (мм.рт.ст.)";
             // 
@@ -2336,7 +2463,7 @@
             this.label65.AutoSize = true;
             this.label65.Location = new System.Drawing.Point(7, 47);
             this.label65.Name = "label65";
-            this.label65.Size = new System.Drawing.Size(85, 13);
+            this.label65.Size = new System.Drawing.Size(84, 13);
             this.label65.TabIndex = 3;
             this.label65.Text = "Номер партии: ";
             // 
@@ -2345,7 +2472,7 @@
             this.label66.AutoSize = true;
             this.label66.Location = new System.Drawing.Point(7, 74);
             this.label66.Name = "label66";
-            this.label66.Size = new System.Drawing.Size(58, 13);
+            this.label66.Size = new System.Drawing.Size(61, 13);
             this.label66.TabIndex = 2;
             this.label66.Text = "Годен до: ";
             // 
@@ -2361,7 +2488,7 @@
             this.label67.AutoSize = true;
             this.label67.Location = new System.Drawing.Point(7, 23);
             this.label67.Name = "label67";
-            this.label67.Size = new System.Drawing.Size(89, 13);
+            this.label67.Size = new System.Drawing.Size(90, 13);
             this.label67.TabIndex = 0;
             this.label67.Text = "Производитель:";
             // 
@@ -2402,7 +2529,7 @@
             this.label57.AutoSize = true;
             this.label57.Location = new System.Drawing.Point(218, 75);
             this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(65, 13);
+            this.label57.Size = new System.Drawing.Size(64, 13);
             this.label57.TabIndex = 14;
             this.label57.Text = "Объем(мл):";
             // 
@@ -2471,7 +2598,7 @@
             this.label59.AutoSize = true;
             this.label59.Location = new System.Drawing.Point(6, 152);
             this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(68, 13);
+            this.label59.Size = new System.Drawing.Size(71, 13);
             this.label59.TabIndex = 5;
             this.label59.Text = "Код донора:";
             // 
@@ -2480,7 +2607,7 @@
             this.label60.AutoSize = true;
             this.label60.Location = new System.Drawing.Point(6, 125);
             this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(80, 13);
+            this.label60.Size = new System.Drawing.Size(81, 13);
             this.label60.TabIndex = 4;
             this.label60.Text = "N контейнера:";
             // 
@@ -2489,7 +2616,7 @@
             this.label61.AutoSize = true;
             this.label61.Location = new System.Drawing.Point(8, 102);
             this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(84, 13);
+            this.label61.Size = new System.Drawing.Size(86, 13);
             this.label61.TabIndex = 3;
             this.label61.Text = "Срок годности:";
             // 
@@ -2498,7 +2625,7 @@
             this.label62.AutoSize = true;
             this.label62.Location = new System.Drawing.Point(8, 75);
             this.label62.Name = "label62";
-            this.label62.Size = new System.Drawing.Size(91, 13);
+            this.label62.Size = new System.Drawing.Size(92, 13);
             this.label62.TabIndex = 2;
             this.label62.Text = "Дата заготовки:";
             // 
@@ -2553,7 +2680,7 @@
             this.label55.AutoSize = true;
             this.label55.Location = new System.Drawing.Point(6, 39);
             this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(162, 13);
+            this.label55.Size = new System.Drawing.Size(161, 13);
             this.label55.TabIndex = 1;
             this.label55.Text = "Время окончания трансфузии:";
             // 
@@ -2562,25 +2689,25 @@
             this.label56.AutoSize = true;
             this.label56.Location = new System.Drawing.Point(6, 16);
             this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(144, 13);
+            this.label56.Size = new System.Drawing.Size(143, 13);
             this.label56.TabIndex = 0;
             this.label56.Text = "Время начала трансфузии:";
             // 
-            // tabPage4
+            // tabPageAlbuminProtocol
             // 
-            this.tabPage4.Controls.Add(this.button33);
-            this.tabPage4.Controls.Add(this.button34);
-            this.tabPage4.Controls.Add(this.button35);
-            this.tabPage4.Controls.Add(this.groupBox29);
-            this.tabPage4.Controls.Add(this.groupBox33);
-            this.tabPage4.Controls.Add(this.groupBox34);
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage4.Size = new System.Drawing.Size(786, 519);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Протокол АЛЬБУМИН";
-            this.tabPage4.UseVisualStyleBackColor = true;
+            this.tabPageAlbuminProtocol.Controls.Add(this.button33);
+            this.tabPageAlbuminProtocol.Controls.Add(this.button34);
+            this.tabPageAlbuminProtocol.Controls.Add(this.button35);
+            this.tabPageAlbuminProtocol.Controls.Add(this.groupBox29);
+            this.tabPageAlbuminProtocol.Controls.Add(this.groupBox33);
+            this.tabPageAlbuminProtocol.Controls.Add(this.groupBox34);
+            this.tabPageAlbuminProtocol.Location = new System.Drawing.Point(4, 22);
+            this.tabPageAlbuminProtocol.Name = "tabPageAlbuminProtocol";
+            this.tabPageAlbuminProtocol.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageAlbuminProtocol.Size = new System.Drawing.Size(806, 496);
+            this.tabPageAlbuminProtocol.TabIndex = 3;
+            this.tabPageAlbuminProtocol.Text = "Протокол АЛЬБУМИН";
+            this.tabPageAlbuminProtocol.UseVisualStyleBackColor = true;
             // 
             // button33
             // 
@@ -2679,7 +2806,7 @@
             this.label85.AutoSize = true;
             this.label85.Location = new System.Drawing.Point(184, 16);
             this.label85.Name = "label85";
-            this.label85.Size = new System.Drawing.Size(74, 26);
+            this.label85.Size = new System.Drawing.Size(73, 26);
             this.label85.TabIndex = 2;
             this.label85.Text = "Температура\r\nград.С";
             // 
@@ -2697,7 +2824,7 @@
             this.label87.AutoSize = true;
             this.label87.Location = new System.Drawing.Point(10, 28);
             this.label87.Name = "label87";
-            this.label87.Size = new System.Drawing.Size(79, 13);
+            this.label87.Size = new System.Drawing.Size(80, 13);
             this.label87.TabIndex = 0;
             this.label87.Text = "АД (мм.рт.ст.)";
             // 
@@ -2760,7 +2887,7 @@
             this.label89.AutoSize = true;
             this.label89.Location = new System.Drawing.Point(184, 16);
             this.label89.Name = "label89";
-            this.label89.Size = new System.Drawing.Size(74, 26);
+            this.label89.Size = new System.Drawing.Size(73, 26);
             this.label89.TabIndex = 2;
             this.label89.Text = "Температура\r\nград.С";
             // 
@@ -2778,7 +2905,7 @@
             this.label91.AutoSize = true;
             this.label91.Location = new System.Drawing.Point(10, 28);
             this.label91.Name = "label91";
-            this.label91.Size = new System.Drawing.Size(79, 13);
+            this.label91.Size = new System.Drawing.Size(80, 13);
             this.label91.TabIndex = 0;
             this.label91.Text = "АД (мм.рт.ст.)";
             // 
@@ -2819,7 +2946,7 @@
             this.label92.AutoSize = true;
             this.label92.Location = new System.Drawing.Point(218, 75);
             this.label92.Name = "label92";
-            this.label92.Size = new System.Drawing.Size(65, 13);
+            this.label92.Size = new System.Drawing.Size(64, 13);
             this.label92.TabIndex = 14;
             this.label92.Text = "Объем(мл):";
             // 
@@ -2888,7 +3015,7 @@
             this.label94.AutoSize = true;
             this.label94.Location = new System.Drawing.Point(6, 152);
             this.label94.Name = "label94";
-            this.label94.Size = new System.Drawing.Size(68, 13);
+            this.label94.Size = new System.Drawing.Size(71, 13);
             this.label94.TabIndex = 5;
             this.label94.Text = "Код донора:";
             // 
@@ -2897,7 +3024,7 @@
             this.label95.AutoSize = true;
             this.label95.Location = new System.Drawing.Point(6, 125);
             this.label95.Name = "label95";
-            this.label95.Size = new System.Drawing.Size(80, 13);
+            this.label95.Size = new System.Drawing.Size(81, 13);
             this.label95.TabIndex = 4;
             this.label95.Text = "N контейнера:";
             // 
@@ -2906,7 +3033,7 @@
             this.label96.AutoSize = true;
             this.label96.Location = new System.Drawing.Point(8, 102);
             this.label96.Name = "label96";
-            this.label96.Size = new System.Drawing.Size(84, 13);
+            this.label96.Size = new System.Drawing.Size(86, 13);
             this.label96.TabIndex = 3;
             this.label96.Text = "Срок годности:";
             // 
@@ -2915,7 +3042,7 @@
             this.label97.AutoSize = true;
             this.label97.Location = new System.Drawing.Point(8, 75);
             this.label97.Name = "label97";
-            this.label97.Size = new System.Drawing.Size(91, 13);
+            this.label97.Size = new System.Drawing.Size(92, 13);
             this.label97.TabIndex = 2;
             this.label97.Text = "Дата заготовки:";
             // 
@@ -2970,7 +3097,7 @@
             this.label100.AutoSize = true;
             this.label100.Location = new System.Drawing.Point(6, 39);
             this.label100.Name = "label100";
-            this.label100.Size = new System.Drawing.Size(162, 13);
+            this.label100.Size = new System.Drawing.Size(161, 13);
             this.label100.TabIndex = 1;
             this.label100.Text = "Время окончания трансфузии:";
             // 
@@ -2979,30 +3106,30 @@
             this.label101.AutoSize = true;
             this.label101.Location = new System.Drawing.Point(6, 16);
             this.label101.Name = "label101";
-            this.label101.Size = new System.Drawing.Size(144, 13);
+            this.label101.Size = new System.Drawing.Size(143, 13);
             this.label101.TabIndex = 0;
             this.label101.Text = "Время начала трансфузии:";
             // 
-            // tabPage5
+            // tabPagePloteletProtocol
             // 
-            this.tabPage5.Controls.Add(this.label80);
-            this.tabPage5.Controls.Add(this.button36);
-            this.tabPage5.Controls.Add(this.button37);
-            this.tabPage5.Controls.Add(this.button38);
-            this.tabPage5.Location = new System.Drawing.Point(4, 22);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage5.Size = new System.Drawing.Size(786, 519);
-            this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "Протокол ТРОМБОЦИТ";
-            this.tabPage5.UseVisualStyleBackColor = true;
+            this.tabPagePloteletProtocol.Controls.Add(this.label80);
+            this.tabPagePloteletProtocol.Controls.Add(this.button36);
+            this.tabPagePloteletProtocol.Controls.Add(this.button37);
+            this.tabPagePloteletProtocol.Controls.Add(this.button38);
+            this.tabPagePloteletProtocol.Location = new System.Drawing.Point(4, 22);
+            this.tabPagePloteletProtocol.Name = "tabPagePloteletProtocol";
+            this.tabPagePloteletProtocol.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPagePloteletProtocol.Size = new System.Drawing.Size(806, 496);
+            this.tabPagePloteletProtocol.TabIndex = 4;
+            this.tabPagePloteletProtocol.Text = "Протокол ТРОМБОЦИТ";
+            this.tabPagePloteletProtocol.UseVisualStyleBackColor = true;
             // 
             // label80
             // 
             this.label80.AutoSize = true;
             this.label80.Location = new System.Drawing.Point(351, 240);
             this.label80.Name = "label80";
-            this.label80.Size = new System.Drawing.Size(90, 13);
+            this.label80.Size = new System.Drawing.Size(88, 13);
             this.label80.TabIndex = 22;
             this.label80.Text = "Не реализовано";
             // 
@@ -3033,22 +3160,22 @@
             this.button38.Text = "Сохранить";
             this.button38.UseVisualStyleBackColor = true;
             // 
-            // tabPage6
+            // tabPageTransfusionList
             // 
-            this.tabPage6.Controls.Add(this.button29);
-            this.tabPage6.Controls.Add(this.button28);
-            this.tabPage6.Controls.Add(this.richTextBox1);
-            this.tabPage6.Location = new System.Drawing.Point(4, 22);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage6.Size = new System.Drawing.Size(786, 519);
-            this.tabPage6.TabIndex = 5;
-            this.tabPage6.Text = "Лист регистрации трансфузионных сред:";
-            this.tabPage6.UseVisualStyleBackColor = true;
+            this.tabPageTransfusionList.Controls.Add(this.button29);
+            this.tabPageTransfusionList.Controls.Add(this.button28);
+            this.tabPageTransfusionList.Controls.Add(this.richTextBox1);
+            this.tabPageTransfusionList.Location = new System.Drawing.Point(4, 22);
+            this.tabPageTransfusionList.Name = "tabPageTransfusionList";
+            this.tabPageTransfusionList.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageTransfusionList.Size = new System.Drawing.Size(806, 496);
+            this.tabPageTransfusionList.TabIndex = 5;
+            this.tabPageTransfusionList.Text = "Лист регистрации трансфузионных сред:";
+            this.tabPageTransfusionList.UseVisualStyleBackColor = true;
             // 
             // button29
             // 
-            this.button29.Location = new System.Drawing.Point(705, 490);
+            this.button29.Location = new System.Drawing.Point(570, 423);
             this.button29.Name = "button29";
             this.button29.Size = new System.Drawing.Size(75, 23);
             this.button29.TabIndex = 2;
@@ -3057,7 +3184,7 @@
             // 
             // button28
             // 
-            this.button28.Location = new System.Drawing.Point(705, 460);
+            this.button28.Location = new System.Drawing.Point(570, 384);
             this.button28.Name = "button28";
             this.button28.Size = new System.Drawing.Size(75, 23);
             this.button28.TabIndex = 1;
@@ -3066,7 +3193,7 @@
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(123, 143);
+            this.richTextBox1.Location = new System.Drawing.Point(100, 98);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(545, 256);
             this.richTextBox1.TabIndex = 0;
@@ -3075,7 +3202,7 @@
             // button22
             // 
             this.button22.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button22.Location = new System.Drawing.Point(559, 554);
+            this.button22.Location = new System.Drawing.Point(579, 531);
             this.button22.Name = "button22";
             this.button22.Size = new System.Drawing.Size(75, 23);
             this.button22.TabIndex = 1;
@@ -3085,52 +3212,60 @@
             // button23
             // 
             this.button23.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button23.Location = new System.Drawing.Point(640, 554);
+            this.button23.Location = new System.Drawing.Point(660, 531);
             this.button23.Name = "button23";
             this.button23.Size = new System.Drawing.Size(75, 23);
             this.button23.TabIndex = 2;
             this.button23.Text = "Далее";
             this.button23.UseVisualStyleBackColor = true;
             // 
-            // button24
+            // btnSave
             // 
-            this.button24.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button24.Location = new System.Drawing.Point(721, 554);
-            this.button24.Name = "button24";
-            this.button24.Size = new System.Drawing.Size(75, 23);
-            this.button24.TabIndex = 3;
-            this.button24.Text = "Сохранить";
-            this.button24.UseVisualStyleBackColor = true;
+            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSave.Location = new System.Drawing.Point(741, 531);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 3;
+            this.btnSave.Text = "Сохранить";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.saveBtn_Click);
             // 
-            // Perelivanie
+            // Transfusion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 579);
-            this.Controls.Add(this.button24);
+            this.ClientSize = new System.Drawing.Size(820, 556);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.button23);
             this.Controls.Add(this.button22);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tabTransfusion);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Perelivanie";
+            this.Name = "Transfusion";
             this.Text = "Переливание";
-            this.Load += new System.EventHandler(this.Perelivanie_Load);
-            this.tabControl1.ResumeLayout(false);
+            this.tabTransfusion.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.groupBox7.ResumeLayout(false);
-            this.groupBox7.PerformLayout();
-            this.groupBox6.ResumeLayout(false);
-            this.groupBox6.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
+            this.gbConsent.ResumeLayout(false);
+            this.gbConsent.PerformLayout();
+            this.gbBloodData.ResumeLayout(false);
+            this.gbBloodData.PerformLayout();
+            this.gbRHFactor.ResumeLayout(false);
+            this.gbRHFactor.PerformLayout();
+            this.gbBloodGroup.ResumeLayout(false);
+            this.gbBloodGroup.PerformLayout();
             this.groupBox3.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
+            this.gbTransfusionMedium.ResumeLayout(false);
+            this.gbTransfusionMedium.PerformLayout();
+            this.gbBlood.ResumeLayout(false);
+            this.gbBlood.PerformLayout();
+            this.gbPlasma.ResumeLayout(false);
+            this.gbPlasma.PerformLayout();
+            this.gbAlbumin.ResumeLayout(false);
+            this.gbAlbumin.PerformLayout();
+            this.gbPlatelet.ResumeLayout(false);
+            this.gbPlatelet.PerformLayout();
+            this.gbDoctor.ResumeLayout(false);
+            this.tabPageBloodProtocol.ResumeLayout(false);
             this.groupBox18.ResumeLayout(false);
             this.groupBox21.ResumeLayout(false);
             this.groupBox21.PerformLayout();
@@ -3157,7 +3292,7 @@
             this.groupBox9.PerformLayout();
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
-            this.tabPage3.ResumeLayout(false);
+            this.tabPagePlasmaProtocol.ResumeLayout(false);
             this.groupBox25.ResumeLayout(false);
             this.groupBox26.ResumeLayout(false);
             this.groupBox26.PerformLayout();
@@ -3171,7 +3306,7 @@
             this.groupBox23.PerformLayout();
             this.groupBox22.ResumeLayout(false);
             this.groupBox22.PerformLayout();
-            this.tabPage4.ResumeLayout(false);
+            this.tabPageAlbuminProtocol.ResumeLayout(false);
             this.groupBox29.ResumeLayout(false);
             this.groupBox31.ResumeLayout(false);
             this.groupBox31.PerformLayout();
@@ -3181,83 +3316,61 @@
             this.groupBox33.PerformLayout();
             this.groupBox34.ResumeLayout(false);
             this.groupBox34.PerformLayout();
-            this.tabPage5.ResumeLayout(false);
-            this.tabPage5.PerformLayout();
-            this.tabPage6.ResumeLayout(false);
+            this.tabPagePloteletProtocol.ResumeLayout(false);
+            this.tabPagePloteletProtocol.PerformLayout();
+            this.tabPageTransfusionList.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tabTransfusion;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.Button button17;
-        private System.Windows.Forms.Button button18;
-        private System.Windows.Forms.Button button19;
-        private System.Windows.Forms.Button button20;
-        private System.Windows.Forms.Button button21;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.GroupBox gbPlatelet;
+        private System.Windows.Forms.TextBox albuminPlatelet;
+        private System.Windows.Forms.TextBox plateletPlatelet;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.Button button14;
-        private System.Windows.Forms.Button button15;
-        private System.Windows.Forms.Button button16;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.GroupBox gbAlbumin;
+        private System.Windows.Forms.TextBox albuminAlbumin;
+        private System.Windows.Forms.TextBox proteinAlbumin;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Label protein;
+        private System.Windows.Forms.GroupBox gbPlasma;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.ComboBox countPlasma;
+        private System.Windows.Forms.TextBox inrPlasma;
+        private System.Windows.Forms.TextBox apttPlasma;
+        private System.Windows.Forms.TextBox hematocritPlasma;
+        private System.Windows.Forms.TextBox hemoglobinPlasma;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.GroupBox gbBlood;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button btnRequest;
+        private System.Windows.Forms.Button btnConsent;
+        private System.Windows.Forms.ComboBox countBlood;
+        private System.Windows.Forms.TextBox inrBlood;
+        private System.Windows.Forms.TextBox apttBlood;
+        private System.Windows.Forms.TextBox hematocritBlood;
+        private System.Windows.Forms.TextBox hemoglobinBlood;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button showAnalyzesBtn;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.DateTimePicker dtTransfusionDate;
+        private System.Windows.Forms.GroupBox gbTransfusionMedium;
+        private System.Windows.Forms.ComboBox cbDoctor;
+        private System.Windows.Forms.TabPage tabPageBloodProtocol;
         private System.Windows.Forms.Button button22;
         private System.Windows.Forms.Button button23;
-        private System.Windows.Forms.Button button24;
+        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.GroupBox groupBox10;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label19;
@@ -3361,7 +3474,7 @@
         private System.Windows.Forms.RadioButton radioButton7;
         private System.Windows.Forms.RadioButton radioButton6;
         private System.Windows.Forms.RadioButton radioButton5;
-        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage tabPagePlasmaProtocol;
         private System.Windows.Forms.Button button30;
         private System.Windows.Forms.Button button31;
         private System.Windows.Forms.Button button32;
@@ -3422,7 +3535,7 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker7;
         private System.Windows.Forms.Label label55;
         private System.Windows.Forms.Label label56;
-        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.TabPage tabPageAlbuminProtocol;
         private System.Windows.Forms.Button button33;
         private System.Windows.Forms.Button button34;
         private System.Windows.Forms.Button button35;
@@ -3467,12 +3580,12 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker9;
         private System.Windows.Forms.Label label100;
         private System.Windows.Forms.Label label101;
-        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.TabPage tabPagePloteletProtocol;
         private System.Windows.Forms.Label label80;
         private System.Windows.Forms.Button button36;
         private System.Windows.Forms.Button button37;
         private System.Windows.Forms.Button button38;
-        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.TabPage tabPageTransfusionList;
         private System.Windows.Forms.Button button29;
         private System.Windows.Forms.Button button28;
         private System.Windows.Forms.RichTextBox richTextBox1;
@@ -3480,5 +3593,36 @@
         private System.Windows.Forms.Label label81;
         private System.Windows.Forms.TextBox textBox67;
         private System.Windows.Forms.Label label82;
+        private System.Windows.Forms.GroupBox gbRHFactor;
+        private System.Windows.Forms.RadioButton rb0;
+        private System.Windows.Forms.RadioButton rb1;
+        private System.Windows.Forms.GroupBox gbBloodGroup;
+        private System.Windows.Forms.RadioButton rbIV;
+        private System.Windows.Forms.RadioButton rbIII;
+        private System.Windows.Forms.RadioButton rbII;
+        private System.Windows.Forms.RadioButton rbI;
+        private System.Windows.Forms.TextBox tbKell;
+        private System.Windows.Forms.TextBox tbPhenotype;
+        private System.Windows.Forms.Button btnConsilium;
+        private System.Windows.Forms.Button btnSetBloodData;
+        private System.Windows.Forms.Label lblPhenotype;
+        private System.Windows.Forms.GroupBox gbConsent;
+        private System.Windows.Forms.RadioButton consent;
+        private System.Windows.Forms.GroupBox gbBloodData;
+        private System.Windows.Forms.Label lblRHFactor;
+        private System.Windows.Forms.Label lblBloodGroup;
+        private System.Windows.Forms.Label lblKell;
+        private System.Windows.Forms.GroupBox gbDoctor;
+        private System.Windows.Forms.RadioButton notConsent;
+        private System.Windows.Forms.CheckBox Blood;
+        private System.Windows.Forms.Label label83;
+        private System.Windows.Forms.ComboBox countAlbumin;
+        private System.Windows.Forms.Label label102;
+        private System.Windows.Forms.ComboBox countPlatelet;
+        private System.Windows.Forms.CheckBox Platelet;
+        private System.Windows.Forms.CheckBox Albumin;
+        private System.Windows.Forms.CheckBox Plasma;
+        private System.Windows.Forms.RadioButton consilium;
+        private System.Windows.Forms.Button btnBloodAnalysis;
     }
 }

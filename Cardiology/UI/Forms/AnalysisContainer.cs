@@ -202,8 +202,23 @@ namespace Cardiology.UI.Forms
             {
                 IDocbaseControl docbaseControl = (IDocbaseControl)c;
                 docbaseControl.saveObject(hospitalitySession, null, null);
+                if (DdtBloodAnalysis.NAME.Equals(typeName, StringComparison.Ordinal))
+                {
+                    docbaseControl.getObjectId();
+                    SetBloodAnalysisIdToTransfusion(docbaseControl.getObjectId());
+                }
             }
             Close();
         }
+
+        private void SetBloodAnalysisIdToTransfusion(string objId)
+        {
+            Transfusion transfusion = this.Owner as Transfusion;
+            if (transfusion != null)
+            {
+                transfusion.BloodAnalysisId = objId;
+            }
+        }
+
     }
 }

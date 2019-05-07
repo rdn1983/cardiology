@@ -229,7 +229,8 @@ namespace Cardiology.UI.Forms
                 Control docCb = CommonUtils.FindControl(doctorsContainer, "doctorWho" + indx);
                 DdvDoctor doctor = getSafeObjectValueUni<DdvDoctor>(docCb, (ctrl) => ((DdvDoctor)((ComboBox)ctrl).SelectedItem));
 
-                if (group != null && doctor!= null) {
+                if (group != null && doctor != null)
+                {
                     DdtConsiliumGroupMember consiliumGroupMember = service.GetDdtConsiliumGroupMemberService().GetByDoctorAndGroupId(doctor.ObjectId, group.ObjectId);
                     consiliumRelation.Member = consiliumGroupMember.ObjectId;
                     service.GetDdtConsiliumRelationService().Save(consiliumRelation);
@@ -240,7 +241,18 @@ namespace Cardiology.UI.Forms
             {
                 service.Delete(DdtConsiliumRelation.NAME, consiliumRelationId);
             }
+
+            SetConsiliumIdToTransfusion();
             return true;
+        }
+
+        private void SetConsiliumIdToTransfusion()
+        {
+            Transfusion transfusion = this.Owner as Transfusion;
+            if (transfusion != null)
+            {
+                transfusion.ConsiliumId = consiliumId;
+            }
         }
 
         private bool getIsValid()

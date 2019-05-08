@@ -838,15 +838,21 @@
     <None Include="Templates\reanim_operations_template.doc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Templates\request_blood.doc" />
-    <None Include="Templates\title.docx" />
+    <None Include="Templates\request_blood.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Templates\title.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Templates\torakacentes_template.doc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Templates\transfer_epicrisis_template.doc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Templates\transfusion_consent.doc" />
+    <None Include="Templates\transfusion_consent.doc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Templates\trombolisis_template.doc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

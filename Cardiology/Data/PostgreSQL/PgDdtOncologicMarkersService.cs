@@ -96,6 +96,47 @@ namespace Cardiology.Data.PostgreSQL
             return null;
         }
 
+        public IList<DdtOncologicMarkers> GetByParentId(string parentId)
+        {
+            IList<DdtOncologicMarkers> list = new List<DdtOncologicMarkers>();
+            using (dynamic connection = connectionFactory.GetConnection())
+            {
+                String sql = String.Format("SELECT r_object_id, dsdt_analysis_date, r_creation_date, dss_cea, dsid_parent, dss_psa_common, dss_psa_free, dsid_doctor, " +
+                    "dsid_patient, dsid_hospitality_session, dss_hgch, r_modify_date, dss_parent_type, dss_ca_125, dss_ca_199, dss_ca_153, dss_afr " +
+                    "FROM ddt_oncologic_markers ma, ddt_relation rel WHERE rel.dsid_parent = '{0}' AND rel.dsid_child=ma.r_object_id", parentId);
+
+                Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
+
+                Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
+                using (DbDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        DdtOncologicMarkers obj = new DdtOncologicMarkers();
+                        obj.ObjectId = reader.IsDBNull(0) ? null : reader.GetString(0);
+                        obj.AnalysisDate = reader.IsDBNull(1) ? DateTime.MinValue : reader.GetDateTime(1);
+                        obj.CreationDate = reader.IsDBNull(2) ? DateTime.MinValue : reader.GetDateTime(2);
+                        obj.Cea = reader.IsDBNull(3) ? null : reader.GetString(3);
+                        obj.Parent = reader.IsDBNull(4) ? null : reader.GetString(4);
+                        obj.PsaCommon = reader.IsDBNull(5) ? null : reader.GetString(5);
+                        obj.PsaFree = reader.IsDBNull(6) ? null : reader.GetString(6);
+                        obj.Doctor = reader.IsDBNull(7) ? null : reader.GetString(7);
+                        obj.Patient = reader.IsDBNull(8) ? null : reader.GetString(8);
+                        obj.HospitalitySession = reader.IsDBNull(9) ? null : reader.GetString(9);
+                        obj.Hgch = reader.IsDBNull(10) ? null : reader.GetString(10);
+                        obj.ModifyDate = reader.IsDBNull(11) ? DateTime.MinValue : reader.GetDateTime(11);
+                        obj.ParentType = reader.IsDBNull(12) ? null : reader.GetString(12);
+                        obj.Ca125 = reader.IsDBNull(13) ? null : reader.GetString(13);
+                        obj.Ca199 = reader.IsDBNull(14) ? null : reader.GetString(14);
+                        obj.Ca153 = reader.IsDBNull(15) ? null : reader.GetString(15);
+                        obj.Afr = reader.IsDBNull(16) ? null : reader.GetString(16);
+                        list.Add(obj);
+                    }
+                }
+            }
+            return list;
+        }
+
         public string Save(DdtOncologicMarkers obj)
         {
             using (dynamic connection = connectionFactory.GetConnection())

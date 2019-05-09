@@ -68,7 +68,8 @@ namespace Cardiology.Commons
             values.Add("{analysis.xray}", xray == null ? " " : "Рентген:" + xray.ChestXray);
             DdtEgds egds = service.GetDdtEgdsService().GetByParentId(obj.ObjectId);
             values.Add("{analysis.egds}", egds == null ? " " : "ЭГДС:" + egds.Egds);
-            DdtBloodAnalysis blood = service.GetDdtBloodAnalysisService().GetByParentId(obj.ObjectId);
+            //todo все пролистывать
+            DdtBloodAnalysis blood = service.GetDdtBloodAnalysisService().GetByParentId(obj.ObjectId)[0];
             StringBuilder bloodStr = new StringBuilder();
             if (blood != null)
             {

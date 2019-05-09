@@ -90,11 +90,14 @@ namespace Cardiology.Data.PostgreSQL
             return null;
         }
 
-        public DdtKag GetByParentId(string parentId)
+        public IList<DdtKag> GetByParentId(string parentId)
         {
+            IList<DdtKag> list = new List<DdtKag>();
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = String.Format("SELECT r_object_id, dsdt_analysis_date, dsdt_end_time, r_creation_date, dsid_parent, dss_kag_manipulation, dsid_doctor, dsid_patient, dsid_hospitality_session, dsdt_start_time, r_modify_date, dss_parent_type, dss_results, dss_kag_action FROM ddt_kag WHERE dsid_parent = '{0}'", parentId);
+                String sql = String.Format("SELECT r_object_id, dsdt_analysis_date, dsdt_end_time, r_creation_date, dsid_parent, dss_kag_manipulation, dsid_doctor, " +
+                    "dsid_patient, dsid_hospitality_session, dsdt_start_time, r_modify_date, dss_parent_type, dss_results, dss_kag_action " +
+                    "FROM ddt_kag ka, ddt_relation rel WHERE rel.dsid_parent = '{0}' AND rel.dsid_child=ka.r_object_id", parentId);
 
                 Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
 
@@ -118,11 +121,11 @@ namespace Cardiology.Data.PostgreSQL
                         obj.ParentType = reader.IsDBNull(11) ? null : reader.GetString(11);
                         obj.Results = reader.IsDBNull(12) ? null : reader.GetString(12);
                         obj.KagAction = reader.IsDBNull(13) ? null : reader.GetString(13);
-                        return obj;
+                        list.Add(obj);
                     }
                 }
             }
-            return null;
+            return list;
         }
 
         public DdtKag GetByHospitalSession(string hospitalSession)

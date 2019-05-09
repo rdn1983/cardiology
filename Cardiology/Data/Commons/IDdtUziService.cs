@@ -9,9 +9,7 @@ namespace Cardiology.Data.Commons
 
         DdtUzi GetById(string id);
 
-        DdtUzi GetByParentId(string parentId);
-
-        IList<DdtUzi> GetListByParentId(string parentId);
+        IList<DdtUzi> GetByParentId(string parentId);
 
         List<DdtUzi> GetByQuery(string sql);
 

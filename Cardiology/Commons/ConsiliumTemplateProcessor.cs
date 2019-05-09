@@ -7,7 +7,7 @@ using Cardiology.Data.Model2;
 
 namespace Cardiology.Commons
 {
-    class ConsiliumTemplateProcessor : ITemplateProcessor
+    class ConsiliumTemplateProcessor : AbstractTemplateProcessor, ITemplateProcessor
     {
         private const string TemplateFileName = "consilium_template.doc";
         public bool accept(string templateType)

@@ -87,6 +87,8 @@ namespace Cardiology.Data
 
         IDdtVariousSpecConclusonService GetDdtVariousSpecConclusonService();
 
+        IDdtRelationService GetDdtRelationService();
+
         void Select(string sql, string key, string value, OnKeyValue handler);
 
         string GetString(string sql);

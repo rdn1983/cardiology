@@ -23,6 +23,8 @@ namespace Cardiology.UI.Forms
             this.journalId = journalId;
             InitializeComponent();
             initControls();
+            List<string> validTypes = new List<string>() { "ddt_blood_analysis", "ddt_ekg", "ddt_urine_analysis", "ddt_egds", "ddt_xray", "ddt_holter", "ddt_specialist_conclusion", "ddt_uzi" };
+            analysisTabControl1.init(hospitalitySession, journalId, DdtJournal.NAME, validTypes);
             SilentSaver.setForm(this);
         }
 
@@ -203,6 +205,7 @@ namespace Cardiology.UI.Forms
             }
 
             releaseJournalCtrl.saveObject(hospitalitySession, journalId, DdtJournal.NAME);
+            analysisTabControl1.save(journalId, DdtJournal.NAME);
             return true;
         }
 
@@ -260,6 +263,22 @@ namespace Cardiology.UI.Forms
             SilentSaver.clearForm();
         }
 
+        private void toAnalysisBtn_Click(object sender, EventArgs e)
+        {
+            int currentTabIndx = tabControl1.SelectedIndex;
+            if (currentTabIndx < tabControl1.TabCount - 1)
+            {
+                tabControl1.SelectTab(++currentTabIndx);
+            }
+        }
 
+        private void toJournalsTab_Click(object sender, EventArgs e)
+        {
+            int currentTabIndx = tabControl1.SelectedIndex;
+            if (currentTabIndx > 0)
+            {
+                tabControl1.SelectTab(--currentTabIndx);
+            }
+        }
     }
 }

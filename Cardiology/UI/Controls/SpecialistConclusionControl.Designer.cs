@@ -37,6 +37,7 @@
             this.neurologBox = new System.Windows.Forms.GroupBox();
             this.neurologTxt = new System.Windows.Forms.RichTextBox();
             this.container = new System.Windows.Forms.Panel();
+            this.hide = new System.Windows.Forms.Button();
             this.analysisDate = new System.Windows.Forms.DateTimePicker();
             this.title = new System.Windows.Forms.Label();
             this.endicrinologistBox.SuspendLayout();
@@ -125,6 +126,7 @@
             // container
             // 
             this.container.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.container.Controls.Add(this.hide);
             this.container.Controls.Add(this.analysisDate);
             this.container.Controls.Add(this.title);
             this.container.Controls.Add(this.neurologBox);
@@ -135,6 +137,16 @@
             this.container.Name = "container";
             this.container.Size = new System.Drawing.Size(436, 456);
             this.container.TabIndex = 13;
+            // 
+            // hide
+            // 
+            this.hide.Image = global::Cardiology.Properties.Resources.remove;
+            this.hide.Location = new System.Drawing.Point(403, 3);
+            this.hide.Name = "hide";
+            this.hide.Size = new System.Drawing.Size(26, 23);
+            this.hide.TabIndex = 40;
+            this.hide.UseVisualStyleBackColor = true;
+            this.hide.Click += new System.EventHandler(this.hide_Click);
             // 
             // analysisDate
             // 
@@ -185,5 +197,6 @@
         private System.Windows.Forms.Panel container;
         private System.Windows.Forms.Label title;
         private System.Windows.Forms.DateTimePicker analysisDate;
+        private System.Windows.Forms.Button hide;
     }
 }

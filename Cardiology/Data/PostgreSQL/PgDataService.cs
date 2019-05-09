@@ -56,6 +56,7 @@ namespace Cardiology.Data.PostgreSQL
         private readonly IDdtConsiliumRelationService ddtConsiliumRelationService;
         private readonly IDdtUziService ddtUziService;
         private readonly IDdtVariousSpecConclusonService ddtVariousSpecConclusonService;
+        private readonly IDdtRelationService ddtRelationService;
 
         public PgDataService(IDbConnectionFactory connectionFactory) {
             this.connectionFactory = connectionFactory;
@@ -102,6 +103,7 @@ namespace Cardiology.Data.PostgreSQL
             ddtConsiliumRelationService = new PgDdtConsiliumRelationService(connectionFactory);
             ddtUziService = new PgDdtUziService(connectionFactory);
             ddtVariousSpecConclusonService = new PgDdtVariousSpecConclusonService(connectionFactory);
+            ddtRelationService = new PgDdtRelationService(connectionFactory);
         }
 
         public IDdtReleasePatientService GetDdtReleasePatientService()
@@ -435,6 +437,11 @@ namespace Cardiology.Data.PostgreSQL
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
                 command.ExecuteScalar();
             }
+        }
+
+        public IDdtRelationService GetDdtRelationService()
+        {
+            return ddtRelationService;
         }
     }
 }

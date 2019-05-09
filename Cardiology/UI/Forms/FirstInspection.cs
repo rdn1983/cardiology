@@ -45,6 +45,7 @@ namespace Cardiology.UI.Forms
         private DdvPatient patient;
         private bool acceptTemplate = false;
         private string templateName;
+        private static AnalysisSelector selector;
 
         public FirstInspection(IDbDataService service, DdtHospital hospitalitySession)
         {
@@ -61,11 +62,11 @@ namespace Cardiology.UI.Forms
             InitializeAnamnesis(anamnesis);
             initIssuedMedicine();
             initIssuedActions(anamnesis);
-            InitAdmissionAnalysis();
             InitDoctorComboBox();
             initAlco();
 
             HighlightChronicButtons();
+            analysisTabControl1.init(hospitalSession, anamnesis?.ObjectId, DdtAnamnesis.NAME, new List<string>() { "ddt_blood_analysis", "ddt_ekg", "ddt_urine_analysis" });
         }
 
         private void InitPatientInfo()
@@ -90,22 +91,6 @@ namespace Cardiology.UI.Forms
             String id = anamnesis == null ? hospitalSession.CuringDoctor : anamnesis.Doctor;
             ControlUtils.InitDoctorsByGroupName(this.service.GetDdvDoctorService(), docBox, "cardioreanimation_department");
             docBox.SelectedValue = id;
-        }
-
-        private void InitAdmissionAnalysis()
-        {
-            DdtUrineAnalysis firstAnalysis = service.GetDdtUrineAnalysisService().GetByHospitalSessionAndParentId(hospitalSession.ObjectId, anamnesis?.ObjectId);
-            urineAnalysisControl.refreshObject(firstAnalysis);
-
-            DdtEgds firstEgdsAnalysis = service.GetDdtEgdsService().GetByHospitalSessionAndParentId(hospitalSession.ObjectId, anamnesis?.ObjectId);
-            egdsAnalysisControl1.refreshObject(firstEgdsAnalysis);
-
-            DdtBloodAnalysis blood = service.GetDdtBloodAnalysisService()
-                .GetByHospitalSessionAndParentId(hospitalSession.ObjectId, anamnesis?.ObjectId);
-            bloodAnalysisControl.refreshObject(blood);
-
-            DdtEkg ekg = service.GetDdtEkgService().GetByHospitalSessionAndParentId(hospitalSession.ObjectId, anamnesis?.ObjectId);
-            ekgAnalysisControlcs.refreshObject(ekg);
         }
 
         private void InitDiagnosis()
@@ -240,7 +225,8 @@ namespace Cardiology.UI.Forms
                 {
                     chronicHOBL.Font = new Font(chronicHOBL.Font, FontStyle.Regular);
                 }
-            } else
+            }
+            else
             {
                 chronicMA.Font = new Font(chronicMA.Font, FontStyle.Regular);
                 chronicGB3.Font = new Font(chronicGB3.Font, FontStyle.Regular);
@@ -299,11 +285,7 @@ namespace Cardiology.UI.Forms
             saveIssuedMedicine(service);
             saveIssuedAction(service);
 
-            ekgAnalysisControlcs.saveObject(hospitalSession, anamnesis.ObjectId, DdtAnamnesis.NAME);
-            urineAnalysisControl.saveObject(hospitalSession, anamnesis.ObjectId, DdtAnamnesis.NAME);
-            bloodAnalysisControl.saveObject(hospitalSession, anamnesis.ObjectId, DdtAnamnesis.NAME);
-            egdsAnalysisControl1.saveObject(hospitalSession, anamnesis.ObjectId, DdtAnamnesis.NAME);
-
+            analysisTabControl1.save(anamnesis?.ObjectId, DdtAnamnesis.NAME);
             hospitalSession.Diagnosis = diagnosisTxt.Text;
             service.GetDdtHospitalService().Save(hospitalSession);
             return true;
@@ -318,7 +300,7 @@ namespace Cardiology.UI.Forms
                 anamnesis.Patient = hospitalSession.Patient;
                 anamnesis.InspectionDate = DateTime.Now;
             }
-            DdvDoctor doc = getSafeObjectValueUni<DdvDoctor>(docBox, new getValue<DdvDoctor>((ctrl) => (DdvDoctor)((ComboBox)ctrl).SelectedItem));
+            DdvDoctor doc = (DdvDoctor) docBox.SelectedItem;
             anamnesis.Doctor = doc.ObjectId;
 
             anamnesis.AccompanyingIllnesses = getSafeStringValue(accompanyingIllnessesTxt);
@@ -346,9 +328,7 @@ namespace Cardiology.UI.Forms
 
         private void saveIssuedMedicine(IDbDataService service)
         {
-            List<DdtIssuedMedicine> meds = getSafeObjectValueUni(issuedMedicineContainer,
-                new getValue<List<DdtIssuedMedicine>>((ctrl) => ((IssuedMedicineContainer)ctrl).getIssuedMedicines(service)));
-
+            List<DdtIssuedMedicine> meds = issuedMedicineContainer.getIssuedMedicines(service);
             List<DdtIssuedMedicine> meds2 = new List<DdtIssuedMedicine>();
             foreach (DdtIssuedMedicine med in meds)
             {
@@ -385,8 +365,7 @@ namespace Cardiology.UI.Forms
 
         private void saveIssuedAction(IDbDataService service)
         {
-            List<DdtIssuedAction> meds = getSafeObjectValueUni(issuedActionContainer,
-               new getValue<List<DdtIssuedAction>>((ctrl) => ((IssuedActionContainer)ctrl).getIssuedMedicines(service)));
+            List<DdtIssuedAction> meds = issuedActionContainer.getIssuedMedicines(service);
             if (meds.Count > 0)
             {
                 foreach (DdtIssuedAction med in meds)
@@ -407,7 +386,7 @@ namespace Cardiology.UI.Forms
 
         }
 
-        private string getSafeStringValue(Control c)
+       private string getSafeStringValue(Control c)
         {
             if (c.InvokeRequired)
             {
@@ -426,7 +405,6 @@ namespace Cardiology.UI.Forms
         }
 
         delegate T getValue<T>(Control ctrl);
-
         delegate string getControlTextValue(Control ctrl);
         delegate T getControlObjectValue<T>(Control ctrl);
 
@@ -463,9 +441,9 @@ namespace Cardiology.UI.Forms
                 {
                     medicineTemplates.Add(cur);
                 }
-                foreach(DdtCure cur in medicineTemplates)
+                foreach (DdtCure cur in medicineTemplates)
                 {
-                    if(cur.Name.Equals("Стол ОВД", StringComparison.Ordinal))
+                    if (cur.Name.Equals("Стол ОВД", StringComparison.Ordinal))
                     {
                         medicineTemplates.Remove(cur);
                         break;
@@ -736,7 +714,7 @@ namespace Cardiology.UI.Forms
                 accompanyingIllnessesTxt.Text = accompanyingIllnessesTxt.Text.Trim();
             }
 
-            if(accompanyingIllnessesTxt.Text == null)
+            if (accompanyingIllnessesTxt.Text == null)
             {
                 accompanyingIllnessesTxt.Text = "";
             }
@@ -750,7 +728,8 @@ namespace Cardiology.UI.Forms
             {
                 diagnosisTxt.Text += text + " ";
             }
-            else if (!accompanyingIllnessesTxt.Text.Contains(text) && diagnosisTxt.Text.Contains(text)) {
+            else if (!accompanyingIllnessesTxt.Text.Contains(text) && diagnosisTxt.Text.Contains(text))
+            {
                 diagnosisTxt.Text = diagnosisTxt.Text.Replace(text, "");
             }
         }
@@ -906,11 +885,10 @@ namespace Cardiology.UI.Forms
             SilentSaver.clearForm();
         }
 
-        #endregion
-
         private void AnamnesisVitaeTxt_TextChanged(object sender, EventArgs e)
         {
             UpdateAlcoProtocolVisibility();
         }
+        #endregion
     }
 }

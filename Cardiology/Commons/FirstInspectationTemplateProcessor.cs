@@ -48,7 +48,7 @@ namespace Cardiology.Commons
             DdvDoctor doc = service.GetDdvDoctorService().GetById(anamnesis.Doctor);
             values.Add("{cardio}", doc.ShortName);
 
-            DdtEkg ekg = service.GetDdtEkgService().GetByHospitalSessionAndAdmission(hospitalitySession);
+            DdtEkg ekg = service.GetDdtEkgService().GetByParentId(anamnesis?.ObjectId);
 
             values.Add("{analysis.ekg}", ekg == null ? "" : ekg.Ekg);
 

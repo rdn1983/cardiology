@@ -85,6 +85,8 @@
             this.readonlyEkgTxt = new System.Windows.Forms.RichTextBox();
             this.editablePnl = new System.Windows.Forms.Panel();
             this.analysisDate = new System.Windows.Forms.DateTimePicker();
+            this.hide = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.ekgTemplates.SuspendLayout();
             this.backPnl.SuspendLayout();
             this.frontPnl.SuspendLayout();
@@ -101,7 +103,7 @@
             this.ekgTemplates.Controls.Add(this.frontPnl);
             this.ekgTemplates.Location = new System.Drawing.Point(3, 217);
             this.ekgTemplates.Name = "ekgTemplates";
-            this.ekgTemplates.Size = new System.Drawing.Size(714, 184);
+            this.ekgTemplates.Size = new System.Drawing.Size(680, 184);
             this.ekgTemplates.TabIndex = 30;
             this.ekgTemplates.TabStop = false;
             this.ekgTemplates.Text = "Шаблоны ЭКГ";
@@ -121,15 +123,15 @@
             this.backPnl.Controls.Add(this.backDesc1);
             this.backPnl.Location = new System.Drawing.Point(359, 11);
             this.backPnl.Name = "backPnl";
-            this.backPnl.Size = new System.Drawing.Size(348, 168);
+            this.backPnl.Size = new System.Drawing.Size(309, 168);
             this.backPnl.TabIndex = 33;
             this.backPnl.TabStop = false;
             // 
             // backDesc2_2
             // 
-            this.backDesc2_2.Location = new System.Drawing.Point(262, 66);
+            this.backDesc2_2.Location = new System.Drawing.Point(237, 66);
             this.backDesc2_2.Name = "backDesc2_2";
-            this.backDesc2_2.Size = new System.Drawing.Size(79, 23);
+            this.backDesc2_2.Size = new System.Drawing.Size(64, 23);
             this.backDesc2_2.TabIndex = 32;
             this.backDesc2_2.Text = "V1-V3";
             this.backDesc2_2.UseVisualStyleBackColor = true;
@@ -137,9 +139,9 @@
             // 
             // backDesc4_4
             // 
-            this.backDesc4_4.Location = new System.Drawing.Point(296, 114);
+            this.backDesc4_4.Location = new System.Drawing.Point(253, 114);
             this.backDesc4_4.Name = "backDesc4_4";
-            this.backDesc4_4.Size = new System.Drawing.Size(45, 23);
+            this.backDesc4_4.Size = new System.Drawing.Size(48, 48);
             this.backDesc4_4.TabIndex = 31;
             this.backDesc4_4.Text = "V1-V3";
             this.backDesc4_4.UseVisualStyleBackColor = true;
@@ -158,7 +160,7 @@
             // 
             this.backType1.Location = new System.Drawing.Point(7, 31);
             this.backType1.Name = "backType1";
-            this.backType1.Size = new System.Drawing.Size(161, 34);
+            this.backType1.Size = new System.Drawing.Size(156, 34);
             this.backType1.TabIndex = 21;
             this.backType1.Text = "Заднедиафрагмальный\r\n(нижний)";
             this.backType1.UseVisualStyleBackColor = true;
@@ -166,9 +168,9 @@
             // 
             // backDesc4
             // 
-            this.backDesc4.Location = new System.Drawing.Point(169, 114);
+            this.backDesc4.Location = new System.Drawing.Point(164, 114);
             this.backDesc4.Name = "backDesc4";
-            this.backDesc4.Size = new System.Drawing.Size(127, 23);
+            this.backDesc4.Size = new System.Drawing.Size(87, 48);
             this.backDesc4.TabIndex = 30;
             this.backDesc4.Text = "III,aVF,II,V5,V6,V7-V9";
             this.backDesc4.UseVisualStyleBackColor = true;
@@ -178,7 +180,7 @@
             // 
             this.backType2.Location = new System.Drawing.Point(7, 66);
             this.backType2.Name = "backType2";
-            this.backType2.Size = new System.Drawing.Size(161, 23);
+            this.backType2.Size = new System.Drawing.Size(156, 23);
             this.backType2.TabIndex = 22;
             this.backType2.Text = "Заднебазальный";
             this.backType2.UseVisualStyleBackColor = true;
@@ -188,7 +190,7 @@
             // 
             this.backType3.Location = new System.Drawing.Point(7, 90);
             this.backType3.Name = "backType3";
-            this.backType3.Size = new System.Drawing.Size(161, 23);
+            this.backType3.Size = new System.Drawing.Size(156, 23);
             this.backType3.TabIndex = 23;
             this.backType3.Text = "Заднебоковой";
             this.backType3.UseVisualStyleBackColor = true;
@@ -196,9 +198,9 @@
             // 
             // backDesc3
             // 
-            this.backDesc3.Location = new System.Drawing.Point(169, 90);
+            this.backDesc3.Location = new System.Drawing.Point(164, 90);
             this.backDesc3.Name = "backDesc3";
-            this.backDesc3.Size = new System.Drawing.Size(172, 23);
+            this.backDesc3.Size = new System.Drawing.Size(137, 23);
             this.backDesc3.TabIndex = 28;
             this.backDesc3.Text = "V5,V6,II,aVF";
             this.backDesc3.UseVisualStyleBackColor = true;
@@ -206,9 +208,9 @@
             // 
             // backDesc2
             // 
-            this.backDesc2.Location = new System.Drawing.Point(169, 66);
+            this.backDesc2.Location = new System.Drawing.Point(164, 66);
             this.backDesc2.Name = "backDesc2";
-            this.backDesc2.Size = new System.Drawing.Size(92, 23);
+            this.backDesc2.Size = new System.Drawing.Size(72, 23);
             this.backDesc2.TabIndex = 27;
             this.backDesc2.Text = "V7-V9";
             this.backDesc2.UseVisualStyleBackColor = true;
@@ -218,7 +220,7 @@
             // 
             this.backType4.Location = new System.Drawing.Point(7, 114);
             this.backType4.Name = "backType4";
-            this.backType4.Size = new System.Drawing.Size(161, 23);
+            this.backType4.Size = new System.Drawing.Size(156, 48);
             this.backType4.TabIndex = 25;
             this.backType4.Text = "Распространенный задний";
             this.backType4.UseVisualStyleBackColor = true;
@@ -226,9 +228,9 @@
             // 
             // backDesc1
             // 
-            this.backDesc1.Location = new System.Drawing.Point(169, 31);
+            this.backDesc1.Location = new System.Drawing.Point(164, 31);
             this.backDesc1.Name = "backDesc1";
-            this.backDesc1.Size = new System.Drawing.Size(173, 34);
+            this.backDesc1.Size = new System.Drawing.Size(137, 34);
             this.backDesc1.TabIndex = 26;
             this.backDesc1.Text = "III,aVF,II";
             this.backDesc1.UseVisualStyleBackColor = true;
@@ -377,7 +379,7 @@
             // 
             this.regularEkgTxt.Location = new System.Drawing.Point(332, 3);
             this.regularEkgTxt.Name = "regularEkgTxt";
-            this.regularEkgTxt.Size = new System.Drawing.Size(385, 174);
+            this.regularEkgTxt.Size = new System.Drawing.Size(351, 174);
             this.regularEkgTxt.TabIndex = 29;
             this.regularEkgTxt.Text = "";
             this.regularEkgTxt.TextChanged += new System.EventHandler(this.regularEkgTxt_TextChanged);
@@ -661,11 +663,12 @@
             // 
             // readonlyEkgBox
             // 
+            this.readonlyEkgBox.Controls.Add(this.hide);
             this.readonlyEkgBox.Controls.Add(this.readonlyEkgTxt);
             this.readonlyEkgBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.readonlyEkgBox.Location = new System.Drawing.Point(5, 0);
             this.readonlyEkgBox.Name = "readonlyEkgBox";
-            this.readonlyEkgBox.Size = new System.Drawing.Size(717, 82);
+            this.readonlyEkgBox.Size = new System.Drawing.Size(717, 81);
             this.readonlyEkgBox.TabIndex = 31;
             this.readonlyEkgBox.TabStop = false;
             this.readonlyEkgBox.Text = "ЭКГ при поступлении";
@@ -676,12 +679,13 @@
             this.readonlyEkgTxt.Location = new System.Drawing.Point(6, 16);
             this.readonlyEkgTxt.Name = "readonlyEkgTxt";
             this.readonlyEkgTxt.ReadOnly = true;
-            this.readonlyEkgTxt.Size = new System.Drawing.Size(704, 57);
+            this.readonlyEkgTxt.Size = new System.Drawing.Size(675, 57);
             this.readonlyEkgTxt.TabIndex = 9;
             this.readonlyEkgTxt.Text = "";
             // 
             // editablePnl
             // 
+            this.editablePnl.Controls.Add(this.button1);
             this.editablePnl.Controls.Add(this.analysisDate);
             this.editablePnl.Controls.Add(this.rhytmGroupBox);
             this.editablePnl.Controls.Add(this.commaBtn);
@@ -693,9 +697,9 @@
             this.editablePnl.Controls.Add(this.dotBtn);
             this.editablePnl.Controls.Add(this.deviationBox);
             this.editablePnl.Controls.Add(this.spaceBtn);
-            this.editablePnl.Location = new System.Drawing.Point(5, 0);
+            this.editablePnl.Location = new System.Drawing.Point(3, 0);
             this.editablePnl.Name = "editablePnl";
-            this.editablePnl.Size = new System.Drawing.Size(721, 90);
+            this.editablePnl.Size = new System.Drawing.Size(721, 406);
             this.editablePnl.TabIndex = 32;
             // 
             // analysisDate
@@ -706,6 +710,26 @@
             this.analysisDate.Size = new System.Drawing.Size(107, 20);
             this.analysisDate.TabIndex = 31;
             this.analysisDate.ValueChanged += new System.EventHandler(this.analysisDate_ValueChanged);
+            // 
+            // hide
+            // 
+            this.hide.Image = global::Cardiology.Properties.Resources.remove;
+            this.hide.Location = new System.Drawing.Point(685, 5);
+            this.hide.Name = "hide";
+            this.hide.Size = new System.Drawing.Size(26, 23);
+            this.hide.TabIndex = 40;
+            this.hide.UseVisualStyleBackColor = true;
+            this.hide.Click += new System.EventHandler(this.hide_Click);
+            // 
+            // button1
+            // 
+            this.button1.Image = global::Cardiology.Properties.Resources.remove;
+            this.button1.Location = new System.Drawing.Point(685, 5);
+            this.button1.Name = "hide2";
+            this.button1.Size = new System.Drawing.Size(26, 23);
+            this.button1.TabIndex = 40;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.hide_Click);
             // 
             // EkgAnalysisControlcs
             // 
@@ -788,5 +812,7 @@
         private System.Windows.Forms.RichTextBox readonlyEkgTxt;
         private System.Windows.Forms.Panel editablePnl;
         private System.Windows.Forms.DateTimePicker analysisDate;
+        private System.Windows.Forms.Button hide;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -9,9 +9,7 @@ namespace Cardiology.Data.Commons
 
         DdtUrineAnalysis GetById(string id);
 
-        DdtUrineAnalysis GetByHospitalSessionAndParentId(string hospitalSession, string parentId);
-
-        IList<DdtUrineAnalysis> getListByParentId(string parentId);
+        IList<DdtUrineAnalysis> GetByParentId(string parentId);
 
         string Save(DdtUrineAnalysis obj);
     }

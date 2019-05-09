@@ -34,6 +34,7 @@
             this.holterTxt = new System.Windows.Forms.RichTextBox();
             this.title = new System.Windows.Forms.Label();
             this.cotainer = new System.Windows.Forms.Panel();
+            this.hide = new System.Windows.Forms.Button();
             this.analysisDate = new System.Windows.Forms.DateTimePicker();
             this.monitoringAdBox.SuspendLayout();
             this.holterBox.SuspendLayout();
@@ -91,6 +92,7 @@
             // cotainer
             // 
             this.cotainer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.cotainer.Controls.Add(this.hide);
             this.cotainer.Controls.Add(this.analysisDate);
             this.cotainer.Controls.Add(this.holterBox);
             this.cotainer.Controls.Add(this.title);
@@ -99,6 +101,16 @@
             this.cotainer.Name = "cotainer";
             this.cotainer.Size = new System.Drawing.Size(715, 272);
             this.cotainer.TabIndex = 10;
+            // 
+            // hide
+            // 
+            this.hide.Image = global::Cardiology.Properties.Resources.remove;
+            this.hide.Location = new System.Drawing.Point(682, 3);
+            this.hide.Name = "hide";
+            this.hide.Size = new System.Drawing.Size(26, 23);
+            this.hide.TabIndex = 39;
+            this.hide.UseVisualStyleBackColor = true;
+            this.hide.Click += new System.EventHandler(this.hide_Click);
             // 
             // analysisDate
             // 
@@ -133,5 +145,6 @@
         private System.Windows.Forms.Label title;
         private System.Windows.Forms.Panel cotainer;
         private System.Windows.Forms.DateTimePicker analysisDate;
+        private System.Windows.Forms.Button hide;
     }
 }

@@ -1,5 +1,4 @@
 ﻿using System.Windows.Forms;
-using Cardiology.Commons;
 using Cardiology.Data;
 using Cardiology.Data.Model2;
 
@@ -11,11 +10,15 @@ namespace Cardiology.UI.Controls
         private bool isEditable;
         private bool hasChanges;
         private bool isNew;
+        private IAnalysisContainer acontainer;
 
-        public HormonesControl(string objectId, bool isAddit)
+        public HormonesControl(string objectId, bool additional) : this(objectId, null, additional) { }
+
+        public HormonesControl(string objectId, IAnalysisContainer container, bool isAddit)
         {
             this.objectId = objectId;
             this.isEditable = !isAddit;
+            this.acontainer = container;
             InitializeComponent();
             initControls();
             hasChanges = false;
@@ -106,6 +109,11 @@ namespace Cardiology.UI.Controls
         private void admissionDateTxt_ValueChanged(object sender, System.EventArgs e)
         {
             hasChanges = true;
+        }
+
+        private void hide_Click(object sender, System.EventArgs e)
+        {
+            acontainer?.RemoveControl(this, DdtHormones.NAME);
         }
     }
 }

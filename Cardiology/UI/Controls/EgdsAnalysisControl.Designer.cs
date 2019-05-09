@@ -32,6 +32,7 @@
             this.regularEgdsTxt = new System.Windows.Forms.RichTextBox();
             this.analysisTitleLbl = new System.Windows.Forms.Label();
             this.analysisDate = new System.Windows.Forms.DateTimePicker();
+            this.hide = new System.Windows.Forms.Button();
             this.regularEgdsBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,10 +74,21 @@
             this.analysisDate.TabIndex = 8;
             this.analysisDate.ValueChanged += new System.EventHandler(this.analysisDate_ValueChanged);
             // 
+            // hide
+            // 
+            this.hide.Image = global::Cardiology.Properties.Resources.remove;
+            this.hide.Location = new System.Drawing.Point(654, 3);
+            this.hide.Name = "hide";
+            this.hide.Size = new System.Drawing.Size(26, 23);
+            this.hide.TabIndex = 39;
+            this.hide.UseVisualStyleBackColor = true;
+            this.hide.Click += new System.EventHandler(this.hide_Click);
+            // 
             // EgdsAnalysisControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.hide);
             this.Controls.Add(this.analysisDate);
             this.Controls.Add(this.analysisTitleLbl);
             this.Controls.Add(this.regularEgdsBox);
@@ -94,5 +106,6 @@
         private System.Windows.Forms.RichTextBox regularEgdsTxt;
         private System.Windows.Forms.Label analysisTitleLbl;
         private System.Windows.Forms.DateTimePicker analysisDate;
+        private System.Windows.Forms.Button hide;
     }
 }

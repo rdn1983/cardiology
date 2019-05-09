@@ -39,6 +39,7 @@
             this.mrtTxt = new System.Windows.Forms.RichTextBox();
             this.ktBox = new System.Windows.Forms.GroupBox();
             this.ktTxt = new System.Windows.Forms.RichTextBox();
+            this.hide = new System.Windows.Forms.Button();
             this.cotrolRadiographyBox.SuspendLayout();
             this.chestXRayBox.SuspendLayout();
             this.mrtBox.SuspendLayout();
@@ -150,11 +151,22 @@
             this.ktTxt.Text = "";
             this.ktTxt.TextChanged += new System.EventHandler(this.ControlTxt_TextChanged);
             // 
+            // hide
+            // 
+            this.hide.Image = global::Cardiology.Properties.Resources.remove;
+            this.hide.Location = new System.Drawing.Point(466, 4);
+            this.hide.Name = "hide";
+            this.hide.Size = new System.Drawing.Size(26, 23);
+            this.hide.TabIndex = 40;
+            this.hide.UseVisualStyleBackColor = true;
+            this.hide.Click += new System.EventHandler(this.hide_Click);
+            // 
             // XRayControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.Controls.Add(this.hide);
             this.Controls.Add(this.dateLbl);
             this.Controls.Add(this.ktTimeTxt);
             this.Controls.Add(this.ktDateTxt);
@@ -186,5 +198,6 @@
         private System.Windows.Forms.RichTextBox mrtTxt;
         private System.Windows.Forms.GroupBox ktBox;
         private System.Windows.Forms.RichTextBox ktTxt;
+        private System.Windows.Forms.Button hide;
     }
 }

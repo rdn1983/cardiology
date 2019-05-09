@@ -22,6 +22,8 @@ namespace Cardiology.UI.Forms
             this.consiliumId = consiliumId;
             InitializeComponent();
             InitControls();
+            List<string> validTypes = new List<string>() { "ddt_blood_analysis", "ddt_kag", "ddt_ekg", "ddt_urine_analysis", "ddt_egds", "ddt_xray", "ddt_holter", "ddt_specialist_conclusion", "ddt_uzi" };
+            analysisTabControl1.init(hospitalitySession, consiliumId, DdtConsilium.NAME, validTypes);
             SilentSaver.setForm(this);
         }
 
@@ -240,6 +242,7 @@ namespace Cardiology.UI.Forms
             {
                 service.Delete(DdtConsiliumRelation.NAME, consiliumRelationId);
             }
+            analysisTabControl1.save(consiliumId, DdtConsilium.NAME);
             return true;
         }
 
@@ -336,6 +339,24 @@ namespace Cardiology.UI.Forms
         private void Consilium_FormClosing(object sender, FormClosingEventArgs e)
         {
             SilentSaver.clearForm();
+        }
+
+        private void toAnalysisBtn_Click(object sender, EventArgs e)
+        {
+            int currentTabIndx = tabControl1.SelectedIndex;
+            if (currentTabIndx < tabControl1.TabCount - 1)
+            {
+                tabControl1.SelectTab(++currentTabIndx);
+            }
+        }
+
+        private void toConsiliumBtn_Click(object sender, EventArgs e)
+        {
+            int currentTabIndx = tabControl1.SelectedIndex;
+            if (currentTabIndx > 0)
+            {
+                tabControl1.SelectTab(--currentTabIndx);
+            }
         }
     }
 }

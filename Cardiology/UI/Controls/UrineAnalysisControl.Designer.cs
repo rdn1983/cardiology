@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.regularAnalysisBox = new System.Windows.Forms.GroupBox();
+            this.hide = new System.Windows.Forms.Button();
             this.dateUrineAnalysis = new System.Windows.Forms.DateTimePicker();
             this.dateUrineAnalysisLbl = new System.Windows.Forms.Label();
             this.proteinTxt = new System.Windows.Forms.TextBox();
@@ -44,6 +45,7 @@
             // 
             // regularAnalysisBox
             // 
+            this.regularAnalysisBox.Controls.Add(this.hide);
             this.regularAnalysisBox.Controls.Add(this.dateUrineAnalysis);
             this.regularAnalysisBox.Controls.Add(this.dateUrineAnalysisLbl);
             this.regularAnalysisBox.Controls.Add(this.proteinTxt);
@@ -61,6 +63,16 @@
             this.regularAnalysisBox.TabIndex = 2;
             this.regularAnalysisBox.TabStop = false;
             this.regularAnalysisBox.Text = "Анализы текущие";
+            // 
+            // hide
+            // 
+            this.hide.Image = global::Cardiology.Properties.Resources.remove;
+            this.hide.Location = new System.Drawing.Point(218, 196);
+            this.hide.Name = "hide";
+            this.hide.Size = new System.Drawing.Size(26, 23);
+            this.hide.TabIndex = 44;
+            this.hide.UseVisualStyleBackColor = true;
+            this.hide.Click += new System.EventHandler(this.hide_Click);
             // 
             // dateUrineAnalysis
             // 
@@ -85,7 +97,7 @@
             // proteinTxt
             // 
             this.proteinTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.proteinTxt.Location = new System.Drawing.Point(88, 190);
+            this.proteinTxt.Location = new System.Drawing.Point(88, 165);
             this.proteinTxt.Name = "proteinTxt";
             this.proteinTxt.Size = new System.Drawing.Size(156, 20);
             this.proteinTxt.TabIndex = 14;
@@ -95,7 +107,7 @@
             // erythrocytesTxt
             // 
             this.erythrocytesTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.erythrocytesTxt.Location = new System.Drawing.Point(88, 150);
+            this.erythrocytesTxt.Location = new System.Drawing.Point(88, 129);
             this.erythrocytesTxt.Name = "erythrocytesTxt";
             this.erythrocytesTxt.Size = new System.Drawing.Size(156, 20);
             this.erythrocytesTxt.TabIndex = 12;
@@ -105,7 +117,7 @@
             // leukocytesTxt
             // 
             this.leukocytesTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.leukocytesTxt.Location = new System.Drawing.Point(88, 106);
+            this.leukocytesTxt.Location = new System.Drawing.Point(88, 93);
             this.leukocytesTxt.Name = "leukocytesTxt";
             this.leukocytesTxt.Size = new System.Drawing.Size(156, 20);
             this.leukocytesTxt.TabIndex = 11;
@@ -115,7 +127,7 @@
             // colorTxt
             // 
             this.colorTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.colorTxt.Location = new System.Drawing.Point(88, 65);
+            this.colorTxt.Location = new System.Drawing.Point(88, 59);
             this.colorTxt.Name = "colorTxt";
             this.colorTxt.Size = new System.Drawing.Size(156, 20);
             this.colorTxt.TabIndex = 8;
@@ -126,7 +138,7 @@
             // 
             this.label91.AutoSize = true;
             this.label91.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label91.Location = new System.Drawing.Point(8, 197);
+            this.label91.Location = new System.Drawing.Point(8, 172);
             this.label91.Name = "label91";
             this.label91.Size = new System.Drawing.Size(47, 13);
             this.label91.TabIndex = 7;
@@ -136,7 +148,7 @@
             // 
             this.label94.AutoSize = true;
             this.label94.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label94.Location = new System.Drawing.Point(8, 157);
+            this.label94.Location = new System.Drawing.Point(8, 136);
             this.label94.Name = "label94";
             this.label94.Size = new System.Drawing.Size(82, 13);
             this.label94.TabIndex = 4;
@@ -146,7 +158,7 @@
             // 
             this.label95.AutoSize = true;
             this.label95.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label95.Location = new System.Drawing.Point(8, 113);
+            this.label95.Location = new System.Drawing.Point(8, 100);
             this.label95.Name = "label95";
             this.label95.Size = new System.Drawing.Size(77, 13);
             this.label95.TabIndex = 3;
@@ -156,7 +168,7 @@
             // 
             this.label98.AutoSize = true;
             this.label98.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label98.Location = new System.Drawing.Point(8, 72);
+            this.label98.Location = new System.Drawing.Point(8, 66);
             this.label98.Name = "label98";
             this.label98.Size = new System.Drawing.Size(40, 13);
             this.label98.TabIndex = 0;
@@ -188,5 +200,6 @@
         private System.Windows.Forms.Label label98;
         private System.Windows.Forms.DateTimePicker dateUrineAnalysis;
         private System.Windows.Forms.Label dateUrineAnalysisLbl;
+        private System.Windows.Forms.Button hide;
     }
 }

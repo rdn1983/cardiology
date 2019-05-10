@@ -828,7 +828,7 @@ namespace Cardiology.UI.Forms
 
         private void AddIssuedMedicine_Click(object sender, EventArgs e)
         {
-            issuedMedicineContainer.addMedicineBox(service);
+            
         }
 
         private void alcoholProtocolBtn_Click(object sender, EventArgs e)

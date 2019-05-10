@@ -95,8 +95,8 @@ namespace Cardiology.Data.PostgreSQL
             IList<DdtKag> list = new List<DdtKag>();
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = String.Format("SELECT r_object_id, dsdt_analysis_date, dsdt_end_time, r_creation_date, dsid_parent, dss_kag_manipulation, dsid_doctor, " +
-                    "dsid_patient, dsid_hospitality_session, dsdt_start_time, r_modify_date, dss_parent_type, dss_results, dss_kag_action " +
+                String sql = String.Format("SELECT ka.r_object_id, dsdt_analysis_date, dsdt_end_time, r_creation_date, rel.dsid_parent, dss_kag_manipulation, dsid_doctor, " +
+                    "dsid_patient, dsid_hospitality_session, dsdt_start_time, r_modify_date, ka.dss_parent_type, dss_results, dss_kag_action " +
                     "FROM ddt_kag ka, ddt_relation rel WHERE rel.dsid_parent = '{0}' AND rel.dsid_child=ka.r_object_id", parentId);
 
                 Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);

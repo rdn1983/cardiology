@@ -87,7 +87,7 @@ namespace Cardiology.Data.PostgreSQL
             IList<DdtHormones> list = new List<DdtHormones>();
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = "SELECT dsid_hospitality_session, r_object_id, dss_ttg, dsdt_analysis_date, dss_t3, r_modify_date, dss_t4, r_creation_date, " +
+                String sql = "SELECT dsid_hospitality_session, ho.r_object_id, dss_ttg, dsdt_analysis_date, dss_t3, r_modify_date, dss_t4, r_creation_date, " +
                     "dsid_doctor, dsid_patient FROM ddt_hormones ho, ddt_relation rel WHERE rel.dsid_parent = '{0}' AND rel.dsid_child=ho.r_object_id";
 
                 Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);

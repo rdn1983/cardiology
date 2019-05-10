@@ -87,7 +87,7 @@ namespace Cardiology.Data.PostgreSQL
             IList<DdtCoagulogram> list = new List<DdtCoagulogram>();
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = String.Format("SELECT dss_ddimer, dsid_hospitality_session, r_object_id, dsdt_analysis_date, r_modify_date, dss_mcho, r_creation_date, dss_achtv, " +
+                String sql = String.Format("SELECT dss_ddimer, dsid_hospitality_session, cc.r_object_id, dsdt_analysis_date, r_modify_date, dss_mcho, r_creation_date, dss_achtv, " +
                     "dsid_doctor, dsid_patient FROM ddt_coagulogram cc, ddt_relation rel WHERE rel.dsid_parent = '{0}' AND rel.dsid_child=cc.r_object_id", parentId);
 
                 Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using Cardiology.Commons;
 using Cardiology.Data;
+using Cardiology.Data.Commons;
 using Cardiology.Data.Model2;
 using Cardiology.UI.Controls;
 
@@ -63,11 +64,13 @@ namespace Cardiology.UI.Forms
                     DdvDoctor doctors = service.GetDdvDoctorService().GetById(journal.Doctor);
                     journalDocBox.SelectedIndex = journalDocBox.FindStringExact(doctors.ShortName);
 
-                    DdtKag kag = service.GetDdtKagService().GetByParentId(journal.ObjectId);
+                    IList<DdtKag> kags = service.GetDdtKagService().GetByParentId(journal.ObjectId);
+                    DdtKag kag = kags.Count > 0 ? kags[0] : null;
                     if (kag != null)
                     {
                         kagDiagnosisTxt.Text = kag.KagAction;
                         kagId = kag.ObjectId;
+                        analysisTabControl1.addAnalisis(DdtKag.NAME, "КАГ", kag.ObjectId);
                     }
 
                     initCardioConslusions(service);
@@ -152,7 +155,6 @@ namespace Cardiology.UI.Forms
 
         public bool Save()
         {
-
             service.GetDdtHospitalService().Save(hospitalitySession);
 
             DdtJournal journal = null;
@@ -190,12 +192,21 @@ namespace Cardiology.UI.Forms
                     kag.Patient = hospitalitySession.Patient;
                     DateTime admissionDateTime = CommonUtils.ConstructDateWIthTime(admissionDateTxt.Value, admissionTimeTxt.Value);
                     kag.AnalysisDate = admissionDateTime.AddMinutes(-75);
-                    kag.StartTime = admissionDateTime.AddMinutes(-75); ;
-                    kag.EndTime = admissionDateTime.AddMinutes(-15); ;
+                    kag.StartTime = admissionDateTime.AddMinutes(-75);
+                    kag.EndTime = admissionDateTime.AddMinutes(-15);
+                    kag.KagAction = kagDiagnosisTxt.Text;
+                    kagId = service.GetDdtKagService().Save(kag);
+
+                    IDdtRelationService relationService = DbDataService.GetInstance().GetDdtRelationService();
+                    if (kagId != null && relationService.GetByParentAndChildIds(journalId, kagId) == null)
+                    {
+                        DdtRelation relation = new DdtRelation();
+                        relation.Parent = journalId;
+                        relation.Child = kagId;
+                        relation.ChildType = DdtJournal.NAME;
+                        relationService.Save(relation);
+                    }
                 }
-                kag.Parent = journalId;
-                kag.KagAction = kagDiagnosisTxt.Text;
-                kagId = service.GetDdtKagService().Save(kag);
             }
 
             for (int i = 0; i < dutyCardioContainer.Controls.Count; i++)
@@ -213,7 +224,7 @@ namespace Cardiology.UI.Forms
         {
             if (Save())
             {
-    
+
                 DdtJournal journal = service.GetDdtJournalService().GetById(journalId);
                 if (journal != null)
                 {

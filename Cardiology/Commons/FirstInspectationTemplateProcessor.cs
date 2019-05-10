@@ -7,7 +7,7 @@ using Cardiology.Data.Model2;
 
 namespace Cardiology.Commons
 {
-    class FirstInspectationTemplateProcessor : ITemplateProcessor
+    class FirstInspectationTemplateProcessor : AbstractTemplateProcessor, ITemplateProcessor
     {
         private const string TEMPLATE_FILE_NAME = "first_inspectation.doc";
 
@@ -48,10 +48,7 @@ namespace Cardiology.Commons
             DdvDoctor doc = service.GetDdvDoctorService().GetById(anamnesis.Doctor);
             values.Add("{cardio}", doc.ShortName);
 
-            DdtEkg ekg = service.GetDdtEkgService().GetByParentId(anamnesis?.ObjectId);
-
-            values.Add("{analysis.ekg}", ekg == null ? "" : ekg.Ekg);
-
+            PutAnalysisData(values, service, anamnesis.ObjectId);
             StringBuilder builder = new StringBuilder();
 
             DdtIssuedMedicineList medList = service.GetDdtIssuedMedicineListService().GetListByParentId(anamnesis?.ObjectId);

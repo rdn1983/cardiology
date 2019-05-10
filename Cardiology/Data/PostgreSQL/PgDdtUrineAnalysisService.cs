@@ -107,8 +107,8 @@ namespace Cardiology.Data.PostgreSQL
             IList<DdtUrineAnalysis> list = new List<DdtUrineAnalysis>();
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = String.Format("SELECT dss_ketones, r_object_id, dsdt_analysis_date, dss_specific_gravity, dss_erythrocytes, r_creation_date, dsid_parent, dsid_doctor, " +
-                    "dsid_patient, dsid_hospitality_session, dss_acidity, r_modify_date, dss_parent_type, dss_leukocytes, dsb_admission_analysis, dss_color, dsb_discharge_analysis, " +
+                String sql = String.Format("SELECT dss_ketones, ur.r_object_id, dsdt_analysis_date, dss_specific_gravity, dss_erythrocytes, r_creation_date, rel.dsid_parent, dsid_doctor, " +
+                    "dsid_patient, dsid_hospitality_session, dss_acidity, r_modify_date, ur.dss_parent_type, dss_leukocytes, dsb_admission_analysis, dss_color, dsb_discharge_analysis, " +
                     "dss_protein, dss_glucose FROM ddt_urine_analysis ur, ddt_relation rel WHERE rel.dsid_parent = '{0}' AND rel.dsid_child=ur.r_object_id", parentId);
                 Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
 

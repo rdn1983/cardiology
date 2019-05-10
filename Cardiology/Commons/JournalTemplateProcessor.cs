@@ -6,7 +6,7 @@ using Cardiology.Data.Model2;
 
 namespace Cardiology.Commons
 {
-    class JournalTemplateProcessor : ITemplateProcessor
+    class JournalTemplateProcessor : AbstractTemplateProcessor, ITemplateProcessor
     {
         private const string TEMPLATE_FILE_NAME = "journal_template.doc";
 
@@ -27,6 +27,7 @@ namespace Cardiology.Commons
                 values = new Dictionary<string, string>();
             }
             DdtJournal journal = service.GetDdtJournalService().GetById(objectId);
+            PutAnalysisData(values, service, journal.ObjectId);
             DdvDoctor doc = service.GetDdvDoctorService().GetById(journal.Doctor);
             values.Add("{doctor.initials}", doc == null ? "" : doc.ShortName);
 
@@ -47,6 +48,7 @@ namespace Cardiology.Commons
                 string mainPart = TemplatesUtils.FillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + TEMPLATE_FILE_NAME, values);
                 partsPaths.Add(mainPart);
             }
+
             DdvPatient patient = service.GetDdvPatientService().GetById(journal.Patient);
             string resultName = TemplatesUtils.getTempFileName("Журнал", patient.FullName);
             return TemplatesUtils.MergeFiles(partsPaths.ToArray(), false, resultName);
@@ -59,7 +61,8 @@ namespace Cardiology.Commons
 
             IList<DdtVariousSpecConcluson> cardioConclusions = service.GetDdtVariousSpecConclusonService().GetListByParentId(journal.ObjectId);
 
-            DdtKag kag = service.GetDdtKagService().GetByParentId(journal.ObjectId);
+            IList<DdtKag> kags = service.GetDdtKagService().GetByParentId(journal.ObjectId);
+            DdtKag kag = kags.Count > 0 ? kags[0] : null;
 
             DateTime journalDate = journal.AdmissionDate;
             if (cardioConclusions.Count > 0)

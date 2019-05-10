@@ -84,6 +84,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commons\AbstractTemplateProcessor.cs" />
     <Compile Include="Data\Commons\IDdtAlcoProtocolService.cs" />
     <Compile Include="Data\Commons\IDdtAnamnesisService.cs" />
     <Compile Include="Data\Commons\IDdtBloodAnalysisService.cs" />

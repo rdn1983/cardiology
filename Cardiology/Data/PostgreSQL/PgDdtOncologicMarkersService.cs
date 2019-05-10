@@ -101,8 +101,8 @@ namespace Cardiology.Data.PostgreSQL
             IList<DdtOncologicMarkers> list = new List<DdtOncologicMarkers>();
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = String.Format("SELECT r_object_id, dsdt_analysis_date, r_creation_date, dss_cea, dsid_parent, dss_psa_common, dss_psa_free, dsid_doctor, " +
-                    "dsid_patient, dsid_hospitality_session, dss_hgch, r_modify_date, dss_parent_type, dss_ca_125, dss_ca_199, dss_ca_153, dss_afr " +
+                String sql = String.Format("SELECT ma.r_object_id, dsdt_analysis_date, r_creation_date, dss_cea, rel.dsid_parent, dss_psa_common, dss_psa_free, dsid_doctor, " +
+                    "dsid_patient, dsid_hospitality_session, dss_hgch, r_modify_date, ma.dss_parent_type, dss_ca_125, dss_ca_199, dss_ca_153, dss_afr " +
                     "FROM ddt_oncologic_markers ma, ddt_relation rel WHERE rel.dsid_parent = '{0}' AND rel.dsid_child=ma.r_object_id", parentId);
 
                 Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);

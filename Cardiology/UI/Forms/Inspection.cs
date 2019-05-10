@@ -75,7 +75,8 @@ namespace Cardiology.UI.Forms
             bool hasKag = false;
             if (kagJournal != null)
             {
-                DdtKag kag = service.GetDdtKagService().GetByParentId(kagJournal.ObjectId);
+                IList<DdtKag> kags = service.GetDdtKagService().GetByParentId(kagJournal.ObjectId);
+                DdtKag kag = kags.Count > 0 ? kags[0] : null;
                 if (kag != null && inspectionObj!=null)
                 {
                     kagId = kag.ObjectId;

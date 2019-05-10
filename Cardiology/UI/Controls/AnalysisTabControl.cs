@@ -13,7 +13,6 @@ namespace Cardiology.UI.Controls
     {
         private DdtHospital hospitalSession;
         private IList<string> validTypes;
-        private static AnalysisSelector selector;
         private string parentId;
         private string parentType;
 
@@ -41,11 +40,16 @@ namespace Cardiology.UI.Controls
                 foreach (DdtRelation rel in relations)
                 {
                     string typeLabel = DbDataService.GetInstance().GetString(String.Format("SELECT dss_operation_name FROM  ddv_history where dsid_operation_id = '{0}'", rel.Child));
-                    Control c = createDocbaseControl(rel.ChildType, rel.Child);
-                    TableLayoutPanel container = getTabContainer(rel.ChildType, typeLabel, true);
-                    container.Controls.Add(c);
+                    addAnalisis(rel.ChildType, typeLabel, rel.Child);
                 }
             }
+        }
+
+        public void addAnalisis(string typeName, string Label, string objectId)
+        {
+            TableLayoutPanel container = getTabContainer(typeName, Label, true);
+            Control control = createDocbaseControl(typeName, objectId);
+            container.Controls.Add(control);
         }
 
         public void save(string parentId, string parentType)
@@ -127,8 +131,7 @@ namespace Cardiology.UI.Controls
         private void MenuClicked(object sender, EventArgs e)
         {
             ToolStripItem item = (ToolStripItem)sender;
-            TableLayoutPanel container = getTabContainer(item.Name, item.Text, true);
-            container.Controls.Add(createDocbaseControl(item.Name, null));
+            addAnalisis(item.Name, item.Text, null);
         }
 
         private void createAnalysis_Click(object sender, EventArgs e)
@@ -153,9 +156,7 @@ namespace Cardiology.UI.Controls
                 foreach (string id in result)
                 {
                     DdvHistory history = DbDataService.GetInstance().GetDdvHistoryService().GetHistoryByOperationId(id);
-                    TableLayoutPanel container = getTabContainer(history.OperationType, history.OperationName, true);
-                    Control control = createDocbaseControl(history.OperationType, id);
-                    container.Controls.Add(control);
+                    addAnalisis(history.OperationType, history.OperationName, id);
                 }
             }
         }

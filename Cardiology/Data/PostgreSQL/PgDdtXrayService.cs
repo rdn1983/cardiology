@@ -60,8 +60,8 @@ namespace Cardiology.Data.PostgreSQL
             IList<DdtXRay> list = new List<DdtXRay>();
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = String.Format("SELECT r_object_id, dsdt_analysis_date, dss_mskt, r_creation_date, dss_kt, dsid_parent, dss_chest_xray, " +
-                    "dsid_doctor, dsid_patient, dsid_hospitality_session, r_modify_date, dss_parent_type, dss_mrt, dss_control_radiography, dsdt_kt_date " +
+                String sql = String.Format("SELECT zr.r_object_id, dsdt_analysis_date, dss_mskt, r_creation_date, dss_kt, rel.dsid_parent, dss_chest_xray, " +
+                    "dsid_doctor, dsid_patient, dsid_hospitality_session, r_modify_date, zr.dss_parent_type, dss_mrt, dss_control_radiography, dsdt_kt_date " +
                     "FROM ddt_xray zr, ddt_relation rel WHERE rel.dsid_parent = '{0}' AND rel.dsid_child=zr.r_object_id", parentId);
                 Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
 

@@ -5,6 +5,7 @@ using Cardiology.UI.Controls;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Globalization;
 using System.Text;
 using System.Windows.Forms;
 using DdtValues = Cardiology.Data.Model2.DdtValues;
@@ -78,8 +79,8 @@ namespace Cardiology.UI.Forms
                 {
                     if (patient.Sd)
                     {
-                        IList<DdtCure> medicineTemplates = service.GetDdtCureService().GetListByTemplate("sd");
-                        issuedMedicineContainer.RefreshData(service, medicineTemplates);
+                        //IList<DdtCure> medicineTemplates = service.GetDdtCureService().GetListByTemplate("sd");
+                        //issuedMedicineContainer.RefreshData(service, medicineTemplates);
                     }
                 }
             }
@@ -95,17 +96,17 @@ namespace Cardiology.UI.Forms
         private void InitAdmissionAnalysis()
         {
             DdtUrineAnalysis firstAnalysis = service.GetDdtUrineAnalysisService().GetByHospitalSessionAndParentId(hospitalSession.ObjectId, anamnesis?.ObjectId);
-            urineAnalysisControl.refreshObject(firstAnalysis);
+            //urineAnalysisControl.refreshObject(firstAnalysis);
 
             DdtEgds firstEgdsAnalysis = service.GetDdtEgdsService().GetByHospitalSessionAndParentId(hospitalSession.ObjectId, anamnesis?.ObjectId);
-            egdsAnalysisControl1.refreshObject(firstEgdsAnalysis);
+            //egdsAnalysisControl1.refreshObject(firstEgdsAnalysis);
 
             DdtBloodAnalysis blood = service.GetDdtBloodAnalysisService()
                 .GetByHospitalSessionAndParentId(hospitalSession.ObjectId, anamnesis?.ObjectId);
-            bloodAnalysisControl.refreshObject(blood);
+            //bloodAnalysisControl.refreshObject(blood);
 
             DdtEkg ekg = service.GetDdtEkgService().GetByHospitalSessionAndParentId(hospitalSession.ObjectId, anamnesis?.ObjectId);
-            ekgAnalysisControlcs.refreshObject(ekg);
+            //ekgAnalysisControlcs.refreshObject(ekg);
         }
 
         private void InitDiagnosis()
@@ -156,7 +157,7 @@ namespace Cardiology.UI.Forms
 
         private void initAlco()
         {
-            String sql = String.Format("SELECT r_object_id FROM ddt_alco_protocol WHERE dsid_hospitality_session = '{0}'", anamnesis?.HospitalitySession);
+            String sql = String.Format(CultureInfo.CurrentCulture, "SELECT r_object_id FROM ddt_alco_protocol WHERE dsid_hospitality_session = '{0}'", anamnesis?.HospitalitySession);
             string alcoProtocolId = service.GetString(sql);
             if (alcoProtocolId != null)
             {
@@ -172,7 +173,7 @@ namespace Cardiology.UI.Forms
                 service.GetDdtIssuedMedicineListService().GetListByParentId(anamnesis?.ObjectId);
             if (medList != null)
             {
-                issuedMedicineContainer.Init(medList);
+                //issuedMedicineContainer.Init(medList);
                 templateName = medList.TemplateName;
             }
         }
@@ -346,7 +347,7 @@ namespace Cardiology.UI.Forms
 
         private void saveIssuedMedicine(IDbDataService service)
         {
-            List<DdtIssuedMedicine> meds = getSafeObjectValueUni(issuedMedicineContainer,
+            /**List<DdtIssuedMedicine> meds = getSafeObjectValueUni(issuedMedicineContainer,
                 new getValue<List<DdtIssuedMedicine>>((ctrl) => ((IssuedMedicineContainer)ctrl).getIssuedMedicines(service)));
 
             List<DdtIssuedMedicine> meds2 = new List<DdtIssuedMedicine>();
@@ -379,7 +380,7 @@ namespace Cardiology.UI.Forms
                     med.MedList = id;
                     service.GetDdtIssuedMedicineService().Save(med);
                 }
-            }
+            }**/
 
         }
 
@@ -473,7 +474,7 @@ namespace Cardiology.UI.Forms
                 }
             }
             clearOldMedList(service);
-            issuedMedicineContainer.RefreshData(service, medicineTemplates);
+            //issuedMedicineContainer.RefreshData(service, medicineTemplates);
         }
 
         private void clearOldMedList(IDbDataService service)
@@ -828,7 +829,31 @@ namespace Cardiology.UI.Forms
 
         private void AddIssuedMedicine_Click(object sender, EventArgs e)
         {
-            
+            FlowLayoutPanel ll = new FlowLayoutPanel();
+            ll.FlowDirection = FlowDirection.LeftToRight;
+            ll.Width = 700;
+            ll.AutoSize = true;
+
+            ComboBox cureType = new ComboBox();
+            cureType.Width = 250;
+            CommonUtils.InitCureTypeComboboxValues(DbDataService.GetInstance(), cureType);
+            ll.Controls.Add(cureType);
+
+            ComboBox cure = new ComboBox();
+            cure.Width = 350;
+            ll.Controls.Add(cure);
+
+            Button remove = new Button();
+            remove.Image = Cardiology.Properties.Resources.remove;
+            remove.Size = new Size(25, 25);
+            remove.UseVisualStyleBackColor = true;
+            ll.Controls.Add(remove);
+
+            remove.Click += delegate(object sender2, EventArgs args)
+            {
+                layout.Controls.Remove(ll);
+            };
+            layout.Controls.Add(ll);
         }
 
         private void alcoholProtocolBtn_Click(object sender, EventArgs e)

@@ -13,7 +13,7 @@ namespace Cardiology.Data.Commons
 
         DdtIssuedMedicineList GetListByHospitalIdAndParentType(string parentType, string hospitalSession);
 
-        DdtIssuedMedicineList GetListByHospitalId(string id);
+        DdtIssuedMedicineList GetLastMedList(string id);
 
         DdtIssuedMedicineList GetListByParentId(string id); 
     }

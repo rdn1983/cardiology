@@ -528,7 +528,7 @@ namespace Cardiology.UI.Forms
             {
                 DataGridViewRow row = (DataGridViewRow)it.Current;
                 DataGridViewCell cell = row.Cells[0];
-                DdtIssuedMedicineList issuedMedicineList = service.GetDdtIssuedMedicineListService().GetListByHospitalId(cell.Value.ToString());
+                DdtIssuedMedicineList issuedMedicineList = service.GetDdtIssuedMedicineListService().GetLastMedList(cell.Value.ToString());
                 if (issuedMedicineList==null || string.IsNullOrEmpty(issuedMedicineList.ObjectId))
                 {
                     MessageBox.Show("Для пациента еще не создано ни одного листа назначений", "Предупреждение", MessageBoxButtons.OK);

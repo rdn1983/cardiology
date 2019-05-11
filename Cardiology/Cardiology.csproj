@@ -224,18 +224,6 @@
     <Compile Include="Data\PostgreSQL\PgDdvPatientService.cs" />
     <Compile Include="Data\PostgreSQL\PgDmGroupService.cs" />
     <Compile Include="Data\PostgreSQL\PgDmGroupUsersService.cs" />
-    <Compile Include="UI\Controls\IssuedMedicineContainer.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UI\Controls\IssuedMedicineContainer.Designer.cs">
-      <DependentUpon>IssuedMedicineContainer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Controls\IssuedMedicineControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UI\Controls\IssuedMedicineControl.Designer.cs">
-      <DependentUpon>IssuedMedicineControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="UI\ControlUtils.cs" />
     <Compile Include="UI\Forms\Admin\DoctorList.cs">
       <SubType>Form</SubType>
@@ -548,12 +536,6 @@
     </None>
     <None Include="Resources\shuffle.png" />
     <None Include="Resources\link20.png" />
-    <EmbeddedResource Include="UI\Controls\IssuedMedicineContainer.resx">
-      <DependentUpon>IssuedMedicineContainer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Controls\IssuedMedicineControl.resx">
-      <DependentUpon>IssuedMedicineControl.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UI\Forms\Admin\DoctorList.resx">
       <DependentUpon>DoctorList.cs</DependentUpon>
     </EmbeddedResource>

@@ -178,17 +178,17 @@ namespace Cardiology.UI.Forms
         private void InitAdmissionAnalysis()
         {
             DdtUrineAnalysis firstAnalysis = service.GetDdtUrineAnalysisService().GetByHospitalSessionAndParentId(hospitalSession.ObjectId, anamnesis?.ObjectId);
-            //urineAnalysisControl.refreshObject(firstAnalysis);
+            urineAnalysisControl.refreshObject(firstAnalysis);
 
             DdtEgds firstEgdsAnalysis = service.GetDdtEgdsService().GetByHospitalSessionAndParentId(hospitalSession.ObjectId, anamnesis?.ObjectId);
-            //egdsAnalysisControl1.refreshObject(firstEgdsAnalysis);
+            egdsAnalysisControl1.refreshObject(firstEgdsAnalysis);
 
             DdtBloodAnalysis blood = service.GetDdtBloodAnalysisService()
                 .GetByHospitalSessionAndParentId(hospitalSession.ObjectId, anamnesis?.ObjectId);
-            //bloodAnalysisControl.refreshObject(blood);
+            bloodAnalysisControl.refreshObject(blood);
 
             DdtEkg ekg = service.GetDdtEkgService().GetByHospitalSessionAndParentId(hospitalSession.ObjectId, anamnesis?.ObjectId);
-            //ekgAnalysisControlcs.refreshObject(ekg);
+            ekgAnalysisControlcs.refreshObject(ekg);
         }
 
         private void InitDiagnosis()
@@ -387,10 +387,10 @@ namespace Cardiology.UI.Forms
             SaveIssuedMedicine(service);
             saveIssuedAction(service);
 
-            //ekgAnalysisControlcs.saveObject(hospitalSession, anamnesis.ObjectId, DdtAnamnesis.NAME);
-            //urineAnalysisControl.saveObject(hospitalSession, anamnesis.ObjectId, DdtAnamnesis.NAME);
-            //bloodAnalysisControl.saveObject(hospitalSession, anamnesis.ObjectId, DdtAnamnesis.NAME);
-            //egdsAnalysisControl1.saveObject(hospitalSession, anamnesis.ObjectId, DdtAnamnesis.NAME);
+            ekgAnalysisControlcs.saveObject(hospitalSession, anamnesis.ObjectId, DdtAnamnesis.NAME);
+            urineAnalysisControl.saveObject(hospitalSession, anamnesis.ObjectId, DdtAnamnesis.NAME);
+            bloodAnalysisControl.saveObject(hospitalSession, anamnesis.ObjectId, DdtAnamnesis.NAME);
+            egdsAnalysisControl1.saveObject(hospitalSession, anamnesis.ObjectId, DdtAnamnesis.NAME);
 
             hospitalSession.Diagnosis = diagnosisTxt.Text;
             service.GetDdtHospitalService().Save(hospitalSession);
@@ -548,7 +548,7 @@ namespace Cardiology.UI.Forms
             aorticDissectionBtn.BackColor = Color.Empty;
         }
 
-        private void updatemedicineFromTemplate(string template)
+        private void UpdateIssuedMedicineListFromTemplate(string template)
         {
             IList<DdtCure> medicineTemplates = service.GetDdtCureService().GetListByTemplate(template);
             if (patient != null && patient.Sd)
@@ -567,17 +567,14 @@ namespace Cardiology.UI.Forms
                     }
                 }
             }
-            clearOldMedList(service);
-            //issuedMedicineContainer.RefreshData(service, medicineTemplates);
-        }
 
-        private void clearOldMedList(IDbDataService service)
-        {
-            DdtIssuedMedicineList medList = service.GetDdtIssuedMedicineListService().GetListByHospitalId(hospitalSession.ObjectId);
-            if (medList != null)
+            medicineList.Clear();
+            foreach (DdtCure cure in medicineTemplates)
             {
-                service.Delete(DdtIssuedMedicine.NAME, medList.ObjectId);
-            }
+                DdtIssuedMedicine med = new DdtIssuedMedicine();
+                med.Cure = cure.ObjectId;
+                AddIssuedMedicine(med, cure);
+            }            
         }
 
         private string getDefaultValueForType(string controlName, string baseType)
@@ -637,7 +634,7 @@ namespace Cardiology.UI.Forms
                 InitializeAnamnesis(template);
                 initIssuedActions(template);
                 templateName = "oks.medicine.";
-                updatemedicineFromTemplate(templateName);
+                UpdateIssuedMedicineListFromTemplate(templateName);
                 OKSUpBtn.BackColor = Color.LightSkyBlue;
             }
         }
@@ -653,7 +650,7 @@ namespace Cardiology.UI.Forms
                 InitializeAnamnesis(template);
                 initIssuedActions(template);
                 templateName = "okslongs.medicine.";
-                updatemedicineFromTemplate(templateName);
+                UpdateIssuedMedicineListFromTemplate(templateName);
                 OKSDownBtn.BackColor = Color.LightSkyBlue;
             }
         }
@@ -669,7 +666,7 @@ namespace Cardiology.UI.Forms
                 InitializeAnamnesis(template);
                 initIssuedActions(template);
                 templateName = "kag.medicine.";
-                updatemedicineFromTemplate(templateName);
+                UpdateIssuedMedicineListFromTemplate(templateName);
                 KAGBtn.BackColor = Color.LightSkyBlue;
             }
         }
@@ -685,7 +682,7 @@ namespace Cardiology.UI.Forms
                 InitializeAnamnesis(template);
                 initIssuedActions(template);
                 templateName = "aorta.medicine.";
-                updatemedicineFromTemplate(templateName);
+                UpdateIssuedMedicineListFromTemplate(templateName);
                 aorticDissectionBtn.BackColor = Color.LightSkyBlue;
             }
         }
@@ -701,7 +698,7 @@ namespace Cardiology.UI.Forms
                 InitializeAnamnesis(template);
                 initIssuedActions(template);
                 templateName = "gb.medicine.";
-                updatemedicineFromTemplate(templateName);
+                UpdateIssuedMedicineListFromTemplate(templateName);
                 GBBtn.BackColor = Color.LightSkyBlue;
             }
         }
@@ -717,7 +714,7 @@ namespace Cardiology.UI.Forms
                 InitializeAnamnesis(template);
                 initIssuedActions(template);
                 templateName = "nk.medicine.";
-                updatemedicineFromTemplate(templateName);
+                UpdateIssuedMedicineListFromTemplate(templateName);
                 PIKSBtn.BackColor = Color.LightSkyBlue;
             }
         }
@@ -733,7 +730,7 @@ namespace Cardiology.UI.Forms
                 InitializeAnamnesis(template);
                 initIssuedActions(template);
                 templateName = "hobl.medicine.";
-                updatemedicineFromTemplate(templateName);
+                UpdateIssuedMedicineListFromTemplate(templateName);
                 PIKVIKBtn.BackColor = Color.LightSkyBlue;
 
             }
@@ -750,7 +747,7 @@ namespace Cardiology.UI.Forms
                 InitializeAnamnesis(template);
                 initIssuedActions(template);
                 templateName = "dep.medicine.";
-                updatemedicineFromTemplate(templateName);
+                UpdateIssuedMedicineListFromTemplate(templateName);
                 DEPBtn.BackColor = Color.LightSkyBlue;
             }
         }
@@ -766,7 +763,7 @@ namespace Cardiology.UI.Forms
                 InitializeAnamnesis(template);
                 initIssuedActions(template);
                 templateName = "death.medicine.";
-                updatemedicineFromTemplate(templateName);
+                UpdateIssuedMedicineListFromTemplate(templateName);
                 deathBtn.BackColor = Color.LightSkyBlue;
             }
         }
@@ -980,7 +977,7 @@ namespace Cardiology.UI.Forms
                {
                    if (value != null)
                    {
-                       updatemedicineFromTemplate((string)value);
+                       UpdateIssuedMedicineListFromTemplate((string)value);
                    }
                });
 

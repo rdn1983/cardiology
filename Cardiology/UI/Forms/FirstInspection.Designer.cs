@@ -123,9 +123,13 @@ namespace Cardiology.UI.Forms
             this.firstAnalysisTab = new System.Windows.Forms.TabPage();
             this.tabs = new System.Windows.Forms.TabControl();
             this.ekgTab = new System.Windows.Forms.TabPage();
+            this.ekgAnalysisControlcs = new EkgAnalysisControlcs();
             this.egdsTab = new System.Windows.Forms.TabPage();
+            this.egdsAnalysisControl1 = new EgdsAnalysisControl();
             this.bloodTab = new System.Windows.Forms.TabPage();
+            this.bloodAnalysisControl = new BloodAnalysisControl();
             this.urineTab = new System.Windows.Forms.TabPage();
+            this.urineAnalysisControl = new UrineAnalysisControl();
             this.templatesLbl = new System.Windows.Forms.Label();
             this.tip = new System.Windows.Forms.ToolTip(this.components);
             this.addTip = new System.Windows.Forms.ToolTip(this.components);
@@ -392,7 +396,7 @@ namespace Cardiology.UI.Forms
             // 
             // anamnesisVitaeBox
             // 
-            this.anamnesisVitaeBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.anamnesisVitaeBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.anamnesisVitaeBox.Controls.Add(this.accompanyingIllnessesBox);
             this.anamnesisVitaeBox.Controls.Add(this.pastSurgeriesBox);
@@ -412,7 +416,7 @@ namespace Cardiology.UI.Forms
             // 
             // accompanyingIllnessesBox
             // 
-            this.accompanyingIllnessesBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.accompanyingIllnessesBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.accompanyingIllnessesBox.Controls.Add(this.chronicBox);
             this.accompanyingIllnessesBox.Controls.Add(this.accompanyingIllnessesTxt);
@@ -500,7 +504,7 @@ namespace Cardiology.UI.Forms
             // 
             // accompanyingIllnessesTxt
             // 
-            this.accompanyingIllnessesTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.accompanyingIllnessesTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.accompanyingIllnessesTxt.Location = new System.Drawing.Point(8, 21);
             this.accompanyingIllnessesTxt.Margin = new System.Windows.Forms.Padding(4);
@@ -512,7 +516,7 @@ namespace Cardiology.UI.Forms
             // 
             // pastSurgeriesBox
             // 
-            this.pastSurgeriesBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.pastSurgeriesBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pastSurgeriesBox.Controls.Add(this.pastSurgeriesTxt);
             this.pastSurgeriesBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -527,7 +531,7 @@ namespace Cardiology.UI.Forms
             // 
             // pastSurgeriesTxt
             // 
-            this.pastSurgeriesTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.pastSurgeriesTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pastSurgeriesTxt.Location = new System.Drawing.Point(8, 21);
             this.pastSurgeriesTxt.Margin = new System.Windows.Forms.Padding(4);
@@ -575,7 +579,7 @@ namespace Cardiology.UI.Forms
             // 
             // anamnesisVitaeTxt
             // 
-            this.anamnesisVitaeTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.anamnesisVitaeTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.anamnesisVitaeTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.anamnesisVitaeTxt.Location = new System.Drawing.Point(8, 21);
@@ -588,7 +592,7 @@ namespace Cardiology.UI.Forms
             // 
             // drugsBox
             // 
-            this.drugsBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.drugsBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.drugsBox.Controls.Add(this.hasNoDrugsIntoxication);
             this.drugsBox.Controls.Add(this.hasDrugsIntoxication);
@@ -628,7 +632,7 @@ namespace Cardiology.UI.Forms
             // 
             // drugsTxt
             // 
-            this.drugsTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.drugsTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.drugsTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.drugsTxt.Location = new System.Drawing.Point(8, 21);
@@ -692,8 +696,8 @@ namespace Cardiology.UI.Forms
             // 
             // tabsContainer
             // 
-            this.tabsContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.tabsContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabsContainer.Controls.Add(this.anamnesisTab);
             this.tabsContainer.Controls.Add(this.presensTab);
@@ -738,7 +742,7 @@ namespace Cardiology.UI.Forms
             // 
             // stPresentsBox
             // 
-            this.stPresentsBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.stPresentsBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.stPresentsBox.BackColor = System.Drawing.SystemColors.Control;
             this.stPresentsBox.Controls.Add(this.nervousSystemBox);
@@ -760,7 +764,7 @@ namespace Cardiology.UI.Forms
             // 
             // nervousSystemBox
             // 
-            this.nervousSystemBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.nervousSystemBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.nervousSystemBox.Controls.Add(this.nervousSystemTxt);
             this.nervousSystemBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -775,7 +779,7 @@ namespace Cardiology.UI.Forms
             // 
             // nervousSystemTxt
             // 
-            this.nervousSystemTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.nervousSystemTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.nervousSystemTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.nervousSystemTxt.Location = new System.Drawing.Point(8, 23);
@@ -787,7 +791,7 @@ namespace Cardiology.UI.Forms
             // 
             // urinarySystemBox
             // 
-            this.urinarySystemBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.urinarySystemBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.urinarySystemBox.Controls.Add(this.urinarySystemTxt);
             this.urinarySystemBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -802,7 +806,7 @@ namespace Cardiology.UI.Forms
             // 
             // urinarySystemTxt
             // 
-            this.urinarySystemTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.urinarySystemTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.urinarySystemTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.urinarySystemTxt.Location = new System.Drawing.Point(8, 23);
@@ -814,7 +818,7 @@ namespace Cardiology.UI.Forms
             // 
             // digestiveSystemBox
             // 
-            this.digestiveSystemBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.digestiveSystemBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.digestiveSystemBox.Controls.Add(this.digestiveSystemTxt);
             this.digestiveSystemBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -829,7 +833,7 @@ namespace Cardiology.UI.Forms
             // 
             // digestiveSystemTxt
             // 
-            this.digestiveSystemTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.digestiveSystemTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.digestiveSystemTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.digestiveSystemTxt.Location = new System.Drawing.Point(8, 23);
@@ -1192,8 +1196,8 @@ namespace Cardiology.UI.Forms
             // 
             // issuedActionBox
             // 
-            this.issuedActionBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.issuedActionBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.issuedActionBox.Controls.Add(this.addIssuedAction);
             this.issuedActionBox.Controls.Add(this.scrollableCntr);
@@ -1220,8 +1224,8 @@ namespace Cardiology.UI.Forms
             // 
             // scrollableCntr
             // 
-            this.scrollableCntr.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.scrollableCntr.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.scrollableCntr.AutoSize = true;
             this.scrollableCntr.Controls.Add(this.issuedActionContainer);
@@ -1233,7 +1237,7 @@ namespace Cardiology.UI.Forms
             // 
             // issuedMedicineBox
             // 
-            this.issuedMedicineBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.issuedMedicineBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
             | System.Windows.Forms.AnchorStyles.Left)));
             this.issuedMedicineBox.Controls.Add(this.layout);
             this.issuedMedicineBox.Controls.Add(this.fixIssuedMedTemplate);
@@ -1311,6 +1315,7 @@ namespace Cardiology.UI.Forms
             // 
             // ekgTab
             // 
+            this.ekgTab.Controls.Add(this.ekgAnalysisControlcs);
             this.ekgTab.Location = new System.Drawing.Point(4, 25);
             this.ekgTab.Margin = new System.Windows.Forms.Padding(4);
             this.ekgTab.Name = "ekgTab";
@@ -1320,8 +1325,18 @@ namespace Cardiology.UI.Forms
             this.ekgTab.Text = "ЭКГ";
             this.ekgTab.UseVisualStyleBackColor = true;
             // 
+            // ekgAnalysisControlcs
+            // 
+            this.ekgAnalysisControlcs.Location = new System.Drawing.Point(7, 11);
+            this.ekgAnalysisControlcs.MaximumSize = new System.Drawing.Size(732, 409);
+            this.ekgAnalysisControlcs.MinimumSize = new System.Drawing.Size(732, 409);
+            this.ekgAnalysisControlcs.Name = "ekgAnalysisControlcs";
+            this.ekgAnalysisControlcs.Size = new System.Drawing.Size(732, 409);
+            this.ekgAnalysisControlcs.TabIndex = 0;
+            // 
             // egdsTab
             // 
+            this.egdsTab.Controls.Add(this.egdsAnalysisControl1);
             this.egdsTab.Location = new System.Drawing.Point(4, 25);
             this.egdsTab.Margin = new System.Windows.Forms.Padding(4);
             this.egdsTab.Name = "egdsTab";
@@ -1331,8 +1346,16 @@ namespace Cardiology.UI.Forms
             this.egdsTab.Text = "ЭГДС";
             this.egdsTab.UseVisualStyleBackColor = true;
             // 
+            // egdsAnalysisControl1
+            // 
+            this.egdsAnalysisControl1.Location = new System.Drawing.Point(6, 6);
+            this.egdsAnalysisControl1.Name = "egdsAnalysisControl1";
+            this.egdsAnalysisControl1.Size = new System.Drawing.Size(683, 158);
+            this.egdsAnalysisControl1.TabIndex = 5;
+            // 
             // bloodTab
             // 
+            this.bloodTab.Controls.Add(this.bloodAnalysisControl);
             this.bloodTab.Location = new System.Drawing.Point(4, 25);
             this.bloodTab.Margin = new System.Windows.Forms.Padding(4);
             this.bloodTab.Name = "bloodTab";
@@ -1342,8 +1365,16 @@ namespace Cardiology.UI.Forms
             this.bloodTab.Text = "Показатели крови";
             this.bloodTab.UseVisualStyleBackColor = true;
             // 
+            // bloodAnalysisControl
+            // 
+            this.bloodAnalysisControl.Location = new System.Drawing.Point(6, 6);
+            this.bloodAnalysisControl.Name = "bloodAnalysisControl";
+            this.bloodAnalysisControl.Size = new System.Drawing.Size(180, 502);
+            this.bloodAnalysisControl.TabIndex = 1;
+            // 
             // urineTab
             // 
+            this.urineTab.Controls.Add(this.urineAnalysisControl);
             this.urineTab.Location = new System.Drawing.Point(4, 25);
             this.urineTab.Margin = new System.Windows.Forms.Padding(4);
             this.urineTab.Name = "urineTab";
@@ -1352,6 +1383,13 @@ namespace Cardiology.UI.Forms
             this.urineTab.TabIndex = 2;
             this.urineTab.Text = "Анализ мочи";
             this.urineTab.UseVisualStyleBackColor = true;
+            // 
+            // urineAnalysisControl
+            // 
+            this.urineAnalysisControl.Location = new System.Drawing.Point(7, 11);
+            this.urineAnalysisControl.Name = "urineAnalysisControl";
+            this.urineAnalysisControl.Size = new System.Drawing.Size(270, 237);
+            this.urineAnalysisControl.TabIndex = 0;
             // 
             // templatesLbl
             // 

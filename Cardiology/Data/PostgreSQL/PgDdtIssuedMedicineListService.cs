@@ -293,7 +293,8 @@ namespace Cardiology.Data.PostgreSQL
                         cmd.Parameters.AddWithValue("@Nurse", obj.Nurse == null ? "" : obj.Nurse);
                         cmd.Parameters.AddWithValue("@Director", obj.Director == null ? "" : obj.Director);
                         cmd.Parameters.AddWithValue("@TemplateName", obj.TemplateName == null ? "" : obj.TemplateName);
-                        return (string)cmd.ExecuteScalar();
+                        obj.ObjectId = (string)cmd.ExecuteScalar();
+                        return obj.ObjectId;
                     }
                 }
             }

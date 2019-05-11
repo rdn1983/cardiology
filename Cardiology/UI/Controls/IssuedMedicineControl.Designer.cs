@@ -41,7 +41,8 @@
             this.medicineContainer.ColumnCount = 1;
             this.medicineContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.medicineContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.medicineContainer.Location = new System.Drawing.Point(3, 3);
+            this.medicineContainer.Location = new System.Drawing.Point(4, 4);
+            this.medicineContainer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.medicineContainer.Name = "medicineContainer";
             this.medicineContainer.RowCount = 1;
             this.medicineContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -52,20 +53,23 @@
             // removeBtn0
             // 
             this.removeBtn0.Image = global::Cardiology.Properties.Resources.remove;
-            this.removeBtn0.Location = new System.Drawing.Point(447, 2);
+            this.removeBtn0.Location = new System.Drawing.Point(596, 2);
+            this.removeBtn0.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.removeBtn0.Name = "removeBtn0";
-            this.removeBtn0.Size = new System.Drawing.Size(24, 23);
+            this.removeBtn0.Size = new System.Drawing.Size(32, 28);
             this.removeBtn0.TabIndex = 3;
             this.removeBtn0.UseVisualStyleBackColor = true;
             this.removeBtn0.Click += new System.EventHandler(this.removeBtn0_Click);
             // 
             // medicineTypeTxt0
             // 
+            this.medicineTypeTxt0.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.medicineTypeTxt0.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.medicineTypeTxt0.FormattingEnabled = true;
-            this.medicineTypeTxt0.Location = new System.Drawing.Point(4, 3);
+            this.medicineTypeTxt0.Location = new System.Drawing.Point(5, 4);
+            this.medicineTypeTxt0.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.medicineTypeTxt0.Name = "medicineTypeTxt0";
-            this.medicineTypeTxt0.Size = new System.Drawing.Size(133, 21);
+            this.medicineTypeTxt0.Size = new System.Drawing.Size(176, 24);
             this.medicineTypeTxt0.TabIndex = 2;
             this.medicineTypeTxt0.SelectedIndexChanged += new System.EventHandler(this.medicineTypeTxt0_SelectedIndexChanged);
             // 
@@ -73,22 +77,24 @@
             // 
             this.issuedMedicineTxt0.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.issuedMedicineTxt0.FormattingEnabled = true;
-            this.issuedMedicineTxt0.Location = new System.Drawing.Point(140, 3);
+            this.issuedMedicineTxt0.Location = new System.Drawing.Point(187, 4);
+            this.issuedMedicineTxt0.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.issuedMedicineTxt0.Name = "issuedMedicineTxt0";
-            this.issuedMedicineTxt0.Size = new System.Drawing.Size(306, 21);
+            this.issuedMedicineTxt0.Size = new System.Drawing.Size(407, 24);
             this.issuedMedicineTxt0.TabIndex = 0;
             // 
             // IssuedMedicineControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.Controls.Add(this.removeBtn0);
             this.Controls.Add(this.medicineTypeTxt0);
             this.Controls.Add(this.medicineContainer);
             this.Controls.Add(this.issuedMedicineTxt0);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "IssuedMedicineControl";
-            this.Size = new System.Drawing.Size(474, 28);
+            this.Size = new System.Drawing.Size(632, 37);
             this.ResumeLayout(false);
             this.PerformLayout();
 

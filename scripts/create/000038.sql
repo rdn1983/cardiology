@@ -24,7 +24,7 @@ as $BODY$
 BEGIN
   INSERT INTO ddt_history
       (dsid_hospitality_session, dsid_patient, dsid_doctor, dsid_operation_id, dss_operation_type, dsdt_operation_date, dss_operation_name)
-  VALUES (NEW.dsid_hospitality_session, NEW.dsid_patient, NEW.dsid_doctor, NEW.r_object_id, TG_TABLE_NAME, new.dsdt_transfusion_date, 'РџРµСЂРµР»РёРІР°РЅРёРµ РєСЂРѕРІРё');
+  VALUES (NEW.dsid_hospitality_session, NEW.dsid_patient, NEW.dsid_doctor, NEW.r_object_id, TG_TABLE_NAME, new.dsdt_transfusion_date, 'Переливание крови');
   RETURN NEW;
 END;
 $BODY$;
@@ -33,3 +33,11 @@ $BODY$;
 CREATE TRIGGER ddt_transfusion_trg_audit AFTER INSERT
   ON ddt_transfusion FOR EACH ROW
 EXECUTE PROCEDURE dmtrg_f_ddt_transfusion_audit();
+
+CREATE TABLE ddt_relation
+(
+    r_object_id     varchar(16) PRIMARY KEY DEFAULT GetNextId(),
+    dsid_parent     varchar(16) NOT NULL,
+    dsid_child		varchar(16) NOT NULL,
+    dss_child_type  varchar(64) NOT NULL
+);

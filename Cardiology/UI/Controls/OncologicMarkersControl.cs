@@ -13,12 +13,16 @@ namespace Cardiology.UI.Controls
         private bool isEditable;
         private bool hasChanges;
         private bool isNew;
+        private IAnalysisContainer container;
 
-        public OncologicMarkersControl(string objectId, bool additional, string hospitalSessionId)
+        public OncologicMarkersControl(string objectId, bool additional, string sessionId) : this(objectId, null, additional, sessionId) { }
+
+        public OncologicMarkersControl(string objectId, IAnalysisContainer container, bool additional, string hospitalSessionId)
         {
             this.objectId = objectId;
             this.hospitalSessionId = hospitalSessionId;
             this.isEditable = !additional;
+            this.container = container;
             InitializeComponent();
             initControls();
             hasChanges = false;
@@ -27,7 +31,6 @@ namespace Cardiology.UI.Controls
 
         private void initControls()
         {
-
             DdtOncologicMarkers markers = DbDataService.GetInstance().GetDdtOncologicMarkersService().GetById(objectId);
             refreshObject(markers);
             ceaTxt.Enabled = isEditable;
@@ -45,7 +48,6 @@ namespace Cardiology.UI.Controls
         {
             if (isEditable && (isNew || isDirty()))
             {
-
                 DdtOncologicMarkers oncologicMarkers = (DdtOncologicMarkers)getObject();
                 oncologicMarkers.HospitalitySession = hospitalitySession.ObjectId;
                 oncologicMarkers.Doctor = hospitalitySession.CuringDoctor;
@@ -84,7 +86,6 @@ namespace Cardiology.UI.Controls
 
         public object getObject()
         {
-
             DdtOncologicMarkers markerObj = DbDataService.GetInstance().GetDdtOncologicMarkersService().GetById(objectId);
             if (markerObj == null)
             {
@@ -141,6 +142,11 @@ namespace Cardiology.UI.Controls
         private void admissionDateTxt_ValueChanged(object sender, EventArgs e)
         {
             hasChanges = true;
+        }
+
+        private void hide_Click(object sender, EventArgs e)
+        {
+            container?.RemoveControl(this, DdtOncologicMarkers.NAME);
         }
     }
 }

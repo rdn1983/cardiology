@@ -10,11 +10,15 @@ namespace Cardiology.UI.Controls
         private bool isEditable;
         private bool hasChanges;
         private bool isNew;
+        private IAnalysisContainer container;
 
-        public HolterControl(string objectId, bool additional)
+        public HolterControl(string objectId, bool additional) : this(objectId, null, additional) { }
+
+        public HolterControl(string objectId, IAnalysisContainer container, bool additional)
         {
             this.objectId = objectId;
             this.isEditable = !additional;
+            this.container = container;
             InitializeComponent();
             initControls();
             hasChanges = false;
@@ -116,6 +120,11 @@ namespace Cardiology.UI.Controls
         private void analysisDate_ValueChanged(object sender, System.EventArgs e)
         {
             hasChanges = true;
+        }
+
+        private void hide_Click(object sender, System.EventArgs e)
+        {
+            container?.RemoveControl(this, DdtHolter.NAME);
         }
     }
 }

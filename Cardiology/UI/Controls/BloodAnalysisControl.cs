@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using Cardiology.Data;
+using Cardiology.Data.Commons;
 using Cardiology.Data.Model2;
 
 namespace Cardiology.UI.Controls
@@ -11,15 +12,15 @@ namespace Cardiology.UI.Controls
         private bool isEditable;
         private bool hasChanges;
         private bool isNew;
+        private IAnalysisContainer container;
 
-        public BloodAnalysisControl() : this(null, false)
-        {
-        }
+        public BloodAnalysisControl(string objectId, bool additional) : this(objectId, null, additional) { }
 
-        public BloodAnalysisControl(string objectId, bool additional)
+        public BloodAnalysisControl(string objectId, IAnalysisContainer container, bool additional)
         {
             this.objectId = objectId;
             this.isEditable = !additional;
+            this.container = container;
             InitializeComponent();
             InitControls();
             hasChanges = false;
@@ -66,16 +67,16 @@ namespace Cardiology.UI.Controls
 
         public void saveObject(DdtHospital hospitalitySession, string parentId, string parentType)
         {
-            
-                if (isEditable && (isDirty() || isNew && getIsValid()))
+            if (isEditable && (isDirty() || isNew && getIsValid()))
             {
                 DdtBloodAnalysis bloodObj = (DdtBloodAnalysis)getObject();
                 bloodObj.HospitalitySession = hospitalitySession.ObjectId;
                 bloodObj.Doctor = hospitalitySession.CuringDoctor;
                 bloodObj.Patient = hospitalitySession.Patient;
-                bloodObj.ParentType = parentType ?? bloodObj.ParentType;
-                bloodObj.Parent = parentId ?? bloodObj.Parent;
+                bloodObj.ParentType = parentType;
+                bloodObj.Parent = parentId;
                 objectId = DbDataService.GetInstance().GetDdtBloodAnalysisService().Save(bloodObj);
+
                 hasChanges = false;
                 isNew = false;
             }
@@ -175,6 +176,11 @@ namespace Cardiology.UI.Controls
         public bool isVisible()
         {
             return true;
+        }
+
+        private void hide_Click(object sender, EventArgs e)
+        {
+            container?.RemoveControl(this, DdtBloodAnalysis.NAME);
         }
 
     }

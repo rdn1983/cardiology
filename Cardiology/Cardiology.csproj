@@ -84,9 +84,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Commons\RequestBloodTemplateProcessor.cs" />
-    <Compile Include="Commons\TransfusionConsentTemplateProcessor.cs" />
-    <Compile Include="Data\Commons\IDdtAlcoProtocolService.cs" />
+    <Compile Include="Commons\AbstractTemplateProcessor.cs" />    <Compile Include="Commons\RequestBloodTemplateProcessor.cs" />
+    <Compile Include="Commons\TransfusionConsentTemplateProcessor.cs" />    <Compile Include="Data\Commons\IDdtAlcoProtocolService.cs" />
     <Compile Include="Data\Commons\IDdtAnamnesisService.cs" />
     <Compile Include="Data\Commons\IDdtBloodAnalysisService.cs" />
     <Compile Include="Data\Commons\IDdtCoagulogramService.cs" />
@@ -112,6 +111,7 @@
     <Compile Include="Data\Commons\IDdtKagService.cs" />
     <Compile Include="Data\Commons\IDdtOncologicMarkersService.cs" />
     <Compile Include="Data\Commons\IDdtPatientService.cs" />
+    <Compile Include="Data\Commons\IDdtRelationService.cs" />
     <Compile Include="Data\Commons\IDdtReleasePatientService.cs" />
     <Compile Include="Data\Commons\IDdtSerologyService.cs" />
     <Compile Include="Data\Commons\IDdtSpecialistConclusionService.cs" />
@@ -159,6 +159,7 @@
     <Compile Include="Data\Model2\DdtKag.cs" />
     <Compile Include="Data\Model2\DdtOncologicMarkers.cs" />
     <Compile Include="Data\Model2\DdtPatient.cs" />
+    <Compile Include="Data\Model2\DdtRelation.cs" />
     <Compile Include="Data\Model2\DdtReleasePatient.cs" />
     <Compile Include="Data\Model2\DdtSerology.cs" />
     <Compile Include="Data\Model2\DdtSpecialistConclusion.cs" />
@@ -207,6 +208,7 @@
     <Compile Include="Data\PostgreSQL\PgDdtKagService.cs" />
     <Compile Include="Data\PostgreSQL\PgDdtOncologicMarkersService.cs" />
     <Compile Include="Data\PostgreSQL\PgDdtPatientService.cs" />
+    <Compile Include="Data\PostgreSQL\PgDdtRelationService.cs" />
     <Compile Include="Data\PostgreSQL\PgDdtReleasePatientService.cs" />
     <Compile Include="Data\PostgreSQL\PgDdtSerologyService.cs" />
     <Compile Include="Data\PostgreSQL\PgDdtSpecialistConclusionService.cs" />
@@ -224,6 +226,13 @@
     <Compile Include="Data\PostgreSQL\PgDdvPatientService.cs" />
     <Compile Include="Data\PostgreSQL\PgDmGroupService.cs" />
     <Compile Include="Data\PostgreSQL\PgDmGroupUsersService.cs" />
+    <Compile Include="UI\Controls\AnalysisTabControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Controls\AnalysisTabControl.Designer.cs">
+      <DependentUpon>AnalysisTabControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\IAnalysisContainer.cs" />
     <Compile Include="UI\ControlUtils.cs" />
     <Compile Include="UI\Forms\Admin\DoctorList.cs">
       <SubType>Form</SubType>
@@ -548,6 +557,9 @@
     </None>
     <None Include="Resources\shuffle.png" />
     <None Include="Resources\link20.png" />
+    <EmbeddedResource Include="UI\Controls\AnalysisTabControl.resx">
+      <DependentUpon>AnalysisTabControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Forms\Admin\DoctorList.resx">
       <DependentUpon>DoctorList.cs</DependentUpon>
     </EmbeddedResource>

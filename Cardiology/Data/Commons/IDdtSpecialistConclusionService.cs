@@ -9,7 +9,7 @@ namespace Cardiology.Data.Commons
 
         DdtSpecialistConclusion GetById(string id);
 
-        IList<DdtSpecialistConclusion> GetListByParentId(string parentId);
+        IList<DdtSpecialistConclusion> GetByParentId(string parentId);
 
         List<DdtSpecialistConclusion> GetByQuery(string sql);
 

@@ -14,12 +14,16 @@ namespace Cardiology.UI.Controls
         private bool isEditable;
         private bool hasChanges;
         private bool isNew;
+        private IAnalysisContainer acontainer;
 
-        public KagAnalysisControl(string objectId, bool additional, string hospitalSessionId)
+        public KagAnalysisControl(string objectId, bool additional, string sessionId) : this(objectId, null, additional, sessionId) { }
+
+        public KagAnalysisControl(string objectId, IAnalysisContainer container, bool additional, string hospitalSessionId)
         {
             this.objectId = objectId;
             this.hospitalSessionId = hospitalSessionId;
             this.isEditable = !additional;
+            this.acontainer = container;
             InitializeComponent();
             InitControls();
             hasChanges = false;
@@ -43,7 +47,7 @@ namespace Cardiology.UI.Controls
         {
             if (isEditable && (isNew || isDirty()))
             {
-    
+
                 DdtKag kag = (DdtKag)getObject();
                 kag.HospitalitySession = hospitalitySession.ObjectId;
                 kag.Doctor = hospitalitySession.CuringDoctor;
@@ -114,7 +118,7 @@ namespace Cardiology.UI.Controls
             }
             else
             {
-    
+
                 DdtHospital hospitalitySession = DbDataService.GetInstance().GetDdtHospitalService().GetById(hospitalSessionId);
                 DateTime admissionDate = hospitalitySession.AdmissionDate;
                 kagDate.Value = admissionDate;
@@ -174,5 +178,10 @@ namespace Cardiology.UI.Controls
             hasChanges = true;
         }
         #endregion
+
+        private void hide_Click(object sender, EventArgs e)
+        {
+            acontainer?.RemoveControl(this, DdtKag.NAME);
+        }
     }
 }

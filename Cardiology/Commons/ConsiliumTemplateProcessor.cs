@@ -7,7 +7,7 @@ using Cardiology.Data.Model2;
 
 namespace Cardiology.Commons
 {
-    class ConsiliumTemplateProcessor : ITemplateProcessor
+    class ConsiliumTemplateProcessor : AbstractTemplateProcessor, ITemplateProcessor
     {
         private const string TemplateFileName = "consilium_template.doc";
         public bool accept(string templateType)
@@ -42,8 +42,11 @@ namespace Cardiology.Commons
             values.Add(@"{consilium.decision}", obj.Decision);
             values.Add(@"{journal}", obj.Dynamics);
 
-            PutEkgData(values, service, hospitalitySession);
-            PutBloodData(values, service, hospitalitySession);
+            PutAnalysisData(values, service, obj.ObjectId);
+            if (values.ContainsKey("{on_ekg}")) { values.Remove("{on_ekg}"); }
+            if (values.ContainsKey("{on_blood}")) { values.Remove("{on_blood}"); }
+            values.Add("{on_ekg}", "ЭКГ в ОКР:");
+            values.Add("{on_blood}", "В анализах крови: ");
 
             return TemplatesUtils.FillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + TemplateFileName, values, TemplatesUtils.getTempFileName("Консилиум", patient.FullName));
         }
@@ -84,48 +87,6 @@ namespace Cardiology.Commons
             return str.ToString();
         }
 
-        private void PutBloodData(Dictionary<string, string> values, IDbDataService service, string objId)
-        {
-            DdtBloodAnalysis bloods = service.GetDdtBloodAnalysisService().GetByHospitalSession(objId);
-            StringBuilder bloodBld = new StringBuilder();
-            if (bloods != null)
-            {
-                bloodBld.Append(bloods.AnalysisDate.ToShortDateString()).Append(" ");
-
-                if (String.IsNullOrEmpty(bloods.Creatinine + bloods.Alt + bloods.Ast + bloods.Kfk + bloods.KfkMv + bloods.Protein + bloods.Leucocytes))
-                {
-                    bloodBld.Append("Анализы в работе");
-                }
-                else
-                {
-                    if (!String.IsNullOrEmpty(bloods.Creatinine))
-                        bloodBld.Append("креатинин").Append(" ").Append(bloods.Creatinine).Append(" ");
-                    if (!String.IsNullOrEmpty(bloods.Alt))
-                        bloodBld.Append("АЛТ").Append(" ").Append(bloods.Alt).Append(" ");
-                    if (!String.IsNullOrEmpty(bloods.Ast))
-                        bloodBld.Append("АСТ").Append(" ").Append(bloods.Ast).Append(" ");
-                    if (!String.IsNullOrEmpty(bloods.Kfk))
-                        bloodBld.Append("КФК").Append(" ").Append(bloods.Kfk).Append(" ");
-                    if (!String.IsNullOrEmpty(bloods.KfkMv))
-                        bloodBld.Append("КФК МВ").Append(" ").Append(bloods.KfkMv).Append(" ");
-                    if (!String.IsNullOrEmpty(bloods.Protein))
-                        bloodBld.Append("гемоглобин").Append(" ").Append(bloods.Protein).Append(" ");
-                    if (!String.IsNullOrEmpty(bloods.Leucocytes))
-                        bloodBld.Append("лейкоциты").Append(" ").Append(bloods.Leucocytes).Append(" ");
-                }
-            }
-            values.Add("{analysis.blood}", bloodBld.ToString());
-        }
-
-        private void PutEkgData(Dictionary<string, string> values, IDbDataService service, string objId)
-        {
-            DdtEkg ekg = service.GetDdtEkgService().GetByHospitalSession(objId);
-            StringBuilder ekgBld = new StringBuilder();
-            if (ekg != null)
-            {
-                ekgBld.Append(ekg.AnalysisDate.ToShortDateString()).Append(" ").Append(ekg.Ekg);
-            }
-            values.Add("{analysis.ekg}", ekgBld.ToString());
-        }
+        
     }
 }

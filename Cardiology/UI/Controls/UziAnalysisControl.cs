@@ -10,11 +10,15 @@ namespace Cardiology.UI.Controls
         private bool isEditable;
         private bool hasChanges;
         private bool isNew;
+        private IAnalysisContainer cc;
 
-        public UziAnalysisControl(string objectId, bool additional)
+        public UziAnalysisControl(string objectId, bool additional) : this(objectId, null, additional) { }
+
+        public UziAnalysisControl(string objectId, IAnalysisContainer container, bool additional)
         {
             this.objectId = objectId;
             this.isEditable = !additional;
+            this.cc = container;
             InitializeComponent();
             initControls();
             hasChanges = false;
@@ -23,7 +27,6 @@ namespace Cardiology.UI.Controls
 
         private void initControls()
         {
-
             DdtUzi uzi = DbDataService.GetInstance().GetDdtUziService().GetById(objectId);
             refreshObject(uzi);
             ehoKgTxt.Enabled = isEditable;
@@ -82,7 +85,6 @@ namespace Cardiology.UI.Controls
 
         public object getObject()
         {
-
             DdtUzi uziObj = DbDataService.GetInstance().GetDdtUziService().GetById(objectId);
             if (uziObj == null)
             {
@@ -123,6 +125,11 @@ namespace Cardiology.UI.Controls
         private void ControlTxt_TextChanged(object sender, System.EventArgs e)
         {
             hasChanges = true;
+        }
+
+        private void hide_Click(object sender, System.EventArgs e)
+        {
+            cc?.RemoveControl(this, DdtUzi.NAME);
         }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using System.Windows.Forms;
-using Cardiology.Commons;
 using Cardiology.Data;
 using Cardiology.Data.Model2;
 
@@ -11,10 +10,11 @@ namespace Cardiology.UI.Controls
         private bool isEditable;
         private bool hasChanges;
         private bool isNew;
+        private IAnalysisContainer container;
 
-        public CoagulogrammControl() : this(null, false) { }
+        public CoagulogrammControl(string objectId, bool additional) : this(objectId, null, additional) { }
 
-        public CoagulogrammControl(string objectId, bool isAddit)
+        public CoagulogrammControl(string objectId, IAnalysisContainer container, bool isAddit)
         {
             this.objectId = objectId;
             this.isEditable = !isAddit;
@@ -26,7 +26,7 @@ namespace Cardiology.UI.Controls
 
         private void InitControls()
         {
-            DdtCoagulogram coagulogramm = (DdtCoagulogram)getObject();
+            DdtCoagulogram coagulogramm = DbDataService.GetInstance().GetDdtCoagulogramService().GetById(objectId);
             refreshObject(coagulogramm);
             admissionDateTxt.Enabled = isEditable;
             achtvTxt.Enabled = isEditable;
@@ -106,6 +106,11 @@ namespace Cardiology.UI.Controls
         public bool isVisible()
         {
             return true;
+        }
+
+        private void hide_Click(object sender, System.EventArgs e)
+        {
+            container?.RemoveControl(this, DdtCoagulogram.NAME);
         }
     }
 }

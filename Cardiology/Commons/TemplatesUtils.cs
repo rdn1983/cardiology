@@ -84,12 +84,13 @@ namespace Cardiology.Commons
                 doc = app.Documents.Open(templatePath);
 
                 Word.Range wRange;
-                foreach (Word.Paragraph mark in doc.Paragraphs)
+
+                foreach (KeyValuePair<string, string> entry in mappedValues)
                 {
-                    wRange = mark.Range;
-                    if (wRange != null)
+                    foreach (Word.Paragraph mark in doc.Paragraphs)
                     {
-                        foreach (KeyValuePair<string, string> entry in mappedValues)
+                        wRange = mark.Range;
+                        if (wRange != null)
                         {
                             string oldValue = wRange.Text;
                             if (oldValue != null && oldValue.Contains(entry.Key))
@@ -105,10 +106,10 @@ namespace Cardiology.Commons
                                 app.Selection.TypeText(newVal);
                                 wRange = mark.Range;
                             }
-
                         }
                     }
                 }
+               
                 if (resultName == null)
                 {
                     filledDocPath = Path.GetTempFileName();
@@ -196,7 +197,7 @@ namespace Cardiology.Commons
                 wordDocument.PageSetup.BottomMargin = 20;
                 wordDocument.PageSetup.LeftMargin = 50;
                 //wordDocument.Paragraphs.CharacterUnitFirstLineIndent = 1.5F;
-                
+
                 wordDocument.SaveAs(ref outputFile);
                 Console.WriteLine("Generated file after merge=" + outputFile);
                 return outputFile.ToString();

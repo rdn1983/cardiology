@@ -7,11 +7,9 @@ namespace Cardiology.Data.Commons
     {
         IList<DdtXRay> GetAll();
 
-        IList<DdtXRay> GetListByParentId(string parentId);
+        IList<DdtXRay> GetByParentId(string parentId);
 
         DdtXRay GetById(string id);
-
-        DdtXRay GetByParentId(string parentId);
 
         string Save(DdtXRay obj);
     }

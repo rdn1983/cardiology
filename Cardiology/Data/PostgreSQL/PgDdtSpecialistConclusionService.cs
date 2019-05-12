@@ -58,10 +58,10 @@ namespace Cardiology.Data.PostgreSQL
             IList<DdtSpecialistConclusion> list = new List<DdtSpecialistConclusion>();
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = String.Format("SELECT an.r_object_id, dsdt_analysis_date, r_creation_date, rel.dsid_parent, " +
+                String sql = String.Format("SELECT co.r_object_id, dsdt_analysis_date, r_creation_date, rel.dsid_parent, " +
                     "dss_neuro_surgeon, dsid_doctor, dsid_patient, dss_endocrinologist, dsid_hospitality_session," +
-                    " r_modify_date, an.dss_parent_type, dss_neurolog, dss_surgeon FROM ddt_specialist_conclusion co," +
-                    " ddt_relation rel WHERE rel.dsid_parent = '{0}' AND rel.dsid_child=an.r_object_id", parentId);
+                    " r_modify_date, co.dss_parent_type, dss_neurolog, dss_surgeon FROM ddt_specialist_conclusion co," +
+                    " ddt_relation rel WHERE rel.dsid_parent = '{0}' AND rel.dsid_child=co.r_object_id", parentId);
                 Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
 
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);

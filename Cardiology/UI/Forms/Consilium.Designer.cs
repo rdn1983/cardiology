@@ -64,12 +64,12 @@
             this.evaluationGoal = new System.Windows.Forms.RadioButton();
             this.saveBtn = new System.Windows.Forms.Button();
             this.printBtn = new System.Windows.Forms.Button();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.consiliumTab = new System.Windows.Forms.TabPage();
-            this.toAnalysisBtn = new System.Windows.Forms.Button();
+            this.tabs = new System.Windows.Forms.TabControl();
             this.analysisTab = new System.Windows.Forms.TabPage();
             this.toConsiliumBtn = new System.Windows.Forms.Button();
             this.analysisTabControl1 = new Cardiology.UI.Controls.AnalysisTabControl();
+            this.consiliumTab = new System.Windows.Forms.TabPage();
+            this.toAnalysisBtn = new System.Windows.Forms.Button();
             this.ConsiliumMembersPnl.SuspendLayout();
             this.allDoctorsPnl.SuspendLayout();
             this.doctorsContainer.SuspendLayout();
@@ -80,9 +80,9 @@
             this.decisionContainer.SuspendLayout();
             this.decisionVariantsPnl.SuspendLayout();
             this.operationGoalPnl.SuspendLayout();
-            this.tabControl1.SuspendLayout();
-            this.consiliumTab.SuspendLayout();
+            this.tabs.SuspendLayout();
             this.analysisTab.SuspendLayout();
+            this.consiliumTab.SuspendLayout();
             this.SuspendLayout();
             // 
             // appointmentTxt0
@@ -493,50 +493,21 @@
             this.printBtn.UseVisualStyleBackColor = true;
             this.printBtn.Click += new System.EventHandler(this.printBtn_Click);
             // 
-            // tabControl1
+            // tabs
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tabs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControl1.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
-            this.tabControl1.Controls.Add(this.analysisTab);
-            this.tabControl1.Controls.Add(this.consiliumTab);
-            this.tabControl1.ItemSize = new System.Drawing.Size(0, 1);
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(886, 696);
-            this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
-            this.tabControl1.TabIndex = 37;
-            // 
-            // consiliumTab
-            // 
-            this.consiliumTab.Controls.Add(this.toAnalysisBtn);
-            this.consiliumTab.Controls.Add(this.ConsiliumMembersPnl);
-            this.consiliumTab.Controls.Add(this.printBtn);
-            this.consiliumTab.Controls.Add(this.goalContainer);
-            this.consiliumTab.Controls.Add(this.saveBtn);
-            this.consiliumTab.Controls.Add(this.dynamicsContainer);
-            this.consiliumTab.Controls.Add(this.operationGoalPnl);
-            this.consiliumTab.Controls.Add(this.diagnosisContainer);
-            this.consiliumTab.Controls.Add(this.decisionContainer);
-            this.consiliumTab.Location = new System.Drawing.Point(4, 5);
-            this.consiliumTab.Name = "consiliumTab";
-            this.consiliumTab.Padding = new System.Windows.Forms.Padding(3);
-            this.consiliumTab.Size = new System.Drawing.Size(878, 687);
-            this.consiliumTab.TabIndex = 0;
-            this.consiliumTab.Text = "Консилиум";
-            this.consiliumTab.UseVisualStyleBackColor = true;
-            // 
-            // toAnalysisBtn
-            // 
-            this.toAnalysisBtn.Location = new System.Drawing.Point(631, 611);
-            this.toAnalysisBtn.Name = "toAnalysisBtn";
-            this.toAnalysisBtn.Size = new System.Drawing.Size(241, 23);
-            this.toAnalysisBtn.TabIndex = 37;
-            this.toAnalysisBtn.Text = "Привязать анализы";
-            this.toAnalysisBtn.UseVisualStyleBackColor = true;
-            this.toAnalysisBtn.Click += new System.EventHandler(this.toAnalysisBtn_Click);
+            this.tabs.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
+            this.tabs.Controls.Add(this.consiliumTab);
+            this.tabs.Controls.Add(this.analysisTab);
+            this.tabs.ItemSize = new System.Drawing.Size(0, 1);
+            this.tabs.Location = new System.Drawing.Point(0, 0);
+            this.tabs.Name = "tabs";
+            this.tabs.SelectedIndex = 0;
+            this.tabs.Size = new System.Drawing.Size(886, 696);
+            this.tabs.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
+            this.tabs.TabIndex = 37;
             // 
             // analysisTab
             // 
@@ -568,12 +539,41 @@
             this.analysisTabControl1.Size = new System.Drawing.Size(879, 604);
             this.analysisTabControl1.TabIndex = 0;
             // 
+            // consiliumTab
+            // 
+            this.consiliumTab.Controls.Add(this.toAnalysisBtn);
+            this.consiliumTab.Controls.Add(this.ConsiliumMembersPnl);
+            this.consiliumTab.Controls.Add(this.printBtn);
+            this.consiliumTab.Controls.Add(this.goalContainer);
+            this.consiliumTab.Controls.Add(this.saveBtn);
+            this.consiliumTab.Controls.Add(this.dynamicsContainer);
+            this.consiliumTab.Controls.Add(this.operationGoalPnl);
+            this.consiliumTab.Controls.Add(this.diagnosisContainer);
+            this.consiliumTab.Controls.Add(this.decisionContainer);
+            this.consiliumTab.Location = new System.Drawing.Point(4, 5);
+            this.consiliumTab.Name = "consiliumTab";
+            this.consiliumTab.Padding = new System.Windows.Forms.Padding(3);
+            this.consiliumTab.Size = new System.Drawing.Size(878, 687);
+            this.consiliumTab.TabIndex = 0;
+            this.consiliumTab.Text = "Консилиум";
+            this.consiliumTab.UseVisualStyleBackColor = true;
+            // 
+            // toAnalysisBtn
+            // 
+            this.toAnalysisBtn.Location = new System.Drawing.Point(631, 611);
+            this.toAnalysisBtn.Name = "toAnalysisBtn";
+            this.toAnalysisBtn.Size = new System.Drawing.Size(241, 23);
+            this.toAnalysisBtn.TabIndex = 37;
+            this.toAnalysisBtn.Text = "Привязать анализы";
+            this.toAnalysisBtn.UseVisualStyleBackColor = true;
+            this.toAnalysisBtn.Click += new System.EventHandler(this.toAnalysisBtn_Click);
+            // 
             // Consilium
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(883, 693);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tabs);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Consilium";
@@ -599,10 +599,10 @@
             this.decisionVariantsPnl.PerformLayout();
             this.operationGoalPnl.ResumeLayout(false);
             this.operationGoalPnl.PerformLayout();
-            this.tabControl1.ResumeLayout(false);
-            this.consiliumTab.ResumeLayout(false);
+            this.tabs.ResumeLayout(false);
             this.analysisTab.ResumeLayout(false);
             this.analysisTab.PerformLayout();
+            this.consiliumTab.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -643,7 +643,7 @@
         private System.Windows.Forms.ComboBox doctorWho0;
         private System.Windows.Forms.RadioButton oksWithStBtn;
         private System.Windows.Forms.Button removeBtn0;
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tabs;
         private System.Windows.Forms.TabPage consiliumTab;
         private System.Windows.Forms.TabPage analysisTab;
         private Controls.AnalysisTabControl analysisTabControl1;

@@ -50,12 +50,11 @@ namespace Cardiology.Commons
                 bloodStr.Append(CompileValue("ЩФ", blood.Schf));
                 bloodStr.Append(CompileValue("Натрий", blood.Sodium));
                 bloodStr.Append(CompileValue("СРБ", blood.Srp));
-                bloodStr.Append(".");
-                bloodStr.Append("\n");
+                bloodStr.Append(". ");
             }
 
             values.Add("{on_blood}", bloods.Count > 0 ? "Анализы крови " : "");
-            values.Add("{blood}", bloodStr.ToString());
+            values.Add("{blood}", bloodStr.ToString() + (bloods.Count > 0 ? "\n" : ""));
         }
 
         private void PutEkgData(Dictionary<string, string> values, IDbDataService service, string objId)
@@ -64,7 +63,7 @@ namespace Cardiology.Commons
             StringBuilder ekgBld = new StringBuilder();
             foreach (DdtEkg ekk in ekg)
             {
-                ekgBld.Append(" от ").Append(ekk.AnalysisDate.ToShortDateString()).Append(": ").Append(ekk.Ekg).Append(".").Append('\n');
+                ekgBld.Append(" от ").Append(ekk.AnalysisDate.ToShortDateString()).Append(": ").Append(ekk.Ekg).Append(".");
             }
             values.Add("{on_ekg}", ekg.Count > 0 ? "ЭКГ:" : "");
             values.Add("{ekg}", ekgBld.ToString() + (ekg.Count > 0 ? "\n" : ""));
@@ -77,10 +76,10 @@ namespace Cardiology.Commons
             foreach (DdtSpecialistConclusion obj in lspecobj)
             {
                 specBld.Append(" от ").Append(obj.AnalysisDate.ToShortDateString()).Append(":");
-                specBld.Append(CompileValue(" Эндокринолог ", obj.Endocrinologist)).Append('\n');
-                specBld.Append(CompileValue(" Невролог ", obj.Neurolog)).Append('\n');
-                specBld.Append(CompileValue(" Нейрохирург", obj.NeuroSurgeon)).Append('\n');
-                specBld.Append(CompileValue(" Хирург ", obj.Surgeon)).Append('\n');
+                specBld.Append(CompileValue(" Эндокринолог ", obj.Endocrinologist));
+                specBld.Append(CompileValue(" Невролог ", obj.Neurolog));
+                specBld.Append(CompileValue(" Нейрохирург", obj.NeuroSurgeon));
+                specBld.Append(CompileValue(" Хирург ", obj.Surgeon));
             }
             values.Add("{on_spec}", lspecobj.Count > 0 ? "Заключения специалистов:" : "");
             values.Add("{spec}", specBld.ToString() + (lspecobj.Count > 0 ? "\n" : ""));
@@ -108,10 +107,10 @@ namespace Cardiology.Commons
             StringBuilder holterBld = new StringBuilder();
             foreach (DdtHolter obj in lholterobj)
             {
-                holterBld.Append(" от ").Append(obj.AnalysisDate.ToShortDateString()).Append(": ").Append(obj.Holter).Append(".").Append('\n');
+                holterBld.Append(" от ").Append(obj.AnalysisDate.ToShortDateString()).Append(": ").Append(obj.Holter).Append(".");
             }
             values.Add("{on_holter}", lholterobj.Count > 0 ? "Холтер:" : "");
-            values.Add("{holter}", holterBld.ToString());
+            values.Add("{holter}", holterBld.ToString() + (lholterobj.Count > 0 ? "\n" : ""));
         }
 
         private void PutUziData(Dictionary<string, string> values, IDbDataService service, string objId)
@@ -126,7 +125,7 @@ namespace Cardiology.Commons
                 uziBld.Append(CompileValue("УЗИ плевр ", uzObj.PleursUzi));
                 uziBld.Append(CompileValue("УЗи БЦА ", uzObj.UzdBca));
                 uziBld.Append(CompileValue("УЗИ ОБП ", uzObj.UziObp));
-                uziBld.Append(".").Append("\n");
+                uziBld.Append(". ");
             }
             values.Add("{on_uzi}", uzies.Count > 0 ? "На УЗИ:" : "");
             values.Add("{uzi}", uziBld.ToString() + (uzies.Count > 0 ? "\n" : ""));
@@ -141,7 +140,7 @@ namespace Cardiology.Commons
                 coagBld.Append(" от ").Append(cc.AnalysisDate.ToShortDateString()).Append(": ");
                 coagBld.Append(CompileValue(" АЧТВ ", cc.Achtv));
                 coagBld.Append(CompileValue("Д-Димер ", cc.Ddimer));
-                coagBld.Append(".");
+                coagBld.Append(". ");
             }
             values.Add("{on_coag}", coags.Count > 0 ? "На Коагулограмме:" : "");
             values.Add("{coag}", coagBld.ToString() + (coags.Count > 0 ? "\n" : ""));
@@ -155,7 +154,7 @@ namespace Cardiology.Commons
             {
                 egdsBld.Append(" от ").Append(egds.AnalysisDate.ToShortDateString()).Append(": ");
                 egdsBld.Append(CompileValue("", egds.Egds));
-                egdsBld.Append(".");
+                egdsBld.Append(". ");
             }
             values.Add("{on_egds}", egdss.Count > 0 ? "На ЭГДС:" : "");
             values.Add("{egds}", egdsBld.ToString() + (egdss.Count > 0 ? "\n" : ""));

@@ -43,6 +43,10 @@ namespace Cardiology.Commons
             values.Add(@"{journal}", obj.Dynamics);
 
             PutAnalysisData(values, service, obj.ObjectId);
+            if (values.ContainsKey("{on_ekg}")) { values.Remove("{on_ekg}"); }
+            if (values.ContainsKey("{on_blood}")) { values.Remove("{on_blood}"); }
+            values.Add("{on_ekg}", "ЭКГ в ОКР:");
+            values.Add("{on_blood}", "В анализах крови: ");
 
             return TemplatesUtils.FillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + TemplateFileName, values, TemplatesUtils.getTempFileName("Консилиум", patient.FullName));
         }

@@ -343,19 +343,19 @@ namespace Cardiology.UI.Forms
 
         private void toAnalysisBtn_Click(object sender, EventArgs e)
         {
-            int currentTabIndx = tabControl1.SelectedIndex;
-            if (currentTabIndx < tabControl1.TabCount - 1)
+            int currentTabIndx = tabs.SelectedIndex;
+            if (currentTabIndx < tabs.TabCount - 1)
             {
-                tabControl1.SelectTab(++currentTabIndx);
+                tabs.SelectTab(++currentTabIndx);
             }
         }
 
         private void toConsiliumBtn_Click(object sender, EventArgs e)
         {
-            int currentTabIndx = tabControl1.SelectedIndex;
+            int currentTabIndx = tabs.SelectedIndex;
             if (currentTabIndx > 0)
             {
-                tabControl1.SelectTab(--currentTabIndx);
+                tabs.SelectTab(--currentTabIndx);
             }
         }
     }

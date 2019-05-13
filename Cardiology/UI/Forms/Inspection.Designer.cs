@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inspection));
             this.tabbedContainer = new System.Windows.Forms.TabControl();
             this.baseTab = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
             this.analysisBtn = new System.Windows.Forms.Button();
             this.kagContainer = new System.Windows.Forms.Panel();
             this.kagInfo = new System.Windows.Forms.Label();
@@ -48,26 +49,16 @@
             this.inspectionLbl = new System.Windows.Forms.Label();
             this.complaintsLbl = new System.Windows.Forms.Label();
             this.analysisTab = new System.Windows.Forms.TabPage();
-            this.tabbedAnalysis = new System.Windows.Forms.TabControl();
-            this.addAnalysis = new System.Windows.Forms.Button();
+            this.analysisTabControl1 = new Cardiology.UI.Controls.AnalysisTabControl();
             this.printBtn = new System.Windows.Forms.Button();
             this.saveBtn = new System.Windows.Forms.Button();
             this.nextBtn = new System.Windows.Forms.Button();
             this.previousBtn = new System.Windows.Forms.Button();
-            this.analysisTypeMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.uziItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bloodItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ekgItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.xRayItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.holterItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.specialistItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label1 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tabbedContainer.SuspendLayout();
             this.baseTab.SuspendLayout();
             this.kagContainer.SuspendLayout();
             this.analysisTab.SuspendLayout();
-            this.analysisTypeMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabbedContainer
@@ -109,6 +100,16 @@
             this.baseTab.Text = "Общее";
             this.baseTab.ToolTipText = "14452";
             this.baseTab.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
+            this.label1.Location = new System.Drawing.Point(770, 86);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(34, 23);
+            this.label1.TabIndex = 18;
+            this.toolTip1.SetToolTip(this.label1, "ДЭП 3ст., последствия перенесенного ОНМК, субкомпенсация.\r\nСахарный диабет 2 типа" +
+        ", среднетяжелого течения, субкомпенсация.");
             // 
             // analysisBtn
             // 
@@ -258,8 +259,7 @@
             // 
             // analysisTab
             // 
-            this.analysisTab.Controls.Add(this.tabbedAnalysis);
-            this.analysisTab.Controls.Add(this.addAnalysis);
+            this.analysisTab.Controls.Add(this.analysisTabControl1);
             this.analysisTab.Location = new System.Drawing.Point(4, 22);
             this.analysisTab.Name = "analysisTab";
             this.analysisTab.Padding = new System.Windows.Forms.Padding(3);
@@ -268,29 +268,13 @@
             this.analysisTab.Text = "Анализы";
             this.analysisTab.UseVisualStyleBackColor = true;
             // 
-            // tabbedAnalysis
+            // analysisTabControl1
             // 
-            this.tabbedAnalysis.Alignment = System.Windows.Forms.TabAlignment.Left;
-            this.tabbedAnalysis.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabbedAnalysis.Location = new System.Drawing.Point(6, 3);
-            this.tabbedAnalysis.Multiline = true;
-            this.tabbedAnalysis.Name = "tabbedAnalysis";
-            this.tabbedAnalysis.SelectedIndex = 0;
-            this.tabbedAnalysis.Size = new System.Drawing.Size(781, 500);
-            this.tabbedAnalysis.TabIndex = 8;
-            // 
-            // addAnalysis
-            // 
-            this.addAnalysis.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.addAnalysis.Image = global::Cardiology.Properties.Resources.addd1;
-            this.addAnalysis.Location = new System.Drawing.Point(793, 6);
-            this.addAnalysis.Name = "addAnalysis";
-            this.addAnalysis.Size = new System.Drawing.Size(28, 28);
-            this.addAnalysis.TabIndex = 1;
-            this.addAnalysis.UseVisualStyleBackColor = true;
-            this.addAnalysis.Click += new System.EventHandler(this.addAnalysisBtn_Click);
+            this.analysisTabControl1.AutoSize = true;
+            this.analysisTabControl1.Location = new System.Drawing.Point(3, 6);
+            this.analysisTabControl1.Name = "analysisTabControl1";
+            this.analysisTabControl1.Size = new System.Drawing.Size(818, 495);
+            this.analysisTabControl1.TabIndex = 2;
             // 
             // printBtn
             // 
@@ -336,70 +320,6 @@
             this.previousBtn.UseVisualStyleBackColor = true;
             this.previousBtn.Click += new System.EventHandler(this.previousBtn_Click);
             // 
-            // analysisTypeMenu
-            // 
-            this.analysisTypeMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.uziItem,
-            this.bloodItem,
-            this.ekgItem,
-            this.xRayItem,
-            this.holterItem,
-            this.specialistItem});
-            this.analysisTypeMenu.Name = "analysisTypeMenu";
-            this.analysisTypeMenu.Size = new System.Drawing.Size(224, 136);
-            // 
-            // uziItem
-            // 
-            this.uziItem.Name = "uziItem";
-            this.uziItem.Size = new System.Drawing.Size(223, 22);
-            this.uziItem.Text = "УЗИ";
-            this.uziItem.Click += new System.EventHandler(this.uziItem_Click);
-            // 
-            // bloodItem
-            // 
-            this.bloodItem.Name = "bloodItem";
-            this.bloodItem.Size = new System.Drawing.Size(223, 22);
-            this.bloodItem.Text = "Анализы крови";
-            this.bloodItem.Click += new System.EventHandler(this.bloodItem_Click);
-            // 
-            // ekgItem
-            // 
-            this.ekgItem.Name = "ekgItem";
-            this.ekgItem.Size = new System.Drawing.Size(223, 22);
-            this.ekgItem.Text = "ЭКГ";
-            this.ekgItem.Click += new System.EventHandler(this.ekgItem_Click);
-            // 
-            // xRayItem
-            // 
-            this.xRayItem.Name = "xRayItem";
-            this.xRayItem.Size = new System.Drawing.Size(223, 22);
-            this.xRayItem.Text = "Рентген";
-            this.xRayItem.Click += new System.EventHandler(this.xRayItem_Click);
-            // 
-            // holterItem
-            // 
-            this.holterItem.Name = "holterItem";
-            this.holterItem.Size = new System.Drawing.Size(223, 22);
-            this.holterItem.Text = "Холтер";
-            this.holterItem.Click += new System.EventHandler(this.holterItem_Click);
-            // 
-            // specialistItem
-            // 
-            this.specialistItem.Name = "specialistItem";
-            this.specialistItem.Size = new System.Drawing.Size(223, 22);
-            this.specialistItem.Text = "Заключения специалистов";
-            this.specialistItem.Click += new System.EventHandler(this.specialistItem_Click);
-            // 
-            // label1
-            // 
-            this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
-            this.label1.Location = new System.Drawing.Point(770, 86);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(34, 23);
-            this.label1.TabIndex = 18;
-            this.toolTip1.SetToolTip(this.label1, "ДЭП 3ст., последствия перенесенного ОНМК, субкомпенсация.\r\nСахарный диабет 2 типа" +
-        ", среднетяжелого течения, субкомпенсация.");
-            // 
             // toolTip1
             // 
             this.toolTip1.IsBalloon = true;
@@ -427,7 +347,7 @@
             this.kagContainer.ResumeLayout(false);
             this.kagContainer.PerformLayout();
             this.analysisTab.ResumeLayout(false);
-            this.analysisTypeMenu.ResumeLayout(false);
+            this.analysisTab.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -449,23 +369,15 @@
         private System.Windows.Forms.Label inspectionLbl;
         private System.Windows.Forms.Label complaintsLbl;
         private System.Windows.Forms.TabPage analysisTab;
-        private System.Windows.Forms.Button addAnalysis;
         private System.Windows.Forms.Button printBtn;
         private System.Windows.Forms.Button saveBtn;
         private System.Windows.Forms.Button nextBtn;
         private System.Windows.Forms.Button previousBtn;
-        private System.Windows.Forms.ContextMenuStrip analysisTypeMenu;
-        private System.Windows.Forms.ToolStripMenuItem uziItem;
-        private System.Windows.Forms.ToolStripMenuItem bloodItem;
-        private System.Windows.Forms.ToolStripMenuItem ekgItem;
-        private System.Windows.Forms.ToolStripMenuItem xRayItem;
-        private System.Windows.Forms.ToolStripMenuItem holterItem;
-        private System.Windows.Forms.ToolStripMenuItem specialistItem;
-        private System.Windows.Forms.TabControl tabbedAnalysis;
         private System.Windows.Forms.Label kagInfo;
         private System.Windows.Forms.Panel kagContainer;
         private System.Windows.Forms.Button analysisBtn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolTip toolTip1;
+        private Controls.AnalysisTabControl analysisTabControl1;
     }
 }

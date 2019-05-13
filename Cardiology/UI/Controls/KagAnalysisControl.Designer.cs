@@ -43,6 +43,7 @@
             this.kagDateBox = new System.Windows.Forms.GroupBox();
             this.kagDate = new System.Windows.Forms.DateTimePicker();
             this.container = new System.Windows.Forms.Panel();
+            this.hide = new System.Windows.Forms.Button();
             this.showBlanksBtn = new System.Windows.Forms.Button();
             this.title = new System.Windows.Forms.Label();
             this.blanksMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -190,6 +191,7 @@
             // container
             // 
             this.container.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.container.Controls.Add(this.hide);
             this.container.Controls.Add(this.showBlanksBtn);
             this.container.Controls.Add(this.title);
             this.container.Controls.Add(this.kagDateBox);
@@ -201,6 +203,16 @@
             this.container.Name = "container";
             this.container.Size = new System.Drawing.Size(479, 495);
             this.container.TabIndex = 14;
+            // 
+            // hide
+            // 
+            this.hide.Image = global::Cardiology.Properties.Resources.remove;
+            this.hide.Location = new System.Drawing.Point(446, 465);
+            this.hide.Name = "hide";
+            this.hide.Size = new System.Drawing.Size(26, 23);
+            this.hide.TabIndex = 40;
+            this.hide.UseVisualStyleBackColor = true;
+            this.hide.Click += new System.EventHandler(this.hide_Click);
             // 
             // showBlanksBtn
             // 
@@ -294,5 +306,6 @@
         private System.Windows.Forms.ToolStripMenuItem procedureConsentBlank;
         private System.Windows.Forms.ToolStripMenuItem dataProcessingBlank;
         private System.Windows.Forms.ToolStripMenuItem anesthesiaBlank;
+        private System.Windows.Forms.Button hide;
     }
 }

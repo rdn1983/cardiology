@@ -64,6 +64,12 @@
             this.evaluationGoal = new System.Windows.Forms.RadioButton();
             this.saveBtn = new System.Windows.Forms.Button();
             this.printBtn = new System.Windows.Forms.Button();
+            this.tabs = new System.Windows.Forms.TabControl();
+            this.analysisTab = new System.Windows.Forms.TabPage();
+            this.toConsiliumBtn = new System.Windows.Forms.Button();
+            this.analysisTabControl1 = new Cardiology.UI.Controls.AnalysisTabControl();
+            this.consiliumTab = new System.Windows.Forms.TabPage();
+            this.toAnalysisBtn = new System.Windows.Forms.Button();
             this.ConsiliumMembersPnl.SuspendLayout();
             this.allDoctorsPnl.SuspendLayout();
             this.doctorsContainer.SuspendLayout();
@@ -74,6 +80,9 @@
             this.decisionContainer.SuspendLayout();
             this.decisionVariantsPnl.SuspendLayout();
             this.operationGoalPnl.SuspendLayout();
+            this.tabs.SuspendLayout();
+            this.analysisTab.SuspendLayout();
+            this.consiliumTab.SuspendLayout();
             this.SuspendLayout();
             // 
             // appointmentTxt0
@@ -106,9 +115,9 @@
             this.ConsiliumMembersPnl.Controls.Add(this.allDoctorsPnl);
             this.ConsiliumMembersPnl.Controls.Add(this.consiliumMembersLbl);
             this.ConsiliumMembersPnl.Font = new System.Drawing.Font("Tahoma", 8F);
-            this.ConsiliumMembersPnl.Location = new System.Drawing.Point(0, 0);
+            this.ConsiliumMembersPnl.Location = new System.Drawing.Point(3, 3);
             this.ConsiliumMembersPnl.Name = "ConsiliumMembersPnl";
-            this.ConsiliumMembersPnl.Size = new System.Drawing.Size(876, 242);
+            this.ConsiliumMembersPnl.Size = new System.Drawing.Size(874, 242);
             this.ConsiliumMembersPnl.TabIndex = 27;
             // 
             // dutyAdminLbl
@@ -126,7 +135,7 @@
             // 
             this.addDoctor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.addDoctor.Image = ((System.Drawing.Image)(resources.GetObject("addDoctor.Image")));
-            this.addDoctor.Location = new System.Drawing.Point(838, 12);
+            this.addDoctor.Location = new System.Drawing.Point(836, 12);
             this.addDoctor.Name = "addDoctor";
             this.addDoctor.Size = new System.Drawing.Size(28, 28);
             this.addDoctor.TabIndex = 28;
@@ -141,7 +150,7 @@
             this.allDoctorsPnl.Controls.Add(this.doctorsContainer);
             this.allDoctorsPnl.Location = new System.Drawing.Point(3, 77);
             this.allDoctorsPnl.Name = "allDoctorsPnl";
-            this.allDoctorsPnl.Size = new System.Drawing.Size(870, 162);
+            this.allDoctorsPnl.Size = new System.Drawing.Size(868, 162);
             this.allDoctorsPnl.TabIndex = 27;
             // 
             // doctorsContainer
@@ -159,7 +168,7 @@
             this.doctorsContainer.RowCount = 1;
             this.doctorsContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.doctorsContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.doctorsContainer.Size = new System.Drawing.Size(868, 33);
+            this.doctorsContainer.Size = new System.Drawing.Size(866, 33);
             this.doctorsContainer.TabIndex = 26;
             // 
             // dotorInfoPnl0
@@ -172,7 +181,7 @@
             this.dotorInfoPnl0.Controls.Add(this.appointmentTxt0);
             this.dotorInfoPnl0.Location = new System.Drawing.Point(3, 3);
             this.dotorInfoPnl0.Name = "dotorInfoPnl0";
-            this.dotorInfoPnl0.Size = new System.Drawing.Size(862, 27);
+            this.dotorInfoPnl0.Size = new System.Drawing.Size(860, 27);
             this.dotorInfoPnl0.TabIndex = 25;
             // 
             // removeBtn0
@@ -223,9 +232,9 @@
             this.goalContainer.BackColor = System.Drawing.Color.PeachPuff;
             this.goalContainer.Controls.Add(this.goalTxt);
             this.goalContainer.Controls.Add(this.goalLbl);
-            this.goalContainer.Location = new System.Drawing.Point(0, 242);
+            this.goalContainer.Location = new System.Drawing.Point(3, 245);
             this.goalContainer.Name = "goalContainer";
-            this.goalContainer.Size = new System.Drawing.Size(876, 84);
+            this.goalContainer.Size = new System.Drawing.Size(874, 90);
             this.goalContainer.TabIndex = 30;
             // 
             // goalTxt
@@ -234,7 +243,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.goalTxt.Location = new System.Drawing.Point(9, 16);
             this.goalTxt.Name = "goalTxt";
-            this.goalTxt.Size = new System.Drawing.Size(855, 58);
+            this.goalTxt.Size = new System.Drawing.Size(853, 58);
             this.goalTxt.TabIndex = 1;
             this.goalTxt.Text = "определить показания к оперативному пособию";
             // 
@@ -255,9 +264,9 @@
             this.dynamicsContainer.BackColor = System.Drawing.Color.LightSalmon;
             this.dynamicsContainer.Controls.Add(this.dynamicsTxt);
             this.dynamicsContainer.Controls.Add(this.dynamicsLbl);
-            this.dynamicsContainer.Location = new System.Drawing.Point(0, 326);
+            this.dynamicsContainer.Location = new System.Drawing.Point(3, 335);
             this.dynamicsContainer.Name = "dynamicsContainer";
-            this.dynamicsContainer.Size = new System.Drawing.Size(876, 84);
+            this.dynamicsContainer.Size = new System.Drawing.Size(874, 84);
             this.dynamicsContainer.TabIndex = 31;
             // 
             // dynamicsTxt
@@ -266,7 +275,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dynamicsTxt.Location = new System.Drawing.Point(9, 16);
             this.dynamicsTxt.Name = "dynamicsTxt";
-            this.dynamicsTxt.Size = new System.Drawing.Size(855, 58);
+            this.dynamicsTxt.Size = new System.Drawing.Size(853, 58);
             this.dynamicsTxt.TabIndex = 1;
             this.dynamicsTxt.Text = resources.GetString("dynamicsTxt.Text");
             // 
@@ -288,9 +297,9 @@
             this.diagnosisContainer.Controls.Add(this.diagnosisTxt1);
             this.diagnosisContainer.Controls.Add(this.diagnosisTxt0);
             this.diagnosisContainer.Controls.Add(this.diagnosisLbl);
-            this.diagnosisContainer.Location = new System.Drawing.Point(0, 410);
+            this.diagnosisContainer.Location = new System.Drawing.Point(3, 419);
             this.diagnosisContainer.Name = "diagnosisContainer";
-            this.diagnosisContainer.Size = new System.Drawing.Size(876, 84);
+            this.diagnosisContainer.Size = new System.Drawing.Size(874, 84);
             this.diagnosisContainer.TabIndex = 32;
             // 
             // diagnosisTxt1
@@ -307,7 +316,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.diagnosisTxt0.Location = new System.Drawing.Point(9, 16);
             this.diagnosisTxt0.Name = "diagnosisTxt0";
-            this.diagnosisTxt0.Size = new System.Drawing.Size(425, 58);
+            this.diagnosisTxt0.Size = new System.Drawing.Size(423, 58);
             this.diagnosisTxt0.TabIndex = 1;
             this.diagnosisTxt0.Text = "";
             // 
@@ -329,9 +338,9 @@
             this.decisionContainer.Controls.Add(this.decisionVariantsPnl);
             this.decisionContainer.Controls.Add(this.decisionTxt);
             this.decisionContainer.Controls.Add(this.decisionLbl);
-            this.decisionContainer.Location = new System.Drawing.Point(0, 494);
+            this.decisionContainer.Location = new System.Drawing.Point(3, 503);
             this.decisionContainer.Name = "decisionContainer";
-            this.decisionContainer.Size = new System.Drawing.Size(876, 100);
+            this.decisionContainer.Size = new System.Drawing.Size(874, 100);
             this.decisionContainer.TabIndex = 33;
             // 
             // decisionVariantsPnl
@@ -342,7 +351,7 @@
             this.decisionVariantsPnl.Controls.Add(this.oksAcceptBtn);
             this.decisionVariantsPnl.Controls.Add(this.kagBtn);
             this.decisionVariantsPnl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.decisionVariantsPnl.Location = new System.Drawing.Point(653, 6);
+            this.decisionVariantsPnl.Location = new System.Drawing.Point(651, 6);
             this.decisionVariantsPnl.Name = "decisionVariantsPnl";
             this.decisionVariantsPnl.Size = new System.Drawing.Size(211, 89);
             this.decisionVariantsPnl.TabIndex = 2;
@@ -407,7 +416,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.decisionTxt.Location = new System.Drawing.Point(9, 16);
             this.decisionTxt.Name = "decisionTxt";
-            this.decisionTxt.Size = new System.Drawing.Size(638, 73);
+            this.decisionTxt.Size = new System.Drawing.Size(650, 73);
             this.decisionTxt.TabIndex = 1;
             this.decisionTxt.Text = "";
             // 
@@ -428,9 +437,9 @@
             this.operationGoalPnl.Controls.Add(this.revaskularizationGoal);
             this.operationGoalPnl.Controls.Add(this.evaluationGoal);
             this.operationGoalPnl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.operationGoalPnl.Location = new System.Drawing.Point(0, 600);
+            this.operationGoalPnl.Location = new System.Drawing.Point(3, 605);
             this.operationGoalPnl.Name = "operationGoalPnl";
-            this.operationGoalPnl.Size = new System.Drawing.Size(647, 83);
+            this.operationGoalPnl.Size = new System.Drawing.Size(622, 57);
             this.operationGoalPnl.TabIndex = 34;
             this.operationGoalPnl.TabStop = false;
             this.operationGoalPnl.Text = "Цель оперативного пособия";
@@ -439,7 +448,7 @@
             // 
             this.revaskularizationGoal.AutoSize = true;
             this.revaskularizationGoal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.revaskularizationGoal.Location = new System.Drawing.Point(13, 49);
+            this.revaskularizationGoal.Location = new System.Drawing.Point(13, 36);
             this.revaskularizationGoal.Name = "revaskularizationGoal";
             this.revaskularizationGoal.Size = new System.Drawing.Size(174, 17);
             this.revaskularizationGoal.TabIndex = 1;
@@ -452,7 +461,7 @@
             // 
             this.evaluationGoal.AutoSize = true;
             this.evaluationGoal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.evaluationGoal.Location = new System.Drawing.Point(13, 26);
+            this.evaluationGoal.Location = new System.Drawing.Point(13, 18);
             this.evaluationGoal.Name = "evaluationGoal";
             this.evaluationGoal.Size = new System.Drawing.Size(599, 17);
             this.evaluationGoal.TabIndex = 0;
@@ -465,9 +474,9 @@
             // saveBtn
             // 
             this.saveBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.saveBtn.Location = new System.Drawing.Point(679, 631);
+            this.saveBtn.Location = new System.Drawing.Point(750, 638);
             this.saveBtn.Name = "saveBtn";
-            this.saveBtn.Size = new System.Drawing.Size(164, 23);
+            this.saveBtn.Size = new System.Drawing.Size(122, 23);
             this.saveBtn.TabIndex = 35;
             this.saveBtn.Text = "Сохранить";
             this.saveBtn.UseVisualStyleBackColor = true;
@@ -476,27 +485,95 @@
             // printBtn
             // 
             this.printBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.printBtn.Location = new System.Drawing.Point(679, 660);
+            this.printBtn.Location = new System.Drawing.Point(631, 638);
             this.printBtn.Name = "printBtn";
-            this.printBtn.Size = new System.Drawing.Size(164, 23);
+            this.printBtn.Size = new System.Drawing.Size(114, 23);
             this.printBtn.TabIndex = 36;
             this.printBtn.Text = "Открыть MSWord";
             this.printBtn.UseVisualStyleBackColor = true;
             this.printBtn.Click += new System.EventHandler(this.printBtn_Click);
             // 
+            // tabs
+            // 
+            this.tabs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabs.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
+            this.tabs.Controls.Add(this.consiliumTab);
+            this.tabs.Controls.Add(this.analysisTab);
+            this.tabs.ItemSize = new System.Drawing.Size(0, 1);
+            this.tabs.Location = new System.Drawing.Point(0, 0);
+            this.tabs.Name = "tabs";
+            this.tabs.SelectedIndex = 0;
+            this.tabs.Size = new System.Drawing.Size(886, 696);
+            this.tabs.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
+            this.tabs.TabIndex = 37;
+            // 
+            // analysisTab
+            // 
+            this.analysisTab.Controls.Add(this.toConsiliumBtn);
+            this.analysisTab.Controls.Add(this.analysisTabControl1);
+            this.analysisTab.Location = new System.Drawing.Point(4, 5);
+            this.analysisTab.Name = "analysisTab";
+            this.analysisTab.Padding = new System.Windows.Forms.Padding(3);
+            this.analysisTab.Size = new System.Drawing.Size(878, 687);
+            this.analysisTab.TabIndex = 1;
+            this.analysisTab.Text = "Анализы";
+            this.analysisTab.UseVisualStyleBackColor = true;
+            // 
+            // toConsiliumBtn
+            // 
+            this.toConsiliumBtn.Location = new System.Drawing.Point(631, 611);
+            this.toConsiliumBtn.Name = "toConsiliumBtn";
+            this.toConsiliumBtn.Size = new System.Drawing.Size(241, 23);
+            this.toConsiliumBtn.TabIndex = 1;
+            this.toConsiliumBtn.Text = "Ввод данных консилиума";
+            this.toConsiliumBtn.UseVisualStyleBackColor = true;
+            this.toConsiliumBtn.Click += new System.EventHandler(this.toConsiliumBtn_Click);
+            // 
+            // analysisTabControl1
+            // 
+            this.analysisTabControl1.AutoSize = true;
+            this.analysisTabControl1.Location = new System.Drawing.Point(-4, 0);
+            this.analysisTabControl1.Name = "analysisTabControl1";
+            this.analysisTabControl1.Size = new System.Drawing.Size(879, 604);
+            this.analysisTabControl1.TabIndex = 0;
+            // 
+            // consiliumTab
+            // 
+            this.consiliumTab.Controls.Add(this.toAnalysisBtn);
+            this.consiliumTab.Controls.Add(this.ConsiliumMembersPnl);
+            this.consiliumTab.Controls.Add(this.printBtn);
+            this.consiliumTab.Controls.Add(this.goalContainer);
+            this.consiliumTab.Controls.Add(this.saveBtn);
+            this.consiliumTab.Controls.Add(this.dynamicsContainer);
+            this.consiliumTab.Controls.Add(this.operationGoalPnl);
+            this.consiliumTab.Controls.Add(this.diagnosisContainer);
+            this.consiliumTab.Controls.Add(this.decisionContainer);
+            this.consiliumTab.Location = new System.Drawing.Point(4, 5);
+            this.consiliumTab.Name = "consiliumTab";
+            this.consiliumTab.Padding = new System.Windows.Forms.Padding(3);
+            this.consiliumTab.Size = new System.Drawing.Size(878, 687);
+            this.consiliumTab.TabIndex = 0;
+            this.consiliumTab.Text = "Консилиум";
+            this.consiliumTab.UseVisualStyleBackColor = true;
+            // 
+            // toAnalysisBtn
+            // 
+            this.toAnalysisBtn.Location = new System.Drawing.Point(631, 611);
+            this.toAnalysisBtn.Name = "toAnalysisBtn";
+            this.toAnalysisBtn.Size = new System.Drawing.Size(241, 23);
+            this.toAnalysisBtn.TabIndex = 37;
+            this.toAnalysisBtn.Text = "Привязать анализы";
+            this.toAnalysisBtn.UseVisualStyleBackColor = true;
+            this.toAnalysisBtn.Click += new System.EventHandler(this.toAnalysisBtn_Click);
+            // 
             // Consilium
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(876, 692);
-            this.Controls.Add(this.printBtn);
-            this.Controls.Add(this.saveBtn);
-            this.Controls.Add(this.operationGoalPnl);
-            this.Controls.Add(this.decisionContainer);
-            this.Controls.Add(this.diagnosisContainer);
-            this.Controls.Add(this.dynamicsContainer);
-            this.Controls.Add(this.goalContainer);
-            this.Controls.Add(this.ConsiliumMembersPnl);
+            this.ClientSize = new System.Drawing.Size(883, 693);
+            this.Controls.Add(this.tabs);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Consilium";
@@ -522,6 +599,10 @@
             this.decisionVariantsPnl.PerformLayout();
             this.operationGoalPnl.ResumeLayout(false);
             this.operationGoalPnl.PerformLayout();
+            this.tabs.ResumeLayout(false);
+            this.analysisTab.ResumeLayout(false);
+            this.analysisTab.PerformLayout();
+            this.consiliumTab.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -562,5 +643,11 @@
         private System.Windows.Forms.ComboBox doctorWho0;
         private System.Windows.Forms.RadioButton oksWithStBtn;
         private System.Windows.Forms.Button removeBtn0;
+        private System.Windows.Forms.TabControl tabs;
+        private System.Windows.Forms.TabPage consiliumTab;
+        private System.Windows.Forms.TabPage analysisTab;
+        private Controls.AnalysisTabControl analysisTabControl1;
+        private System.Windows.Forms.Button toAnalysisBtn;
+        private System.Windows.Forms.Button toConsiliumBtn;
     }
 }

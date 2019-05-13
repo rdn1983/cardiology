@@ -121,16 +121,17 @@
             // hide
             // 
             this.hide.Image = global::Cardiology.Properties.Resources.remove;
-            this.hide.Location = new System.Drawing.Point(134, 473);
+            this.hide.Location = new System.Drawing.Point(136, 469);
             this.hide.Name = "hide";
             this.hide.Size = new System.Drawing.Size(26, 23);
             this.hide.TabIndex = 38;
             this.hide.UseVisualStyleBackColor = true;
+            this.hide.Click += new System.EventHandler(this.hide_Click);
             // 
             // regularBloodDateTxt
             // 
             this.regularBloodDateTxt.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.regularBloodDateTxt.Location = new System.Drawing.Point(81, 19);
+            this.regularBloodDateTxt.Location = new System.Drawing.Point(83, 18);
             this.regularBloodDateTxt.Name = "regularBloodDateTxt";
             this.regularBloodDateTxt.Size = new System.Drawing.Size(79, 20);
             this.regularBloodDateTxt.TabIndex = 37;
@@ -139,7 +140,7 @@
             // regularBloodDateLbl
             // 
             this.regularBloodDateLbl.AutoSize = true;
-            this.regularBloodDateLbl.Location = new System.Drawing.Point(6, 26);
+            this.regularBloodDateLbl.Location = new System.Drawing.Point(8, 25);
             this.regularBloodDateLbl.Name = "regularBloodDateLbl";
             this.regularBloodDateLbl.Size = new System.Drawing.Size(36, 13);
             this.regularBloodDateLbl.TabIndex = 36;
@@ -148,7 +149,7 @@
             // regularKreatininLbl
             // 
             this.regularKreatininLbl.AutoSize = true;
-            this.regularKreatininLbl.Location = new System.Drawing.Point(6, 145);
+            this.regularKreatininLbl.Location = new System.Drawing.Point(8, 144);
             this.regularKreatininLbl.Name = "regularKreatininLbl";
             this.regularKreatininLbl.Size = new System.Drawing.Size(64, 13);
             this.regularKreatininLbl.TabIndex = 35;
@@ -157,7 +158,7 @@
             // regularProteinLbl
             // 
             this.regularProteinLbl.AutoSize = true;
-            this.regularProteinLbl.Location = new System.Drawing.Point(6, 121);
+            this.regularProteinLbl.Location = new System.Drawing.Point(8, 120);
             this.regularProteinLbl.Name = "regularProteinLbl";
             this.regularProteinLbl.Size = new System.Drawing.Size(60, 13);
             this.regularProteinLbl.TabIndex = 34;
@@ -166,7 +167,7 @@
             // regularTrombocytesLbl
             // 
             this.regularTrombocytesLbl.AutoSize = true;
-            this.regularTrombocytesLbl.Location = new System.Drawing.Point(6, 97);
+            this.regularTrombocytesLbl.Location = new System.Drawing.Point(8, 96);
             this.regularTrombocytesLbl.Name = "regularTrombocytesLbl";
             this.regularTrombocytesLbl.Size = new System.Drawing.Size(74, 13);
             this.regularTrombocytesLbl.TabIndex = 33;
@@ -174,7 +175,7 @@
             // 
             // regularChloriumTxt
             // 
-            this.regularChloriumTxt.Location = new System.Drawing.Point(81, 448);
+            this.regularChloriumTxt.Location = new System.Drawing.Point(83, 447);
             this.regularChloriumTxt.Name = "regularChloriumTxt";
             this.regularChloriumTxt.Size = new System.Drawing.Size(79, 20);
             this.regularChloriumTxt.TabIndex = 32;
@@ -182,7 +183,7 @@
             // 
             // regularSrbTxt
             // 
-            this.regularSrbTxt.Location = new System.Drawing.Point(81, 376);
+            this.regularSrbTxt.Location = new System.Drawing.Point(83, 375);
             this.regularSrbTxt.Name = "regularSrbTxt";
             this.regularSrbTxt.Size = new System.Drawing.Size(79, 20);
             this.regularSrbTxt.TabIndex = 31;
@@ -190,7 +191,7 @@
             // 
             // regularSodiumTxt
             // 
-            this.regularSodiumTxt.Location = new System.Drawing.Point(81, 424);
+            this.regularSodiumTxt.Location = new System.Drawing.Point(83, 423);
             this.regularSodiumTxt.Name = "regularSodiumTxt";
             this.regularSodiumTxt.Size = new System.Drawing.Size(79, 20);
             this.regularSodiumTxt.TabIndex = 30;
@@ -198,7 +199,7 @@
             // 
             // regularPotassiumTxt
             // 
-            this.regularPotassiumTxt.Location = new System.Drawing.Point(81, 400);
+            this.regularPotassiumTxt.Location = new System.Drawing.Point(83, 399);
             this.regularPotassiumTxt.Name = "regularPotassiumTxt";
             this.regularPotassiumTxt.Size = new System.Drawing.Size(79, 20);
             this.regularPotassiumTxt.TabIndex = 29;
@@ -206,7 +207,7 @@
             // 
             // regularKfkMvTxt
             // 
-            this.regularKfkMvTxt.Location = new System.Drawing.Point(81, 352);
+            this.regularKfkMvTxt.Location = new System.Drawing.Point(83, 351);
             this.regularKfkMvTxt.Name = "regularKfkMvTxt";
             this.regularKfkMvTxt.Size = new System.Drawing.Size(79, 20);
             this.regularKfkMvTxt.TabIndex = 28;
@@ -214,7 +215,7 @@
             // 
             // regularKfkTxt
             // 
-            this.regularKfkTxt.Location = new System.Drawing.Point(81, 328);
+            this.regularKfkTxt.Location = new System.Drawing.Point(83, 327);
             this.regularKfkTxt.Name = "regularKfkTxt";
             this.regularKfkTxt.Size = new System.Drawing.Size(79, 20);
             this.regularKfkTxt.TabIndex = 27;
@@ -222,7 +223,7 @@
             // 
             // regularAmilazaTzt
             // 
-            this.regularAmilazaTzt.Location = new System.Drawing.Point(81, 305);
+            this.regularAmilazaTzt.Location = new System.Drawing.Point(83, 304);
             this.regularAmilazaTzt.Name = "regularAmilazaTzt";
             this.regularAmilazaTzt.Size = new System.Drawing.Size(79, 20);
             this.regularAmilazaTzt.TabIndex = 26;
@@ -230,7 +231,7 @@
             // 
             // regularSchfTxt
             // 
-            this.regularSchfTxt.Location = new System.Drawing.Point(81, 281);
+            this.regularSchfTxt.Location = new System.Drawing.Point(83, 280);
             this.regularSchfTxt.Name = "regularSchfTxt";
             this.regularSchfTxt.Size = new System.Drawing.Size(79, 20);
             this.regularSchfTxt.TabIndex = 25;
@@ -238,7 +239,7 @@
             // 
             // regularAstTxt
             // 
-            this.regularAstTxt.Location = new System.Drawing.Point(81, 257);
+            this.regularAstTxt.Location = new System.Drawing.Point(83, 256);
             this.regularAstTxt.Name = "regularAstTxt";
             this.regularAstTxt.Size = new System.Drawing.Size(79, 20);
             this.regularAstTxt.TabIndex = 24;
@@ -246,7 +247,7 @@
             // 
             // regularAltTxt
             // 
-            this.regularAltTxt.Location = new System.Drawing.Point(81, 233);
+            this.regularAltTxt.Location = new System.Drawing.Point(83, 232);
             this.regularAltTxt.Name = "regularAltTxt";
             this.regularAltTxt.Size = new System.Drawing.Size(79, 20);
             this.regularAltTxt.TabIndex = 23;
@@ -254,7 +255,7 @@
             // 
             // regularIronTxt
             // 
-            this.regularIronTxt.Location = new System.Drawing.Point(81, 209);
+            this.regularIronTxt.Location = new System.Drawing.Point(83, 208);
             this.regularIronTxt.Name = "regularIronTxt";
             this.regularIronTxt.Size = new System.Drawing.Size(79, 20);
             this.regularIronTxt.TabIndex = 22;
@@ -262,7 +263,7 @@
             // 
             // regularBilTxt
             // 
-            this.regularBilTxt.Location = new System.Drawing.Point(81, 186);
+            this.regularBilTxt.Location = new System.Drawing.Point(83, 185);
             this.regularBilTxt.Name = "regularBilTxt";
             this.regularBilTxt.Size = new System.Drawing.Size(79, 20);
             this.regularBilTxt.TabIndex = 21;
@@ -270,7 +271,7 @@
             // 
             // regularCholesterolTxt
             // 
-            this.regularCholesterolTxt.Location = new System.Drawing.Point(81, 162);
+            this.regularCholesterolTxt.Location = new System.Drawing.Point(83, 161);
             this.regularCholesterolTxt.Name = "regularCholesterolTxt";
             this.regularCholesterolTxt.Size = new System.Drawing.Size(79, 20);
             this.regularCholesterolTxt.TabIndex = 20;
@@ -278,7 +279,7 @@
             // 
             // regularKreatininTxt
             // 
-            this.regularKreatininTxt.Location = new System.Drawing.Point(81, 138);
+            this.regularKreatininTxt.Location = new System.Drawing.Point(83, 137);
             this.regularKreatininTxt.Name = "regularKreatininTxt";
             this.regularKreatininTxt.Size = new System.Drawing.Size(79, 20);
             this.regularKreatininTxt.TabIndex = 19;
@@ -286,7 +287,7 @@
             // 
             // regularProreinTxt
             // 
-            this.regularProreinTxt.Location = new System.Drawing.Point(81, 114);
+            this.regularProreinTxt.Location = new System.Drawing.Point(83, 113);
             this.regularProreinTxt.Name = "regularProreinTxt";
             this.regularProreinTxt.Size = new System.Drawing.Size(79, 20);
             this.regularProreinTxt.TabIndex = 18;
@@ -294,7 +295,7 @@
             // 
             // regularTrombocytesTxt
             // 
-            this.regularTrombocytesTxt.Location = new System.Drawing.Point(81, 90);
+            this.regularTrombocytesTxt.Location = new System.Drawing.Point(83, 89);
             this.regularTrombocytesTxt.Name = "regularTrombocytesTxt";
             this.regularTrombocytesTxt.Size = new System.Drawing.Size(79, 20);
             this.regularTrombocytesTxt.TabIndex = 17;
@@ -302,7 +303,7 @@
             // 
             // regularBloodLeucoTxt
             // 
-            this.regularBloodLeucoTxt.Location = new System.Drawing.Point(81, 66);
+            this.regularBloodLeucoTxt.Location = new System.Drawing.Point(83, 65);
             this.regularBloodLeucoTxt.Name = "regularBloodLeucoTxt";
             this.regularBloodLeucoTxt.Size = new System.Drawing.Size(79, 20);
             this.regularBloodLeucoTxt.TabIndex = 16;
@@ -310,7 +311,7 @@
             // 
             // regularHemoglobinTxt
             // 
-            this.regularHemoglobinTxt.Location = new System.Drawing.Point(81, 43);
+            this.regularHemoglobinTxt.Location = new System.Drawing.Point(83, 42);
             this.regularHemoglobinTxt.Name = "regularHemoglobinTxt";
             this.regularHemoglobinTxt.Size = new System.Drawing.Size(79, 20);
             this.regularHemoglobinTxt.TabIndex = 15;
@@ -319,7 +320,7 @@
             // regularBloodLeucoLbl
             // 
             this.regularBloodLeucoLbl.AutoSize = true;
-            this.regularBloodLeucoLbl.Location = new System.Drawing.Point(6, 73);
+            this.regularBloodLeucoLbl.Location = new System.Drawing.Point(8, 72);
             this.regularBloodLeucoLbl.Name = "regularBloodLeucoLbl";
             this.regularBloodLeucoLbl.Size = new System.Drawing.Size(67, 13);
             this.regularBloodLeucoLbl.TabIndex = 14;
@@ -328,7 +329,7 @@
             // regularHolesterolLbl
             // 
             this.regularHolesterolLbl.AutoSize = true;
-            this.regularHolesterolLbl.Location = new System.Drawing.Point(6, 169);
+            this.regularHolesterolLbl.Location = new System.Drawing.Point(8, 168);
             this.regularHolesterolLbl.Name = "regularHolesterolLbl";
             this.regularHolesterolLbl.Size = new System.Drawing.Size(70, 13);
             this.regularHolesterolLbl.TabIndex = 13;
@@ -337,7 +338,7 @@
             // regularBilLbl
             // 
             this.regularBilLbl.AutoSize = true;
-            this.regularBilLbl.Location = new System.Drawing.Point(6, 193);
+            this.regularBilLbl.Location = new System.Drawing.Point(8, 192);
             this.regularBilLbl.Name = "regularBilLbl";
             this.regularBilLbl.Size = new System.Drawing.Size(59, 13);
             this.regularBilLbl.TabIndex = 12;
@@ -346,7 +347,7 @@
             // regularIronLbl
             // 
             this.regularIronLbl.AutoSize = true;
-            this.regularIronLbl.Location = new System.Drawing.Point(6, 216);
+            this.regularIronLbl.Location = new System.Drawing.Point(8, 215);
             this.regularIronLbl.Name = "regularIronLbl";
             this.regularIronLbl.Size = new System.Drawing.Size(51, 13);
             this.regularIronLbl.TabIndex = 11;
@@ -355,7 +356,7 @@
             // regularSchfLbl
             // 
             this.regularSchfLbl.AutoSize = true;
-            this.regularSchfLbl.Location = new System.Drawing.Point(6, 288);
+            this.regularSchfLbl.Location = new System.Drawing.Point(8, 287);
             this.regularSchfLbl.Name = "regularSchfLbl";
             this.regularSchfLbl.Size = new System.Drawing.Size(31, 13);
             this.regularSchfLbl.TabIndex = 10;
@@ -364,7 +365,7 @@
             // regularAmilazaLbl
             // 
             this.regularAmilazaLbl.AutoSize = true;
-            this.regularAmilazaLbl.Location = new System.Drawing.Point(6, 312);
+            this.regularAmilazaLbl.Location = new System.Drawing.Point(8, 311);
             this.regularAmilazaLbl.Name = "regularAmilazaLbl";
             this.regularAmilazaLbl.Size = new System.Drawing.Size(55, 13);
             this.regularAmilazaLbl.TabIndex = 9;
@@ -373,7 +374,7 @@
             // regularPotassiumLbl
             // 
             this.regularPotassiumLbl.AutoSize = true;
-            this.regularPotassiumLbl.Location = new System.Drawing.Point(6, 407);
+            this.regularPotassiumLbl.Location = new System.Drawing.Point(8, 406);
             this.regularPotassiumLbl.Name = "regularPotassiumLbl";
             this.regularPotassiumLbl.Size = new System.Drawing.Size(41, 13);
             this.regularPotassiumLbl.TabIndex = 8;
@@ -382,7 +383,7 @@
             // regularSodiumLbl
             // 
             this.regularSodiumLbl.AutoSize = true;
-            this.regularSodiumLbl.Location = new System.Drawing.Point(6, 431);
+            this.regularSodiumLbl.Location = new System.Drawing.Point(8, 430);
             this.regularSodiumLbl.Name = "regularSodiumLbl";
             this.regularSodiumLbl.Size = new System.Drawing.Size(47, 13);
             this.regularSodiumLbl.TabIndex = 7;
@@ -391,7 +392,7 @@
             // regularAltLbl
             // 
             this.regularAltLbl.AutoSize = true;
-            this.regularAltLbl.Location = new System.Drawing.Point(6, 240);
+            this.regularAltLbl.Location = new System.Drawing.Point(8, 239);
             this.regularAltLbl.Name = "regularAltLbl";
             this.regularAltLbl.Size = new System.Drawing.Size(32, 13);
             this.regularAltLbl.TabIndex = 6;
@@ -400,7 +401,7 @@
             // regularAstLbl
             // 
             this.regularAstLbl.AutoSize = true;
-            this.regularAstLbl.Location = new System.Drawing.Point(6, 264);
+            this.regularAstLbl.Location = new System.Drawing.Point(8, 263);
             this.regularAstLbl.Name = "regularAstLbl";
             this.regularAstLbl.Size = new System.Drawing.Size(31, 13);
             this.regularAstLbl.TabIndex = 5;
@@ -409,7 +410,7 @@
             // regularKfkMvLbl
             // 
             this.regularKfkMvLbl.AutoSize = true;
-            this.regularKfkMvLbl.Location = new System.Drawing.Point(6, 359);
+            this.regularKfkMvLbl.Location = new System.Drawing.Point(8, 358);
             this.regularKfkMvLbl.Name = "regularKfkMvLbl";
             this.regularKfkMvLbl.Size = new System.Drawing.Size(54, 13);
             this.regularKfkMvLbl.TabIndex = 4;
@@ -418,7 +419,7 @@
             // regularKfkLbl
             // 
             this.regularKfkLbl.AutoSize = true;
-            this.regularKfkLbl.Location = new System.Drawing.Point(6, 335);
+            this.regularKfkLbl.Location = new System.Drawing.Point(8, 334);
             this.regularKfkLbl.Name = "regularKfkLbl";
             this.regularKfkLbl.Size = new System.Drawing.Size(35, 13);
             this.regularKfkLbl.TabIndex = 3;
@@ -427,7 +428,7 @@
             // regularSrbLbl
             // 
             this.regularSrbLbl.AutoSize = true;
-            this.regularSrbLbl.Location = new System.Drawing.Point(6, 383);
+            this.regularSrbLbl.Location = new System.Drawing.Point(8, 382);
             this.regularSrbLbl.Name = "regularSrbLbl";
             this.regularSrbLbl.Size = new System.Drawing.Size(31, 13);
             this.regularSrbLbl.TabIndex = 2;
@@ -436,7 +437,7 @@
             // regularChloriumLbl
             // 
             this.regularChloriumLbl.AutoSize = true;
-            this.regularChloriumLbl.Location = new System.Drawing.Point(6, 455);
+            this.regularChloriumLbl.Location = new System.Drawing.Point(8, 454);
             this.regularChloriumLbl.Name = "regularChloriumLbl";
             this.regularChloriumLbl.Size = new System.Drawing.Size(35, 13);
             this.regularChloriumLbl.TabIndex = 1;
@@ -445,7 +446,7 @@
             // regularHemogloinLbl
             // 
             this.regularHemogloinLbl.AutoSize = true;
-            this.regularHemogloinLbl.Location = new System.Drawing.Point(6, 50);
+            this.regularHemogloinLbl.Location = new System.Drawing.Point(8, 49);
             this.regularHemogloinLbl.Name = "regularHemogloinLbl";
             this.regularHemogloinLbl.Size = new System.Drawing.Size(71, 13);
             this.regularHemogloinLbl.TabIndex = 0;

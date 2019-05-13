@@ -58,7 +58,7 @@ namespace Cardiology.UI.Forms
 
             if (DdtBloodAnalysis.NAME.Equals(typeName, StringComparison.Ordinal))
             {
-                combainingContainer.Controls.Add(new BloodAnalysisControl(objectId, objectId != null && !objectId.Equals(currentId, StringComparison.Ordinal)));
+                combainingContainer.Controls.Add(new BloodAnalysisControl(objectId, null, objectId != null && !objectId.Equals(currentId, StringComparison.Ordinal)));
             }
             else if (DdtUrineAnalysis.NAME.Equals(typeName, StringComparison.Ordinal))
             {

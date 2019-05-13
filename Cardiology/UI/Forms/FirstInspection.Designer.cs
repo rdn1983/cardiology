@@ -116,28 +116,21 @@ namespace Cardiology.UI.Forms
             this.issuedActionBox = new System.Windows.Forms.GroupBox();
             this.addIssuedAction = new System.Windows.Forms.Button();
             this.scrollableCntr = new System.Windows.Forms.Panel();
+            this.issuedActionContainer = new IssuedActionContainer();
+            this.addIssuedMedicineBtn = new System.Windows.Forms.Button();
+            this.issuedActionContainer = new Cardiology.UI.Controls.IssuedActionContainer();
             this.issuedMedicineBox = new System.Windows.Forms.GroupBox();
             this.layout = new System.Windows.Forms.FlowLayoutPanel();
             this.fixIssuedMedTemplate = new System.Windows.Forms.Button();
-            this.addIssuedMedicineBtn = new System.Windows.Forms.Button();
             this.firstAnalysisTab = new System.Windows.Forms.TabPage();
-            this.tabs = new System.Windows.Forms.TabControl();
-            this.ekgTab = new System.Windows.Forms.TabPage();
-            this.ekgAnalysisControlcs = new EkgAnalysisControlcs();
-            this.egdsTab = new System.Windows.Forms.TabPage();
-            this.egdsAnalysisControl1 = new EgdsAnalysisControl();
-            this.bloodTab = new System.Windows.Forms.TabPage();
-            this.bloodAnalysisControl = new BloodAnalysisControl();
-            this.urineTab = new System.Windows.Forms.TabPage();
-            this.urineAnalysisControl = new UrineAnalysisControl();
             this.templatesLbl = new System.Windows.Forms.Label();
             this.tip = new System.Windows.Forms.ToolTip(this.components);
             this.addTip = new System.Windows.Forms.ToolTip(this.components);
             this.docBox = new System.Windows.Forms.ComboBox();
             this.docLbl = new System.Windows.Forms.Label();
             this.patientInitialsLbl = new System.Windows.Forms.Label();
-            this.issuedActionContainer = new Cardiology.UI.Controls.IssuedActionContainer();
             this.templateChanger = new Cardiology.UI.Controls.TemplateChanger();
+            this.analysisTabControl1 = new AnalysisTabControl();
             this.complaintsBox.SuspendLayout();
             this.anamnesisMorbiBox.SuspendLayout();
             this.anamnesisAllergyBox.SuspendLayout();
@@ -165,7 +158,7 @@ namespace Cardiology.UI.Forms
             this.scrollableCntr.SuspendLayout();
             this.issuedMedicineBox.SuspendLayout();
             this.firstAnalysisTab.SuspendLayout();
-            this.tabs.SuspendLayout();
+            this.analysisTabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // deathBtn
@@ -735,8 +728,6 @@ namespace Cardiology.UI.Forms
             this.presensTab.Location = new System.Drawing.Point(4, 25);
             this.presensTab.Margin = new System.Windows.Forms.Padding(4);
             this.presensTab.Name = "presensTab";
-            this.presensTab.Padding = new System.Windows.Forms.Padding(4);
-            this.presensTab.Size = new System.Drawing.Size(1452, 674);
             this.presensTab.TabIndex = 1;
             this.presensTab.Text = "StPresens";
             // 
@@ -920,8 +911,6 @@ namespace Cardiology.UI.Forms
             this.diagnosisTab.Location = new System.Drawing.Point(4, 25);
             this.diagnosisTab.Margin = new System.Windows.Forms.Padding(4);
             this.diagnosisTab.Name = "diagnosisTab";
-            this.diagnosisTab.Padding = new System.Windows.Forms.Padding(4);
-            this.diagnosisTab.Size = new System.Drawing.Size(1452, 674);
             this.diagnosisTab.TabIndex = 2;
             this.diagnosisTab.Text = "Диагноз";
             // 
@@ -1189,8 +1178,6 @@ namespace Cardiology.UI.Forms
             this.issuedMedicineTab.Location = new System.Drawing.Point(4, 25);
             this.issuedMedicineTab.Margin = new System.Windows.Forms.Padding(4);
             this.issuedMedicineTab.Name = "issuedMedicineTab";
-            this.issuedMedicineTab.Padding = new System.Windows.Forms.Padding(4);
-            this.issuedMedicineTab.Size = new System.Drawing.Size(1452, 674);
             this.issuedMedicineTab.TabIndex = 3;
             this.issuedMedicineTab.Text = "Назначения";
             // 
@@ -1290,107 +1277,21 @@ namespace Cardiology.UI.Forms
             // 
             // firstAnalysisTab
             // 
-            this.firstAnalysisTab.Controls.Add(this.tabs);
+            this.firstAnalysisTab.Controls.Add(this.analysisTabControl1);
             this.firstAnalysisTab.Location = new System.Drawing.Point(4, 25);
             this.firstAnalysisTab.Margin = new System.Windows.Forms.Padding(4);
             this.firstAnalysisTab.Name = "firstAnalysisTab";
-            this.firstAnalysisTab.Padding = new System.Windows.Forms.Padding(4);
-            this.firstAnalysisTab.Size = new System.Drawing.Size(1452, 674);
             this.firstAnalysisTab.TabIndex = 4;
             this.firstAnalysisTab.Text = "Первичные данные анализов";
             this.firstAnalysisTab.UseVisualStyleBackColor = true;
             // 
-            // tabs
+            // analysisTabControl1
             // 
-            this.tabs.Controls.Add(this.ekgTab);
-            this.tabs.Controls.Add(this.egdsTab);
-            this.tabs.Controls.Add(this.bloodTab);
-            this.tabs.Controls.Add(this.urineTab);
-            this.tabs.Location = new System.Drawing.Point(21, 23);
-            this.tabs.Margin = new System.Windows.Forms.Padding(4);
-            this.tabs.Name = "tabs";
-            this.tabs.SelectedIndex = 0;
-            this.tabs.Size = new System.Drawing.Size(1345, 626);
-            this.tabs.TabIndex = 1;
-            // 
-            // ekgTab
-            // 
-            this.ekgTab.Controls.Add(this.ekgAnalysisControlcs);
-            this.ekgTab.Location = new System.Drawing.Point(4, 25);
-            this.ekgTab.Margin = new System.Windows.Forms.Padding(4);
-            this.ekgTab.Name = "ekgTab";
-            this.ekgTab.Padding = new System.Windows.Forms.Padding(4);
-            this.ekgTab.Size = new System.Drawing.Size(1337, 597);
-            this.ekgTab.TabIndex = 0;
-            this.ekgTab.Text = "ЭКГ";
-            this.ekgTab.UseVisualStyleBackColor = true;
-            // 
-            // ekgAnalysisControlcs
-            // 
-            this.ekgAnalysisControlcs.Location = new System.Drawing.Point(7, 11);
-            this.ekgAnalysisControlcs.MaximumSize = new System.Drawing.Size(732, 409);
-            this.ekgAnalysisControlcs.MinimumSize = new System.Drawing.Size(732, 409);
-            this.ekgAnalysisControlcs.Name = "ekgAnalysisControlcs";
-            this.ekgAnalysisControlcs.Size = new System.Drawing.Size(732, 409);
-            this.ekgAnalysisControlcs.TabIndex = 0;
-            // 
-            // egdsTab
-            // 
-            this.egdsTab.Controls.Add(this.egdsAnalysisControl1);
-            this.egdsTab.Location = new System.Drawing.Point(4, 25);
-            this.egdsTab.Margin = new System.Windows.Forms.Padding(4);
-            this.egdsTab.Name = "egdsTab";
-            this.egdsTab.Padding = new System.Windows.Forms.Padding(4);
-            this.egdsTab.Size = new System.Drawing.Size(1337, 597);
-            this.egdsTab.TabIndex = 7;
-            this.egdsTab.Text = "ЭГДС";
-            this.egdsTab.UseVisualStyleBackColor = true;
-            // 
-            // egdsAnalysisControl1
-            // 
-            this.egdsAnalysisControl1.Location = new System.Drawing.Point(6, 6);
-            this.egdsAnalysisControl1.Name = "egdsAnalysisControl1";
-            this.egdsAnalysisControl1.Size = new System.Drawing.Size(683, 158);
-            this.egdsAnalysisControl1.TabIndex = 5;
-            // 
-            // bloodTab
-            // 
-            this.bloodTab.Controls.Add(this.bloodAnalysisControl);
-            this.bloodTab.Location = new System.Drawing.Point(4, 25);
-            this.bloodTab.Margin = new System.Windows.Forms.Padding(4);
-            this.bloodTab.Name = "bloodTab";
-            this.bloodTab.Padding = new System.Windows.Forms.Padding(4);
-            this.bloodTab.Size = new System.Drawing.Size(1337, 597);
-            this.bloodTab.TabIndex = 1;
-            this.bloodTab.Text = "Показатели крови";
-            this.bloodTab.UseVisualStyleBackColor = true;
-            // 
-            // bloodAnalysisControl
-            // 
-            this.bloodAnalysisControl.Location = new System.Drawing.Point(6, 6);
-            this.bloodAnalysisControl.Name = "bloodAnalysisControl";
-            this.bloodAnalysisControl.Size = new System.Drawing.Size(180, 502);
-            this.bloodAnalysisControl.TabIndex = 1;
-            // 
-            // urineTab
-            // 
-            this.urineTab.Controls.Add(this.urineAnalysisControl);
-            this.urineTab.Location = new System.Drawing.Point(4, 25);
-            this.urineTab.Margin = new System.Windows.Forms.Padding(4);
-            this.urineTab.Name = "urineTab";
-            this.urineTab.Padding = new System.Windows.Forms.Padding(4);
-            this.urineTab.Size = new System.Drawing.Size(1337, 597);
-            this.urineTab.TabIndex = 2;
-            this.urineTab.Text = "Анализ мочи";
-            this.urineTab.UseVisualStyleBackColor = true;
-            // 
-            // urineAnalysisControl
-            // 
-            this.urineAnalysisControl.Location = new System.Drawing.Point(7, 11);
-            this.urineAnalysisControl.Name = "urineAnalysisControl";
-            this.urineAnalysisControl.Size = new System.Drawing.Size(270, 237);
-            this.urineAnalysisControl.TabIndex = 0;
-            // 
+			this.analysisTabControl1.AutoSize = true;
+            this.analysisTabControl1.Location = new System.Drawing.Point(20, 17);
+            this.analysisTabControl1.Name = "analysisTabControl1";
+            this.analysisTabControl1.Size = new System.Drawing.Size(1046, 511);
+            this.analysisTabControl1.TabIndex = 1;            // 
             // templatesLbl
             // 
             this.templatesLbl.AutoSize = true;
@@ -1519,7 +1420,6 @@ namespace Cardiology.UI.Forms
             this.scrollableCntr.PerformLayout();
             this.issuedMedicineBox.ResumeLayout(false);
             this.firstAnalysisTab.ResumeLayout(false);
-            this.tabs.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1610,12 +1510,6 @@ namespace Cardiology.UI.Forms
         private System.Windows.Forms.Label templatesLbl;
         private System.Windows.Forms.Button addIssuedMedicineBtn;
         private System.Windows.Forms.TabPage firstAnalysisTab;
-        private System.Windows.Forms.TabControl tabs;
-        private EkgAnalysisControlcs ekgAnalysisControlcs;
-        private System.Windows.Forms.TabPage ekgTab;
-        private System.Windows.Forms.TabPage egdsTab;
-        private System.Windows.Forms.TabPage bloodTab;
-        private System.Windows.Forms.TabPage urineTab;
         private System.Windows.Forms.ToolTip tip;
         private System.Windows.Forms.ToolTip addTip;
         private System.Windows.Forms.ComboBox docBox;
@@ -1628,9 +1522,6 @@ namespace Cardiology.UI.Forms
         private System.Windows.Forms.Button addIssuedAction;
         private System.Windows.Forms.Panel scrollableCntr;
         private IssuedActionContainer issuedActionContainer;
-        private BloodAnalysisControl bloodAnalysisControl;
-        private UrineAnalysisControl urineAnalysisControl;
-        private EgdsAnalysisControl egdsAnalysisControl1;
-        private System.Windows.Forms.FlowLayoutPanel layout;
-    }
+        private AnalysisTabControl analysisTabControl1;
+        private System.Windows.Forms.FlowLayoutPanel layout;    }
 }

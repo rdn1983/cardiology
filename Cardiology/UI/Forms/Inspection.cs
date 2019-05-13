@@ -4,7 +4,6 @@ using System.Windows.Forms;
 using Cardiology.Commons;
 using Cardiology.Data;
 using Cardiology.Data.Model2;
-using Cardiology.UI.Controls;
 
 namespace Cardiology.UI.Forms
 {
@@ -22,6 +21,8 @@ namespace Cardiology.UI.Forms
             SilentSaver.setForm(this);
             InitializeComponent();
             initControls(id);
+            List<string> validTypes = new List<string>() { "ddt_blood_analysis", "ddt_ekg", "ddt_urine_analysis", "ddt_egds", "ddt_xray", "ddt_holter", "ddt_specialist_conclusion", "ddt_uzi" };
+            analysisTabControl1.init(hospitalitySession, inspectionObj?.ObjectId, DdtInspection.NAME, validTypes);
         }
 
         private void initControls(string inspectionObjId)
@@ -45,8 +46,6 @@ namespace Cardiology.UI.Forms
                 inspectionTxt.Text = inspectionObj.Inspection;
                 resultTxt.Text = inspectionObj.InspectionResult;
                 kateterPlacementTxt.Text = inspectionObj.KateterPlacement;
-
-                initAnalysis(service);
             }
             else
             {
@@ -70,88 +69,27 @@ namespace Cardiology.UI.Forms
             initKag(service, kagJournal);
         }
 
-        private void initAnalysis(IDbDataService service)
-        {
-            if (inspectionObj != null)
-            {
-                IList<DdtEkg> ekgAnalysis = service.GetDdtEkgService().GetListByParentId(inspectionObj.ObjectId);
-                foreach (DdtEkg ekgObj in ekgAnalysis)
-                {
-                    TableLayoutPanel container = getTabContainer("ekgTab", "ЭКГ", false);
-                    EkgAnalysisControlcs ekg = new EkgAnalysisControlcs(ekgObj.ObjectId, false);
-                    container.Controls.Add(ekg);
-                }
-
-                IList<DdtSpecialistConclusion> specs = service.GetDdtSpecialistConclusionService().GetListByParentId(inspectionObj.ObjectId);
-                foreach (DdtSpecialistConclusion obj in specs)
-                {
-                    TableLayoutPanel container = getTabContainer("specsTab", "Заключения специалистов", true);
-                    SpecialistConclusionControl specControl = new SpecialistConclusionControl(obj.ObjectId, false);
-                    container.Controls.Add(specControl);
-                }
-
-                IList<DdtHolter> holters = service.GetDdtHolterService().GetListByParentId(inspectionObj.ObjectId);
-                foreach (DdtHolter obj in holters)
-                {
-                    TableLayoutPanel container = getTabContainer("holterTab", "Холтер", true);
-                    HolterControl holt = new HolterControl(obj.ObjectId, false);
-                    container.Controls.Add(holt);
-                }
-
-                IList<DdtBloodAnalysis> bloods = service.GetDdtBloodAnalysisService().GetListByParenId(inspectionObj.ObjectId);
-                foreach (DdtBloodAnalysis obj in bloods)
-                {
-                    TableLayoutPanel container = getTabContainer("bloodTab", "Анализы крови", true);
-                    BloodAnalysisControl blood = new BloodAnalysisControl(obj.ObjectId, false);
-                    container.Controls.Add(blood);
-                }
-
-                IList<DdtUzi> uzis = service.GetDdtUziService().GetListByParentId(inspectionObj.ObjectId);
-                foreach (DdtUzi obj in uzis)
-                {
-                    TableLayoutPanel container = getTabContainer("uziTab", "УЗИ", false);
-                    UziAnalysisControl control = new UziAnalysisControl(obj.ObjectId, false);
-                    container.Controls.Add(control);
-                }
-
-                IList<DdtXRay> xRays = service.GetDdtXrayService().GetListByParentId(inspectionObj.ObjectId);
-                foreach (DdtXRay obj in xRays)
-                {
-                    TableLayoutPanel container = getTabContainer("xRayTab", "Рентген", false);
-                    XRayControl control = new XRayControl(obj.ObjectId, false);
-                    container.Controls.Add(control);
-                }
-            }
-        }
 
         private void initKag(IDbDataService service, DdtJournal kagJournal)
         {
             bool hasKag = false;
             if (kagJournal != null)
             {
-                DdtKag kag = service.GetDdtKagService().GetByParentId(kagJournal.ObjectId);
-                if (kag != null)
+                IList<DdtKag> kags = service.GetDdtKagService().GetByParentId(kagJournal.ObjectId);
+                DdtKag kag = kags.Count > 0 ? kags[0] : null;
+                if (kag != null && inspectionObj!=null)
                 {
                     kagId = kag.ObjectId;
-                    TableLayoutPanel container = getTabContainer("kagTab", "КАГ", true);
-                    KagAnalysisControl specControl = new KagAnalysisControl(kag.ObjectId, false, hospitalitySession.ObjectId);
-                    container.Controls.Clear();
-                    container.Controls.Add(specControl);
+                    DdtRelation relation = new DdtRelation();
+                    relation.Parent = inspectionObj.ObjectId;
+                    relation.Child = kag.ObjectId;
+                    relation.ChildType = DdtKag.NAME;
+
+                    DbDataService.GetInstance().GetDdtRelationService().Save(relation);
                     kagContainer.Visible = true;
                     hasKag = true;
                 }
             }
-            if (!hasKag)
-            {
-                kagId = null;
-                kagContainer.Visible = false;
-                int index = tabbedAnalysis.TabPages.IndexOfKey("kagTab");
-                if (index >= 0)
-                {
-                    tabbedAnalysis.TabPages.RemoveAt(index);
-                }
-            }
-
         }
 
 
@@ -206,114 +144,7 @@ namespace Cardiology.UI.Forms
 
         private void SaveAnalysis()
         {
-            saveTab("uziTab", "УЗИ");
-            saveTab("bloodTab", "АНализы крови");
-            saveTab("ekgTab", "ЭКГ");
-            saveTab("holterTab", "Холтер");
-            saveTab("specsTab", "Заключения специалистов");
-            saveTab("xRayTab", "Рентген");
-        }
-
-        private void saveTab(string name, string title)
-        {
-            TableLayoutPanel tabCntr = getTabContainer(name, title, false);
-            for (int i = 0; i < tabCntr.Controls.Count; i++)
-            {
-                IDocbaseControl control = getSafeObjectValueUni(tabCntr, new getValue<IDocbaseControl>((ctrl)
-                    => (IDocbaseControl)((TableLayoutPanel)ctrl).Controls[i]));
-                control.saveObject(hospitalitySession, inspectionObj.ObjectId, DdtInspection.NAME);
-            }
-        }
-
-        private void addAnalysisBtn_Click(object sender, EventArgs e)
-        {
-            MouseEventArgs mouseArgs = e as MouseEventArgs;
-            analysisTypeMenu.Show(addAnalysis, mouseArgs.X, mouseArgs.Y);
-        }
-
-        private TableLayoutPanel getTabContainer(string name, string title, bool isVerticalStyle)
-        {
-            TableLayoutPanel result = null;
-            if (!tabbedAnalysis.TabPages.ContainsKey(name))
-            {
-                if (tabbedAnalysis.InvokeRequired)
-                {
-                    tabbedAnalysis.Invoke(new MethodInvoker(() =>
-                    {
-                        result = createTab(name, title, isVerticalStyle);
-                    }));
-                }
-                else
-                {
-                    result = createTab(name, title, isVerticalStyle);
-                }
-            }
-            else
-            {
-                int index = tabbedAnalysis.TabPages.IndexOfKey(name);
-                TabPage tab = tabbedAnalysis.TabPages[index];
-                result = (TableLayoutPanel)tab.Controls[0];
-            }
-            return result;
-        }
-
-        private TableLayoutPanel createTab(string name, string title, bool isVerticalStyle)
-        {
-            TabPage tab = new TabPage();
-            tab.Name = name;
-            tab.Text = title;
-            tab.AutoScroll = true;
-            TableLayoutPanel result = new TableLayoutPanel();
-            result.ColumnCount = 1;
-            result.RowCount = 1;
-            result.GrowStyle = isVerticalStyle ? TableLayoutPanelGrowStyle.AddColumns : TableLayoutPanelGrowStyle.AddRows;
-            result.AutoSize = true;
-            result.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            tab.Controls.Add(result);
-            tabbedAnalysis.TabPages.Add(tab);
-            return result;
-        }
-
-        private void uziItem_Click(object sender, EventArgs e)
-        {
-            TableLayoutPanel container = getTabContainer("uziTab", "УЗИ", false);
-            UziAnalysisControl control = new UziAnalysisControl(null, false);
-            container.Controls.Add(control);
-        }
-
-        private void bloodItem_Click(object sender, EventArgs e)
-        {
-            TableLayoutPanel container = getTabContainer("bloodTab", "Анализы крови", true);
-            BloodAnalysisControl blood = new BloodAnalysisControl(null, false);
-            container.Controls.Add(blood);
-        }
-
-        private void ekgItem_Click(object sender, EventArgs e)
-        {
-            TableLayoutPanel container = getTabContainer("ekgTab", "ЭКГ", false);
-            EkgAnalysisControlcs ekg = new EkgAnalysisControlcs(null, false);
-            container.Controls.Add(ekg);
-        }
-
-        private void xRayItem_Click(object sender, EventArgs e)
-        {
-            TableLayoutPanel page = getTabContainer("xRayTab", "Рентген", false);
-            XRayControl control = new XRayControl(null, false);
-            page.Controls.Add(control);
-        }
-
-        private void holterItem_Click(object sender, EventArgs e)
-        {
-            TableLayoutPanel container = getTabContainer("holterTab", "Холтер", true);
-            HolterControl ekg = new HolterControl(null, false);
-            container.Controls.Add(ekg);
-        }
-
-        private void specialistItem_Click(object sender, EventArgs e)
-        {
-            TableLayoutPanel container = getTabContainer("specsTab", "Заключения специалистов", true);
-            SpecialistConclusionControl ekg = new SpecialistConclusionControl(null, false);
-            container.Controls.Add(ekg);
+            analysisTabControl1.save(inspectionObj.ObjectId, DdtInspection.NAME);
         }
 
         private void printBtn_Click(object sender, EventArgs e)

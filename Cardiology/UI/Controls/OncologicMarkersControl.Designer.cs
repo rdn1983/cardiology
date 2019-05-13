@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.cntr = new System.Windows.Forms.GroupBox();
+            this.hide = new System.Windows.Forms.Button();
             this.admissionDateTxt = new System.Windows.Forms.DateTimePicker();
             this.afrTxt = new System.Windows.Forms.TextBox();
             this.hgchTxt = new System.Windows.Forms.TextBox();
@@ -52,6 +53,7 @@
             // 
             // cntr
             // 
+            this.cntr.Controls.Add(this.hide);
             this.cntr.Controls.Add(this.admissionDateTxt);
             this.cntr.Controls.Add(this.afrTxt);
             this.cntr.Controls.Add(this.hgchTxt);
@@ -77,6 +79,16 @@
             this.cntr.TabStop = false;
             this.cntr.Text = "Онкомаркеры";
             // 
+            // hide
+            // 
+            this.hide.Image = global::Cardiology.Properties.Resources.remove;
+            this.hide.Location = new System.Drawing.Point(156, 260);
+            this.hide.Name = "hide";
+            this.hide.Size = new System.Drawing.Size(26, 23);
+            this.hide.TabIndex = 40;
+            this.hide.UseVisualStyleBackColor = true;
+            this.hide.Click += new System.EventHandler(this.hide_Click);
+            // 
             // admissionDateTxt
             // 
             this.admissionDateTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -92,7 +104,7 @@
             this.afrTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.afrTxt.Location = new System.Drawing.Point(71, 237);
             this.afrTxt.Name = "afrTxt";
-            this.afrTxt.Size = new System.Drawing.Size(100, 20);
+            this.afrTxt.Size = new System.Drawing.Size(111, 20);
             this.afrTxt.TabIndex = 15;
             this.afrTxt.TextChanged += new System.EventHandler(this.ControlTxt_TextChanged);
             // 
@@ -101,7 +113,7 @@
             this.hgchTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.hgchTxt.Location = new System.Drawing.Point(71, 211);
             this.hgchTxt.Name = "hgchTxt";
-            this.hgchTxt.Size = new System.Drawing.Size(100, 20);
+            this.hgchTxt.Size = new System.Drawing.Size(111, 20);
             this.hgchTxt.TabIndex = 14;
             this.hgchTxt.TextChanged += new System.EventHandler(this.ControlTxt_TextChanged);
             // 
@@ -110,7 +122,7 @@
             this.ceaTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ceaTxt.Location = new System.Drawing.Point(71, 185);
             this.ceaTxt.Name = "ceaTxt";
-            this.ceaTxt.Size = new System.Drawing.Size(100, 20);
+            this.ceaTxt.Size = new System.Drawing.Size(111, 20);
             this.ceaTxt.TabIndex = 13;
             this.ceaTxt.TextChanged += new System.EventHandler(this.ControlTxt_TextChanged);
             // 
@@ -119,7 +131,7 @@
             this.ca153Txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ca153Txt.Location = new System.Drawing.Point(71, 159);
             this.ca153Txt.Name = "ca153Txt";
-            this.ca153Txt.Size = new System.Drawing.Size(100, 20);
+            this.ca153Txt.Size = new System.Drawing.Size(111, 20);
             this.ca153Txt.TabIndex = 12;
             this.ca153Txt.TextChanged += new System.EventHandler(this.ControlTxt_TextChanged);
             // 
@@ -128,7 +140,7 @@
             this.ca125Txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ca125Txt.Location = new System.Drawing.Point(71, 133);
             this.ca125Txt.Name = "ca125Txt";
-            this.ca125Txt.Size = new System.Drawing.Size(100, 20);
+            this.ca125Txt.Size = new System.Drawing.Size(111, 20);
             this.ca125Txt.TabIndex = 11;
             this.ca125Txt.TextChanged += new System.EventHandler(this.ControlTxt_TextChanged);
             // 
@@ -137,7 +149,7 @@
             this.ca199Txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ca199Txt.Location = new System.Drawing.Point(71, 107);
             this.ca199Txt.Name = "ca199Txt";
-            this.ca199Txt.Size = new System.Drawing.Size(100, 20);
+            this.ca199Txt.Size = new System.Drawing.Size(111, 20);
             this.ca199Txt.TabIndex = 10;
             this.ca199Txt.TextChanged += new System.EventHandler(this.ControlTxt_TextChanged);
             // 
@@ -146,7 +158,7 @@
             this.psaFreeTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.psaFreeTxt.Location = new System.Drawing.Point(71, 81);
             this.psaFreeTxt.Name = "psaFreeTxt";
-            this.psaFreeTxt.Size = new System.Drawing.Size(100, 20);
+            this.psaFreeTxt.Size = new System.Drawing.Size(111, 20);
             this.psaFreeTxt.TabIndex = 9;
             this.psaFreeTxt.TextChanged += new System.EventHandler(this.ControlTxt_TextChanged);
             // 
@@ -155,7 +167,7 @@
             this.psaCommonTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.psaCommonTxt.Location = new System.Drawing.Point(71, 55);
             this.psaCommonTxt.Name = "psaCommonTxt";
-            this.psaCommonTxt.Size = new System.Drawing.Size(100, 20);
+            this.psaCommonTxt.Size = new System.Drawing.Size(111, 20);
             this.psaCommonTxt.TabIndex = 8;
             this.psaCommonTxt.TextChanged += new System.EventHandler(this.ControlTxt_TextChanged);
             // 
@@ -247,7 +259,7 @@
             this.admissionTimeTxt.Location = new System.Drawing.Point(114, 32);
             this.admissionTimeTxt.Name = "admissionTimeTxt";
             this.admissionTimeTxt.ShowUpDown = true;
-            this.admissionTimeTxt.Size = new System.Drawing.Size(60, 20);
+            this.admissionTimeTxt.Size = new System.Drawing.Size(71, 20);
             this.admissionTimeTxt.TabIndex = 17;
             // 
             // OncologicMarkersControl
@@ -285,5 +297,6 @@
         private System.Windows.Forms.Label ca199Lbl;
         private System.Windows.Forms.DateTimePicker admissionDateTxt;
         private System.Windows.Forms.DateTimePicker admissionTimeTxt;
+        private System.Windows.Forms.Button hide;
     }
 }

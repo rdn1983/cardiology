@@ -12,6 +12,18 @@ namespace Cardiology.UI.Forms
         private List<string> selectedLabels;
         private bool success;
 
+        private static AnalysisSelector instance;
+
+        public static AnalysisSelector getInstance()
+        {
+            if (instance == null)
+            {
+                instance = new AnalysisSelector();
+            }
+            return instance;
+        }
+
+        //todo make private
         public AnalysisSelector()
         {
             selectedIds = new List<string>();

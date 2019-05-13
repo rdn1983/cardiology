@@ -39,9 +39,18 @@
             this.journalCreationMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.createJournalMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.createDefferedJournalMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.container = new System.Windows.Forms.TabControl();
+            this.journalTabs = new System.Windows.Forms.TabPage();
+            this.toAnalysisTab = new System.Windows.Forms.Button();
+            this.analysisTab = new System.Windows.Forms.TabPage();
+            this.toJournalsBtn = new System.Windows.Forms.Button();
+            this.analysisTabControl1 = new Cardiology.UI.Controls.AnalysisTabControl();
             this.journalAllPnl.SuspendLayout();
             this.journalGrouppedPanel.SuspendLayout();
             this.journalCreationMenu.SuspendLayout();
+            this.container.SuspendLayout();
+            this.journalTabs.SuspendLayout();
+            this.analysisTab.SuspendLayout();
             this.SuspendLayout();
             // 
             // journalAllPnl
@@ -51,9 +60,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.journalAllPnl.Controls.Add(this.journalGrouppedPanel);
             this.journalAllPnl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.journalAllPnl.Location = new System.Drawing.Point(12, 12);
+            this.journalAllPnl.Location = new System.Drawing.Point(6, 3);
             this.journalAllPnl.Name = "journalAllPnl";
-            this.journalAllPnl.Size = new System.Drawing.Size(973, 580);
+            this.journalAllPnl.Size = new System.Drawing.Size(947, 544);
             this.journalAllPnl.TabIndex = 0;
             this.journalAllPnl.TabStop = false;
             this.journalAllPnl.Text = "Журнал";
@@ -66,7 +75,7 @@
             this.journalGrouppedPanel.Controls.Add(this.journalContainer);
             this.journalGrouppedPanel.Location = new System.Drawing.Point(4, 16);
             this.journalGrouppedPanel.Name = "journalGrouppedPanel";
-            this.journalGrouppedPanel.Size = new System.Drawing.Size(940, 548);
+            this.journalGrouppedPanel.Size = new System.Drawing.Size(938, 527);
             this.journalGrouppedPanel.TabIndex = 38;
             // 
             // journalContainer
@@ -77,13 +86,13 @@
             this.journalContainer.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.journalContainer.Location = new System.Drawing.Point(6, 3);
             this.journalContainer.Name = "journalContainer";
-            this.journalContainer.Size = new System.Drawing.Size(907, 542);
+            this.journalContainer.Size = new System.Drawing.Size(907, 517);
             this.journalContainer.TabIndex = 0;
             // 
             // saveBtn
             // 
             this.saveBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.saveBtn.Location = new System.Drawing.Point(910, 598);
+            this.saveBtn.Location = new System.Drawing.Point(882, 596);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(75, 23);
             this.saveBtn.TabIndex = 2;
@@ -94,7 +103,7 @@
             // printBtn
             // 
             this.printBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.printBtn.Location = new System.Drawing.Point(829, 598);
+            this.printBtn.Location = new System.Drawing.Point(801, 596);
             this.printBtn.Name = "printBtn";
             this.printBtn.Size = new System.Drawing.Size(75, 23);
             this.printBtn.TabIndex = 3;
@@ -106,7 +115,7 @@
             // 
             this.addJournalByMenuBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.addJournalByMenuBtn.Image = global::Cardiology.Properties.Resources.addd1;
-            this.addJournalByMenuBtn.Location = new System.Drawing.Point(991, 12);
+            this.addJournalByMenuBtn.Location = new System.Drawing.Point(955, 6);
             this.addJournalByMenuBtn.Name = "addJournalByMenuBtn";
             this.addJournalByMenuBtn.Size = new System.Drawing.Size(30, 28);
             this.addJournalByMenuBtn.TabIndex = 38;
@@ -135,15 +144,86 @@
             this.createDefferedJournalMenu.Text = "Обоснование\"отложенной коронароангиографии\"";
             this.createDefferedJournalMenu.Click += new System.EventHandler(this.createDefferedJournalMenu_Click);
             // 
+            // container
+            // 
+            this.container.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.container.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
+            this.container.Controls.Add(this.journalTabs);
+            this.container.Controls.Add(this.analysisTab);
+            this.container.ItemSize = new System.Drawing.Size(0, 1);
+            this.container.Location = new System.Drawing.Point(0, 0);
+            this.container.Name = "container";
+            this.container.SelectedIndex = 0;
+            this.container.Size = new System.Drawing.Size(997, 590);
+            this.container.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
+            this.container.TabIndex = 39;
+            // 
+            // journalTabs
+            // 
+            this.journalTabs.Controls.Add(this.toAnalysisTab);
+            this.journalTabs.Controls.Add(this.journalAllPnl);
+            this.journalTabs.Controls.Add(this.addJournalByMenuBtn);
+            this.journalTabs.Location = new System.Drawing.Point(4, 5);
+            this.journalTabs.Name = "journalTabs";
+            this.journalTabs.Padding = new System.Windows.Forms.Padding(3);
+            this.journalTabs.Size = new System.Drawing.Size(989, 581);
+            this.journalTabs.TabIndex = 0;
+            this.journalTabs.Text = "Журналы";
+            this.journalTabs.UseVisualStyleBackColor = true;
+            // 
+            // toAnalysisTab
+            // 
+            this.toAnalysisTab.Location = new System.Drawing.Point(775, 551);
+            this.toAnalysisTab.Name = "toAnalysisTab";
+            this.toAnalysisTab.Size = new System.Drawing.Size(169, 23);
+            this.toAnalysisTab.TabIndex = 39;
+            this.toAnalysisTab.Text = "Привязать анализы";
+            this.toAnalysisTab.UseVisualStyleBackColor = true;
+            this.toAnalysisTab.Click += new System.EventHandler(this.toAnalysisTab_Click);
+            // 
+            // analysisTab
+            // 
+            this.analysisTab.Controls.Add(this.toJournalsBtn);
+            this.analysisTab.Controls.Add(this.analysisTabControl1);
+            this.analysisTab.Location = new System.Drawing.Point(4, 5);
+            this.analysisTab.Name = "analysisTab";
+            this.analysisTab.Padding = new System.Windows.Forms.Padding(3);
+            this.analysisTab.Size = new System.Drawing.Size(989, 581);
+            this.analysisTab.TabIndex = 1;
+            this.analysisTab.Text = "Анализы";
+            this.analysisTab.UseVisualStyleBackColor = true;
+            // 
+            // toJournalsBtn
+            // 
+            this.toJournalsBtn.Location = new System.Drawing.Point(775, 551);
+            this.toJournalsBtn.Name = "toJournalsBtn";
+            this.toJournalsBtn.Size = new System.Drawing.Size(169, 23);
+            this.toJournalsBtn.TabIndex = 40;
+            this.toJournalsBtn.Text = "Ввести дневники";
+            this.toJournalsBtn.UseVisualStyleBackColor = true;
+            this.toJournalsBtn.Click += new System.EventHandler(this.toJournalsBtn_Click);
+            // 
+            // analysisTabControl1
+            // 
+            this.analysisTabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.analysisTabControl1.AutoSize = true;
+            this.analysisTabControl1.Location = new System.Drawing.Point(0, 0);
+            this.analysisTabControl1.Name = "analysisTabControl1";
+            this.analysisTabControl1.Size = new System.Drawing.Size(983, 548);
+            this.analysisTabControl1.TabIndex = 0;
+            // 
             // JournalBeforeKag
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1022, 631);
-            this.Controls.Add(this.addJournalByMenuBtn);
+            this.ClientSize = new System.Drawing.Size(999, 631);
+            this.Controls.Add(this.container);
             this.Controls.Add(this.printBtn);
             this.Controls.Add(this.saveBtn);
-            this.Controls.Add(this.journalAllPnl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "JournalBeforeKag";
@@ -154,6 +234,10 @@
             this.journalGrouppedPanel.ResumeLayout(false);
             this.journalGrouppedPanel.PerformLayout();
             this.journalCreationMenu.ResumeLayout(false);
+            this.container.ResumeLayout(false);
+            this.journalTabs.ResumeLayout(false);
+            this.analysisTab.ResumeLayout(false);
+            this.analysisTab.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -169,5 +253,11 @@
         private System.Windows.Forms.ContextMenuStrip journalCreationMenu;
         private System.Windows.Forms.ToolStripMenuItem createJournalMenu;
         private System.Windows.Forms.ToolStripMenuItem createDefferedJournalMenu;
+        private System.Windows.Forms.TabControl container;
+        private System.Windows.Forms.TabPage journalTabs;
+        private System.Windows.Forms.TabPage analysisTab;
+        private System.Windows.Forms.Button toAnalysisTab;
+        private Controls.AnalysisTabControl analysisTabControl1;
+        private System.Windows.Forms.Button toJournalsBtn;
     }
 }

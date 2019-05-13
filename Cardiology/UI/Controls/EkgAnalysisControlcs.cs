@@ -15,13 +15,15 @@ namespace Cardiology.UI.Controls
         private bool isEditable;
         private bool hasChanges;
         private bool isNew;
+        private IAnalysisContainer container;
 
-        public EkgAnalysisControlcs() : this(null, false) { }
+        public EkgAnalysisControlcs(string objectId, bool additional) : this(objectId, null, additional) { }
 
-        public EkgAnalysisControlcs(string objectId, bool additional)
+        public EkgAnalysisControlcs(string objectId, IAnalysisContainer container, bool additional)
         {
             this.objectId = objectId;
             this.isEditable = !additional;
+            this.container = container;
             this.Size = isEditable ? FULL_SIZE : READONLY_SIZE;
             this.MaximumSize = isEditable ? FULL_SIZE : READONLY_SIZE;
             this.MinimumSize = isEditable ? FULL_SIZE : READONLY_SIZE;
@@ -121,6 +123,11 @@ namespace Cardiology.UI.Controls
             return true;
         }
 
+
+        private void hide_Click(object sender, EventArgs e)
+        {
+            container?.RemoveControl(this, DdtEkg.NAME);
+        }
         #region controls_behavior
         private void clearBtn_Click(object sender, EventArgs e)
         {

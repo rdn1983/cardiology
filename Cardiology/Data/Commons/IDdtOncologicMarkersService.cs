@@ -7,6 +7,8 @@ namespace Cardiology.Data.Commons
     {
         IList<DdtOncologicMarkers> GetAll();
 
+        IList<DdtOncologicMarkers> GetByParentId(string parentId);
+
         DdtOncologicMarkers GetById(string id);
 
         string Save(DdtOncologicMarkers obj);

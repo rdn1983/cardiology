@@ -12,12 +12,16 @@ namespace Cardiology.UI.Controls
         private bool isEditable;
         private bool hasChanges;
         private bool isNew;
+        private IAnalysisContainer container;
 
-        public XRayControl(string objectId, bool additional)
+        public XRayControl(string objectId, bool additional) : this(objectId, null, additional) { }
+
+        public XRayControl(string objectId, IAnalysisContainer container, bool additional)
         {
             this.service = DbDataService.GetInstance();
             this.objectId = objectId;
             this.isEditable = !additional;
+            this.container = container;
             InitializeComponent();
             initControls();
             hasChanges = false;
@@ -26,7 +30,6 @@ namespace Cardiology.UI.Controls
 
         private void initControls()
         {
-
             DdtXRay xRay = service.GetDdtXrayService().GetById(objectId);
             refreshObject(xRay);
             chestXRayTxt.Enabled = isEditable;
@@ -44,7 +47,6 @@ namespace Cardiology.UI.Controls
         {
             if (isEditable && (isNew && getIsValid() || isDirty()))
             {
-
                 DdtXRay xRay = (DdtXRay)getObject();
                 xRay.HospitalitySession = hospitalitySession.ObjectId;
                 xRay.Doctor = hospitalitySession.CuringDoctor;
@@ -77,7 +79,6 @@ namespace Cardiology.UI.Controls
 
         public object getObject()
         {
-
             DdtXRay xRay = service.GetDdtXrayService().GetById(objectId);
             if (xRay == null)
             {
@@ -121,6 +122,11 @@ namespace Cardiology.UI.Controls
         private void ControlTxt_TextChanged(object sender, System.EventArgs e)
         {
             hasChanges = true;
+        }
+
+        private void hide_Click(object sender, System.EventArgs e)
+        {
+            container?.RemoveControl(this, DdtXRay.NAME);
         }
     }
 }

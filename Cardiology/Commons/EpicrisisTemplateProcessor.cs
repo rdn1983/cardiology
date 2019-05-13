@@ -8,7 +8,7 @@ using Cardiology.Data.PostgreSQL;
 
 namespace Cardiology.Commons
 {
-    class EpicrisisTemplateProcessor : ITemplateProcessor
+    class EpicrisisTemplateProcessor : AbstractTemplateProcessor, ITemplateProcessor
     {
         private const string TEMPLATE_FILE_NAME = "epicrisis_template.doc";
         private const string TEMPLATE_FILE_NAME_DEATH = "death_epicrisis_template.doc";
@@ -61,36 +61,8 @@ namespace Cardiology.Commons
                 serologyBld.Append(CompileValue("RW", serology.Rw));
             }
             values.Add("{serology}", serology == null ? " " : serologyBld.ToString());
-
-            DdtEkg ekg = service.GetDdtEkgService().GetByParentId(obj.ObjectId);
-            values.Add("{analysis.ekg}", ekg == null ? " " : "ЭКГ:" + ekg.Ekg);
-            DdtXRay xray = service.GetDdtXrayService().GetByParentId(obj.ObjectId);
-            values.Add("{analysis.xray}", xray == null ? " " : "Рентген:" + xray.ChestXray);
-            DdtEgds egds = service.GetDdtEgdsService().GetByParentId(obj.ObjectId);
-            values.Add("{analysis.egds}", egds == null ? " " : "ЭГДС:" + egds.Egds);
-            DdtBloodAnalysis blood = service.GetDdtBloodAnalysisService().GetByParentId(obj.ObjectId);
+            PutAnalysisData(values, service, obj.ObjectId);
             StringBuilder bloodStr = new StringBuilder();
-            if (blood != null)
-            {
-                bloodStr.Append(CompileValue("АЛТ", blood.Alt));
-                bloodStr.Append(CompileValue("Креатинин", blood.Creatinine));
-                bloodStr.Append(CompileValue("АСТ", blood.Ast));
-                bloodStr.Append(CompileValue("Холестерин", blood.Cholesterol));
-                bloodStr.Append(CompileValue("Гемоглобин", blood.Hemoglobin));
-                bloodStr.Append(CompileValue("Лейкоциты", blood.Leucocytes));
-                bloodStr.Append(CompileValue("Амилаза", blood.Amylase));
-                bloodStr.Append(CompileValue("Бил. Общ.", blood.Bil));
-                bloodStr.Append(CompileValue("Хлор", blood.Chlorine));
-                bloodStr.Append(CompileValue("Железо", blood.Iron));
-                bloodStr.Append(CompileValue("КФК", blood.Kfk));
-                bloodStr.Append(CompileValue("КФК-МВ", blood.KfkMv));
-                bloodStr.Append(CompileValue("Тромбоциты", blood.Platelets));
-                bloodStr.Append(CompileValue("Калий", blood.Potassium));
-                bloodStr.Append(CompileValue("Белок", blood.Protein));
-                bloodStr.Append(CompileValue("ЩФ", blood.Schf));
-                bloodStr.Append(CompileValue("Натрий", blood.Sodium));
-                bloodStr.Append(CompileValue("СРБ", blood.Srp));
-            }
             if (serology != null)
             {
                 bloodStr.Append(CompileValue("KELL-ag", serology.KellAg));
@@ -98,31 +70,6 @@ namespace Cardiology.Commons
                 bloodStr.Append(CompileValue("Anti HCV крови", serology.AntiHcv));
                 bloodStr.Append(CompileValue("HIV", serology.Hiv));
             }
-            values.Add("{analysis.blood}", blood == null ? " " : "Анализы крови:" + bloodStr);
-            DdtUrineAnalysis uri = service.GetDdtUrineAnalysisService().GetByHospitalSessionAndParentId(hospitalitySession, obj.ObjectId);
-            StringBuilder uriValue = new StringBuilder();
-            if (uri != null)
-            {
-                uriValue.Append("Анализы мочи:");
-                uriValue.Append(CompileValue("Цвет:", uri.Color));
-                uriValue.Append(CompileValue("Лейкоциты:", uri.Leukocytes));
-                uriValue.Append(CompileValue("Эритроциты:", uri.Erythrocytes));
-                uriValue.Append(CompileValue("Белок:", uri.Protein));
-
-            }
-            values.Add("{analysis.urine}", uriValue.ToString());
-            DdtUzi uzi = service.GetDdtUziService().GetByParentId(obj.ObjectId);
-            StringBuilder uziStr = new StringBuilder();
-            if (uzi != null)
-            {
-                uziStr.Append(CompileValue("ЦДС", uzi.Cds));
-                uziStr.Append(CompileValue(" ЭХО КГ", uzi.EhoKg));
-                uziStr.Append(CompileValue(" УЗИ Плевр", uzi.PleursUzi));
-                uziStr.Append(CompileValue(" УЗД БЦА", uzi.UzdBca));
-                uziStr.Append(CompileValue(" УЗи ОБП", uzi.UziObp));
-            }
-            values.Add("{analysis.uzi}", uzi == null ? " " : uziStr.ToString());
-
             if (obj.EpicrisisType == (int)DdtEpicrisisDsiType.TRANSFER)
             {
                 DdtTransfer transfer = service.GetDdtTransferService().GetByHospitalSession(hospitalitySession);

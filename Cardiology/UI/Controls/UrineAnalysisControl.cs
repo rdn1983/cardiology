@@ -10,14 +10,15 @@ namespace Cardiology.UI.Controls
         private bool isEditable;
         private bool hasChanges;
         private bool isNew;
+        private IAnalysisContainer container;
 
-        public UrineAnalysisControl() : this(null, false)
-        { }
+        public UrineAnalysisControl(string objectId, bool additional) : this(objectId, null, additional) { }
 
-        public UrineAnalysisControl(string objectId, bool additional)
+        public UrineAnalysisControl(string objectId, IAnalysisContainer container, bool additional)
         {
             this.objectId = objectId;
             this.isEditable = !additional;
+            this.container = container;
             InitializeComponent();
             initControls();
             hasChanges = false;
@@ -121,6 +122,11 @@ namespace Cardiology.UI.Controls
         private void ControlTxt_TextChanged(object sender, System.EventArgs e)
         {
             hasChanges = true;
+        }
+
+        private void hide_Click(object sender, System.EventArgs e)
+        {
+            container?.RemoveControl(this, DdtUrineAnalysis.NAME);
         }
     }
 }

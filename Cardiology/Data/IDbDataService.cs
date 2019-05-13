@@ -87,10 +87,7 @@ namespace Cardiology.Data
 
         IDdtVariousSpecConclusonService GetDdtVariousSpecConclusonService();
 
-        IDdtTransfusionService GetDdtTransfusionService();
-
-
-        void Select(string sql, string key, string value, OnKeyValue handler);
+        IDdtRelationService GetDdtRelationService();                IDdtTransfusionService GetDdtTransfusionService();        void Select(string sql, string key, string value, OnKeyValue handler);
 
         string GetString(string sql);
 

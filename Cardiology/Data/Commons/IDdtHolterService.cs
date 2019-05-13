@@ -9,7 +9,7 @@ namespace Cardiology.Data.Commons
 
         DdtHolter GetById(string id);
 
-        IList<DdtHolter> GetListByParentId(string parentId);
+        IList<DdtHolter> GetByParentId(string parentId);
 
         string Save(DdtHolter obj);
     }

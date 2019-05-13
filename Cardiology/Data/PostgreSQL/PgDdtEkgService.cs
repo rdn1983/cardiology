@@ -52,14 +52,14 @@ namespace Cardiology.Data.PostgreSQL
             return list;
         }
 
-        public IList<DdtEkg> GetListByParentId(string parentId)
+        public IList<DdtEkg> GetByParentId(string parentId)
         {
             IList<DdtEkg> list = new List<DdtEkg>();
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = String.Format(CultureInfo.CurrentCulture, "SELECT dsid_hospitality_session, r_object_id, dsdt_analysis_date, " +
-                    "r_modify_date, dss_parent_type, r_creation_date, dsid_parent, dsb_admission_analysis, dss_ekg, " +
-                    "dsid_doctor, dsid_patient FROM ddt_ekg WHERE dsid_parent = '{0}'", parentId);
+                String sql = String.Format(CultureInfo.CurrentCulture, "SELECT dsid_hospitality_session, ek.r_object_id, dsdt_analysis_date, " +
+                    "r_modify_date, ek.dss_parent_type, r_creation_date, rel.dsid_parent, dsb_admission_analysis, dss_ekg, " +
+                    "dsid_doctor, dsid_patient FROM ddt_ekg ek, ddt_relation rel WHERE rel.dsid_parent = '{0}' AND rel.dsid_child=ek.r_object_id", parentId);
 
                 Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
 
@@ -156,39 +156,6 @@ namespace Cardiology.Data.PostgreSQL
             {
                 String sql = String.Format(CultureInfo.CurrentCulture, "SELECT dsid_hospitality_session, r_object_id, dsdt_analysis_date, r_modify_date, dss_parent_type, r_creation_date, dsid_parent, dsb_admission_analysis, dss_ekg, dsid_doctor, dsid_patient " +
                                            "FROM ddt_ekg WHERE dsid_hospitality_session = '{0}' AND dsid_parent = '{1}'", hospitalSession, parentId);
-
-                Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
-
-                Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);
-                using (DbDataReader reader = command.ExecuteReader())
-                {
-                    if (reader.Read())
-                    {
-                        DdtEkg obj = new DdtEkg();
-                        obj.HospitalitySession = reader.IsDBNull(0) ? null : reader.GetString(0);
-                        obj.ObjectId = reader.IsDBNull(1) ? null : reader.GetString(1);
-                        obj.AnalysisDate = reader.IsDBNull(2) ? DateTime.MinValue : reader.GetDateTime(2);
-                        obj.ModifyDate = reader.IsDBNull(3) ? DateTime.MinValue : reader.GetDateTime(3);
-                        obj.ParentType = reader.IsDBNull(4) ? null : reader.GetString(4);
-                        obj.CreationDate = reader.IsDBNull(5) ? DateTime.MinValue : reader.GetDateTime(5);
-                        obj.Parent = reader.IsDBNull(6) ? null : reader.GetString(6);
-                        obj.AdmissionAnalysis = reader.GetBoolean(7);
-                        obj.Ekg = reader.IsDBNull(8) ? null : reader.GetString(8);
-                        obj.Doctor = reader.IsDBNull(9) ? null : reader.GetString(9);
-                        obj.Patient = reader.IsDBNull(10) ? null : reader.GetString(10);
-                        return obj;
-                    }
-                }
-            }
-            return null;
-        }
-
-        public DdtEkg GetByParentId(string parentId)
-        {
-            using (dynamic connection = connectionFactory.GetConnection())
-            {
-                String sql = String.Format(CultureInfo.CurrentCulture, "SELECT dsid_hospitality_session, r_object_id, dsdt_analysis_date, r_modify_date, dss_parent_type, r_creation_date, dsid_parent, dsb_admission_analysis, dss_ekg, dsid_doctor, dsid_patient " +
-                                           "FROM ddt_ekg WHERE dsid_parent = '{0}'", parentId);
 
                 Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
 

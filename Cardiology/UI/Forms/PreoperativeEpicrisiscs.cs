@@ -53,35 +53,35 @@ namespace Cardiology.UI.Forms
         {
             analysisGrid.Rows.Clear();
 
-            IList<DdtEkg> ekg = service.GetDdtEkgService().GetListByParentId(objectId);
+            IList<DdtEkg> ekg = service.GetDdtEkgService().GetByParentId(objectId);
             foreach (DdtEkg e in ekg)
             {
                 analysisGrid.Rows.Add(e.ObjectId, DdtEkg.NAME, "Анализы: ЭКГ", "Дата проведения:" + e.AnalysisDate.ToLongDateString(), null);
             }
 
-            IList<DdtEgds> egds = service.GetDdtEgdsService().GetListByParentId(objectId);
+            IList<DdtEgds> egds = service.GetDdtEgdsService().GetByParentId(objectId);
             foreach (DdtEgds e in egds)
             {
                 analysisGrid.Rows.Add(e.ObjectId, DdtEgds.NAME, "Анализы: ЭГДС", "Дата проведения:" + e.AnalysisDate.ToLongDateString(), null);
             }
 
-            IList<DdtUzi> uzi = service.GetDdtUziService().GetListByParentId(objectId);
+            IList<DdtUzi> uzi = service.GetDdtUziService().GetByParentId(objectId);
             foreach (DdtUzi e in uzi)
             {
                 analysisGrid.Rows.Add(e.ObjectId, DdtUzi.NAME, "Анализы: УЗИ", "Дата проведения:" + e.AnalysisDate.ToLongDateString(), null);
             }
 
-            IList<DdtXRay> zray = service.GetDdtXrayService().GetListByParentId(objectId);
+            IList<DdtXRay> zray = service.GetDdtXrayService().GetByParentId(objectId);
             foreach (DdtXRay e in zray)
             {
                 analysisGrid.Rows.Add(e.ObjectId, DdtXRay.NAME, "Анализы: Рентген", "Дата проведения:" + e.AnalysisDate.ToLongDateString(), null);
             }
-            IList<DdtBloodAnalysis> blood = service.GetDdtBloodAnalysisService().GetListByParenId(objectId);
+            IList<DdtBloodAnalysis> blood = service.GetDdtBloodAnalysisService().GetByParentId(objectId);
             foreach (DdtBloodAnalysis e in blood)
             {
                 analysisGrid.Rows.Add(e.ObjectId, DdtBloodAnalysis.NAME, "Анализы: Кровь", "Дата проведения:" + e.AnalysisDate.ToLongDateString(), null);
             }
-            IList<DdtUrineAnalysis> urine = service.GetDdtUrineAnalysisService().getListByParentId(objectId);
+            IList<DdtUrineAnalysis> urine = service.GetDdtUrineAnalysisService().GetByParentId(objectId);
             foreach (DdtUrineAnalysis e in urine)
             {
                 analysisGrid.Rows.Add(e.ObjectId, DdtUrineAnalysis.NAME, "Анализы: Моча", "Дата проведения:" + e.AnalysisDate.ToLongDateString(), null);

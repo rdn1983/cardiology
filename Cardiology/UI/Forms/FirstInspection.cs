@@ -103,7 +103,7 @@ namespace Cardiology.UI.Forms
             ll.Width = 700;
             ll.AutoSize = true;
 
-            ComboBox cureTypeControl = new ComboBox();
+            ComboBox cureTypeControl = new ComboBox(); 
             cureTypeControl.Width = 250;
             CommonUtils.InitCureTypeComboboxValues(DbDataService.GetInstance(), cureTypeControl);
             if(cure != null && cure.CureType != null)

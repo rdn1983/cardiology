@@ -99,7 +99,6 @@ namespace Cardiology.UI.Forms
             IEnumerator it = patientHistoryGrid.SelectedRows.GetEnumerator();
             string firstId = null;
             string firstType = null;
-            List<string> ids = new List<string>();
             if (it.MoveNext())
             {
                 DataGridViewRow row = (DataGridViewRow)it.Current;
@@ -108,36 +107,23 @@ namespace Cardiology.UI.Forms
                 firstId = cell.Value.ToString();
                 firstType = row.Cells[2].Value.ToString();
             }
-            DataGridViewRowCollection rows = patientHistoryGrid.Rows;
-            for (int i = 0; i < rows.Count; i++)
-            {
-                DataGridViewCell cell = rows[i].Cells[3];
-                DataGridViewCheckBoxCell checkBoxCell = (DataGridViewCheckBoxCell)rows[i].Cells[0];
-                if ((bool)checkBoxCell.Value)
-                {
-                    ids.Add(cell.Value.ToString());
-                }
-            }
-            if (!ids.Contains(firstId))
-            {
-                ids.Add(firstId);
-            }
+
             Form form = null;
 
             if (DdtAnamnesis.NAME.Equals(firstType, StringComparison.Ordinal))
             {
                 form = new FirstInspection(service, hospitalitySession);
             }
-            else if (DdtJournal.NAME.Equals(firstType, StringComparison.Ordinal))
+            else if (DdtJournalDay.NAME.Equals(firstType, StringComparison.Ordinal))
             {
-                DdtJournal journal = service.GetDdtJournalService().GetById(firstId);
+                DdtJournalDay journal = service.GetDdtJournalDayService().GetById(firstId);
                 if (journal.JournalType == (int)DdtJournalDsiType.AfterKag)
                 {
                     form = new JournalAfterKAG(service, hospitalitySession, firstId);
                 }
                 else
                 {
-                    form = new JournalBeforeKag(service, hospitalitySession, ids, -1);
+                    form = new JournalBeforeKag(service, hospitalitySession, firstId, -1);
                 }
             }
             else if (DdtIssuedMedicineList.NAME.Equals(firstType, StringComparison.Ordinal))
@@ -307,7 +293,13 @@ namespace Cardiology.UI.Forms
                 DataGridViewCell cell = row.Cells[3];
                 string idsValue = cell.Value.ToString();
                 string typeValue = row.Cells[2].Value.ToString();
-                if (!DdtHospital.NAME.Equals(typeValue, StringComparison.Ordinal))
+                if (DdtJournalDay.NAME.Equals(typeValue, StringComparison.Ordinal))
+                {
+                    service.GetDdtJournalDayService().Delete(idsValue);
+                    service.GetDdtHistoryService().DeleteHistoryById(idsValue);
+                    LoadPatientsHistoryGrid();
+                }
+                else if (!DdtHospital.NAME.Equals(typeValue, StringComparison.Ordinal))
                 {
                     service.Delete(typeValue, idsValue);
                     service.GetDdtHistoryService().DeleteHistoryById(idsValue);

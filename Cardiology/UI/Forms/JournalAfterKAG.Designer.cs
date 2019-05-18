@@ -45,6 +45,9 @@ namespace Cardiology.UI.Forms
             this.journalDocLbl = new System.Windows.Forms.Label();
             this.journalDocBox = new System.Windows.Forms.ComboBox();
             this.surgeryInspectationPnl = new System.Windows.Forms.GroupBox();
+            this.cardioVascularBox = new System.Windows.Forms.ComboBox();
+            this.cardioDate = new System.Windows.Forms.DateTimePicker();
+            this.cardioTime = new System.Windows.Forms.DateTimePicker();
             this.adSurgeryLbl = new System.Windows.Forms.Label();
             this.chssSurgeryLbl = new System.Windows.Forms.Label();
             this.chddSurgeryLbl = new System.Windows.Forms.Label();
@@ -53,21 +56,17 @@ namespace Cardiology.UI.Forms
             this.chssSurgeryTxt = new System.Windows.Forms.ComboBox();
             this.surgeryInspectationTxt = new System.Windows.Forms.RichTextBox();
             this.dutyCardioInspectationPnl = new System.Windows.Forms.GroupBox();
+            this.toAnalysisBtn = new System.Windows.Forms.Button();
             this.dutyCardioContainer = new System.Windows.Forms.FlowLayoutPanel();
-            this.finalDiaryBox = new System.Windows.Forms.Panel();
-            this.releaseJournalCtrl = new JournalKAGControl(null, true);
-            this.ekgTxt0 = new System.Windows.Forms.TextBox();
             this.addCardioInspetions = new System.Windows.Forms.Button();
-            this.ekgLbl0 = new System.Windows.Forms.Label();
             this.printBtn = new System.Windows.Forms.Button();
             this.saveBtn = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.journalTab = new System.Windows.Forms.TabPage();
             this.analysisTab = new System.Windows.Forms.TabPage();
-            this.analysisTabControl1 = new Cardiology.UI.Controls.AnalysisTabControl();
-            this.toAnalysisBtn = new System.Windows.Forms.Button();
             this.toJournalsTab = new System.Windows.Forms.Button();
+            this.analysisTabControl1 = new Cardiology.UI.Controls.AnalysisTabControl();
             this.afterKagDiagnosisPnl.SuspendLayout();
             this.surgeryInspectationPnl.SuspendLayout();
             this.dutyCardioInspectationPnl.SuspendLayout();
@@ -189,6 +188,9 @@ namespace Cardiology.UI.Forms
             // 
             this.surgeryInspectationPnl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.surgeryInspectationPnl.Controls.Add(this.cardioVascularBox);
+            this.surgeryInspectationPnl.Controls.Add(this.cardioDate);
+            this.surgeryInspectationPnl.Controls.Add(this.cardioTime);
             this.surgeryInspectationPnl.Controls.Add(this.adSurgeryLbl);
             this.surgeryInspectationPnl.Controls.Add(this.chssSurgeryLbl);
             this.surgeryInspectationPnl.Controls.Add(this.chddSurgeryLbl);
@@ -201,14 +203,40 @@ namespace Cardiology.UI.Forms
             this.surgeryInspectationPnl.Size = new System.Drawing.Size(959, 98);
             this.surgeryInspectationPnl.TabIndex = 1;
             this.surgeryInspectationPnl.TabStop = false;
-            this.surgeryInspectationPnl.Text = "Осмотр ренгеноваскулярного хирурга (через 1 час после КАГ).";
+            this.surgeryInspectationPnl.Text = "Осмотр ренгеноваскулярного хирурга.";
+            // 
+            // cardioVascularBox
+            // 
+            this.cardioVascularBox.FormattingEnabled = true;
+            this.cardioVascularBox.Location = new System.Drawing.Point(214, 19);
+            this.cardioVascularBox.Name = "cardioVascularBox";
+            this.cardioVascularBox.Size = new System.Drawing.Size(264, 21);
+            this.cardioVascularBox.TabIndex = 30;
+            // 
+            // cardioDate
+            // 
+            this.cardioDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.cardioDate.Location = new System.Drawing.Point(6, 19);
+            this.cardioDate.Name = "cardioDate";
+            this.cardioDate.Size = new System.Drawing.Size(98, 20);
+            this.cardioDate.TabIndex = 15;
+            // 
+            // cardioTime
+            // 
+            this.cardioTime.CustomFormat = "HH:mm tt";
+            this.cardioTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.cardioTime.Location = new System.Drawing.Point(110, 19);
+            this.cardioTime.Name = "cardioTime";
+            this.cardioTime.ShowUpDown = true;
+            this.cardioTime.Size = new System.Drawing.Size(98, 20);
+            this.cardioTime.TabIndex = 14;
             // 
             // adSurgeryLbl
             // 
             this.adSurgeryLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.adSurgeryLbl.AutoSize = true;
             this.adSurgeryLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.adSurgeryLbl.Location = new System.Drawing.Point(879, 24);
+            this.adSurgeryLbl.Location = new System.Drawing.Point(878, 52);
             this.adSurgeryLbl.Name = "adSurgeryLbl";
             this.adSurgeryLbl.Size = new System.Drawing.Size(26, 13);
             this.adSurgeryLbl.TabIndex = 29;
@@ -219,7 +247,7 @@ namespace Cardiology.UI.Forms
             this.chssSurgeryLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.chssSurgeryLbl.AutoSize = true;
             this.chssSurgeryLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.chssSurgeryLbl.Location = new System.Drawing.Point(793, 49);
+            this.chssSurgeryLbl.Location = new System.Drawing.Point(792, 77);
             this.chssSurgeryLbl.Name = "chssSurgeryLbl";
             this.chssSurgeryLbl.Size = new System.Drawing.Size(32, 13);
             this.chssSurgeryLbl.TabIndex = 27;
@@ -230,7 +258,7 @@ namespace Cardiology.UI.Forms
             this.chddSurgeryLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.chddSurgeryLbl.AutoSize = true;
             this.chddSurgeryLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.chddSurgeryLbl.Location = new System.Drawing.Point(789, 25);
+            this.chddSurgeryLbl.Location = new System.Drawing.Point(788, 53);
             this.chddSurgeryLbl.Name = "chddSurgeryLbl";
             this.chddSurgeryLbl.Size = new System.Drawing.Size(36, 13);
             this.chddSurgeryLbl.TabIndex = 26;
@@ -255,7 +283,7 @@ namespace Cardiology.UI.Forms
             "130/90",
             "140/100",
             "150/110"});
-            this.adSurgeryTxt.Location = new System.Drawing.Point(905, 19);
+            this.adSurgeryTxt.Location = new System.Drawing.Point(904, 47);
             this.adSurgeryTxt.Name = "adSurgeryTxt";
             this.adSurgeryTxt.Size = new System.Drawing.Size(49, 21);
             this.adSurgeryTxt.TabIndex = 25;
@@ -266,7 +294,7 @@ namespace Cardiology.UI.Forms
             this.chddSurgeryTxt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.chddSurgeryTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.chddSurgeryTxt.FormattingEnabled = true;
-            this.chddSurgeryTxt.Location = new System.Drawing.Point(827, 19);
+            this.chddSurgeryTxt.Location = new System.Drawing.Point(826, 47);
             this.chddSurgeryTxt.Name = "chddSurgeryTxt";
             this.chddSurgeryTxt.Size = new System.Drawing.Size(49, 21);
             this.chddSurgeryTxt.TabIndex = 22;
@@ -277,7 +305,7 @@ namespace Cardiology.UI.Forms
             this.chssSurgeryTxt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.chssSurgeryTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.chssSurgeryTxt.FormattingEnabled = true;
-            this.chssSurgeryTxt.Location = new System.Drawing.Point(827, 43);
+            this.chssSurgeryTxt.Location = new System.Drawing.Point(826, 71);
             this.chssSurgeryTxt.Name = "chssSurgeryTxt";
             this.chssSurgeryTxt.Size = new System.Drawing.Size(49, 21);
             this.chssSurgeryTxt.TabIndex = 23;
@@ -286,9 +314,9 @@ namespace Cardiology.UI.Forms
             // 
             this.surgeryInspectationTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.surgeryInspectationTxt.Location = new System.Drawing.Point(6, 19);
+            this.surgeryInspectationTxt.Location = new System.Drawing.Point(5, 44);
             this.surgeryInspectationTxt.Name = "surgeryInspectationTxt";
-            this.surgeryInspectationTxt.Size = new System.Drawing.Size(777, 75);
+            this.surgeryInspectationTxt.Size = new System.Drawing.Size(777, 46);
             this.surgeryInspectationTxt.TabIndex = 0;
             this.surgeryInspectationTxt.Text = "Над легкими аускультативно: дыхание жесткое, ЧД 19 уд в мин. Тоны сердца приглуше" +
     "ны, ритм неправильный. ЧСС 60 в мин. PS 60 в мин. АД 120/70 мм рт ст. Живот обыч" +
@@ -301,16 +329,25 @@ namespace Cardiology.UI.Forms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dutyCardioInspectationPnl.Controls.Add(this.toAnalysisBtn);
             this.dutyCardioInspectationPnl.Controls.Add(this.dutyCardioContainer);
-            this.dutyCardioInspectationPnl.Controls.Add(this.finalDiaryBox);
-            this.dutyCardioInspectationPnl.Controls.Add(this.ekgTxt0);
             this.dutyCardioInspectationPnl.Controls.Add(this.addCardioInspetions);
-            this.dutyCardioInspectationPnl.Controls.Add(this.ekgLbl0);
             this.dutyCardioInspectationPnl.Location = new System.Drawing.Point(3, 216);
             this.dutyCardioInspectationPnl.Name = "dutyCardioInspectationPnl";
             this.dutyCardioInspectationPnl.Size = new System.Drawing.Size(959, 424);
             this.dutyCardioInspectationPnl.TabIndex = 2;
             this.dutyCardioInspectationPnl.TabStop = false;
             this.dutyCardioInspectationPnl.Text = "Осмотр дежурного кардиореаниматолога:";
+            // 
+            // toAnalysisBtn
+            // 
+            this.toAnalysisBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.toAnalysisBtn.Location = new System.Drawing.Point(762, 396);
+            this.toAnalysisBtn.Name = "toAnalysisBtn";
+            this.toAnalysisBtn.Size = new System.Drawing.Size(156, 23);
+            this.toAnalysisBtn.TabIndex = 10;
+            this.toAnalysisBtn.Text = "Привязать анализы";
+            this.toAnalysisBtn.UseVisualStyleBackColor = true;
+            this.toAnalysisBtn.Click += new System.EventHandler(this.toAnalysisBtn_Click);
             // 
             // dutyCardioContainer
             // 
@@ -322,42 +359,9 @@ namespace Cardiology.UI.Forms
             this.dutyCardioContainer.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.dutyCardioContainer.Location = new System.Drawing.Point(8, 19);
             this.dutyCardioContainer.Name = "dutyCardioContainer";
-            this.dutyCardioContainer.Size = new System.Drawing.Size(907, 254);
+            this.dutyCardioContainer.Size = new System.Drawing.Size(907, 371);
             this.dutyCardioContainer.TabIndex = 7;
             this.dutyCardioContainer.WrapContents = false;
-            // 
-            // releaseJournalCtrl
-            // 
-            this.releaseJournalCtrl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.releaseJournalCtrl.AutoSize = true;
-            this.releaseJournalCtrl.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.releaseJournalCtrl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.releaseJournalCtrl.Location = new System.Drawing.Point(3, 3);
-            this.releaseJournalCtrl.Name = "releaseJournalCtrl";
-            this.releaseJournalCtrl.Size = new System.Drawing.Size(779, 112);
-            this.releaseJournalCtrl.TabIndex = 0;
-            // 
-            // finalDiaryBox
-            // 
-            this.finalDiaryBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.finalDiaryBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.finalDiaryBox.Location = new System.Drawing.Point(8, 279);
-            this.finalDiaryBox.Name = "finalDiaryBox";
-            this.finalDiaryBox.Size = new System.Drawing.Size(907, 115);
-            this.finalDiaryBox.TabIndex = 12;
-            // 
-            // ekgTxt0
-            // 
-            this.ekgTxt0.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ekgTxt0.Location = new System.Drawing.Point(39, 397);
-            this.ekgTxt0.Name = "ekgTxt0";
-            this.ekgTxt0.Size = new System.Drawing.Size(717, 20);
-            this.ekgTxt0.TabIndex = 11;
-            this.ekgTxt0.Text = "Динамика инфаркта миокарда";
             // 
             // addCardioInspetions
             // 
@@ -369,17 +373,6 @@ namespace Cardiology.UI.Forms
             this.addCardioInspetions.TabIndex = 5;
             this.addCardioInspetions.UseVisualStyleBackColor = true;
             this.addCardioInspetions.Click += new System.EventHandler(this.addCardioInspetions_Click);
-            // 
-            // ekgLbl0
-            // 
-            this.ekgLbl0.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ekgLbl0.AutoSize = true;
-            this.ekgLbl0.Location = new System.Drawing.Point(6, 400);
-            this.ekgLbl0.Name = "ekgLbl0";
-            this.ekgLbl0.Size = new System.Drawing.Size(30, 13);
-            this.ekgLbl0.TabIndex = 10;
-            this.ekgLbl0.Text = "ЭКГ:";
             // 
             // printBtn
             // 
@@ -446,29 +439,6 @@ namespace Cardiology.UI.Forms
             this.analysisTab.Text = "Анализы";
             this.analysisTab.UseVisualStyleBackColor = true;
             // 
-            // analysisTabControl1
-            // 
-            this.analysisTabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.analysisTabControl1.AutoSize = true;
-            this.analysisTabControl1.Location = new System.Drawing.Point(-1, 0);
-            this.analysisTabControl1.Name = "analysisTabControl1";
-            this.analysisTabControl1.Size = new System.Drawing.Size(962, 607);
-            this.analysisTabControl1.TabIndex = 0;
-            // 
-            // toAnalysisBtn
-            // 
-            this.toAnalysisBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.toAnalysisBtn.Location = new System.Drawing.Point(762, 396);
-            this.toAnalysisBtn.Name = "toAnalysisBtn";
-            this.toAnalysisBtn.Size = new System.Drawing.Size(156, 23);
-            this.toAnalysisBtn.TabIndex = 10;
-            this.toAnalysisBtn.Text = "Привязать анализы";
-            this.toAnalysisBtn.UseVisualStyleBackColor = true;
-            this.toAnalysisBtn.Click += new System.EventHandler(this.toAnalysisBtn_Click);
-            // 
             // toJournalsTab
             // 
             this.toJournalsTab.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -480,6 +450,17 @@ namespace Cardiology.UI.Forms
             this.toJournalsTab.Text = "Ввести дневники";
             this.toJournalsTab.UseVisualStyleBackColor = true;
             this.toJournalsTab.Click += new System.EventHandler(this.toJournalsTab_Click);
+            // 
+            // analysisTabControl1
+            // 
+            this.analysisTabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.analysisTabControl1.AutoSize = true;
+            this.analysisTabControl1.Location = new System.Drawing.Point(-1, 0);
+            this.analysisTabControl1.Name = "analysisTabControl1";
+            this.analysisTabControl1.Size = new System.Drawing.Size(962, 607);
+            this.analysisTabControl1.TabIndex = 0;
             // 
             // JournalAfterKAG
             // 
@@ -502,7 +483,6 @@ namespace Cardiology.UI.Forms
             this.surgeryInspectationPnl.ResumeLayout(false);
             this.surgeryInspectationPnl.PerformLayout();
             this.dutyCardioInspectationPnl.ResumeLayout(false);
-            this.dutyCardioInspectationPnl.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.journalTab.ResumeLayout(false);
             this.analysisTab.ResumeLayout(false);
@@ -521,8 +501,6 @@ namespace Cardiology.UI.Forms
         private System.Windows.Forms.GroupBox dutyCardioInspectationPnl;
         private System.Windows.Forms.Button printBtn;
         private System.Windows.Forms.Button saveBtn;
-        private System.Windows.Forms.TextBox ekgTxt0;
-        private System.Windows.Forms.Label ekgLbl0;
         private System.Windows.Forms.Button addCardioInspetions;
         private System.Windows.Forms.Label adSurgeryLbl;
         private System.Windows.Forms.Label chssSurgeryLbl;
@@ -530,7 +508,6 @@ namespace Cardiology.UI.Forms
         private System.Windows.Forms.ComboBox adSurgeryTxt;
         private System.Windows.Forms.ComboBox chddSurgeryTxt;
         private System.Windows.Forms.ComboBox chssSurgeryTxt;
-        private System.Windows.Forms.Panel finalDiaryBox;
         private System.Windows.Forms.DateTimePicker admissionTimeTxt;
         private System.Windows.Forms.DateTimePicker admissionDateTxt;
         private System.Windows.Forms.ComboBox journalDocBox;
@@ -548,5 +525,8 @@ namespace Cardiology.UI.Forms
         private AnalysisTabControl analysisTabControl1;
         private Button toAnalysisBtn;
         private Button toJournalsTab;
+        private ComboBox cardioVascularBox;
+        private DateTimePicker cardioDate;
+        private DateTimePicker cardioTime;
     }
 }

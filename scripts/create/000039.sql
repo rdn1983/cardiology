@@ -1,36 +1,23 @@
-CREATE TABLE ddt_journal (
-  r_object_id varchar(16) PRIMARY KEY DEFAULT GetNextId(),
-  r_creation_date TIMESTAMP DEFAULT NOW() NOT NULL,
-  r_modify_date TIMESTAMP NOT NULL,
+CREATE TABLE ddt_journal_day (
+	r_object_id varchar(16) PRIMARY KEY DEFAULT GetNextId(),
+	r_creation_date TIMESTAMP DEFAULT NOW() NOT NULL,
+	r_modify_date TIMESTAMP NOT NULL,
 
-  dsid_journal_day VARCHAR(16) REFERENCES ddt_journal_day(r_object_id),
-  dsid_doctor VARCHAR(16) REFERENCES ddt_doctor(r_object_id),
-  dsdt_admission_date timestamp,
+	dsid_hospitality_session VARCHAR(16) REFERENCES ddt_hospital(r_object_id),
+	dsid_patient VARCHAR(16) REFERENCES ddt_patient(r_object_id),
+	dsdt_admission_date timestamp,
+	dsid_doctor VARCHAR(16) REFERENCES ddt_doctor(r_object_id),
+	dss_diagnosis VARCHAR(512),
 
-  dss_complaints VARCHAR(256),
-  dss_chdd VARCHAR(256),
-  dss_chss VARCHAR(256),
-  dss_ps VARCHAR(256),
-  dss_ad VARCHAR(256),
-  dss_monitor VARCHAR(256),
-  dss_rhythm VARCHAR(256),
-  dsb_good_rhythm boolean,
-  dss_surgeon_exam VARCHAR(512),
-  dss_cardio_exam VARCHAR(512),
-  dss_ekg VARCHAR(512),
-  dss_journal VARCHAR(1024),
-  dsi_journal_type int,
-  dsb_release_journal boolean,
-  dss_diagnosis VARCHAR(256),
-  dsb_freeze boolean,
-  dsd_weight double
+	dss_name VARCHAR(256),
+	dsi_journal_type int
 );
 
-CREATE TRIGGER ddt_journal_trg_modify_date BEFORE INSERT OR UPDATE
-  ON ddt_journal FOR EACH ROW
+CREATE TRIGGER ddt_journal_day_trg_modify_date BEFORE INSERT OR UPDATE
+  ON ddt_journal_day FOR EACH ROW
 EXECUTE PROCEDURE dmtrg_f_modify_date();
 
-CREATE FUNCTION dmtrg_f_ddt_journal_audit()
+CREATE FUNCTION dmtrg_f_ddt_journal_day_audit()
   returns trigger
 language plpgsql
 as $BODY$
@@ -39,30 +26,30 @@ IF (NEW.dsi_journal_type = 0) THEN
         INSERT INTO ddt_history 
 		(dsid_hospitality_session, dsid_patient, dsid_doctor, dsid_operation_id, dss_operation_type, dsdt_operation_date, dss_operation_name)
  		VALUES (NEW.dsid_hospitality_session, NEW.dsid_patient, NEW.dsid_doctor, NEW.r_object_id, TG_TABLE_NAME, NEW.dsdt_admission_date, 
- 		'Р–СѓСЂРЅР°Р» РґРѕ РљРђР“ РѕС‚ ' || to_char(NEW.dsdt_admission_date, 'dd.mm.YYYY HH24:MM'));
+ 		'Журнал до КАГ от ' || to_char(NEW.dsdt_admission_date, 'dd.mm.YYYY HH24:MM'));
  		RETURN NEW;
 ELSIF (NEW.dsi_journal_type = 1) THEN
         INSERT INTO ddt_history 
 		(dsid_hospitality_session, dsid_patient, dsid_doctor, dsid_operation_id, dss_operation_type, dsdt_operation_date, dss_operation_name)
  		VALUES (NEW.dsid_hospitality_session, NEW.dsid_patient, NEW.dsid_doctor, NEW.r_object_id, TG_TABLE_NAME, NEW.dsdt_admission_date, 
- 		'Р–СѓСЂРЅР°Р» РїРѕСЃР»Рµ РљРђР“ РѕС‚ ' || to_char(NEW.dsdt_admission_date, 'dd.mm.YYYY HH24:MM'));
+ 		'Журнал после КАГ от ' || to_char(NEW.dsdt_admission_date, 'dd.mm.YYYY HH24:MM'));
  		RETURN NEW;
 ELSIF (NEW.dsi_journal_type = 2) THEN
         INSERT INTO ddt_history 
 		(dsid_hospitality_session, dsid_patient, dsid_doctor, dsid_operation_id, dss_operation_type, dsdt_operation_date, dss_operation_name)
  		VALUES (NEW.dsid_hospitality_session, NEW.dsid_patient, NEW.dsid_doctor, NEW.r_object_id, TG_TABLE_NAME, NEW.dsdt_admission_date, 
- 		'Р–СѓСЂРЅР°Р» Р±РµР· РљРђР“ РѕС‚ ' || to_char(NEW.dsdt_admission_date, 'dd.mm.YYYY HH24:MM'));
+ 		'Журнал без КАГ от ' || to_char(NEW.dsdt_admission_date, 'dd.mm.YYYY HH24:MM'));
  		RETURN NEW;
 ELSIF (NEW.dsi_journal_type = 3) THEN
         INSERT INTO ddt_history 
 		(dsid_hospitality_session, dsid_patient, dsid_doctor, dsid_operation_id, dss_operation_type, dsdt_operation_date, dss_operation_name)
  		VALUES (NEW.dsid_hospitality_session, NEW.dsid_patient, NEW.dsid_doctor, NEW.r_object_id, TG_TABLE_NAME, NEW.dsdt_admission_date, 
- 		'РћР±РѕСЃРЅРѕРІР°РЅРёРµ РѕС‚Р»РѕР¶РµРЅРЅРѕР№ РєРѕСЂРѕРЅР°СЂРѕР°РЅРіРёРѕРіСЂР°С„РёРё РѕС‚ ' || to_char(NEW.dsdt_admission_date, 'dd.mm.YYYY HH24:MM'));
+ 		'Обоснование отложенной коронароангиографии от ' || to_char(NEW.dsdt_admission_date, 'dd.mm.YYYY HH24:MM'));
  		RETURN NEW;
 END IF;
 END;
 $BODY$;
 
-CREATE TRIGGER ddt_journal_trg_audit AFTER INSERT 
-	ON ddt_journal FOR EACH ROW
-EXECUTE PROCEDURE dmtrg_f_ddt_journal_audit();
+CREATE TRIGGER ddt_journal_day_trg_audit AFTER INSERT 
+	ON ddt_journal_day FOR EACH ROW
+EXECUTE PROCEDURE dmtrg_f_ddt_journal_day_audit();

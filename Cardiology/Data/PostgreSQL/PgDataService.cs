@@ -24,6 +24,7 @@ namespace Cardiology.Data.PostgreSQL
         private readonly IDdtHormonesService ddtHormonesService;
         private readonly IDdtHolterService ddtHolterService;
         private readonly IDdtJournalService ddtJournalService;
+        private readonly IDdtJournalDayService ddtJournalDayService;
         private readonly IDdtCureService ddtCureService;
         private readonly IDdtConsiliumService ddtConsiliumService;
         private readonly IDdtPatientService ddtPatientService;
@@ -71,6 +72,7 @@ namespace Cardiology.Data.PostgreSQL
             ddtHormonesService = new PgDdtHormonesService(connectionFactory);
             ddtHolterService = new PgDdtHolterService(connectionFactory);
             ddtJournalService = new PgDdtJournalService(connectionFactory);
+            ddtJournalDayService = new PgDdtJournalDayService(connectionFactory);
             ddtCureService = new PgDdtCureService(connectionFactory);
             ddtConsiliumService = new PgDdtConsiliumService(connectionFactory);
             ddtPatientService = new PgDdtPatientService(connectionFactory);
@@ -153,6 +155,11 @@ namespace Cardiology.Data.PostgreSQL
         public IDdtJournalService GetDdtJournalService()
         {
             return ddtJournalService;
+        }
+
+        public IDdtJournalDayService GetDdtJournalDayService()
+        {
+            return ddtJournalDayService;
         }
 
         public IDdtCureService GetDdtCureService()
@@ -426,7 +433,7 @@ namespace Cardiology.Data.PostgreSQL
         {
             using (dynamic connection = connectionFactory.GetConnection())
             {
-                String sql = "delete from " + type + " WHERE r_object_id = '" + id + "'";
+                String sql = "delete from " + type + " WHERE r_object_id = '" + id + "' ";
                 Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
 
                 Npgsql.NpgsqlCommand command = new Npgsql.NpgsqlCommand(sql, connection);

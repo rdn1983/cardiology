@@ -15,6 +15,8 @@ namespace Cardiology.Data.Commons
 
         DdtJournal GetByHospitalSessionAndJournalType(string hospitalSession, int jornalType);
 
+        List<DdtJournal> GetByJournalDayId(string id);
+
         string Save(DdtJournal obj);
     }
 }

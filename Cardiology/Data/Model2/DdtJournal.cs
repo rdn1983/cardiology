@@ -50,5 +50,9 @@ namespace Cardiology.Data.Model2
 
         public string Journal { get; set; }
 
+        public string JournalDayId { get; set; }
+
+        public Boolean Freeze { get; set; }
+
     }
 }

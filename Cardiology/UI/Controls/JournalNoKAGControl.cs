@@ -63,8 +63,6 @@ namespace Cardiology.UI.Controls
 
         public void saveObject(DdtHospital hospitalitySession, string parentId, string parentType)
         {
-
-
             if (string.IsNullOrEmpty(journalTxt.Text) || !(isDirty() || isNew))
             {
                 return;
@@ -75,6 +73,7 @@ namespace Cardiology.UI.Controls
             journal.Doctor = selectedDoc == null ? hospitalitySession.CuringDoctor : selectedDoc.ObjectId;
             journal.HospitalitySession = hospitalitySession.ObjectId;
             journal.Patient = hospitalitySession.Patient;
+            journal.JournalDayId = parentId;
 
             objectId = DbDataService.GetInstance().GetDdtJournalService().Save(journal);
             hasChanges = false;

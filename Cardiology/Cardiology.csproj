@@ -84,8 +84,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Commons\AbstractTemplateProcessor.cs" />    <Compile Include="Commons\RequestBloodTemplateProcessor.cs" />
-    <Compile Include="Commons\TransfusionConsentTemplateProcessor.cs" />    <Compile Include="Data\Commons\IDdtAlcoProtocolService.cs" />
+    <Compile Include="Commons\AbstractTemplateProcessor.cs" />
+    <Compile Include="Commons\RequestBloodTemplateProcessor.cs" />
+    <Compile Include="Commons\TransfusionConsentTemplateProcessor.cs" />
+    <Compile Include="Data\Commons\IDdtAlcoProtocolService.cs" />
     <Compile Include="Data\Commons\IDdtAnamnesisService.cs" />
     <Compile Include="Data\Commons\IDdtBloodAnalysisService.cs" />
     <Compile Include="Data\Commons\IDdtCoagulogramService.cs" />
@@ -107,6 +109,7 @@
     <Compile Include="Data\Commons\IDdtIssuedActionService.cs" />
     <Compile Include="Data\Commons\IDdtIssuedMedicineListService.cs" />
     <Compile Include="Data\Commons\IDdtIssuedMedicineService.cs" />
+    <Compile Include="Data\Commons\IDdtJournalDayService.cs" />
     <Compile Include="Data\Commons\IDdtJournalService.cs" />
     <Compile Include="Data\Commons\IDdtKagService.cs" />
     <Compile Include="Data\Commons\IDdtOncologicMarkersService.cs" />
@@ -156,6 +159,7 @@
     <Compile Include="Data\Model2\DdtIssuedMedicine.cs" />
     <Compile Include="Data\Model2\DdtIssuedMedicineList.cs" />
     <Compile Include="Data\Model2\DdtJournal.cs" />
+    <Compile Include="Data\Model2\DdtJournalDay.cs" />
     <Compile Include="Data\Model2\DdtKag.cs" />
     <Compile Include="Data\Model2\DdtOncologicMarkers.cs" />
     <Compile Include="Data\Model2\DdtPatient.cs" />
@@ -204,6 +208,7 @@
     <Compile Include="Data\PostgreSQL\PgDdtIssuedActionService.cs" />
     <Compile Include="Data\PostgreSQL\PgDdtIssuedMedicineListService.cs" />
     <Compile Include="Data\PostgreSQL\PgDdtIssuedMedicineService.cs" />
+    <Compile Include="Data\PostgreSQL\PgDdtJournalDayService.cs" />
     <Compile Include="Data\PostgreSQL\PgDdtJournalService.cs" />
     <Compile Include="Data\PostgreSQL\PgDdtKagService.cs" />
     <Compile Include="Data\PostgreSQL\PgDdtOncologicMarkersService.cs" />

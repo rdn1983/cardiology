@@ -11,21 +11,19 @@ namespace Cardiology.UI.Forms
 {
     public partial class JournalBeforeKag : Form, IAutoSaveForm
     {
-        private int journalType;
-        private List<string> journalIds;
         private readonly IDbDataService service;
         private DdtHospital hospitalitySession;
+        private string journalDayId;
 
-        public JournalBeforeKag(IDbDataService service, DdtHospital hospitalitySession, List<string> journalIds, int journalType)
+        public JournalBeforeKag(IDbDataService service, DdtHospital hospitalitySession, string journalId, int journalType)
         {
+            InitializeComponent();
             this.service = service;
             this.hospitalitySession = hospitalitySession;
-            this.journalIds = journalIds == null ? new List<string>() : journalIds;
-            this.journalType = journalType;
-            InitializeComponent();
+            this.journalDayId = journalId;
             initJournals();
             List<string> validTypes = new List<string>() { "ddt_blood_analysis", "ddt_ekg", "ddt_urine_analysis", "ddt_egds", "ddt_xray", "ddt_holter", "ddt_specialist_conclusion", "ddt_uzi" };
-            analysisTabControl1.init(hospitalitySession, journalIds?[0], DdtJournal.NAME, validTypes);
+            analysisTabControl1.init(hospitalitySession, journalDayId, DdtJournalDay.NAME, validTypes);
             SilentSaver.setForm(this);
         }
 
@@ -39,23 +37,13 @@ namespace Cardiology.UI.Forms
 
         private void initJournals()
         {
-            if (journalIds == null || journalIds.Count == 0)
-            {
-                return;
-            }
-
-
             DdvPatient patient = service.GetDdvPatientService().GetById(hospitalitySession.Patient);
             if (patient != null)
             {
                 Text += " " + patient.ShortName;
             }
 
-            List<DdtJournal> journals = service.GetDdtJournalService().GetByQuery(@"Select r_object_id, dss_diagnosis, dss_chss, dss_chdd, r_creation_date, " +
-                "dss_complaints, dss_surgeon_exam, dss_ekg, dsdt_admission_date, dss_monitor, dss_rhythm, dsid_doctor, dsid_patient, dss_ps, dss_ad," +
-                " dsid_hospitality_session, r_modify_date, dss_cardio_exam, dsi_journal_type, dsb_good_rhythm, dsb_release_journal, dss_journal " +
-                "FROM ddt_journal WHERE r_object_id IN ('" +
-                journalIds.Aggregate((a, b) => a + "','" + b) + "') ORDER BY dsdt_admission_date ASC");
+            List<DdtJournal> journals = service.GetDdtJournalService().GetByJournalDayId(journalDayId);
             foreach (DdtJournal j in journals)
             {
                 journalContainer.Controls.Add(new JournalNoKAGControl(j.ObjectId, j.JournalType, null));
@@ -91,18 +79,41 @@ namespace Cardiology.UI.Forms
 
         public bool Save()
         {
-            journalIds.Clear();
+            if (journalContainer.Controls.Count==0)
+            {
+                return true;
+            }
+            DdtJournalDay day = service.GetDdtJournalDayService().GetById(journalDayId);
+            DateTime journalDate = ((JournalNoKAGControl)journalContainer.Controls[0]).getJournalDateTime();
+            //Снчала поищем, нет ли дневников за тот же день?
+            if (day == null)
+            {
+                day = service.GetDdtJournalDayService().GetForDate(hospitalitySession.ObjectId, journalDate);
+                journalDayId = day?.ObjectId;
+            }
+            
+            if (day == null)
+            {
+                day = new DdtJournalDay();
+                day.Doctor = hospitalitySession.DutyDoctor;
+                day.Patient = hospitalitySession.Patient;
+                day.HospitalitySession = hospitalitySession.ObjectId;
+                day.JournalType = (int)DdtJournalDsiType.BeforeKag;
+                day.AdmissionDate = journalDate;
+                day.Name = "Журнал до КАГ за " + journalDate.ToShortDateString();
+                journalDayId = service.GetDdtJournalDayService().Save(day);
+            }
             foreach (Control c in journalContainer.Controls)
             {
                 CheckBox hide = c.Controls.Find("hideJournalBtn", true).FirstOrDefault() as CheckBox;
                 if (!hide.Checked)
                 {
                     IDocbaseControl docbaseControl = (IDocbaseControl)c;
-                    docbaseControl.saveObject(hospitalitySession, null, null);
-                    journalIds.Add(docbaseControl.getObjectId());
+                    docbaseControl.saveObject(hospitalitySession, journalDayId, DdtJournalDay.NAME);
+                    docbaseControl.getObjectId();
                 }
             }
-            analysisTabControl1.save(journalIds?[0], DdtJournal.NAME);
+            analysisTabControl1.save(journalDayId, DdtJournalDay.NAME);
 
             return true;
         }
@@ -115,9 +126,9 @@ namespace Cardiology.UI.Forms
 
                 List<string> paths = new List<string>();
                 ITemplateProcessor processor = TemplateProcessorManager.getProcessorByObjectType(DdtJournal.NAME);
-                foreach (string id in journalIds)
+                List<DdtJournal> journals = service.GetDdtJournalService().GetByJournalDayId(journalDayId);
+                foreach (DdtJournal journal in journals)
                 {
-                    DdtJournal journal = service.GetDdtJournalService().GetById(id);
                     if (journal != null)
                     {
                         string path = processor.processTemplate(service, hospitalitySession.ObjectId, journal.ObjectId, null);

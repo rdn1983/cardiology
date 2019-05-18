@@ -30,6 +30,7 @@
         {
             this.inspectionDate0 = new System.Windows.Forms.DateTimePicker();
             this.hidingPnl0 = new System.Windows.Forms.Panel();
+            this.shuffleBtn = new System.Windows.Forms.Button();
             this.badRhytmBtn0 = new System.Windows.Forms.RadioButton();
             this.journalTxt = new System.Windows.Forms.RichTextBox();
             this.goodRhytmBtn0 = new System.Windows.Forms.RadioButton();
@@ -43,7 +44,7 @@
             this.chddLbl0 = new System.Windows.Forms.Label();
             this.hideBtn0 = new System.Windows.Forms.CheckBox();
             this.inspectionTime0 = new System.Windows.Forms.DateTimePicker();
-            this.shuffleBtn = new System.Windows.Forms.Button();
+            this.freeze = new System.Windows.Forms.CheckBox();
             this.hidingPnl0.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -74,6 +75,16 @@
             this.hidingPnl0.Name = "hidingPnl0";
             this.hidingPnl0.Size = new System.Drawing.Size(770, 79);
             this.hidingPnl0.TabIndex = 13;
+            // 
+            // shuffleBtn
+            // 
+            this.shuffleBtn.Image = global::Cardiology.Properties.Resources.shuffle;
+            this.shuffleBtn.Location = new System.Drawing.Point(577, 2);
+            this.shuffleBtn.Name = "shuffleBtn";
+            this.shuffleBtn.Size = new System.Drawing.Size(25, 73);
+            this.shuffleBtn.TabIndex = 15;
+            this.shuffleBtn.UseVisualStyleBackColor = true;
+            this.shuffleBtn.Click += new System.EventHandler(this.shuffleBtn_Click);
             // 
             // badRhytmBtn0
             // 
@@ -233,15 +244,15 @@
             this.inspectionTime0.Size = new System.Drawing.Size(98, 20);
             this.inspectionTime0.TabIndex = 0;
             // 
-            // shuffleBtn
+            // freeze
             // 
-            this.shuffleBtn.Image = global::Cardiology.Properties.Resources.shuffle;
-            this.shuffleBtn.Location = new System.Drawing.Point(577, 2);
-            this.shuffleBtn.Name = "shuffleBtn";
-            this.shuffleBtn.Size = new System.Drawing.Size(25, 73);
-            this.shuffleBtn.TabIndex = 15;
-            this.shuffleBtn.UseVisualStyleBackColor = true;
-            this.shuffleBtn.Click += new System.EventHandler(this.shuffleBtn_Click);
+            this.freeze.AutoSize = true;
+            this.freeze.Location = new System.Drawing.Point(280, 8);
+            this.freeze.Name = "freeze";
+            this.freeze.Size = new System.Drawing.Size(155, 17);
+            this.freeze.TabIndex = 15;
+            this.freeze.Text = "Не пересчитывать время";
+            this.freeze.UseVisualStyleBackColor = true;
             // 
             // JournalKAGControl
             // 
@@ -250,6 +261,7 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.Controls.Add(this.freeze);
             this.Controls.Add(this.hidingPnl0);
             this.Controls.Add(this.inspectionDate0);
             this.Controls.Add(this.hideBtn0);
@@ -280,5 +292,6 @@
         private System.Windows.Forms.CheckBox hideBtn0;
         private System.Windows.Forms.DateTimePicker inspectionTime0;
         private System.Windows.Forms.Button shuffleBtn;
+        private System.Windows.Forms.CheckBox freeze;
     }
 }

@@ -23,6 +23,8 @@ namespace Cardiology.Data
 
         IDdtJournalService GetDdtJournalService();
 
+        IDdtJournalDayService GetDdtJournalDayService();
+
         IDdtCureService GetDdtCureService();
 
         IDdtConsiliumService GetDdtConsiliumService();

@@ -25,6 +25,8 @@ namespace Cardiology.UI.Controls
         private bool isReleaseJournal;
         private PulseTableCOntainer pulseSelector;
 
+        private JournalKAGControl() : this(null, false) { }
+
         public JournalKAGControl(string objId, bool isRelease)
         {
             this.objId = objId;
@@ -41,29 +43,32 @@ namespace Cardiology.UI.Controls
             CommonUtils.InitRangedItems(chddTxt, 14, 26);
 
 
-            DdtVariousSpecConcluson obj = DbDataService.GetInstance().GetDdtVariousSpecConclusonService().GetById(objId);
+            DdtJournal obj = DbDataService.GetInstance().GetDdtJournalService().GetById(objId);
             refreshObject(obj);
         }
 
         public void refreshObject(object obj)
         {
-            if (obj != null && obj is DdtVariousSpecConcluson)
+            if (obj != null && obj is DdtJournal)
             {
-                DdtVariousSpecConcluson journal = (DdtVariousSpecConcluson)obj;
+                DdtJournal journal = (DdtJournal)obj;
                 initDateTime(journal.AdmissionDate);
-                journalTxt.Text = journal.SpecialistConclusion;
-                chddTxt.Text = journal.AdditionalInfo1;
-                adTxt.Text = journal.AdditionalInfo3;
-                chssTxt.Text = journal.AdditionalInfo2;
-                goodRhytmBtn0.Checked = "синусовый ритм".Equals(journal.AdditionalInfo4, StringComparison.Ordinal);
-                badRhytmBtn0.Checked = !"синусовый ритм".Equals(journal.AdditionalInfo4, StringComparison.Ordinal);
-                monitorTxt0.Text = journal.AdditionalInfo4;
+                journalTxt.Text = journal.Journal;
+                chddTxt.Text = journal.Chdd;
+                adTxt.Text = journal.Ad;
+                chssTxt.Text = journal.Chss;
+                goodRhytmBtn0.Checked = "синусовый ритм".Equals(journal.Rhythm, StringComparison.Ordinal);
+                badRhytmBtn0.Checked = !"синусовый ритм".Equals(journal.Rhythm, StringComparison.Ordinal);
+                monitorTxt0.Text = journal.Monitor;
                 objId = journal.ObjectId;
+                freeze.Checked = journal.Freeze;
                 isNew = string.IsNullOrEmpty(objId);
                 hasChanges = false;
-                isReleaseJournal = journal.AdditionalBool;
-            } else
+                isReleaseJournal = journal.ReleaseJournal;
+            }
+            else
             {
+                initDateTime(DateTime.Now);
                 string journalText = string.Intern(JournalShuffleUtils.shuffleJournalText());
                 if (isReleaseJournal)
                 {
@@ -78,20 +83,19 @@ namespace Cardiology.UI.Controls
 
         public object getObject()
         {
-
-            DdtVariousSpecConcluson result = DbDataService.GetInstance().GetDdtVariousSpecConclusonService().GetById(objId);
+            DdtJournal result = DbDataService.GetInstance().GetDdtJournalService().GetById(objId);
             if (result == null)
             {
-                result = new DdtVariousSpecConcluson();
+                result = new DdtJournal();
             }
             result.ObjectId = objId;
             result.AdmissionDate = CommonUtils.ConstructDateWIthTime(inspectionDate0.Value, inspectionTime0.Value);
-            result.SpecialistConclusion = journalTxt.Text;
-            result.AdditionalInfo1 = chddTxt.Text;
-            result.AdditionalInfo2 = chssTxt.Text;
-            result.AdditionalInfo3 = adTxt.Text;
-            result.AdditionalInfo4 = monitorTxt0.Text;
-            result.AdditionalBool = isReleaseJournal;
+            result.Journal = journalTxt.Text;
+            result.Chdd = chddTxt.Text;
+            result.Chss = chssTxt.Text;
+            result.Ad = adTxt.Text;
+            result.Monitor = monitorTxt0.Text;
+            result.ReleaseJournal = isReleaseJournal;
             return result;
         }
 
@@ -130,13 +134,14 @@ namespace Cardiology.UI.Controls
 
         public void saveObject(DdtHospital hospitalitySession, string parentId, string parentType)
         {
-            DdtVariousSpecConcluson conclusion = (DdtVariousSpecConcluson)getObject();
-            conclusion.ParentType = parentType;
-            conclusion.Parent = parentId;
-            conclusion.SpecialistType = "Дежурный кардиореаниматолог";
-            conclusion.AdditionalBool = isReleaseJournal;
+            DdtJournal journal = (DdtJournal)getObject();
+            journal.JournalDayId = parentId;
+            journal.ReleaseJournal = isReleaseJournal;
+            journal.JournalDayId = parentId;
+            journal.Freeze = freeze.Checked;
+            journal.Doctor = hospitalitySession.DutyDoctor;
 
-            objId = DbDataService.GetInstance().GetDdtVariousSpecConclusonService().Save(conclusion);
+            objId = DbDataService.GetInstance().GetDdtJournalService().Save(journal);
             isNew = false;
             hasChanges = false;
         }
@@ -149,6 +154,11 @@ namespace Cardiology.UI.Controls
         public bool isVisible()
         {
             return true;
+        }
+
+        public bool isFreeze()
+        {
+            return freeze.Checked;
         }
 
         #region controls_behaviour

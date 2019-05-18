@@ -36,35 +36,33 @@ namespace Cardiology.UI.Forms
 
             afterKagDiagnosisTxt.Text = hospitalitySession.Diagnosis;
 
-
             CommonUtils.InitDoctorsComboboxValues(service, journalDocBox, "");
-            releaseJournalCtrl.initDateTime(CommonUtils.ConstructDateWIthTime(admissionDateTxt.Value, DateTime.Parse("8:05:00")));
+            CommonUtils.InitDoctorsByGroupComboboxValues(service, cardioVascularBox, "xray_department");
 
-            DdtPatient patient = service.GetDdvPatientService().GetById(hospitalitySession.Patient);
-            DdvPatient patientView = service.GetDdvPatientService().GetById(patient.ObjectId);
-            if (patient != null)
-            {
-                Text += " " + patientView.ShortName;
-            }
+            DdvPatient patientView = service.GetDdvPatientService().GetById(hospitalitySession.Patient);
+            Text += " " + patientView?.ShortName;
 
             if (!string.IsNullOrEmpty(journalId))
             {
-                DdtJournal journal = service.GetDdtJournalService().GetById(journalId);
-                if (journal != null)
+                DdtJournalDay journalDay = service.GetDdtJournalDayService().GetById(journalId);
+                if (journalDay != null)
                 {
-                    surgeryInspectationTxt.Text = journal.Journal;
-                    chssSurgeryTxt.Text = journal.Chss;
-                    chddSurgeryTxt.Text = journal.Chdd;
-                    adSurgeryTxt.Text = journal.Ad;
-                    admissionTimeTxt.Value = journal.AdmissionDate;
-                    admissionDateTxt.Value = journal.AdmissionDate;
-                    ekgTxt0.Text = journal.Ekg;
-                    afterKagDiagnosisTxt.Text = journal.Diagnosis;
+                    DdtVariousSpecConcluson cardioVascularConcls = service.GetDdtVariousSpecConclusonService().GetByParentId(journalId);
+                    surgeryInspectationTxt.Text = cardioVascularConcls?.SpecialistConclusion;
+                    chddSurgeryTxt.Text = cardioVascularConcls?.AdditionalInfo1;
+                    adSurgeryTxt.Text = cardioVascularConcls?.AdditionalInfo3;
+                    chssSurgeryTxt.Text = cardioVascularConcls?.AdditionalInfo2;
+                    cardioDate.Value = cardioVascularConcls == null ? DateTime.Now : cardioVascularConcls.AdmissionDate;
+                    cardioTime.Value = cardioVascularConcls == null ? DateTime.Now : cardioVascularConcls.AdmissionDate;
 
-                    DdvDoctor doctors = service.GetDdvDoctorService().GetById(journal.Doctor);
+                    admissionTimeTxt.Value = journalDay.AdmissionDate;
+                    admissionDateTxt.Value = journalDay.AdmissionDate;
+                    afterKagDiagnosisTxt.Text = journalDay.Diagnosis;
+
+                    DdvDoctor doctors = service.GetDdvDoctorService().GetById(journalDay.Doctor);
                     journalDocBox.SelectedIndex = journalDocBox.FindStringExact(doctors.ShortName);
 
-                    IList<DdtKag> kags = service.GetDdtKagService().GetByParentId(journal.ObjectId);
+                    IList<DdtKag> kags = service.GetDdtKagService().GetByParentId(journalDay.ObjectId);
                     DdtKag kag = kags.Count > 0 ? kags[0] : null;
                     if (kag != null)
                     {
@@ -106,12 +104,11 @@ namespace Cardiology.UI.Forms
             {
                 dt = dt.AddDays(1);
             }
-            releaseJournalCtrl.initDateTime(CommonUtils.ConstructDateWIthTime(dt, DateTime.Parse("8:05:00")));
         }
 
         private void initCardioConslusions(IDbDataService service)
         {
-            IList<DdtVariousSpecConcluson> cardioConclusions = service.GetDdtVariousSpecConclusonService().GetListByParentId(journalId);
+            IList<DdtJournal> cardioConclusions = service.GetDdtJournalService().GetByJournalDayId(journalId);
             for (int i = 0; i < cardioConclusions.Count; i++)
             {
                 if (dutyCardioContainer.Controls.Count <= i)
@@ -121,27 +118,47 @@ namespace Cardiology.UI.Forms
                     dutyCardioContainer.Controls.Add(control);
                 }
             }
-
-            DdtVariousSpecConcluson releaseConclusion = service.GetDdtVariousSpecConclusonService().GetByParentId(journalId);
-            if (releaseConclusion != null)
-            {
-                releaseJournalCtrl.refreshObject(releaseConclusion);
-            }
         }
 
         private void addCardioInspetions_Click(object sender, EventArgs e)
         {
-            JournalKAGControl control = new JournalKAGControl(null, false);
-            int indx = dutyCardioContainer.Controls.Count - 1;
+            int lastIndx = dutyCardioContainer.Controls.Count - 1;
             DateTime lastDate = DateTime.Now;
-            if (indx >= 0)
+            DateTime initDate = DateTime.Now;
+            int startRecalculateIndx = -1;
+            for (int i = lastIndx; i >= 0; i--)
             {
-                JournalKAGControl last = (JournalKAGControl)dutyCardioContainer.Controls[indx];
-                lastDate = last.getDateTime();
-                control.initRhytm(last.isGoodRhytm());
+                JournalKAGControl jj = (JournalKAGControl)dutyCardioContainer.Controls[i];
+                if (i == lastIndx)
+                {
+                    lastDate = jj.getDateTime();
+                }
+                if (jj.isFreeze() || i == 0)
+                {
+                    initDate = i == 0 ? jj.getDateTime() : DateTime.Now;
+                    startRecalculateIndx = i;
+                }
             }
+            DateTime nextDate = lastDate.AddHours(4);
+            DateTime finalTime = new DateTime(lastDate.Year, lastDate.Month, lastDate.Day, 8, 15, 0);
+            if (nextDate > finalTime && startRecalculateIndx >= 0)
+            {
+                long excess = finalTime.Hour * 60 + finalTime.Minute - initDate.Hour * 60 + initDate.Minute;
+                nextDate = finalTime;
+                for (int i = startRecalculateIndx + 1; i <= lastIndx; i++)
+                {
+                    JournalKAGControl jj = (JournalKAGControl)dutyCardioContainer.Controls[i];
+                    //weight 100% =240 minutes;
+                    double weight = 1;
+                    double seconds = excess / dutyCardioContainer.Controls.Count * weight * 240 / 100;
+                    DateTime recalculatedDt = jj.getDateTime().AddSeconds(-seconds);
+                    jj.initDateTime(recalculatedDt);
+                }
+            }
+
+            JournalKAGControl control = new JournalKAGControl(null, false);
             control.Anchor = AnchorStyles.Right;
-            control.initDateTime(lastDate.AddHours(4));
+            control.initDateTime(nextDate);
             dutyCardioContainer.Controls.Add(control);
         }
 
@@ -157,29 +174,38 @@ namespace Cardiology.UI.Forms
         {
             service.GetDdtHospitalService().Save(hospitalitySession);
 
-            DdtJournal journal = null;
+            DdtJournalDay journal = null;
             if (!string.IsNullOrEmpty(journalId))
             {
-                journal = service.GetDdtJournalService().GetById(journalId);
+                journal = service.GetDdtJournalDayService().GetById(journalId);
             }
             else
             {
-                journal = new DdtJournal();
+                journal = new DdtJournalDay();
                 journal.JournalType = 1;
                 journal.Doctor = hospitalitySession.CuringDoctor;
                 journal.HospitalitySession = hospitalitySession.ObjectId;
                 journal.Patient = hospitalitySession.Patient;
                 journal.JournalType = (int)DdtJournalDsiType.AfterKag;
-                journal.Complaints = "Жалоб на момент осмотра не предъявляет.";
+                journal.AdmissionDate = CommonUtils.ConstructDateWIthTime(admissionDateTxt.Value, admissionTimeTxt.Value);
+                journal.Diagnosis = afterKagDiagnosisTxt.Text;
+                journalId = service.GetDdtJournalDayService().Save(journal);
+
+
+                //journal.Complaints = "Жалоб на момент осмотра не предъявляет.";
             }
-            journal.Diagnosis = afterKagDiagnosisTxt.Text;
-            journal.Journal = surgeryInspectationTxt.Text;
-            journal.Chdd = chddSurgeryTxt.Text;
-            journal.Chss = chssSurgeryTxt.Text;
-            journal.Ad = adSurgeryTxt.Text;
-            journal.Ekg = ekgTxt0.Text;
-            journal.AdmissionDate = CommonUtils.ConstructDateWIthTime(admissionDateTxt.Value, admissionTimeTxt.Value);
-            journalId = service.GetDdtJournalService().Save(journal);
+            DdtVariousSpecConcluson cardioVascularConc = service.GetDdtVariousSpecConclusonService().GetByParentId(journalId);
+            if (cardioVascularConc == null)
+            {
+                cardioVascularConc = new DdtVariousSpecConcluson();
+                cardioVascularConc.Parent = journalId;
+            }
+            cardioVascularConc.AdmissionDate = CommonUtils.ConstructDateWIthTime(cardioDate.Value, cardioTime.Value);
+            cardioVascularConc.SpecialistConclusion = surgeryInspectationTxt.Text;
+            cardioVascularConc.AdditionalInfo1 = chddSurgeryTxt.Text;
+            cardioVascularConc.AdditionalInfo3 = adSurgeryTxt.Text;
+            cardioVascularConc.AdditionalInfo2 = chssSurgeryTxt.Text;
+            service.GetDdtVariousSpecConclusonService().Save(cardioVascularConc);
 
             if (!string.IsNullOrEmpty(kagDiagnosisTxt.Text))
             {
@@ -215,7 +241,6 @@ namespace Cardiology.UI.Forms
                 journalCtrl.saveObject(hospitalitySession, journalId, DdtJournal.NAME);
             }
 
-            releaseJournalCtrl.saveObject(hospitalitySession, journalId, DdtJournal.NAME);
             analysisTabControl1.save(journalId, DdtJournal.NAME);
             return true;
         }
@@ -224,7 +249,6 @@ namespace Cardiology.UI.Forms
         {
             if (Save())
             {
-
                 DdtJournal journal = service.GetDdtJournalService().GetById(journalId);
                 if (journal != null)
                 {

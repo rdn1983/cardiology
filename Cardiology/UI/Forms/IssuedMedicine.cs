@@ -63,11 +63,10 @@ namespace Cardiology.UI.Forms
 
             FlowLayoutPanel ll = new FlowLayoutPanel();
             ll.FlowDirection = FlowDirection.LeftToRight;
-            ll.Width = 700;
             ll.AutoSize = true;
 
             ComboBox cureTypeControl = new ComboBox();
-            cureTypeControl.Width = 250;
+            cureTypeControl.Width = 200;
             CommonUtils.InitCureTypeComboboxValues(DbDataService.GetInstance(), cureTypeControl);
             if (cure != null && cure.CureType != null)
             {

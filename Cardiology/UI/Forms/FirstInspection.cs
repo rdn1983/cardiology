@@ -143,7 +143,14 @@ namespace Cardiology.UI.Forms
             }
             cureControl.SelectedIndexChanged += delegate (object sender2, EventArgs args)
             {
-                med.Cure = ((DdtCure)cureControl.SelectedItem).ObjectId;
+                DdtCure ddtCure = (DdtCure)cureControl.SelectedItem;
+                if(ddtCure != null)
+                {
+                    med.Cure = ddtCure.ObjectId;
+                } else
+                {
+                    med.Cure = null;
+                }
             };
             ll.Controls.Add(cureControl);
 
@@ -416,7 +423,7 @@ namespace Cardiology.UI.Forms
 
         private void SaveIssuedMedicine(IDbDataService service)
         {
-DdtIssuedMedicineList medList = service.GetDdtIssuedMedicineListService().GetListByParentId(anamnesis.ObjectId);
+            DdtIssuedMedicineList medList = service.GetDdtIssuedMedicineListService().GetListByParentId(anamnesis.ObjectId);
             if (medList == null)
             {
                 medList = new DdtIssuedMedicineList();

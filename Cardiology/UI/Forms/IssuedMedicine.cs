@@ -106,7 +106,15 @@ namespace Cardiology.UI.Forms
             }
             cureControl.SelectedIndexChanged += delegate (object sender2, EventArgs args)
             {
-                med.Cure = ((DdtCure)cureControl.SelectedItem).ObjectId;
+                DdtCure ddtCure = (DdtCure)cureControl.SelectedItem;
+                if (ddtCure != null)
+                {
+                    med.Cure = ddtCure.ObjectId;
+                }
+                else
+                {
+                    med.Cure = null;
+                }
             };
             ll.Controls.Add(cureControl);
 

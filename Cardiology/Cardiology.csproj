@@ -335,12 +335,6 @@
     <Compile Include="UI\Controls\IssuedActionControl.Designer.cs">
       <DependentUpon>IssuedActionControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Controls\IssuedMedicineContainer.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UI\Controls\IssuedMedicineContainer.Designer.cs">
-      <DependentUpon>IssuedMedicineContainer.cs</DependentUpon>
-    </Compile>
     <Compile Include="UI\Controls\JournalKAGControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -467,12 +461,6 @@
     </Compile>
     <Compile Include="UI\Forms\Serology.Designer.cs">
       <DependentUpon>Serology.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Controls\IssuedMedicineControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UI\Controls\IssuedMedicineControl.Designer.cs">
-      <DependentUpon>IssuedMedicineControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Controls\UrineAnalysisControl.cs">
       <SubType>UserControl</SubType>
@@ -612,12 +600,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Controls\IssuedActionControl.resx">
       <DependentUpon>IssuedActionControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Controls\IssuedMedicineContainer.resx">
-      <DependentUpon>IssuedMedicineContainer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Controls\IssuedMedicineControl.resx">
-      <DependentUpon>IssuedMedicineControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Controls\JournalKAGControl.resx">
       <DependentUpon>JournalKAGControl.cs</DependentUpon>

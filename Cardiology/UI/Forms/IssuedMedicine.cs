@@ -17,6 +17,8 @@ namespace Cardiology.UI.Forms
         private string templateName;
         private bool isAcceptTemplate = false;
 
+        private readonly IList<DdtIssuedMedicine> medicineList = new List<DdtIssuedMedicine>();
+
         public IssuedMedicine(IDbDataService service, DdtHospital hospitalitySession, string issuedMedId)
         {
             this.service = service;
@@ -29,7 +31,7 @@ namespace Cardiology.UI.Forms
             ControlUtils.InitDoctorsByGroupName(service.GetDdvDoctorService(), cardioReanimBox, "cardioreanimation_department");
             ControlUtils.InitDoctorsByGroupNameAndOrder(service.GetDdvDoctorService(), directorBox, "cardioreanimation_department", "default.cardioreanimation_department_head");
 
-            initIssuedCure();
+            InitIssuedCure();
 
             DdvPatient patient = service.GetDdvPatientService().GetById(hospitalitySession.Patient);
             if (patient != null)
@@ -42,7 +44,7 @@ namespace Cardiology.UI.Forms
             }
         }
 
-        private void initIssuedCure()
+        private void InitIssuedCure()
         {
             DdtIssuedMedicineList medList = service.GetDdtIssuedMedicineListService().GetById(issuedMedId);
             InitDocBoxValue(clinicalPharmacologistBox, medList?.Pharmacologist);
@@ -52,7 +54,89 @@ namespace Cardiology.UI.Forms
             templateName = medList?.TemplateName;
             markTemplateBtn(templateName);
 
-            ReinitFromMedList(medList);
+            InitIssuedMedList(medList);
+        }
+
+        private void AddIssuedMedicine(DdtIssuedMedicine med, DdtCure cure)
+        {
+            medicineList.Add(med);
+
+            FlowLayoutPanel ll = new FlowLayoutPanel();
+            ll.FlowDirection = FlowDirection.LeftToRight;
+            ll.AutoSize = true;
+
+            ComboBox cureTypeControl = new ComboBox();
+            cureTypeControl.Width = 200;
+            CommonUtils.InitCureTypeComboboxValues(DbDataService.GetInstance(), cureTypeControl);
+            if (cure != null && cure.CureType != null)
+            {
+                for (int index = 0; index < cureTypeControl.Items.Count; index++)
+                {
+                    DdtCureType ct = (DdtCureType)cureTypeControl.Items[index];
+                    if (ct.ObjectId == cure.CureType)
+                    {
+                        cureTypeControl.SelectedIndex = index;
+                        break;
+                    }
+                }
+            }
+            ll.Controls.Add(cureTypeControl);
+
+            ComboBox cureControl = new ComboBox();
+            cureControl.Width = 350;
+
+            DdtCureType cureType = (DdtCureType)cureTypeControl.SelectedItem;
+            if (cureType != null)
+            {
+                CommonUtils.InitCureComboboxValuesByTypeId(DbDataService.GetInstance(), cureControl, cureType.ObjectId);
+            }
+
+            if (cure != null && cure.ObjectId != null)
+            {
+                for (int index = 0; index < cureControl.Items.Count; index++)
+                {
+                    DdtCure c = (DdtCure)cureControl.Items[index];
+                    if (c.ObjectId == cure.ObjectId)
+                    {
+                        cureControl.SelectedIndex = index;
+                        break;
+                    }
+                }
+            }
+            cureControl.SelectedIndexChanged += delegate (object sender2, EventArgs args)
+            {
+                DdtCure ddtCure = (DdtCure)cureControl.SelectedItem;
+                if (ddtCure != null)
+                {
+                    med.Cure = ddtCure.ObjectId;
+                }
+                else
+                {
+                    med.Cure = null;
+                }
+            };
+            ll.Controls.Add(cureControl);
+
+            cureTypeControl.SelectedIndexChanged += delegate (object sender2, EventArgs args)
+            {
+                DdtCureType selectedVal = (DdtCureType)cureTypeControl.SelectedItem;
+                CommonUtils.InitCureComboboxValuesByTypeId(DbDataService.GetInstance(), cureControl, selectedVal.ObjectId);
+            };
+
+            Button remove = new Button
+            {
+                Image = Properties.Resources.remove,
+                Size = new Size(25, 25),
+                UseVisualStyleBackColor = true
+            };
+            ll.Controls.Add(remove);
+
+            remove.Click += delegate (object sender2, EventArgs args)
+            {
+                medicineList.Remove(med);
+                layout.Controls.Remove(ll);
+            };
+            layout.Controls.Add(ll);
         }
 
         private void markTemplateBtn(string name)
@@ -154,63 +238,87 @@ namespace Cardiology.UI.Forms
 
             List<DdtCure> medicineTemplates = service.GetDdtCureService().GetByQuery(@"Select cure.* from ddt_values vv, ddt_cure cure 
                             where vv.dss_name like '" + template + "%' AND vv.dss_value=cure.dss_name");
-            issuedMedicineContainer.RefreshData(this.service, medicineTemplates);
-        }
-
-        private void clearMedicine()
-        {
-            for (int i = 0; i < medicineContainer.Controls.Count; i++)
+            foreach (DdtCure cure in medicineTemplates)
             {
-                ComboBox cb = (ComboBox)CommonUtils.FindControl(medicineContainer, "issuedMedicineTxt" + i);
-                cb.SelectedIndex = -1;
+                DdtIssuedMedicine med = new DdtIssuedMedicine
+                {
+                    Cure = cure.ObjectId
+                };
+                AddIssuedMedicine(med, cure);
             }
         }
 
-        private void saveIssuedMedicine()
+        private void SaveIssuedMedicine()
         {
-            List<DdtIssuedMedicine> meds = issuedMedicineContainer.getIssuedMedicines(service);
-            if (meds.Count > 0)
+            DdtIssuedMedicineList medList = service.GetDdtIssuedMedicineListService().GetById(issuedMedId);
+            if (medList == null)
             {
-                DdtIssuedMedicineList medList = service.GetDdtIssuedMedicineListService().GetById(issuedMedId);
-                if (medList == null)
+                medList = new DdtIssuedMedicineList();
+                medList.HospitalitySession = hospitalitySession.ObjectId;
+                medList.Patient = hospitalitySession.Patient;
+            }
+            DdvDoctor dir = (DdvDoctor)directorBox.SelectedItem;
+            medList.Director = dir?.ObjectId;
+
+            DdvDoctor pharm = (DdvDoctor)clinicalPharmacologistBox.SelectedItem;
+            medList.Pharmacologist = pharm?.ObjectId;
+
+            DdvDoctor nurse = (DdvDoctor)nurseBox.SelectedItem;
+            medList.Nurse = nurse?.ObjectId;
+
+            DdvDoctor doc = (DdvDoctor)cardioReanimBox.SelectedItem;
+            medList.Doctor = doc == null ? hospitalitySession.DutyDoctor : doc.ObjectId;
+
+            medList.Diagnosis = diagnosisTxt.Text;
+            medList.TemplateName = templateName;
+            medList.HasKag = shortlyOperationTxt.Text;
+            medList.IssuingDate = createDateTxt.Value;
+
+            service.GetDdtIssuedMedicineListService().Save(medList);
+
+            IList<DdtIssuedMedicine> list = service.GetDdtIssuedMedicineService().GetListByMedicineListId(medList.ObjectId);
+            //Добавляем текущий список
+            foreach (DdtIssuedMedicine med in medicineList)
+            {
+                if (med.Cure != null)
                 {
-                    medList = new DdtIssuedMedicineList();
-                    medList.HospitalitySession = hospitalitySession.ObjectId;
-                    medList.Patient = hospitalitySession.Patient;
-                }
-                DdvDoctor dir = (DdvDoctor)directorBox.SelectedItem;
-                medList.Director = dir?.ObjectId;
-
-                DdvDoctor pharm = (DdvDoctor)clinicalPharmacologistBox.SelectedItem;
-                medList.Pharmacologist = pharm?.ObjectId;
-
-                DdvDoctor nurse = (DdvDoctor)nurseBox.SelectedItem;
-                medList.Nurse = nurse?.ObjectId;
-
-                DdvDoctor doc = (DdvDoctor)cardioReanimBox.SelectedItem;
-                medList.Doctor = doc == null ? hospitalitySession.DutyDoctor : doc.ObjectId;
-
-                medList.Diagnosis = diagnosisTxt.Text;
-                medList.TemplateName = templateName;
-                medList.HasKag = shortlyOperationTxt.Text;
-                medList.IssuingDate = createDateTxt.Value;
-
-                issuedMedId = service.GetDdtIssuedMedicineListService().Save(medList);
-                foreach (DdtIssuedMedicine med in meds)
-                {
-                    med.MedList = issuedMedId;
+                    med.MedList = medList.ObjectId;
                     service.GetDdtIssuedMedicineService().Save(med);
                 }
             }
+
+            //Удаляем то, что было в списке, а сейчас нет
+            foreach (DdtIssuedMedicine old in list)
+            {
+                bool found = false;
+                foreach (DdtIssuedMedicine med in medicineList)
+                {
+                    if (old.ObjectId == med.ObjectId)
+                    {
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found)
+                {
+                    service.GetDdtIssuedMedicineService().Delete(old.ObjectId);
+                }
+            }
         }
 
-        private void ReinitFromMedList(DdtIssuedMedicineList medList)
+        private void InitIssuedMedList(DdtIssuedMedicineList medList)
         {
             if (medList != null)
             {
                 diagnosisTxt.Text = medList.Diagnosis;
                 shortlyOperationTxt.Text = medList.HasKag;
-                issuedMedicineContainer.Init(medList);
+
+                IList<DdtIssuedMedicine> list = DbDataService.GetInstance().GetDdtIssuedMedicineService().GetListByMedicineListId(medList.ObjectId);
+                foreach (DdtIssuedMedicine med in list)
+                {
+                    DdtCure cure = DbDataService.GetInstance().GetDdtCureService().GetById(med.Cure);
+                    AddIssuedMedicine(med, cure);
+                }
             }
             else
             {
@@ -281,8 +389,8 @@ namespace Cardiology.UI.Forms
         }
 
         private void addCureBtn_Click(object sender, EventArgs e)
-        {
-            issuedMedicineContainer.addMedicineBox(service);
+        {            
+            AddIssuedMedicine(new DdtIssuedMedicine(), null);
         }
 
         private void oksTemplateMed_Click(object sender, EventArgs e)
@@ -347,12 +455,13 @@ namespace Cardiology.UI.Forms
 
         private void clearMedBtn_Click(object sender, EventArgs e)
         {
-            issuedMedicineContainer.clearMedicine();
+            medicineList.Clear();
+            layout.Controls.Clear();
         }
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
-            saveIssuedMedicine();
+            SaveIssuedMedicine();
             Close();
         }
 
@@ -362,7 +471,14 @@ namespace Cardiology.UI.Forms
             if (medList != null)
             {
                 IList<DdtCure> cures = service.GetDdtCureService().GetListByMedicineListId(medList.ObjectId);
-                issuedMedicineContainer.RefreshData(service, cures);
+                foreach(DdtCure cure in cures)
+                {
+                    DdtIssuedMedicine med = new DdtIssuedMedicine
+                    {
+                        Cure = cure.ObjectId
+                    };
+                    AddIssuedMedicine(med, cure);
+                }
             }
         }
 
@@ -373,7 +489,14 @@ namespace Cardiology.UI.Forms
             if (!string.IsNullOrEmpty(medListId))
             {
                 IList<DdtCure> cures = service.GetDdtCureService().GetListByMedicineListId(medListId);
-                issuedMedicineContainer.RefreshData(service, cures);
+                foreach (DdtCure cure in cures)
+                {
+                    DdtIssuedMedicine med = new DdtIssuedMedicine
+                    {
+                        Cure = cure.ObjectId
+                    };
+                    AddIssuedMedicine(med, cure);
+                }
             }
         }
 
@@ -386,13 +509,20 @@ namespace Cardiology.UI.Forms
             {
                 List<DdtCure> cures = service.GetDdtCureService().GetByQuery(@"SELECT cures.* FROM " + DdtCure.NAME + " cures, " + DdtIssuedMedicine.NAME +
                     " meds WHERE meds.dsid_med_list='" + medListId + "' AND meds.dsid_cure=cures.r_object_id");
-                issuedMedicineContainer.RefreshData(service, cures);
+                foreach (DdtCure cure in cures)
+                {
+                    DdtIssuedMedicine med = new DdtIssuedMedicine
+                    {
+                        Cure = cure.ObjectId
+                    };
+                    AddIssuedMedicine(med, cure);
+                }
             }
         }
 
         private void printBtn_Click(object sender, EventArgs e)
         {
-            saveIssuedMedicine();
+            SaveIssuedMedicine();
 
             Dictionary<string, string> values = new Dictionary<string, string>();
             DdtIssuedMedicineList medList = service.GetDdtIssuedMedicineListService().GetById(issuedMedId);
@@ -427,14 +557,13 @@ namespace Cardiology.UI.Forms
             values.Add(@"{cell}", "");
             values.Add(@"{diet}", "НКД");
             values.Add(@"{date}", DateTime.Now.ToShortDateString());
-            //todo переписать,к огда будет время. Сделать добавление в таблицу строчек автоматом
-            List<DdtIssuedMedicine> med = issuedMedicineContainer.getIssuedMedicines(service);
+            //todo переписать,когда будет время. Сделать добавление в таблицу строчек автоматом
             for (int i = 0; i < 19; i++)
             {
                 string value = "";
-                if (i < med.Count)
+                if (i < medicineList.Count)
                 {
-                    DdtCure cure = service.GetDdtCureService().GetById(med[i].Cure);
+                    DdtCure cure = service.GetDdtCureService().GetById(medicineList[i].Cure);
                     value = cure.Name;
                 }
                 values.Add(@"{issued_medicine_" + i + "}", value);

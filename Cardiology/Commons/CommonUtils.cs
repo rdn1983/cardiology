@@ -34,6 +34,7 @@ namespace Cardiology.Commons
 
         internal static void InitCureComboboxValuesByTypeId(IDbDataService service, ComboBox cb, string cureTypeId)
         {
+            cb.SelectedIndex = -1;
             cb.Items.Clear();
             IList<DdtCure> cureList = service.GetDdtCureService().GetListByCureTypeId(cureTypeId);
             cb.Items.AddRange(cureList.ToArray());

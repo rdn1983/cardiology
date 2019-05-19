@@ -34,19 +34,22 @@
             // 
             // removeBtn
             // 
+            this.removeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.removeBtn.Image = global::Cardiology.Properties.Resources.remove;
-            this.removeBtn.Location = new System.Drawing.Point(343, 3);
+            this.removeBtn.Location = new System.Drawing.Point(182, 3);
             this.removeBtn.Name = "removeBtn";
-            this.removeBtn.Size = new System.Drawing.Size(28, 44);
+            this.removeBtn.Size = new System.Drawing.Size(45, 44);
             this.removeBtn.TabIndex = 1;
             this.removeBtn.UseVisualStyleBackColor = true;
             this.removeBtn.Click += new System.EventHandler(this.removeBtn_Click);
             // 
             // issuedActionTxt
             // 
+            this.issuedActionTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.issuedActionTxt.Location = new System.Drawing.Point(3, 3);
             this.issuedActionTxt.Name = "issuedActionTxt";
-            this.issuedActionTxt.Size = new System.Drawing.Size(338, 44);
+            this.issuedActionTxt.Size = new System.Drawing.Size(178, 44);
             this.issuedActionTxt.TabIndex = 2;
             this.issuedActionTxt.Text = "";
             // 
@@ -54,10 +57,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.Controls.Add(this.issuedActionTxt);
             this.Controls.Add(this.removeBtn);
             this.Name = "IssuedActionControl";
-            this.Size = new System.Drawing.Size(373, 53);
+            this.Size = new System.Drawing.Size(230, 49);
             this.ResumeLayout(false);
 
         }

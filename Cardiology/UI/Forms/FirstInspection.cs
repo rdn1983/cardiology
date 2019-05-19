@@ -5,6 +5,7 @@ using Cardiology.UI.Controls;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Globalization;
 using System.Text;
 using System.Windows.Forms;
 using DdtValues = Cardiology.Data.Model2.DdtValues;
@@ -47,6 +48,8 @@ namespace Cardiology.UI.Forms
         private string templateName;
         private static AnalysisSelector selector;
 
+        private readonly IList<DdtIssuedMedicine> medicineList = new List<DdtIssuedMedicine>();
+
         public FirstInspection(IDbDataService service, DdtHospital hospitalitySession)
         {
             this.service = service;
@@ -60,7 +63,7 @@ namespace Cardiology.UI.Forms
             InitDiagnosis();
 
             InitializeAnamnesis(anamnesis);
-            initIssuedMedicine();
+            InitIssuedMedicine();
             initIssuedActions(anamnesis);
             InitDoctorComboBox();
             initAlco();
@@ -80,10 +83,97 @@ namespace Cardiology.UI.Forms
                     if (patient.Sd)
                     {
                         IList<DdtCure> medicineTemplates = service.GetDdtCureService().GetListByTemplate("sd");
-                        issuedMedicineContainer.RefreshData(service, medicineTemplates);
+                        foreach(DdtCure cure in medicineTemplates) {
+                            DdtIssuedMedicine med = new DdtIssuedMedicine();
+                            med.Cure = cure.ObjectId;
+
+                            AddIssuedMedicine(med, cure);
+                        }
                     }
                 }
             }
+        }
+
+        private void AddIssuedMedicine(DdtIssuedMedicine med, DdtCure cure)
+        {
+            medicineList.Add(med);           
+
+            FlowLayoutPanel ll = new FlowLayoutPanel();
+            ll.FlowDirection = FlowDirection.LeftToRight;
+            ll.Width = 700;
+            ll.AutoSize = true;
+
+            ComboBox cureTypeControl = new ComboBox(); 
+            cureTypeControl.Width = 250;
+            CommonUtils.InitCureTypeComboboxValues(DbDataService.GetInstance(), cureTypeControl);
+            if(cure != null && cure.CureType != null)
+            {
+                for (int index = 0; index < cureTypeControl.Items.Count; index++)
+                {
+                    DdtCureType ct = (DdtCureType) cureTypeControl.Items[index];
+                    if(ct.ObjectId == cure.CureType)
+                    {
+                        cureTypeControl.SelectedIndex = index;
+                        break;
+                    }
+                }
+            }
+            ll.Controls.Add(cureTypeControl);
+
+            ComboBox cureControl = new ComboBox();
+            cureControl.Width = 350;
+
+            DdtCureType cureType = (DdtCureType)cureTypeControl.SelectedItem;
+            if(cureType != null)
+            {
+                CommonUtils.InitCureComboboxValuesByTypeId(DbDataService.GetInstance(), cureControl, cureType.ObjectId);
+            }
+
+            if (cure != null && cure.ObjectId != null)
+            {
+                for (int index = 0; index < cureControl.Items.Count; index++)
+                {
+                    DdtCure c = (DdtCure)cureControl.Items[index];
+                    if (c.ObjectId == cure.ObjectId)
+                    {
+                        cureControl.SelectedIndex = index;
+                        break;
+                    }
+                }
+            }
+            cureControl.SelectedIndexChanged += delegate (object sender2, EventArgs args)
+            {
+                DdtCure ddtCure = (DdtCure)cureControl.SelectedItem;
+                if(ddtCure != null)
+                {
+                    med.Cure = ddtCure.ObjectId;
+                } else
+                {
+                    med.Cure = null;
+                }
+            };
+            ll.Controls.Add(cureControl);
+
+            cureTypeControl.SelectedIndexChanged += delegate (object sender2, EventArgs args)
+            {
+                DdtCureType selectedVal = (DdtCureType)cureTypeControl.SelectedItem;
+                CommonUtils.InitCureComboboxValuesByTypeId(DbDataService.GetInstance(), cureControl, selectedVal.ObjectId);
+            };
+
+            Button remove = new Button
+            {
+                Image = Properties.Resources.remove,
+                Size = new Size(25, 25),
+                UseVisualStyleBackColor = true
+            };
+            ll.Controls.Add(remove);
+
+            remove.Click += delegate (object sender2, EventArgs args)
+            {
+                medicineList.Remove(med);
+                layout.Controls.Remove(ll);
+            };
+            layout.Controls.Add(ll);
         }
 
         private void InitDoctorComboBox()
@@ -141,7 +231,7 @@ namespace Cardiology.UI.Forms
 
         private void initAlco()
         {
-            String sql = String.Format("SELECT r_object_id FROM ddt_alco_protocol WHERE dsid_hospitality_session = '{0}'", anamnesis?.HospitalitySession);
+            String sql = String.Format(CultureInfo.CurrentCulture, "SELECT r_object_id FROM ddt_alco_protocol WHERE dsid_hospitality_session = '{0}'", anamnesis?.HospitalitySession);
             string alcoProtocolId = service.GetString(sql);
             if (alcoProtocolId != null)
             {
@@ -151,13 +241,18 @@ namespace Cardiology.UI.Forms
             UpdateAlcoProtocolVisibility();
         }
 
-        private void initIssuedMedicine()
+        private void InitIssuedMedicine()
         {
             DdtIssuedMedicineList medList =
                 service.GetDdtIssuedMedicineListService().GetListByParentId(anamnesis?.ObjectId);
             if (medList != null)
             {
-                issuedMedicineContainer.Init(medList);
+                IList<DdtIssuedMedicine> list = DbDataService.GetInstance().GetDdtIssuedMedicineService().GetListByMedicineListId(medList.ObjectId);
+                foreach(DdtIssuedMedicine med in list)
+                {
+                    DdtCure cure = DbDataService.GetInstance().GetDdtCureService().GetById(med.Cure);
+                    AddIssuedMedicine(med, cure);
+                }
                 templateName = medList.TemplateName;
             }
         }
@@ -282,7 +377,7 @@ namespace Cardiology.UI.Forms
 
 
             saveAnamnesis(service);
-            saveIssuedMedicine(service);
+            SaveIssuedMedicine(service);
             saveIssuedAction(service);
 
             analysisTabControl1.save(anamnesis?.ObjectId, DdtAnamnesis.NAME);
@@ -326,41 +421,49 @@ namespace Cardiology.UI.Forms
             anamnesis.ObjectId = id;
         }
 
-        private void saveIssuedMedicine(IDbDataService service)
+        private void SaveIssuedMedicine(IDbDataService service)
         {
-            List<DdtIssuedMedicine> meds = issuedMedicineContainer.getIssuedMedicines(service);
-            List<DdtIssuedMedicine> meds2 = new List<DdtIssuedMedicine>();
-            foreach (DdtIssuedMedicine med in meds)
+            DdtIssuedMedicineList medList = service.GetDdtIssuedMedicineListService().GetListByParentId(anamnesis.ObjectId);
+            if (medList == null)
             {
-                if (med.Cure != null)
-                {
-                    meds2.Add(med);
-                }
+                medList = new DdtIssuedMedicineList();
+                medList.Doctor = hospitalSession.DutyDoctor;
+                medList.HospitalitySession = hospitalSession.ObjectId;
+                medList.Patient = hospitalSession.Patient;
+                medList.ParentType = "ddt_anamnesis";
+                medList.ParentId = anamnesis.ObjectId;
+                medList.IssuingDate = DateTime.Now;
             }
-
-            if (meds2.Count > 0)
+            medList.TemplateName = templateName;
+            service.GetDdtIssuedMedicineListService().Save(medList);
+            IList<DdtIssuedMedicine> list = service.GetDdtIssuedMedicineService().GetListByMedicineListId(medList.ObjectId);
+            //Добавляем текущий список
+            foreach(DdtIssuedMedicine med in medicineList)
             {
-                DdtIssuedMedicineList medList = service.GetDdtIssuedMedicineListService().GetListByParentId(anamnesis.ObjectId);
-                if (medList == null)
+                if(med.Cure != null)
                 {
-                    medList = new DdtIssuedMedicineList();
-                    medList.Doctor = hospitalSession.DutyDoctor;
-                    medList.HospitalitySession = hospitalSession.ObjectId;
-                    medList.Patient = hospitalSession.Patient;
-                    medList.ParentType = "ddt_anamnesis";
-                    medList.ParentId = anamnesis.ObjectId;
-                    medList.IssuingDate = DateTime.Now;
-                }
-                medList.TemplateName = templateName;
-                string id = service.GetDdtIssuedMedicineListService().Save(medList);
-                medList.ObjectId = id;
-                foreach (DdtIssuedMedicine med in meds2)
-                {
-                    med.MedList = id;
+                    med.MedList = medList.ObjectId;
                     service.GetDdtIssuedMedicineService().Save(med);
-                }
+                }                
             }
 
+            //Удаляем то, что было в списке, а сейчас нет
+            foreach(DdtIssuedMedicine old in list)
+            {
+                bool found = false;
+                foreach(DdtIssuedMedicine med in medicineList)
+                {
+                    if(old.ObjectId == med.ObjectId)
+                    {
+                        found = true;
+                        break;
+                    }
+                }
+                if(!found)
+                {
+                    service.GetDdtIssuedMedicineService().Delete(old.ObjectId);
+                }
+            }
         }
 
         private void saveIssuedAction(IDbDataService service)
@@ -431,7 +534,7 @@ namespace Cardiology.UI.Forms
             aorticDissectionBtn.BackColor = Color.Empty;
         }
 
-        private void updatemedicineFromTemplate(string template)
+        private void UpdateIssuedMedicineListFromTemplate(string template)
         {
             IList<DdtCure> medicineTemplates = service.GetDdtCureService().GetListByTemplate(template);
             if (patient != null && patient.Sd)
@@ -450,17 +553,14 @@ namespace Cardiology.UI.Forms
                     }
                 }
             }
-            clearOldMedList(service);
-            issuedMedicineContainer.RefreshData(service, medicineTemplates);
-        }
 
-        private void clearOldMedList(IDbDataService service)
-        {
-            DdtIssuedMedicineList medList = service.GetDdtIssuedMedicineListService().GetListByHospitalId(hospitalSession.ObjectId);
-            if (medList != null)
+            medicineList.Clear();
+            foreach (DdtCure cure in medicineTemplates)
             {
-                service.Delete(DdtIssuedMedicine.NAME, medList.ObjectId);
-            }
+                DdtIssuedMedicine med = new DdtIssuedMedicine();
+                med.Cure = cure.ObjectId;
+                AddIssuedMedicine(med, cure);
+            }            
         }
 
         private string getDefaultValueForType(string controlName, string baseType)
@@ -520,7 +620,7 @@ namespace Cardiology.UI.Forms
                 InitializeAnamnesis(template);
                 initIssuedActions(template);
                 templateName = "oks.medicine.";
-                updatemedicineFromTemplate(templateName);
+                UpdateIssuedMedicineListFromTemplate(templateName);
                 OKSUpBtn.BackColor = Color.LightSkyBlue;
             }
         }
@@ -536,7 +636,7 @@ namespace Cardiology.UI.Forms
                 InitializeAnamnesis(template);
                 initIssuedActions(template);
                 templateName = "okslongs.medicine.";
-                updatemedicineFromTemplate(templateName);
+                UpdateIssuedMedicineListFromTemplate(templateName);
                 OKSDownBtn.BackColor = Color.LightSkyBlue;
             }
         }
@@ -552,7 +652,7 @@ namespace Cardiology.UI.Forms
                 InitializeAnamnesis(template);
                 initIssuedActions(template);
                 templateName = "kag.medicine.";
-                updatemedicineFromTemplate(templateName);
+                UpdateIssuedMedicineListFromTemplate(templateName);
                 KAGBtn.BackColor = Color.LightSkyBlue;
             }
         }
@@ -568,7 +668,7 @@ namespace Cardiology.UI.Forms
                 InitializeAnamnesis(template);
                 initIssuedActions(template);
                 templateName = "aorta.medicine.";
-                updatemedicineFromTemplate(templateName);
+                UpdateIssuedMedicineListFromTemplate(templateName);
                 aorticDissectionBtn.BackColor = Color.LightSkyBlue;
             }
         }
@@ -584,7 +684,7 @@ namespace Cardiology.UI.Forms
                 InitializeAnamnesis(template);
                 initIssuedActions(template);
                 templateName = "gb.medicine.";
-                updatemedicineFromTemplate(templateName);
+                UpdateIssuedMedicineListFromTemplate(templateName);
                 GBBtn.BackColor = Color.LightSkyBlue;
             }
         }
@@ -600,7 +700,7 @@ namespace Cardiology.UI.Forms
                 InitializeAnamnesis(template);
                 initIssuedActions(template);
                 templateName = "nk.medicine.";
-                updatemedicineFromTemplate(templateName);
+                UpdateIssuedMedicineListFromTemplate(templateName);
                 PIKSBtn.BackColor = Color.LightSkyBlue;
             }
         }
@@ -616,7 +716,7 @@ namespace Cardiology.UI.Forms
                 InitializeAnamnesis(template);
                 initIssuedActions(template);
                 templateName = "hobl.medicine.";
-                updatemedicineFromTemplate(templateName);
+                UpdateIssuedMedicineListFromTemplate(templateName);
                 PIKVIKBtn.BackColor = Color.LightSkyBlue;
 
             }
@@ -633,7 +733,7 @@ namespace Cardiology.UI.Forms
                 InitializeAnamnesis(template);
                 initIssuedActions(template);
                 templateName = "dep.medicine.";
-                updatemedicineFromTemplate(templateName);
+                UpdateIssuedMedicineListFromTemplate(templateName);
                 DEPBtn.BackColor = Color.LightSkyBlue;
             }
         }
@@ -649,7 +749,7 @@ namespace Cardiology.UI.Forms
                 InitializeAnamnesis(template);
                 initIssuedActions(template);
                 templateName = "death.medicine.";
-                updatemedicineFromTemplate(templateName);
+                UpdateIssuedMedicineListFromTemplate(templateName);
                 deathBtn.BackColor = Color.LightSkyBlue;
             }
         }
@@ -807,7 +907,8 @@ namespace Cardiology.UI.Forms
 
         private void AddIssuedMedicine_Click(object sender, EventArgs e)
         {
-            issuedMedicineContainer.addMedicineBox(service);
+            DdtIssuedMedicine med = new DdtIssuedMedicine();
+            AddIssuedMedicine(med, null);
         }
 
         private void alcoholProtocolBtn_Click(object sender, EventArgs e)
@@ -863,7 +964,7 @@ namespace Cardiology.UI.Forms
                {
                    if (value != null)
                    {
-                       updatemedicineFromTemplate((string)value);
+                       UpdateIssuedMedicineListFromTemplate((string)value);
                    }
                });
 

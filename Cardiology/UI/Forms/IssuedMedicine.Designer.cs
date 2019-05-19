@@ -68,7 +68,6 @@ namespace Cardiology.UI.Forms
             this.clinicalPharmacologistBox = new System.Windows.Forms.ComboBox();
             this.issuedMedicinePnl = new System.Windows.Forms.GroupBox();
             this.medContainer = new System.Windows.Forms.Panel();
-            this.issuedMedicineContainer = new Cardiology.UI.Controls.IssuedMedicineContainer();
             this.medicineContainer = new System.Windows.Forms.TableLayoutPanel();
             this.addCureBtn = new System.Windows.Forms.Button();
             this.saveBtn = new System.Windows.Forms.Button();
@@ -79,6 +78,7 @@ namespace Cardiology.UI.Forms
             this.directorBox = new System.Windows.Forms.ComboBox();
             this.cardioReanimPnl = new System.Windows.Forms.GroupBox();
             this.cardioReanimBox = new System.Windows.Forms.ComboBox();
+            this.layout = new System.Windows.Forms.FlowLayoutPanel();
             this.shortlyDiagnosisPnl.SuspendLayout();
             this.shortlyOperationPnl.SuspendLayout();
             this.insertIssuedMedPnl.SuspendLayout();
@@ -106,9 +106,11 @@ namespace Cardiology.UI.Forms
             this.shortlyDiagnosisPnl.Controls.Add(this.piksBtn);
             this.shortlyDiagnosisPnl.Controls.Add(this.oksBtn);
             this.shortlyDiagnosisPnl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.shortlyDiagnosisPnl.Location = new System.Drawing.Point(12, 12);
+            this.shortlyDiagnosisPnl.Location = new System.Drawing.Point(16, 15);
+            this.shortlyDiagnosisPnl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.shortlyDiagnosisPnl.Name = "shortlyDiagnosisPnl";
-            this.shortlyDiagnosisPnl.Size = new System.Drawing.Size(261, 116);
+            this.shortlyDiagnosisPnl.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.shortlyDiagnosisPnl.Size = new System.Drawing.Size(348, 143);
             this.shortlyDiagnosisPnl.TabIndex = 0;
             this.shortlyDiagnosisPnl.TabStop = false;
             this.shortlyDiagnosisPnl.Text = "Сокращенный диагноз для листа назначений";
@@ -118,9 +120,10 @@ namespace Cardiology.UI.Forms
             this.sdBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.sdBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.sdBtn.Location = new System.Drawing.Point(198, 86);
+            this.sdBtn.Location = new System.Drawing.Point(264, 106);
+            this.sdBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.sdBtn.Name = "sdBtn";
-            this.sdBtn.Size = new System.Drawing.Size(57, 23);
+            this.sdBtn.Size = new System.Drawing.Size(76, 28);
             this.sdBtn.TabIndex = 10;
             this.sdBtn.Text = "СД";
             this.sdBtn.UseVisualStyleBackColor = true;
@@ -132,9 +135,10 @@ namespace Cardiology.UI.Forms
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.diagnosisTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.diagnosisTxt.Location = new System.Drawing.Point(5, 37);
+            this.diagnosisTxt.Location = new System.Drawing.Point(7, 46);
+            this.diagnosisTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.diagnosisTxt.Name = "diagnosisTxt";
-            this.diagnosisTxt.Size = new System.Drawing.Size(249, 21);
+            this.diagnosisTxt.Size = new System.Drawing.Size(331, 25);
             this.diagnosisTxt.TabIndex = 0;
             this.diagnosisTxt.Text = "";
             // 
@@ -143,9 +147,10 @@ namespace Cardiology.UI.Forms
             this.anemiaBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.anemiaBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.anemiaBtn.Location = new System.Drawing.Point(134, 86);
+            this.anemiaBtn.Location = new System.Drawing.Point(179, 106);
+            this.anemiaBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.anemiaBtn.Name = "anemiaBtn";
-            this.anemiaBtn.Size = new System.Drawing.Size(65, 23);
+            this.anemiaBtn.Size = new System.Drawing.Size(87, 28);
             this.anemiaBtn.TabIndex = 9;
             this.anemiaBtn.Text = "Анемия";
             this.anemiaBtn.UseVisualStyleBackColor = true;
@@ -156,9 +161,10 @@ namespace Cardiology.UI.Forms
             this.telaBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.telaBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.telaBtn.Location = new System.Drawing.Point(90, 86);
+            this.telaBtn.Location = new System.Drawing.Point(120, 106);
+            this.telaBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.telaBtn.Name = "telaBtn";
-            this.telaBtn.Size = new System.Drawing.Size(45, 23);
+            this.telaBtn.Size = new System.Drawing.Size(60, 28);
             this.telaBtn.TabIndex = 8;
             this.telaBtn.Text = "ТЭЛА";
             this.telaBtn.UseVisualStyleBackColor = true;
@@ -169,9 +175,10 @@ namespace Cardiology.UI.Forms
             this.pmaBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pmaBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.pmaBtn.Location = new System.Drawing.Point(46, 86);
+            this.pmaBtn.Location = new System.Drawing.Point(61, 106);
+            this.pmaBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pmaBtn.Name = "pmaBtn";
-            this.pmaBtn.Size = new System.Drawing.Size(45, 23);
+            this.pmaBtn.Size = new System.Drawing.Size(60, 28);
             this.pmaBtn.TabIndex = 7;
             this.pmaBtn.Text = "ПМА";
             this.pmaBtn.UseVisualStyleBackColor = true;
@@ -182,9 +189,10 @@ namespace Cardiology.UI.Forms
             this.depBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.depBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.depBtn.Location = new System.Drawing.Point(2, 86);
+            this.depBtn.Location = new System.Drawing.Point(3, 106);
+            this.depBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.depBtn.Name = "depBtn";
-            this.depBtn.Size = new System.Drawing.Size(45, 23);
+            this.depBtn.Size = new System.Drawing.Size(60, 28);
             this.depBtn.TabIndex = 6;
             this.depBtn.Text = "ДЭП";
             this.depBtn.UseVisualStyleBackColor = true;
@@ -195,9 +203,10 @@ namespace Cardiology.UI.Forms
             this.edemaPulmonaryBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.edemaPulmonaryBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.edemaPulmonaryBtn.Location = new System.Drawing.Point(178, 64);
+            this.edemaPulmonaryBtn.Location = new System.Drawing.Point(237, 79);
+            this.edemaPulmonaryBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.edemaPulmonaryBtn.Name = "edemaPulmonaryBtn";
-            this.edemaPulmonaryBtn.Size = new System.Drawing.Size(77, 23);
+            this.edemaPulmonaryBtn.Size = new System.Drawing.Size(103, 28);
             this.edemaPulmonaryBtn.TabIndex = 5;
             this.edemaPulmonaryBtn.Text = "Отек легких";
             this.edemaPulmonaryBtn.UseVisualStyleBackColor = true;
@@ -208,9 +217,10 @@ namespace Cardiology.UI.Forms
             this.nkBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.nkBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.nkBtn.Location = new System.Drawing.Point(134, 64);
+            this.nkBtn.Location = new System.Drawing.Point(179, 79);
+            this.nkBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.nkBtn.Name = "nkBtn";
-            this.nkBtn.Size = new System.Drawing.Size(45, 23);
+            this.nkBtn.Size = new System.Drawing.Size(60, 28);
             this.nkBtn.TabIndex = 4;
             this.nkBtn.Text = "НК";
             this.nkBtn.UseVisualStyleBackColor = true;
@@ -221,9 +231,10 @@ namespace Cardiology.UI.Forms
             this.gbBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gbBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.gbBtn.Location = new System.Drawing.Point(90, 64);
+            this.gbBtn.Location = new System.Drawing.Point(120, 79);
+            this.gbBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gbBtn.Name = "gbBtn";
-            this.gbBtn.Size = new System.Drawing.Size(45, 23);
+            this.gbBtn.Size = new System.Drawing.Size(60, 28);
             this.gbBtn.TabIndex = 3;
             this.gbBtn.Text = "ГБ";
             this.gbBtn.UseVisualStyleBackColor = true;
@@ -234,9 +245,10 @@ namespace Cardiology.UI.Forms
             this.piksBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.piksBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.piksBtn.Location = new System.Drawing.Point(46, 64);
+            this.piksBtn.Location = new System.Drawing.Point(61, 79);
+            this.piksBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.piksBtn.Name = "piksBtn";
-            this.piksBtn.Size = new System.Drawing.Size(45, 23);
+            this.piksBtn.Size = new System.Drawing.Size(60, 28);
             this.piksBtn.TabIndex = 2;
             this.piksBtn.Text = "ПИКС";
             this.piksBtn.UseVisualStyleBackColor = true;
@@ -247,9 +259,10 @@ namespace Cardiology.UI.Forms
             this.oksBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.oksBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.oksBtn.Location = new System.Drawing.Point(2, 64);
+            this.oksBtn.Location = new System.Drawing.Point(3, 79);
+            this.oksBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.oksBtn.Name = "oksBtn";
-            this.oksBtn.Size = new System.Drawing.Size(45, 23);
+            this.oksBtn.Size = new System.Drawing.Size(60, 28);
             this.oksBtn.TabIndex = 1;
             this.oksBtn.Text = "ОКС";
             this.oksBtn.UseVisualStyleBackColor = true;
@@ -261,9 +274,11 @@ namespace Cardiology.UI.Forms
             this.shortlyOperationPnl.Controls.Add(this.kagBtn);
             this.shortlyOperationPnl.Controls.Add(this.shortlyOperationTxt);
             this.shortlyOperationPnl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.shortlyOperationPnl.Location = new System.Drawing.Point(12, 134);
+            this.shortlyOperationPnl.Location = new System.Drawing.Point(16, 165);
+            this.shortlyOperationPnl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.shortlyOperationPnl.Name = "shortlyOperationPnl";
-            this.shortlyOperationPnl.Size = new System.Drawing.Size(262, 76);
+            this.shortlyOperationPnl.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.shortlyOperationPnl.Size = new System.Drawing.Size(349, 94);
             this.shortlyOperationPnl.TabIndex = 1;
             this.shortlyOperationPnl.TabStop = false;
             this.shortlyOperationPnl.Text = "Операция сокращенно для листа назначений";
@@ -272,9 +287,10 @@ namespace Cardiology.UI.Forms
             // 
             this.noKagBtn.AutoSize = true;
             this.noKagBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.noKagBtn.Location = new System.Drawing.Point(189, 44);
+            this.noKagBtn.Location = new System.Drawing.Point(252, 54);
+            this.noKagBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.noKagBtn.Name = "noKagBtn";
-            this.noKagBtn.Size = new System.Drawing.Size(67, 17);
+            this.noKagBtn.Size = new System.Drawing.Size(83, 21);
             this.noKagBtn.TabIndex = 2;
             this.noKagBtn.Text = "Без КАГ";
             this.noKagBtn.UseVisualStyleBackColor = true;
@@ -285,9 +301,10 @@ namespace Cardiology.UI.Forms
             this.kagBtn.AutoSize = true;
             this.kagBtn.Checked = true;
             this.kagBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.kagBtn.Location = new System.Drawing.Point(134, 44);
+            this.kagBtn.Location = new System.Drawing.Point(179, 54);
+            this.kagBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.kagBtn.Name = "kagBtn";
-            this.kagBtn.Size = new System.Drawing.Size(45, 17);
+            this.kagBtn.Size = new System.Drawing.Size(55, 21);
             this.kagBtn.TabIndex = 1;
             this.kagBtn.TabStop = true;
             this.kagBtn.Text = "КАГ";
@@ -296,9 +313,10 @@ namespace Cardiology.UI.Forms
             // 
             // shortlyOperationTxt
             // 
-            this.shortlyOperationTxt.Location = new System.Drawing.Point(8, 37);
+            this.shortlyOperationTxt.Location = new System.Drawing.Point(11, 46);
+            this.shortlyOperationTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.shortlyOperationTxt.Name = "shortlyOperationTxt";
-            this.shortlyOperationTxt.Size = new System.Drawing.Size(111, 24);
+            this.shortlyOperationTxt.Size = new System.Drawing.Size(147, 29);
             this.shortlyOperationTxt.TabIndex = 0;
             this.shortlyOperationTxt.Text = "КАГ. ";
             // 
@@ -309,9 +327,11 @@ namespace Cardiology.UI.Forms
             this.insertIssuedMedPnl.Controls.Add(this.copyJournalMedBtn);
             this.insertIssuedMedPnl.Controls.Add(this.copyFirstMedicineBtn);
             this.insertIssuedMedPnl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.insertIssuedMedPnl.Location = new System.Drawing.Point(11, 384);
+            this.insertIssuedMedPnl.Location = new System.Drawing.Point(15, 473);
+            this.insertIssuedMedPnl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.insertIssuedMedPnl.Name = "insertIssuedMedPnl";
-            this.insertIssuedMedPnl.Size = new System.Drawing.Size(262, 105);
+            this.insertIssuedMedPnl.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.insertIssuedMedPnl.Size = new System.Drawing.Size(349, 129);
             this.insertIssuedMedPnl.TabIndex = 2;
             this.insertIssuedMedPnl.TabStop = false;
             this.insertIssuedMedPnl.Text = "Вставить назначения";
@@ -319,9 +339,10 @@ namespace Cardiology.UI.Forms
             // clearMedBtn
             // 
             this.clearMedBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.clearMedBtn.Location = new System.Drawing.Point(126, 19);
+            this.clearMedBtn.Location = new System.Drawing.Point(168, 23);
+            this.clearMedBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.clearMedBtn.Name = "clearMedBtn";
-            this.clearMedBtn.Size = new System.Drawing.Size(114, 28);
+            this.clearMedBtn.Size = new System.Drawing.Size(152, 34);
             this.clearMedBtn.TabIndex = 3;
             this.clearMedBtn.Text = "Очистить";
             this.clearMedBtn.UseVisualStyleBackColor = true;
@@ -330,9 +351,10 @@ namespace Cardiology.UI.Forms
             // copyYesterdayMedBtn
             // 
             this.copyYesterdayMedBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.copyYesterdayMedBtn.Location = new System.Drawing.Point(126, 53);
+            this.copyYesterdayMedBtn.Location = new System.Drawing.Point(168, 65);
+            this.copyYesterdayMedBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.copyYesterdayMedBtn.Name = "copyYesterdayMedBtn";
-            this.copyYesterdayMedBtn.Size = new System.Drawing.Size(114, 43);
+            this.copyYesterdayMedBtn.Size = new System.Drawing.Size(152, 53);
             this.copyYesterdayMedBtn.TabIndex = 2;
             this.copyYesterdayMedBtn.Text = "Из вчерашнего листа";
             this.copyYesterdayMedBtn.UseVisualStyleBackColor = true;
@@ -341,9 +363,10 @@ namespace Cardiology.UI.Forms
             // copyJournalMedBtn
             // 
             this.copyJournalMedBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.copyJournalMedBtn.Location = new System.Drawing.Point(6, 53);
+            this.copyJournalMedBtn.Location = new System.Drawing.Point(8, 65);
+            this.copyJournalMedBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.copyJournalMedBtn.Name = "copyJournalMedBtn";
-            this.copyJournalMedBtn.Size = new System.Drawing.Size(114, 43);
+            this.copyJournalMedBtn.Size = new System.Drawing.Size(152, 53);
             this.copyJournalMedBtn.TabIndex = 1;
             this.copyJournalMedBtn.Text = "Из ежедневки";
             this.copyJournalMedBtn.UseVisualStyleBackColor = true;
@@ -352,9 +375,10 @@ namespace Cardiology.UI.Forms
             // copyFirstMedicineBtn
             // 
             this.copyFirstMedicineBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.copyFirstMedicineBtn.Location = new System.Drawing.Point(6, 19);
+            this.copyFirstMedicineBtn.Location = new System.Drawing.Point(8, 23);
+            this.copyFirstMedicineBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.copyFirstMedicineBtn.Name = "copyFirstMedicineBtn";
-            this.copyFirstMedicineBtn.Size = new System.Drawing.Size(114, 28);
+            this.copyFirstMedicineBtn.Size = new System.Drawing.Size(152, 34);
             this.copyFirstMedicineBtn.TabIndex = 0;
             this.copyFirstMedicineBtn.Text = "Из первички";
             this.copyFirstMedicineBtn.UseVisualStyleBackColor = true;
@@ -372,9 +396,11 @@ namespace Cardiology.UI.Forms
             this.medTemplatesPnl.Controls.Add(this.oksLongsMedBtn);
             this.medTemplatesPnl.Controls.Add(this.oksTemplateMed);
             this.medTemplatesPnl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.medTemplatesPnl.Location = new System.Drawing.Point(11, 214);
+            this.medTemplatesPnl.Location = new System.Drawing.Point(15, 263);
+            this.medTemplatesPnl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.medTemplatesPnl.Name = "medTemplatesPnl";
-            this.medTemplatesPnl.Size = new System.Drawing.Size(262, 166);
+            this.medTemplatesPnl.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.medTemplatesPnl.Size = new System.Drawing.Size(349, 204);
             this.medTemplatesPnl.TabIndex = 3;
             this.medTemplatesPnl.TabStop = false;
             this.medTemplatesPnl.Text = "Шаблоны";
@@ -382,9 +408,10 @@ namespace Cardiology.UI.Forms
             // deathMedBtn
             // 
             this.deathMedBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.deathMedBtn.Location = new System.Drawing.Point(6, 126);
+            this.deathMedBtn.Location = new System.Drawing.Point(8, 155);
+            this.deathMedBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.deathMedBtn.Name = "deathMedBtn";
-            this.deathMedBtn.Size = new System.Drawing.Size(242, 34);
+            this.deathMedBtn.Size = new System.Drawing.Size(323, 42);
             this.deathMedBtn.TabIndex = 8;
             this.deathMedBtn.Text = "Клиническая смерть";
             this.deathMedBtn.UseVisualStyleBackColor = true;
@@ -393,9 +420,10 @@ namespace Cardiology.UI.Forms
             // depMedBtn
             // 
             this.depMedBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.depMedBtn.Location = new System.Drawing.Point(199, 93);
+            this.depMedBtn.Location = new System.Drawing.Point(265, 114);
+            this.depMedBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.depMedBtn.Name = "depMedBtn";
-            this.depMedBtn.Size = new System.Drawing.Size(49, 33);
+            this.depMedBtn.Size = new System.Drawing.Size(65, 41);
             this.depMedBtn.TabIndex = 7;
             this.depMedBtn.Text = "ДЭП";
             this.depMedBtn.UseVisualStyleBackColor = true;
@@ -404,9 +432,10 @@ namespace Cardiology.UI.Forms
             // aortaMedBtn
             // 
             this.aortaMedBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.aortaMedBtn.Location = new System.Drawing.Point(83, 93);
+            this.aortaMedBtn.Location = new System.Drawing.Point(111, 114);
+            this.aortaMedBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.aortaMedBtn.Name = "aortaMedBtn";
-            this.aortaMedBtn.Size = new System.Drawing.Size(117, 33);
+            this.aortaMedBtn.Size = new System.Drawing.Size(156, 41);
             this.aortaMedBtn.TabIndex = 6;
             this.aortaMedBtn.Text = "Расслоение аорты";
             this.aortaMedBtn.UseVisualStyleBackColor = true;
@@ -415,9 +444,10 @@ namespace Cardiology.UI.Forms
             // kagMedBtn
             // 
             this.kagMedBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.kagMedBtn.Location = new System.Drawing.Point(6, 93);
+            this.kagMedBtn.Location = new System.Drawing.Point(8, 114);
+            this.kagMedBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.kagMedBtn.Name = "kagMedBtn";
-            this.kagMedBtn.Size = new System.Drawing.Size(77, 34);
+            this.kagMedBtn.Size = new System.Drawing.Size(103, 42);
             this.kagMedBtn.TabIndex = 5;
             this.kagMedBtn.Text = "КАГ квота";
             this.kagMedBtn.UseVisualStyleBackColor = true;
@@ -426,9 +456,10 @@ namespace Cardiology.UI.Forms
             // gbMedBtn
             // 
             this.gbMedBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.gbMedBtn.Location = new System.Drawing.Point(6, 60);
+            this.gbMedBtn.Location = new System.Drawing.Point(8, 74);
+            this.gbMedBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gbMedBtn.Name = "gbMedBtn";
-            this.gbMedBtn.Size = new System.Drawing.Size(78, 34);
+            this.gbMedBtn.Size = new System.Drawing.Size(104, 42);
             this.gbMedBtn.TabIndex = 4;
             this.gbMedBtn.Text = "ГБ";
             this.gbMedBtn.UseVisualStyleBackColor = true;
@@ -437,9 +468,10 @@ namespace Cardiology.UI.Forms
             // nkMedBtn
             // 
             this.nkMedBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.nkMedBtn.Location = new System.Drawing.Point(164, 60);
+            this.nkMedBtn.Location = new System.Drawing.Point(219, 74);
+            this.nkMedBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.nkMedBtn.Name = "nkMedBtn";
-            this.nkMedBtn.Size = new System.Drawing.Size(84, 34);
+            this.nkMedBtn.Size = new System.Drawing.Size(112, 42);
             this.nkMedBtn.TabIndex = 3;
             this.nkMedBtn.Text = "ПИКС/НК";
             this.nkMedBtn.UseVisualStyleBackColor = true;
@@ -448,9 +480,10 @@ namespace Cardiology.UI.Forms
             // hoblMedBtn
             // 
             this.hoblMedBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.hoblMedBtn.Location = new System.Drawing.Point(83, 60);
+            this.hoblMedBtn.Location = new System.Drawing.Point(111, 74);
+            this.hoblMedBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.hoblMedBtn.Name = "hoblMedBtn";
-            this.hoblMedBtn.Size = new System.Drawing.Size(82, 34);
+            this.hoblMedBtn.Size = new System.Drawing.Size(109, 42);
             this.hoblMedBtn.TabIndex = 2;
             this.hoblMedBtn.Text = "ПИКВИК/\r\nХОБЛ";
             this.hoblMedBtn.UseVisualStyleBackColor = true;
@@ -459,9 +492,10 @@ namespace Cardiology.UI.Forms
             // oksLongsMedBtn
             // 
             this.oksLongsMedBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.oksLongsMedBtn.Location = new System.Drawing.Point(164, 21);
+            this.oksLongsMedBtn.Location = new System.Drawing.Point(219, 26);
+            this.oksLongsMedBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.oksLongsMedBtn.Name = "oksLongsMedBtn";
-            this.oksLongsMedBtn.Size = new System.Drawing.Size(84, 40);
+            this.oksLongsMedBtn.Size = new System.Drawing.Size(112, 49);
             this.oksLongsMedBtn.TabIndex = 1;
             this.oksLongsMedBtn.Text = "ОКС \r\nпродолжение";
             this.oksLongsMedBtn.UseVisualStyleBackColor = true;
@@ -470,9 +504,10 @@ namespace Cardiology.UI.Forms
             // oksTemplateMed
             // 
             this.oksTemplateMed.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.oksTemplateMed.Location = new System.Drawing.Point(6, 21);
+            this.oksTemplateMed.Location = new System.Drawing.Point(8, 26);
+            this.oksTemplateMed.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.oksTemplateMed.Name = "oksTemplateMed";
-            this.oksTemplateMed.Size = new System.Drawing.Size(159, 40);
+            this.oksTemplateMed.Size = new System.Drawing.Size(212, 49);
             this.oksTemplateMed.TabIndex = 0;
             this.oksTemplateMed.Text = "ОКС при поступлении, \r\nнитраты, тройная терапия";
             this.oksTemplateMed.UseVisualStyleBackColor = true;
@@ -481,9 +516,11 @@ namespace Cardiology.UI.Forms
             // createDatePnl
             // 
             this.createDatePnl.Controls.Add(this.createDateTxt);
-            this.createDatePnl.Location = new System.Drawing.Point(285, 101);
+            this.createDatePnl.Location = new System.Drawing.Point(380, 124);
+            this.createDatePnl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.createDatePnl.Name = "createDatePnl";
-            this.createDatePnl.Size = new System.Drawing.Size(123, 39);
+            this.createDatePnl.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.createDatePnl.Size = new System.Drawing.Size(164, 48);
             this.createDatePnl.TabIndex = 4;
             this.createDatePnl.TabStop = false;
             this.createDatePnl.Text = "Дата заполнения";
@@ -491,17 +528,20 @@ namespace Cardiology.UI.Forms
             // createDateTxt
             // 
             this.createDateTxt.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.createDateTxt.Location = new System.Drawing.Point(6, 16);
+            this.createDateTxt.Location = new System.Drawing.Point(8, 20);
+            this.createDateTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.createDateTxt.Name = "createDateTxt";
-            this.createDateTxt.Size = new System.Drawing.Size(97, 20);
+            this.createDateTxt.Size = new System.Drawing.Size(128, 22);
             this.createDateTxt.TabIndex = 0;
             // 
             // clinicalPharmacologistPnl
             // 
             this.clinicalPharmacologistPnl.Controls.Add(this.clinicalPharmacologistBox);
-            this.clinicalPharmacologistPnl.Location = new System.Drawing.Point(285, 12);
+            this.clinicalPharmacologistPnl.Location = new System.Drawing.Point(380, 15);
+            this.clinicalPharmacologistPnl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.clinicalPharmacologistPnl.Name = "clinicalPharmacologistPnl";
-            this.clinicalPharmacologistPnl.Size = new System.Drawing.Size(294, 45);
+            this.clinicalPharmacologistPnl.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.clinicalPharmacologistPnl.Size = new System.Drawing.Size(392, 55);
             this.clinicalPharmacologistPnl.TabIndex = 5;
             this.clinicalPharmacologistPnl.TabStop = false;
             this.clinicalPharmacologistPnl.Text = "Клинфармаколог";
@@ -510,9 +550,10 @@ namespace Cardiology.UI.Forms
             // 
             this.clinicalPharmacologistBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.clinicalPharmacologistBox.FormattingEnabled = true;
-            this.clinicalPharmacologistBox.Location = new System.Drawing.Point(6, 16);
+            this.clinicalPharmacologistBox.Location = new System.Drawing.Point(8, 20);
+            this.clinicalPharmacologistBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.clinicalPharmacologistBox.Name = "clinicalPharmacologistBox";
-            this.clinicalPharmacologistBox.Size = new System.Drawing.Size(279, 21);
+            this.clinicalPharmacologistBox.Size = new System.Drawing.Size(371, 24);
             this.clinicalPharmacologistBox.TabIndex = 0;
             // 
             // issuedMedicinePnl
@@ -523,9 +564,11 @@ namespace Cardiology.UI.Forms
             this.issuedMedicinePnl.Controls.Add(this.medContainer);
             this.issuedMedicinePnl.Controls.Add(this.medicineContainer);
             this.issuedMedicinePnl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.issuedMedicinePnl.Location = new System.Drawing.Point(285, 143);
+            this.issuedMedicinePnl.Location = new System.Drawing.Point(380, 176);
+            this.issuedMedicinePnl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.issuedMedicinePnl.Name = "issuedMedicinePnl";
-            this.issuedMedicinePnl.Size = new System.Drawing.Size(635, 346);
+            this.issuedMedicinePnl.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.issuedMedicinePnl.Size = new System.Drawing.Size(847, 426);
             this.issuedMedicinePnl.TabIndex = 7;
             this.issuedMedicinePnl.TabStop = false;
             this.issuedMedicinePnl.Text = "Лекарства";
@@ -536,20 +579,12 @@ namespace Cardiology.UI.Forms
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.medContainer.AutoScroll = true;
-            this.medContainer.Controls.Add(this.issuedMedicineContainer);
-            this.medContainer.Location = new System.Drawing.Point(6, 19);
+            this.medContainer.Controls.Add(this.layout);
+            this.medContainer.Location = new System.Drawing.Point(8, 23);
+            this.medContainer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.medContainer.Name = "medContainer";
-            this.medContainer.Size = new System.Drawing.Size(614, 321);
+            this.medContainer.Size = new System.Drawing.Size(819, 395);
             this.medContainer.TabIndex = 2;
-            // 
-            // issuedMedicineContainer
-            // 
-            this.issuedMedicineContainer.AutoSize = true;
-            this.issuedMedicineContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.issuedMedicineContainer.Location = new System.Drawing.Point(13, 11);
-            this.issuedMedicineContainer.Name = "issuedMedicineContainer";
-            this.issuedMedicineContainer.Size = new System.Drawing.Size(6, 6);
-            this.issuedMedicineContainer.TabIndex = 0;
             // 
             // medicineContainer
             // 
@@ -558,7 +593,8 @@ namespace Cardiology.UI.Forms
             this.medicineContainer.ColumnCount = 1;
             this.medicineContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.medicineContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.medicineContainer.Location = new System.Drawing.Point(6, 19);
+            this.medicineContainer.Location = new System.Drawing.Point(8, 23);
+            this.medicineContainer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.medicineContainer.Name = "medicineContainer";
             this.medicineContainer.RowCount = 1;
             this.medicineContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -571,9 +607,10 @@ namespace Cardiology.UI.Forms
             this.addCureBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.addCureBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.addCureBtn.Image = global::Cardiology.Properties.Resources.addd1;
-            this.addCureBtn.Location = new System.Drawing.Point(891, 117);
+            this.addCureBtn.Location = new System.Drawing.Point(1188, 144);
+            this.addCureBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.addCureBtn.Name = "addCureBtn";
-            this.addCureBtn.Size = new System.Drawing.Size(29, 29);
+            this.addCureBtn.Size = new System.Drawing.Size(39, 36);
             this.addCureBtn.TabIndex = 12;
             this.addCureBtn.UseVisualStyleBackColor = true;
             this.addCureBtn.Click += new System.EventHandler(this.addCureBtn_Click);
@@ -581,9 +618,10 @@ namespace Cardiology.UI.Forms
             // saveBtn
             // 
             this.saveBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.saveBtn.Location = new System.Drawing.Point(799, 496);
+            this.saveBtn.Location = new System.Drawing.Point(1065, 610);
+            this.saveBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.saveBtn.Name = "saveBtn";
-            this.saveBtn.Size = new System.Drawing.Size(121, 23);
+            this.saveBtn.Size = new System.Drawing.Size(161, 28);
             this.saveBtn.TabIndex = 9;
             this.saveBtn.Text = "Сохранить";
             this.saveBtn.UseVisualStyleBackColor = true;
@@ -592,9 +630,10 @@ namespace Cardiology.UI.Forms
             // printBtn
             // 
             this.printBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.printBtn.Location = new System.Drawing.Point(672, 496);
+            this.printBtn.Location = new System.Drawing.Point(896, 610);
+            this.printBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.printBtn.Name = "printBtn";
-            this.printBtn.Size = new System.Drawing.Size(121, 23);
+            this.printBtn.Size = new System.Drawing.Size(161, 28);
             this.printBtn.TabIndex = 11;
             this.printBtn.Text = "MsWord";
             this.printBtn.UseVisualStyleBackColor = true;
@@ -603,9 +642,11 @@ namespace Cardiology.UI.Forms
             // nursePnl
             // 
             this.nursePnl.Controls.Add(this.nurseBox);
-            this.nursePnl.Location = new System.Drawing.Point(613, 12);
+            this.nursePnl.Location = new System.Drawing.Point(817, 15);
+            this.nursePnl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.nursePnl.Name = "nursePnl";
-            this.nursePnl.Size = new System.Drawing.Size(292, 45);
+            this.nursePnl.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nursePnl.Size = new System.Drawing.Size(389, 55);
             this.nursePnl.TabIndex = 12;
             this.nursePnl.TabStop = false;
             this.nursePnl.Text = "Дежурная мед.сестра";
@@ -614,17 +655,20 @@ namespace Cardiology.UI.Forms
             // 
             this.nurseBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.nurseBox.FormattingEnabled = true;
-            this.nurseBox.Location = new System.Drawing.Point(6, 16);
+            this.nurseBox.Location = new System.Drawing.Point(8, 20);
+            this.nurseBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.nurseBox.Name = "nurseBox";
-            this.nurseBox.Size = new System.Drawing.Size(280, 21);
+            this.nurseBox.Size = new System.Drawing.Size(372, 24);
             this.nurseBox.TabIndex = 0;
             // 
             // directorPnl
             // 
             this.directorPnl.Controls.Add(this.directorBox);
-            this.directorPnl.Location = new System.Drawing.Point(613, 58);
+            this.directorPnl.Location = new System.Drawing.Point(817, 71);
+            this.directorPnl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.directorPnl.Name = "directorPnl";
-            this.directorPnl.Size = new System.Drawing.Size(292, 44);
+            this.directorPnl.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.directorPnl.Size = new System.Drawing.Size(389, 54);
             this.directorPnl.TabIndex = 14;
             this.directorPnl.TabStop = false;
             this.directorPnl.Text = "Зав. отделением";
@@ -633,17 +677,20 @@ namespace Cardiology.UI.Forms
             // 
             this.directorBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.directorBox.FormattingEnabled = true;
-            this.directorBox.Location = new System.Drawing.Point(6, 16);
+            this.directorBox.Location = new System.Drawing.Point(8, 20);
+            this.directorBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.directorBox.Name = "directorBox";
-            this.directorBox.Size = new System.Drawing.Size(280, 21);
+            this.directorBox.Size = new System.Drawing.Size(372, 24);
             this.directorBox.TabIndex = 0;
             // 
             // cardioReanimPnl
             // 
             this.cardioReanimPnl.Controls.Add(this.cardioReanimBox);
-            this.cardioReanimPnl.Location = new System.Drawing.Point(285, 58);
+            this.cardioReanimPnl.Location = new System.Drawing.Point(380, 71);
+            this.cardioReanimPnl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cardioReanimPnl.Name = "cardioReanimPnl";
-            this.cardioReanimPnl.Size = new System.Drawing.Size(294, 43);
+            this.cardioReanimPnl.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cardioReanimPnl.Size = new System.Drawing.Size(392, 53);
             this.cardioReanimPnl.TabIndex = 13;
             this.cardioReanimPnl.TabStop = false;
             this.cardioReanimPnl.Text = "Деж. кардиореаниматолог";
@@ -652,16 +699,27 @@ namespace Cardiology.UI.Forms
             // 
             this.cardioReanimBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cardioReanimBox.FormattingEnabled = true;
-            this.cardioReanimBox.Location = new System.Drawing.Point(6, 16);
+            this.cardioReanimBox.Location = new System.Drawing.Point(8, 20);
+            this.cardioReanimBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cardioReanimBox.Name = "cardioReanimBox";
-            this.cardioReanimBox.Size = new System.Drawing.Size(279, 21);
+            this.cardioReanimBox.Size = new System.Drawing.Size(371, 24);
             this.cardioReanimBox.TabIndex = 0;
+            // 
+            // layout
+            // 
+            this.layout.AutoScroll = true;
+            this.layout.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.layout.Location = new System.Drawing.Point(3, 3);
+            this.layout.Name = "layout";
+            this.layout.Size = new System.Drawing.Size(813, 389);
+            this.layout.TabIndex = 0;
+            this.layout.WrapContents = false;
             // 
             // IssuedMedicine
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(930, 524);
+            this.ClientSize = new System.Drawing.Size(1240, 645);
             this.Controls.Add(this.addCureBtn);
             this.Controls.Add(this.directorPnl);
             this.Controls.Add(this.cardioReanimPnl);
@@ -677,6 +735,7 @@ namespace Cardiology.UI.Forms
             this.Controls.Add(this.shortlyDiagnosisPnl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "IssuedMedicine";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Назначения";
@@ -690,7 +749,6 @@ namespace Cardiology.UI.Forms
             this.issuedMedicinePnl.ResumeLayout(false);
             this.issuedMedicinePnl.PerformLayout();
             this.medContainer.ResumeLayout(false);
-            this.medContainer.PerformLayout();
             this.nursePnl.ResumeLayout(false);
             this.directorPnl.ResumeLayout(false);
             this.cardioReanimPnl.ResumeLayout(false);
@@ -743,10 +801,10 @@ namespace Cardiology.UI.Forms
         private System.Windows.Forms.ComboBox cardioReanimBox;
         private System.Windows.Forms.TableLayoutPanel medicineContainer;
         private System.Windows.Forms.Panel medContainer;
-        private IssuedMedicineContainer issuedMedicineContainer;
         private System.Windows.Forms.Button kagMedBtn;
         private System.Windows.Forms.Button aortaMedBtn;
         private System.Windows.Forms.Button deathMedBtn;
         private System.Windows.Forms.Button depMedBtn;
+        private System.Windows.Forms.FlowLayoutPanel layout;
     }
 }

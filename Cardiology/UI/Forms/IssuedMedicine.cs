@@ -64,6 +64,8 @@ namespace Cardiology.UI.Forms
             FlowLayoutPanel ll = new FlowLayoutPanel();
             ll.FlowDirection = FlowDirection.LeftToRight;
             ll.AutoSize = true;
+            ll.Padding = new Padding(0);
+            ll.Margin = new Padding(0);
 
             ComboBox cureTypeControl = new ComboBox();
             cureTypeControl.Width = 200;
@@ -83,7 +85,7 @@ namespace Cardiology.UI.Forms
             ll.Controls.Add(cureTypeControl);
 
             ComboBox cureControl = new ComboBox();
-            cureControl.Width = 350;
+            cureControl.Width = 300;
 
             DdtCureType cureType = (DdtCureType)cureTypeControl.SelectedItem;
             if (cureType != null)

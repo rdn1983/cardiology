@@ -102,6 +102,8 @@ namespace Cardiology.UI.Forms
             ll.FlowDirection = FlowDirection.LeftToRight;
             ll.Width = 700;
             ll.AutoSize = true;
+            ll.Padding = new Padding(0);
+            ll.Margin = new Padding(0);
 
             ComboBox cureTypeControl = new ComboBox(); 
             cureTypeControl.Width = 250;
@@ -555,6 +557,8 @@ namespace Cardiology.UI.Forms
             }
 
             medicineList.Clear();
+            layout.Controls.Clear();
+
             foreach (DdtCure cure in medicineTemplates)
             {
                 DdtIssuedMedicine med = new DdtIssuedMedicine();

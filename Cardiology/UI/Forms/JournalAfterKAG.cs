@@ -140,19 +140,21 @@ namespace Cardiology.UI.Forms
                 }
             }
             DateTime nextDate = lastDate.AddHours(4);
-            DateTime finalTime = new DateTime(lastDate.Year, lastDate.Month, lastDate.Day, 8, 15, 0);
-            if (nextDate > finalTime && startRecalculateIndx >= 0)
+            DateTime finalTime = new DateTime(nextDate.Year, nextDate.Month, nextDate.Day, 8, 15, 0);
+            if (nextDate.Day > initDate.Day && nextDate > finalTime && startRecalculateIndx >= 0)
             {
-                long excess = finalTime.Hour * 60 + finalTime.Minute - initDate.Hour * 60 + initDate.Minute;
+                long ticksAllDay = finalTime.Ticks - initDate.Ticks;
+                double minutesAllDay = ticksAllDay / 10000000 / 60;
+                double minutesPerJ = minutesAllDay / (dutyCardioContainer.Controls.Count);
                 nextDate = finalTime;
+                DateTime lastRecalculated = new DateTime(initDate.Ticks);
                 for (int i = startRecalculateIndx + 1; i <= lastIndx; i++)
                 {
                     JournalKAGControl jj = (JournalKAGControl)dutyCardioContainer.Controls[i];
-                    //weight 100% =240 minutes;
-                    double weight = 1;
-                    double seconds = excess / dutyCardioContainer.Controls.Count * weight * 240 / 100;
-                    DateTime recalculatedDt = jj.getDateTime().AddSeconds(-seconds);
-                    jj.initDateTime(recalculatedDt);
+                    //weight 100% = 240 minutes;
+                    DateTime re = lastRecalculated.AddMinutes(minutesPerJ);
+                    jj.initDateTime(re);
+                    lastRecalculated = new DateTime(re.Ticks);
                 }
             }
 

@@ -116,19 +116,19 @@ namespace Cardiology.UI.Forms
             this.issuedActionBox = new System.Windows.Forms.GroupBox();
             this.addIssuedAction = new System.Windows.Forms.Button();
             this.scrollableCntr = new System.Windows.Forms.Panel();
+            this.issuedActionContainer = new Cardiology.UI.Controls.IssuedActionContainer();
             this.issuedMedicineBox = new System.Windows.Forms.GroupBox();
             this.layout = new System.Windows.Forms.FlowLayoutPanel();
             this.fixIssuedMedTemplate = new System.Windows.Forms.Button();
             this.addIssuedMedicineBtn = new System.Windows.Forms.Button();
             this.firstAnalysisTab = new System.Windows.Forms.TabPage();
+            this.analysisTabControl1 = new Cardiology.UI.Controls.AnalysisTabControl();
             this.templatesLbl = new System.Windows.Forms.Label();
             this.tip = new System.Windows.Forms.ToolTip(this.components);
             this.addTip = new System.Windows.Forms.ToolTip(this.components);
             this.docBox = new System.Windows.Forms.ComboBox();
             this.docLbl = new System.Windows.Forms.Label();
             this.patientInitialsLbl = new System.Windows.Forms.Label();
-            this.issuedActionContainer = new Cardiology.UI.Controls.IssuedActionContainer();
-            this.analysisTabControl1 = new Cardiology.UI.Controls.AnalysisTabControl();
             this.templateChanger = new Cardiology.UI.Controls.TemplateChanger();
             this.complaintsBox.SuspendLayout();
             this.anamnesisMorbiBox.SuspendLayout();
@@ -589,7 +589,7 @@ namespace Cardiology.UI.Forms
             // 
             this.saveBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.saveBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.saveBtn.Location = new System.Drawing.Point(947, 606);
+            this.saveBtn.Location = new System.Drawing.Point(947, 600);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(124, 23);
             this.saveBtn.TabIndex = 18;
@@ -601,7 +601,7 @@ namespace Cardiology.UI.Forms
             // 
             this.printBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.printBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.printBtn.Location = new System.Drawing.Point(1077, 606);
+            this.printBtn.Location = new System.Drawing.Point(1077, 600);
             this.printBtn.Name = "printBtn";
             this.printBtn.Size = new System.Drawing.Size(125, 23);
             this.printBtn.TabIndex = 19;
@@ -613,7 +613,7 @@ namespace Cardiology.UI.Forms
             // 
             this.nextBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.nextBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.nextBtn.Location = new System.Drawing.Point(817, 606);
+            this.nextBtn.Location = new System.Drawing.Point(817, 600);
             this.nextBtn.Name = "nextBtn";
             this.nextBtn.Size = new System.Drawing.Size(124, 23);
             this.nextBtn.TabIndex = 20;
@@ -625,7 +625,7 @@ namespace Cardiology.UI.Forms
             // 
             this.prevBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.prevBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.prevBtn.Location = new System.Drawing.Point(687, 606);
+            this.prevBtn.Location = new System.Drawing.Point(687, 600);
             this.prevBtn.Name = "prevBtn";
             this.prevBtn.Size = new System.Drawing.Size(124, 23);
             this.prevBtn.TabIndex = 21;
@@ -646,7 +646,7 @@ namespace Cardiology.UI.Forms
             this.tabsContainer.Location = new System.Drawing.Point(111, 30);
             this.tabsContainer.Name = "tabsContainer";
             this.tabsContainer.SelectedIndex = 0;
-            this.tabsContainer.Size = new System.Drawing.Size(1095, 571);
+            this.tabsContainer.Size = new System.Drawing.Size(1095, 568);
             this.tabsContainer.TabIndex = 22;
             // 
             // anamnesisTab
@@ -660,8 +660,8 @@ namespace Cardiology.UI.Forms
             this.anamnesisTab.Controls.Add(this.drugsBox);
             this.anamnesisTab.Location = new System.Drawing.Point(4, 22);
             this.anamnesisTab.Name = "anamnesisTab";
-            this.anamnesisTab.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.anamnesisTab.Size = new System.Drawing.Size(1087, 545);
+            this.anamnesisTab.Padding = new System.Windows.Forms.Padding(3);
+            this.anamnesisTab.Size = new System.Drawing.Size(1087, 542);
             this.anamnesisTab.TabIndex = 0;
             this.anamnesisTab.Text = "Анамнез";
             // 
@@ -671,8 +671,8 @@ namespace Cardiology.UI.Forms
             this.presensTab.Controls.Add(this.stPresentsBox);
             this.presensTab.Location = new System.Drawing.Point(4, 22);
             this.presensTab.Name = "presensTab";
-            this.presensTab.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.presensTab.Size = new System.Drawing.Size(1087, 545);
+            this.presensTab.Padding = new System.Windows.Forms.Padding(3);
+            this.presensTab.Size = new System.Drawing.Size(1087, 542);
             this.presensTab.TabIndex = 1;
             this.presensTab.Text = "StPresens";
             // 
@@ -836,8 +836,8 @@ namespace Cardiology.UI.Forms
             this.diagnosisTab.Controls.Add(this.diagnosisPnl);
             this.diagnosisTab.Location = new System.Drawing.Point(4, 22);
             this.diagnosisTab.Name = "diagnosisTab";
-            this.diagnosisTab.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.diagnosisTab.Size = new System.Drawing.Size(1087, 545);
+            this.diagnosisTab.Padding = new System.Windows.Forms.Padding(3);
+            this.diagnosisTab.Size = new System.Drawing.Size(1087, 542);
             this.diagnosisTab.TabIndex = 2;
             this.diagnosisTab.Text = "Диагноз";
             // 
@@ -1081,7 +1081,7 @@ namespace Cardiology.UI.Forms
             this.issuedMedicineTab.Controls.Add(this.issuedMedicineBox);
             this.issuedMedicineTab.Location = new System.Drawing.Point(4, 22);
             this.issuedMedicineTab.Name = "issuedMedicineTab";
-            this.issuedMedicineTab.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.issuedMedicineTab.Padding = new System.Windows.Forms.Padding(3);
             this.issuedMedicineTab.Size = new System.Drawing.Size(1087, 545);
             this.issuedMedicineTab.TabIndex = 3;
             this.issuedMedicineTab.Text = "Назначения";
@@ -1122,6 +1122,16 @@ namespace Cardiology.UI.Forms
             this.scrollableCntr.Name = "scrollableCntr";
             this.scrollableCntr.Size = new System.Drawing.Size(300, 465);
             this.scrollableCntr.TabIndex = 0;
+            // 
+            // issuedActionContainer
+            // 
+            this.issuedActionContainer.AutoSize = true;
+            this.issuedActionContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.issuedActionContainer.Location = new System.Drawing.Point(8, 8);
+            this.issuedActionContainer.Margin = new System.Windows.Forms.Padding(4);
+            this.issuedActionContainer.Name = "issuedActionContainer";
+            this.issuedActionContainer.Size = new System.Drawing.Size(6, 6);
+            this.issuedActionContainer.TabIndex = 0;
             // 
             // issuedMedicineBox
             // 
@@ -1179,11 +1189,20 @@ namespace Cardiology.UI.Forms
             this.firstAnalysisTab.Controls.Add(this.analysisTabControl1);
             this.firstAnalysisTab.Location = new System.Drawing.Point(4, 22);
             this.firstAnalysisTab.Name = "firstAnalysisTab";
-            this.firstAnalysisTab.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.firstAnalysisTab.Padding = new System.Windows.Forms.Padding(3);
             this.firstAnalysisTab.Size = new System.Drawing.Size(1087, 545);
             this.firstAnalysisTab.TabIndex = 4;
             this.firstAnalysisTab.Text = "Первичные данные анализов";
             this.firstAnalysisTab.UseVisualStyleBackColor = true;
+            // 
+            // analysisTabControl1
+            // 
+            this.analysisTabControl1.AutoSize = true;
+            this.analysisTabControl1.Location = new System.Drawing.Point(15, 14);
+            this.analysisTabControl1.Margin = new System.Windows.Forms.Padding(2);
+            this.analysisTabControl1.Name = "analysisTabControl1";
+            this.analysisTabControl1.Size = new System.Drawing.Size(784, 415);
+            this.analysisTabControl1.TabIndex = 1;
             // 
             // templatesLbl
             // 
@@ -1208,7 +1227,7 @@ namespace Cardiology.UI.Forms
             this.docBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.docBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.docBox.FormattingEnabled = true;
-            this.docBox.Location = new System.Drawing.Point(420, 608);
+            this.docBox.Location = new System.Drawing.Point(420, 634);
             this.docBox.Name = "docBox";
             this.docBox.Size = new System.Drawing.Size(254, 21);
             this.docBox.TabIndex = 24;
@@ -1217,7 +1236,7 @@ namespace Cardiology.UI.Forms
             // 
             this.docLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.docLbl.AutoSize = true;
-            this.docLbl.Location = new System.Drawing.Point(304, 613);
+            this.docLbl.Location = new System.Drawing.Point(304, 639);
             this.docLbl.Name = "docLbl";
             this.docLbl.Size = new System.Drawing.Size(112, 13);
             this.docLbl.TabIndex = 25;
@@ -1233,25 +1252,6 @@ namespace Cardiology.UI.Forms
             this.patientInitialsLbl.Size = new System.Drawing.Size(0, 13);
             this.patientInitialsLbl.TabIndex = 17;
             // 
-            // issuedActionContainer
-            // 
-            this.issuedActionContainer.AutoSize = true;
-            this.issuedActionContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.issuedActionContainer.Location = new System.Drawing.Point(8, 8);
-            this.issuedActionContainer.Margin = new System.Windows.Forms.Padding(4);
-            this.issuedActionContainer.Name = "issuedActionContainer";
-            this.issuedActionContainer.Size = new System.Drawing.Size(6, 6);
-            this.issuedActionContainer.TabIndex = 0;
-            // 
-            // analysisTabControl1
-            // 
-            this.analysisTabControl1.AutoSize = true;
-            this.analysisTabControl1.Location = new System.Drawing.Point(15, 14);
-            this.analysisTabControl1.Margin = new System.Windows.Forms.Padding(2);
-            this.analysisTabControl1.Name = "analysisTabControl1";
-            this.analysisTabControl1.Size = new System.Drawing.Size(784, 415);
-            this.analysisTabControl1.TabIndex = 1;
-            // 
             // templateChanger
             // 
             this.templateChanger.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -1262,7 +1262,7 @@ namespace Cardiology.UI.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1209, 599);
+            this.ClientSize = new System.Drawing.Size(1209, 625);
             this.Controls.Add(this.patientInitialsLbl);
             this.Controls.Add(this.docLbl);
             this.Controls.Add(this.docBox);

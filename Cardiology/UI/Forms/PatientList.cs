@@ -131,7 +131,7 @@ namespace Cardiology.UI.Forms
 
                 DdtHospital hospitalSession = service.GetDdtHospitalService().GetById(value);
                 DdvPatient patient = service.GetDdvPatientService().GetById(hospitalSession.Patient);
-                Death form = new Death(patient);
+                Death form = new Death(hospitalSession, patient);
                 form.ShowDialog();
             }
         }
@@ -495,7 +495,7 @@ namespace Cardiology.UI.Forms
 
                 DdtHospital hospitalSession = service.GetDdtHospitalService().GetById(value);
                 DdvPatient patient = service.GetDdvPatientService().GetById(hospitalSession.Patient);
-                Death form = new Death(patient);
+                Death form = new Death(hospitalSession, patient);
                 form.ShowDialog();
             }
         }

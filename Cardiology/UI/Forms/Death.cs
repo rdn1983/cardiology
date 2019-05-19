@@ -1,5 +1,6 @@
 ﻿using Cardiology.Commons;
 using Cardiology.Data;
+using Cardiology.Data.Commons;
 using Cardiology.Data.Model2;
 using System;
 using System.Collections.Generic;
@@ -11,14 +12,27 @@ namespace Cardiology.UI.Forms
 {
     public partial class Death : Form
     {
+        private readonly DdtHospital hospitalSession;
         private readonly DdvPatient patient;
 
-        public Death(DdvPatient patient)
+        public Death(DdtHospital hospitalSession, DdvPatient patient)
         {
+            this.hospitalSession = hospitalSession;
             this.patient = patient;
             InitializeComponent();
 
-            CommonUtils.InitDoctorsComboboxValues(DbDataService.GetInstance(), doctorsBox, null);
+            IDdvDoctorService service = DbDataService.GetInstance().GetDdvDoctorService(); 
+            ControlUtils.InitDoctorsByGroupName(service, doctorsBox, "cardioreanimation_department");
+            for (int index  = 0; index < doctorsBox.Items.Count; index ++)
+            {
+                DdvDoctor doctor = (DdvDoctor) doctorsBox.Items[index];
+                if(doctor.ObjectId == hospitalSession.CuringDoctor)
+                {
+                    doctorsBox.SelectedIndex = index;
+                    break;
+                }
+            }
+
         }
 
         private bool getIsNotValid()

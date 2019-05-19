@@ -37,7 +37,7 @@ namespace Cardiology.UI.Forms
             string templatePath = Directory.GetCurrentDirectory() + "\\Templates\\death_template.doc";
 
             Dictionary<string, string> values = new Dictionary<string, string>();
-            values.Add(@"{date}", deathDateTxt.Text);
+            values.Add(@"{date}", deathDateTxt.Value.ToString("MM.dd.yyyy"));
 
             values.Add(@"{time}", deathTimeCtrl.Text);
 

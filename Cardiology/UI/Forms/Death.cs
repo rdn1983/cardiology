@@ -23,15 +23,7 @@ namespace Cardiology.UI.Forms
 
             IDdvDoctorService service = DbDataService.GetInstance().GetDdvDoctorService(); 
             ControlUtils.InitDoctorsByGroupName(service, doctorsBox, "cardioreanimation_department");
-            for (int index  = 0; index < doctorsBox.Items.Count; index ++)
-            {
-                DdvDoctor doctor = (DdvDoctor) doctorsBox.Items[index];
-                if(doctor.ObjectId == hospitalSession.CuringDoctor)
-                {
-                    doctorsBox.SelectedIndex = index;
-                    break;
-                }
-            }
+            doctorsBox.SelectedValue = hospitalSession.CuringDoctor;
 
         }
 

@@ -27,6 +27,8 @@ namespace Cardiology.UI.Forms
 
         private void initControls(string inspectionObjId)
         {
+            ControlUtils.InitDoctorsByGroupName(service.GetDdvDoctorService(), cardioDoctorBox, "cardioreanimation_department");
+            cardioDoctorBox.SelectedValue = hospitalitySession.CuringDoctor;
             kagContainer.Visible = false;
 
             DdvPatient patient = service.GetDdvPatientService().GetById(hospitalitySession.Patient);
@@ -154,7 +156,15 @@ namespace Cardiology.UI.Forms
             ITemplateProcessor tp = TemplateProcessorManager.getProcessorByObjectType(DdtInspection.NAME);
             if (tp != null)
             {
-                string filled = tp.processTemplate(service, hospitalitySession.ObjectId, inspectionObj.ObjectId, new Dictionary<string, string>());
+                Dictionary<string, String> values = new Dictionary<string, string>();
+
+                DdvDoctor doctor = (DdvDoctor)cardioDoctorBox.SelectedItem;
+                if(doctor != null)
+                {
+                    values.Add("{doctor.who.short}", doctor.ShortName);
+                }
+                
+                string filled = tp.processTemplate(service, hospitalitySession.ObjectId, inspectionObj.ObjectId, values);
                 TemplatesUtils.ShowDocument(filled);
             }
         }

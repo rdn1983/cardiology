@@ -41,8 +41,18 @@ namespace Cardiology.Commons
             values.Add("{patient.initials}", patient == null ? "" : patient.ShortName);
             values.Add("{patient.age}", patient == null ? "" : (DateTime.Now.Year - patient.Birthdate.Year) + "");
 
-            DdvDoctor doc = service.GetDdvDoctorService().GetById(obj.Doctor);
-            values.Add("{doctor.who.short}", doc == null ? "" : doc.ShortName);
+            if(!values.ContainsKey("{doctor.who.short}"))
+            {
+                DdvDoctor doc = service.GetDdvDoctorService().GetById(obj.Doctor);
+                values.Add("{doctor.who.short}", doc == null ? "" : doc.ShortName);
+            }
+
+            IList<DdvDoctor> heads = service.GetDdvDoctorService().GetByGroupName("cardioreanimation_department_head");
+            if(heads.Count != 0)
+            {
+                DdvDoctor head = heads[0];
+                values.Add("{doctor.head.short}", head.ShortName);
+            }
 
             PutAnalysisData(values, service, obj.ObjectId);
 

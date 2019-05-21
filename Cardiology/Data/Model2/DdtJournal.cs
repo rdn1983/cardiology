@@ -54,5 +54,7 @@ namespace Cardiology.Data.Model2
 
         public Boolean Freeze { get; set; }
 
+        public double Weight { get; set; }
+
     }
 }

@@ -17,8 +17,6 @@ namespace Cardiology.UI.Forms
         private readonly IDbDataService service;
         private DdtHospital hospitalitySession;
 
-        private static AnalysisSelector selector;
-
         public AnalysisContainer(IDbDataService service, DdtHospital hospitalitySession, string typeName, string objectId)
         {
             this.service = service;
@@ -169,14 +167,10 @@ namespace Cardiology.UI.Forms
 
         private void selectToContainer_Click(object sender, EventArgs e)
         {
-            if (selector == null)
+            AnalysisSelector.getInstance().ShowDialog(typeName, "dsid_hospitality_session='" + hospitalitySession.ObjectId + "'", "dsdt_analysis_date", "r_object_id", selectedIds);
+            if (AnalysisSelector.getInstance().isSuccess())
             {
-                selector = new AnalysisSelector();
-            }
-            selector.ShowDialog(typeName, "dsid_hospitality_session='" + hospitalitySession.ObjectId + "'", "dsdt_analysis_date", "r_object_id", selectedIds);
-            if (selector.isSuccess())
-            {
-                List<string> result = selector.returnValues();
+                List<string> result = AnalysisSelector.getInstance().returnValues();
                 foreach (string id in result)
                 {
                     createControl(id);

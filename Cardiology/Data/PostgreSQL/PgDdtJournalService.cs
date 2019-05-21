@@ -53,6 +53,8 @@ namespace Cardiology.Data.PostgreSQL
                         obj.ReleaseJournal = reader.GetBoolean(18);
                         obj.Journal = reader.IsDBNull(19) ? null : reader.GetString(19);
                         obj.Doctor = reader.GetString(20);
+                        obj.Freeze = reader.GetBoolean(21);
+                        obj.Weight = reader.IsDBNull(22)? 0 : reader.GetDouble(22);
                         list.Add(obj);
                     }
                 }
@@ -63,8 +65,8 @@ namespace Cardiology.Data.PostgreSQL
         public IList<DdtJournal> GetAll()
         {
             String sql = "SELECT r_object_id, dss_diagnosis, dss_chss, dss_chdd, r_creation_date, dss_complaints, dss_surgeon_exam, " +
-                    "dss_ekg, dsdt_admission_date, dss_monitor, dss_rhythm, dsid_journal_day, dss_ps, dss_ad, " +
-                    "r_modify_date, dss_cardio_exam, dsi_journal_type, dsb_good_rhythm, dsb_release_journal, dss_journal, dsid_doctor FROM ddt_journal";
+                    "dss_ekg, dsdt_admission_date, dss_monitor, dss_rhythm, dsid_journal_day, dss_ps, dss_ad, r_modify_date, " +
+                    "dss_cardio_exam, dsi_journal_type, dsb_good_rhythm, dsb_release_journal, dss_journal, dsid_doctor, dsb_freeze, dsd_weight FROM ddt_journal";
             IList<DdtJournal> list = GetByQuery(sql);
             return list;
         }
@@ -78,9 +80,8 @@ namespace Cardiology.Data.PostgreSQL
         public DdtJournal GetById(string id)
         {
             String sql = String.Format("SELECT r_object_id, dss_diagnosis, dss_chss, dss_chdd, r_creation_date, dss_complaints, dss_surgeon_exam, " +
-                    "dss_ekg, dsdt_admission_date, dss_monitor, dss_rhythm, dsid_journal_day, dss_ps, dss_ad, " +
-                    "r_modify_date, dss_cardio_exam, dsi_journal_type, dsb_good_rhythm, dsb_release_journal, dss_journal, dsid_doctor FROM ddt_journal " +
-                    "WHERE r_object_id = '{0}'", id);
+                    "dss_ekg, dsdt_admission_date, dss_monitor, dss_rhythm, dsid_journal_day, dss_ps, dss_ad, r_modify_date, dss_cardio_exam, dsi_journal_type, " +
+                    "dsb_good_rhythm, dsb_release_journal, dss_journal, dsid_doctor, dsb_freeze, dsd_weight FROM ddt_journal WHERE r_object_id = '{0}'", id);
             IList<DdtJournal> result = GetByQuery(sql);
             return result.Count > 0 ? result[0] : null;
         }
@@ -88,8 +89,8 @@ namespace Cardiology.Data.PostgreSQL
         public DdtJournal GetByHospitalSessionAndJournalType(string hospitalSession, int jornalType)
         {
             String sql = String.Format("SELECT r_object_id, dss_diagnosis, dss_chss, dss_chdd, r_creation_date, dss_complaints, dss_surgeon_exam, " +
-                    "dss_ekg, dsdt_admission_date, dss_monitor, dss_rhythm, dsid_journal_day, dss_ps, dss_ad,  " +
-                    "r_modify_date, dss_cardio_exam, dsi_journal_type, dsb_good_rhythm, dsb_release_journal, dss_journal, dsid_doctor FROM ddt_journal " +
+                    "dss_ekg, dsdt_admission_date, dss_monitor, dss_rhythm, dsid_journal_day, dss_ps, dss_ad, r_modify_date, dss_cardio_exam, dsi_journal_type, " +
+                    "dsb_good_rhythm, dsb_release_journal, dss_journal, dsid_doctor, dsb_freeze, dsd_weight FROM ddt_journal " +
                     "WHERE dsid_hospitality_session = '{0}' AND dsi_journal_type = {1} ", hospitalSession, jornalType);
             IList<DdtJournal> result = GetByQuery(sql);
             return result.Count > 0 ? result[0] : null;
@@ -98,8 +99,8 @@ namespace Cardiology.Data.PostgreSQL
         public List<DdtJournal> GetByJournalDayId(string id)
         {
             String sql = String.Format("SELECT r_object_id, dss_diagnosis, dss_chss, dss_chdd, r_creation_date, dss_complaints, dss_surgeon_exam, " +
-                    "dss_ekg, dsdt_admission_date, dss_monitor, dss_rhythm, dsid_journal_day, dss_ps, dss_ad,  " +
-                    "r_modify_date, dss_cardio_exam, dsi_journal_type, dsb_good_rhythm, dsb_release_journal, dss_journal, dsid_doctor FROM ddt_journal " +
+                    "dss_ekg, dsdt_admission_date, dss_monitor, dss_rhythm, dsid_journal_day, dss_ps, dss_ad, r_modify_date, dss_cardio_exam, dsi_journal_type, " +
+                    "dsb_good_rhythm, dsb_release_journal, dss_journal, dsid_doctor, dsb_freeze, dsd_weight FROM ddt_journal " +
                     "WHERE dsid_journal_day = '{0}'  ORDER BY dsdt_admission_date asc", id);
             List<DdtJournal> result = GetByQuery(sql);
             return result;
@@ -129,7 +130,9 @@ namespace Cardiology.Data.PostgreSQL
                                         "dsi_journal_type = @JournalType, " +
                                         "dsb_release_journal = @ReleaseJournal, " +
                                         "dss_diagnosis = @Diagnosis, " +
-                                        "dsid_doctor = @Doctor " +
+                                        "dsid_doctor = @Doctor, " +
+                                        "dsb_freeze = @Freeze, " +
+                                        "dsd_weight = @Weight " +
                                          "WHERE r_object_id = @ObjectId";
                     Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
 
@@ -155,14 +158,18 @@ namespace Cardiology.Data.PostgreSQL
                         cmd.Parameters.AddWithValue("@Diagnosis", obj.Diagnosis == null ? "" : obj.Diagnosis);
                         cmd.Parameters.AddWithValue("@ObjectId", obj.ObjectId);
                         cmd.Parameters.AddWithValue("@Doctor", obj.Doctor);
+                        cmd.Parameters.AddWithValue("@Freeze", obj.Freeze);
+                        cmd.Parameters.AddWithValue("@Weight", obj.Weight);
                         cmd.ExecuteNonQuery();
                     }
                     return obj.ObjectId;
                 }
                 else
                 {
-                    string sql = "INSERT INTO ddt_journal(dsdt_admission_date,dsid_journal_day,dss_complaints,dss_chdd,dss_chss,dss_ps,dss_ad,dss_monitor,dss_rhythm,dsb_good_rhythm,dss_surgeon_exam,dss_cardio_exam,dss_ekg,dss_journal,dsi_journal_type,dsb_release_journal,dss_diagnosis,dsid_doctor) " +
-                                                              "VALUES(@AdmissionDate,@JournalDay,@Complaints,@Chdd,@Chss,@Ps,@Ad,@Monitor,@Rhythm,@GoodRhythm,@SurgeonExam,@CardioExam,@Ekg,@Journal,@JournalType,@ReleaseJournal,@Diagnosis,@Doctor) RETURNING r_object_id";
+                    string sql = "INSERT INTO ddt_journal(dsdt_admission_date,dsid_journal_day,dss_complaints,dss_chdd,dss_chss,dss_ps,dss_ad,dss_monitor,dss_rhythm," +
+                        "dsb_good_rhythm,dss_surgeon_exam,dss_cardio_exam,dss_ekg,dss_journal,dsi_journal_type,dsb_release_journal,dss_diagnosis,dsid_doctor,dsb_freeze," +
+                        "dsd_weight) VALUES(@AdmissionDate,@JournalDay,@Complaints,@Chdd,@Chss,@Ps,@Ad,@Monitor,@Rhythm,@GoodRhythm,@SurgeonExam,@CardioExam," +
+                        "@Ekg,@Journal,@JournalType,@ReleaseJournal,@Diagnosis,@Doctor,@Freeze,@Weight) RETURNING r_object_id";
                     Logger.Debug(CultureInfo.CurrentCulture, "SQL: {0}", sql);
 
                     using (Npgsql.NpgsqlCommand cmd = new Npgsql.NpgsqlCommand(sql, connection))
@@ -186,6 +193,8 @@ namespace Cardiology.Data.PostgreSQL
                         cmd.Parameters.AddWithValue("@ReleaseJournal", obj.ReleaseJournal);
                         cmd.Parameters.AddWithValue("@Diagnosis", obj.Diagnosis == null ? "" : obj.Diagnosis);
                         cmd.Parameters.AddWithValue("@Doctor", obj.Doctor);
+                        cmd.Parameters.AddWithValue("@Freeze", obj.Freeze);
+                        cmd.Parameters.AddWithValue("@Weight", obj.Weight);
                         return (string)cmd.ExecuteScalar();
                     }
                 }

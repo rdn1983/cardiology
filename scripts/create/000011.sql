@@ -23,7 +23,7 @@ CREATE TABLE ddt_journal (
   dsb_release_journal boolean,
   dss_diagnosis VARCHAR(256),
   dsb_freeze boolean,
-  dsd_weight double
+  dsd_weight real
 );
 
 CREATE TRIGGER ddt_journal_trg_modify_date BEFORE INSERT OR UPDATE

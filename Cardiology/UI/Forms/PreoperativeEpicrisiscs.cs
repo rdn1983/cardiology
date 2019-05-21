@@ -13,14 +13,12 @@ namespace Cardiology.UI.Forms
         private readonly IDbDataService service;
         private DdtHospital hospitalitySession;
         private string objectId;
-        private AnalysisSelector selector;
 
         public PreoperativeEpicrisiscs(IDbDataService service, DdtHospital hospitalitySession, string objectId)
         {
             this.hospitalitySession = hospitalitySession;
             this.objectId = objectId;
             this.service = service;
-            selector = new AnalysisSelector();
             InitializeComponent();
             InitControls();
         }
@@ -90,10 +88,10 @@ namespace Cardiology.UI.Forms
 
         private void chooseDiagnosisBtn_Click(object sender, EventArgs e)
         {
-            selector.ShowDialog("ddv_all_diagnosis", "dsid_hospitality_session='" + hospitalitySession.ObjectId + "'", "dss_diagnosis", "r_object_id", null);
-            if (selector.isSuccess())
+            AnalysisSelector.getInstance().ShowDialog("ddv_all_diagnosis", "dsid_hospitality_session='" + hospitalitySession.ObjectId + "'", "dss_diagnosis", "r_object_id", null);
+            if (AnalysisSelector.getInstance().isSuccess())
             {
-                List<string> diagnosies = selector.returnLabels();
+                List<string> diagnosies = AnalysisSelector.getInstance().returnLabels();
                 StringBuilder str = new StringBuilder();
                 foreach (string v in diagnosies)
                 {
@@ -108,11 +106,11 @@ namespace Cardiology.UI.Forms
             string queryCnd = "dsid_hospitality_session='" + hospitalitySession.ObjectId + "' AND dss_operation_type IN ('ddt_ekg', 'ddt_urine_analysis'," +
                 " 'ddt_egds', 'ddt_xray', 'ddt_uzi', 'ddt_blood_analysis')";
             List<string> allAddedAnalysis = getAddedAnalysisIds();
-            selector.ShowDialog("ddv_history", queryCnd, "dss_operation_name", "dsid_operation_id", allAddedAnalysis);
-            if (selector.isSuccess())
+            AnalysisSelector.getInstance().ShowDialog("ddv_history", queryCnd, "dss_operation_name", "dsid_operation_id", allAddedAnalysis);
+            if (AnalysisSelector.getInstance().isSuccess())
             {
 
-                List<string> diagnosies = selector.returnValues();
+                List<string> diagnosies = AnalysisSelector.getInstance().returnValues();
                 foreach (string v in diagnosies)
                 {
                     DdvHistory history = service.GetDdvHistoryService().GetHistoryByOperationId(v);

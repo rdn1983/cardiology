@@ -24,13 +24,13 @@ namespace Cardiology.UI.Controls
         private bool isNew;
         private bool isReleaseJournal;
         private PulseTableCOntainer pulseSelector;
+        private IAnalysisContainer container;
 
-        private JournalKAGControl() : this(null, false) { }
-
-        public JournalKAGControl(string objId, bool isRelease)
+        public JournalKAGControl(IAnalysisContainer container, string objId, bool isRelease)
         {
             this.objId = objId;
             this.isReleaseJournal = isRelease;
+            this.container = container;
             InitializeComponent();
             initControl();
             hasChanges = false;
@@ -65,6 +65,7 @@ namespace Cardiology.UI.Controls
                 isNew = string.IsNullOrEmpty(objId);
                 hasChanges = false;
                 isReleaseJournal = journal.ReleaseJournal;
+                freeze.Checked = journal.Freeze;
             }
             else
             {
@@ -96,6 +97,8 @@ namespace Cardiology.UI.Controls
             result.Ad = adTxt.Text;
             result.Monitor = monitorTxt0.Text;
             result.ReleaseJournal = isReleaseJournal;
+            result.Freeze = freeze.Checked;
+            result.Weight = 1;
             return result;
         }
 
@@ -139,6 +142,7 @@ namespace Cardiology.UI.Controls
             journal.ReleaseJournal = isReleaseJournal;
             journal.JournalDayId = parentId;
             journal.Freeze = freeze.Checked;
+            journal.Weight = 1;
             journal.Doctor = hospitalitySession.DutyDoctor;
 
             objId = DbDataService.GetInstance().GetDdtJournalService().Save(journal);
@@ -243,8 +247,12 @@ namespace Cardiology.UI.Controls
             chssTxt.SelectedIndex = chssTxt.FindString(chssNextValue + "");
         }
 
+
         #endregion
 
-
+        private void remove_Click(object sender, EventArgs e)
+        {
+            container?.RemoveControl(this, DdtJournal.NAME);
+        }
     }
 }

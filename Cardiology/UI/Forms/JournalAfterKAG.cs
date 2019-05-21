@@ -9,11 +9,10 @@ using Cardiology.UI.Controls;
 
 namespace Cardiology.UI.Forms
 {
-    public partial class JournalAfterKAG : Form, IAutoSaveForm
+    public partial class JournalAfterKAG : Form, IAutoSaveForm, IAnalysisContainer
     {
         private readonly IDbDataService service;
         private DdtHospital hospitalitySession;
-        private AnalysisSelector selector;
         private string journalId;
         private string kagId;
 
@@ -113,7 +112,7 @@ namespace Cardiology.UI.Forms
             {
                 if (dutyCardioContainer.Controls.Count <= i)
                 {
-                    JournalKAGControl control = new JournalKAGControl(cardioConclusions[i].ObjectId, false);
+                    JournalKAGControl control = new JournalKAGControl(this, cardioConclusions[i].ObjectId, false);
                     //control.Anchor = AnchorStyles.Right;
                     dutyCardioContainer.Controls.Add(control);
                 }
@@ -139,9 +138,9 @@ namespace Cardiology.UI.Forms
                     startRecalculateIndx = i;
                 }
             }
-            DateTime nextDate = lastDate.AddHours(4);
-            DateTime finalTime = new DateTime(nextDate.Year, nextDate.Month, nextDate.Day, 8, 15, 0);
-            if (nextDate.Day > initDate.Day && nextDate > finalTime && startRecalculateIndx >= 0)
+            DateTime nextDate = lastDate.AddHours(4).AddMinutes(JournalShuffleUtils.shuffleNextIndex(5));
+            DateTime finalTime = new DateTime(nextDate.Year, nextDate.Month, nextDate.Day, 8, 5, 0);
+            if ((nextDate.Day > initDate.Day || initDate.Hour < 8) && nextDate > finalTime && startRecalculateIndx >= 0)
             {
                 long ticksAllDay = finalTime.Ticks - initDate.Ticks;
                 double minutesAllDay = ticksAllDay / 10000000 / 60;
@@ -152,13 +151,14 @@ namespace Cardiology.UI.Forms
                 {
                     JournalKAGControl jj = (JournalKAGControl)dutyCardioContainer.Controls[i];
                     //weight 100% = 240 minutes;
+
                     DateTime re = lastRecalculated.AddMinutes(minutesPerJ);
                     jj.initDateTime(re);
                     lastRecalculated = new DateTime(re.Ticks);
                 }
             }
 
-            JournalKAGControl control = new JournalKAGControl(null, false);
+            JournalKAGControl control = new JournalKAGControl(this, null, false);
             control.Anchor = AnchorStyles.Right;
             control.initDateTime(nextDate);
             dutyCardioContainer.Controls.Add(control);
@@ -263,17 +263,12 @@ namespace Cardiology.UI.Forms
 
         private void selectKAGBtn_Click(object sender, EventArgs e)
         {
-            if (selector == null)
+            AnalysisSelector.getInstance().ShowDialog(DdtKag.NAME, "dsid_hospitality_session='" + hospitalitySession.ObjectId + "'", "r_creation_date", "r_object_id", new List<string> { "" });
+            if (AnalysisSelector.getInstance().isSuccess())
             {
-                selector = new AnalysisSelector();
-            }
-            selector.ShowDialog(DdtKag.NAME, "dsid_hospitality_session='" + hospitalitySession.ObjectId + "'", "r_creation_date", "r_object_id", new List<string> { "" });
-            if (selector.isSuccess())
-            {
-                List<string> ids = selector.returnValues();
+                List<string> ids = AnalysisSelector.getInstance().returnValues();
                 if (ids.Count > 0)
                 {
-
                     DdtKag kag = service.GetDdtKagService().GetById(ids[0]);
                     initKag(kag);
                 }
@@ -315,6 +310,19 @@ namespace Cardiology.UI.Forms
             if (currentTabIndx > 0)
             {
                 tabControl1.SelectTab(--currentTabIndx);
+            }
+        }
+
+        public void RemoveControl(Control control, string type)
+        {
+            string id = ((IDocbaseControl)control).getObjectId();
+            dutyCardioContainer.Controls.Remove(control);
+            if (id != null)
+            {
+                if (id != null)
+                {
+                    DbDataService.GetInstance().Delete(DdtJournal.NAME, id);
+                }
             }
         }
     }

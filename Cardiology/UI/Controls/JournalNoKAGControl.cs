@@ -15,12 +15,14 @@ namespace Cardiology.UI.Controls
         private bool hasChanges;
         private bool isNew;
         private PulseTableCOntainer pulseSelector;
+        private IAnalysisContainer container;
 
-        public JournalNoKAGControl(string objectId, int journalType, string dsidCuringDoctor)
+        public JournalNoKAGControl(IAnalysisContainer container, string objectId, int journalType, string dsidCuringDoctor)
         {
             this.objectId = objectId;
             this.journalType = journalType;
             this.dsidCuringDoctor = dsidCuringDoctor;
+            this.container = container;
             InitializeComponent();
             initControls();
             hasChanges = false;
@@ -119,6 +121,11 @@ namespace Cardiology.UI.Controls
             return hasChanges;
         }
 
+        public bool isFreeze()
+        {
+            return freeze.Checked;
+        }
+
         public object getObject()
         {
 
@@ -127,6 +134,17 @@ namespace Cardiology.UI.Controls
             {
                 journal = new DdtJournal();
                 journal.JournalType = journalType;
+                double weight = 1;
+                if (journalType == (int)DdtJournalDsiType.PendingJustification)
+                {
+                    weight = 0.25;
+                }
+                else if (journalType == (int)DdtJournalDsiType.AfterPending)
+                {
+                    weight = 0.04;
+                }
+
+                journal.Weight = weight;
             }
 
             journal.Ad = adTxt.Text;
@@ -136,6 +154,7 @@ namespace Cardiology.UI.Controls
             journal.Journal = journalTxt.Text;
             journal.Monitor = monitorTxt.Text;
             journal.GoodRhythm = goodRhytmBtn.Checked;
+            journal.Freeze = freeze.Checked;
             journal.AdmissionDate = CommonUtils.ConstructDateWIthTime(startDateTxt.Value, startTimeTxt.Value);
 
             DdvDoctor selectedDoc = (DdvDoctor)docBox.SelectedItem;
@@ -164,6 +183,7 @@ namespace Cardiology.UI.Controls
 
                 goodRhytmBtn.Checked = journal.GoodRhythm;
                 badRhytmBtn.Checked = !journal.GoodRhythm;
+                freeze.Checked = journal.Freeze;
 
                 DdvDoctor doc = DbDataService.GetInstance().GetDdvDoctorService().GetById(journal.Doctor);
                 docBox.SelectedIndex = docBox.FindStringExact(doc.ShortName);
@@ -253,8 +273,8 @@ namespace Cardiology.UI.Controls
             {
                 pulseSelector = new PulseTableCOntainer(RefreshPulseInfo);
             }
-            Control control = (Control) sender; 
-            MouseEventArgs margs = (MouseEventArgs) e;
+            Control control = (Control)sender;
+            MouseEventArgs margs = (MouseEventArgs)e;
             pulseSelector.Show(control.PointToScreen(margs.Location));
         }
 
@@ -269,5 +289,10 @@ namespace Cardiology.UI.Controls
             chssTxt.SelectedIndex = chssTxt.FindString(chssNextValue + "");
         }
         #endregion
+
+        private void remove_Click(object sender, EventArgs e)
+        {
+            container?.RemoveControl(this, DdtJournal.NAME);
+        }
     }
 }

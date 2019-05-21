@@ -24,7 +24,7 @@ namespace Cardiology.UI.Forms
         }
 
         //todo make private
-        public AnalysisSelector()
+        private AnalysisSelector()
         {
             selectedIds = new List<string>();
             selectedLabels = new List<string>();

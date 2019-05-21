@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.visibledPanel = new System.Windows.Forms.Panel();
+            this.shuffleBtn = new System.Windows.Forms.Button();
             this.warningLbl = new System.Windows.Forms.Label();
             this.docLbl = new System.Windows.Forms.Label();
             this.docBox = new System.Windows.Forms.ComboBox();
@@ -48,12 +49,15 @@
             this.chssLbl = new System.Windows.Forms.Label();
             this.goodRhytmBtn = new System.Windows.Forms.RadioButton();
             this.hideJournalBtn = new System.Windows.Forms.CheckBox();
-            this.shuffleBtn = new System.Windows.Forms.Button();
+            this.remove = new System.Windows.Forms.Button();
+            this.freeze = new System.Windows.Forms.CheckBox();
             this.visibledPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // visibledPanel
             // 
+            this.visibledPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.visibledPanel.Controls.Add(this.shuffleBtn);
             this.visibledPanel.Controls.Add(this.warningLbl);
             this.visibledPanel.Controls.Add(this.docLbl);
@@ -75,8 +79,18 @@
             this.visibledPanel.Controls.Add(this.goodRhytmBtn);
             this.visibledPanel.Location = new System.Drawing.Point(3, 3);
             this.visibledPanel.Name = "visibledPanel";
-            this.visibledPanel.Size = new System.Drawing.Size(696, 149);
+            this.visibledPanel.Size = new System.Drawing.Size(675, 149);
             this.visibledPanel.TabIndex = 38;
+            // 
+            // shuffleBtn
+            // 
+            this.shuffleBtn.Image = global::Cardiology.Properties.Resources.shuffle;
+            this.shuffleBtn.Location = new System.Drawing.Point(231, 28);
+            this.shuffleBtn.Name = "shuffleBtn";
+            this.shuffleBtn.Size = new System.Drawing.Size(25, 73);
+            this.shuffleBtn.TabIndex = 48;
+            this.shuffleBtn.UseVisualStyleBackColor = true;
+            this.shuffleBtn.Click += new System.EventHandler(this.shuffleBtn_Click);
             // 
             // warningLbl
             // 
@@ -91,7 +105,7 @@
             // docLbl
             // 
             this.docLbl.AutoSize = true;
-            this.docLbl.Location = new System.Drawing.Point(350, 125);
+            this.docLbl.Location = new System.Drawing.Point(331, 125);
             this.docLbl.Name = "docLbl";
             this.docLbl.Size = new System.Drawing.Size(112, 13);
             this.docLbl.TabIndex = 46;
@@ -101,7 +115,7 @@
             // 
             this.docBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.docBox.FormattingEnabled = true;
-            this.docBox.Location = new System.Drawing.Point(467, 121);
+            this.docBox.Location = new System.Drawing.Point(448, 121);
             this.docBox.Name = "docBox";
             this.docBox.Size = new System.Drawing.Size(220, 21);
             this.docBox.TabIndex = 45;
@@ -112,7 +126,7 @@
             this.complaintsTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.complaintsTxt.Location = new System.Drawing.Point(259, 1);
             this.complaintsTxt.Name = "complaintsTxt";
-            this.complaintsTxt.Size = new System.Drawing.Size(428, 20);
+            this.complaintsTxt.Size = new System.Drawing.Size(410, 20);
             this.complaintsTxt.TabIndex = 44;
             this.complaintsTxt.Text = "жалобы на слабость";
             // 
@@ -206,7 +220,7 @@
             this.journalTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.journalTxt.Location = new System.Drawing.Point(259, 28);
             this.journalTxt.Name = "journalTxt";
-            this.journalTxt.Size = new System.Drawing.Size(428, 72);
+            this.journalTxt.Size = new System.Drawing.Size(411, 72);
             this.journalTxt.TabIndex = 15;
             this.journalTxt.Text = "";
             this.journalTxt.TextChanged += new System.EventHandler(this.journalTxt_TextChanged);
@@ -290,21 +304,34 @@
             this.hideJournalBtn.UseVisualStyleBackColor = true;
             this.hideJournalBtn.CheckedChanged += new System.EventHandler(this.hideJournalBtn_CheckedChanged);
             // 
-            // shuffleBtn
+            // remove
             // 
-            this.shuffleBtn.Image = global::Cardiology.Properties.Resources.shuffle;
-            this.shuffleBtn.Location = new System.Drawing.Point(231, 28);
-            this.shuffleBtn.Name = "shuffleBtn";
-            this.shuffleBtn.Size = new System.Drawing.Size(25, 73);
-            this.shuffleBtn.TabIndex = 48;
-            this.shuffleBtn.UseVisualStyleBackColor = true;
-            this.shuffleBtn.Click += new System.EventHandler(this.shuffleBtn_Click);
+            this.remove.Image = global::Cardiology.Properties.Resources.remove;
+            this.remove.Location = new System.Drawing.Point(680, 1);
+            this.remove.Name = "remove";
+            this.remove.Size = new System.Drawing.Size(26, 23);
+            this.remove.TabIndex = 39;
+            this.remove.UseVisualStyleBackColor = true;
+            this.remove.Click += new System.EventHandler(this.remove_Click);
+            // 
+            // freeze
+            // 
+            this.freeze.AutoSize = true;
+            this.freeze.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.freeze.Location = new System.Drawing.Point(377, 159);
+            this.freeze.Name = "freeze";
+            this.freeze.Size = new System.Drawing.Size(155, 17);
+            this.freeze.TabIndex = 40;
+            this.freeze.Text = "Не пересчитывать время";
+            this.freeze.UseVisualStyleBackColor = true;
             // 
             // JournalNoKAGControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.Controls.Add(this.freeze);
+            this.Controls.Add(this.remove);
             this.Controls.Add(this.hideJournalBtn);
             this.Controls.Add(this.visibledPanel);
             this.Name = "JournalNoKAGControl";
@@ -338,5 +365,7 @@
         private System.Windows.Forms.ComboBox docBox;
         private System.Windows.Forms.Label warningLbl;
         private System.Windows.Forms.Button shuffleBtn;
+        private System.Windows.Forms.Button remove;
+        private System.Windows.Forms.CheckBox freeze;
     }
 }

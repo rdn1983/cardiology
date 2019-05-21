@@ -45,6 +45,7 @@
             this.hideBtn0 = new System.Windows.Forms.CheckBox();
             this.inspectionTime0 = new System.Windows.Forms.DateTimePicker();
             this.freeze = new System.Windows.Forms.CheckBox();
+            this.remove = new System.Windows.Forms.Button();
             this.hidingPnl0.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -254,6 +255,16 @@
             this.freeze.Text = "Не пересчитывать время";
             this.freeze.UseVisualStyleBackColor = true;
             // 
+            // remove
+            // 
+            this.remove.Image = global::Cardiology.Properties.Resources.remove;
+            this.remove.Location = new System.Drawing.Point(747, 0);
+            this.remove.Name = "remove";
+            this.remove.Size = new System.Drawing.Size(26, 23);
+            this.remove.TabIndex = 16;
+            this.remove.UseVisualStyleBackColor = true;
+            this.remove.Click += new System.EventHandler(this.remove_Click);
+            // 
             // JournalKAGControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -261,13 +272,14 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.Controls.Add(this.remove);
             this.Controls.Add(this.freeze);
             this.Controls.Add(this.hidingPnl0);
             this.Controls.Add(this.inspectionDate0);
             this.Controls.Add(this.hideBtn0);
             this.Controls.Add(this.inspectionTime0);
             this.Name = "JournalKAGControl";
-            this.Size = new System.Drawing.Size(775, 108);
+            this.Size = new System.Drawing.Size(776, 108);
             this.hidingPnl0.ResumeLayout(false);
             this.hidingPnl0.PerformLayout();
             this.ResumeLayout(false);
@@ -293,5 +305,6 @@
         private System.Windows.Forms.DateTimePicker inspectionTime0;
         private System.Windows.Forms.Button shuffleBtn;
         private System.Windows.Forms.CheckBox freeze;
+        private System.Windows.Forms.Button remove;
     }
 }

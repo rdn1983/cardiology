@@ -207,6 +207,7 @@ namespace Cardiology.UI.Forms
             cardioVascularConc.AdditionalInfo1 = chddSurgeryTxt.Text;
             cardioVascularConc.AdditionalInfo3 = adSurgeryTxt.Text;
             cardioVascularConc.AdditionalInfo2 = chssSurgeryTxt.Text;
+            cardioVascularConc.AdditionalInfo4 = (string)cardioVascularBox.SelectedValue;
             service.GetDdtVariousSpecConclusonService().Save(cardioVascularConc);
 
             if (!string.IsNullOrEmpty(kagDiagnosisTxt.Text))
@@ -251,13 +252,9 @@ namespace Cardiology.UI.Forms
         {
             if (Save())
             {
-                DdtJournal journal = service.GetDdtJournalService().GetById(journalId);
-                if (journal != null)
-                {
-                    ITemplateProcessor processor = TemplateProcessorManager.getProcessorByObjectType(DdtJournal.NAME);
-                    string path = processor.processTemplate(service, hospitalitySession.ObjectId, journal.ObjectId, null);
-                    TemplatesUtils.ShowDocument(path);
-                }
+                ITemplateProcessor processor = TemplateProcessorManager.getProcessorByObjectType(DdtJournal.NAME);
+                string path = processor.processTemplate(service, hospitalitySession.ObjectId, journalId, null);
+                TemplatesUtils.ShowDocument(path);
             }
         }
 

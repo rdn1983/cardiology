@@ -26,114 +26,79 @@ namespace Cardiology.Commons
             {
                 values = new Dictionary<string, string>();
             }
-            DdtJournal journal = service.GetDdtJournalService().GetById(objectId);
-            PutAnalysisData(values, service, journal.ObjectId);
-            DdvDoctor doc = service.GetDdvDoctorService().GetById(journal.Doctor);
+            DdtJournalDay day = service.GetDdtJournalDayService().GetById(objectId);
+            PutAnalysisData(values, service, objectId);
+            DdvDoctor doc = service.GetDdvDoctorService().GetById(day.Doctor);
             values.Add("{doctor.initials}", doc == null ? "" : doc.ShortName);
 
-            List<string> partsPaths = new List<string>();
-            if (journal.JournalType == (int)DdtJournalDsiType.AfterKag)
+            IList<DdtKag> kags = service.GetDdtKagService().GetByParentId(day.ObjectId);
+            DdtKag kag = kags.Count > 0 ? kags[0] : null;
+            string kagValue = "";
+            if (kag != null)
             {
-                partsPaths.AddRange(collectKagJournalPaths(service, journal, doc, values));
+                kagValue += kag.Results == null ? "" : "У пациента по данным КАГ выявлено:" + kag.Results + "\n";
+                kagValue += kag.KagManipulation == null ? "" : "Пациенту выполнено:" + kag.KagManipulation + "\n";
+                kagValue += kag.KagAction == null ? "" : "Таким образом, у пациента:" + kag.KagAction + "\n";
             }
-            else
+
+            List<string> partsPaths = new List<string>();
+            if (day.JournalType == (int)DdtJournalDsiType.AfterKag)
             {
-                values.Add("{time}", journal.AdmissionDate.ToShortTimeString());
-                values.Add("{title}", " ");
-                values.Add("{complaints}", journal.Complaints);
-                values.Add("{journal}", journal.Journal);
-                values.Add("{monitor}", journal.Monitor);
-                values.Add("{kag_diagnosis}", " ");
-                values.Add("{diagnosis}", " ");
-                string mainPart = TemplatesUtils.FillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + TEMPLATE_FILE_NAME, values);
+                Dictionary<string, string> first = new Dictionary<string, string>();
+                DdtVariousSpecConcluson cardiovascular = service.GetDdtVariousSpecConclusonService().GetByParentId(objectId);
+                DdvDoctor surgeryDoc = service.GetDdvDoctorService().GetById(cardiovascular?.AdditionalInfo4);
+                first.Add("{time}", day.AdmissionDate.ToShortTimeString());
+                first.Add("{title}", "Осмотр дежурного кардиореаниматолога " + (doc == null ? "" : doc.ShortName) +
+                    " совместно с ангиохирургом " + surgeryDoc?.ShortName + ". \n Пациента доставили из рентгеноперационной.");
+                first.Add("{complaints}", "Жалоб на момент осмотра не предъявляет.");
+                first.Add("{journal}", JournalShuffleUtils.shuffleJournalText());
+                first.Add("{monitor}", "");
+                first.Add("{doctor.initials}", doc == null ? "" : doc.ShortName);
+
+                first.Add("{kag_diagnosis}", kagValue);
+                first.Add("{diagnosis}", kag == null ? "Таким образом, у пациента:" + day.Diagnosis : "");
+                partsPaths.Add(TemplatesUtils.FillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + TEMPLATE_FILE_NAME, first));
+
+                Dictionary<string, string> surgeryValues = new Dictionary<string, string>();
+                surgeryValues.Add("{time}", cardiovascular.AdmissionDate.ToShortTimeString());
+                surgeryValues.Add("{title}", "Осмотр ренгеноваскулярного хирурга " + surgeryDoc?.ShortName + ". \n");
+                surgeryValues.Add("{complaints}", "Жалоб на момент осмотра не предъявляет.");
+                surgeryValues.Add("{journal}", cardiovascular?.SpecialistConclusion);
+                surgeryValues.Add("{monitor}", " ");
+                surgeryValues.Add("{kag_diagnosis}", " ");
+                surgeryValues.Add("{diagnosis}", " ");
+                surgeryValues.Add("{doctor.initials}", surgeryDoc == null ? "" : surgeryDoc.ShortName);
+                partsPaths.Add(TemplatesUtils.FillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + TEMPLATE_FILE_NAME, surgeryValues));
+            }
+
+            List<DdtJournal> journals = service.GetDdtJournalService().GetByJournalDayId(objectId);
+            for (int i = 0; i < journals.Count; i++)
+            { 
+                Dictionary<string, string>  jrnlValues = new Dictionary<string, string>();
+                DdtJournal journal = journals[i];
+                jrnlValues.Add("{time}", journal.AdmissionDate.ToShortTimeString());
+                jrnlValues.Add("{title}", " ");
+                jrnlValues.Add("{complaints}", journal.Complaints);
+                jrnlValues.Add("{journal}", journal.Journal);
+                jrnlValues.Add("{monitor}", journal.Monitor);
+                jrnlValues.Add("{doctor.initials}", doc == null ? "" : doc.ShortName);
+                if (i == journals.Count - 1)
+                {
+                    jrnlValues.Add("{kag_diagnosis}", kagValue);
+                    jrnlValues.Add("{diagnosis}", kag == null ? "Таким образом, у пациента:" + day.Diagnosis : "");
+                }
+                else
+                {
+                    jrnlValues.Add("{kag_diagnosis}", " ");
+                    jrnlValues.Add("{diagnosis}", " ");
+                }
+                string mainPart = TemplatesUtils.FillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + TEMPLATE_FILE_NAME, jrnlValues);
                 partsPaths.Add(mainPart);
             }
 
-            DdvPatient patient = service.GetDdvPatientService().GetById(journal.Patient);
+            DdvPatient patient = service.GetDdvPatientService().GetById(day.Patient);
             string resultName = TemplatesUtils.getTempFileName("Журнал", patient.FullName);
             return TemplatesUtils.MergeFiles(partsPaths.ToArray(), false, resultName);
-        }
-
-
-        private List<string> collectKagJournalPaths(IDbDataService service, DdtJournal journal, DdvDoctor doc, Dictionary<string, string> values)
-        {
-            List<string> partsPaths = new List<string>();
-
-            IList<DdtVariousSpecConcluson> cardioConclusions = service.GetDdtVariousSpecConclusonService().GetListByParentId(journal.ObjectId);
-
-            IList<DdtKag> kags = service.GetDdtKagService().GetByParentId(journal.ObjectId);
-            DdtKag kag = kags.Count > 0 ? kags[0] : null;
-
-            DateTime journalDate = journal.AdmissionDate;
-            if (cardioConclusions.Count > 0)
-            {
-                DdtVariousSpecConcluson kagMainPart = cardioConclusions[0];
-                values.Add("{time}", journalDate.ToShortTimeString());
-                values.Add("{title}", "Осмотр дежурного кардиореаниматолога " + (doc == null ? "" : doc.ShortName) +
-                    " совместно с ангиохирургом Потехиным Д.А. \n Пациента доставили из рентгеноперационной.");
-                values.Add("{complaints}", " ");
-                values.Add("{journal}", kagMainPart.SpecialistConclusion);
-                values.Add("{monitor}", kagMainPart.AdditionalInfo4);
-                string kagValue = "";
-                if (kag != null)
-                {
-                    kagValue += kag.Results == null ? "" : "У пациента по данным КАГ выявлено:" + kag.Results + "\n";
-                    kagValue += kag.KagManipulation == null ? "" : "Пациенту выполнено:" + kag.KagManipulation + "\n";
-                    kagValue += kag.KagAction == null ? "" : "Таким образом, у пациента:" + kag.KagAction + "\n";
-                }
-                values.Add("{kag_diagnosis}", kagValue);
-                values.Add("{diagnosis}", kag==null?"Таким образом, у пациента:" + journal.Diagnosis:"");
-                partsPaths.Add(TemplatesUtils.FillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + TEMPLATE_FILE_NAME, values));
-                cardioConclusions.Remove(kagMainPart);
-            }
-
-            Dictionary<string, string> surgeryValues = new Dictionary<string, string>();
-            surgeryValues.Add("{time}", journalDate.AddHours(1).ToShortTimeString());
-            surgeryValues.Add("{title}", "Осмотр ренгеноваскулярного хирурга Потехина Д.А. \n");
-            surgeryValues.Add("{complaints}", journal.Complaints);
-            surgeryValues.Add("{journal}", journal.Journal);
-            surgeryValues.Add("{monitor}", " ");
-            surgeryValues.Add("{kag_diagnosis}", " ");
-            surgeryValues.Add("{diagnosis}", " ");
-            surgeryValues.Add("{doctor.initials}", doc == null ? "" : doc.ShortName);
-            partsPaths.Add(TemplatesUtils.FillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + TEMPLATE_FILE_NAME, surgeryValues));
-
-            foreach (DdtVariousSpecConcluson conclusion in cardioConclusions)
-            {
-                Dictionary<string, string> conclusionValues = new Dictionary<string, string>();
-                conclusionValues.Add("{time}", conclusion.AdmissionDate.ToShortTimeString());
-                conclusionValues.Add("{complaints}", " ");
-                conclusionValues.Add("{title}", " ");
-                conclusionValues.Add("{journal}", conclusion.SpecialistConclusion);
-                conclusionValues.Add("{monitor}", conclusion.AdditionalInfo4);
-                conclusionValues.Add("{doctor.initials}", doc == null ? "" : doc.ShortName);
-                conclusionValues.Add("{kag_diagnosis}", " ");
-                conclusionValues.Add("{diagnosis}", " ");
-
-                partsPaths.Add(TemplatesUtils.FillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + TEMPLATE_FILE_NAME, conclusionValues));
-            }
-
-            DdtVariousSpecConcluson releaseConclusion = service.GetDdtVariousSpecConclusonService().GetByParentId(journal.ObjectId);
-            if (releaseConclusion != null)
-            {
-                Dictionary<string, string> conclusionValues = new Dictionary<string, string>();
-                conclusionValues.Add("{time}", releaseConclusion.AdmissionDate.ToShortTimeString());
-                conclusionValues.Add("{complaints}", " ");
-                conclusionValues.Add("{title}", " ");
-                conclusionValues.Add("{journal}", releaseConclusion.SpecialistConclusion);
-                conclusionValues.Add("{monitor}", releaseConclusion.AdditionalInfo4);
-                conclusionValues.Add("{doctor.initials}", doc == null ? "" : doc.ShortName);
-                string kagValue = "";
-                if (kag != null)
-                {
-                    kagValue += kag.Results == null ? "" : "У пациента по данным КАГ выявлено:" + kag.Results + "\n";
-                    kagValue += kag.KagManipulation == null ? "" : "Пациенту выполнено:" + kag.KagManipulation + "\n";
-                }
-                conclusionValues.Add("{kag_diagnosis}", kagValue);
-                conclusionValues.Add("{diagnosis}", "Таким образом, у пациента:" + journal.Diagnosis);
-                partsPaths.Add(TemplatesUtils.FillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + TEMPLATE_FILE_NAME, conclusionValues));
-            }
-            return partsPaths;
         }
 
     }

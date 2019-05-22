@@ -34,7 +34,6 @@
             this.baseTab = new System.Windows.Forms.TabPage();
             this.label2 = new System.Windows.Forms.Label();
             this.cardioDoctorBox = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.analysisBtn = new System.Windows.Forms.Button();
             this.kagContainer = new System.Windows.Forms.Panel();
             this.kagInfo = new System.Windows.Forms.Label();
@@ -51,12 +50,12 @@
             this.inspectionLbl = new System.Windows.Forms.Label();
             this.complaintsLbl = new System.Windows.Forms.Label();
             this.analysisTab = new System.Windows.Forms.TabPage();
+            this.analysisTabControl1 = new Cardiology.UI.Controls.AnalysisTabControl();
             this.printBtn = new System.Windows.Forms.Button();
             this.saveBtn = new System.Windows.Forms.Button();
             this.nextBtn = new System.Windows.Forms.Button();
             this.previousBtn = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.analysisTabControl1 = new Cardiology.UI.Controls.AnalysisTabControl();
             this.tabbedContainer.SuspendLayout();
             this.baseTab.SuspendLayout();
             this.kagContainer.SuspendLayout();
@@ -81,7 +80,6 @@
             // 
             this.baseTab.Controls.Add(this.label2);
             this.baseTab.Controls.Add(this.cardioDoctorBox);
-            this.baseTab.Controls.Add(this.label1);
             this.baseTab.Controls.Add(this.analysisBtn);
             this.baseTab.Controls.Add(this.kagContainer);
             this.baseTab.Controls.Add(this.resultTxt);
@@ -98,7 +96,7 @@
             this.baseTab.Controls.Add(this.complaintsLbl);
             this.baseTab.Location = new System.Drawing.Point(4, 22);
             this.baseTab.Name = "baseTab";
-            this.baseTab.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.baseTab.Padding = new System.Windows.Forms.Padding(3);
             this.baseTab.Size = new System.Drawing.Size(827, 507);
             this.baseTab.TabIndex = 0;
             this.baseTab.Text = "Общее";
@@ -119,20 +117,10 @@
             // 
             this.cardioDoctorBox.FormattingEnabled = true;
             this.cardioDoctorBox.Location = new System.Drawing.Point(404, 10);
-            this.cardioDoctorBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cardioDoctorBox.Margin = new System.Windows.Forms.Padding(2);
             this.cardioDoctorBox.Name = "cardioDoctorBox";
             this.cardioDoctorBox.Size = new System.Drawing.Size(152, 21);
             this.cardioDoctorBox.TabIndex = 19;
-            // 
-            // label1
-            // 
-            this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
-            this.label1.Location = new System.Drawing.Point(770, 86);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(34, 23);
-            this.label1.TabIndex = 18;
-            this.toolTip1.SetToolTip(this.label1, "ДЭП 3ст., последствия перенесенного ОНМК, субкомпенсация.\r\nСахарный диабет 2 типа" +
-        ", среднетяжелого течения, субкомпенсация.");
             // 
             // analysisBtn
             // 
@@ -285,11 +273,22 @@
             this.analysisTab.Controls.Add(this.analysisTabControl1);
             this.analysisTab.Location = new System.Drawing.Point(4, 22);
             this.analysisTab.Name = "analysisTab";
-            this.analysisTab.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.analysisTab.Padding = new System.Windows.Forms.Padding(3);
             this.analysisTab.Size = new System.Drawing.Size(827, 507);
             this.analysisTab.TabIndex = 1;
             this.analysisTab.Text = "Анализы";
             this.analysisTab.UseVisualStyleBackColor = true;
+            // 
+            // analysisTabControl1
+            // 
+            this.analysisTabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.analysisTabControl1.AutoSize = true;
+            this.analysisTabControl1.Location = new System.Drawing.Point(6, 6);
+            this.analysisTabControl1.Name = "analysisTabControl1";
+            this.analysisTabControl1.Size = new System.Drawing.Size(805, 496);
+            this.analysisTabControl1.TabIndex = 0;
             // 
             // printBtn
             // 
@@ -339,17 +338,6 @@
             // 
             this.toolTip1.IsBalloon = true;
             this.toolTip1.ShowAlways = true;
-            // 
-            // analysisTabControl1
-            // 
-            this.analysisTabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.analysisTabControl1.AutoSize = true;
-            this.analysisTabControl1.Location = new System.Drawing.Point(6, 6);
-            this.analysisTabControl1.Name = "analysisTabControl1";
-            this.analysisTabControl1.Size = new System.Drawing.Size(805, 496);
-            this.analysisTabControl1.TabIndex = 0;
             // 
             // Inspection
             // 
@@ -402,7 +390,6 @@
         private System.Windows.Forms.Label kagInfo;
         private System.Windows.Forms.Panel kagContainer;
         private System.Windows.Forms.Button analysisBtn;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cardioDoctorBox;

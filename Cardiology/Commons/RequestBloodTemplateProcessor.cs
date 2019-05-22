@@ -65,8 +65,7 @@ namespace Cardiology.Commons
                         mediumName = "Плазма";
                         break;
                     case "Albumin":
-                        mediumName = "Альбумин";
-                        break;
+                        continue;
                     case "Platelet":
                         mediumName = "Тромбоцит";
                         break;

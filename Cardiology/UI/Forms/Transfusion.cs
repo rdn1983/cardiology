@@ -448,7 +448,7 @@ namespace Cardiology.UI.Forms
             transfusion.HospitalitySession = hospitalSession.ObjectId;
             transfusion.Doctor = cbDoctor.SelectedValue.ToString();
             transfusion.TransfusionDate = dtTransfusionDate.Value;
-            transfusion.Consent = GetCheckedRadio(gbConsent).Name;
+            transfusion.Consent = GetCheckedRadio(gbConsent)?.Name;
             transfusion.Consilium = ConsiliumId;
             transfusion.BloodAnalysis = BloodAnalysisId;
             transfusion.TransfusionMedium = GetCheckedMediums(gbTransfusionMedium);

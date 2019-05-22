@@ -53,8 +53,6 @@
             this.rbI = new System.Windows.Forms.RadioButton();
             this.btnConsent = new System.Windows.Forms.Button();
             this.btnConsilium = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dtTransfusionDate = new System.Windows.Forms.DateTimePicker();
             this.gbTransfusionMedium = new System.Windows.Forms.GroupBox();
@@ -397,8 +395,6 @@
             this.tabPage1.Controls.Add(this.gbBloodData);
             this.tabPage1.Controls.Add(this.btnConsent);
             this.tabPage1.Controls.Add(this.btnConsilium);
-            this.tabPage1.Controls.Add(this.button6);
-            this.tabPage1.Controls.Add(this.button5);
             this.tabPage1.Controls.Add(this.groupBox3);
             this.tabPage1.Controls.Add(this.gbTransfusionMedium);
             this.tabPage1.Controls.Add(this.gbDoctor);
@@ -644,24 +640,6 @@
             this.btnConsilium.UseVisualStyleBackColor = true;
             this.btnConsilium.Click += new System.EventHandler(this.btnConsiliumClick);
             // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(624, 461);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(165, 23);
-            this.button6.TabIndex = 13;
-            this.button6.Text = "Новый протокол трансфузии";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(624, 427);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(165, 23);
-            this.button5.TabIndex = 12;
-            this.button5.Text = "Исправить старый протокол";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.dtTransfusionDate);
@@ -783,37 +761,37 @@
             // countBlood
             // 
             this.countBlood.FormattingEnabled = true;
-            this.countBlood.Location = new System.Drawing.Point(77, 110);
+            this.countBlood.Location = new System.Drawing.Point(83, 110);
             this.countBlood.Name = "countBlood";
-            this.countBlood.Size = new System.Drawing.Size(100, 21);
+            this.countBlood.Size = new System.Drawing.Size(90, 21);
             this.countBlood.TabIndex = 8;
             // 
             // inrBlood
             // 
-            this.inrBlood.Location = new System.Drawing.Point(77, 85);
+            this.inrBlood.Location = new System.Drawing.Point(83, 85);
             this.inrBlood.Name = "inrBlood";
-            this.inrBlood.Size = new System.Drawing.Size(100, 20);
+            this.inrBlood.Size = new System.Drawing.Size(90, 20);
             this.inrBlood.TabIndex = 7;
             // 
             // apttBlood
             // 
-            this.apttBlood.Location = new System.Drawing.Point(77, 61);
+            this.apttBlood.Location = new System.Drawing.Point(83, 61);
             this.apttBlood.Name = "apttBlood";
-            this.apttBlood.Size = new System.Drawing.Size(100, 20);
+            this.apttBlood.Size = new System.Drawing.Size(90, 20);
             this.apttBlood.TabIndex = 6;
             // 
             // hematocritBlood
             // 
-            this.hematocritBlood.Location = new System.Drawing.Point(77, 37);
+            this.hematocritBlood.Location = new System.Drawing.Point(83, 37);
             this.hematocritBlood.Name = "hematocritBlood";
-            this.hematocritBlood.Size = new System.Drawing.Size(100, 20);
+            this.hematocritBlood.Size = new System.Drawing.Size(90, 20);
             this.hematocritBlood.TabIndex = 5;
             // 
             // hemoglobinBlood
             // 
-            this.hemoglobinBlood.Location = new System.Drawing.Point(77, 13);
+            this.hemoglobinBlood.Location = new System.Drawing.Point(83, 13);
             this.hemoglobinBlood.Name = "hemoglobinBlood";
-            this.hemoglobinBlood.Size = new System.Drawing.Size(100, 20);
+            this.hemoglobinBlood.Size = new System.Drawing.Size(90, 20);
             this.hemoglobinBlood.TabIndex = 4;
             // 
             // label4
@@ -883,37 +861,37 @@
             // countPlasma
             // 
             this.countPlasma.FormattingEnabled = true;
-            this.countPlasma.Location = new System.Drawing.Point(76, 110);
+            this.countPlasma.Location = new System.Drawing.Point(85, 110);
             this.countPlasma.Name = "countPlasma";
-            this.countPlasma.Size = new System.Drawing.Size(100, 21);
+            this.countPlasma.Size = new System.Drawing.Size(90, 21);
             this.countPlasma.TabIndex = 8;
             // 
             // inrPlasma
             // 
-            this.inrPlasma.Location = new System.Drawing.Point(76, 85);
+            this.inrPlasma.Location = new System.Drawing.Point(85, 85);
             this.inrPlasma.Name = "inrPlasma";
-            this.inrPlasma.Size = new System.Drawing.Size(100, 20);
+            this.inrPlasma.Size = new System.Drawing.Size(90, 20);
             this.inrPlasma.TabIndex = 7;
             // 
             // apttPlasma
             // 
-            this.apttPlasma.Location = new System.Drawing.Point(76, 61);
+            this.apttPlasma.Location = new System.Drawing.Point(85, 61);
             this.apttPlasma.Name = "apttPlasma";
-            this.apttPlasma.Size = new System.Drawing.Size(100, 20);
+            this.apttPlasma.Size = new System.Drawing.Size(90, 20);
             this.apttPlasma.TabIndex = 6;
             // 
             // hematocritPlasma
             // 
-            this.hematocritPlasma.Location = new System.Drawing.Point(76, 37);
+            this.hematocritPlasma.Location = new System.Drawing.Point(85, 37);
             this.hematocritPlasma.Name = "hematocritPlasma";
-            this.hematocritPlasma.Size = new System.Drawing.Size(100, 20);
+            this.hematocritPlasma.Size = new System.Drawing.Size(90, 20);
             this.hematocritPlasma.TabIndex = 5;
             // 
             // hemoglobinPlasma
             // 
-            this.hemoglobinPlasma.Location = new System.Drawing.Point(76, 13);
+            this.hemoglobinPlasma.Location = new System.Drawing.Point(85, 13);
             this.hemoglobinPlasma.Name = "hemoglobinPlasma";
-            this.hemoglobinPlasma.Size = new System.Drawing.Size(100, 20);
+            this.hemoglobinPlasma.Size = new System.Drawing.Size(90, 20);
             this.hemoglobinPlasma.TabIndex = 4;
             // 
             // label7
@@ -979,23 +957,23 @@
             // countAlbumin
             // 
             this.countAlbumin.FormattingEnabled = true;
-            this.countAlbumin.Location = new System.Drawing.Point(77, 62);
+            this.countAlbumin.Location = new System.Drawing.Point(85, 65);
             this.countAlbumin.Name = "countAlbumin";
-            this.countAlbumin.Size = new System.Drawing.Size(100, 21);
+            this.countAlbumin.Size = new System.Drawing.Size(90, 21);
             this.countAlbumin.TabIndex = 15;
             // 
             // albuminAlbumin
             // 
-            this.albuminAlbumin.Location = new System.Drawing.Point(76, 37);
+            this.albuminAlbumin.Location = new System.Drawing.Point(84, 40);
             this.albuminAlbumin.Name = "albuminAlbumin";
-            this.albuminAlbumin.Size = new System.Drawing.Size(100, 20);
+            this.albuminAlbumin.Size = new System.Drawing.Size(90, 20);
             this.albuminAlbumin.TabIndex = 5;
             // 
             // proteinAlbumin
             // 
-            this.proteinAlbumin.Location = new System.Drawing.Point(76, 13);
+            this.proteinAlbumin.Location = new System.Drawing.Point(84, 16);
             this.proteinAlbumin.Name = "proteinAlbumin";
-            this.proteinAlbumin.Size = new System.Drawing.Size(100, 20);
+            this.proteinAlbumin.Size = new System.Drawing.Size(90, 20);
             this.proteinAlbumin.TabIndex = 4;
             // 
             // label14
@@ -1044,26 +1022,26 @@
             // 
             // albuminPlatelet
             // 
-            this.albuminPlatelet.Location = new System.Drawing.Point(76, 37);
+            this.albuminPlatelet.Location = new System.Drawing.Point(85, 37);
             this.albuminPlatelet.Name = "albuminPlatelet";
-            this.albuminPlatelet.Size = new System.Drawing.Size(100, 20);
+            this.albuminPlatelet.Size = new System.Drawing.Size(90, 20);
             this.albuminPlatelet.TabIndex = 5;
             this.albuminPlatelet.UseWaitCursor = true;
             // 
             // countPlatelet
             // 
             this.countPlatelet.FormattingEnabled = true;
-            this.countPlatelet.Location = new System.Drawing.Point(76, 62);
+            this.countPlatelet.Location = new System.Drawing.Point(85, 62);
             this.countPlatelet.Name = "countPlatelet";
-            this.countPlatelet.Size = new System.Drawing.Size(100, 21);
+            this.countPlatelet.Size = new System.Drawing.Size(90, 21);
             this.countPlatelet.TabIndex = 15;
             this.countPlatelet.UseWaitCursor = true;
             // 
             // plateletPlatelet
             // 
-            this.plateletPlatelet.Location = new System.Drawing.Point(76, 13);
+            this.plateletPlatelet.Location = new System.Drawing.Point(85, 13);
             this.plateletPlatelet.Name = "plateletPlatelet";
-            this.plateletPlatelet.Size = new System.Drawing.Size(100, 20);
+            this.plateletPlatelet.Size = new System.Drawing.Size(90, 20);
             this.plateletPlatelet.TabIndex = 4;
             this.plateletPlatelet.UseWaitCursor = true;
             // 
@@ -1140,7 +1118,7 @@
             // 
             // button27
             // 
-            this.button27.Location = new System.Drawing.Point(702, 490);
+            this.button27.Location = new System.Drawing.Point(702, 454);
             this.button27.Name = "button27";
             this.button27.Size = new System.Drawing.Size(75, 23);
             this.button27.TabIndex = 18;
@@ -1149,7 +1127,7 @@
             // 
             // button26
             // 
-            this.button26.Location = new System.Drawing.Point(702, 464);
+            this.button26.Location = new System.Drawing.Point(702, 428);
             this.button26.Name = "button26";
             this.button26.Size = new System.Drawing.Size(75, 23);
             this.button26.TabIndex = 17;
@@ -1158,7 +1136,7 @@
             // 
             // button25
             // 
-            this.button25.Location = new System.Drawing.Point(702, 437);
+            this.button25.Location = new System.Drawing.Point(702, 401);
             this.button25.Name = "button25";
             this.button25.Size = new System.Drawing.Size(75, 23);
             this.button25.TabIndex = 16;
@@ -1170,9 +1148,9 @@
             this.groupBox18.Controls.Add(this.groupBox21);
             this.groupBox18.Controls.Add(this.groupBox20);
             this.groupBox18.Controls.Add(this.groupBox19);
-            this.groupBox18.Location = new System.Drawing.Point(308, 261);
+            this.groupBox18.Location = new System.Drawing.Point(308, 259);
             this.groupBox18.Name = "groupBox18";
-            this.groupBox18.Size = new System.Drawing.Size(383, 252);
+            this.groupBox18.Size = new System.Drawing.Size(383, 233);
             this.groupBox18.TabIndex = 15;
             this.groupBox18.TabStop = false;
             this.groupBox18.Text = "Наблюдение за состоянием пациента:";
@@ -1187,7 +1165,7 @@
             this.groupBox21.Controls.Add(this.label52);
             this.groupBox21.Controls.Add(this.label53);
             this.groupBox21.Controls.Add(this.label54);
-            this.groupBox21.Location = new System.Drawing.Point(9, 170);
+            this.groupBox21.Location = new System.Drawing.Point(9, 154);
             this.groupBox21.Name = "groupBox21";
             this.groupBox21.Size = new System.Drawing.Size(368, 75);
             this.groupBox21.TabIndex = 8;
@@ -1268,9 +1246,9 @@
             this.groupBox20.Controls.Add(this.label48);
             this.groupBox20.Controls.Add(this.label49);
             this.groupBox20.Controls.Add(this.label50);
-            this.groupBox20.Location = new System.Drawing.Point(7, 89);
+            this.groupBox20.Location = new System.Drawing.Point(7, 79);
             this.groupBox20.Name = "groupBox20";
-            this.groupBox20.Size = new System.Drawing.Size(368, 75);
+            this.groupBox20.Size = new System.Drawing.Size(370, 75);
             this.groupBox20.TabIndex = 1;
             this.groupBox20.TabStop = false;
             this.groupBox20.Text = "Через 1 час после переливания:";
@@ -1349,9 +1327,9 @@
             this.groupBox19.Controls.Add(this.label45);
             this.groupBox19.Controls.Add(this.label44);
             this.groupBox19.Controls.Add(this.label43);
-            this.groupBox19.Location = new System.Drawing.Point(9, 19);
+            this.groupBox19.Location = new System.Drawing.Point(9, 11);
             this.groupBox19.Name = "groupBox19";
-            this.groupBox19.Size = new System.Drawing.Size(368, 75);
+            this.groupBox19.Size = new System.Drawing.Size(368, 69);
             this.groupBox19.TabIndex = 0;
             this.groupBox19.TabStop = false;
             this.groupBox19.Text = "Перед переливанием:";
@@ -1429,9 +1407,9 @@
             this.groupBox16.Controls.Add(this.textBox33);
             this.groupBox16.Controls.Add(this.label41);
             this.groupBox16.Controls.Add(this.label42);
-            this.groupBox16.Location = new System.Drawing.Point(553, 108);
+            this.groupBox16.Location = new System.Drawing.Point(553, 98);
             this.groupBox16.Name = "groupBox16";
-            this.groupBox16.Size = new System.Drawing.Size(225, 153);
+            this.groupBox16.Size = new System.Drawing.Size(228, 160);
             this.groupBox16.TabIndex = 14;
             this.groupBox16.TabStop = false;
             this.groupBox16.Text = "Полиглюкин 33%:";
@@ -1441,7 +1419,7 @@
             this.groupBox17.Controls.Add(this.comboBox7);
             this.groupBox17.Location = new System.Drawing.Point(6, 95);
             this.groupBox17.Name = "groupBox17";
-            this.groupBox17.Size = new System.Drawing.Size(211, 50);
+            this.groupBox17.Size = new System.Drawing.Size(217, 50);
             this.groupBox17.TabIndex = 17;
             this.groupBox17.TabStop = false;
             this.groupBox17.Text = "Результат пробы";
@@ -1451,15 +1429,15 @@
             this.comboBox7.FormattingEnabled = true;
             this.comboBox7.Location = new System.Drawing.Point(6, 20);
             this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(199, 21);
+            this.comboBox7.Size = new System.Drawing.Size(204, 21);
             this.comboBox7.TabIndex = 0;
             // 
             // comboBox6
             // 
             this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(94, 16);
+            this.comboBox6.Location = new System.Drawing.Point(101, 16);
             this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(125, 21);
+            this.comboBox6.Size = new System.Drawing.Size(123, 21);
             this.comboBox6.TabIndex = 16;
             // 
             // label40
@@ -1473,14 +1451,14 @@
             // 
             // textBox32
             // 
-            this.textBox32.Location = new System.Drawing.Point(94, 66);
+            this.textBox32.Location = new System.Drawing.Point(101, 66);
             this.textBox32.Name = "textBox32";
             this.textBox32.Size = new System.Drawing.Size(123, 20);
             this.textBox32.TabIndex = 11;
             // 
             // textBox33
             // 
-            this.textBox33.Location = new System.Drawing.Point(94, 41);
+            this.textBox33.Location = new System.Drawing.Point(101, 41);
             this.textBox33.Name = "textBox33";
             this.textBox33.Size = new System.Drawing.Size(123, 20);
             this.textBox33.TabIndex = 10;
@@ -1517,9 +1495,9 @@
             this.groupBox15.Controls.Add(this.label38);
             this.groupBox15.Controls.Add(this.label36);
             this.groupBox15.Controls.Add(this.textBox29);
-            this.groupBox15.Location = new System.Drawing.Point(308, 108);
+            this.groupBox15.Location = new System.Drawing.Point(308, 99);
             this.groupBox15.Name = "groupBox15";
-            this.groupBox15.Size = new System.Drawing.Size(239, 153);
+            this.groupBox15.Size = new System.Drawing.Size(239, 159);
             this.groupBox15.TabIndex = 7;
             this.groupBox15.TabStop = false;
             this.groupBox15.Text = "Цоликлоны:";
@@ -1535,7 +1513,7 @@
             // 
             // textBox66
             // 
-            this.textBox66.Location = new System.Drawing.Point(101, 133);
+            this.textBox66.Location = new System.Drawing.Point(101, 134);
             this.textBox66.Name = "textBox66";
             this.textBox66.Size = new System.Drawing.Size(123, 20);
             this.textBox66.TabIndex = 17;
@@ -1551,7 +1529,7 @@
             // 
             // textBox67
             // 
-            this.textBox67.Location = new System.Drawing.Point(101, 109);
+            this.textBox67.Location = new System.Drawing.Point(101, 111);
             this.textBox67.Name = "textBox67";
             this.textBox67.Size = new System.Drawing.Size(123, 20);
             this.textBox67.TabIndex = 15;
@@ -1567,7 +1545,7 @@
             // 
             // textBox30
             // 
-            this.textBox30.Location = new System.Drawing.Point(101, 88);
+            this.textBox30.Location = new System.Drawing.Point(101, 87);
             this.textBox30.Name = "textBox30";
             this.textBox30.Size = new System.Drawing.Size(123, 20);
             this.textBox30.TabIndex = 13;
@@ -1583,7 +1561,7 @@
             // 
             // textBox27
             // 
-            this.textBox27.Location = new System.Drawing.Point(101, 64);
+            this.textBox27.Location = new System.Drawing.Point(101, 63);
             this.textBox27.Name = "textBox27";
             this.textBox27.Size = new System.Drawing.Size(123, 20);
             this.textBox27.TabIndex = 11;
@@ -1630,14 +1608,14 @@
             this.groupBox14.Controls.Add(this.label34);
             this.groupBox14.Location = new System.Drawing.Point(553, 9);
             this.groupBox14.Name = "groupBox14";
-            this.groupBox14.Size = new System.Drawing.Size(227, 100);
+            this.groupBox14.Size = new System.Drawing.Size(227, 88);
             this.groupBox14.TabIndex = 6;
             this.groupBox14.TabStop = false;
             this.groupBox14.Text = "раствор NaCl 0,9%:";
             // 
             // textBox24
             // 
-            this.textBox24.Location = new System.Drawing.Point(101, 64);
+            this.textBox24.Location = new System.Drawing.Point(101, 61);
             this.textBox24.Name = "textBox24";
             this.textBox24.Size = new System.Drawing.Size(123, 20);
             this.textBox24.TabIndex = 11;
@@ -1645,7 +1623,7 @@
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(6, 44);
+            this.label33.Location = new System.Drawing.Point(6, 40);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(84, 13);
             this.label33.TabIndex = 9;
@@ -1653,7 +1631,7 @@
             // 
             // textBox25
             // 
-            this.textBox25.Location = new System.Drawing.Point(101, 38);
+            this.textBox25.Location = new System.Drawing.Point(101, 37);
             this.textBox25.Name = "textBox25";
             this.textBox25.Size = new System.Drawing.Size(123, 20);
             this.textBox25.TabIndex = 10;
@@ -1661,7 +1639,7 @@
             // label35
             // 
             this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(6, 20);
+            this.label35.Location = new System.Drawing.Point(6, 18);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(90, 13);
             this.label35.TabIndex = 6;
@@ -1669,7 +1647,7 @@
             // 
             // textBox26
             // 
-            this.textBox26.Location = new System.Drawing.Point(101, 13);
+            this.textBox26.Location = new System.Drawing.Point(101, 14);
             this.textBox26.Name = "textBox26";
             this.textBox26.Size = new System.Drawing.Size(123, 20);
             this.textBox26.TabIndex = 7;
@@ -1677,7 +1655,7 @@
             // label34
             // 
             this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(6, 71);
+            this.label34.Location = new System.Drawing.Point(6, 65);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(61, 13);
             this.label34.TabIndex = 8;
@@ -1693,21 +1671,21 @@
             this.groupBox13.Controls.Add(this.label30);
             this.groupBox13.Location = new System.Drawing.Point(307, 9);
             this.groupBox13.Name = "groupBox13";
-            this.groupBox13.Size = new System.Drawing.Size(240, 99);
+            this.groupBox13.Size = new System.Drawing.Size(240, 90);
             this.groupBox13.TabIndex = 5;
             this.groupBox13.TabStop = false;
             this.groupBox13.Text = "микроагрегатный фильтр:";
             // 
             // textBox23
             // 
-            this.textBox23.Location = new System.Drawing.Point(102, 67);
+            this.textBox23.Location = new System.Drawing.Point(102, 63);
             this.textBox23.Name = "textBox23";
             this.textBox23.Size = new System.Drawing.Size(123, 20);
             this.textBox23.TabIndex = 5;
             // 
             // textBox22
             // 
-            this.textBox22.Location = new System.Drawing.Point(102, 41);
+            this.textBox22.Location = new System.Drawing.Point(102, 39);
             this.textBox22.Name = "textBox22";
             this.textBox22.Size = new System.Drawing.Size(123, 20);
             this.textBox22.TabIndex = 4;
@@ -1715,7 +1693,7 @@
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(7, 47);
+            this.label32.Location = new System.Drawing.Point(7, 43);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(84, 13);
             this.label32.TabIndex = 3;
@@ -1724,7 +1702,7 @@
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(7, 74);
+            this.label31.Location = new System.Drawing.Point(7, 66);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(61, 13);
             this.label31.TabIndex = 2;
@@ -1740,7 +1718,7 @@
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(7, 23);
+            this.label30.Location = new System.Drawing.Point(7, 20);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(90, 13);
             this.label30.TabIndex = 0;
@@ -1764,16 +1742,16 @@
             this.groupBox12.Controls.Add(this.label24);
             this.groupBox12.Controls.Add(this.label23);
             this.groupBox12.Controls.Add(this.label22);
-            this.groupBox12.Location = new System.Drawing.Point(6, 290);
+            this.groupBox12.Location = new System.Drawing.Point(6, 278);
             this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(295, 223);
+            this.groupBox12.Size = new System.Drawing.Size(295, 208);
             this.groupBox12.TabIndex = 4;
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "Данные о трансфузионной среде:";
             // 
             // textBox20
             // 
-            this.textBox20.Location = new System.Drawing.Point(219, 95);
+            this.textBox20.Location = new System.Drawing.Point(219, 97);
             this.textBox20.Name = "textBox20";
             this.textBox20.Size = new System.Drawing.Size(64, 20);
             this.textBox20.TabIndex = 15;
@@ -1789,35 +1767,35 @@
             // 
             // textBox19
             // 
-            this.textBox19.Location = new System.Drawing.Point(112, 172);
+            this.textBox19.Location = new System.Drawing.Point(112, 176);
             this.textBox19.Name = "textBox19";
             this.textBox19.Size = new System.Drawing.Size(171, 20);
             this.textBox19.TabIndex = 13;
             // 
             // textBox18
             // 
-            this.textBox18.Location = new System.Drawing.Point(112, 145);
+            this.textBox18.Location = new System.Drawing.Point(112, 149);
             this.textBox18.Name = "textBox18";
             this.textBox18.Size = new System.Drawing.Size(171, 20);
             this.textBox18.TabIndex = 12;
             // 
             // textBox17
             // 
-            this.textBox17.Location = new System.Drawing.Point(112, 118);
+            this.textBox17.Location = new System.Drawing.Point(111, 122);
             this.textBox17.Name = "textBox17";
             this.textBox17.Size = new System.Drawing.Size(171, 20);
             this.textBox17.TabIndex = 11;
             // 
             // textBox16
             // 
-            this.textBox16.Location = new System.Drawing.Point(112, 95);
+            this.textBox16.Location = new System.Drawing.Point(112, 97);
             this.textBox16.Name = "textBox16";
             this.textBox16.Size = new System.Drawing.Size(100, 20);
             this.textBox16.TabIndex = 10;
             // 
             // textBox15
             // 
-            this.textBox15.Location = new System.Drawing.Point(112, 68);
+            this.textBox15.Location = new System.Drawing.Point(112, 71);
             this.textBox15.Name = "textBox15";
             this.textBox15.Size = new System.Drawing.Size(100, 20);
             this.textBox15.TabIndex = 9;
@@ -1908,21 +1886,21 @@
             this.groupBox11.Controls.Add(this.label21);
             this.groupBox11.Location = new System.Drawing.Point(6, 232);
             this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(295, 52);
+            this.groupBox11.Size = new System.Drawing.Size(295, 42);
             this.groupBox11.TabIndex = 3;
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "Акушерский анамнез";
             // 
             // textBox14
             // 
-            this.textBox14.Location = new System.Drawing.Point(255, 22);
+            this.textBox14.Location = new System.Drawing.Point(255, 15);
             this.textBox14.Name = "textBox14";
             this.textBox14.Size = new System.Drawing.Size(32, 20);
             this.textBox14.TabIndex = 2;
             // 
             // textBox13
             // 
-            this.textBox13.Location = new System.Drawing.Point(213, 22);
+            this.textBox13.Location = new System.Drawing.Point(213, 15);
             this.textBox13.Name = "textBox13";
             this.textBox13.Size = new System.Drawing.Size(36, 20);
             this.textBox13.TabIndex = 1;
@@ -1930,7 +1908,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(9, 29);
+            this.label21.Location = new System.Drawing.Point(8, 20);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(198, 13);
             this.label21.TabIndex = 0;
@@ -1979,7 +1957,7 @@
             // radioButton8
             // 
             this.radioButton8.AutoSize = true;
-            this.radioButton8.Location = new System.Drawing.Point(238, 35);
+            this.radioButton8.Location = new System.Drawing.Point(238, 37);
             this.radioButton8.Name = "radioButton8";
             this.radioButton8.Size = new System.Drawing.Size(51, 17);
             this.radioButton8.TabIndex = 6;
@@ -1990,7 +1968,7 @@
             // radioButton7
             // 
             this.radioButton7.AutoSize = true;
-            this.radioButton7.Location = new System.Drawing.Point(171, 35);
+            this.radioButton7.Location = new System.Drawing.Point(171, 37);
             this.radioButton7.Name = "radioButton7";
             this.radioButton7.Size = new System.Drawing.Size(66, 17);
             this.radioButton7.TabIndex = 5;
@@ -2149,7 +2127,7 @@
             // 
             // button30
             // 
-            this.button30.Location = new System.Drawing.Point(705, 491);
+            this.button30.Location = new System.Drawing.Point(704, 448);
             this.button30.Name = "button30";
             this.button30.Size = new System.Drawing.Size(75, 23);
             this.button30.TabIndex = 21;
@@ -2158,7 +2136,7 @@
             // 
             // button31
             // 
-            this.button31.Location = new System.Drawing.Point(705, 465);
+            this.button31.Location = new System.Drawing.Point(704, 422);
             this.button31.Name = "button31";
             this.button31.Size = new System.Drawing.Size(75, 23);
             this.button31.TabIndex = 20;
@@ -2167,7 +2145,7 @@
             // 
             // button32
             // 
-            this.button32.Location = new System.Drawing.Point(705, 438);
+            this.button32.Location = new System.Drawing.Point(704, 395);
             this.button32.Name = "button32";
             this.button32.Size = new System.Drawing.Size(75, 23);
             this.button32.TabIndex = 19;
@@ -2711,7 +2689,7 @@
             // 
             // button33
             // 
-            this.button33.Location = new System.Drawing.Point(707, 491);
+            this.button33.Location = new System.Drawing.Point(686, 429);
             this.button33.Name = "button33";
             this.button33.Size = new System.Drawing.Size(75, 23);
             this.button33.TabIndex = 22;
@@ -2720,7 +2698,7 @@
             // 
             // button34
             // 
-            this.button34.Location = new System.Drawing.Point(707, 465);
+            this.button34.Location = new System.Drawing.Point(686, 403);
             this.button34.Name = "button34";
             this.button34.Size = new System.Drawing.Size(75, 23);
             this.button34.TabIndex = 21;
@@ -2729,7 +2707,7 @@
             // 
             // button35
             // 
-            this.button35.Location = new System.Drawing.Point(707, 438);
+            this.button35.Location = new System.Drawing.Point(686, 376);
             this.button35.Name = "button35";
             this.button35.Size = new System.Drawing.Size(75, 23);
             this.button35.TabIndex = 20;
@@ -3350,8 +3328,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.GroupBox gbBlood;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button btnRequest;
         private System.Windows.Forms.Button btnConsent;
         private System.Windows.Forms.ComboBox countBlood;

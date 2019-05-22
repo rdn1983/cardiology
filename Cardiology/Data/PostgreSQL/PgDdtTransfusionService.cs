@@ -91,10 +91,10 @@ namespace Cardiology.Data.PostgreSQL
                         cmd.Parameters.AddWithValue("@Patient", obj.Patient);
                         cmd.Parameters.AddWithValue("@Doctor", obj.Doctor);
                         cmd.Parameters.AddWithValue("@TransfusionDate", obj.TransfusionDate);
-                        cmd.Parameters.AddWithValue("@Consent", obj.Consent == null ? "" : obj.Consent);
-                        cmd.Parameters.AddWithValue("@Consilium", obj.Consilium);
-                        cmd.Parameters.AddWithValue("@BloodAnalysis", obj.BloodAnalysis);
-                        cmd.Parameters.AddWithValue("@TransfusionMedium", obj.TransfusionMedium == null ? "" : obj.TransfusionMedium);
+                        cmd.Parameters.AddWithValue("@Consent", obj.Consent == null ? (object)DBNull.Value : obj.Consent);
+                        cmd.Parameters.AddWithValue("@Consilium", obj.Consilium == null ? (object)DBNull.Value : obj.Consilium);
+                        cmd.Parameters.AddWithValue("@BloodAnalysis", obj.BloodAnalysis == null ? (object)DBNull.Value : obj.BloodAnalysis);
+                        cmd.Parameters.AddWithValue("@TransfusionMedium", obj.TransfusionMedium == null ? (object)DBNull.Value : obj.TransfusionMedium);
                         cmd.Parameters.AddWithValue("@ObjectId", obj.ObjectId);
                         cmd.ExecuteNonQuery();
                     }
@@ -130,10 +130,10 @@ namespace Cardiology.Data.PostgreSQL
                         cmd.Parameters.AddWithValue("@Patient", obj.Patient);
                         cmd.Parameters.AddWithValue("@Doctor", obj.Doctor);
                         cmd.Parameters.AddWithValue("@TransfusionDate", obj.TransfusionDate);
-                        cmd.Parameters.AddWithValue("@Consent", obj.Consent == null ? "" : obj.Consent);
-                        cmd.Parameters.AddWithValue("@Consilium", obj.Consilium == null ? "" : obj.Consilium);
-                        cmd.Parameters.AddWithValue("@BloodAnalysis", obj.BloodAnalysis == null ? "" : obj.BloodAnalysis);
-                        cmd.Parameters.AddWithValue("@TransfusionMedium", obj.TransfusionMedium == null ? "" : obj.TransfusionMedium);
+                        cmd.Parameters.AddWithValue("@Consent", obj.Consent == null ? (object)DBNull.Value : obj.Consent);
+                        cmd.Parameters.AddWithValue("@Consilium", obj.Consilium == null ? (object)DBNull.Value : obj.Consilium);
+                        cmd.Parameters.AddWithValue("@BloodAnalysis", obj.BloodAnalysis == null ? (object)DBNull.Value : obj.BloodAnalysis);
+                        cmd.Parameters.AddWithValue("@TransfusionMedium", obj.TransfusionMedium == null ? (object)DBNull.Value : obj.TransfusionMedium);
                         return (string)cmd.ExecuteScalar();
                     }
                 }

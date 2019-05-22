@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inspection));
             this.tabbedContainer = new System.Windows.Forms.TabControl();
             this.baseTab = new System.Windows.Forms.TabPage();
@@ -50,12 +49,9 @@
             this.inspectionLbl = new System.Windows.Forms.Label();
             this.complaintsLbl = new System.Windows.Forms.Label();
             this.analysisTab = new System.Windows.Forms.TabPage();
-            this.analysisTabControl1 = new Cardiology.UI.Controls.AnalysisTabControl();
             this.printBtn = new System.Windows.Forms.Button();
             this.saveBtn = new System.Windows.Forms.Button();
-            this.nextBtn = new System.Windows.Forms.Button();
-            this.previousBtn = new System.Windows.Forms.Button();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.analysisTabControl1 = new Cardiology.UI.Controls.AnalysisTabControl();
             this.tabbedContainer.SuspendLayout();
             this.baseTab.SuspendLayout();
             this.kagContainer.SuspendLayout();
@@ -279,6 +275,28 @@
             this.analysisTab.Text = "Анализы";
             this.analysisTab.UseVisualStyleBackColor = true;
             // 
+            // printBtn
+            // 
+            this.printBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.printBtn.Location = new System.Drawing.Point(566, 550);
+            this.printBtn.Name = "printBtn";
+            this.printBtn.Size = new System.Drawing.Size(140, 23);
+            this.printBtn.TabIndex = 18;
+            this.printBtn.Text = "Вывод в MSWord";
+            this.printBtn.UseVisualStyleBackColor = true;
+            this.printBtn.Click += new System.EventHandler(this.printBtn_Click);
+            // 
+            // saveBtn
+            // 
+            this.saveBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.saveBtn.Location = new System.Drawing.Point(712, 550);
+            this.saveBtn.Name = "saveBtn";
+            this.saveBtn.Size = new System.Drawing.Size(125, 23);
+            this.saveBtn.TabIndex = 17;
+            this.saveBtn.Text = "Сохранить";
+            this.saveBtn.UseVisualStyleBackColor = true;
+            this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
+            // 
             // analysisTabControl1
             // 
             this.analysisTabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -290,55 +308,6 @@
             this.analysisTabControl1.Size = new System.Drawing.Size(805, 496);
             this.analysisTabControl1.TabIndex = 0;
             // 
-            // printBtn
-            // 
-            this.printBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.printBtn.Location = new System.Drawing.Point(600, 561);
-            this.printBtn.Name = "printBtn";
-            this.printBtn.Size = new System.Drawing.Size(237, 23);
-            this.printBtn.TabIndex = 18;
-            this.printBtn.Text = "Вывод в MSWord";
-            this.printBtn.UseVisualStyleBackColor = true;
-            this.printBtn.Click += new System.EventHandler(this.printBtn_Click);
-            // 
-            // saveBtn
-            // 
-            this.saveBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.saveBtn.Location = new System.Drawing.Point(762, 537);
-            this.saveBtn.Name = "saveBtn";
-            this.saveBtn.Size = new System.Drawing.Size(75, 23);
-            this.saveBtn.TabIndex = 17;
-            this.saveBtn.Text = "Сохранить";
-            this.saveBtn.UseVisualStyleBackColor = true;
-            this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
-            // 
-            // nextBtn
-            // 
-            this.nextBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.nextBtn.Location = new System.Drawing.Point(681, 537);
-            this.nextBtn.Name = "nextBtn";
-            this.nextBtn.Size = new System.Drawing.Size(75, 23);
-            this.nextBtn.TabIndex = 16;
-            this.nextBtn.Text = "Далее";
-            this.nextBtn.UseVisualStyleBackColor = true;
-            this.nextBtn.Click += new System.EventHandler(this.nextBtn_Click);
-            // 
-            // previousBtn
-            // 
-            this.previousBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.previousBtn.Location = new System.Drawing.Point(600, 537);
-            this.previousBtn.Name = "previousBtn";
-            this.previousBtn.Size = new System.Drawing.Size(75, 23);
-            this.previousBtn.TabIndex = 15;
-            this.previousBtn.Text = "Назад";
-            this.previousBtn.UseVisualStyleBackColor = true;
-            this.previousBtn.Click += new System.EventHandler(this.previousBtn_Click);
-            // 
-            // toolTip1
-            // 
-            this.toolTip1.IsBalloon = true;
-            this.toolTip1.ShowAlways = true;
-            // 
             // Inspection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -347,8 +316,6 @@
             this.Controls.Add(this.tabbedContainer);
             this.Controls.Add(this.printBtn);
             this.Controls.Add(this.saveBtn);
-            this.Controls.Add(this.nextBtn);
-            this.Controls.Add(this.previousBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Inspection";
@@ -385,12 +352,9 @@
         private System.Windows.Forms.TabPage analysisTab;
         private System.Windows.Forms.Button printBtn;
         private System.Windows.Forms.Button saveBtn;
-        private System.Windows.Forms.Button nextBtn;
-        private System.Windows.Forms.Button previousBtn;
         private System.Windows.Forms.Label kagInfo;
         private System.Windows.Forms.Panel kagContainer;
         private System.Windows.Forms.Button analysisBtn;
-        private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cardioDoctorBox;
         private Controls.AnalysisTabControl analysisTabControl1;

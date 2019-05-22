@@ -77,7 +77,7 @@ namespace Cardiology.UI.Controls
                     ((IDocbaseControl)control).saveObject(hospitalSession, parentId, parentType);
                     string id = ((IDocbaseControl)control).getObjectId();
                     IDdtRelationService relationService = DbDataService.GetInstance().GetDdtRelationService();
-                    if (parentId != null && parentType != null && relationService.GetByParentAndChildIds(parentId, id) == null)
+                    if (id != null && parentId != null && parentType != null && relationService.GetByParentAndChildIds(parentId, id) == null)
                     {
                         DdtRelation relation = new DdtRelation();
                         relation.Parent = parentId;

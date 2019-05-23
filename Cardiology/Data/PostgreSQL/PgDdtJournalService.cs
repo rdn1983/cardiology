@@ -53,7 +53,7 @@ namespace Cardiology.Data.PostgreSQL
                         obj.ReleaseJournal = reader.GetBoolean(18);
                         obj.Journal = reader.IsDBNull(19) ? null : reader.GetString(19);
                         obj.Doctor = reader.GetString(20);
-                        obj.Freeze = reader.GetBoolean(21);
+                        obj.Freeze = reader.IsDBNull(21)? false: reader.GetBoolean(21);
                         obj.Weight = reader.IsDBNull(22)? 0 : reader.GetDouble(22);
                         list.Add(obj);
                     }

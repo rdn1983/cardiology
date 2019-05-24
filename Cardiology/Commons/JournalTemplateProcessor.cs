@@ -73,8 +73,8 @@ namespace Cardiology.Commons
 
             List<DdtJournal> journals = service.GetDdtJournalService().GetByJournalDayId(objectId);
             for (int i = 0; i < journals.Count; i++)
-            { 
-                Dictionary<string, string>  jrnlValues = new Dictionary<string, string>();
+            {
+                Dictionary<string, string> jrnlValues = new Dictionary<string, string>();
                 DdtJournal journal = journals[i];
                 jrnlValues.Add("{time}", journal.AdmissionDate.ToShortTimeString());
                 jrnlValues.Add("{title}", " ");
@@ -85,7 +85,7 @@ namespace Cardiology.Commons
                 if (i == journals.Count - 1)
                 {
                     jrnlValues.Add("{kag_diagnosis}", kagValue);
-                    jrnlValues.Add("{diagnosis}", kag == null ? "Таким образом, у пациента:" + day.Diagnosis : "");
+                    jrnlValues.Add("{diagnosis}", String.IsNullOrEmpty(day.Diagnosis) ? "" : "Таким образом, у пациента:" + day.Diagnosis);
                 }
                 else
                 {

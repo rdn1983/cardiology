@@ -121,7 +121,7 @@ namespace Cardiology.Data.PostgreSQL
                         cmd.Parameters.AddWithValue("@Doctor", obj.Doctor);
                         cmd.Parameters.AddWithValue("@Name", obj.Name == null ? "" : obj.Name);
                         cmd.Parameters.AddWithValue("@JournalType", obj.JournalType);
-                        cmd.Parameters.AddWithValue("@Diagnosis", obj.Diagnosis);
+                        cmd.Parameters.AddWithValue("@Diagnosis", obj.Diagnosis == null ? "" : obj.Diagnosis);
                         return (string)cmd.ExecuteScalar();
                     }
                 }

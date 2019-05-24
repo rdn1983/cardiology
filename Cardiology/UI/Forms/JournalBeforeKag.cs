@@ -124,20 +124,11 @@ namespace Cardiology.UI.Forms
             {
                 Save();
 
-                List<string> paths = new List<string>();
                 ITemplateProcessor processor = TemplateProcessorManager.getProcessorByObjectType(DdtJournal.NAME);
-                List<DdtJournal> journals = service.GetDdtJournalService().GetByJournalDayId(journalDayId);
-                foreach (DdtJournal journal in journals)
-                {
-                    if (journal != null)
-                    {
-                        string path = processor.processTemplate(service, hospitalitySession.ObjectId, journal.ObjectId, null);
-                        paths.Add(path);
-                    }
-                }
+                string path = processor.processTemplate(service, hospitalitySession.ObjectId, journalDayId, null);
                 DdvPatient patient = service.GetDdvPatientService().GetById(hospitalitySession.Patient);
                 string resultName = TemplatesUtils.getTempFileName("Журнал", patient.FullName);
-                string result = TemplatesUtils.MergeFiles(paths.ToArray(), false, resultName);
+                string result = TemplatesUtils.MergeFiles(new string[] { path }, false, resultName);
                 TemplatesUtils.ShowDocument(result);
             }
         }

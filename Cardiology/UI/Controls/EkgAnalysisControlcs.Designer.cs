@@ -637,7 +637,7 @@
             this.AvfBtn.Name = "AvfBtn";
             this.AvfBtn.Size = new System.Drawing.Size(53, 28);
             this.AvfBtn.TabIndex = 5;
-            this.AvfBtn.Text = "AVF";
+            this.AvfBtn.Text = "aVF";
             this.AvfBtn.UseVisualStyleBackColor = true;
             this.AvfBtn.Click += new System.EventHandler(this.AvfBtn_Click);
             // 

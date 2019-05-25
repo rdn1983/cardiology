@@ -648,7 +648,7 @@
             this.AvrBtn.Name = "AvrBtn";
             this.AvrBtn.Size = new System.Drawing.Size(53, 28);
             this.AvrBtn.TabIndex = 4;
-            this.AvrBtn.Text = "AVR";
+            this.AvrBtn.Text = "aVR";
             this.AvrBtn.UseVisualStyleBackColor = true;
             this.AvrBtn.Click += new System.EventHandler(this.AvrBtn_Click);
             // 

@@ -220,7 +220,7 @@ namespace Cardiology.UI.Controls
 
         private void AvrBtn_Click(object sender, EventArgs e)
         {
-            regularEkgTxt.Text = regularEkgTxt.Text + "AVR";
+            regularEkgTxt.Text = regularEkgTxt.Text + "aVR";
         }
 
         private void AvfBtn_Click(object sender, EventArgs e)

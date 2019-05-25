@@ -659,7 +659,7 @@
             this.AvlBtn.Name = "AvlBtn";
             this.AvlBtn.Size = new System.Drawing.Size(53, 28);
             this.AvlBtn.TabIndex = 3;
-            this.AvlBtn.Text = "AVL";
+            this.AvlBtn.Text = "aVL";
             this.AvlBtn.UseVisualStyleBackColor = true;
             this.AvlBtn.Click += new System.EventHandler(this.AvlBtn_Click);
             // 

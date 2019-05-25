@@ -175,6 +175,7 @@
             // 
             // toAnalysisTab
             // 
+            this.toAnalysisTab.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.toAnalysisTab.Location = new System.Drawing.Point(775, 551);
             this.toAnalysisTab.Name = "toAnalysisTab";
             this.toAnalysisTab.Size = new System.Drawing.Size(169, 23);
@@ -197,6 +198,8 @@
             // 
             // toJournalsBtn
             // 
+            this.toJournalsBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.toJournalsBtn.Location = new System.Drawing.Point(775, 551);
             this.toJournalsBtn.Name = "toJournalsBtn";
             this.toJournalsBtn.Size = new System.Drawing.Size(169, 23);

@@ -79,7 +79,7 @@
             this.visibledPanel.Controls.Add(this.goodRhytmBtn);
             this.visibledPanel.Location = new System.Drawing.Point(3, 3);
             this.visibledPanel.Name = "visibledPanel";
-            this.visibledPanel.Size = new System.Drawing.Size(675, 149);
+            this.visibledPanel.Size = new System.Drawing.Size(678, 149);
             this.visibledPanel.TabIndex = 38;
             // 
             // shuffleBtn
@@ -104,6 +104,8 @@
             // 
             // docLbl
             // 
+            this.docLbl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.docLbl.AutoSize = true;
             this.docLbl.Location = new System.Drawing.Point(331, 125);
             this.docLbl.Name = "docLbl";
@@ -113,6 +115,8 @@
             // 
             // docBox
             // 
+            this.docBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.docBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.docBox.FormattingEnabled = true;
             this.docBox.Location = new System.Drawing.Point(448, 121);
@@ -123,6 +127,8 @@
             // 
             // complaintsTxt
             // 
+            this.complaintsTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.complaintsTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.complaintsTxt.Location = new System.Drawing.Point(259, 1);
             this.complaintsTxt.Name = "complaintsTxt";
@@ -217,6 +223,8 @@
             // 
             // journalTxt
             // 
+            this.journalTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.journalTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.journalTxt.Location = new System.Drawing.Point(259, 28);
             this.journalTxt.Name = "journalTxt";
@@ -306,6 +314,7 @@
             // 
             // remove
             // 
+            this.remove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.remove.Image = global::Cardiology.Properties.Resources.remove;
             this.remove.Location = new System.Drawing.Point(680, 1);
             this.remove.Name = "remove";
@@ -329,13 +338,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Controls.Add(this.freeze);
             this.Controls.Add(this.remove);
             this.Controls.Add(this.hideJournalBtn);
             this.Controls.Add(this.visibledPanel);
             this.Name = "JournalNoKAGControl";
-            this.Size = new System.Drawing.Size(706, 185);
+            this.Size = new System.Drawing.Size(709, 179);
             this.visibledPanel.ResumeLayout(false);
             this.visibledPanel.PerformLayout();
             this.ResumeLayout(false);

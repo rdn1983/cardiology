@@ -9,6 +9,13 @@ namespace Cardiology.UI.Controls
 {
     public partial class JournalNoKAGControl : UserControl, IDocbaseControl
     {
+        private static System.Drawing.Size FULL_SIZE = new System.Drawing.Size(900, 181);
+        private static System.Drawing.Size SHRINK_SIZE = new System.Drawing.Size(900, 40);
+        private static System.Drawing.Point SHRINK_HIDECB_LOCATION = new System.Drawing.Point(300, 19);
+        private static System.Drawing.Point FULL_HIDECB_LOCATION = new System.Drawing.Point(300, 158);
+        private static System.Drawing.Point SHRINK_FREEZECB_LOCATION = new System.Drawing.Point(415, 19);
+        private static System.Drawing.Point FULL_FREEZECB_LOCATION = new System.Drawing.Point(415, 158);
+
         private string objectId;
         private string dsidCuringDoctor;
         private int journalType;
@@ -210,13 +217,15 @@ namespace Cardiology.UI.Controls
         {
             CheckBox cb = (CheckBox)sender;
             visibledPanel.Visible = !cb.Checked;
-            Size = cb.Checked ? new System.Drawing.Size(900, 40) : new System.Drawing.Size(900, 181);
-            cb.Location = cb.Checked ? new System.Drawing.Point(300, 19) : new System.Drawing.Point(300, 158);
+            Size = cb.Checked ? SHRINK_SIZE : FULL_SIZE;
+            cb.Location = cb.Checked ? SHRINK_HIDECB_LOCATION : FULL_HIDECB_LOCATION;
+            freeze.Location = cb.Checked? SHRINK_FREEZECB_LOCATION : FULL_FREEZECB_LOCATION;
         }
 
         private void goodRhytmBtn_CheckedChanged(object sender, EventArgs e)
         {
             monitorTxt.Text = goodRhytmBtn.Checked ? "синусовый ритм" : "трепетание предсердий";
+            hasChanges = true;
         }
 
         private void chddTxt_SelectedIndexChanged(object sender, EventArgs e)

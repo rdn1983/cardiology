@@ -183,6 +183,7 @@ namespace Cardiology.UI.Forms
             this.journalDocBox.Name = "journalDocBox";
             this.journalDocBox.Size = new System.Drawing.Size(220, 21);
             this.journalDocBox.TabIndex = 8;
+            this.journalDocBox.SelectedIndexChanged += new System.EventHandler(this.journalDocBox_SelectedIndexChanged);
             // 
             // surgeryInspectationPnl
             // 

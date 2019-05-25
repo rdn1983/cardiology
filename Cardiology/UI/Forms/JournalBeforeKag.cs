@@ -184,6 +184,7 @@ namespace Cardiology.UI.Forms
             int lastIndx = journalContainer.Controls.Count - 1;
             DateTime lastDate = DateTime.Now;
             DateTime initDate = DateTime.Now;
+            DateTime startRecalculatedTime = DateTime.Now;
             int startRecalculateIndx = -1;
             double allWeight = 0.0;
             for (int i = lastIndx; i >= 0; i--)
@@ -193,20 +194,25 @@ namespace Cardiology.UI.Forms
                 {
                     lastDate = jj.getJournalDateTime();
                 }
-                if (jj.isFreeze() || i == 0)
+                if ((jj.isFreeze() || i == 0) && startRecalculateIndx < 0)
                 {
                     initDate = i == 0 ? jj.getJournalDateTime() : DateTime.Now;
+                    startRecalculatedTime = jj.getJournalDateTime();
                     startRecalculateIndx = i;
+                }
+                if (i == 0)
+                {
+                    initDate = jj.getJournalDateTime();
                 }
                 allWeight += ((DdtJournal)jj.getObject()).Weight;
             }
             DateTime finalTime = new DateTime(lastDate.Year, lastDate.Month, lastDate.Day, 8, 5, 0);
             if ((lastDate.Day > initDate.Day || initDate.Hour < 8) && lastDate > finalTime && startRecalculateIndx >= 0)
             {
-                long ticksAllDay = finalTime.Ticks - initDate.Ticks;
+                long ticksAllDay = finalTime.Ticks - startRecalculatedTime.Ticks;
                 double minutesAllDay = ticksAllDay / 10000000 / 60;
                 double minutesPerJ = minutesAllDay / (journalContainer.Controls.Count);
-                DateTime lastRecalculated = new DateTime(initDate.Ticks);
+                DateTime lastRecalculated = new DateTime(startRecalculatedTime.Ticks);
                 for (int i = startRecalculateIndx + 1; i < lastIndx; i++)
                 {
                     JournalNoKAGControl jCntrl = (JournalNoKAGControl)journalContainer.Controls[i];

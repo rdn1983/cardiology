@@ -13,14 +13,14 @@ namespace Cardiology.UI.Forms
     {
         private readonly IDbDataService service;
         private DdtHospital hospitalitySession;
-        private string journalId;
+        private string journalDayId;
         private string kagId;
 
         public JournalAfterKAG(IDbDataService service, DdtHospital hospitalitySession, string journalId)
         {
             this.service = service;
             this.hospitalitySession = hospitalitySession;
-            this.journalId = journalId;
+            this.journalDayId = journalId;
             InitializeComponent();
             initControls();
             List<string> validTypes = new List<string>() { "ddt_blood_analysis", "ddt_ekg", "ddt_urine_analysis", "ddt_egds", "ddt_xray", "ddt_holter", "ddt_specialist_conclusion", "ddt_uzi" };
@@ -41,12 +41,12 @@ namespace Cardiology.UI.Forms
             DdvPatient patientView = service.GetDdvPatientService().GetById(hospitalitySession.Patient);
             Text += " " + patientView?.ShortName;
 
-            if (!string.IsNullOrEmpty(journalId))
+            if (!string.IsNullOrEmpty(journalDayId))
             {
-                DdtJournalDay journalDay = service.GetDdtJournalDayService().GetById(journalId);
+                DdtJournalDay journalDay = service.GetDdtJournalDayService().GetById(journalDayId);
                 if (journalDay != null)
                 {
-                    DdtVariousSpecConcluson cardioVascularConcls = service.GetDdtVariousSpecConclusonService().GetByParentId(journalId);
+                    DdtVariousSpecConcluson cardioVascularConcls = service.GetDdtVariousSpecConclusonService().GetByParentId(journalDayId);
                     surgeryInspectationTxt.Text = cardioVascularConcls?.SpecialistConclusion;
                     chddSurgeryTxt.Text = cardioVascularConcls?.AdditionalInfo1;
                     adSurgeryTxt.Text = cardioVascularConcls?.AdditionalInfo3;
@@ -107,7 +107,7 @@ namespace Cardiology.UI.Forms
 
         private void initCardioConslusions(IDbDataService service)
         {
-            IList<DdtJournal> cardioConclusions = service.GetDdtJournalService().GetByJournalDayId(journalId);
+            IList<DdtJournal> cardioConclusions = service.GetDdtJournalService().GetByJournalDayId(journalDayId);
             for (int i = 0; i < cardioConclusions.Count; i++)
             {
                 if (dutyCardioContainer.Controls.Count <= i)
@@ -124,6 +124,7 @@ namespace Cardiology.UI.Forms
             int lastIndx = dutyCardioContainer.Controls.Count - 1;
             DateTime lastDate = DateTime.Now;
             DateTime initDate = DateTime.Now;
+            DateTime startRecalculatedTime = DateTime.Now;
             int startRecalculateIndx = -1;
             for (int i = lastIndx; i >= 0; i--)
             {
@@ -132,21 +133,25 @@ namespace Cardiology.UI.Forms
                 {
                     lastDate = jj.getDateTime();
                 }
-                if (jj.isFreeze() || i == 0)
+                if ((jj.isFreeze() || i == 0) && startRecalculateIndx < 0)
                 {
                     initDate = i == 0 ? jj.getDateTime() : DateTime.Now;
                     startRecalculateIndx = i;
+                }
+                if (i == 0)
+                {
+                    startRecalculatedTime = jj.getDateTime();
                 }
             }
             DateTime nextDate = lastDate.AddHours(4).AddMinutes(JournalShuffleUtils.shuffleNextIndex(5));
             DateTime finalTime = new DateTime(nextDate.Year, nextDate.Month, nextDate.Day, 8, 5, 0);
             if ((nextDate.Day > initDate.Day || initDate.Hour < 8) && nextDate > finalTime && startRecalculateIndx >= 0)
             {
-                long ticksAllDay = finalTime.Ticks - initDate.Ticks;
+                long ticksAllDay = finalTime.Ticks - startRecalculatedTime.Ticks;
                 double minutesAllDay = ticksAllDay / 10000000 / 60;
                 double minutesPerJ = minutesAllDay / (dutyCardioContainer.Controls.Count);
                 nextDate = finalTime;
-                DateTime lastRecalculated = new DateTime(initDate.Ticks);
+                DateTime lastRecalculated = new DateTime(startRecalculatedTime.Ticks);
                 for (int i = startRecalculateIndx + 1; i <= lastIndx; i++)
                 {
                     JournalKAGControl jj = (JournalKAGControl)dutyCardioContainer.Controls[i];
@@ -176,31 +181,32 @@ namespace Cardiology.UI.Forms
         {
             service.GetDdtHospitalService().Save(hospitalitySession);
 
-            DdtJournalDay journal = null;
-            if (!string.IsNullOrEmpty(journalId))
+            DdtJournalDay journalDay = null;
+            if (!string.IsNullOrEmpty(journalDayId))
             {
-                journal = service.GetDdtJournalDayService().GetById(journalId);
+                journalDay = service.GetDdtJournalDayService().GetById(journalDayId);
+                
             }
             else
             {
-                journal = new DdtJournalDay();
-                journal.JournalType = 1;
-                journal.Doctor = hospitalitySession.CuringDoctor;
-                journal.HospitalitySession = hospitalitySession.ObjectId;
-                journal.Patient = hospitalitySession.Patient;
-                journal.JournalType = (int)DdtJournalDsiType.AfterKag;
-                journal.AdmissionDate = CommonUtils.ConstructDateWIthTime(admissionDateTxt.Value, admissionTimeTxt.Value);
-                journal.Diagnosis = afterKagDiagnosisTxt.Text;
-                journalId = service.GetDdtJournalDayService().Save(journal);
-
-
+                journalDay = new DdtJournalDay();
+                journalDay.JournalType = 1;
+                journalDay.HospitalitySession = hospitalitySession.ObjectId;
+                journalDay.Patient = hospitalitySession.Patient;
+                journalDay.JournalType = (int)DdtJournalDsiType.AfterKag;
                 //journal.Complaints = "Жалоб на момент осмотра не предъявляет.";
             }
-            DdtVariousSpecConcluson cardioVascularConc = service.GetDdtVariousSpecConclusonService().GetByParentId(journalId);
+            journalDay.AdmissionDate = CommonUtils.ConstructDateWIthTime(admissionDateTxt.Value, admissionTimeTxt.Value);
+            DdvDoctor doc = (DdvDoctor)journalDocBox.SelectedItem;
+            journalDay.Doctor = doc == null ? hospitalitySession.DutyDoctor : doc.ObjectId;
+            journalDay.Diagnosis = afterKagDiagnosisTxt.Text;
+            journalDayId = service.GetDdtJournalDayService().Save(journalDay);
+
+            DdtVariousSpecConcluson cardioVascularConc = service.GetDdtVariousSpecConclusonService().GetByParentId(journalDayId);
             if (cardioVascularConc == null)
             {
                 cardioVascularConc = new DdtVariousSpecConcluson();
-                cardioVascularConc.Parent = journalId;
+                cardioVascularConc.Parent = journalDayId;
             }
             cardioVascularConc.AdmissionDate = CommonUtils.ConstructDateWIthTime(cardioDate.Value, cardioTime.Value);
             cardioVascularConc.SpecialistConclusion = surgeryInspectationTxt.Text;
@@ -227,10 +233,10 @@ namespace Cardiology.UI.Forms
                     kagId = service.GetDdtKagService().Save(kag);
 
                     IDdtRelationService relationService = DbDataService.GetInstance().GetDdtRelationService();
-                    if (kagId != null && relationService.GetByParentAndChildIds(journalId, kagId) == null)
+                    if (kagId != null && relationService.GetByParentAndChildIds(journalDayId, kagId) == null)
                     {
                         DdtRelation relation = new DdtRelation();
-                        relation.Parent = journalId;
+                        relation.Parent = journalDayId;
                         relation.Child = kagId;
                         relation.ChildType = DdtJournal.NAME;
                         relationService.Save(relation);
@@ -241,10 +247,10 @@ namespace Cardiology.UI.Forms
             for (int i = 0; i < dutyCardioContainer.Controls.Count; i++)
             {
                 JournalKAGControl journalCtrl = (JournalKAGControl)dutyCardioContainer.Controls[i];
-                journalCtrl.saveObject(hospitalitySession, journalId, DdtJournal.NAME);
+                journalCtrl.saveObject(hospitalitySession, journalDayId, DdtJournal.NAME);
             }
 
-            analysisTabControl1.save(journalId, DdtJournal.NAME);
+            analysisTabControl1.save(journalDayId, DdtJournal.NAME);
             return true;
         }
 
@@ -253,7 +259,7 @@ namespace Cardiology.UI.Forms
             if (Save())
             {
                 ITemplateProcessor processor = TemplateProcessorManager.getProcessorByObjectType(DdtJournal.NAME);
-                string path = processor.processTemplate(service, hospitalitySession.ObjectId, journalId, null);
+                string path = processor.processTemplate(service, hospitalitySession.ObjectId, journalDayId, null);
                 TemplatesUtils.ShowDocument(path);
             }
         }
@@ -321,6 +327,11 @@ namespace Cardiology.UI.Forms
                     DbDataService.GetInstance().Delete(DdtJournal.NAME, id);
                 }
             }
+        }
+
+        private void journalDocBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

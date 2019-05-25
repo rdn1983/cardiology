@@ -12,7 +12,7 @@ namespace Cardiology.Commons
 
         public bool accept(string templateType)
         {
-            return DdtJournal.NAME.Equals(templateType, StringComparison.Ordinal);
+            return DdtJournal.NAME.Equals(templateType, StringComparison.Ordinal) || DdtJournalDay.NAME.Equals(templateType, StringComparison.Ordinal);
         }
 
         public string processTemplate(IDbDataService service, string hospitalitySession, string objectId, Dictionary<string, string> aditionalValues)
@@ -81,7 +81,8 @@ namespace Cardiology.Commons
                 jrnlValues.Add("{complaints}", journal.Complaints);
                 jrnlValues.Add("{journal}", journal.Journal);
                 jrnlValues.Add("{monitor}", journal.Monitor);
-                jrnlValues.Add("{doctor.initials}", doc == null ? "" : doc.ShortName);
+                DdvDoctor jrnlDoc = service.GetDdvDoctorService().GetById(journal.Doctor);
+                jrnlValues.Add("{doctor.initials}", day.JournalType == (int)DdtJournalDsiType.AfterKag || jrnlDoc == null ? doc?.ShortName : jrnlDoc.ShortName);
                 if (i == journals.Count - 1)
                 {
                     jrnlValues.Add("{kag_diagnosis}", kagValue);

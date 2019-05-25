@@ -163,7 +163,14 @@ namespace Cardiology.UI.Forms
                 DataGridViewRow row = rows[i];
                 string id = (string)row.Cells[0].Value;
                 string type = (string)row.Cells[1].Value;
-                service.Execute(@"update " + type + " set dsid_parent='" + objectId + "' , dss_parent_type='ddt_epicrisis' WHERE r_object_id ='" + id + "'");
+                if (service.GetDdtRelationService().GetByParentAndChildIds(objectId, id) == null)
+                {
+                    DdtRelation rel = new DdtRelation();
+                    rel.Child = id;
+                    rel.Parent = objectId;
+                    rel.ChildType = type;
+                    service.GetDdtRelationService().Save(rel);
+                }
             }
         }
 

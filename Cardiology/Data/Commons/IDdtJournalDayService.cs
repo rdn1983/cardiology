@@ -1,5 +1,6 @@
 ﻿using Cardiology.Data.Model2;
 using System;
+using System.Collections.Generic;
 
 namespace Cardiology.Data.Commons
 {
@@ -7,7 +8,7 @@ namespace Cardiology.Data.Commons
     {
         DdtJournalDay GetForDate(string hopitalSesssionId, DateTime date);
 
-        DdtJournalDay GetBetween(string hopitalSesssionId, DateTime start, DateTime end);
+        IList<DdtJournalDay> GetBetween(string hopitalSesssionId, DateTime start, DateTime end, int journalType);
 
         DdtJournalDay GetById(string id);
 

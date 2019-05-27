@@ -210,6 +210,7 @@
             this.monitorTxt0.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.monitorTxt0.Location = new System.Drawing.Point(603, 52);
             this.monitorTxt0.Name = "monitorTxt0";
+            this.monitorTxt0.ReadOnly = true;
             this.monitorTxt0.Size = new System.Drawing.Size(160, 20);
             this.monitorTxt0.TabIndex = 31;
             // 

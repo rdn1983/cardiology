@@ -271,7 +271,12 @@ namespace Cardiology.UI.Forms
             borderDateValues.TryGetValue("start", out start);
             DateTime end = new DateTime();
             borderDateValues.TryGetValue("end", out end);
-            bool isSameDate = service.GetDdtJournalDayService().GetBetween(hospitalitySession.ObjectId, start, end)!=null;
+            IList<DdtJournalDay> daysBetween = service.GetDdtJournalDayService().GetBetween(hospitalitySession.ObjectId, start, end, (int) DdtJournalDsiType.AfterKag);
+            bool isSameDate = false;
+            foreach (DdtJournalDay day in daysBetween)
+            {
+                isSameDate |= !day.ObjectId.Equals(journalDayId, StringComparison.Ordinal);
+            }
             wrongDateWarning.Visible = isSameDate;
             return !isSameDate;
         }

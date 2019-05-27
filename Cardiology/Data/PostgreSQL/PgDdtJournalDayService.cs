@@ -44,7 +44,7 @@ namespace Cardiology.Data.PostgreSQL
             return list.Count > 0 ? list[0] : null;
         }
 
-        public DdtJournalDay GetBetween(string hopitalSessionId, DateTime start, DateTime end)
+        public IList<DdtJournalDay> GetBetween(string hopitalSessionId, DateTime start, DateTime end, int journalType)
         {
             if (start == null || end == null)
             {
@@ -53,9 +53,9 @@ namespace Cardiology.Data.PostgreSQL
             String sql = String.Format("SELECT r_object_id, r_creation_date, dsdt_admission_date, dsid_doctor, dsid_patient, dsid_hospitality_session, " +
                     "r_modify_date, dss_name, dsi_journal_type, dss_diagnosis FROM ddt_journal_day where dsid_hospitality_session='" + hopitalSessionId + "' AND dsdt_admission_date>=to_timestamp('" +
                    start.ToShortDateString() + " " + start.ToShortTimeString() + "', 'dd.mm.yyyy HH24:mi:ss') AND dsdt_admission_date<=to_timestamp('" + end.ToShortDateString() +
-                   " " + end.ToShortTimeString() + "', 'dd.mm.yyyy HH24:mi:ss')");
+                   " " + end.ToShortTimeString() + "', 'dd.mm.yyyy HH24:mi:ss') AND dsi_journal_type=" + journalType);
             IList<DdtJournalDay> list = GetByQuery(sql);
-            return list.Count > 0 ? list[0] : null;
+            return list;
         }
 
         private IList<DdtJournalDay> GetByQuery(string sql)

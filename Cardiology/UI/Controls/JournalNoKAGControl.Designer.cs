@@ -141,6 +141,7 @@
             this.monitorTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.monitorTxt.Location = new System.Drawing.Point(10, 122);
             this.monitorTxt.Name = "monitorTxt";
+            this.monitorTxt.ReadOnly = true;
             this.monitorTxt.Size = new System.Drawing.Size(121, 20);
             this.monitorTxt.TabIndex = 7;
             this.monitorTxt.Text = "синусовый ритм";

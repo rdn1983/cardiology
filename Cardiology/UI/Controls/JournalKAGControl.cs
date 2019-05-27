@@ -57,8 +57,8 @@ namespace Cardiology.UI.Controls
                 chddTxt.Text = journal.Chdd;
                 adTxt.Text = journal.Ad;
                 chssTxt.Text = journal.Chss;
-                goodRhytmBtn0.Checked = "синусовый ритм".Equals(journal.Rhythm, StringComparison.Ordinal);
-                badRhytmBtn0.Checked = !"синусовый ритм".Equals(journal.Rhythm, StringComparison.Ordinal);
+                goodRhytmBtn0.Checked = GOOD_RHYTM.Equals(journal.Rhythm, StringComparison.Ordinal);
+                badRhytmBtn0.Checked = !GOOD_RHYTM.Equals(journal.Rhythm, StringComparison.Ordinal);
                 monitorTxt0.Text = journal.Monitor;
                 objId = journal.ObjectId;
                 freeze.Checked = journal.Freeze;

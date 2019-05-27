@@ -88,6 +88,10 @@ namespace Cardiology.Commons
 
             DdvDoctor doc = service.GetDdvDoctorService().GetById(obj.Doctor);
             values.Add("{doctor.who.short}", doc.ShortName);
+            DdvDoctor surgery = service.GetDdvDoctorService().GetById(hospital.DutyDoctor);
+            values.Add("{surgery}",surgery?.ShortName+ "\n");
+            DdvDoctor anest = service.GetDdvDoctorService().GetById(hospital.AnesthetistDoctor);
+            values.Add("{anestesiolog}",anest?.ShortName);
 
             string resultFileName = TemplatesUtils.getTempFileName("Эпикриз", patient.FullName);
             return TemplatesUtils.FillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + getTemplateName(obj), values, resultFileName);

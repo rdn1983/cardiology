@@ -356,11 +356,6 @@ namespace Cardiology.UI.Forms
             }
         }
 
-        private void journalDocBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void admissionDateTxt_ValueChanged(object sender, EventArgs e)
         {
             getIsValid();

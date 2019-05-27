@@ -63,7 +63,7 @@ namespace Cardiology.UI.Controls
 
         private void initControls()
         {
-            CommonUtils.InitRangedItems(chssTxt, 40, 200);
+            CommonUtils.InitRangedItems(chssTxt, 30, 200);
             CommonUtils.InitRangedItems(chddTxt, 14, 26);
             warningLbl.Visible = false;
 

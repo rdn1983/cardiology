@@ -101,11 +101,9 @@
             // 
             this.ekgTemplates.Controls.Add(this.backPnl);
             this.ekgTemplates.Controls.Add(this.frontPnl);
-            this.ekgTemplates.Location = new System.Drawing.Point(4, 267);
-            this.ekgTemplates.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ekgTemplates.Location = new System.Drawing.Point(3, 217);
             this.ekgTemplates.Name = "ekgTemplates";
-            this.ekgTemplates.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.ekgTemplates.Size = new System.Drawing.Size(907, 226);
+            this.ekgTemplates.Size = new System.Drawing.Size(680, 184);
             this.ekgTemplates.TabIndex = 30;
             this.ekgTemplates.TabStop = false;
             this.ekgTemplates.Text = "Шаблоны ЭКГ";
@@ -123,20 +121,17 @@
             this.backPnl.Controls.Add(this.backDesc2);
             this.backPnl.Controls.Add(this.backType4);
             this.backPnl.Controls.Add(this.backDesc1);
-            this.backPnl.Location = new System.Drawing.Point(479, 14);
-            this.backPnl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.backPnl.Location = new System.Drawing.Point(359, 11);
             this.backPnl.Name = "backPnl";
-            this.backPnl.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.backPnl.Size = new System.Drawing.Size(412, 207);
+            this.backPnl.Size = new System.Drawing.Size(309, 168);
             this.backPnl.TabIndex = 33;
             this.backPnl.TabStop = false;
             // 
             // backDesc2_2
             // 
-            this.backDesc2_2.Location = new System.Drawing.Point(316, 81);
-            this.backDesc2_2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.backDesc2_2.Location = new System.Drawing.Point(237, 66);
             this.backDesc2_2.Name = "backDesc2_2";
-            this.backDesc2_2.Size = new System.Drawing.Size(85, 28);
+            this.backDesc2_2.Size = new System.Drawing.Size(64, 23);
             this.backDesc2_2.TabIndex = 32;
             this.backDesc2_2.Text = "V1-V3";
             this.backDesc2_2.UseVisualStyleBackColor = true;
@@ -144,10 +139,9 @@
             // 
             // backDesc4_4
             // 
-            this.backDesc4_4.Location = new System.Drawing.Point(337, 140);
-            this.backDesc4_4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.backDesc4_4.Location = new System.Drawing.Point(253, 114);
             this.backDesc4_4.Name = "backDesc4_4";
-            this.backDesc4_4.Size = new System.Drawing.Size(64, 59);
+            this.backDesc4_4.Size = new System.Drawing.Size(48, 48);
             this.backDesc4_4.TabIndex = 31;
             this.backDesc4_4.Text = "V1-V3";
             this.backDesc4_4.UseVisualStyleBackColor = true;
@@ -156,19 +150,17 @@
             // backLbl
             // 
             this.backLbl.AutoSize = true;
-            this.backLbl.Location = new System.Drawing.Point(97, 14);
-            this.backLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.backLbl.Location = new System.Drawing.Point(73, 11);
             this.backLbl.Name = "backLbl";
-            this.backLbl.Size = new System.Drawing.Size(262, 17);
+            this.backLbl.Size = new System.Drawing.Size(204, 13);
             this.backLbl.TabIndex = 1;
             this.backLbl.Text = "Инфаркт миокарда задней стенки ЛЖ";
             // 
             // backType1
             // 
-            this.backType1.Location = new System.Drawing.Point(9, 38);
-            this.backType1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.backType1.Location = new System.Drawing.Point(7, 31);
             this.backType1.Name = "backType1";
-            this.backType1.Size = new System.Drawing.Size(208, 42);
+            this.backType1.Size = new System.Drawing.Size(156, 34);
             this.backType1.TabIndex = 21;
             this.backType1.Text = "Заднедиафрагмальный\r\n(нижний)";
             this.backType1.UseVisualStyleBackColor = true;
@@ -176,10 +168,9 @@
             // 
             // backDesc4
             // 
-            this.backDesc4.Location = new System.Drawing.Point(219, 140);
-            this.backDesc4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.backDesc4.Location = new System.Drawing.Point(164, 114);
             this.backDesc4.Name = "backDesc4";
-            this.backDesc4.Size = new System.Drawing.Size(116, 59);
+            this.backDesc4.Size = new System.Drawing.Size(87, 48);
             this.backDesc4.TabIndex = 30;
             this.backDesc4.Text = "III,aVF,II,V5,V6,V7-V9";
             this.backDesc4.UseVisualStyleBackColor = true;
@@ -187,10 +178,9 @@
             // 
             // backType2
             // 
-            this.backType2.Location = new System.Drawing.Point(9, 81);
-            this.backType2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.backType2.Location = new System.Drawing.Point(7, 66);
             this.backType2.Name = "backType2";
-            this.backType2.Size = new System.Drawing.Size(208, 28);
+            this.backType2.Size = new System.Drawing.Size(156, 23);
             this.backType2.TabIndex = 22;
             this.backType2.Text = "Заднебазальный";
             this.backType2.UseVisualStyleBackColor = true;
@@ -198,10 +188,9 @@
             // 
             // backType3
             // 
-            this.backType3.Location = new System.Drawing.Point(9, 111);
-            this.backType3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.backType3.Location = new System.Drawing.Point(7, 90);
             this.backType3.Name = "backType3";
-            this.backType3.Size = new System.Drawing.Size(208, 28);
+            this.backType3.Size = new System.Drawing.Size(156, 23);
             this.backType3.TabIndex = 23;
             this.backType3.Text = "Заднебоковой";
             this.backType3.UseVisualStyleBackColor = true;
@@ -209,10 +198,9 @@
             // 
             // backDesc3
             // 
-            this.backDesc3.Location = new System.Drawing.Point(219, 111);
-            this.backDesc3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.backDesc3.Location = new System.Drawing.Point(164, 90);
             this.backDesc3.Name = "backDesc3";
-            this.backDesc3.Size = new System.Drawing.Size(183, 28);
+            this.backDesc3.Size = new System.Drawing.Size(137, 23);
             this.backDesc3.TabIndex = 28;
             this.backDesc3.Text = "V5,V6,II,aVF";
             this.backDesc3.UseVisualStyleBackColor = true;
@@ -220,10 +208,9 @@
             // 
             // backDesc2
             // 
-            this.backDesc2.Location = new System.Drawing.Point(219, 81);
-            this.backDesc2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.backDesc2.Location = new System.Drawing.Point(164, 66);
             this.backDesc2.Name = "backDesc2";
-            this.backDesc2.Size = new System.Drawing.Size(96, 28);
+            this.backDesc2.Size = new System.Drawing.Size(72, 23);
             this.backDesc2.TabIndex = 27;
             this.backDesc2.Text = "V7-V9";
             this.backDesc2.UseVisualStyleBackColor = true;
@@ -231,10 +218,9 @@
             // 
             // backType4
             // 
-            this.backType4.Location = new System.Drawing.Point(9, 140);
-            this.backType4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.backType4.Location = new System.Drawing.Point(7, 114);
             this.backType4.Name = "backType4";
-            this.backType4.Size = new System.Drawing.Size(208, 59);
+            this.backType4.Size = new System.Drawing.Size(156, 48);
             this.backType4.TabIndex = 25;
             this.backType4.Text = "Распространенный задний";
             this.backType4.UseVisualStyleBackColor = true;
@@ -242,10 +228,9 @@
             // 
             // backDesc1
             // 
-            this.backDesc1.Location = new System.Drawing.Point(219, 38);
-            this.backDesc1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.backDesc1.Location = new System.Drawing.Point(164, 31);
             this.backDesc1.Name = "backDesc1";
-            this.backDesc1.Size = new System.Drawing.Size(183, 42);
+            this.backDesc1.Size = new System.Drawing.Size(137, 34);
             this.backDesc1.TabIndex = 26;
             this.backDesc1.Text = "III,aVF,II";
             this.backDesc1.UseVisualStyleBackColor = true;
@@ -265,30 +250,26 @@
             this.frontPnl.Controls.Add(this.frontDesc2);
             this.frontPnl.Controls.Add(this.frontType5);
             this.frontPnl.Controls.Add(this.frontDesc1);
-            this.frontPnl.Location = new System.Drawing.Point(8, 14);
-            this.frontPnl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.frontPnl.Location = new System.Drawing.Point(6, 11);
             this.frontPnl.Name = "frontPnl";
-            this.frontPnl.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.frontPnl.Size = new System.Drawing.Size(464, 207);
+            this.frontPnl.Size = new System.Drawing.Size(348, 168);
             this.frontPnl.TabIndex = 32;
             this.frontPnl.TabStop = false;
             // 
             // frontLbl
             // 
             this.frontLbl.AutoSize = true;
-            this.frontLbl.Location = new System.Drawing.Point(81, 14);
-            this.frontLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.frontLbl.Location = new System.Drawing.Point(61, 11);
             this.frontLbl.Name = "frontLbl";
-            this.frontLbl.Size = new System.Drawing.Size(279, 17);
+            this.frontLbl.Size = new System.Drawing.Size(216, 13);
             this.frontLbl.TabIndex = 0;
             this.frontLbl.Text = "Инфаркт миокарда передней стенки ЛЖ";
             // 
             // frontDesc5_5
             // 
-            this.frontDesc5_5.Location = new System.Drawing.Point(353, 171);
-            this.frontDesc5_5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.frontDesc5_5.Location = new System.Drawing.Point(265, 139);
             this.frontDesc5_5.Name = "frontDesc5_5";
-            this.frontDesc5_5.Size = new System.Drawing.Size(100, 28);
+            this.frontDesc5_5.Size = new System.Drawing.Size(75, 23);
             this.frontDesc5_5.TabIndex = 31;
             this.frontDesc5_5.Text = "III,aVF,II";
             this.frontDesc5_5.UseVisualStyleBackColor = true;
@@ -296,10 +277,9 @@
             // 
             // frontType1
             // 
-            this.frontType1.Location = new System.Drawing.Point(11, 38);
-            this.frontType1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.frontType1.Location = new System.Drawing.Point(8, 31);
             this.frontType1.Name = "frontType1";
-            this.frontType1.Size = new System.Drawing.Size(241, 28);
+            this.frontType1.Size = new System.Drawing.Size(181, 23);
             this.frontType1.TabIndex = 21;
             this.frontType1.Text = "Переднеперегородочный инфаркт миокарда передней стенки левого желудочка";
             this.frontType1.UseVisualStyleBackColor = true;
@@ -307,10 +287,9 @@
             // 
             // frontDesc5
             // 
-            this.frontDesc5.Location = new System.Drawing.Point(252, 171);
-            this.frontDesc5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.frontDesc5.Location = new System.Drawing.Point(189, 139);
             this.frontDesc5.Name = "frontDesc5";
-            this.frontDesc5.Size = new System.Drawing.Size(100, 28);
+            this.frontDesc5.Size = new System.Drawing.Size(75, 23);
             this.frontDesc5.TabIndex = 30;
             this.frontDesc5.Text = "I,aVL,V1-V6";
             this.frontDesc5.UseVisualStyleBackColor = true;
@@ -318,10 +297,9 @@
             // 
             // frontType2
             // 
-            this.frontType2.Location = new System.Drawing.Point(11, 68);
-            this.frontType2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.frontType2.Location = new System.Drawing.Point(8, 55);
             this.frontType2.Name = "frontType2";
-            this.frontType2.Size = new System.Drawing.Size(241, 28);
+            this.frontType2.Size = new System.Drawing.Size(181, 23);
             this.frontType2.TabIndex = 22;
             this.frontType2.Text = "Передневерхушечный";
             this.frontType2.UseVisualStyleBackColor = true;
@@ -329,10 +307,9 @@
             // 
             // frontDesc4
             // 
-            this.frontDesc4.Location = new System.Drawing.Point(252, 127);
-            this.frontDesc4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.frontDesc4.Location = new System.Drawing.Point(189, 103);
             this.frontDesc4.Name = "frontDesc4";
-            this.frontDesc4.Size = new System.Drawing.Size(201, 43);
+            this.frontDesc4.Size = new System.Drawing.Size(151, 35);
             this.frontDesc4.TabIndex = 29;
             this.frontDesc4.Text = "V24-V26 и/или V34-V36";
             this.frontDesc4.UseVisualStyleBackColor = true;
@@ -340,10 +317,9 @@
             // 
             // frontType3
             // 
-            this.frontType3.Location = new System.Drawing.Point(11, 97);
-            this.frontType3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.frontType3.Location = new System.Drawing.Point(8, 79);
             this.frontType3.Name = "frontType3";
-            this.frontType3.Size = new System.Drawing.Size(241, 28);
+            this.frontType3.Size = new System.Drawing.Size(181, 23);
             this.frontType3.TabIndex = 23;
             this.frontType3.Text = "Переднебоковой";
             this.frontType3.UseVisualStyleBackColor = true;
@@ -351,10 +327,9 @@
             // 
             // frontDesc3
             // 
-            this.frontDesc3.Location = new System.Drawing.Point(253, 97);
-            this.frontDesc3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.frontDesc3.Location = new System.Drawing.Point(190, 79);
             this.frontDesc3.Name = "frontDesc3";
-            this.frontDesc3.Size = new System.Drawing.Size(200, 28);
+            this.frontDesc3.Size = new System.Drawing.Size(150, 23);
             this.frontDesc3.TabIndex = 28;
             this.frontDesc3.Text = "I, aVL, V5, V6";
             this.frontDesc3.UseVisualStyleBackColor = true;
@@ -362,10 +337,9 @@
             // 
             // frontType4
             // 
-            this.frontType4.Location = new System.Drawing.Point(9, 127);
-            this.frontType4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.frontType4.Location = new System.Drawing.Point(7, 103);
             this.frontType4.Name = "frontType4";
-            this.frontType4.Size = new System.Drawing.Size(241, 43);
+            this.frontType4.Size = new System.Drawing.Size(181, 35);
             this.frontType4.TabIndex = 24;
             this.frontType4.Text = "Переднебазальный\r\n(высокий передний)";
             this.frontType4.UseVisualStyleBackColor = true;
@@ -373,10 +347,9 @@
             // 
             // frontDesc2
             // 
-            this.frontDesc2.Location = new System.Drawing.Point(253, 68);
-            this.frontDesc2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.frontDesc2.Location = new System.Drawing.Point(190, 55);
             this.frontDesc2.Name = "frontDesc2";
-            this.frontDesc2.Size = new System.Drawing.Size(200, 28);
+            this.frontDesc2.Size = new System.Drawing.Size(150, 23);
             this.frontDesc2.TabIndex = 27;
             this.frontDesc2.Text = "V3,V4";
             this.frontDesc2.UseVisualStyleBackColor = true;
@@ -384,10 +357,9 @@
             // 
             // frontType5
             // 
-            this.frontType5.Location = new System.Drawing.Point(9, 171);
-            this.frontType5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.frontType5.Location = new System.Drawing.Point(7, 139);
             this.frontType5.Name = "frontType5";
-            this.frontType5.Size = new System.Drawing.Size(241, 28);
+            this.frontType5.Size = new System.Drawing.Size(181, 23);
             this.frontType5.TabIndex = 25;
             this.frontType5.Text = "Распространенный передний";
             this.frontType5.UseVisualStyleBackColor = true;
@@ -395,10 +367,9 @@
             // 
             // frontDesc1
             // 
-            this.frontDesc1.Location = new System.Drawing.Point(253, 38);
-            this.frontDesc1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.frontDesc1.Location = new System.Drawing.Point(190, 31);
             this.frontDesc1.Name = "frontDesc1";
-            this.frontDesc1.Size = new System.Drawing.Size(200, 28);
+            this.frontDesc1.Size = new System.Drawing.Size(150, 23);
             this.frontDesc1.TabIndex = 26;
             this.frontDesc1.Text = "V1-V3";
             this.frontDesc1.UseVisualStyleBackColor = true;
@@ -406,20 +377,18 @@
             // 
             // regularEkgTxt
             // 
-            this.regularEkgTxt.Location = new System.Drawing.Point(443, 4);
-            this.regularEkgTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.regularEkgTxt.Location = new System.Drawing.Point(332, 3);
             this.regularEkgTxt.Name = "regularEkgTxt";
-            this.regularEkgTxt.Size = new System.Drawing.Size(467, 213);
+            this.regularEkgTxt.Size = new System.Drawing.Size(351, 174);
             this.regularEkgTxt.TabIndex = 29;
             this.regularEkgTxt.Text = "";
             this.regularEkgTxt.TextChanged += new System.EventHandler(this.regularEkgTxt_TextChanged);
             // 
             // clearBtn
             // 
-            this.clearBtn.Location = new System.Drawing.Point(443, 225);
-            this.clearBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.clearBtn.Location = new System.Drawing.Point(332, 183);
             this.clearBtn.Name = "clearBtn";
-            this.clearBtn.Size = new System.Drawing.Size(100, 39);
+            this.clearBtn.Size = new System.Drawing.Size(75, 32);
             this.clearBtn.TabIndex = 28;
             this.clearBtn.Text = "Очистить";
             this.clearBtn.UseVisualStyleBackColor = true;
@@ -430,21 +399,18 @@
             this.rhytmGroupBox.Controls.Add(this.flutterBtn);
             this.rhytmGroupBox.Controls.Add(this.fibrillationBtn);
             this.rhytmGroupBox.Controls.Add(this.rhytmSinusBtn);
-            this.rhytmGroupBox.Location = new System.Drawing.Point(4, 44);
-            this.rhytmGroupBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rhytmGroupBox.Location = new System.Drawing.Point(3, 36);
             this.rhytmGroupBox.Name = "rhytmGroupBox";
-            this.rhytmGroupBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.rhytmGroupBox.Size = new System.Drawing.Size(383, 69);
+            this.rhytmGroupBox.Size = new System.Drawing.Size(287, 56);
             this.rhytmGroupBox.TabIndex = 21;
             this.rhytmGroupBox.TabStop = false;
             this.rhytmGroupBox.Text = "Ритм";
             // 
             // flutterBtn
             // 
-            this.flutterBtn.Location = new System.Drawing.Point(256, 15);
-            this.flutterBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flutterBtn.Location = new System.Drawing.Point(192, 12);
             this.flutterBtn.Name = "flutterBtn";
-            this.flutterBtn.Size = new System.Drawing.Size(116, 48);
+            this.flutterBtn.Size = new System.Drawing.Size(87, 39);
             this.flutterBtn.TabIndex = 2;
             this.flutterBtn.Text = "Трепетание предсердий";
             this.flutterBtn.UseVisualStyleBackColor = true;
@@ -452,10 +418,9 @@
             // 
             // fibrillationBtn
             // 
-            this.fibrillationBtn.Location = new System.Drawing.Point(132, 16);
-            this.fibrillationBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.fibrillationBtn.Location = new System.Drawing.Point(99, 13);
             this.fibrillationBtn.Name = "fibrillationBtn";
-            this.fibrillationBtn.Size = new System.Drawing.Size(116, 47);
+            this.fibrillationBtn.Size = new System.Drawing.Size(87, 38);
             this.fibrillationBtn.TabIndex = 1;
             this.fibrillationBtn.Text = "Фибрилляция предсердий";
             this.fibrillationBtn.UseVisualStyleBackColor = true;
@@ -463,10 +428,9 @@
             // 
             // rhytmSinusBtn
             // 
-            this.rhytmSinusBtn.Location = new System.Drawing.Point(8, 16);
-            this.rhytmSinusBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rhytmSinusBtn.Location = new System.Drawing.Point(6, 13);
             this.rhytmSinusBtn.Name = "rhytmSinusBtn";
-            this.rhytmSinusBtn.Size = new System.Drawing.Size(116, 47);
+            this.rhytmSinusBtn.Size = new System.Drawing.Size(87, 38);
             this.rhytmSinusBtn.TabIndex = 0;
             this.rhytmSinusBtn.Text = "Ритм синусовый";
             this.rhytmSinusBtn.UseVisualStyleBackColor = true;
@@ -474,10 +438,9 @@
             // 
             // spaceBtn
             // 
-            this.spaceBtn.Location = new System.Drawing.Point(347, 225);
-            this.spaceBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spaceBtn.Location = new System.Drawing.Point(260, 183);
             this.spaceBtn.Name = "spaceBtn";
-            this.spaceBtn.Size = new System.Drawing.Size(88, 39);
+            this.spaceBtn.Size = new System.Drawing.Size(66, 32);
             this.spaceBtn.TabIndex = 27;
             this.spaceBtn.Text = "Пробел";
             this.spaceBtn.UseVisualStyleBackColor = true;
@@ -488,21 +451,18 @@
             this.deviationBox.Controls.Add(this.negativeTBtn);
             this.deviationBox.Controls.Add(this.depressionBtn);
             this.deviationBox.Controls.Add(this.elevation);
-            this.deviationBox.Location = new System.Drawing.Point(4, 118);
-            this.deviationBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.deviationBox.Location = new System.Drawing.Point(3, 96);
             this.deviationBox.Name = "deviationBox";
-            this.deviationBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.deviationBox.Size = new System.Drawing.Size(383, 52);
+            this.deviationBox.Size = new System.Drawing.Size(287, 42);
             this.deviationBox.TabIndex = 22;
             this.deviationBox.TabStop = false;
             this.deviationBox.Text = "Девиация ST";
             // 
             // negativeTBtn
             // 
-            this.negativeTBtn.Location = new System.Drawing.Point(224, 17);
-            this.negativeTBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.negativeTBtn.Location = new System.Drawing.Point(168, 14);
             this.negativeTBtn.Name = "negativeTBtn";
-            this.negativeTBtn.Size = new System.Drawing.Size(148, 28);
+            this.negativeTBtn.Size = new System.Drawing.Size(111, 23);
             this.negativeTBtn.TabIndex = 2;
             this.negativeTBtn.Text = "Отрицательный Т";
             this.negativeTBtn.UseVisualStyleBackColor = true;
@@ -510,10 +470,9 @@
             // 
             // depressionBtn
             // 
-            this.depressionBtn.Location = new System.Drawing.Point(116, 16);
-            this.depressionBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.depressionBtn.Location = new System.Drawing.Point(87, 13);
             this.depressionBtn.Name = "depressionBtn";
-            this.depressionBtn.Size = new System.Drawing.Size(100, 28);
+            this.depressionBtn.Size = new System.Drawing.Size(75, 23);
             this.depressionBtn.TabIndex = 1;
             this.depressionBtn.Text = "Депрессия";
             this.depressionBtn.UseVisualStyleBackColor = true;
@@ -521,10 +480,9 @@
             // 
             // elevation
             // 
-            this.elevation.Location = new System.Drawing.Point(8, 17);
-            this.elevation.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.elevation.Location = new System.Drawing.Point(6, 14);
             this.elevation.Name = "elevation";
-            this.elevation.Size = new System.Drawing.Size(100, 28);
+            this.elevation.Size = new System.Drawing.Size(75, 23);
             this.elevation.TabIndex = 0;
             this.elevation.Text = "Элевация";
             this.elevation.UseVisualStyleBackColor = true;
@@ -532,10 +490,9 @@
             // 
             // dotBtn
             // 
-            this.dotBtn.Location = new System.Drawing.Point(396, 183);
-            this.dotBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dotBtn.Location = new System.Drawing.Point(297, 149);
             this.dotBtn.Name = "dotBtn";
-            this.dotBtn.Size = new System.Drawing.Size(39, 34);
+            this.dotBtn.Size = new System.Drawing.Size(29, 28);
             this.dotBtn.TabIndex = 26;
             this.dotBtn.Text = ".";
             this.dotBtn.UseVisualStyleBackColor = true;
@@ -555,21 +512,18 @@
             this.whereBox.Controls.Add(this.IIIBtn);
             this.whereBox.Controls.Add(this.IIBtn);
             this.whereBox.Controls.Add(this.IBtn);
-            this.whereBox.Location = new System.Drawing.Point(4, 172);
-            this.whereBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.whereBox.Location = new System.Drawing.Point(3, 140);
             this.whereBox.Name = "whereBox";
-            this.whereBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.whereBox.Size = new System.Drawing.Size(336, 92);
+            this.whereBox.Size = new System.Drawing.Size(252, 75);
             this.whereBox.TabIndex = 23;
             this.whereBox.TabStop = false;
             this.whereBox.Text = "Где";
             // 
             // V6Btn
             // 
-            this.V6Btn.Location = new System.Drawing.Point(275, 53);
-            this.V6Btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.V6Btn.Location = new System.Drawing.Point(206, 43);
             this.V6Btn.Name = "V6Btn";
-            this.V6Btn.Size = new System.Drawing.Size(53, 28);
+            this.V6Btn.Size = new System.Drawing.Size(40, 23);
             this.V6Btn.TabIndex = 11;
             this.V6Btn.Text = "V6";
             this.V6Btn.UseVisualStyleBackColor = true;
@@ -577,10 +531,9 @@
             // 
             // V5Btn
             // 
-            this.V5Btn.Location = new System.Drawing.Point(221, 53);
-            this.V5Btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.V5Btn.Location = new System.Drawing.Point(166, 43);
             this.V5Btn.Name = "V5Btn";
-            this.V5Btn.Size = new System.Drawing.Size(53, 28);
+            this.V5Btn.Size = new System.Drawing.Size(40, 23);
             this.V5Btn.TabIndex = 10;
             this.V5Btn.Text = "V5";
             this.V5Btn.UseVisualStyleBackColor = true;
@@ -588,10 +541,9 @@
             // 
             // V4Btn
             // 
-            this.V4Btn.Location = new System.Drawing.Point(168, 53);
-            this.V4Btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.V4Btn.Location = new System.Drawing.Point(126, 43);
             this.V4Btn.Name = "V4Btn";
-            this.V4Btn.Size = new System.Drawing.Size(53, 28);
+            this.V4Btn.Size = new System.Drawing.Size(40, 23);
             this.V4Btn.TabIndex = 9;
             this.V4Btn.Text = "V4";
             this.V4Btn.UseVisualStyleBackColor = true;
@@ -599,10 +551,9 @@
             // 
             // V3Btn
             // 
-            this.V3Btn.Location = new System.Drawing.Point(115, 53);
-            this.V3Btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.V3Btn.Location = new System.Drawing.Point(86, 43);
             this.V3Btn.Name = "V3Btn";
-            this.V3Btn.Size = new System.Drawing.Size(53, 28);
+            this.V3Btn.Size = new System.Drawing.Size(40, 23);
             this.V3Btn.TabIndex = 8;
             this.V3Btn.Text = "V3";
             this.V3Btn.UseVisualStyleBackColor = true;
@@ -610,10 +561,9 @@
             // 
             // V2Btn
             // 
-            this.V2Btn.Location = new System.Drawing.Point(61, 53);
-            this.V2Btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.V2Btn.Location = new System.Drawing.Point(46, 43);
             this.V2Btn.Name = "V2Btn";
-            this.V2Btn.Size = new System.Drawing.Size(53, 28);
+            this.V2Btn.Size = new System.Drawing.Size(40, 23);
             this.V2Btn.TabIndex = 7;
             this.V2Btn.Text = "V2";
             this.V2Btn.UseVisualStyleBackColor = true;
@@ -621,10 +571,9 @@
             // 
             // V1Btn
             // 
-            this.V1Btn.Location = new System.Drawing.Point(7, 53);
-            this.V1Btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.V1Btn.Location = new System.Drawing.Point(5, 43);
             this.V1Btn.Name = "V1Btn";
-            this.V1Btn.Size = new System.Drawing.Size(53, 28);
+            this.V1Btn.Size = new System.Drawing.Size(40, 23);
             this.V1Btn.TabIndex = 6;
             this.V1Btn.Text = "V1";
             this.V1Btn.UseVisualStyleBackColor = true;
@@ -632,10 +581,9 @@
             // 
             // AvfBtn
             // 
-            this.AvfBtn.Location = new System.Drawing.Point(275, 25);
-            this.AvfBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AvfBtn.Location = new System.Drawing.Point(206, 20);
             this.AvfBtn.Name = "AvfBtn";
-            this.AvfBtn.Size = new System.Drawing.Size(53, 28);
+            this.AvfBtn.Size = new System.Drawing.Size(40, 23);
             this.AvfBtn.TabIndex = 5;
             this.AvfBtn.Text = "aVF";
             this.AvfBtn.UseVisualStyleBackColor = true;
@@ -643,10 +591,9 @@
             // 
             // AvrBtn
             // 
-            this.AvrBtn.Location = new System.Drawing.Point(221, 25);
-            this.AvrBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AvrBtn.Location = new System.Drawing.Point(166, 20);
             this.AvrBtn.Name = "AvrBtn";
-            this.AvrBtn.Size = new System.Drawing.Size(53, 28);
+            this.AvrBtn.Size = new System.Drawing.Size(40, 23);
             this.AvrBtn.TabIndex = 4;
             this.AvrBtn.Text = "aVR";
             this.AvrBtn.UseVisualStyleBackColor = true;
@@ -654,10 +601,9 @@
             // 
             // AvlBtn
             // 
-            this.AvlBtn.Location = new System.Drawing.Point(168, 25);
-            this.AvlBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AvlBtn.Location = new System.Drawing.Point(126, 20);
             this.AvlBtn.Name = "AvlBtn";
-            this.AvlBtn.Size = new System.Drawing.Size(53, 28);
+            this.AvlBtn.Size = new System.Drawing.Size(40, 23);
             this.AvlBtn.TabIndex = 3;
             this.AvlBtn.Text = "aVL";
             this.AvlBtn.UseVisualStyleBackColor = true;
@@ -665,10 +611,9 @@
             // 
             // IIIBtn
             // 
-            this.IIIBtn.Location = new System.Drawing.Point(115, 25);
-            this.IIIBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.IIIBtn.Location = new System.Drawing.Point(86, 20);
             this.IIIBtn.Name = "IIIBtn";
-            this.IIIBtn.Size = new System.Drawing.Size(53, 28);
+            this.IIIBtn.Size = new System.Drawing.Size(40, 23);
             this.IIIBtn.TabIndex = 2;
             this.IIIBtn.Text = "III";
             this.IIIBtn.UseVisualStyleBackColor = true;
@@ -676,10 +621,9 @@
             // 
             // IIBtn
             // 
-            this.IIBtn.Location = new System.Drawing.Point(61, 25);
-            this.IIBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.IIBtn.Location = new System.Drawing.Point(46, 20);
             this.IIBtn.Name = "IIBtn";
-            this.IIBtn.Size = new System.Drawing.Size(53, 28);
+            this.IIBtn.Size = new System.Drawing.Size(40, 23);
             this.IIBtn.TabIndex = 1;
             this.IIBtn.Text = "II";
             this.IIBtn.UseVisualStyleBackColor = true;
@@ -687,10 +631,9 @@
             // 
             // IBtn
             // 
-            this.IBtn.Location = new System.Drawing.Point(7, 25);
-            this.IBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.IBtn.Location = new System.Drawing.Point(5, 20);
             this.IBtn.Name = "IBtn";
-            this.IBtn.Size = new System.Drawing.Size(53, 28);
+            this.IBtn.Size = new System.Drawing.Size(40, 23);
             this.IBtn.TabIndex = 0;
             this.IBtn.Text = "I";
             this.IBtn.UseVisualStyleBackColor = true;
@@ -699,10 +642,9 @@
             // dashBtn
             // 
             this.dashBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dashBtn.Location = new System.Drawing.Point(347, 183);
-            this.dashBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dashBtn.Location = new System.Drawing.Point(260, 149);
             this.dashBtn.Name = "dashBtn";
-            this.dashBtn.Size = new System.Drawing.Size(40, 34);
+            this.dashBtn.Size = new System.Drawing.Size(30, 28);
             this.dashBtn.TabIndex = 25;
             this.dashBtn.Text = "-";
             this.dashBtn.UseVisualStyleBackColor = true;
@@ -711,10 +653,9 @@
             // commaBtn
             // 
             this.commaBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.commaBtn.Location = new System.Drawing.Point(396, 6);
-            this.commaBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.commaBtn.Location = new System.Drawing.Point(297, 5);
             this.commaBtn.Name = "commaBtn";
-            this.commaBtn.Size = new System.Drawing.Size(39, 84);
+            this.commaBtn.Size = new System.Drawing.Size(29, 68);
             this.commaBtn.TabIndex = 24;
             this.commaBtn.Text = ",";
             this.commaBtn.UseVisualStyleBackColor = true;
@@ -725,11 +666,9 @@
             this.readonlyEkgBox.Controls.Add(this.hide);
             this.readonlyEkgBox.Controls.Add(this.readonlyEkgTxt);
             this.readonlyEkgBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.readonlyEkgBox.Location = new System.Drawing.Point(7, 0);
-            this.readonlyEkgBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.readonlyEkgBox.Location = new System.Drawing.Point(5, 0);
             this.readonlyEkgBox.Name = "readonlyEkgBox";
-            this.readonlyEkgBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.readonlyEkgBox.Size = new System.Drawing.Size(956, 100);
+            this.readonlyEkgBox.Size = new System.Drawing.Size(717, 81);
             this.readonlyEkgBox.TabIndex = 31;
             this.readonlyEkgBox.TabStop = false;
             this.readonlyEkgBox.Text = "ЭКГ при поступлении";
@@ -737,10 +676,9 @@
             // hide
             // 
             this.hide.Image = global::Cardiology.Properties.Resources.remove;
-            this.hide.Location = new System.Drawing.Point(913, 6);
-            this.hide.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.hide.Location = new System.Drawing.Point(685, 5);
             this.hide.Name = "hide";
-            this.hide.Size = new System.Drawing.Size(35, 28);
+            this.hide.Size = new System.Drawing.Size(26, 23);
             this.hide.TabIndex = 40;
             this.hide.UseVisualStyleBackColor = true;
             this.hide.Click += new System.EventHandler(this.hide_Click);
@@ -748,11 +686,10 @@
             // readonlyEkgTxt
             // 
             this.readonlyEkgTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.readonlyEkgTxt.Location = new System.Drawing.Point(8, 20);
-            this.readonlyEkgTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.readonlyEkgTxt.Location = new System.Drawing.Point(6, 16);
             this.readonlyEkgTxt.Name = "readonlyEkgTxt";
             this.readonlyEkgTxt.ReadOnly = true;
-            this.readonlyEkgTxt.Size = new System.Drawing.Size(899, 69);
+            this.readonlyEkgTxt.Size = new System.Drawing.Size(675, 57);
             this.readonlyEkgTxt.TabIndex = 9;
             this.readonlyEkgTxt.Text = "";
             // 
@@ -770,19 +707,17 @@
             this.editablePnl.Controls.Add(this.dotBtn);
             this.editablePnl.Controls.Add(this.deviationBox);
             this.editablePnl.Controls.Add(this.spaceBtn);
-            this.editablePnl.Location = new System.Drawing.Point(4, 0);
-            this.editablePnl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.editablePnl.Location = new System.Drawing.Point(3, 0);
             this.editablePnl.Name = "editablePnl";
-            this.editablePnl.Size = new System.Drawing.Size(961, 500);
+            this.editablePnl.Size = new System.Drawing.Size(721, 406);
             this.editablePnl.TabIndex = 32;
             // 
             // button1
             // 
             this.button1.Image = global::Cardiology.Properties.Resources.remove;
-            this.button1.Location = new System.Drawing.Point(913, 6);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Location = new System.Drawing.Point(685, 5);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(35, 28);
+            this.button1.Size = new System.Drawing.Size(26, 23);
             this.button1.TabIndex = 40;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.hide_Click);
@@ -790,22 +725,20 @@
             // analysisDate
             // 
             this.analysisDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.analysisDate.Location = new System.Drawing.Point(11, 11);
-            this.analysisDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.analysisDate.Location = new System.Drawing.Point(8, 9);
             this.analysisDate.Name = "analysisDate";
-            this.analysisDate.Size = new System.Drawing.Size(141, 22);
+            this.analysisDate.Size = new System.Drawing.Size(107, 20);
             this.analysisDate.TabIndex = 31;
             this.analysisDate.ValueChanged += new System.EventHandler(this.analysisDate_ValueChanged);
             // 
             // EkgAnalysisControlcs
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.editablePnl);
             this.Controls.Add(this.readonlyEkgBox);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "EkgAnalysisControlcs";
-            this.Size = new System.Drawing.Size(969, 111);
+            this.Size = new System.Drawing.Size(727, 409);
             this.ekgTemplates.ResumeLayout(false);
             this.backPnl.ResumeLayout(false);
             this.backPnl.PerformLayout();

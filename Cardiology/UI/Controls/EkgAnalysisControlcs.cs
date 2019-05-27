@@ -9,8 +9,8 @@ namespace Cardiology.UI.Controls
 {
     public partial class EkgAnalysisControlcs : UserControl, IDocbaseControl
     {
-        private static readonly Size FULL_SIZE = new Size(732, 409);
-        private static readonly Size READONLY_SIZE = new Size(732, 83);
+        private static readonly Size FULL_SIZE = new Size(741, 409);
+        private static readonly Size READONLY_SIZE = new Size(741, 83);
         private string objectId;
         private bool isEditable;
         private bool hasChanges;

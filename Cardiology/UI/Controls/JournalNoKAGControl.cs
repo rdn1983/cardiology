@@ -9,6 +9,11 @@ namespace Cardiology.UI.Controls
 {
     public partial class JournalNoKAGControl : UserControl, IDocbaseControl
     {
+        private const string GOOD_RHYTM = "синусовый ритм";
+        private const string GOOD_RHYTM_LBL = "ритм правильный";
+        private const string BAD_RHYTM = "трепетание предсердий";
+        private const string BAD_RHYTM_LBL = "ритм неправильный";
+
         private static System.Drawing.Size FULL_SIZE = new System.Drawing.Size(900, 181);
         private static System.Drawing.Size SHRINK_SIZE = new System.Drawing.Size(900, 40);
         private static System.Drawing.Point SHRINK_HIDECB_LOCATION = new System.Drawing.Point(300, 19);
@@ -192,8 +197,7 @@ namespace Cardiology.UI.Controls
                 badRhytmBtn.Checked = !journal.GoodRhythm;
                 freeze.Checked = journal.Freeze;
 
-                DdvDoctor doc = DbDataService.GetInstance().GetDdvDoctorService().GetById(journal.Doctor);
-                docBox.SelectedIndex = docBox.FindStringExact(doc.ShortName);
+                docBox.SelectedValue = journal.Doctor;
                 objectId = journal.ObjectId;
                 isNew = string.IsNullOrEmpty(objectId);
                 hasChanges = false;
@@ -219,12 +223,26 @@ namespace Cardiology.UI.Controls
             visibledPanel.Visible = !cb.Checked;
             Size = cb.Checked ? SHRINK_SIZE : FULL_SIZE;
             cb.Location = cb.Checked ? SHRINK_HIDECB_LOCATION : FULL_HIDECB_LOCATION;
-            freeze.Location = cb.Checked? SHRINK_FREEZECB_LOCATION : FULL_FREEZECB_LOCATION;
+            freeze.Location = cb.Checked ? SHRINK_FREEZECB_LOCATION : FULL_FREEZECB_LOCATION;
         }
 
         private void goodRhytmBtn_CheckedChanged(object sender, EventArgs e)
         {
-            monitorTxt.Text = goodRhytmBtn.Checked ? "синусовый ритм" : "трепетание предсердий";
+            string monitorValue = goodRhytmBtn.Checked ? GOOD_RHYTM : BAD_RHYTM;
+            monitorTxt.Text = monitorValue;
+            string journalOld = journalTxt.Text;
+            string findTxt = isGoodRhytm() ? BAD_RHYTM_LBL : GOOD_RHYTM_LBL;
+            string replaceTxt = isGoodRhytm() ? GOOD_RHYTM_LBL : BAD_RHYTM_LBL;
+            if (!string.IsNullOrEmpty(journalOld) && journalOld.IndexOf(findTxt) >= 0)
+            {
+                string val = journalOld.Replace(findTxt, replaceTxt);
+                journalTxt.Text = val;
+            }
+            else if (journalOld.IndexOf(replaceTxt) < 0)
+            {
+                journalTxt.Text += "" + replaceTxt;
+
+            }
             hasChanges = true;
         }
 
@@ -296,6 +314,7 @@ namespace Cardiology.UI.Controls
             adTxt.SelectedIndex = adTxt.FindString(nextAdValue + "/");
             int chssNextValue = JournalShuffleUtils.shuffleNextValue(chsRange.Start, chsRange.End);
             chssTxt.SelectedIndex = chssTxt.FindString(chssNextValue + "");
+            hasChanges = true;
         }
         #endregion
 

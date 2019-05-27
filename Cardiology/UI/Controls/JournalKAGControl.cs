@@ -79,6 +79,7 @@ namespace Cardiology.UI.Controls
                 chddTxt.SelectedIndex = chddTxt.FindString("14");
                 adTxt.SelectedIndex = JournalShuffleUtils.shuffleNextIndex(adTxt.Items.Count - 1);
                 chssTxt.SelectedIndex = JournalShuffleUtils.shuffleNextIndex(chssTxt.Items.Count - 1);
+                goodRhytmBtn0_CheckedChanged(null, null);
             }
         }
 
@@ -193,6 +194,7 @@ namespace Cardiology.UI.Controls
             {
                 journalTxt.Text += "" + replaceTxt;
             }
+            hasChanges = true;
         }
 
         private void chddTxt0_SelectedIndexChanged(object sender, EventArgs e)
@@ -203,6 +205,7 @@ namespace Cardiology.UI.Controls
                 string oldJournal = journalTxt.Text;
                 journalTxt.Text = CommonUtils.ReplaceJournalIntParameter(oldJournal, "ЧД", newValue);
             }
+            hasChanges = true;
         }
 
         private void adText0_SelectedIndexChanged(object sender, EventArgs e)
@@ -213,6 +216,7 @@ namespace Cardiology.UI.Controls
                 string oldJournal = journalTxt.Text;
                 journalTxt.Text = CommonUtils.ReplaceJournalIntParameter(oldJournal, "АД", newValue);
             }
+            hasChanges = true;
         }
 
         private void chssText0_SelectedIndexChanged(object sender, EventArgs e)
@@ -223,6 +227,7 @@ namespace Cardiology.UI.Controls
                 string oldJournal = journalTxt.Text;
                 journalTxt.Text = CommonUtils.ReplaceJournalIntParameter(oldJournal, "ЧСС", newValue);
             }
+            hasChanges = true;
         }
 
         private void shuffleBtn_Click(object sender, EventArgs e)
@@ -245,6 +250,7 @@ namespace Cardiology.UI.Controls
             adTxt.SelectedIndex = adTxt.FindString(nextAdValue + "/");
             int chssNextValue = JournalShuffleUtils.shuffleNextValue(chsRange.Start, chsRange.End);
             chssTxt.SelectedIndex = chssTxt.FindString(chssNextValue + "");
+            hasChanges = true;
         }
 
 

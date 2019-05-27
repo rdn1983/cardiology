@@ -35,6 +35,7 @@ namespace Cardiology.UI.Forms
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JournalAfterKAG));
             this.afterKagDiagnosisPnl = new System.Windows.Forms.GroupBox();
+            this.wrongDateWarning = new System.Windows.Forms.Label();
             this.removeKAG = new System.Windows.Forms.Button();
             this.selectKAGBtn = new System.Windows.Forms.Button();
             this.kagDianosisLbl = new System.Windows.Forms.Label();
@@ -79,6 +80,7 @@ namespace Cardiology.UI.Forms
             // 
             this.afterKagDiagnosisPnl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.afterKagDiagnosisPnl.Controls.Add(this.wrongDateWarning);
             this.afterKagDiagnosisPnl.Controls.Add(this.removeKAG);
             this.afterKagDiagnosisPnl.Controls.Add(this.selectKAGBtn);
             this.afterKagDiagnosisPnl.Controls.Add(this.kagDianosisLbl);
@@ -92,6 +94,18 @@ namespace Cardiology.UI.Forms
             this.afterKagDiagnosisPnl.TabIndex = 0;
             this.afterKagDiagnosisPnl.TabStop = false;
             this.afterKagDiagnosisPnl.Text = "После КАГ. Выставлен диагноз:";
+            // 
+            // wrongDateWarning
+            // 
+            this.wrongDateWarning.AutoSize = true;
+            this.wrongDateWarning.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.wrongDateWarning.ForeColor = System.Drawing.Color.DarkRed;
+            this.wrongDateWarning.Location = new System.Drawing.Point(211, 15);
+            this.wrongDateWarning.Name = "wrongDateWarning";
+            this.wrongDateWarning.Size = new System.Drawing.Size(622, 13);
+            this.wrongDateWarning.TabIndex = 14;
+            this.wrongDateWarning.Text = "В истории болезни уже есть дневники после КАГ за данную дату. Укажите другую дату" +
+    " для создания.";
             // 
             // removeKAG
             // 
@@ -119,7 +133,7 @@ namespace Cardiology.UI.Forms
             // 
             this.kagDianosisLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.kagDianosisLbl.AutoSize = true;
-            this.kagDianosisLbl.Location = new System.Drawing.Point(609, 20);
+            this.kagDianosisLbl.Location = new System.Drawing.Point(656, 32);
             this.kagDianosisLbl.Name = "kagDianosisLbl";
             this.kagDianosisLbl.Size = new System.Drawing.Size(82, 13);
             this.kagDianosisLbl.TabIndex = 11;
@@ -128,9 +142,9 @@ namespace Cardiology.UI.Forms
             // kagDiagnosisTxt
             // 
             this.kagDiagnosisTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.kagDiagnosisTxt.Location = new System.Drawing.Point(484, 39);
+            this.kagDiagnosisTxt.Location = new System.Drawing.Point(484, 48);
             this.kagDiagnosisTxt.Name = "kagDiagnosisTxt";
-            this.kagDiagnosisTxt.Size = new System.Drawing.Size(431, 62);
+            this.kagDiagnosisTxt.Size = new System.Drawing.Size(431, 51);
             this.kagDiagnosisTxt.TabIndex = 10;
             this.kagDiagnosisTxt.Text = "";
             // 
@@ -141,6 +155,7 @@ namespace Cardiology.UI.Forms
             this.admissionDateTxt.Name = "admissionDateTxt";
             this.admissionDateTxt.Size = new System.Drawing.Size(98, 20);
             this.admissionDateTxt.TabIndex = 7;
+            this.admissionDateTxt.ValueChanged += new System.EventHandler(this.admissionDateTxt_ValueChanged);
             // 
             // admissionTimeTxt
             // 
@@ -151,14 +166,15 @@ namespace Cardiology.UI.Forms
             this.admissionTimeTxt.ShowUpDown = true;
             this.admissionTimeTxt.Size = new System.Drawing.Size(98, 20);
             this.admissionTimeTxt.TabIndex = 6;
+            this.admissionTimeTxt.ValueChanged += new System.EventHandler(this.admissionDateTxt_ValueChanged);
             // 
             // afterKagDiagnosisTxt
             // 
             this.afterKagDiagnosisTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.afterKagDiagnosisTxt.Location = new System.Drawing.Point(6, 39);
+            this.afterKagDiagnosisTxt.Location = new System.Drawing.Point(6, 49);
             this.afterKagDiagnosisTxt.Name = "afterKagDiagnosisTxt";
-            this.afterKagDiagnosisTxt.Size = new System.Drawing.Size(472, 62);
+            this.afterKagDiagnosisTxt.Size = new System.Drawing.Size(472, 51);
             this.afterKagDiagnosisTxt.TabIndex = 0;
             this.afterKagDiagnosisTxt.Text = "ИБС: Острый нижний инфаркт миокарда от 07.08.2016. Атеросклероз коронарных артери" +
     "й. Состояние после ТЛАП и стентирования пр/3 ПКА(стентом xience V 3,0 x18мм с ле" +
@@ -208,6 +224,7 @@ namespace Cardiology.UI.Forms
             // 
             // cardioVascularBox
             // 
+            this.cardioVascularBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cardioVascularBox.FormattingEnabled = true;
             this.cardioVascularBox.Location = new System.Drawing.Point(214, 19);
             this.cardioVascularBox.Name = "cardioVascularBox";
@@ -529,5 +546,6 @@ namespace Cardiology.UI.Forms
         private ComboBox cardioVascularBox;
         private DateTimePicker cardioDate;
         private DateTimePicker cardioTime;
+        private Label wrongDateWarning;
     }
 }

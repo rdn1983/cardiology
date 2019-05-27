@@ -105,6 +105,10 @@ namespace Cardiology.Data.PostgreSQL
         public IList<DdtUrineAnalysis> GetByParentId(string parentId)
         {
             IList<DdtUrineAnalysis> list = new List<DdtUrineAnalysis>();
+            if (parentId == null)
+            {
+                return list;
+            }
             using (dynamic connection = connectionFactory.GetConnection())
             {
                 String sql = String.Format("SELECT dss_ketones, ur.r_object_id, dsdt_analysis_date, dss_specific_gravity, dss_erythrocytes, r_creation_date, rel.dsid_parent, dsid_doctor, " +

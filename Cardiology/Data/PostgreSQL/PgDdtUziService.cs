@@ -94,6 +94,10 @@ namespace Cardiology.Data.PostgreSQL
         public IList<DdtUzi> GetByParentId(string parentId)
         {
             IList<DdtUzi> list = new List<DdtUzi>();
+            if (parentId == null)
+            {
+                return list;
+            }
             using (dynamic connection = connectionFactory.GetConnection())
             {
                 String sql = String.Format("SELECT uz.r_object_id, dsdt_analysis_date, dss_eho_kg, r_creation_date, " +

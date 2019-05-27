@@ -55,6 +55,10 @@ namespace Cardiology.Data.PostgreSQL
         public IList<DdtEgds> GetByParentId(string parentId)
         {
             IList<DdtEgds> list = new List<DdtEgds>();
+            if (parentId == null)
+            {
+                return list;
+            }
             using (dynamic connection = connectionFactory.GetConnection())
             {
                 String sql = String.Format("SELECT dsid_hospitality_session, eg.r_object_id, dsdt_analysis_date, r_modify_date, dss_egds, eg.dss_parent_type, " +

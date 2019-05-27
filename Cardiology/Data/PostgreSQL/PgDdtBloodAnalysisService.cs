@@ -40,6 +40,10 @@ namespace Cardiology.Data.PostgreSQL
 
         public IList<DdtBloodAnalysis> GetByParentId(string parentId)
         {
+            if (parentId == null)
+            {
+                return new List<DdtBloodAnalysis>();
+            }
             String sql = String.Format("SELECT an.r_object_id, dss_alt, dss_creatinine, dss_platelets, dss_hemoglobin, dss_chlorine, dss_leucocytes, dss_potassium, " +
                 "an.dss_parent_type, dss_kfk, dss_kfk_mv, dss_sodium, dsb_admission_analysis, dss_srp, dsb_discharge_analysis, dss_amylase, dsdt_analysis_date, " +
                 "dss_cholesterol, dss_schf, dss_bil, dss_iron, r_creation_date, dss_ast, rel.dsid_parent, dsid_doctor, dsid_patient, dsid_hospitality_session, " +

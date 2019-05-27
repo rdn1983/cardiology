@@ -44,6 +44,20 @@ namespace Cardiology.Data.PostgreSQL
             return list.Count > 0 ? list[0] : null;
         }
 
+        public DdtJournalDay GetBetween(string hopitalSessionId, DateTime start, DateTime end)
+        {
+            if (start == null || end == null)
+            {
+                return null;
+            }
+            String sql = String.Format("SELECT r_object_id, r_creation_date, dsdt_admission_date, dsid_doctor, dsid_patient, dsid_hospitality_session, " +
+                    "r_modify_date, dss_name, dsi_journal_type, dss_diagnosis FROM ddt_journal_day where dsid_hospitality_session='" + hopitalSessionId + "' AND dsdt_admission_date>=to_timestamp('" +
+                   start.ToShortDateString() + " " + start.ToShortTimeString() + "', 'dd.mm.yyyy HH24:mi:ss') AND dsdt_admission_date<=to_timestamp('" + end.ToShortDateString() +
+                   " " + end.ToShortTimeString() + "', 'dd.mm.yyyy HH24:mi:ss')");
+            IList<DdtJournalDay> list = GetByQuery(sql);
+            return list.Count > 0 ? list[0] : null;
+        }
+
         private IList<DdtJournalDay> GetByQuery(string sql)
         {
             IList<DdtJournalDay> list = new List<DdtJournalDay>();

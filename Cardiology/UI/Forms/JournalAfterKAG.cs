@@ -30,12 +30,13 @@ namespace Cardiology.UI.Forms
 
         private void initControls()
         {
+            wrongDateWarning.Visible = false;
             CommonUtils.InitRangedItems(chssSurgeryTxt, 40, 200);
             CommonUtils.InitRangedItems(chddSurgeryTxt, 14, 26);
 
             afterKagDiagnosisTxt.Text = hospitalitySession.Diagnosis;
 
-            CommonUtils.InitDoctorsComboboxValues(service, journalDocBox, "");
+            CommonUtils.InitDoctorsByGroupComboboxValues(service, journalDocBox, "cardioreanimation_department");
             CommonUtils.InitDoctorsByGroupComboboxValues(service, cardioVascularBox, "xray_department");
 
             DdvPatient patientView = service.GetDdvPatientService().GetById(hospitalitySession.Patient);
@@ -53,13 +54,12 @@ namespace Cardiology.UI.Forms
                     chssSurgeryTxt.Text = cardioVascularConcls?.AdditionalInfo2;
                     cardioDate.Value = cardioVascularConcls == null ? DateTime.Now : cardioVascularConcls.AdmissionDate;
                     cardioTime.Value = cardioVascularConcls == null ? DateTime.Now : cardioVascularConcls.AdmissionDate;
+                    cardioVascularBox.SelectedValue = cardioVascularConcls?.AdditionalInfo4;
 
                     admissionTimeTxt.Value = journalDay.AdmissionDate;
                     admissionDateTxt.Value = journalDay.AdmissionDate;
                     afterKagDiagnosisTxt.Text = journalDay.Diagnosis;
-
-                    DdvDoctor doctors = service.GetDdvDoctorService().GetById(journalDay.Doctor);
-                    journalDocBox.SelectedIndex = journalDocBox.FindStringExact(doctors.ShortName);
+                    journalDocBox.SelectedValue = journalDay.Doctor;
 
                     IList<DdtKag> kags = service.GetDdtKagService().GetByParentId(journalDay.ObjectId);
                     DdtKag kag = kags.Count > 0 ? kags[0] : null;
@@ -76,11 +76,16 @@ namespace Cardiology.UI.Forms
             else
             {
                 //Для нового дневника ставим время через 1 час после приема. если есть КАГ, то через 15 мин после КАГ
-                DdtKag kag = service.GetDdtKagService().GetByHospitalSession(hospitalitySession.ObjectId);
-                initKag(kag);
+                String sql = String.Format("SELECT r_object_id, dsdt_analysis_date, dsdt_end_time, r_creation_date, dsid_parent, dss_kag_manipulation, " +
+                    "dsid_doctor, dsid_patient, dsid_hospitality_session, dsdt_start_time, r_modify_date, dss_parent_type, dss_results, dss_kag_action " +
+                    "FROM ddt_kag WHERE dsid_hospitality_session = '{0}' order by dsdt_analysis_date desc", hospitalitySession.ObjectId);
+                IList<DdtKag> kags = service.GetDdtKagService().GetByQuery(sql);
+                initKag(kags.Count > 0 ? kags[0] : null);
 
-                DdvDoctor doctors = service.GetDdvDoctorService().GetById(hospitalitySession.CuringDoctor);
-                journalDocBox.SelectedIndex = journalDocBox.FindStringExact(doctors.ShortName);
+                getIsValid();
+
+                journalDocBox.SelectedValue = hospitalitySession.CuringDoctor;
+                cardioVascularBox.SelectedValue = hospitalitySession.DutyDoctor;
             }
         }
 
@@ -179,13 +184,18 @@ namespace Cardiology.UI.Forms
 
         public bool Save()
         {
+            if (!getIsValid())
+            {
+                return false;
+            }
+
             service.GetDdtHospitalService().Save(hospitalitySession);
 
             DdtJournalDay journalDay = null;
             if (!string.IsNullOrEmpty(journalDayId))
             {
                 journalDay = service.GetDdtJournalDayService().GetById(journalDayId);
-                
+
             }
             else
             {
@@ -252,6 +262,18 @@ namespace Cardiology.UI.Forms
 
             analysisTabControl1.save(journalDayId, DdtJournal.NAME);
             return true;
+        }
+
+        private bool getIsValid()
+        {
+            Dictionary<string, DateTime> borderDateValues = CommonUtils.FindJournalDayPeriod(CommonUtils.ConstructDateWIthTime(admissionDateTxt.Value, admissionTimeTxt.Value));
+            DateTime start = new DateTime();
+            borderDateValues.TryGetValue("start", out start);
+            DateTime end = new DateTime();
+            borderDateValues.TryGetValue("end", out end);
+            bool isSameDate = service.GetDdtJournalDayService().GetBetween(hospitalitySession.ObjectId, start, end)!=null;
+            wrongDateWarning.Visible = isSameDate;
+            return !isSameDate;
         }
 
         private void printBtn_Click(object sender, EventArgs e)
@@ -331,7 +353,14 @@ namespace Cardiology.UI.Forms
 
         private void journalDocBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
+
+        private void admissionDateTxt_ValueChanged(object sender, EventArgs e)
+        {
+            getIsValid();
+        }
+
+
     }
 }

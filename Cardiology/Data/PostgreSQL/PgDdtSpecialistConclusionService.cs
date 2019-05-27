@@ -56,6 +56,10 @@ namespace Cardiology.Data.PostgreSQL
         public IList<DdtSpecialistConclusion> GetByParentId(string parentId)
         {
             IList<DdtSpecialistConclusion> list = new List<DdtSpecialistConclusion>();
+            if (parentId == null)
+            {
+                return list;
+            }
             using (dynamic connection = connectionFactory.GetConnection())
             {
                 String sql = String.Format("SELECT co.r_object_id, dsdt_analysis_date, r_creation_date, rel.dsid_parent, " +

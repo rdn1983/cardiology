@@ -284,6 +284,23 @@ namespace Cardiology.Commons
 
         }
 
+        public static Dictionary<string, DateTime> FindJournalDayPeriod(DateTime firstDate)
+        {
+            Dictionary<string, DateTime> result = new Dictionary<string, DateTime>();
+            DateTime startDay = new DateTime(firstDate.Year, firstDate.Month, firstDate.Day, 8, 10, 0);
+            DateTime endDay = new DateTime(firstDate.Year, firstDate.Month, firstDate.Day, 8, 09 ,0);
+            if (firstDate.Hour>8)
+            {
+                endDay = endDay.AddDays(1);
+            } else
+            {
+                startDay = new DateTime(firstDate.Year, firstDate.Month, firstDate.Day, firstDate.Hour, firstDate.Minute, 0);
+            }
+            result.Add("start", startDay);
+            result.Add("end", endDay);
+            return result;
+        }
+
     }
 }
 

@@ -85,6 +85,11 @@ namespace Cardiology.Data.PostgreSQL
         public IList<DdtCoagulogram> getByParentId(string parentId)
         {
             IList<DdtCoagulogram> list = new List<DdtCoagulogram>();
+            if (parentId == null)
+            {
+                return list;
+            }
+
             using (dynamic connection = connectionFactory.GetConnection())
             {
                 String sql = String.Format("SELECT dss_ddimer, dsid_hospitality_session, cc.r_object_id, dsdt_analysis_date, r_modify_date, dss_mcho, r_creation_date, dss_achtv, " +

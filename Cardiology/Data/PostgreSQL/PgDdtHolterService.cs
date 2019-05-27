@@ -91,6 +91,10 @@ namespace Cardiology.Data.PostgreSQL
         public IList<DdtHolter> GetByParentId(string parentId)
         {
             IList<DdtHolter> list = new List<DdtHolter>();
+            if (parentId == null)
+            {
+                return list;
+            }
             using (dynamic connection = connectionFactory.GetConnection())
             {
                 String sql = String.Format("SELECT dsid_hospitality_session, ho.r_object_id, dsdt_analysis_date, " +

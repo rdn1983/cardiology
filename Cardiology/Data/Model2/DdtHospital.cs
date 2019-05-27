@@ -10,6 +10,7 @@ namespace Cardiology.Data.Model2
 
         public string Diagnosis { get; set; }
 
+        //РХиДМЛ
         public string DutyDoctor { get; set; }
 
         public DateTime CreationDate { get; set; }
@@ -20,6 +21,7 @@ namespace Cardiology.Data.Model2
 
         public string Patient { get; set; }
 
+        //Кардиореаниматологи
         public string CuringDoctor { get; set; }
 
         public bool Active { get; set; }

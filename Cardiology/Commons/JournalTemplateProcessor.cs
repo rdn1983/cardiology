@@ -57,6 +57,7 @@ namespace Cardiology.Commons
 
                 first.Add("{kag_diagnosis}", kagValue);
                 first.Add("{diagnosis}", kag == null ? "Таким образом, у пациента:" + day.Diagnosis : "");
+                PutAnalysisData(first, service, null);
                 partsPaths.Add(TemplatesUtils.FillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + TEMPLATE_FILE_NAME, first));
 
                 Dictionary<string, string> surgeryValues = new Dictionary<string, string>();
@@ -68,6 +69,7 @@ namespace Cardiology.Commons
                 surgeryValues.Add("{kag_diagnosis}", " ");
                 surgeryValues.Add("{diagnosis}", " ");
                 surgeryValues.Add("{doctor.initials}", surgeryDoc == null ? "" : surgeryDoc.ShortName);
+                PutAnalysisData(surgeryValues, service, null);
                 partsPaths.Add(TemplatesUtils.FillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + TEMPLATE_FILE_NAME, surgeryValues));
             }
 
@@ -87,11 +89,13 @@ namespace Cardiology.Commons
                 {
                     jrnlValues.Add("{kag_diagnosis}", kagValue);
                     jrnlValues.Add("{diagnosis}", String.IsNullOrEmpty(day.Diagnosis) ? "" : "Таким образом, у пациента:" + day.Diagnosis);
+                    PutAnalysisData(jrnlValues, service, objectId);
                 }
                 else
                 {
                     jrnlValues.Add("{kag_diagnosis}", " ");
                     jrnlValues.Add("{diagnosis}", " ");
+                    PutAnalysisData(jrnlValues, service, null);
                 }
                 string mainPart = TemplatesUtils.FillTemplate(Directory.GetCurrentDirectory() + "\\Templates\\" + TEMPLATE_FILE_NAME, jrnlValues);
                 partsPaths.Add(mainPart);

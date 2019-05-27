@@ -11,7 +11,9 @@ namespace Cardiology.Data.Commons
 
         IList<DdtKag> GetByParentId(string parentId);
 
-        DdtKag GetByHospitalSession(string hospitalSession);
+        IList<DdtKag> GetByQuery(string query);
+
+        //DdtKag GetByHospitalSession(string hospitalSession);
 
         string Save(DdtKag obj);
     }

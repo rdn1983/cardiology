@@ -52,6 +52,7 @@ namespace Cardiology.Commons
                     " совместно с ангиохирургом " + surgeryDoc?.ShortName + ". \n Пациента доставили из рентгеноперационной.");
                 first.Add("{complaints}", "Жалоб на момент осмотра не предъявляет.");
                 first.Add("{journal}", JournalShuffleUtils.shuffleJournalText());
+                first.Add("{on_monitor}", "");
                 first.Add("{monitor}", "");
                 first.Add("{doctor.initials}", doc == null ? "" : doc.ShortName);
 
@@ -65,6 +66,7 @@ namespace Cardiology.Commons
                 surgeryValues.Add("{title}", "Осмотр ренгеноваскулярного хирурга " + surgeryDoc?.ShortName + ". \n");
                 surgeryValues.Add("{complaints}", "Жалоб на момент осмотра не предъявляет.");
                 surgeryValues.Add("{journal}", cardiovascular?.SpecialistConclusion);
+                surgeryValues.Add("{on_monitor}", "");
                 surgeryValues.Add("{monitor}", " ");
                 surgeryValues.Add("{kag_diagnosis}", " ");
                 surgeryValues.Add("{diagnosis}", " ");
@@ -81,8 +83,9 @@ namespace Cardiology.Commons
                 jrnlValues.Add("{time}", journal.AdmissionDate.ToShortTimeString());
                 jrnlValues.Add("{title}", " ");
                 jrnlValues.Add("{complaints}", journal.Complaints);
+                jrnlValues.Add("{on_monitor}", string.IsNullOrEmpty(journal.Monitor) ? string.Empty : "По монитору: ");
                 jrnlValues.Add("{journal}", journal.Journal);
-                jrnlValues.Add("{monitor}", journal.Monitor);
+                jrnlValues.Add("{monitor}", string.IsNullOrEmpty(journal.Monitor) ? string.Empty : journal.Monitor);
                 DdvDoctor jrnlDoc = service.GetDdvDoctorService().GetById(journal.Doctor);
                 jrnlValues.Add("{doctor.initials}", day.JournalType == (int)DdtJournalDsiType.AfterKag || jrnlDoc == null ? doc?.ShortName : jrnlDoc.ShortName);
                 if (i == journals.Count - 1)

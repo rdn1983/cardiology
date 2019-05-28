@@ -30,6 +30,7 @@ CREATE TRIGGER ddt_journal_trg_modify_date BEFORE INSERT OR UPDATE
   ON ddt_journal FOR EACH ROW
 EXECUTE PROCEDURE dmtrg_f_modify_date();
 
+
 CREATE FUNCTION dmtrg_f_ddt_journal_audit()
   returns trigger
 language plpgsql

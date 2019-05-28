@@ -32,6 +32,8 @@ CREATE TRIGGER ddt_hormones_trg_audit AFTER INSERT
 	ON ddt_hormones FOR EACH ROW 
 EXECUTE PROCEDURE dmtrg_f_ddt_hormones_audit();
 
+create trigger hormones_modify_history after update on ddt_hormones for each row execute procedure analysis_modify_history_fct();
+
 CREATE TABLE ddt_coagulogram (
   r_object_id varchar(16) PRIMARY KEY DEFAULT GetNextId(),
   r_creation_date TIMESTAMP DEFAULT NOW() NOT NULL,
@@ -65,6 +67,8 @@ $BODY$;
 CREATE TRIGGER ddt_coagulogram_trg_audit AFTER INSERT 
 	ON ddt_coagulogram FOR EACH ROW 
 EXECUTE PROCEDURE dmtrg_f_ddt_coagulogram_audit();
+
+create trigger coag_modify_history after update on ddt_coagulogram for each row execute procedure analysis_modify_history_fct();
 
 CREATE TABLE ddt_blood_analysis (
   r_object_id varchar(16) PRIMARY KEY DEFAULT GetNextId(),
@@ -119,3 +123,5 @@ $BODY$;
 CREATE TRIGGER ddt_blood_analysis_trg_audit AFTER INSERT 
 	ON ddt_blood_analysis FOR EACH ROW 
 EXECUTE PROCEDURE dmtrg_f_ddt_blood_analysis_audit();
+
+create trigger blood_modify_history after update on ddt_blood_analysis for each row execute procedure analysis_modify_history_fct();

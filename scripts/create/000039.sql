@@ -53,3 +53,16 @@ $BODY$;
 CREATE TRIGGER ddt_journal_day_trg_audit AFTER INSERT 
 	ON ddt_journal_day FOR EACH ROW
 EXECUTE PROCEDURE dmtrg_f_ddt_journal_day_audit();
+
+CREATE OR REPLACE FUNCTION journal_modify_history_fct() 
+RETURNS TRIGGER 
+language 'plpgsql' 
+as $$ DECLARE new_name TEXT; 
+BEGIN 
+IF (NEW.dsi_journal_type = 0) THEN new_name='Журнал до КАГ от ' || to_char(NEW.dsdt_admission_date, 'dd.mm.YYYY HH24:MM');
+ELSEIF (NEW.dsi_journal_type = 1) THEN new_name='Журнал после КАГ от ' || to_char(NEW.dsdt_admission_date, 'dd.mm.YYYY HH24:MM');
+END IF;
+UPDATE ddt_history SET dsdt_operation_date=NEW.dsdt_admission_date, dss_operation_name=new_name WHERE dsid_operation_id=NEW.r_object_id; 
+return new; end; $$;
+
+create trigger jrnl_modify_history after update on ddt_journal_day for each row execute procedure journal_modify_history_fct();

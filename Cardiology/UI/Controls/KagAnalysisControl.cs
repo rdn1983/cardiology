@@ -111,7 +111,7 @@ namespace Cardiology.UI.Controls
                 kagDate.Value = startTime;
                 kagStartTime.Value = startTime;
                 kagEndTime.Value = kag.EndTime == default(DateTime) ? startTime.AddHours(1) : kag.EndTime;
-                title.Text = "Анализы за " + kag.CreationDate.ToShortDateString();
+                title.Text = "Анализы за " + kag.AnalysisDate.ToShortDateString();
                 objectId = kag.ObjectId;
                 isNew = string.IsNullOrEmpty(objectId);
                 hasChanges = false;

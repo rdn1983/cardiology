@@ -21,7 +21,7 @@ CREATE TRIGGER ddt_history_trg_modify_date
   FOR EACH ROW
 EXECUTE PROCEDURE dmtrg_f_modify_date();
 
-CREATE VIEW ddv_history AS
+CREATE or REPLACE VIEW ddv_history AS
   SELECT
     history.dsid_hospitality_session,
     history.dss_operation_type,
@@ -30,7 +30,8 @@ CREATE VIEW ddv_history AS
     history.dsdt_operation_date,
     CONCAT(doc.dss_last_name, ' ', doc.dss_first_name, ' ', doc.dss_middle_name) AS dss_doctor_name,
     CONCAT(doc.dss_last_name, ' ', SUBSTR(doc.dss_first_name, 1, 1), '. ', SUBSTR(doc.dss_middle_name, 1, 1), '.') AS dss_doctor_short_name,
-    history.dss_description
+    history.dss_description,
+	history.r_modify_date as dsdt_modify_date
   FROM (ddt_history history
     LEFT JOIN ddt_doctor doc ON (history.dsid_doctor = doc.r_object_id))
   WHERE (history.dsb_deleted = false)

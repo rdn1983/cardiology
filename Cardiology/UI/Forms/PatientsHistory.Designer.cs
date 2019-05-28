@@ -73,7 +73,7 @@
             this.operationName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.operationDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.docExecutor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.operationDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.operationLastModifyDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.patientHistoryGrid)).BeginInit();
             this.gridContextMenu.SuspendLayout();
             this.mainMenu.SuspendLayout();
@@ -106,7 +106,7 @@
             this.operationName,
             this.operationDate,
             this.docExecutor,
-            this.operationDescription});
+            this.operationLastModifyDate});
             this.patientHistoryGrid.ContextMenuStrip = this.gridContextMenu;
             this.patientHistoryGrid.Location = new System.Drawing.Point(24, 36);
             this.patientHistoryGrid.Name = "patientHistoryGrid";
@@ -441,12 +441,12 @@
             this.docExecutor.Name = "docExecutor";
             this.docExecutor.ReadOnly = true;
             // 
-            // operationDescription
+            // operationLastModifyDate
             // 
-            this.operationDescription.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.operationDescription.HeaderText = "Подробности";
-            this.operationDescription.Name = "operationDescription";
-            this.operationDescription.ReadOnly = true;
+            this.operationLastModifyDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.operationLastModifyDate.HeaderText = "Дата последнего изменения";
+            this.operationLastModifyDate.Name = "operationLastModifyDate";
+            this.operationLastModifyDate.ReadOnly = true;
             // 
             // PatientsHistory
             // 
@@ -516,6 +516,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn operationName;
         private System.Windows.Forms.DataGridViewTextBoxColumn operationDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn docExecutor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn operationDescription;
+        private System.Windows.Forms.DataGridViewTextBoxColumn operationLastModifyDate;
     }
 }

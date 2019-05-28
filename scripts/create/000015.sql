@@ -35,3 +35,5 @@ $BODY$;
 CREATE TRIGGER ddt_specialist_conclusion_trg_audit AFTER INSERT
   ON ddt_specialist_conclusion FOR EACH ROW
 EXECUTE PROCEDURE dmtrg_f_ddt_specialist_conclusion_audit();
+
+create trigger spec_modify_history after update on ddt_specialist_conclusion for each row execute procedure analysis_modify_history_fct();

@@ -50,7 +50,7 @@ namespace Cardiology.UI.Controls
             regularSodiumTxt.Enabled = isEditable;
             regularSrbTxt.Enabled = isEditable;
             regularBloodDateTxt.Enabled = isEditable;
-            regularBloodPnl.Text = blood == null ? "Анализы текущие" : "Анализы промежуточные за " + blood.CreationDate.ToShortDateString();
+            regularBloodPnl.Text = blood == null ? "Анализы текущие" : "Анализы промежуточные за " + blood.AnalysisDate.ToShortDateString();
         }
 
         private void OnlyDigits_KeyPress(object sender, KeyPressEventArgs e)

@@ -41,3 +41,5 @@ $BODY$;
 CREATE TRIGGER ddt_urine_analysis_trg_audit AFTER INSERT 
 	ON ddt_urine_analysis FOR EACH ROW 
 EXECUTE PROCEDURE dmtrg_f_ddt_urine_analysis_audit();
+
+create trigger urine_modify_history after update on ddt_urine_analysis for each row execute procedure analysis_modify_history_fct();

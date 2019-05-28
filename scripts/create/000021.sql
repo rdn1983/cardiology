@@ -34,6 +34,8 @@ CREATE TRIGGER ddt_egds_trg_audit AFTER INSERT
 	ON ddt_egds FOR EACH ROW 
 EXECUTE PROCEDURE dmtrg_f_ddt_egds_audit();
 
+create trigger egds_modify_history after update on ddt_egds for each row execute procedure analysis_modify_history_fct();
+
 CREATE TABLE ddt_ekg (
   r_object_id varchar(16) PRIMARY KEY DEFAULT GetNextId(),
   r_creation_date TIMESTAMP DEFAULT NOW() NOT NULL,
@@ -68,3 +70,5 @@ $BODY$;
 CREATE TRIGGER ddt_ekg_trg_audit AFTER INSERT 
 	ON ddt_ekg FOR EACH ROW 
 EXECUTE PROCEDURE dmtrg_f_ddt_ekg_audit();
+
+create trigger ekg_modify_history after update on ddt_ekg for each row execute procedure analysis_modify_history_fct();

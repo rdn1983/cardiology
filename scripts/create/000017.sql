@@ -37,3 +37,5 @@ $BODY$;
 CREATE TRIGGER ddt_xray_trg_audit AFTER INSERT 
 	ON ddt_xray FOR EACH ROW 
 EXECUTE PROCEDURE dmtrg_f_ddt_xray_audit();
+
+create trigger xray_modify_history after update on ddt_xray for each row execute procedure analysis_modify_history_fct();

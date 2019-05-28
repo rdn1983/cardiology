@@ -38,3 +38,5 @@ $BODY$;
 CREATE TRIGGER ddt_oncologic_markers_trg_audit AFTER INSERT 
 	ON ddt_oncologic_markers FOR EACH ROW 
 EXECUTE PROCEDURE dmtrg_f_ddt_oncologic_markers_audit();
+
+create trigger onko_modify_history after update on ddt_oncologic_markers for each row execute procedure analysis_modify_history_fct();

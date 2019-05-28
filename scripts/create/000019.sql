@@ -36,3 +36,5 @@ $BODY$;
 CREATE TRIGGER ddt_serology_trg_audit AFTER INSERT 
 	ON ddt_serology FOR EACH ROW 
 EXECUTE PROCEDURE dmtrg_f_ddt_serology_audit();
+
+create trigger serology_modify_history after update on ddt_serology for each row execute procedure analysis_modify_history_fct();

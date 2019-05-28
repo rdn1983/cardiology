@@ -119,7 +119,7 @@ namespace Cardiology.UI.Controls
                 DateTime startTime = marker.AnalysisDate == default(DateTime) ? DateTime.Now : marker.AnalysisDate;
                 admissionDateTxt.Value = startTime;
                 admissionTimeTxt.Value = startTime;
-                cntr.Text = "Онкомаркеры за " + marker.CreationDate.ToShortDateString();
+                cntr.Text = "Онкомаркеры за " + marker.AnalysisDate.ToShortDateString();
                 objectId = marker.ObjectId;
                 isNew = string.IsNullOrEmpty(objectId);
                 hasChanges = false;

@@ -32,3 +32,13 @@ $BODY$;
 CREATE TRIGGER ddt_epicrisis_trg_audit AFTER INSERT 
 	ON ddt_epicrisis FOR EACH ROW 
 EXECUTE PROCEDURE dmtrg_f_ddt_epicrisis_audit();
+
+CREATE OR REPLACE FUNCTION epicrisis_modify_history_fct() 
+RETURNS TRIGGER 
+language 'plpgsql' 
+as $$ 
+BEGIN 
+	UPDATE ddt_history SET dsdt_operation_date=NEW.dsdt_epicrisis_date WHERE dsid_operation_id=NEW.r_object_id; 
+return new; end; $$;
+
+create trigger epicrs_modify_history after update on ddt_consilium for each row execute procedure epicrisis_modify_history_fct();

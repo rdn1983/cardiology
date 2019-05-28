@@ -36,3 +36,5 @@ $BODY$;
 CREATE TRIGGER ddt_kag_trg_audit AFTER INSERT 
 	ON ddt_kag FOR EACH ROW 
 EXECUTE PROCEDURE dmtrg_f_ddt_kag_audit();
+
+create trigger kag_modify_history after update on ddt_kag for each row execute procedure analysis_modify_history_fct();

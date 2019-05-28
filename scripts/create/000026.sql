@@ -35,6 +35,16 @@ CREATE TRIGGER ddt_consilium_trg_audit AFTER INSERT
 	ON ddt_consilium FOR EACH ROW
 EXECUTE PROCEDURE dmtrg_f_ddt_consilium_audit();
 
+CREATE OR REPLACE FUNCTION consilium_modify_history_fct() 
+RETURNS TRIGGER 
+language 'plpgsql' 
+as $$ 
+BEGIN 
+	UPDATE ddt_history SET dsdt_operation_date=NEW.dsdt_consilium_date WHERE dsid_operation_id=NEW.r_object_id; 
+return new; end; $$;
+
+create trigger consilium_modify_history after update on ddt_consilium for each row execute procedure consilium_modify_history_fct();
+
 CREATE TABLE ddt_consilium_relation (
   r_object_id varchar(16) PRIMARY KEY DEFAULT GetNextId(),
   r_creation_date TIMESTAMP DEFAULT NOW() NOT NULL,

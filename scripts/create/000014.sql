@@ -38,3 +38,6 @@ CREATE TRIGGER ddt_uzi_trg_audit AFTER INSERT
 	ON ddt_uzi FOR EACH ROW 
 EXECUTE PROCEDURE dmtrg_f_ddt_uzi_audit();
 
+create trigger uzi_modify_history after update on ddt_uzi for each row execute procedure analysis_modify_history_fct();
+
+

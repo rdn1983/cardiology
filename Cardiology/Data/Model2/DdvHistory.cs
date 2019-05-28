@@ -20,5 +20,7 @@ namespace Cardiology.Data.Model2
 
         public string OperationName { get; set; }
 
+        public DateTime ModifyDate { get; set; }
+
     }
 }

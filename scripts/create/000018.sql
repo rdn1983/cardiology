@@ -33,3 +33,5 @@ $BODY$;
 CREATE TRIGGER ddt_holter_trg_audit AFTER INSERT 
 	ON ddt_holter FOR EACH ROW 
 EXECUTE PROCEDURE dmtrg_f_ddt_holter_audit();
+
+create trigger holter_modify_history after update on ddt_holter for each row execute procedure analysis_modify_history_fct();

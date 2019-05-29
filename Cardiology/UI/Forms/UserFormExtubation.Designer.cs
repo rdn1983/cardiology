@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserFormExtubation));
             this.headerArea = new System.Windows.Forms.RichTextBox();
-            this.bodyArea = new System.Windows.Forms.RichTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.doctorsBox = new System.Windows.Forms.ComboBox();
             this.printBtn = new System.Windows.Forms.Button();
@@ -40,29 +39,18 @@
             // 
             // headerArea
             // 
-            this.headerArea.Location = new System.Drawing.Point(16, 47);
-            this.headerArea.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.headerArea.Location = new System.Drawing.Point(12, 38);
             this.headerArea.Name = "headerArea";
-            this.headerArea.Size = new System.Drawing.Size(635, 117);
+            this.headerArea.Size = new System.Drawing.Size(477, 96);
             this.headerArea.TabIndex = 2;
             this.headerArea.Text = resources.GetString("headerArea.Text");
-            // 
-            // bodyArea
-            // 
-            this.bodyArea.Location = new System.Drawing.Point(16, 172);
-            this.bodyArea.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.bodyArea.Name = "bodyArea";
-            this.bodyArea.Size = new System.Drawing.Size(635, 208);
-            this.bodyArea.TabIndex = 3;
-            this.bodyArea.Text = "";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 390);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(13, 143);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(45, 17);
+            this.label2.Size = new System.Drawing.Size(34, 13);
             this.label2.TabIndex = 4;
             this.label2.Text = "Врач:";
             // 
@@ -70,18 +58,16 @@
             // 
             this.doctorsBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.doctorsBox.FormattingEnabled = true;
-            this.doctorsBox.Location = new System.Drawing.Point(72, 390);
-            this.doctorsBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.doctorsBox.Location = new System.Drawing.Point(54, 140);
             this.doctorsBox.Name = "doctorsBox";
-            this.doctorsBox.Size = new System.Drawing.Size(272, 24);
+            this.doctorsBox.Size = new System.Drawing.Size(205, 21);
             this.doctorsBox.TabIndex = 5;
             // 
             // printBtn
             // 
-            this.printBtn.Location = new System.Drawing.Point(444, 386);
-            this.printBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.printBtn.Location = new System.Drawing.Point(333, 137);
             this.printBtn.Name = "printBtn";
-            this.printBtn.Size = new System.Drawing.Size(207, 28);
+            this.printBtn.Size = new System.Drawing.Size(155, 23);
             this.printBtn.TabIndex = 6;
             this.printBtn.Text = "MsWord";
             this.printBtn.UseVisualStyleBackColor = true;
@@ -91,39 +77,35 @@
             // 
             this.timeCtrl.CustomFormat = "HH:mm tt";
             this.timeCtrl.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.timeCtrl.Location = new System.Drawing.Point(72, 15);
-            this.timeCtrl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.timeCtrl.Location = new System.Drawing.Point(54, 12);
             this.timeCtrl.Name = "timeCtrl";
             this.timeCtrl.ShowUpDown = true;
-            this.timeCtrl.Size = new System.Drawing.Size(108, 22);
+            this.timeCtrl.Size = new System.Drawing.Size(82, 20);
             this.timeCtrl.TabIndex = 8;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 16);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(5, 13);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(54, 17);
+            this.label3.Size = new System.Drawing.Size(43, 13);
             this.label3.TabIndex = 7;
             this.label3.Text = "Время:";
             // 
             // UserFormExtubation
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(665, 417);
+            this.ClientSize = new System.Drawing.Size(499, 166);
             this.Controls.Add(this.timeCtrl);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.printBtn);
             this.Controls.Add(this.doctorsBox);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.bodyArea);
             this.Controls.Add(this.headerArea);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.MaximumSize = new System.Drawing.Size(687, 468);
+            this.MaximumSize = new System.Drawing.Size(520, 388);
             this.Name = "UserFormExtubation";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Экстубация";
@@ -134,7 +116,6 @@
 
         #endregion
         private System.Windows.Forms.RichTextBox headerArea;
-        private System.Windows.Forms.RichTextBox bodyArea;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox doctorsBox;
         private System.Windows.Forms.Button printBtn;

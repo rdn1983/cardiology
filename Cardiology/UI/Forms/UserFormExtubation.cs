@@ -17,8 +17,7 @@ namespace Cardiology.UI.Forms
 
         private bool getIsNotValid()
         {
-            return headerArea.Text == null || headerArea.Text.Length == 0 || bodyArea.Text == null || bodyArea.Text.Length == 0 ||
-                doctorsBox.SelectedIndex < 0;
+            return headerArea.Text == null || headerArea.Text.Length == 0 || doctorsBox.SelectedIndex < 0;
         }
 
 
@@ -34,7 +33,7 @@ namespace Cardiology.UI.Forms
 
             Dictionary<string, string> values = new Dictionary<string, string>();
             values.Add(@"{time}", timeCtrl.Text);
-            values.Add(@"{body}", bodyArea.Text);
+            values.Add(@"{body}", "");
             values.Add(@"{header}", headerArea.Text);
             values.Add(@"{doctor.who}", doctorsBox.Text);
             TemplatesUtils.FillTemplateAndShow(templatePath, values, null);

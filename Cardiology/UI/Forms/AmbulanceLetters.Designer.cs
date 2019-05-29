@@ -60,6 +60,7 @@
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.gkb52Btn = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
+            this.toDate = new System.Windows.Forms.DateTimePicker();
             this.smpInfo.SuspendLayout();
             this.gkbBtn.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -73,6 +74,7 @@
             // smpInfo
             // 
             this.smpInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.smpInfo.Controls.Add(this.toDate);
             this.smpInfo.Controls.Add(this.doctorsBox);
             this.smpInfo.Controls.Add(this.label5);
             this.smpInfo.Controls.Add(this.toTime);
@@ -407,6 +409,14 @@
             this.label15.TabIndex = 6;
             this.label15.Text = "Перевод запланирован на: ";
             // 
+            // toDate
+            // 
+            this.toDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.toDate.Location = new System.Drawing.Point(26, 93);
+            this.toDate.Name = "toDate";
+            this.toDate.Size = new System.Drawing.Size(81, 20);
+            this.toDate.TabIndex = 7;
+            // 
             // AmbulanceLetters
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -472,5 +482,6 @@
         private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.Button gkb52Btn;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.DateTimePicker toDate;
     }
 }

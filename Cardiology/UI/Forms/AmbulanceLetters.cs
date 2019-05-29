@@ -24,6 +24,7 @@ namespace Cardiology.UI.Forms
             Dictionary<string, string> data = new Dictionary<string, string>();
             data.Add("{from_date}", fromDate.Value.ToShortDateString());
             data.Add("{from_time}", fromTime.Value.ToShortTimeString());
+            data.Add("{to_date}", toDate.Value.ToShortDateString());
             data.Add("{to_time}", toTime.Value.ToShortTimeString());
             DdvDoctor doc = (DdvDoctor)doctorsBox.SelectedItem;
             data.Add("{doctor.selected}", doc == null ? "" : doc.ShortName);
@@ -35,6 +36,7 @@ namespace Cardiology.UI.Forms
             Dictionary<string, string> data = new Dictionary<string, string>();
             data.Add("{from_date}", fromDate.Value.ToShortDateString());
             data.Add("{from_time}", fromTime.Value.ToShortTimeString());
+            data.Add("{to_date}", toDate.Value.ToShortDateString());
             data.Add("{to_time}", toTime.Value.ToShortTimeString());
             DdvDoctor doc = (DdvDoctor)doctorsBox.SelectedItem;
             data.Add("{doctor.selected}", doc == null ? "" : doc.ShortName);
@@ -46,6 +48,7 @@ namespace Cardiology.UI.Forms
             Dictionary<string, string> data = new Dictionary<string, string>();
             data.Add("{from_date}", fromDate.Value.ToShortDateString());
             data.Add("{from_time}", fromTime.Value.ToShortTimeString());
+            data.Add("{to_date}", toDate.Value.ToShortDateString());
             data.Add("{to_time}", toTime.Value.ToShortTimeString());
             DdvDoctor doc = (DdvDoctor)doctorsBox.SelectedItem;
             data.Add("{doctor.selected}", doc == null ? "" : doc.ShortName);
@@ -57,6 +60,7 @@ namespace Cardiology.UI.Forms
             Dictionary<string, string> data = new Dictionary<string, string>();
             data.Add("{from_date}", fromDate.Value.ToShortDateString());
             data.Add("{from_time}", fromTime.Value.ToShortTimeString());
+            data.Add("{to_date}", toDate.Value.ToShortDateString());
             data.Add("{to_time}", toTime.Value.ToShortTimeString());
             DdvDoctor doc = (DdvDoctor)doctorsBox.SelectedItem;
             data.Add("{doctor.selected}", doc == null ? "" : doc.ShortName);
@@ -68,6 +72,7 @@ namespace Cardiology.UI.Forms
             Dictionary<string, string> data = new Dictionary<string, string>();
             data.Add("{from_date}", fromDate.Value.ToShortDateString());
             data.Add("{from_time}", fromTime.Value.ToShortTimeString());
+            data.Add("{to_date}", toDate.Value.ToShortDateString());
             data.Add("{to_time}", toTime.Value.ToShortTimeString());
             DdvDoctor doc = (DdvDoctor)doctorsBox.SelectedItem;
             data.Add("{doctor.selected}", doc == null ? "" : doc.ShortName);
@@ -79,6 +84,7 @@ namespace Cardiology.UI.Forms
             Dictionary<string, string> data = new Dictionary<string, string>();
             data.Add("{from_date}", fromDate.Value.ToShortDateString());
             data.Add("{from_time}", fromTime.Value.ToShortTimeString());
+            data.Add("{to_date}", toDate.Value.ToShortDateString());
             data.Add("{to_time}", toTime.Value.ToShortTimeString());
             DdvDoctor doc = (DdvDoctor)doctorsBox.SelectedItem;
             data.Add("{doctor.selected}", doc == null ? "" : doc.ShortName);

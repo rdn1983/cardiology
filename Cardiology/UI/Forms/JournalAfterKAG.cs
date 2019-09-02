@@ -22,9 +22,9 @@ namespace Cardiology.UI.Forms
             this.hospitalitySession = hospitalitySession;
             this.journalDayId = journalId;
             InitializeComponent();
-            initControls();
             List<string> validTypes = new List<string>() { "ddt_blood_analysis", "ddt_ekg", "ddt_urine_analysis", "ddt_egds", "ddt_xray", "ddt_holter", "ddt_specialist_conclusion", "ddt_uzi" };
             analysisTabControl1.init(hospitalitySession, journalId, DdtJournal.NAME, validTypes);
+            initControls();
             SilentSaver.setForm(this);
         }
 

@@ -46,7 +46,7 @@ namespace Cardiology.Commons
         {
             cb.Items.Clear();
             IList<DdtCureType> cureList = service.GetDdtCureTypeService().GetAll();
-            foreach(DdtCureType obj in cureList)
+            foreach (DdtCureType obj in cureList)
             {
                 cb.Items.Add(obj);
             }
@@ -110,7 +110,7 @@ namespace Cardiology.Commons
             Control result = null;
             if (sourceCtrl.GetType() == typeof(Label))
             {
-                result = new Label {Visible = sourceCtrl.Visible};
+                result = new Label { Visible = sourceCtrl.Visible };
                 if (sourceCtrl.Visible)
                 {
                     result.Text = sourceCtrl.Text;
@@ -118,11 +118,11 @@ namespace Cardiology.Commons
             }
             if (sourceCtrl.GetType() == typeof(TextBox))
             {
-                result = new TextBox {Visible = sourceCtrl.Visible};
+                result = new TextBox { Visible = sourceCtrl.Visible };
             }
             if (sourceCtrl.GetType() == typeof(CheckBox))
             {
-                result = new CheckBox {Visible = sourceCtrl.Visible, Text = sourceCtrl.Text};
+                result = new CheckBox { Visible = sourceCtrl.Visible, Text = sourceCtrl.Text };
             }
             if (sourceCtrl.GetType() == typeof(Panel))
             {
@@ -154,11 +154,11 @@ namespace Cardiology.Commons
             }
             if (sourceCtrl.GetType() == typeof(RadioButton))
             {
-                result = new RadioButton {Text = sourceCtrl.Text};
+                result = new RadioButton { Text = sourceCtrl.Text };
             }
             if (sourceCtrl.GetType() == typeof(Button))
             {
-                result = new Button {Text = sourceCtrl.Text, Visible = sourceCtrl.Visible};
+                result = new Button { Text = sourceCtrl.Text, Visible = sourceCtrl.Visible };
                 ((Button)result).UseVisualStyleBackColor = ((Button)sourceCtrl).UseVisualStyleBackColor;
                 ((Button)result).Image = ((Button)sourceCtrl).Image;
             }
@@ -202,13 +202,14 @@ namespace Cardiology.Commons
                 " AND dsdt_inspection_date<to_timestamp('" + incpectionDate.ToShortDateString() + " " + incpectionDate.ToLongTimeString() + "', 'DD.MM.YYYY HH24:MI:SS') ORDER BY dsdt_inspection_date DESC";
             DateTime startDate = service.GetTime(startDateQuery);
 
-            return service.GetDdtJournalService().GetObject(@"SELECT r_object_id, dss_diagnosis, dss_chss, dss_chdd, r_creation_date, dss_complaints, "+
-                "dss_surgeon_exam, dss_ekg, dsdt_admission_date, dss_monitor, dss_rhythm, dsid_doctor, dsid_patient, dss_ps, dss_ad, dsid_hospitality_session,"+
-                " r_modify_date, dss_cardio_exam, dsi_journal_type, dsb_good_rhythm, dsb_release_journal, dss_journal FROM " + DdtJournal.NAME +
-                " WHERE dsid_hospitality_session='" + sessionId + "'" +
-                    " AND dsi_journal_type=" + (int)DdtJournalDsiType.AfterKag +
-                    (startDate != default(DateTime) ? (" AND dsdt_admission_date>=to_timestamp('" + startDate.ToShortDateString() + " " + startDate.ToLongTimeString() + "', 'dd.mm.yyyy HH24:mi:ss')") : "") +
-                    " AND dsdt_admission_date<=to_timestamp('" + incpectionDate.ToShortDateString() + " " + incpectionDate.ToLongTimeString() + "', 'dd.mm.yyyy HH24:mi:ss')");
+            return service.GetDdtJournalService().GetObject(@"SELECT jrn.r_object_id, jrn.dss_diagnosis, jrn.dss_chss, jrn.dss_chdd, jrn.r_creation_date, 
+                jrn.dss_complaints, jrn.dss_surgeon_exam, jrn.dss_ekg, jrn.dsdt_admission_date, jrn.dss_monitor, jrn.dss_rhythm, jrn.dsid_journal_day, 
+                jrn.dss_ps, jrn.dss_ad, jrn.r_modify_date, jrn.dss_cardio_exam, jrn.dsi_journal_type, jrn.dsb_good_rhythm, jrn.dsb_release_journal, 
+                jrn.dss_journal, jrn.dsid_doctor, jrn.dsb_freeze, jrn.dsd_weight FROM ddt_journal jrn, ddt_journal_day jd " +
+                " WHERE jd.r_object_id=jrn.dsid_journal_day AND jd.dsid_hospitality_session='" + sessionId + "'" +
+                " AND jd.dsi_journal_type=" + (int)DdtJournalDsiType.AfterKag +
+                (startDate != default(DateTime) ? (" AND jrn.dsdt_admission_date>=to_timestamp('" + startDate.ToShortDateString() + " " + startDate.ToLongTimeString() + "', 'dd.mm.yyyy HH24:mi:ss')") : "") +
+                " AND jrn.dsdt_admission_date<=to_timestamp('" + incpectionDate.ToShortDateString() + " " + incpectionDate.ToLongTimeString() + "', 'dd.mm.yyyy HH24:mi:ss')");
 
         }
 
@@ -288,11 +289,12 @@ namespace Cardiology.Commons
         {
             Dictionary<string, DateTime> result = new Dictionary<string, DateTime>();
             DateTime startDay = new DateTime(firstDate.Year, firstDate.Month, firstDate.Day, 8, 10, 0);
-            DateTime endDay = new DateTime(firstDate.Year, firstDate.Month, firstDate.Day, 8, 09 ,0);
-            if (firstDate.Hour>8)
+            DateTime endDay = new DateTime(firstDate.Year, firstDate.Month, firstDate.Day, 8, 09, 0);
+            if (firstDate.Hour > 8)
             {
                 endDay = endDay.AddDays(1);
-            } else
+            }
+            else
             {
                 startDay = new DateTime(firstDate.Year, firstDate.Month, firstDate.Day, firstDate.Hour, firstDate.Minute, 0);
             }
